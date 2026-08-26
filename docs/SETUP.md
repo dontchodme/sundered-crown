@@ -112,10 +112,12 @@ In the app: **Engine identity → Run 200 seeds**. Then:
 
 ```powershell
 cd C:\dev\sundered-crown\tools
-python3 shell_identity.py
+python shell_identity.py
 ```
 
-It must print `PASS  200/200 identical`. That is the proof that the app runs
+It must print `PASS  200/200 identical`. **Use `python`, not `python3`** —
+the python.org installer never creates a `python3.exe` on Windows, so that
+name reaches a Microsoft Store stub instead of your interpreter. That is the proof that the app runs
 the same engine the video pipeline does — the whole reason this is Electron and
 not Tauri. If it fails, the shell has changed the engine and nothing built on
 top of it is trustworthy.
@@ -162,4 +164,5 @@ downloads it.
 
 Same steps. `brew install git ffmpeg` or your package manager; git's line-ending
 default is already correct outside Windows, so step 2's warning does not apply.
-Use `python3` and forward slashes throughout.
+Use `python3` and forward slashes throughout — on those platforms `python3` is
+the right name, and it is only Windows that lacks it.

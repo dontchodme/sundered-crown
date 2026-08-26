@@ -42,15 +42,44 @@ function onGameLoad() {
   }, 50);
 }
 
-/* The game page carries its own title, picker panel and log. Inside the shell
-   those are duplicated. Hiding them with a stylesheet from THIS side keeps the
-   engine file untouched, which is Phase 1's rule. */
+/* The game page carries its own title, picker panel, log and the cinema demo
+   panel. Inside the shell those are duplicated or in the way. Hiding them with
+   a stylesheet from THIS side keeps the engine file untouched — Phase 1's rule.
+ *
+ * The sizing matters more than it looks. The game sets
+ *   #stage { width: min(430px, 96vw); aspect-ratio: 9/16 }
+ * plus 18px/44px body padding, which inside a narrow iframe overflows and puts
+ * scrollbars on the arena. Rather than fight it for pixels, the stage is made
+ * to BE the iframe: 100% x 100%, no padding, no scroll. The iframe already
+ * carries aspect-ratio 1080/1920, which is the same 9:16, so proportions hold —
+ * and the game's own ResizeObserver -> fitCanvas() -> renderer.resize() picks
+ * up the new size, exactly as it does when a browser window is resized.
+ *
+ * #cinePanel is hidden WITHOUT !important on purpose: the rail's toggle flips
+ * an inline style, and inline loses to !important. */
 function hideGameChrome(w) {
   const st = w.document.createElement('style');
-  st.textContent = `h1,.panel,#log{display:none!important}
-    body{margin:0;display:grid;place-items:center;min-height:100vh}
-    #stage{margin:0}`;
+  st.textContent = `
+    h1, .panel, #log { display: none !important; }
+    #cinePanel { display: none; }
+    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+    body { display: block; min-height: 0; gap: 0; }
+    #stage {
+      width: 100%; height: 100%; margin: 0;
+      aspect-ratio: auto; border: none; border-radius: 0; box-shadow: none;
+    }`;
   w.document.head.appendChild(st);
+}
+
+/* The cinema panel is a real feature of the engine — director on/off, force a
+   set-piece, A/B the same seed with the director off. It is hidden by default
+   because it sits over the arena, not because it is junk. */
+function toggleCinePanel() {
+  const p = frame.contentWindow.document.getElementById('cinePanel');
+  if (!p) return;
+  const showing = p.style.display === 'block';
+  p.style.display = showing ? 'none' : 'block';
+  $('btnCine').classList.toggle('pri', !showing);
 }
 
 function fillRoster() {
@@ -123,6 +152,7 @@ function wireControls() {
     if (!r.ok) alertInto('btnShort', r.reason);
   };
 
+  $('btnCine').onclick = toggleCinePanel;
   $('btnIdentity').onclick = runIdentity;
 }
 

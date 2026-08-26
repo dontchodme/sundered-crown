@@ -28,7 +28,7 @@ Not "it opens". Click **Engine identity → Run 200 seeds**, then:
 
 ```bash
 cd tools
-python3 shell_identity.py
+python shell_identity.py
 ```
 
 Every field of every fight summary must match headless Chromium. One differing

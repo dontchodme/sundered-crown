@@ -13,7 +13,7 @@ seed watched in the app is a different fight from the one that was watched.
 
   1. In the app:  Engine identity -> Run 200 seeds
      (writes out/shell_identity_app.json)
-  2. Here:        python3 shell_identity.py
+  2. Here:        python shell_identity.py      (python3 on mac/Linux)
 
 Exits non-zero on any mismatch.
 """

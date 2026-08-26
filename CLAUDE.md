@@ -165,6 +165,12 @@ surfaced only as a twenty-second Playwright timeout.
 
 ## 5. THE COMMANDS
 
+**On Windows, the interpreter is `python` or `py` — never `python3`.** The
+python.org installer creates `python.exe` and `py.exe` and no `python3.exe`, so
+Windows hands `python3` to a Microsoft Store stub that reports Python is not
+installed. Every doc in `06-docs/` says `python3` because those sessions ran in
+a Linux container; they are records, not instructions. Substitute as you read.
+
 ```bash
 cd tools
 python3 verify.py --game ../02-chain/sc-paradox-frame.html --n 40   # 13 checks
