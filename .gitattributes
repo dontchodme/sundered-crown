@@ -1,0 +1,19 @@
+# NO LINE-ENDING CONVERSION, ANYWHERE IN THIS REPO.
+#
+# git's Windows default (core.autocrlf=true) rewrites LF to CRLF on checkout.
+# That changes the BYTES of every HTML build in 02-chain/, which means every
+# hash in MANIFEST.txt stops matching and engine_ab starts comparing files git
+# edited rather than files a builder wrote.
+#
+# The docs/SETUP.md instruction to pick "checkout as-is, commit as-is" is the
+# belt. This is the braces: it holds even if that screen gets clicked through.
+* -text
+
+# Belt and braces on the big derivable things too. .gitignore already excludes
+# them; this makes an accidental `git add -f` at least visible as binary.
+*.mp4  binary
+*.wav  binary
+*.onnx binary
+*.bin  binary
+*.png  binary
+*.woff2 binary
