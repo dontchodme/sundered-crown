@@ -1,0 +1,107 @@
+
+[0] WHAT THE ENGINE ALREADY HAS, AND WHAT §1 ASKS FOR THAT IT DOES NOT
+
+    ball speed          min 250  cruise 405  max 1300   — a ball is never still
+    moveMul floor       0.45  — the only movement knob in the game bottoms out at 45%
+    hitstun             base 0.1 + 0.0035/dmg, capped 0.26, DR 0.55 decaying 0.75
+    hex                 0.2s every 1.15s per stack, cap 5, dur 2.6s
+    the shipped 'root'  Bramblesnare freeze 1.6s r260, Rootfast freeze 1.3s r230
+    window ultimates    Daybreak 14/5s, Triplicate 18/6s, Bloodmill 16/5s, Aegis 16/9s, Bloodhunt 15/8s
+    arena               520 x 800
+  PASS  `roots for 1.6 seconds` locks a WEAPON and does not touch the ball — §1's 'unable to move (ball and weapon)' is a state this engine does not have  — fireUlt writes `foe.stun = Math.max(foe.stun, u.freeze)` and nothing else; `moveMul` floors at 0.45 and `speedMin` is 250. Bramblesnare and Rootfast both say 'roots' in a tip and mean 'weapon locked'
+
+[1] WHERE THE FOE ACTUALLY IS — centre to centre, 48 fights, 1500s, ultimates suppressed
+
+    mean separation 259, closest 68, furthest 781. The head reaches 115 from the shell.
+
+       0-49     0.0%    0.0%  
+      50-99     7.8%    7.8%  ################
+     100-149   15.4%   23.2%  ###############################
+     150-199   15.0%   38.2%  ##############################
+     200-249   14.4%   52.6%  #############################
+     250-299   13.2%   65.7%  ##########################
+     300-349   11.6%   77.4%  #######################
+     350-399    8.4%   85.7%  #################
+     400-449    5.4%   91.1%  ###########
+     450-499    3.3%   94.5%  #######
+     500-549    2.5%   97.0%  #####
+     550-599    1.6%   98.6%  ###
+     600-649    1.0%   99.6%  ##
+     650-699    0.3%  100.0%  #
+     700-749    0.0%  100.0%  
+     750-799    0.0%  100.0%  
+  PASS  §1's own parenthesis puts a floor under `medium sized` — the head has to be INSIDE the beams  — the head reaches 115 units from the shell, so a hexagon that contains it has a circumradius of at least 115 — `medium` is bounded below before anybody picks a number
+
+[2] CAN A DWELL TIMER EVER FIRE — continuous residence, episodes that were still open at the end are DROPPED
+
+    shape    radius   share  episodes/min    mean    p50    p90    max   >=1.0s   >=2.0s
+    circ        100    7.8%          31.3    0.15   0.11   0.29   0.68     0.0%     0.0%
+    circ        130   16.7%          38.8    0.26   0.22   0.48   1.64     0.2%     0.0%
+    circ        160   25.8%          41.6    0.37   0.32   0.67   1.78     2.3%     0.0%
+    circ        200   38.0%          43.7    0.51   0.41   0.97   2.62     9.1%     1.0%
+    circ        250   52.4%          42.5    0.71   0.53   1.39   4.56    20.8%     4.0%
+    circ        320   70.7%          34.0    1.15   0.82   2.38   6.92    40.9%    16.0%
+    hexT        100    5.5%          30.4    0.11   0.07   0.23   0.65     0.0%     0.0%
+    hexT        130   12.8%          37.8    0.20   0.16   0.41   1.00     0.1%     0.0%
+    hexT        160   21.5%          42.3    0.30   0.26   0.56   1.73     0.9%     0.0%
+    hexT        200   32.3%          46.2    0.41   0.34   0.79   1.95     4.5%     0.0%
+    hexT        250   45.9%          46.7    0.57   0.45   1.16   3.58    14.0%     2.3%
+    hexT        320   63.2%          42.4    0.85   0.61   1.87   5.71    28.3%     8.7%
+  PASS  A CONTINUOUS TWO-SECOND RESIDENCE ESSENTIALLY DOES NOT HAPPEN — nothing in this game steers, and a ball that never travels slower than 250 does not loiter  — at a circumradius of 160 the median residence is 0.26s, the 90th is 0.56s, the longest of 1058 is 1.73s, and 0.0% reach two seconds. Even at 320 — a zone 123% of the hall's width — it is 8.7%
+  PASS  so `for too long` has to be priced in TENTHS, and the number that makes it fire is measurable rather than arguable  — at 160: 0.4s → 10.6/min, 0.6s → 3.7/min, 0.8s → 0.9/min, 1s → 0.4/min, 1.5s → 0.1/min, 2s → 0.0/min
+
+[2b] THE FORK THAT MAKES THE SENTENCE BUILDABLE — a CHARGE that fills while the foe is inside and bleeds while it is out,
+     against a continuous residence that has to survive unbroken. Circumradius 160, 2s of pin per trigger.
+
+                    drain 0/s   drain 0.5/s     drain 1/s     drain 2/s
+     need 0.6            11.1           5.4           4.6           4.0
+     need 0.9             8.7           2.2           1.2           0.8
+     need 1.2             6.9           1.2           0.4           0.3
+     need 1.6             5.5           0.4           0.1           0.1
+
+     PINS A MINUTE, over 1500s of fights. What a window actually gets is that over its own length —
+     Aegis holds 9s and Bloodhunt 8, and a window that triggers less than once is a window that does nothing:
+
+                    drain 0/s   drain 0.5/s     drain 1/s     drain 2/s
+     need 0.6           1.48x         0.73x         0.61x         0.53x
+     need 0.9           1.16x         0.30x         0.15x         0.10x
+     need 1.2           0.92x         0.16x         0.05x         0.04x
+     need 1.6           0.74x         0.05x         0.01x         0.01x
+     pins in an 8-second window. The pin itself is 2s and locks out while it runs, so four is the ceiling.
+  PASS  THE CUMULATIVE READING FIRES AND THE CONTINUOUS ONE DOES NOT — same words, same zone, and the difference between an ultimate that does something and one that never triggers  — at need 0.9s and a 0.5/s bleed the pin lands 2.2 times a minute; the same zone produces a two-second unbroken residence 0.0 times a minute by the continuous rule. The bleed rate is the counterplay knob: at 2/s it is 0.8/min, at 0 it is 8.7
+
+[3] IS THE HEXAGON LOAD-BEARING — one circumradius, four shapes
+
+     radius    circle R  hex, static  hex, turning  circle 0.866R  hex vs circle
+        100        7.8%         5.5%          5.5%           4.5%         -29.8%
+        130       16.7%        12.7%         12.8%          11.1%         -23.3%
+        160       25.8%        21.5%         21.5%          19.4%         -16.5%
+        200       38.0%        32.4%         32.3%          29.8%         -14.8%
+        250       52.4%        46.0%         45.9%          42.9%         -12.3%
+        320       70.7%        63.5%         63.2%          59.7%         -10.6%
+  PASS  the hexagon is a LOOK KNOB — it covers 83% of its own circumcircle by area and that is exactly what it collects, and whether it turns with the weapon makes no difference at all  — turning against static differs by at most 0.06% of the fight; the hexagon collects 81% of what its circumcircle does against a 83% area ratio. Draw it at whatever size reads and nothing downstream is balanced on the corners
+
+[4] WHAT 2 SECONDS OF PIN IS WORTH — one pin per fight, three arms on the identical seeds, read over the 3s
+    from the moment it lands. Arm 1 is what `u.freeze` already does; arm 2 is what §1 asks for.
+
+    arm                 my blows  foe blows    dealt    taken  hex fires   wasted  sep at trigger    n
+    control                0.532      0.713    29.92    19.37       1.33     0.00             136  171
+    weapon only            0.605      0.356    34.97    10.26       1.35     0.83             136  177
+    weapon AND ball        0.676      0.318    42.35     8.11       1.41     0.80             136  179
+  PASS  a locked weapon stops the foe hitting back, and that much the engine already does  — foe blows 0.713 → 0.356 over 3s, and damage taken 19.37 → 10.26
+  PASS  PINNING THE BALL AS WELL IS WHAT MAKES THE FLAIL CONNECT — a 13-unit head against a target that has stopped moving  — my blows 0.532 control → 0.605 weapon only → 0.676 weapon and ball (+12%), and damage 29.92 → 34.97 → 42.35 (+21% on the lock alone, +42% on nothing). Damage is the column with the sample size — blows in a 3s window is a count of about half a blow
+  PASS  AND THE FIRST CUT OF THIS SECTION SAID THE OPPOSITE, WHICH IS WORTH KEEPING. It pinned at a fixed clock time wherever the foe happened to be, and read −12%  — a foe frozen at the 259 units this game averages is a foe a 115-unit head cannot reach — true of a pin, false of THIS pin, which only ever triggers on a foe already inside the hexagon. Measured separation at the trigger: 136
+  PASS  AND THE PIN EATS THIS CELL'S OWN CHANNEL — `f.stun` is a Math.max, so every hex fire inside the pin is a fire that bought nothing  — 0.80 hex fires land inside each pin, against 1.33 in the same 3s of the control — the pin covers 67% of that window and swallows 61% of its fires. Roughly 2.8 SECONDS of this cell's entire channel output, per pin, silently. v39 5.2 from a third direction, and an argument that the ultimate should not also be about stacking hex
+
+[5] WHAT `EXTRA HIT STUN` BUYS — a multiplier on THIS relic's own hitstun only, shipped damage, ults suppressed
+
+     x hitstun  stun/blow  foe locked  my blows/s  foe blows/s    hp/s  taken/s    win
+           1.0      0.240       20.6%       0.151        0.261    8.14     6.49    67%
+           1.5      0.353       21.9%       0.170        0.238    9.15     5.88    71%
+           2.0      0.469       21.8%       0.143        0.253    8.16     6.57    56%
+           3.0      0.702       23.1%       0.141        0.244    7.91     6.55    65%
+  PASS  the multiplier reaches the weapon — mean hitstun per blow moves with it  — 0.240s a blow at 1x → 0.702s at 3x. `stunMax` caps the RAW value before DR, and this multiplies after it, so the cap does not eat the knob
+  PASS  BUT IT IS A THIN KNOB ON THIS TYPE, BECAUSE THE TYPE LANDS SO LITTLE — tripling the hitstun of a blow that arrives every six seconds moves the lock by a few points  — foe locked 20.6% → 23.1% at 3x, and damage taken 6.49 → 6.55/s. Compare flail_survey §6: holding hex at its cap takes the same lock from 29% to 86%
+
+12/12 checks passed
+wrote ../out/runic_flail_probe_v43.json

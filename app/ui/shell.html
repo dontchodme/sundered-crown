@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self' swb:; script-src 'self' swb:; style-src 'self' 'unsafe-inline' swb:; img-src 'self' swb: data:; media-src 'self' swb: data: blob:; frame-src swb:;">
+<title>Super Weapon Ball — The Sundered Crown</title>
+<link rel="stylesheet" href="shell.css">
+</head>
+<body>
+
+<header>
+  <h1>Super Weapon Ball <span>The Sundered Crown</span></h1>
+  <div class="build" id="build">loading…</div>
+</header>
+
+<main>
+  <section class="stage">
+    <iframe id="game" title="arena"></iframe>
+  </section>
+
+  <aside class="rail">
+
+    <div class="card">
+      <h2>The fight</h2>
+      <label for="selA">Champion</label>
+      <select id="selA"></select>
+      <label for="selB">Rival</label>
+      <select id="selB"></select>
+      <label for="seed">Seed <em>the seed is the fight</em></label>
+      <div class="seedrow">
+        <input id="seed" type="text" inputmode="numeric" placeholder="random">
+        <button id="btnCopySeed" title="copy the seed of the fight on screen">copy</button>
+      </div>
+      <div class="btns">
+        <button class="pri" id="btnFight">Fight</button>
+        <button id="btnReplay" title="same relics, same seed, same fight">Replay</button>
+        <button id="btnRandom">Random</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Announcer</h2>
+      <p class="note">Typed here, spoken verbatim in the short. Local, offline.</p>
+      <textarea id="vo" rows="3" placeholder="The Sundered Crown. Paradox… versus Heartwood."></textarea>
+      <div class="btns">
+        <button id="btnPreview">Preview voice</button>
+      </div>
+      <p class="stub" id="voStub">Phase 2 — <code>cinema_vo.py --text</code> already speaks
+        arbitrary text; this box is not wired to it yet.</p>
+    </div>
+
+    <div class="card">
+      <h2>Create short</h2>
+      <p class="note">1080×1920, voiceover mixed, delivery measured.</p>
+      <div class="btns">
+        <button class="pri" id="btnShort">Create short</button>
+      </div>
+      <p class="stub">Phase 3 — a full 60 fps capture is ~2,800 frames and 3–4
+        minutes. This ships with a job queue and live progress, or it lies.</p>
+    </div>
+
+    <div class="card diag">
+      <h2>Engine identity</h2>
+      <p class="note">Phase 1's actual test: does this shell run the same engine
+        headless Chromium does?</p>
+      <div class="btns">
+        <button id="btnIdentity">Run 200 seeds</button>
+      </div>
+      <pre id="identityOut">not run</pre>
+    </div>
+
+  </aside>
+</main>
+
+<script src="shell.js"></script>
+</body>
+</html>

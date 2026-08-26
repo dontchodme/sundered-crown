@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where viewers actually leave</title>
+<style>
+  .viz-root{
+    color-scheme: light;
+    --surface-1:#fcfcfb; --surface-2:#f4f3f0;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#7a7873;
+    --grid:#e4e3df; --band:#ecebe7;
+    --series-cold:#2a78d6; --series-base:#eb6834;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--surface-1); color:var(--text-primary);
+    padding:28px 26px 34px; max-width:1120px; margin:0 auto;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:where(:not([data-theme="light"])) .viz-root{
+      color-scheme: dark;
+      --surface-1:#1a1a19; --surface-2:#232322;
+      --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#96958c;
+      --grid:#333331; --band:#2b2b29;
+      --series-cold:#3987e5; --series-base:#d95926;
+    }
+  }
+  :root[data-theme="dark"] .viz-root{
+    color-scheme: dark;
+    --surface-1:#1a1a19; --surface-2:#232322;
+    --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#96958c;
+    --grid:#333331; --band:#2b2b29;
+    --series-cold:#3987e5; --series-base:#d95926;
+  }
+  html,body{margin:0;background:#fcfcfb;}
+  @media (prefers-color-scheme: dark){ html,body{background:#1a1a19;} }
+  h1{font-size:21px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em;}
+  .sub{font-size:14px;color:var(--text-secondary);margin:0 0 18px;line-height:1.55;max-width:76ch;}
+  .legend{display:flex;gap:20px;align-items:center;margin:0 0 4px;font-size:13px;color:var(--text-secondary);flex-wrap:wrap;}
+  .key{display:flex;gap:7px;align-items:center;}
+  .lk{width:16px;height:2px;display:inline-block;border-radius:1px;}
+  .panels{display:flex;gap:26px;flex-wrap:wrap;}
+  .panel{flex:1 1 440px;min-width:340px;}
+  .ptitle{font-size:13.5px;font-weight:600;margin:14px 0 2px;}
+  .pnote{font-size:12.5px;color:var(--text-muted);margin:0 0 4px;line-height:1.5;min-height:5.2em;}
+  svg{display:block;width:100%;height:auto;overflow:visible;}
+  .grid-line{stroke:var(--grid);stroke-width:1;}
+  .axis-text{fill:var(--text-muted);font-size:11px;}
+  .lbl{fill:var(--text-secondary);font-size:11.5px;font-weight:600;}
+  .lbl-sm{fill:var(--text-muted);font-size:10.5px;}
+  .ln{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round;}
+  .hitline{fill:none;stroke:transparent;stroke-width:12;cursor:pointer;}
+  #tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;
+       background:var(--surface-2);border:1px solid var(--grid);border-radius:7px;
+       padding:9px 11px;font-size:12px;line-height:1.6;color:var(--text-primary);
+       box-shadow:0 4px 14px rgba(0,0,0,.14);z-index:20;max-width:280px;}
+  .tools{margin-top:20px;}
+  button{font:inherit;font-size:12.5px;background:var(--surface-2);color:var(--text-secondary);
+         border:1px solid var(--grid);border-radius:6px;padding:5px 11px;cursor:pointer;}
+  table{border-collapse:collapse;font-size:12.5px;margin-top:12px;width:100%;}
+  th,td{text-align:right;padding:5px 8px;border-bottom:1px solid var(--grid);}
+  th:first-child,td:first-child{text-align:left;}
+  th{color:var(--text-muted);font-weight:600;}
+  .swatch{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:middle;}
+  .hidden{display:none;}
+  .foot{font-size:12px;color:var(--text-muted);margin-top:18px;line-height:1.6;max-width:82ch;}
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <h1>Where viewers actually leave</h1>
+  <p class="sub">Per-second survival curves for eight TikTok posts, read from TikTok's own analytics API on 19 Aug 2026.
+  <b>Left:</b> the cold open's entire effect is spent in seconds 1&ndash;3, and it is large. <b>Right:</b> once a viewer
+  reaches 0:05, the curves collapse onto each other &mdash; cold open and baseline decay at the same rate, and so do
+  eight very different fights.</p>
+
+  <div class="legend">
+    <span class="key"><span class="lk" style="background:var(--series-cold)"></span> Cold open (4 videos)</span>
+    <span class="key"><span class="lk" style="background:var(--series-base)"></span> No cold open (4 videos)</span>
+  </div>
+
+  <div class="panels">
+    <div class="panel">
+      <div class="ptitle">Share of viewers still watching</div>
+      <p class="pnote">The shaded strip is seconds 1&ndash;3. The cold open cuts the loss in second 2 from 0.30 to 0.16 &mdash; a 47% smaller cliff &mdash; and every advantage it holds for the rest of the video was bought right there.</p>
+      <svg id="svgA" viewBox="0 0 520 330" role="img" aria-label="Retention survival curves by second"></svg>
+    </div>
+    <div class="panel">
+      <div class="ptitle">Of the viewers who reach 0:05, who is left</div>
+      <p class="pnote">The same curves, re-based so everyone starts at 100% at 0:05. Cold-open mean tail 0.436, baseline 0.429 &mdash; a 1.6% difference, and the two groups interleave completely in the ranking.</p>
+      <svg id="svgB" viewBox="0 0 520 330" role="img" aria-label="Conditional survival past five seconds"></svg>
+    </div>
+  </div>
+
+  <div class="tools">
+    <button id="toggle">Show data table</button>
+    <div id="tablewrap" class="hidden"></div>
+  </div>
+
+  <p class="foot"><b>One caveat on the source.</b> The area under each curve runs 11&ndash;20% below the average watch time
+  TikTok reports for the same video, consistently and in the same direction for all eight. The most likely reason is that
+  reported watch time counts loops while the curve is capped at 100% at t=0 &mdash; but that is a hypothesis, not something
+  checked. The <i>shape</i> is what this chart is about, and the shape ranks the eight videos in the same order as the
+  reported averages, so the bias does not move any conclusion here.</p>
+</div>
+<div id="tip"></div>
+
+<script>
+const D = [
+ ["Axiom v Nightfell",1,[1.00,.85,.70,.59,.43,.34,.31,.30,.29,.27,.26,.25,.23,.21,.21,.18,.17,.16,.16,.15,.14,.14,.13,.13,.13,.13,.12,.12,.12,.12,.12,.12,.12,.11,.11,.11,.11,.11,.11,.11,.11,.11,.11,.11,.11,.11,.10,.10,.10,.10,.09,.09,.09,.08,.08,.08,.08,.07,.07,.07,.06,.06,.06,.04]],
+ ["Ironhail v Goreshard",1,[1.00,.85,.68,.56,.46,.35,.29,.27,.26,.24,.24,.22,.22,.21,.20,.20,.19,.18,.18,.18,.18,.18,.18,.17,.16,.16,.16,.16,.14,.14,.14,.14,.13,.13,.13,.13,.12,.12,.12,.12,.12,.10,.09,.08,.07]],
+ ["Emberedge v Thornwake",1,[1.00,.80,.65,.54,.38,.31,.28,.27,.24,.24,.23,.23,.21,.20,.20,.19,.19,.18,.18,.18,.17,.16,.15,.15,.15,.14,.14,.13,.13,.13,.13,.13,.13,.12,.12,.12,.12,.12,.11,.11,.11,.11,.11,.09,.09,.08,.08,.07,.06]],
+ ["Dawnbringer v Censer",1,[1.00,.81,.65,.50,.36,.28,.24,.22,.22,.20,.19,.18,.18,.16,.16,.15,.13,.12,.12,.10,.10,.10,.10,.10,.10,.09,.09,.09,.07,.07,.06,.06,.06,.06,.06,.06,.05,.05,.05,.05,.05,.05,.04,.04,.04,.04,.03]],
+ ["Slagheart v Lightkeeper",0,[1.00,.78,.46,.31,.25,.21,.19,.18,.15,.14,.13,.12,.12,.12,.11,.11,.10,.09,.09,.09,.09,.09,.09,.09,.09,.09,.09,.09,.08,.08,.08,.08,.07,.07,.07,.07,.07,.07,.07,.07,.07,.07,.07,.07,.06,.06,.05,.05]],
+ ["Widowmaker v Goreshard",0,[1.00,.77,.49,.33,.28,.26,.22,.22,.20,.19,.17,.17,.15,.15,.14,.13,.13,.12,.11,.11,.10,.09,.09,.08,.08,.08,.08,.08,.07,.07,.06,.05,.05,.05,.05,.05,.05,.05,.05,.05,.04]],
+ ["Nightfell v Emberedge",0,[1.00,.79,.47,.33,.27,.24,.22,.21,.20,.19,.18,.17,.16,.15,.15,.14,.14,.13,.12,.12,.11,.11,.11,.10,.10,.10,.10,.09,.09,.09,.09,.08,.08,.08,.08,.07,.07,.07,.07,.07,.07,.06,.06,.06,.06,.06,.06,.06,.05]],
+ ["Gravemourn v Dawnbringer",0,[1.00,.77,.50,.37,.29,.25,.21,.20,.20,.18,.17,.16,.16,.15,.15,.15,.14,.13,.12,.12,.12,.11,.11,.10,.09,.09,.09,.08,.08,.08,.08,.07,.07,.07,.07,.07,.07,.06,.06,.05,.05,.05,.05,.05,.05,.05,.04,.04]],
+];
+const M={l:44,r:22,t:14,b:34}, W=520, H=330, PW=W-M.l-M.r, PH=H-M.t-M.b;
+const XMAX=64;
+const sx = t => M.l + t/XMAX*PW;
+const sy = v => M.t + PH - v*PH;
+
+function draw(id, mode){
+  let s="";
+  if (mode==="raw"){
+    s += `<rect x="${sx(1)}" y="${M.t}" width="${sx(3)-sx(1)}" height="${PH}" fill="var(--band)"/>`;
+    s += `<text class="lbl-sm" x="${sx(3)+6}" y="${M.t+13}">seconds 1–3</text>`;
+  } else {
+    s += `<line class="grid-line" x1="${sx(5)}" y1="${M.t}" x2="${sx(5)}" y2="${M.t+PH}"/>`;
+    s += `<text class="lbl-sm" x="${sx(5)+6}" y="${M.t+13}">0:05</text>`;
+  }
+  [0,.25,.5,.75,1].forEach(v=>{
+    s += `<line class="grid-line" x1="${M.l}" y1="${sy(v)}" x2="${M.l+PW}" y2="${sy(v)}"/>`;
+    s += `<text class="axis-text" x="${M.l-8}" y="${sy(v)+4}" text-anchor="end">${Math.round(v*100)}%</text>`;
+  });
+  [0,10,20,30,40,50,60].forEach(t=>{
+    s += `<text class="axis-text" x="${sx(t)}" y="${M.t+PH+20}" text-anchor="middle">${t}s</text>`;
+  });
+  D.forEach(([n,cold,c],i)=>{
+    const start = mode==="raw" ? 0 : 5;
+    if (mode==="cond" && c.length<=6) return;
+    const pts=[];
+    for(let t=start;t<c.length;t++){
+      const v = mode==="raw" ? c[t] : c[t]/c[5];
+      pts.push(`${sx(t).toFixed(1)},${sy(v).toFixed(1)}`);
+    }
+    const col = cold ? "var(--series-cold)" : "var(--series-base)";
+    s += `<polyline class="ln" points="${pts.join(" ")}" stroke="${col}" opacity="0.9"/>`;
+    s += `<polyline class="hitline" data-i="${i}" points="${pts.join(" ")}"/>`;
+  });
+  if (mode==="raw"){
+    s += `<circle cx="${sx(2)}" cy="${sy(.67)}" r="4" fill="var(--series-cold)" stroke="var(--surface-1)" stroke-width="2"/>`;
+    s += `<text class="lbl" x="${sx(2)+13}" y="${sy(.67)-6}">67% at 0:02</text>`;
+    s += `<circle cx="${sx(2)}" cy="${sy(.48)}" r="4" fill="var(--series-base)" stroke="var(--surface-1)" stroke-width="2"/>`;
+    s += `<text class="lbl" x="${sx(2)+13}" y="${sy(.48)+15}">48% at 0:02</text>`;
+  }
+  document.getElementById(id).innerHTML = s;
+}
+draw("svgA","raw"); draw("svgB","cond");
+
+const tip=document.getElementById("tip");
+document.querySelectorAll(".hitline").forEach(el=>{
+  el.addEventListener("mousemove",e=>{
+    const [n,cold,c]=D[+el.dataset.i];
+    tip.innerHTML=`<b>${n}</b><br>${cold?"cold open":"no cold open"} · ${c.length-1}s long<br>
+      still watching at 0:02 <b>${Math.round(c[2]*100)}%</b> · at 0:05 <b>${Math.round(c[5]*100)}%</b> · at 0:20 <b>${Math.round(c[Math.min(20,c.length-1)]*100)}%</b>`;
+    tip.style.opacity=1;
+    tip.style.left=Math.min(e.clientX+14, innerWidth-295)+"px";
+    tip.style.top=(e.clientY+16)+"px";
+  });
+  el.addEventListener("mouseleave",()=>tip.style.opacity=0);
+});
+
+const auc=(c,a,b)=>{b=b===undefined?c.length-1:Math.min(b,c.length-1);let s=0;for(let i=a;i<b;i++)s+=(c[i]+c[i+1])/2;return s;};
+const rows=D.map(([n,cold,c])=>{
+  const tail=auc(c,5)/c[5]/(c.length-1-5);
+  return {n,cold,c,tail};
+}).sort((a,b)=>b.tail-a.tail).map(r=>`<tr>
+  <td><span class="swatch" style="background:${r.cold?"var(--series-cold)":"var(--series-base)"}"></span>${r.n}</td>
+  <td>${r.cold?"yes":"no"}</td><td>${r.c.length-1}s</td>
+  <td>${Math.round(r.c[1]*100)}%</td><td>${Math.round(r.c[2]*100)}%</td><td>${Math.round(r.c[5]*100)}%</td>
+  <td>${Math.round(r.c[Math.min(10,r.c.length-1)]*100)}%</td><td>${Math.round(r.c[Math.min(20,r.c.length-1)]*100)}%</td>
+  <td>${r.tail.toFixed(3)}</td></tr>`).join("");
+document.getElementById("tablewrap").innerHTML=
+ `<table><thead><tr><th>Video</th><th>Cold open</th><th>Length</th><th>0:01</th><th>0:02</th><th>0:05</th>
+  <th>0:10</th><th>0:20</th><th>Post-0:05 tail</th></tr></thead><tbody>${rows}</tbody></table>`;
+const btn=document.getElementById("toggle"), tw=document.getElementById("tablewrap");
+btn.onclick=()=>{const h=tw.classList.toggle("hidden");btn.textContent=h?"Show data table":"Hide data table";};
+</script>
+</body>
+</html>

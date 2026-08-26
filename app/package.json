@@ -1,0 +1,14 @@
+{
+  "name": "sundered-crown-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Super Weapon Ball: The Sundered Crown — desktop shell",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "identity": "electron . --identity-check"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0"
+  }
+}

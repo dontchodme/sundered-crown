@@ -1,0 +1,451 @@
+--- 02-chain/sc-daybreak.html	2026-08-15 03:26:23.000000000 +0000
++++ 02-chain/sc-ember.html	2026-08-15 08:24:31.043287750 +0000
+@@ -490,8 +490,11 @@
+   { id:"emberedge", name:"Emberedge", aff:"dwarven", shape:"greatsword",
+     blades:[0], reach:116, width:14, artW:40, dmg:12.32, spin:3.4, mode:"swing", arc:1.5, mass:3.0,
+     onHit:{ sunder:1 },
+-    ult:{ name:"Forgefall", charge:14, kind:"nova", radius:220, dmg:17, apply:{sunder:4}, knock:180, tip:"Nova: 17 damage, 4 Sunder, short knockback" },
+-    blurb:"Quenched once and never since. It does not cut so much as split." },
++    ult:{ name:"Slagburst", charge:14, kind:"detonate", radius:230,
++           split:3, fuse:0.55, dmgBase:6, dmgPer:5.5,
++           knockBase:110, knockPer:34,
++           tip:"Splits the shell for 3 Sunder, then blows every stack at once" },
++    blurb:"Quenched once and never since. It does not cut so much as split — and what it splits, it lights." },
+ 
+   /* ---- THE GREATSWORD COLUMN, COMPLETED. Four cells added so that all seven
+      schools appear on one type for the first time. Every stat except name,
+@@ -3662,6 +3665,22 @@
+         } else if (w === "grudgebearer-fizzle"){        // the draught dies
+           this._tone (t, { freq: 130, to: 40, gain: 0.22, dur: 0.7, type:"sine" });
+           this._burst(t, { freq: 420, q: 0.8, gain: 0.12, dur: 0.6, type:"lowpass" });
++        } else if (w === "emberedge"){                  // the shell splits open
++          /* Dry, high, and SHORT — this is a tell, not an event. It has to
++             leave room for the burst 0.55s later or the ear hears one long
++             noise instead of a fuse and a bang. */
++          this._burst(t, { freq: 2600, q: 1.8, gain: 0.20, dur: 0.10, type:"highpass" });
++          this._tone (t, { freq: 90, to: 260, gain: 0.16, dur: 0.52, type:"sawtooth" });
++          this._burst(t + 0.14, { freq: 1500, q: 2.4, gain: 0.09, dur: 0.34, type:"bandpass" });
++        } else if (w === "emberedge-burst"){            // and it goes
++          /* Scaled by stack count like everything else in this ultimate: a
++             three-stack burst is a crack, a nine-stack burst is a shell going
++             off. `n` arrives on the play options. */
++          const n = Math.max(3, Math.min(9, p.n || 3)), g = 0.30 + n * 0.035;
++          this._tone (t, { freq: 220 + n * 14, to: 30, gain: g, dur: 0.55 + n * 0.03, type:"sine" });
++          this._burst(t, { freq: 300, q: 0.5, gain: g * 0.9, dur: 0.45, type:"lowpass" });
++          this._burst(t + 0.02, { freq: 5200, q: 0.7, gain: 0.12 + n * 0.016, dur: 0.22, type:"highpass" });
++          this._tone (t + 0.06, { freq: 620, to: 140, gain: 0.12, dur: 0.30, type:"sawtooth" });
+         } else if (w === "thornwake"){                  // creak and cinch
+           this._burst(t, { freq: 700, q: 3.0, gain: 0.24, dur: 0.6 });
+           this._tone (t, { freq: 150, to: 420, gain: 0.16, dur: 0.55, type:"triangle" });
+@@ -3757,6 +3776,7 @@
+     this.ultDraw = null;      // {t, dur} while an aimed shot is being drawn
+     this.ultForge = null;     // {t, minT, cap} while the Crucible is lit
+     this.ultRadiant = null;   // {t, dur} while Daybreak burns
++    this.ultSlag = null;      // {t, fuse, split} while a Slagburst fuse burns
+     this.launch = 0;          // seconds of raised speed ceiling after its strike
+     this.spendFx = 0;         // presentation only: the ward, leaving forward
+     this.spendA  = 0;         // the direction it left in
+@@ -5015,6 +5035,24 @@
+       f.ultRadiant.t += dt;
+       if (f.ultRadiant.t >= f.ultRadiant.dur) f.ultRadiant = null;
+     }
++    if (f.ultSlag){
++      /* THE FUSE. Everything the split lit is now burning down on the foe,
++         and the foe is still moving and still swinging — nothing here stuns
++         it. The Crucible owns freeze; a second hold would make two of the
++         sixteen the same relic.
++
++         The wielder is NOT protected either. Die during these 0.55 seconds
++         and the detonation never comes: `checkEnd` sets over, this drops the
++         state, and the cast is spent. That is the price of a payoff that can
++         never fizzle for want of stacks. */
++      const S = f.ultSlag;
++      S.t += dt;
++      if (!foe.alive || !f.alive || this.over){ f.ultSlag = null; }
++      else if (S.t >= S.fuse){
++        f.ultSlag = null;
++        this.detonate(f, foe, S.over);
++      }
++    }
+     if (f.ultForge){
+       /* The Crucible is lit. The charge does not rebuild while it burns —
+          the fifteen seconds are owed from the RESOLUTION, strike or fizzle,
+@@ -5084,7 +5122,7 @@
+        fang ring, the fissures, the grave). The name goes where the thing is. */
+     /* Dawnbringer left this map with Judgement: the pillar fell on the
+        quarry, but Daybreak ignites on the CASTER, so its name goes there. */
+-    const onTarget = { thornwake:1, spellbreaker:1 }[f.w.id];
++    const onTarget = { thornwake:1, spellbreaker:1, emberedge:1 }[f.w.id];
+     this.banner = { text: u.name, life: 2.1, max: 2.1, color: f.aff.core,
+                     glow: f.aff.glow, w: f.w.id,
+                     bx: onTarget ? foe.x : f.x, by: onTarget ? foe.y : f.y };
+@@ -5169,6 +5207,56 @@
+        matchup, paid for with the weakest blade in the class. This is that
+        budget, moved onto the FIGHT: for `dur` seconds every landed hit
+        sprays sparks, and what the sparks do depends on who touches them. */
++    /* SLAGBURST RESOLVES NOTHING HERE. It splits, and then it waits.
++
++       The split is the whole reason this ultimate works: measured over 1893
++       casts, 26.3% of them find ZERO Sunder on the foe, so a detonation of
++       "whatever is there" is a dud one time in four. The cast drives its own
++       `split` stacks into the shell first, which makes 3 the floor and keeps
++       9 the ceiling for a wielder who has been fighting. */
++    if (u.kind === "detonate"){
++      if (!inRange){
++        /* Out of range: the nova's own rule, kept. Nothing splits, nothing
++           lights, and the set-piece says so rather than playing a burst that
++           did not happen. */
++        this.ultFx.phase = "cold";
++        this.ultFx.life = 0.55;
++        return;
++      }
++      /* THE OVERFLOW, and why it lives on the fuse state and not on the foe.
++         `apply` caps at maxStacks 6, so a foe already sitting on five banked
++         stacks would silently lose two of the three the split drives in, and
++         a wielder who had been fighting hardest would be punished for it.
++         The remainder is carried on the state object the fuse already owns —
++         which means a fuse that gets dropped (either fighter dies) takes its
++         bookkeeping with it. A counter parked on the foe would survive the
++         drop and inflate the NEXT Slagburst by a stale amount. */
++      const before = foe.stacks("sunder");
++      foe.apply("sunder", u.split);
++      const over = before + u.split - foe.stacks("sunder");
++      const firstTeach = !this.taught.sunder && !!(STATUS.sunder && STATUS.sunder.tip);
++      if (firstTeach) this.taught.sunder = true;
++      this.statusTag(foe.x, foe.y, "sunder", firstTeach);
++      f.ultSlag = { t: 0, fuse: u.fuse, split: u.split, over };
++      this.ultFx.phase = "fuse";
++      /* THE FX CLOCK RUNS AT 2x SIM TIME. Measured, after the filmstrip
++         showed a dead frame at 0.58s — no ring, no cracks, and the burst
++         still to come. `ultFx.t` is advanced by BOTH decay paths, so a
++         `life` of 0.9 is 0.45 seconds of match time, not 0.9. Every `life`
++         number in this engine is in half-seconds and always has been; the
++         1.3-2.6 table above reads as 0.65-1.3s on screen.
++
++         So the tell needs (fuse + the cast's own hit-stop) x 2 = 1.26 to
++         reach its own detonation, plus margin. Nothing else in this file
++         needs converting: the burst's art constants were authored against
++         the filmstrip, which means they were authored in fx units already. */
++      this.ultFx.life = u.fuse * 2 + 0.45;
++      /* The fuse draws the TRUE count, not the capped one, so the cracks the
++         viewer counts during the tell equal the shards the burst throws. */
++      this.ultFx.n = foe.stacks("sunder") + over;
++      return;
++    }
++
+     if (u.kind === "radiant"){
+       f.ultRadiant = { t: 0, dur: u.dur || 5.0 };
+       this.ultFx = { w: f.w.id, kind: "radiant",
+@@ -5243,6 +5331,53 @@
+     }
+   }
+ 
++  /* ------------------------------------------------------------ SLAGBURST --
++     The fuse reaches the powder. Called only from tickCharge, only with both
++     fighters alive, and it is the ONLY place a detonate ult resolves. */
++  detonate(f, foe, over){
++    const u = f.w.ult;
++    /* `banked` is what is on the shell right now — the split the cast drove
++       in, plus anything the wielder landed during the fuse itself, which is
++       a real and deliberate reward for keeping the pressure on while it
++       burns. `over` is the part the status cap swallowed. The count runs
++       UNCAPPED past the ceiling of six, because the bar capping is a display
++       rule and this is an arithmetic one: a wielder who arrived with six
++       banked stacks blew a nine-stack charge and the screen owes it nine
++       shards. */
++    const n = foe.stacks("sunder") + (over || 0);
++    /* CONSUMED, then priced. Not the other way round. A detonation whose
++       damage is also multiplied by dmgTakenMul's share of the stacks it just
++       ate would pay itself twice, and at nine stacks the curve leaves the
++       building. The stacks are FUEL here, not a debuff being cashed. */
++    delete foe.status.sunder;
++    const raw = u.dmgBase + u.dmgPer * n;
++    const dmg = Math.round(raw * this.actMods.dmg * foe.dmgTakenMul());
++    this.hurt(foe, dmg, f);
++    foe.flash = 1;
++    foe.ringFlash = 1;
++    f.dealt += dmg;
++    this.float(foe.x, foe.y - 40, dmg, "#FFD08A", 46 + n * 2);
++    this.spawnFx(foe.x, foe.y, "#FFB863", 30 + n * 4, 300 + n * 26, 0.8, 5);
++    this.ring(foe.x, foe.y, "#E8761A", 7, 150 + n * 16, 0.5, 5);
++    /* The throw scales on the same n as everything else, so "that one was
++       big" and "that one threw it into the wall" are the same sentence. */
++    const dx = foe.x - f.x, dy = foe.y - f.y, dl = Math.hypot(dx, dy) || 1;
++    const k = u.knockBase + u.knockPer * n;
++    foe.vx += (dx / dl) * k; foe.vy += (dy / dl) * k;
++    this.shake = Math.max(this.shake, 26 + n * 3.4);
++    this.hitStop = Math.max(this.hitStop, 0.06 + n * 0.008);
++    SFX.play("ult", { w: "emberedge-burst", n });
++    /* The burst is its own set-piece, stamped where the shell actually was.
++       ONE SHARD PER CONSUMED STACK — the count is the mechanic, on screen. */
++    this.ultFx = { w: f.w.id, kind: "detonate", phase: "burst",
++                   src: f === this.a ? "a" : "b", tgt: f === this.a ? "b" : "a",
++                   x: foe.x, y: foe.y, tx: foe.x, ty: foe.y, hit: true,
++                   radius: u.radius || 230, aff: f.aff, t: 0, n,
++                   life: 1.45 };
++    this.beat({ kind: "ult", side: f === this.a ? 0 : 1, x: foe.x, y: foe.y,
++                w: f.w.id, foeHpFrac: foe.hp / foe.maxHp });
++  }
++
+   checkEnd(){
+     if (this.killFlight) return;   // the slain ball has a wall to meet first
+     const a = this.a, b = this.b;
+@@ -6421,31 +6556,58 @@
+     }
+ 
+     /* ---- Forgefall: a molten pool, crusting over as it cools --------------- */
+-    else if (u.w === "emberedge"){
+-      const ex = clamp(u.t / 0.32, 0, 1);
+-      const cool = clamp((u.t - 0.35) / 0.9, 0, 1);
+-      const fade = 1 - clamp((u.t - 0.8) / 0.8, 0, 1);
+-      const R = u.radius * (1 - Math.pow(1 - ex, 2.5));
+-      /* ALPHA AND FALLOFF, both cut hard from the first version. At 0.85 with
+-         a stop at 0.55 this washed the entire arena orange and hid the target
+-         behind its own light — a radius-220 nova reading bigger than
+-         Mountainfall at 300. A pool is a thing on the floor with an edge; it
+-         is not a light source for the hall. */
+-      c.globalAlpha = 0.55 * fade;
+-      const g = c.createRadialGradient(u.x, u.y, 4, u.x, u.y, Math.max(1, R));
+-      /* the pool goes from white-hot to a dark crust; `cool` is the only
+-         thing moving after the first third, which is what says "quenched" */
+-      const hot = cool > 0.6 ? "#3A1A08" : (cool > 0.25 ? "#B4491A" : "#FFD08A");
+-      g.addColorStop(0, hot + "DD"); g.addColorStop(0.30, "#8A2E0E66");
+-      g.addColorStop(0.62, "#8A2E0E1A"); g.addColorStop(1, "#8A2E0E00");
+-      c.fillStyle = g;
+-      c.beginPath(); c.arc(u.x, u.y, Math.max(1, R), 0, TAU); c.fill();
+-      for (let i = 0; i < 9; i++){                 // crust lines
+-        const a = shellHash(61, i) * TAU;
+-        c.globalAlpha = 0.55 * fade * cool;
+-        c.strokeStyle = "#25120A"; c.lineWidth = 3.4;
+-        this._jag(c, u.x, u.y, u.x + Math.cos(a) * R, u.y + Math.sin(a) * R,
+-                  6, 12, 610 + i, 1);
++        else if (u.w === "emberedge"){
++      /* SLAGBURST, on the floor. Two phases and a cold one.
++
++         The fuse draws under the LIVE target because the foe keeps moving
++         while it burns — a pool stamped at the cast position would leave the
++         thing that is about to explode standing somewhere else. */
++      if (u.phase === "fuse"){
++        const k = clamp(u.t / Math.max(0.001, u.life), 0, 1);
++        const heat = k * k;                       // slow, then all at once
++        const R = 30 + 26 * heat;
++        c.globalAlpha = 0.5 + 0.35 * heat;
++        const g = c.createRadialGradient(tgt.x, tgt.y, 3, tgt.x, tgt.y, R);
++        g.addColorStop(0, "#FFD08A" + (heat > 0.6 ? "CC" : "77"));
++        g.addColorStop(0.5, "#B4491A55"); g.addColorStop(1, "#8A2E0E00");
++        c.fillStyle = g;
++        c.beginPath(); c.arc(tgt.x, tgt.y, R, 0, TAU); c.fill();
++      }
++      else if (u.phase === "burst"){
++        /* Slag on the floor where the shell went. It cools from white to
++           crust over the whole life — the only thing still moving after the
++           first third, which is what says "this was molten a second ago". */
++        const ex = clamp(u.t / 0.20, 0, 1);
++        const cool = clamp((u.t - 0.18) / 0.8, 0, 1);
++        const fade = 1 - clamp((u.t - 0.55) / 0.6, 0, 1);
++        const R = (110 + (u.n || 3) * 13) * (1 - Math.pow(1 - ex, 2.5));
++        c.globalAlpha = 0.6 * fade;
++        const g = c.createRadialGradient(u.x, u.y, 4, u.x, u.y, Math.max(1, R));
++        const hot = cool > 0.6 ? "#3A1A08" : (cool > 0.25 ? "#B4491A" : "#FFE7BE");
++        g.addColorStop(0, hot + "DD"); g.addColorStop(0.30, "#8A2E0E66");
++        g.addColorStop(0.62, "#8A2E0E1A"); g.addColorStop(1, "#8A2E0E00");
++        c.fillStyle = g;
++        c.beginPath(); c.arc(u.x, u.y, Math.max(1, R), 0, TAU); c.fill();
++        /* One crust fissure per consumed stack. Same count as the shards
++           above — the floor and the air are telling the viewer the same
++           number, which is how a rule gets learned without a caption. */
++        for (let i = 0; i < (u.n || 3); i++){
++          const a = shellHash(61, i) * TAU;
++          c.globalAlpha = 0.6 * fade * cool;
++          c.strokeStyle = "#25120A"; c.lineWidth = 3.4;
++          this._jag(c, u.x, u.y, u.x + Math.cos(a) * R, u.y + Math.sin(a) * R,
++                    6, 12, 610 + i, 1);
++        }
++      }
++      else if (u.phase === "cold"){
++        /* Out of range. A puff of heat that dies where the wielder stands —
++           the honest picture of an ultimate that found nothing to split. */
++        const out = 1 - clamp(u.t / 0.55, 0, 1);
++        c.globalAlpha = 0.35 * out;
++        const g = c.createRadialGradient(src.x, src.y, 2, src.x, src.y, 60);
++        g.addColorStop(0, "#8A2E0E88"); g.addColorStop(1, "#8A2E0E00");
++        c.fillStyle = g;
++        c.beginPath(); c.arc(src.x, src.y, 60, 0, TAU); c.fill();
+       }
+     }
+     c.restore();
+@@ -7188,40 +7350,144 @@
+     }
+ 
+     /* ---- Forgefall: embers thrown up off the quench ------------------------- */
++        /* ---- Slagburst: the shell splits, glows, and goes ---------------------- */
+     else if (u.w === "emberedge"){
+-      const ex = clamp(u.t / 0.30, 0, 1);
+-      const fade = 1 - clamp((u.t - 0.5) / 0.95, 0, 1);
+-      c.save();
+-      c.globalCompositeOperation = "lighter";
+-      const hit = 1 - clamp(u.t / 0.16, 0, 1);
+-      if (hit > 0){                                // the blow itself
+-        c.globalAlpha = hit * 0.75;
+-        const g = c.createRadialGradient(u.x, u.y, 2, u.x, u.y, 112);
+-        g.addColorStop(0, "#FFF0C0"); g.addColorStop(0.32, "#E8761A66");
+-        g.addColorStop(1, "#E8761A00");
+-        c.fillStyle = g;
+-        c.beginPath(); c.arc(u.x, u.y, 112, 0, TAU); c.fill();
++      if (u.phase === "fuse"){
++        /* THE TELL, and it is drawn ON THE FOE. Every other ultimate in the
++           game announces itself on the wielder; this one lights up the thing
++           it is about to destroy, which is the only honest place for it —
++           the damage is already committed and it is committed to that ball.
++
++           An IMPLODING ring, not an expanding one. Five of sixteen relics
++           threw an expanding nova ring; running it inward is the cheapest
++           possible way to say "this is not one of those". */
++        const k = clamp(u.t / Math.max(0.001, u.life), 0, 1);
++        const heat = k * k;
++        const cracks = Math.max(3, u.n || 3);
++        c.save();
++        c.globalCompositeOperation = "lighter";
++        /* SIZED FOR A PHONE, NOT FOR A PIXEL DIFF. The first version drew
++           these at 20-36px with a 1.6px stroke and passed every automated
++           check; on the filmstrip at 390px wide they did not exist. The
++           ball is 34px in radius, so a crack that is going to read as a
++           crack has to be roughly the ball again, not a third of it. */
++        c.restore();                       // the dark pass is NOT additive
++        for (let i = 0; i < cracks; i++){
++          const a = shellHash(77, i) * TAU;
++          const len = (34 + shellHash(78, i) * 30) * (0.55 + 0.45 * heat);
++          const x1 = tgt.x + Math.cos(a) * len, y1 = tgt.y + Math.sin(a) * len;
++          /* underlay first: a lit crack on a lit ball is invisible without
++             something dark behind it */
++          c.globalAlpha = (0.5 + 0.4 * heat);
++          c.strokeStyle = "#1C0C05"; c.lineWidth = 6 + 7 * heat;
++          this._jag(c, tgt.x, tgt.y, x1, y1, 4, 6, 770 + i, 1);
++        }
++        c.save();
++        c.globalCompositeOperation = "lighter";
++        for (let i = 0; i < cracks; i++){
++          const a = shellHash(77, i) * TAU;
++          const len = (34 + shellHash(78, i) * 30) * (0.55 + 0.45 * heat);
++          const x1 = tgt.x + Math.cos(a) * len, y1 = tgt.y + Math.sin(a) * len;
++          c.globalAlpha = 0.45 + 0.55 * heat;
++          c.strokeStyle = heat > 0.72 ? "#FFF6E2"
++                        : (heat > 0.34 ? "#FFD08A" : "#FF8C3A");
++          c.lineWidth = 3 + 5 * heat;
++          c.shadowColor = "#FF6A1A"; c.shadowBlur = 10 + 16 * heat;
++          this._jag(c, tgt.x, tgt.y, x1, y1, 4, 6, 770 + i, 1);
++        }
++        c.shadowBlur = 0;
++        /* the ring closing in — an IMPLOSION, the one shape no nova makes */
++        const rIn = 104 * (1 - heat) + 26;
++        c.globalAlpha = 0.40 + 0.5 * heat;
++        c.strokeStyle = "#FFB863"; c.lineWidth = 2.6 + 3.6 * heat;
++        c.shadowColor = "#E8761A"; c.shadowBlur = 12;
++        c.beginPath(); c.arc(tgt.x, tgt.y, rIn, 0, TAU); c.stroke();
++        c.shadowBlur = 0;
++        c.restore();
+       }
+-      for (let i = 0; i < 30; i++){                // embers, rising and dying
+-        const q = (u.t * 0.62 + shellHash(63, i)) % 1;
+-        const a = shellHash(64, i) * TAU;
+-        const r = u.radius * 0.85 * q * (0.4 + shellHash(65, i) * 0.8);
+-        const rise = q * q * 96;
+-        c.globalAlpha = (1 - q) * fade;
+-        /* embers cool as they climb — the colour IS the age of the spark */
+-        c.fillStyle = q > 0.66 ? "#8A2E0E" : (q > 0.33 ? "#E8761A" : "#FFD08A");
++
++      else if (u.phase === "burst"){
++        const n = u.n || 3;
++        const fade = 1 - clamp((u.t - 0.80) / 0.6, 0, 1);
++        c.save();
++        c.globalCompositeOperation = "lighter";
++        /* The flash was 0.14s at 0.85 alpha over a radius that grew with n,
++           which meant the bigger the burst the more completely it erased its
++           own shards during the exact frames they were closest together and
++           most countable. Shorter and dimmer; the shards are the event. */
++        const flash = 1 - clamp(u.t / 0.10, 0, 1);
++        if (flash > 0){                              // the shell goes
++          c.globalAlpha = flash * 0.55;
++          const R = 78 + n * 8;
++          const g = c.createRadialGradient(u.x, u.y, 2, u.x, u.y, R);
++          g.addColorStop(0, "#FFFFFF"); g.addColorStop(0.22, "#FFE7BE99");
++          g.addColorStop(0.55, "#E8761A55"); g.addColorStop(1, "#E8761A00");
++          c.fillStyle = g;
++          c.beginPath(); c.arc(u.x, u.y, R, 0, TAU); c.fill();
++        }
++        /* ONE SHARD PER CONSUMED STACK. This is the mechanic, drawn. They
++           are born fast and die in about a second — shrapnel, not Daybreak's
++           drifting collectible field. Nothing here is a sim object and
++           nothing here draws rng: direction, speed and tumble are shellHash
++           of (n, i), so the offline render and the live page agree. */
++        /* THE SHARDS ARE THE MECHANIC, SO THEY GET A MODEL.
++           v1 drew them at 7-14px long and 2.4-4.6px wide, born at 300-560,
++           dead by 0.85s. Every assert passed and the filmstrip settled it:
++           at 390px wide a nine-stack burst and a three-stack burst were the
++           same picture. Same lesson Daybreak's dot-sparks taught, learned
++           twice. They are now roughly the ball's own radius long, born
++           slower so they stay on screen, carried to 1.25s, and each one is
++           drawn dark-first so it has an edge against both the flash behind
++           it and the dark hall it flies into. Counting them is the point;
++           if they cannot be counted the ultimate does not explain itself. */
++        for (let i = 0; i < n; i++){
++          const a = (i / n) * TAU + shellHash(81, i) * 0.55;
++          const sp = 210 + shellHash(82, i) * 150;
++          const q = clamp(u.t / 1.25, 0, 1);
++          const d = sp * u.t * (1 - q * 0.5);
++          const x = u.x + Math.cos(a) * d, y = u.y + Math.sin(a) * d;
++          const rot = a + u.t * (4 + shellHash(83, i) * 5);
++          const life = 1 - q;
++          if (life <= 0) continue;
++          const L = (26 + shellHash(84, i) * 20) * (0.5 + 0.5 * life);
++          const W = (7 + shellHash(85, i) * 5) * (0.5 + 0.5 * life);
++          if (q < 0.55){                            // the streak it tears
++            c.globalAlpha = life * fade * 0.55;
++            c.strokeStyle = "#FFD08A"; c.lineWidth = (3 + 3 * life);
++            c.beginPath();
++            c.moveTo(x, y);
++            c.lineTo(x - Math.cos(a) * 44 * life, y - Math.sin(a) * 44 * life);
++            c.stroke();
++          }
++          c.save();
++          c.translate(x, y); c.rotate(rot);
++          c.beginPath();                            // a splinter, not a dot
++          c.moveTo(L, 0); c.lineTo(0, W); c.lineTo(-L * 0.55, 0); c.lineTo(0, -W);
++          c.closePath();
++          /* dark body, hot core: readable on the flash AND on the hall */
++          c.globalAlpha = life * fade;
++          c.fillStyle = "#2A1207";
++          c.fill();
++          c.shadowColor = "#FF6A1A"; c.shadowBlur = 16 * life;
++          c.fillStyle = q < 0.30 ? "#FFF6E2" : (q < 0.66 ? "#FFB863" : "#B4491A");
++          c.beginPath();
++          c.moveTo(L * 0.78, 0); c.lineTo(0, W * 0.55);
++          c.lineTo(-L * 0.4, 0); c.lineTo(0, -W * 0.55);
++          c.closePath(); c.fill();
++          c.shadowBlur = 0;
++          c.restore();
++        }
++        c.restore();
++        /* the shockwave, sized on n */
++        const ex = clamp(u.t / 0.34, 0, 1);
++        c.globalAlpha = fade * (1 - ex) * 0.9;
++        c.strokeStyle = "#FFB863"; c.lineWidth = 5 * (1 - ex) + 1;
++        c.shadowColor = "#E8761A"; c.shadowBlur = 16;
+         c.beginPath();
+-        c.arc(u.x + Math.cos(a) * r, u.y + Math.sin(a) * r * 0.8 - rise,
+-              1.4 + (1 - q) * 2.6, 0, TAU);
+-        c.fill();
++        c.arc(u.x, u.y, (120 + n * 16) * (1 - Math.pow(1 - ex, 2.5)), 0, TAU);
++        c.stroke();
++        c.shadowBlur = 0;
+       }
+-      c.restore();
+-      c.globalAlpha = fade * (1 - ex) * 0.85;      // the heat ring
+-      c.strokeStyle = "#E8761A"; c.lineWidth = 4 * (1 - ex) + 1;
+-      c.shadowColor = "#E8761A"; c.shadowBlur = 16;
+-      c.beginPath();
+-      c.arc(u.x, u.y, u.radius * (1 - Math.pow(1 - ex, 2.5)), 0, TAU); c.stroke();
+-      c.shadowBlur = 0;
+     }
+     c.restore();
+   }

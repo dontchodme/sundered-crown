@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cold open — four videos in</title>
+<style>
+  .viz-root{
+    color-scheme: light;
+    --surface-1:#fcfcfb; --surface-2:#f4f3f0;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#7a7873;
+    --grid:#e4e3df; --band:#ecebe7;
+    --series-cold:#2a78d6; --series-base:#eb6834;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--surface-1); color:var(--text-primary);
+    padding:28px 26px 34px; max-width:1120px; margin:0 auto;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:where(:not([data-theme="light"])) .viz-root{
+      color-scheme: dark;
+      --surface-1:#1a1a19; --surface-2:#232322;
+      --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#96958c;
+      --grid:#333331; --band:#2b2b29;
+      --series-cold:#3987e5; --series-base:#d95926;
+    }
+  }
+  :root[data-theme="dark"] .viz-root{
+    color-scheme: dark;
+    --surface-1:#1a1a19; --surface-2:#232322;
+    --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#96958c;
+    --grid:#333331; --band:#2b2b29;
+    --series-cold:#3987e5; --series-base:#d95926;
+  }
+  html,body{margin:0;background:#fcfcfb;}
+  @media (prefers-color-scheme: dark){ html,body{background:#1a1a19;} }
+  h1{font-size:21px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em;}
+  .sub{font-size:14px;color:var(--text-secondary);margin:0 0 20px;line-height:1.55;max-width:74ch;}
+  .legend{display:flex;gap:20px;align-items:center;margin:0 0 6px;font-size:13px;color:var(--text-secondary);flex-wrap:wrap;}
+  .key{display:flex;gap:7px;align-items:center;}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .bandkey{width:16px;height:9px;border-radius:2px;background:var(--band);display:inline-block;}
+  .panels{display:flex;gap:26px;flex-wrap:wrap;}
+  .panel{flex:1 1 430px;min-width:330px;}
+  .ptitle{font-size:13.5px;font-weight:600;margin:14px 0 2px;}
+  .pnote{font-size:12.5px;color:var(--text-muted);margin:0 0 4px;line-height:1.5;min-height:3.9em;}
+  svg{display:block;width:100%;height:auto;overflow:visible;}
+  .grid-line{stroke:var(--grid);stroke-width:1;}
+  .axis-text{fill:var(--text-muted);font-size:11px;}
+  .lbl{fill:var(--text-secondary);font-size:11.5px;font-weight:600;}
+  .lbl-sm{fill:var(--text-muted);font-size:10.5px;}
+  .hit{cursor:pointer;}
+  #tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;
+       background:var(--surface-2);border:1px solid var(--grid);border-radius:7px;
+       padding:9px 11px;font-size:12px;line-height:1.6;color:var(--text-primary);
+       box-shadow:0 4px 14px rgba(0,0,0,.14);z-index:20;max-width:260px;}
+  #tip b{font-weight:600;}
+  #tip .muted{color:var(--text-muted);}
+  .tools{margin-top:22px;}
+  button{font:inherit;font-size:12.5px;background:var(--surface-2);color:var(--text-secondary);
+         border:1px solid var(--grid);border-radius:6px;padding:5px 11px;cursor:pointer;}
+  button:hover{color:var(--text-primary);}
+  table{border-collapse:collapse;font-size:12.5px;margin-top:12px;width:100%;}
+  th,td{text-align:right;padding:5px 9px;border-bottom:1px solid var(--grid);}
+  th:first-child,td:first-child{text-align:left;}
+  th{color:var(--text-muted);font-weight:600;}
+  td.name{color:var(--text-primary);}
+  .swatch{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:middle;}
+  .hidden{display:none;}
+  .foot{font-size:12px;color:var(--text-muted);margin-top:18px;line-height:1.6;max-width:80ch;}
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <h1>The cold open, four videos in</h1>
+  <p class="sub">Every TikTok post from the Sundered Crown run, read from TikTok Studio on 19 Aug 2026.
+  On raw watch time the first three cold opens sit clear of the no-cold-open field and the fourth falls
+  back inside it. Corrected for video length, only two of the four ever clear it.
+  Two posts with fewer than 100 views are excluded — see the note below.</p>
+
+  <div class="legend">
+    <span class="key"><span class="dot" style="background:var(--series-cold)"></span> Cold open</span>
+    <span class="key"><span class="dot" style="background:var(--series-base)"></span> No cold open (card first)</span>
+    <span class="key"><span class="bandkey"></span> range of the no-cold-open field</span>
+  </div>
+
+  <div class="panels">
+    <div class="panel">
+      <div class="ptitle">Average watch time</div>
+      <p class="pnote">What the experiment was pre-registered on: over 9s meant it worked.</p>
+      <svg id="svgA" viewBox="0 0 520 320" role="img" aria-label="Average watch time by post date"></svg>
+    </div>
+    <div class="panel">
+      <div class="ptitle">Watch time as a share of the video's own length</div>
+      <p class="pnote">Length correlates with watch seconds across the channel (r = +0.60, p = 0.04), and the longest video on the channel is a cold open. This panel takes that out.</p>
+      <svg id="svgB" viewBox="0 0 520 320" role="img" aria-label="Retention as a share of video length by post date"></svg>
+    </div>
+  </div>
+
+  <div class="tools">
+    <button id="toggle">Show data table</button>
+    <div id="tablewrap" class="hidden"></div>
+  </div>
+
+  <p class="foot"><b>Excluded:</b> Grudgwaker v Thornwake (12 Aug, 18 views, 24.87s) and Grudgebearer v Thornwake
+  (14 Aug, 31 views, 15.09s). Both are near-dead posts whose averages rest on a couple of dozen plays, and both
+  sit at the very top of the channel on watch time — the signature of a post seen almost only by people who went
+  looking for it. Including them would raise the no-cold-open average above the cold-open one.</p>
+</div>
+
+<div id="tip"></div>
+
+<script>
+const COLD = [
+  {n:"Axiom v Nightfell",        d:"2026-08-16T02:14", len:63, v:327, w:13.78, f:7.1,  stop:4, cold:1},
+  {n:"Ironhail v Goreshard",     d:"2026-08-16T15:56", len:44, v:287, w:11.72, f:13.5, stop:2, cold:1},
+  {n:"Emberedge v Thornwake",    d:"2026-08-17T08:15", len:48, v:301, w:11.33, f:7.9,  stop:1, cold:1},
+  {n:"Dawnbringer v Censer",     d:"2026-08-18T08:15", len:48, v:278, w:8.11,  f:4.6,  stop:1, cold:1},
+];
+const BASE = [
+  {n:"Dawnbringer v Grudgebearer", d:"2026-08-13T15:03", len:42, v:302, w:6.85, f:3.5, stop:2, cold:0},
+  {n:"Ironhail v Widowmaker",      d:"2026-08-13T23:08", len:42, v:240, w:9.71, f:7.7, stop:1, cold:0},
+  {n:"Grudgebearer v Thornwake",   d:"2026-08-13T23:26", len:45, v:337, w:6.46, f:3.8, stop:1, cold:0},
+  {n:"Gravemourn v Dawnbringer",   d:"2026-08-13T23:27", len:47, v:325, w:7.87, f:5.0, stop:2, cold:0},
+  {n:"Nightfell v Emberedge",      d:"2026-08-14T16:46", len:48, v:498, w:8.41, f:6.9, stop:2, cold:0},
+  {n:"Farwarden v Nightfell",      d:"2026-08-14T16:46", len:54, v:652, w:8.56, f:4.8, stop:2, cold:0},
+  {n:"Widowmaker v Goreshard",     d:"2026-08-14T17:13", len:40, v:300, w:7.24, f:3.9, stop:2, cold:0},
+  {n:"Slagheart v Lightkeeper",    d:"2026-08-15T12:47", len:47, v:247, w:7.33, f:6.4, stop:2, cold:0},
+];
+const ALL = COLD.concat(BASE);
+ALL.forEach(r => { r.t = new Date(r.d + ":00Z").getTime(); r.r = 100 * r.w / r.len; });
+
+const X0 = new Date("2026-08-13T06:00:00Z").getTime();
+const X1 = new Date("2026-08-18T22:00:00Z").getTime();
+const M = {l:46, r:104, t:14, b:34}, W = 520, H = 320;
+const PW = W - M.l - M.r, PH = H - M.t - M.b;
+const sx = t => M.l + (t - X0) / (X1 - X0) * PW;
+
+function panel(svgId, key, yMin, yMax, ticks, fmt, labelled){
+  const svg = document.getElementById(svgId);
+  const sy = v => M.t + PH - (v - yMin) / (yMax - yMin) * PH;
+  let s = "";
+
+  // baseline range band — context, drawn first and lightest
+  const bv = BASE.map(r => r[key]);
+  const bTop = sy(Math.max(...bv)), bBot = sy(Math.min(...bv));
+  s += `<rect x="${M.l}" y="${bTop}" width="${PW}" height="${bBot-bTop}" fill="var(--band)"/>`;
+  s += `<text class="lbl-sm" x="${M.l+PW+8}" y="${bTop+13}">no cold open</text>`;
+  s += `<text class="lbl-sm" x="${M.l+PW+8}" y="${bTop+26}">field</text>`;
+
+  // hairline grid + y ticks
+  ticks.forEach(v => {
+    s += `<line class="grid-line" x1="${M.l}" y1="${sy(v)}" x2="${M.l+PW}" y2="${sy(v)}"/>`;
+    s += `<text class="axis-text" x="${M.l-9}" y="${sy(v)+4}" text-anchor="end">${fmt(v)}</text>`;
+  });
+
+  // x ticks — one per day
+  for (let day = 13; day <= 18; day++){
+    const t = new Date(`2026-08-${day}T12:00:00Z`).getTime();
+    s += `<text class="axis-text" x="${sx(t)}" y="${M.t+PH+20}" text-anchor="middle">Aug ${day}</text>`;
+  }
+  s += `<line class="grid-line" x1="${M.l}" y1="${M.t+PH}" x2="${M.l+PW}" y2="${M.t+PH}"/>`;
+
+  // the cold-open sequence, connected: this is a time series of one treatment
+  const pts = COLD.map(r => `${sx(r.t)},${sy(r[key])}`).join(" ");
+  s += `<polyline points="${pts}" fill="none" stroke="var(--series-cold)" stroke-width="2"
+        stroke-linejoin="round" stroke-linecap="round"/>`;
+
+  // marks — 2px surface ring so overlapping dots stay legible
+  ALL.forEach((r,i) => {
+    const c = r.cold ? "var(--series-cold)" : "var(--series-base)";
+    s += `<circle class="hit" data-i="${i}" cx="${sx(r.t)}" cy="${sy(r[key])}" r="5"
+           fill="${c}" stroke="var(--surface-1)" stroke-width="2"/>`;
+    s += `<circle class="hit" data-i="${i}" cx="${sx(r.t)}" cy="${sy(r[key])}" r="13" fill="transparent"/>`;
+  });
+
+  // selective direct labels: first and last cold open only — the story is the fall between them
+  labelled.forEach(([name, dx, dy, anchor]) => {
+    const r = COLD.find(q => q.n === name);
+    s += `<text class="lbl" x="${sx(r.t)+dx}" y="${sy(r[key])+dy}" text-anchor="${anchor}">${fmt(r[key])}</text>`;
+    s += `<text class="lbl-sm" x="${sx(r.t)+dx}" y="${sy(r[key])+dy+13}" text-anchor="${anchor}">${r.n.split(" v ")[0]}</text>`;
+  });
+
+  svg.innerHTML = s;
+}
+
+const f1 = v => v.toFixed(1) + "s";
+const fp = v => v.toFixed(0) + "%";
+panel("svgA", "w", 6, 15, [6,8,10,12,14], f1,
+      [["Axiom v Nightfell", 9, 2, "start"], ["Dawnbringer v Censer", 9, 2, "start"]]);
+panel("svgB", "r", 12, 28, [12,16,20,24,28], fp,
+      [["Axiom v Nightfell", 9, 2, "start"], ["Dawnbringer v Censer", 9, 2, "start"]]);
+
+// hover layer
+const tip = document.getElementById("tip");
+document.querySelectorAll(".hit").forEach(el => {
+  el.addEventListener("mousemove", e => {
+    const r = ALL[+el.dataset.i];
+    tip.innerHTML = `<b>${r.n}</b><br>
+      <span class="muted">${r.cold ? "cold open" : "no cold open"} · posted ${r.d.slice(5,10).replace("-","/")} · ${r.len}s · ${r.v} views</span><br>
+      avg watch <b>${r.w.toFixed(2)}s</b> — <b>${r.r.toFixed(1)}%</b> of its length<br>
+      watched full <b>${r.f}%</b> · most stopped at <b>0:0${r.stop}</b>`;
+    tip.style.opacity = 1;
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - 275) + "px";
+    tip.style.top  = (e.clientY + 16) + "px";
+  });
+  el.addEventListener("mouseleave", () => tip.style.opacity = 0);
+});
+
+// table view
+const rows = ALL.slice().sort((a,b) => b.r - a.r).map(r => `<tr>
+  <td class="name"><span class="swatch" style="background:${r.cold?"var(--series-cold)":"var(--series-base)"}"></span>${r.n}</td>
+  <td>${r.cold ? "yes" : "no"}</td><td>${r.d.slice(5,10)}</td><td>${r.len}s</td><td>${r.v}</td>
+  <td>${r.w.toFixed(2)}s</td><td>${r.r.toFixed(1)}%</td><td>${r.f}%</td><td>0:0${r.stop}</td></tr>`).join("");
+document.getElementById("tablewrap").innerHTML =
+ `<table><thead><tr><th>Video</th><th>Cold open</th><th>Posted</th><th>Length</th><th>Views</th>
+  <th>Avg watch</th><th>Share of length</th><th>Watched full</th><th>Most stopped at</th></tr></thead>
+  <tbody>${rows}</tbody></table>`;
+const btn = document.getElementById("toggle"), tw = document.getElementById("tablewrap");
+btn.onclick = () => { const h = tw.classList.toggle("hidden"); btn.textContent = h ? "Show data table" : "Hide data table"; };
+</script>
+</body>
+</html>

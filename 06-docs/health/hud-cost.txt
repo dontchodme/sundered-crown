@@ -1,0 +1,7 @@
+shipped   ironhail/oathwound  87.64ms  dawnbringer/censer 100.87ms
+health    ironhail/oathwound  89.78ms  dawnbringer/censer 102.81ms
+
+  ironhail/oathwound          87.64 ->  89.78 ms    +2.4%
+  dawnbringer/censer         100.87 -> 102.81 ms    +1.9%
+
+  MEAN  94.25 -> 96.29 ms   +2.2%   (ratio only; this box has no GPU)

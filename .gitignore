@@ -1,0 +1,57 @@
+# ============================================================================
+# THE RULE: if it is LARGE and DERIVABLE, it does not belong in history.
+# A 13 MB mp4 committed eight times is 100 MB nobody can ever delete, and it
+# says nothing the seed does not. Everything ignored here regenerates from
+# what is tracked — see 06-docs/WHATS-NOT-IN-THE-REPO.md for the commands.
+# ============================================================================
+
+# --- The voiceover model. 353 MB. Restore per machine, see tools/FETCH-KOKORO.md
+tools/kokoro-v1.0.onnx
+tools/voices-v1.0.bin
+tools/*.onnx
+tools/*.bin
+
+# --- Rendered video and audio. THE SEED IS THE FIGHT.
+# Every clip is a deterministic function of (build, relic, foe, seed). The
+# command that made it is worth keeping; the bytes are not.
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.m4a
+
+# --- Frame caches. cinema_clip.py rebuilds and deletes these itself.
+_clip_frames/
+**/_clip_frames/
+
+# --- Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# --- Node / Electron
+node_modules/
+app/dist/
+app/out/
+app/release/
+*.log
+npm-debug.log*
+
+# --- OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editors
+.vscode/
+.idea/
+*.swp
+
+# --- Scratch. If you need it next session, it goes in 06-docs/ instead.
+scratch/
+tmp/
+*.tmp

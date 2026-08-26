@@ -1,0 +1,131 @@
+
+[1] THE FLAIL ROW — 3 of 7 filled, 4 open
+
+                  bloodsworn     dwarven       runic  sanctified      umbral     verdant       vigil
+    flail          Threshmaw   Slagheart           ·           ·  Gravemourn           ·           ·
+
+    the type's block, and where it sits in the game
+
+    type          reach  width   spin   mass  knockMul    mode  blades             dmg
+    bow              54      9    2.8    1.6         1  ranged       1       12.7–16.2
+    flail            96     22    2.2    3.6         1   chain       1       25.0–44.1
+    greatsword      116     14    3.4    3.0         1   swing       1        7.4–15.8
+    scythe          104     11    3.2    2.4         1    spin       1       17.5–31.4
+    twinblade        62      8    5.7    1.1         1    spin       2        8.3–11.9
+    warhammer        76     26    1.6    5.0       2.3    spin       1       20.1–28.8
+
+    CONFIG.chain  follow 5.2  spring 26  damp 0.9955  extend 7  maxAngVel 15  hilt 0.46  sag 1.1
+  PASS  all three flails share one physics block, field for field  — reach=96, width=22, artW=52, spin=2.2, mode=chain, mass=3.6, knockMul=None, blades=1
+  PASS  `chain` is a mode of one — no other type shares a line of it  — chain: flail  ranged: bow  spin: scythe,twinblade,warhammer  swing: greatsword
+  PASS  the flail carries the hardest blow in the game  — Gravemourn 44.1, next type is scythe at 31.35
+  PASS  mass 3.6 is second on the ladder, behind the warhammer alone  — ladder 5, 3.6, 3, 2.4, 1.6, 1.1
+
+[2] THE HEAD IS THE WEAPON — live segment read off `bladeSegments`, dmg pinned 14, ultimates suppressed
+
+    type          live blade  contacts/s  tip / head  reach  extension    taut   slack  lag rad  lag max
+    bow                 61.4       0.106        91.4     54       1.00    100%      0%     0.00     0.00
+    flail               13.2       0.152        89.4     96       0.88     36%      0%     0.53     1.71
+    greatsword         128.4       0.269       158.4    116       1.00    100%      0%     0.00     0.00
+    scythe             116.5       0.196       146.5    104       1.00    100%      0%     0.00     0.00
+    twinblade           70.4       0.257       100.4     62       1.00    100%      0%     0.00     0.00
+    warhammer           85.7       0.183       115.7     76       1.00    100%      0%     0.00     0.00
+  PASS  the flail's live blade is the shortest in the game by a long way  — 13.2 units against bow 61, twinblade 70, warhammer 86, scythe 116, greatsword 128
+  PASS  the flail's segment is 0.6 x its WIDTH and has nothing to do with its reach  — 13.20 against width 22 x 0.6 = 13.2; reach 96 does not appear in it
+  PASS  and every rigid weapon's segment IS its reach, shell to tip, which is what makes the flail's number mean something  — bow 61 on a reach of 54, greatsword 128 on a reach of 116, scythe 116 on a reach of 104, twinblade 70 on a reach of 62, warhammer 86 on a reach of 76  (act reach modifiers are the excess)
+
+    the head's reachable band, which is the thing the segment above sits somewhere inside:
+    89.4 mean, 119.4 furthest, on a chain of 51.8 hung off a haft of 44.2
+  PASS  the chain lags its own facing and nothing else does  — mean |headAng-theta| 0.53 rad, max 1.71 rad
+
+[3] WHAT A 0.2s STUN COSTS EACH TYPE — one stun per fight, A/B'd against the identical seed with none.
+    Read as SWING LOST, not as contacts: a 1s window holds a fifth of a flail contact, so a count is
+    noise. The angle the weapon turns through is the same question with a usable variance, and
+    the distance the live edge travels is that question again with the radius left in.
+
+    type        mode       arc/s  swing lost  x stun  path lost  x stun  ext at t0   floor   at +1s
+    bow         ranged      2.46       0.214   1.07x      0.214   1.07x          —       —        —
+    flail       chain       1.94       0.181   0.91x      0.214   1.07x       0.86    0.58     0.89
+    greatsword  swing       3.54       0.090   0.45x      0.090   0.45x          —       —        —
+    scythe      spin        2.87       0.185   0.92x      0.185   0.92x          —       —        —
+    twinblade   spin        4.94       0.207   1.03x      0.207   1.03x          —       —        —
+    warhammer   spin        1.43       0.212   1.06x      0.212   1.06x          —       —        —
+  PASS  the instrument is calibrated — a weapon whose facing is its own clock loses exactly the stun and not a millisecond more  — bow 1.07x, scythe 0.92x, twinblade 1.03x, warhammer 1.06x
+  PASS  and the greatsword is the exception for a reason the source states — `mode:"swing"` recomputes theta from the AIM every frame, so a stunned greatsword's blade keeps tracking  — 0.45x — it is the only type in the game whose facing is not an integral of its own spin
+  PASS  THE HYPOTHESIS IS REFUTED: a stun costs the flail the same swing it costs everything else. The head coasts through it, and the coast pays for the respin  — 0.181s of swing for a 0.2s stun — 0.91x, inside the rigid band 0.92–1.07
+  PASS  what it costs instead is REACH — the head pulls in and the live edge travels a shorter circle for it  — path 1.07x against swing 0.91x; extension 0.86 at the stun, floor 0.58. For a rigid weapon the radius is a constant and the two columns are the same number by construction, which is what makes the flail's gap readable
+  PASS  and the reach comes back slower than the stun goes away, which is the whole of what this type pays extra  — 1.08s to climb back to the extension it had, against the 0.2s stun itself — so the event is about 1.28s of shortened reach, roughly 6x the stun. Recovered inside the window in 220 of 233 dips; the 13 that did not are censored OUT of that mean, so it is a floor
+
+[4] THE CLANK LADDER — measured off the effect, dmg pinned 14, ultimates suppressed.
+    Outcome is read from whose spinDir reversed and who ate the stagger, never recomputed from the mass
+    formula the game owns — and then checked AGAINST it. `margin` is |shareA-shareB| out of mass^1.7,
+    and a bind is decisive above 0.16.
+
+    foe           type         mass  margin clanks/min    won  deadlock   lost  stun taken  stun dealt  bind→hit
+    emberedge     greatsword    3.0   0.154       21.7     0%      100%     0%        18.0        25.8      1.55
+    spellbreaker  twinblade     1.1   0.765       14.6   100%        0%     0%         2.9        31.8      2.56
+    lastlight     scythe        2.4   0.332       15.7   100%        0%     0%        11.1        24.5      2.28
+    aureole       bow           1.6   0.598        6.7   100%        0%     0%         2.6        10.4      3.33
+    censer        warhammer     5.0   0.272       15.6     0%        0%   100%        25.0        13.3      2.08
+    slagheart     flail         3.6   0.000       11.3     0%      100%     0%        14.7        15.0      2.94
+  PASS  the effect and the mass model agree on every foe — which is what makes the margin column a prediction rather than a restatement  — emberedge dead 100%, spellbreaker won 100%, lastlight won 100%, aureole won 100%, censer lost 100%, slagheart dead 100%
+  PASS  THE FLAIL IS HEAVIER THAN THE GREATSWORD AND CANNOT CASH IT — the second-heaviest weapon in the game deadlocks with a 3.0, by six thousandths  — margin 0.1537 against a 0.16 threshold — 0.0063 short, on 112 binds, 100% of them deadlocks
+  PASS  and it loses binds to exactly one weapon in the game  — the 5.0 warhammer, 96 of 96, at 25s of stagger taken against 13s dealt
+
+    `bind→hit` is the seconds from a bind to this relic's next landed blow. It is the recovery [3] priced
+    on the weapon, priced again on the fight: greatsword 1.55s, warhammer 2.08s, scythe 2.28s, twinblade 2.56s, flail 2.94s, bow 3.33s.
+
+[5] THE FOUR OPEN CHANNELS AS DELIVERED EFFECT — SHIPPED damage, ultimates suppressed, same seeds on and off.
+    Sections 2-4 pin damage because they compare TYPES; this one compares schools on one type, where the
+    pin would only take the compensation this type is paid for its contact rate away from it.
+
+    the readout is the FOE'S OWN HEALTH, ceiling captured before curse could move it:
+    `self.dealt` counts what resolveHit paid out and is blind to every DoT.
+
+    cell                    status         hp/s  vs control    win  hits/min  taken/s
+    — no channel —                         7.29                57%       7.7     6.69
+    runic x flail           hex            8.17      +12.1%    70%       8.9     5.61
+    sanctified x flail      smite          7.85       +7.7%    50%       7.9     6.84
+    verdant x flail         entangle       8.86      +21.6%    65%       9.4     6.64
+
+    vigil is not a foe status. `onSelf.ward`'s value is a per-relic BANK MULTIPLIER —
+    Lightkeeper 1.0 on a greatsword, Farwarden 2.5 on a bow, and v41 measured the warhammer
+    at 1.0. This is the middle of that axis.
+
+      mult  banked/s  absorbed/s  mean pool   held  at cap  breaks/fight   burst    win
+       1.0      4.54        2.24       14.7    43%    2.0%          1.23    14.2    85%
+       1.6      6.18        3.02       23.8    47%    5.6%          0.78    23.6    82%
+       2.3      7.05        3.50       30.1    48%   12.1%          0.65    31.7    78%
+       3.0      7.91        3.62       34.9    50%   17.5%          0.40    35.8    80%
+
+[6] HEX ON THE FLAIL — the chosen cell. hex is a RATE: one stack fires a 0.2s weapon stun every 1.15s,
+    and k stacks fire k times as often. Cap 5, duration 2.6s.
+
+    arm               hits/s    gap   mean   >=2   cap  fires/s   lock  foe hits/s  taken/s   hp/s     net    win
+    no channel         0.128   6.82   0.00    0%    0%    0.000  14.4%       0.294     6.69   7.29            57%
+    shipped hex:1      0.148   5.94   0.40    7%    0%    0.290  20.4%       0.274     5.61   8.17  +12.1%    70%
+    pinned at 1        0.151   5.91   1.00    0%    0%    0.783  28.7%       0.224     5.15   8.34  +14.5%    78%
+    pinned at 2        0.143   5.81   2.00  100%    0%    1.596  42.7%       0.235     5.42   8.34  +14.5%    75%
+    pinned at 3        0.160   5.76   3.00  100%    0%    2.407  57.9%       0.182     4.22   8.74  +20.0%    90%
+    pinned at 4        0.168   5.60   4.00  100%    0%    3.190  71.5%       0.138     3.24   9.04  +24.1%    92%
+    pinned at 5        0.156   5.96   5.00  100%  100%    4.011  86.1%       0.111     2.86   8.69  +19.3%    92%
+
+    THE LADDER CANNOT START. The flail lands a blow every 5.94s and hex
+    expires in 2.6s, so 75% of every hex this cell applies lands on a foe with NO stacks
+    and 71% of the gaps between its own blows are longer than the status it carries.
+
+  PASS  the flail's own contact interval is longer than hex's duration — the cell cannot build a ladder  — 5.94s between blows against a 2.6s status
+  PASS  a fire is read off the clock resetting, and the rate agrees with stacks/stunEvery over unfrozen time  — observed 0.290/s against 0.351/s predicted
+  PASS  the ladder does what the model says — k stacks lock k times as often, all the way to the cap  — lock 14.4% with no channel → 20.4% shipped → 28.7% at one stack → 86.1% at 5; fires 0.78/s → 4.01/s
+  PASS  HEX IS A DEFENSIVE CHANNEL ON THIS TYPE — the lock is worth more in blows the foe does not land than in blows this relic does  — shipped hex takes damage taken 6.69 → 5.61/s (-16.2%) while moving damage dealt +12.1%; the foe lands 0.294/s against 0.274/s
+  PASS  AND IT PAYS ALL THE WAY TO THE CAP — but in the defensive column, which is the one that is monotone rung by rung  — foe blows 0.224 → 0.235 → 0.182 → 0.138 → 0.111 (from 0.294 with no channel), taken 5.15 → 5.42 → 4.22 → 3.24 → 2.86 — with one inversion, left visible rather than smoothed: rungs 1 and 2 are not separable at this sample size and the claim is made on 3-5, which are (from 6.69). Damage DEALT does not order itself: +14% +15% +20% +24% +19% — the lock does not make this weapon swing faster, it stops the other one
+  PASS  so the cell's ultimate has a measured target and it is not the one the cell was chosen on  — at the cap the foe lands -62% of the blows it lands against no channel at all and deals -57% of the damage. `5x the lock` is real — 86% against 29% — and what it buys is the foe not swinging, not this relic swinging more
+
+[7] THE TRAPS
+
+  PASS  `chain` is the only mode whose branch runs during a stun  — every other mode is behind `else if (f.stun > 0){ /* weapon locked */ }`
+  PASS  a stunned fighter still lands no blows — the head moves, it does not hit  — tickHits skips on self.stun > 0
+  PASS  no flail carries a `shot` field — v39 od 4 is still live  — tickFire gates on the FIELD, not on the mode: a shot left on a melee weapon fires a bow at cadence forever
+  PASS  hex is one of the three TRUE stuns that break a wind-up  — 0.2s, and Bloodmill lives on this type
+
+26/26 checks passed
+wrote ../out/flail_survey_v43.json

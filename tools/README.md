@@ -1,0 +1,123 @@
+# tools/ — 62 files, grouped by what they answer
+
+Flat on disk on purpose: every tool resolves the game beside itself and
+imports `scpage.py` the same way, so subfolders would break all of them.
+
+
+## BUILD — the shipping chain, in order
+
+- `roster15_build.py` — the 12-relic roster, massRef 2.509, and the TUNED damage table
+- `cinema_build.py` — the cinema director (patch v2)
+- `wallglow_build.py` — the closing-wall glow onto a downscaled buffer. --mode strips is the refuted control
+- `introcard_build.py` — the v2 fight card, and the single source of every status/ult tip
+- `roster_gs_build.py` — the four new greatswords + TUNED_GS + a structural preflight
+- `ultart_build.py` — ult set-pieces for the four new greatswords
+- `ultart2_build.py` — ult set-pieces for the last six bare relics
+- `share_build.py` — the share/phone shell around any engine
+- `lastlight_build.py` — LASTLIGHT, the sanctified scythe + the Harrowing. TUNED_LL and every ult number
+- `harrow_probe.py` — the Harrowing falsified: 22 checks, incl. the dud rate and the burden identity at zero
+- `lastlight_sweep.py` — one relic's blade against the whole field, on PINNED seeds
+- `whitescythe_probe.py` — look at a free grid cell before designing it; writes nothing
+- `bench_build.py` — the measurement page: QUICK, kill switches, paired baselines
+
+## BUILD — earlier chain and one-shot patches
+
+- `silhouette_build.py` — per-school outlines
+- `depth_build.py` — materials, tint, worldlight
+- `worldlight_build.py` — world lighting — the biggest perf win in the project
+- `shadowbuf_build.py` — the fighter's blurs onto a ball-sized buffer
+- `glow_build.py`  *(not present)*
+- `hudglow_build.py` — MEASURED DEAD END — makes the frame slower
+- `mobile_build.py`  *(not present)*
+- `anim_build.py`  *(not present)*
+- `clank_build.py`  *(not present)*
+- `shape_build.py`  *(not present)*
+- `vigil_build.py`  *(not present)*
+- `twinblade_build.py`  *(not present)*
+- `bow_build.py`  *(not present)*
+- `roster_build.py`  *(not present)*
+- `gs_arm_build.py` — factor-experiment arms + the byte-identity selftest
+- `_gs_patch.py`
+- `_tb_patch.py`
+- `_wh_patch.py`
+- `_sf_patch.py`
+- `notes_apply.py` — applies fighter-notes.json into the BUILDERS, not the HTML
+- `verify_tip_patch.py` — the ult-tip length contract
+
+## CHECK — falsification
+
+- `verify.py` — THE falsification pass. 13 checks. --selftest proves they can fail
+- `engine_ab.py` — two builds, same seeds, field for field — did the engine move?
+- `intro_probe.py` — 6 checks on the fight card, incl. [6] the 536px panel fit
+- `tip_audit.py` — every status tip against its own data fields
+- `twin_identity.py` — pixel identity of the _conjure callers
+- `scouter_check.py` — which side _scOuter's normal is on. Currently RED, deliberately
+- `wallglow_probe.py` — glow fidelity + blurred surface. --sweep picks the downscale
+- `cinema_check.py` — 4 checks on the director
+- `cinema_edge_probe.py` — wall-cut clipping
+- `silhouette_probe.py` — outline IoU within and across types. --footprint for true ink
+- `mask_audit.py`
+- `bake_probe.py` — per-cell response to world light
+- `gs_factor_probe.py` — d* against a fixed reference field — uncoupled
+- `merge_frame_check.py` — whole-frame diff of two builds
+- `tune.py` — the closed-loop balance tuner
+- `ab_check.py`  *(not present)*
+- `behaviour_check.py`  *(not present)*
+- `gravity_check.py`  *(not present)*
+- `resize_check.py`  *(not present)*
+- `bake_check.py`  *(not present)*
+- `massref_probe.py`
+- `school_probe.py`
+- `palette_probe.py`
+- `glow_probe.py`  *(not present)*
+- `clank_probe.py`  *(not present)*
+- `bite_probe.py`  *(not present)*
+- `factor_probe.py`  *(not present)*
+- `factor_test.py`  *(not present)*
+- `shot_sweep.py`  *(not present)*
+- `pick.py`
+- `probe.py`  *(not present)*
+
+## RENDER — things for eyes
+
+- `render.py` — full match to mp4
+- `cinema_clip.py` — director on/off, same fight, one mp4
+- `intro_clip.py` — the fight card as mp4
+- `ult_filmstrip.py` — ult set-pieces over time. --vs renders the school-mate underneath
+- `newrelic_sheet.py` — fight card + mid-fight stills per relic
+- `fighter_review.py` — the clickable review page that exports notes as JSON
+- `wording_sheet.py` — every card string, clickable
+- `silhouette_probe.py --sheet` — the outlines themselves
+- `audit_sheet.py`
+- `sheet.py`
+- `bsheet.py`  *(not present)*
+- `tsheet.py`  *(not present)*
+- `scpage.py` — SHARED — the Playwright harness every tool imports
+
+## CINEMA — the director's own instruments
+
+- `cinema_probe.py` · `cinema_audit_probe.py` · `cinema_rate_probe.py` ·
+  `cinema_smooth_probe.py` · `cinema_overlay_probe.py` — the probes the director
+  was built against, one per property (framing, cut rate, smoothing, overlay).
+- `cinema_pick.py` — which beats a fight offers
+- `cinema_vo.py` — voiceover wav for a clip
+
+## SMALL / SINGLE-QUESTION
+
+- `wallglow_sheet.py` — the corner, three ways, with 12x error maps
+- `card_sheet.py` — fight cards (older; `newrelic_sheet.py` supersedes it)
+- `facet_side.py` · `facet_rot2.py` — which way a facet faces
+- `count_gt.py` — ground-truth counting for a mask
+
+**One caveat on `card_sheet.py`:** it is hardcoded to
+`sundered-crown-vigil.html`, a build that no longer exists here, so it fails on
+open. Left in place rather than deleted — it is the ancestor of
+`newrelic_sheet.py` and the older card layout is in it.
+
+- `liquid_build.py` — THE VESSEL. Glass spheres, liquid health, per-school slosh.
+  Reads its shippable JS from `04-experiments/_liquid_core.js`, which
+  `liquid_lab.py` also reads, so the lab and the game cannot drift
+- `liquid_lab.py` — the standalone look-lab: contact sheet, motion strip, fake hall
+- `liquid_probe.py` — 14 checks on the vessel. `--selftest` couples the liquid
+  to the sim by 1e-6 and requires check [1] to catch it
+- `liquid_shot.py` — the vessel in the real game: `--roster`, `--death`, `--at`

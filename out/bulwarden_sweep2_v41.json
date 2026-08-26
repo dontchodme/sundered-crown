@@ -1,0 +1,744 @@
+{
+ "A": [
+  {
+   "cell": {
+    "reflect": 0.25,
+    "feed": -0.0
+   },
+   "win": 0.55,
+   "n": 40,
+   "dur": 1560.9250000000006,
+   "casts": 70,
+   "blocks": 94,
+   "eaten": 1990.4,
+   "back": 508,
+   "breaks": 25,
+   "hp0": 3272,
+   "dealt": 9878,
+   "taken": 10669.6,
+   "timeouts": 0,
+   "dmg": 26.046875
+  },
+  {
+   "cell": {
+    "reflect": 0.25,
+    "feed": 2
+   },
+   "win": 0.55,
+   "n": 40,
+   "dur": 1560.9250000000006,
+   "casts": 70,
+   "blocks": 94,
+   "eaten": 1992,
+   "back": 509,
+   "breaks": 25,
+   "hp0": 3272,
+   "dealt": 9878,
+   "taken": 10668,
+   "timeouts": 0,
+   "dmg": 26.046875
+  },
+  {
+   "cell": {
+    "reflect": 0.25,
+    "feed": 4
+   },
+   "win": 0.55,
+   "n": 40,
+   "dur": 1560.9250000000006,
+   "casts": 70,
+   "blocks": 94,
+   "eaten": 1992,
+   "back": 509,
+   "breaks": 25,
+   "hp0": 3272,
+   "dealt": 9878,
+   "taken": 10668,
+   "timeouts": 0,
+   "dmg": 26.046875
+  },
+  {
+   "cell": {
+    "reflect": 0.4,
+    "feed": -0.0
+   },
+   "win": 0.575,
+   "n": 40,
+   "dur": 1560.8500000000006,
+   "casts": 70,
+   "blocks": 93,
+   "eaten": 1969.4,
+   "back": 787,
+   "breaks": 26,
+   "hp0": 3233,
+   "dealt": 9843,
+   "taken": 10839.6,
+   "timeouts": 0,
+   "dmg": 26.046875
+  },
+  {
+   "cell": {
+    "reflect": 0.4,
+    "feed": 2
+   },
+   "win": 0.575,
+   "n": 40,
+   "dur": 1560.8500000000006,
+   "casts": 70,
+   "blocks": 93,
+   "eaten": 1971,
+   "back": 788,
+   "breaks": 26,
+   "hp0": 3233,
+   "dealt": 9843,
+   "taken": 10838,
+   "timeouts": 0,
+   "dmg": 26.046875
+  },
+  {
+   "cell": {
+    "reflect": 0.4,
+    "feed": 4
+   },
+   "win": 0.575,
+   "n": 40,
+   "dur": 1560.8500000000006,
+   "casts": 70,
+   "blocks": 93,
+   "eaten": 1971,
+   "back": 788,
+   "breaks": 26,
+   "hp0": 3233,
+   "dealt": 9843,
+   "taken": 10838,
+   "timeouts": 0,
+   "dmg": 26.046875
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0
+   },
+   "win": 0.625,
+   "n": 40,
+   "dur": 1557.891666666667,
+   "casts": 69,
+   "blocks": 92,
+   "eaten": 1935.4,
+   "back": 1162,
+   "breaks": 25,
+   "hp0": 3199,
+   "dealt": 9832,
+   "taken": 10622.6,
+   "timeouts": 0,
+   "dmg": 26.046875
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2
+   },
+   "win": 0.625,
+   "n": 40,
+   "dur": 1557.891666666667,
+   "casts": 69,
+   "blocks": 92,
+   "eaten": 1937,
+   "back": 1163,
+   "breaks": 25,
+   "hp0": 3199,
+   "dealt": 9832,
+   "taken": 10621,
+   "timeouts": 0,
+   "dmg": 26.046875
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4
+   },
+   "win": 0.625,
+   "n": 40,
+   "dur": 1557.891666666667,
+   "casts": 69,
+   "blocks": 92,
+   "eaten": 1937,
+   "back": 1163,
+   "breaks": 25,
+   "hp0": 3199,
+   "dealt": 9832,
+   "taken": 10621,
+   "timeouts": 0,
+   "dmg": 26.046875
+  }
+ ],
+ "B": [
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 20,
+    "dur": 5
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1551.2749999999999,
+   "casts": 68,
+   "blocks": 67,
+   "eaten": 1391,
+   "back": 836,
+   "breaks": 34,
+   "hp0": 2195,
+   "dealt": 9071,
+   "taken": 11921,
+   "timeouts": 0,
+   "dmg": 24.328125
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 20,
+    "dur": 7
+   },
+   "win": 0.55,
+   "n": 40,
+   "dur": 1460.6166666666666,
+   "casts": 62,
+   "blocks": 77,
+   "eaten": 1290,
+   "back": 773,
+   "breaks": 31,
+   "hp0": 1949,
+   "dealt": 9372,
+   "taken": 10928,
+   "timeouts": 0,
+   "dmg": 29.140625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 20,
+    "dur": 9
+   },
+   "win": 0.55,
+   "n": 40,
+   "dur": 1521,
+   "casts": 66,
+   "blocks": 76,
+   "eaten": 1366,
+   "back": 818,
+   "breaks": 40,
+   "hp0": 1893,
+   "dealt": 9649,
+   "taken": 11354,
+   "timeouts": 0,
+   "dmg": 28.109375
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 40,
+    "dur": 5
+   },
+   "win": 0.575,
+   "n": 40,
+   "dur": 1536.0166666666664,
+   "casts": 67,
+   "blocks": 91,
+   "eaten": 2026.8,
+   "back": 1217,
+   "breaks": 19,
+   "hp0": 3366,
+   "dealt": 8804,
+   "taken": 11601.2,
+   "timeouts": 0,
+   "dmg": 23.296875
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 40,
+    "dur": 7
+   },
+   "win": 0.45,
+   "n": 40,
+   "dur": 1513.166666666666,
+   "casts": 66,
+   "blocks": 119,
+   "eaten": 2547.8,
+   "back": 1527,
+   "breaks": 30,
+   "hp0": 3276,
+   "dealt": 8024,
+   "taken": 11606.2,
+   "timeouts": 0,
+   "dmg": 23.640625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 40,
+    "dur": 9
+   },
+   "win": 0.5,
+   "n": 40,
+   "dur": 1532.2666666666662,
+   "casts": 66,
+   "blocks": 135,
+   "eaten": 2871.8,
+   "back": 1722,
+   "breaks": 32,
+   "hp0": 3256,
+   "dealt": 8309,
+   "taken": 11234.2,
+   "timeouts": 0,
+   "dmg": 23.640625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 65,
+    "dur": 5
+   },
+   "win": 0.5,
+   "n": 40,
+   "dur": 1596.75,
+   "casts": 71,
+   "blocks": 109,
+   "eaten": 2598.2,
+   "back": 1561,
+   "breaks": 10,
+   "hp0": 5497,
+   "dealt": 8828,
+   "taken": 11930.8,
+   "timeouts": 0,
+   "dmg": 20.890625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 65,
+    "dur": 7
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1568.1083333333333,
+   "casts": 70,
+   "blocks": 127,
+   "eaten": 3172,
+   "back": 1907,
+   "breaks": 23,
+   "hp0": 5225,
+   "dealt": 8722,
+   "taken": 11361,
+   "timeouts": 0,
+   "dmg": 25.359375
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 2,
+    "floor": 65,
+    "dur": 9
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1611.2833333333328,
+   "casts": 70,
+   "blocks": 163,
+   "eaten": 3795.7999999999997,
+   "back": 2275,
+   "breaks": 21,
+   "hp0": 5223,
+   "dealt": 7850,
+   "taken": 10803.199999999999,
+   "timeouts": 0,
+   "dmg": 19.859375
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 20,
+    "dur": 5
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1551.2749999999999,
+   "casts": 68,
+   "blocks": 67,
+   "eaten": 1391,
+   "back": 836,
+   "breaks": 34,
+   "hp0": 2195,
+   "dealt": 9071,
+   "taken": 11921,
+   "timeouts": 0,
+   "dmg": 24.328125
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 20,
+    "dur": 7
+   },
+   "win": 0.55,
+   "n": 40,
+   "dur": 1460.6166666666666,
+   "casts": 62,
+   "blocks": 77,
+   "eaten": 1290,
+   "back": 773,
+   "breaks": 31,
+   "hp0": 1949,
+   "dealt": 9372,
+   "taken": 10928,
+   "timeouts": 0,
+   "dmg": 29.140625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 20,
+    "dur": 9
+   },
+   "win": 0.55,
+   "n": 40,
+   "dur": 1521,
+   "casts": 66,
+   "blocks": 76,
+   "eaten": 1366,
+   "back": 818,
+   "breaks": 40,
+   "hp0": 1893,
+   "dealt": 9649,
+   "taken": 11354,
+   "timeouts": 0,
+   "dmg": 28.109375
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 40,
+    "dur": 5
+   },
+   "win": 0.575,
+   "n": 40,
+   "dur": 1536.0166666666664,
+   "casts": 67,
+   "blocks": 91,
+   "eaten": 2053,
+   "back": 1233,
+   "breaks": 19,
+   "hp0": 3366,
+   "dealt": 8804,
+   "taken": 11575,
+   "timeouts": 0,
+   "dmg": 23.296875
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 40,
+    "dur": 7
+   },
+   "win": 0.45,
+   "n": 40,
+   "dur": 1513.166666666666,
+   "casts": 66,
+   "blocks": 119,
+   "eaten": 2574,
+   "back": 1543,
+   "breaks": 30,
+   "hp0": 3276,
+   "dealt": 8024,
+   "taken": 11580,
+   "timeouts": 0,
+   "dmg": 23.640625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 40,
+    "dur": 9
+   },
+   "win": 0.5,
+   "n": 40,
+   "dur": 1532.2666666666662,
+   "casts": 66,
+   "blocks": 135,
+   "eaten": 2898,
+   "back": 1738,
+   "breaks": 32,
+   "hp0": 3256,
+   "dealt": 8309,
+   "taken": 11208,
+   "timeouts": 0,
+   "dmg": 23.640625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 65,
+    "dur": 5
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1597.175,
+   "casts": 71,
+   "blocks": 109,
+   "eaten": 2611,
+   "back": 1569,
+   "breaks": 9,
+   "hp0": 5497,
+   "dealt": 8900,
+   "taken": 11784,
+   "timeouts": 0,
+   "dmg": 20.890625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 65,
+    "dur": 7
+   },
+   "win": 0.475,
+   "n": 40,
+   "dur": 1602.8499999999997,
+   "casts": 69,
+   "blocks": 143,
+   "eaten": 3546,
+   "back": 2131,
+   "breaks": 15,
+   "hp0": 5021,
+   "dealt": 8052,
+   "taken": 11302,
+   "timeouts": 0,
+   "dmg": 20.203125
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": 4,
+    "floor": 65,
+    "dur": 9
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1617.4749999999997,
+   "casts": 70,
+   "blocks": 165,
+   "eaten": 3883,
+   "back": 2328,
+   "breaks": 19,
+   "hp0": 5209,
+   "dealt": 7804,
+   "taken": 10691,
+   "timeouts": 0,
+   "dmg": 19.859375
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 20,
+    "dur": 5
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1551.2749999999999,
+   "casts": 68,
+   "blocks": 67,
+   "eaten": 1391,
+   "back": 836,
+   "breaks": 34,
+   "hp0": 2195,
+   "dealt": 9071,
+   "taken": 11921,
+   "timeouts": 0,
+   "dmg": 24.328125
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 20,
+    "dur": 7
+   },
+   "win": 0.4,
+   "n": 40,
+   "dur": 1533.7833333333335,
+   "casts": 65,
+   "blocks": 88,
+   "eaten": 1708,
+   "back": 1025,
+   "breaks": 44,
+   "hp0": 2010,
+   "dealt": 8417,
+   "taken": 11778,
+   "timeouts": 0,
+   "dmg": 23.984375
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 20,
+    "dur": 9
+   },
+   "win": 0.35,
+   "n": 40,
+   "dur": 1552.541666666667,
+   "casts": 66,
+   "blocks": 100,
+   "eaten": 1872,
+   "back": 1123,
+   "breaks": 49,
+   "hp0": 2045,
+   "dealt": 8371,
+   "taken": 11945,
+   "timeouts": 0,
+   "dmg": 23.984375
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 40,
+    "dur": 5
+   },
+   "win": 0.55,
+   "n": 40,
+   "dur": 1540.35,
+   "casts": 67,
+   "blocks": 91,
+   "eaten": 2004.65,
+   "back": 1204,
+   "breaks": 20,
+   "hp0": 3366,
+   "dealt": 8800,
+   "taken": 11592.35,
+   "timeouts": 0,
+   "dmg": 23.296875
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 40,
+    "dur": 7
+   },
+   "win": 0.475,
+   "n": 40,
+   "dur": 1519.5833333333328,
+   "casts": 66,
+   "blocks": 118,
+   "eaten": 2488.25,
+   "back": 1493,
+   "breaks": 31,
+   "hp0": 3276,
+   "dealt": 8156,
+   "taken": 11636.75,
+   "timeouts": 0,
+   "dmg": 23.640625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 40,
+    "dur": 9
+   },
+   "win": 0.5,
+   "n": 40,
+   "dur": 1537.1749999999997,
+   "casts": 66,
+   "blocks": 132,
+   "eaten": 2752.2,
+   "back": 1652,
+   "breaks": 33,
+   "hp0": 3256,
+   "dealt": 8304,
+   "taken": 11298.8,
+   "timeouts": 0,
+   "dmg": 23.640625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 65,
+    "dur": 5
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1596.6333333333334,
+   "casts": 71,
+   "blocks": 108,
+   "eaten": 2580.6,
+   "back": 1550,
+   "breaks": 10,
+   "hp0": 5497,
+   "dealt": 8903,
+   "taken": 11806.4,
+   "timeouts": 0,
+   "dmg": 20.890625
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 65,
+    "dur": 7
+   },
+   "win": 0.525,
+   "n": 40,
+   "dur": 1569.6833333333334,
+   "casts": 70,
+   "blocks": 127,
+   "eaten": 3136.9,
+   "back": 1886,
+   "breaks": 24,
+   "hp0": 5225,
+   "dealt": 8686,
+   "taken": 11446.1,
+   "timeouts": 0,
+   "dmg": 25.359375
+  },
+  {
+   "cell": {
+    "reflect": 0.6,
+    "feed": -0.0,
+    "floor": 65,
+    "dur": 9
+   },
+   "win": 0.5,
+   "n": 40,
+   "dur": 1607.8416666666662,
+   "casts": 69,
+   "blocks": 162,
+   "eaten": 3743.15,
+   "back": 2243,
+   "breaks": 22,
+   "hp0": 5144,
+   "dealt": 7784,
+   "taken": 10865.85,
+   "timeouts": 0,
+   "dmg": 19.859375
+  }
+ ]
+}

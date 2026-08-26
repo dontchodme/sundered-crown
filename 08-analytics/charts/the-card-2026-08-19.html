@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The card is the cliff</title>
+<style>
+  .viz-root{
+    color-scheme: light;
+    --surface-1:#fcfcfb; --surface-2:#f4f3f0;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#7a7873;
+    --grid:#e4e3df;
+    --series-cold:#2a78d6; --series-base:#eb6834;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--surface-1); color:var(--text-primary);
+    padding:28px 26px 34px; max-width:860px; margin:0 auto;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:where(:not([data-theme="light"])) .viz-root{
+      color-scheme: dark;
+      --surface-1:#1a1a19; --surface-2:#232322;
+      --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#96958c;
+      --grid:#333331;
+      --series-cold:#3987e5; --series-base:#d95926;
+    }
+  }
+  :root[data-theme="dark"] .viz-root{
+    color-scheme: dark;
+    --surface-1:#1a1a19; --surface-2:#232322;
+    --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#96958c;
+    --grid:#333331;
+    --series-cold:#3987e5; --series-base:#d95926;
+  }
+  html,body{margin:0;background:#fcfcfb;}
+  @media (prefers-color-scheme: dark){ html,body{background:#1a1a19;} }
+  h1{font-size:21px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em;}
+  .sub{font-size:14px;color:var(--text-secondary);margin:0 0 16px;line-height:1.55;max-width:74ch;}
+  .legend{display:flex;gap:22px;align-items:center;margin:0 0 2px;font-size:13px;color:var(--text-secondary);flex-wrap:wrap;}
+  .key{display:flex;gap:7px;align-items:center;}
+  .lk{width:16px;height:2px;display:inline-block;border-radius:1px;}
+  .bk{width:15px;height:10px;display:inline-block;border-radius:2px;opacity:.20;}
+  svg{display:block;width:100%;height:auto;overflow:visible;}
+  .grid-line{stroke:var(--grid);stroke-width:1;}
+  .axis-text{fill:var(--text-muted);font-size:11px;}
+  .lbl{fill:var(--text-secondary);font-size:11.5px;font-weight:600;}
+  .lbl-sm{fill:var(--text-muted);font-size:10.5px;}
+  table{border-collapse:collapse;font-size:12.5px;margin-top:18px;width:100%;}
+  th,td{text-align:right;padding:5px 8px;border-bottom:1px solid var(--grid);}
+  th:first-child,td:first-child{text-align:left;}
+  th{color:var(--text-muted);font-weight:600;}
+  .foot{font-size:12px;color:var(--text-muted);margin-top:16px;line-height:1.6;max-width:80ch;}
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <h1>The card is the cliff, and it travels with the card</h1>
+  <p class="sub">Departures per second, per surviving viewer. The two groups put the same 4-second
+  fight card in <b>different places</b> — card-first videos at 0:00–0:04, cold opens at roughly
+  0:02–0:06 — which makes this a natural experiment. If the card is what costs the audience, the
+  spike has to move with it. It does: the peak sits at <b>second 2</b> when the card leads, and moves to
+  <b>second 4</b> when the card is raised ~1.9s in. The cleanest single comparison is
+  <b>second 5</b> — the card-first video is playing the fight there, the cold open is showing the card,
+  and the cold open loses viewers <b>1.78×</b> as fast.</p>
+
+  <div class="legend">
+    <span class="key"><span class="lk" style="background:var(--series-cold)"></span> Cold open (4 videos)</span>
+    <span class="key"><span class="bk" style="background:var(--series-cold)"></span> its card window</span>
+    <span class="key"><span class="lk" style="background:var(--series-base)"></span> Card first (4 videos)</span>
+    <span class="key"><span class="bk" style="background:var(--series-base)"></span> its card window</span>
+  </div>
+
+  <svg id="sv" viewBox="0 0 800 330" role="img" aria-label="Hazard rate per second, cold open versus card first"></svg>
+
+  <div id="tbl"></div>
+
+  <p class="foot">While the card is up, <code>step()</code> returns early — the simulation is frozen, ~58% of the
+  frame is card, and the rest sits behind an 80% scrim. It is a four-second dead stop, not a slow passage.
+  The cold open did not remove that cost; it moved it to a moment when a more committed cohort absorbs it.
+  Card-first videos lose <b>71–75%</b> of the audience present when the card appears. Cold opens lose <b>55–63%</b>.</p>
+</div>
+
+<script>
+const BASE = [0.222,0.382,0.303,0.186,0.120,0.123,0.036,0.076,0.067,0.071];
+const COLD = [0.172,0.190,0.183,0.257,0.214,0.125,0.055,0.045,0.059,0.032];
+const M={l:52,r:120,t:16,b:36}, W=800,H=330, PW=W-M.l-M.r, PH=H-M.t-M.b;
+const N=10, YMAX=0.42;
+const sx = t => M.l + (t/N)*PW;              // t in seconds, 0..10
+const sy = v => M.t + PH - (v/YMAX)*PH;
+let s="";
+// card windows first, as the quietest ink on the chart
+s += `<rect x="${sx(0)}" y="${M.t}" width="${sx(4)-sx(0)}" height="${PH}" fill="var(--series-base)" opacity="0.10"/>`;
+s += `<rect x="${sx(1.9)}" y="${M.t}" width="${sx(5.9)-sx(1.9)}" height="${PH}" fill="var(--series-cold)" opacity="0.10"/>`;
+[0,0.1,0.2,0.3,0.4].forEach(v=>{
+  s += `<line class="grid-line" x1="${M.l}" y1="${sy(v)}" x2="${M.l+PW}" y2="${sy(v)}"/>`;
+  s += `<text class="axis-text" x="${M.l-9}" y="${sy(v)+4}" text-anchor="end">${v.toFixed(1)}</text>`;
+});
+for(let t=1;t<=N;t++)
+  s += `<text class="axis-text" x="${sx(t-0.5)}" y="${M.t+PH+20}" text-anchor="middle">${t}s</text>`;
+const line = (arr,col) => {
+  const pts = arr.map((v,i)=>`${sx(i+0.5).toFixed(1)},${sy(v).toFixed(1)}`).join(" ");
+  return `<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`
+       + arr.map((v,i)=>`<circle cx="${sx(i+0.5).toFixed(1)}" cy="${sy(v).toFixed(1)}" r="4" fill="${col}" stroke="var(--surface-1)" stroke-width="2"/>`).join("");
+};
+s += line(BASE,"var(--series-base)");
+s += line(COLD,"var(--series-cold)");
+s += `<text class="lbl" x="${sx(2.5)}" y="${sy(0.382)-11}" text-anchor="middle" >0.38</text>`;
+s += `<text class="lbl" x="${sx(4.5)+6}" y="${sy(0.257)-9}">0.26</text>`;
+s += `<line class="grid-line" x1="${sx(4.5)}" y1="${sy(0.214)}" x2="${sx(4.5)}" y2="${sy(0.120)}" stroke="var(--text-muted)" stroke-dasharray="0"/>`;
+s += `<text class="lbl" x="${sx(4.5)+7}" y="${sy(0.167)+4}">1.78x</text>`;
+s += `<text class="lbl-sm" x="${M.l+PW+10}" y="${sy(BASE[9])+4}">card first</text>`;
+s += `<text class="lbl-sm" x="${M.l+PW+10}" y="${sy(COLD[9])+4}">cold open</text>`;
+s += `<text class="lbl-sm" x="${M.l+8}" y="${M.t+14}">card-first: card up</text>`;
+s += `<text class="lbl-sm" x="${sx(4.1)}" y="${M.t+30}">cold open: card up</text>`;
+s += `<text class="axis-text" x="${M.l-40}" y="${M.t-4}">departures/s</text>`;
+document.getElementById("sv").innerHTML = s;
+
+const rows = BASE.map((b,i)=>`<tr><td>second ${i+1}</td><td>${COLD[i].toFixed(3)}</td><td>${b.toFixed(3)}</td>
+  <td>${(COLD[i]-b>=0?"+":"")+(COLD[i]-b).toFixed(3)}</td><td>${(COLD[i]/b).toFixed(2)}x</td>
+  <td>${["card first","card first","BOTH","BOTH","cold open","cold open","neither","neither","neither","neither"][i]}</td></tr>`).join("");
+document.getElementById("tbl").innerHTML =
+ `<table><thead><tr><th>Video second</th><th>Cold open</th><th>Card first</th><th>Difference</th><th>Ratio</th><th>Whose card is up</th></tr></thead>
+  <tbody>${rows}</tbody></table>`;
+</script>
+</body>
+</html>
