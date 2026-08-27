@@ -145,6 +145,10 @@ SHEET_JS = r"""
       post.setTrails(null);
     }
     else if (key === 'off') { post.setBloom(null); post.setTrails(null); }
+    else if (key === 'chosen') {
+      post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
+      post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+    }
     else if (cfg.effect === 'trails') {
       post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
       post.setTrails(SWBPost.TRAILS[key]);
@@ -211,7 +215,7 @@ SHEET_JS = r"""
                  ? (cfg.effect === 'trails'
                     ? 'TRAILS OFF  (the control -- bloom still on)'
                     : 'OFF  (the control)')
-                 : key.toUpperCase(),
+                 : (key === 'chosen' ? 'AS CHOSEN' : key.toUpperCase()),
                  x, y + TH + 18);
       s.fillStyle = '#8A8296';
       s.font = '400 12px monospace';
@@ -219,6 +223,12 @@ SHEET_JS = r"""
       if (key === 'off') {
         s.fillText('t=' + m.t.toFixed(2) + 's' + (st.cine && st.cine.cut ? '  CUT' : ''),
                    x, y + TH + 34);
+      } else if (key === 'chosen') {
+        s.fillText('bloom ' + SWBPost.SPREAD.DEFAULT + ' + trails '
+                   + SWBPost.TRAILS.DEFAULT + '   ' + changed + '% px  +' + meanAdd,
+                   x, y + TH + 34);
+        report.push({ t: +m.t.toFixed(2), variant: 'chosen', pctChanged: changed,
+                      meanAdd: meanAdd, cut: !!(st.cine && st.cine.cut) });
       } else if (cfg.effect === 'trails') {
         const o = SWBPost.TRAILS[key];
         s.fillText(o.seconds + 's tail   ' + changed + '% px  +' + meanAdd,
@@ -270,7 +280,10 @@ def main() -> int:
     ap.add_argument("--apart", type=float, default=2.0,
                     help="minimum seconds between chosen moments")
     ap.add_argument("--tile", type=int, default=380)
-    ap.add_argument("--effect", choices=("bloom", "trails"), default="bloom",
+    ap.add_argument("--wide", type=int, default=620,
+                    help="tile width for the two-column `chosen` sheet")
+    ap.add_argument("--effect", choices=("bloom", "trails", "chosen"),
+                    default="bloom",
                     help="which spread. `trails` holds bloom at the chosen "
                          "default and varies only the tail length.")
     ap.add_argument("--warm", type=int, default=None,
@@ -317,7 +330,13 @@ def main() -> int:
             print(f"    t={mm['t']:>6.2f}s  mass {mm['mass']:>9.1f}"
                   f"{'  CUT' if mm['cut'] else ''}")
 
-        if A.effect == "trails":
+        if A.effect == "chosen":
+            cols = ["off", "chosen"]
+            warm = A.warm if A.warm is not None else 20
+            title = f"AS CHOSEN — {A.a} v {A.b}, seed {A.seed}"
+            sub = ("does the register hold on art that is not Paradox's "
+                   "lightning? bloom + trails at the chosen settings.")
+        elif A.effect == "trails":
             cols = ["off", "short", "mid", "long"]
             warm = A.warm if A.warm is not None else 20
             title = f"TRAIL SPREAD — {A.a} v {A.b}, seed {A.seed}"
@@ -333,7 +352,9 @@ def main() -> int:
         sheet = page.evaluate(SHEET_JS, {
             "a": A.a, "b": A.b, "seed": A.seed,
             "moments": [mm["t"] for mm in moments],
-            "cols": cols, "tile": A.tile, "effect": A.effect, "warm": warm,
+            "cols": cols,
+            "tile": A.wide if A.effect == "chosen" else A.tile,
+            "effect": A.effect, "warm": warm,
             "title": title, "sub": sub,
             "runtime": f"build {path.name}",
         })
