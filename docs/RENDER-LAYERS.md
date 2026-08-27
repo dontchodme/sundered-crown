@@ -142,7 +142,28 @@ makes a composite-first post chain cheap here.
 the first four for free by geometry, and then bloom bleeds light into a black
 letterbox and smears the damage numbers.
 
-### The one honest note on `CINE.wash`
+### `CINE.wash` and the vignette — MEASURED, and smaller than it was billed
+
+`tools/post_grade_probe.py`, four conditions on the same cut frames, mean luma
+inside the arena rect:
+
+```
+frame  tier   wash   A base    B vig  C stack  D yield      A-C     A-D
+  150    T2  0.300   42.940   43.078   41.419   42.263    1.521   0.677
+  704    T3  0.420   22.397   27.012   21.591   22.264    0.806   0.133
+ 1686    T2  0.300   45.945   46.854   44.733   45.413    1.212   0.532
+```
+
+The un-yielded vignette costs **1.18 of 37.09 — 3.2%**. The yield recovers
+62% of that and is kept, because it is one multiply.
+
+**But B is BRIGHTER than A at every frame.** The scrim darkens far more than
+the vignette does: 4.6 luma against 0.9 at frame 704. This was never two
+darkenings fighting for the same job — it is a garnish on top of something
+much stronger, and the note below (written before the measurement) overstated
+it. Left standing as a record of the difference between a reason and a story.
+
+### The original note on `CINE.wash`, written before it was measured
 
 `wash` is a darkening radial scrim centred on the point of contact, and its
 comment records why: a full-frame scrim at 0.75 was invisible and a full-frame
@@ -219,7 +240,28 @@ pattern), not a promise — brief §7 gate 3.
 bloom    LOW    thr 0.80  int 0.35      SWBPost.SPREAD.DEFAULT
 trails   LONG   0.24s tail              SWBPost.TRAILS.DEFAULT
 cut ramp GENTLE cutGain 0.6             SWBPost.CUTRAMP.DEFAULT
+grade    MID    vig 0.38 grain 0.022   SWBPost.GRADE.DEFAULT
 ```
+
+**What it costs, measured on the real GPU** (`tools/post_cost.py`, Intel UHD,
+D3D11 — not SwiftShader, which is what Playwright would have measured):
+
+```
+                    453x805 (what the app draws)   1080x1920 (capture)
+  2D draw only          7.02                          13.08
+  + chain, no effects   8.52  (+1.50)                 15.97  (+2.89)
+  + ALL (as chosen)     8.52  (+1.49)                 23.07  (+9.99)
+
+  live:    51% of the 60fps budget, 102% of 120
+  capture: offline, so 138% of 60fps means the render takes about 28 s
+           longer over ~2,800 frames — not dropped frames
+```
+
+**At live size the whole chain is lost inside the plumbing floor.** The upload,
+two copies and the readback are +1.50 ms; adding bloom, trails and grade on
+top brings it to +1.49. The three effects together cost nothing measurable
+there. At capture size they cost real time, and it does not matter, because
+that path is not realtime.
 
 **Bloom was MID for about an hour.** MID was chosen when Paradox was the only
 evidence on the sheet. Added to it, Ironhail v Dawnbringer — relic bodies

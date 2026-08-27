@@ -129,8 +129,10 @@ function postFrame() {
   if ((++POST.frames & 31) === 0) {
     const sel = document.getElementById('bloom');
     const tr = document.getElementById('trails');
+    const gr2 = document.getElementById('grade');
     postStatus('ON · bloom ' + (sel ? sel.value : '?')
-               + ' · trails ' + (tr ? tr.value : '?') + ' · '
+               + ' · trails ' + (tr ? tr.value : '?')
+               + ' · grade ' + (gr2 ? gr2.value : '?') + ' · '
                + POST.post.passes.length + ' passes · '
                + POST.ms.toFixed(2) + ' ms/frame CPU-side');
   }
@@ -294,6 +296,12 @@ function postReset() {
   POST.lastT = 0;
 }
 
+function postGrade(key) {
+  if (!POST.post) return;
+  POST.post.setGrade(key === 'off' ? null : (window.SWBPost.GRADE[key] || null));
+  POST.ms = 0;
+}
+
 function postWire() {
   const b = document.getElementById('btnPost');
   const t = document.getElementById('btnPostTest');
@@ -307,6 +315,13 @@ function postWire() {
     if ([...sel.options].some((o) => o.value === def)) sel.value = def;
     sel.onchange = () => postBloom(sel.value);
     postBloom(sel.value);
+  }
+  const gr = document.getElementById('grade');
+  if (gr) {
+    const gdef = (window.SWBPost && window.SWBPost.GRADE.DEFAULT) || 'off';
+    if ([...gr.options].some((o) => o.value === gdef)) gr.value = gdef;
+    gr.onchange = () => postGrade(gr.value);
+    postGrade(gr.value);
   }
   const tr = document.getElementById('trails');
   if (tr) {

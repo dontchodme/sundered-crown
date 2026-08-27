@@ -104,12 +104,16 @@ const POST_GATE = `(async () => {
      nothing above the trail's threshold. A green that measured nothing, which
      is the same class of fault as the blank-frame case above. The assertion
      below is the one that would have caught it. */
+  const selG = document.getElementById('grade');
+  const wasG = selG ? selG.value : null;
   POST.post.setBloom(null);
   POST.post.setTrails(null);
+  POST.post.setGrade(null);
   const st = postState();
   const r = POST.post.selfTest(src, st);
   if (sel && was !== null) { sel.value = was; postBloom(was); }
   if (selT && wasT !== null) { selT.value = wasT; postTrails(wasT); }
+  if (selG && wasG !== null) { selG.value = wasG; postGrade(wasG); }
   /* AFTER the render, not before: the overlay's backing store is sized by
      resize() inside render(), so reading it first measures the 300x150 a
      canvas is born at and reports a mismatch that is really a stale read. */

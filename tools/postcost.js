@@ -52,20 +52,27 @@
      module is not called at all -- the honest baseline, because that is what
      ships today. */
   const CONFIGS = [
-    { name: '2D draw only', chain: false, bloom: null, trails: null },
-    { name: '+ chain, no effects', chain: true, bloom: null, trails: null },
+    { name: '2D draw only', chain: false },
+    { name: '+ chain, no effects', chain: true },
     { name: '+ bloom ' + SWBPost.SPREAD.DEFAULT, chain: true,
-      bloom: SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT], trails: null },
-    { name: '+ trails ' + SWBPost.TRAILS.DEFAULT, chain: true, bloom: null,
+      bloom: SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT] },
+    { name: '+ trails ' + SWBPost.TRAILS.DEFAULT, chain: true,
       trails: SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT] },
-    { name: '+ both (as chosen)', chain: true,
+    { name: '+ grade ' + SWBPost.GRADE.DEFAULT, chain: true,
+      grade: SWBPost.GRADE[SWBPost.GRADE.DEFAULT] },
+    /* THE WHOLE CHOSEN CHAIN. This row is the one that answers gate 3, so it
+       has to be everything that ships and not a subset -- a cost table that
+       quietly omits a pass is a cost table that lies in the safe direction. */
+    { name: '+ ALL (as chosen)', chain: true,
       bloom: SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
-      trails: SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT] },
+      trails: SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT],
+      grade: SWBPost.GRADE[SWBPost.GRADE.DEFAULT] },
   ];
 
   const measure = (c) => new Promise((res) => {
-    post.setBloom(c.bloom);
-    post.setTrails(c.trails);
+    post.setBloom(c.bloom || null);
+    post.setTrails(c.trails || null);
+    post.setGrade(c.grade || null);
     post.resetHistory();
     for (let i = 0; i < cfg.warm; i++) {
       AC.__draw(m);
@@ -96,6 +103,7 @@
     }
     post.setBloom(null);
     post.setTrails(null);
+    post.setGrade(null);
     return { renderer: renderer, size: cv.width + 'x' + cv.height,
              at: +m.t.toFixed(2), rows: rows };
   })();

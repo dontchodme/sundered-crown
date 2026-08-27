@@ -1059,6 +1059,16 @@
      can answer from a picture — asking about contrast, vignette and grain
      separately would be three sheets to settle one impression. */
   var GRADE = {
+    /* CHOSEN BY RICK, 2026-08-27, off the grade sheet. Corners sink, centre
+       holds, grain visible without being obtrusive.
+
+       The vignette's washYield is 1 here, and the reason is measured rather
+       than argued: tools/post_grade_probe.py puts the un-yielded vignette at
+       1.18 of 37.09 mean luma on a cut frame -- 3.2% -- and the yield
+       recovers 62% of that. Small either way. The scrim is much the stronger
+       of the two darkenings and the vignette is a garnish on top of it, which
+       is the opposite of the "two effects fighting" this was first framed as. */
+    DEFAULT: 'mid',
     off:    null,
     subtle: { vignette: 0.22, vignetteFrom: 0.55, washYield: 1,
               grain: 0.012, contrast: 1.02, lift: 0 },

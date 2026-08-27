@@ -135,7 +135,7 @@ def main() -> int:
     both = statistics.median(by[order[-1]]) - base
     print(f"\n  the chain with nothing on costs {chain:+.3f} ms -- that is the"
           f" upload,\n  two copies and the readback, and it is the floor.")
-    print(f"  as chosen (bloom + trails) it costs {both:+.3f} ms.")
+    print(f"  the whole chosen chain costs {both:+.3f} ms.")
     budget60, budget120 = 16.67, 8.33
     print(f"\n  a frame has {budget60:.2f} ms at 60fps and {budget120:.2f} at 120.")
     print(f"  total as chosen: {statistics.median(by[order[-1]]):.2f} ms "
