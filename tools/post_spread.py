@@ -46,250 +46,65 @@ OUTDIR = REPO / "05-reference" / "post"
 
 SCAN_JS = r"""
 (cfg) => {
+  /* THE DIRECTOR HAS TO BE RUNNING, and for four sessions of sheets it was
+     not. Stepping the sim by hand and calling AC.__draw is not what the mp4
+     does: cinema_clip.py resets CINE, plans the cuts, and then drives every
+     frame through CINE.pump and CINE.drawLerped -- the same loop the live
+     page runs. Without that there are no cuts, no zoom, no bars, no wash and
+     no time dilation, and the interpolated draw is missing too. A sheet built
+     the other way is a picture the video will never contain, which is the one
+     thing docs/ARCHITECTURE.md §1 exists to prevent.
+
+     `CINE` and `cinePlan` are reachable by bare name here: this runs in the
+     game's own realm, and a top-level const IS visible to other classic
+     scripts in the same realm. It is only across realms -- the app shell
+     reaching into the frame -- that it needs the AC export. */
   window.__frozen = true;
   AC.setResolution(cfg.sw, cfg.sh);
+  CINE.on = true; CINE.interp = true; CINE.reset(); CINE.acc = 0;
+  CINE.plan = cinePlan(cfg.a, cfg.b, cfg.seed >>> 0).cuts;
+
   const m = new AC.Match(cfg.a, cfg.b, cfg.seed >>> 0);
   m.introT = 0;
   AC.__inject(m);
-  const dt = AC.CONFIG.physics.dt;
-  const steps = Math.max(1, Math.round(cfg.every / dt));
+  AC.SFX.play = function () {};
+  AC.SFX.resume = function () {};
+
   const cv = document.getElementById('cv');
   const g = cv.getContext('2d');
   const R = AC.renderer, k = R.k;
   const x0 = Math.max(0, Math.round(R.pad * k)), y0 = Math.max(0, Math.round(R.arenaTop * k));
   const w = Math.min(cv.width - x0, Math.round(R.aw * k));
   const h = Math.min(cv.height - y0, Math.round(R.ah * k));
+
+  const FPS = 60, raw = 1 / FPS;
+  const every = Math.max(1, Math.round(cfg.every * FPS));
   const out = [];
-  let guard = 0;
-  while (!m.over && guard++ < cfg.maxSamples) {
-    for (let i = 0; i < steps; i++) m.step(dt);
-    AC.__draw(m);
+  let frame = 0, wall = 0;
+  while (!m.over && frame < cfg.maxFrames) {
+    const alpha = CINE.pump(raw, m, 1);
+    wall += raw;
+    frame++;
+    if (frame % every) continue;
+    m.shake = 0;                       // Math.random() per draw -- see SHEET_JS
+    if (alpha > 0) CINE.drawLerped(R, m, alpha); else AC.__draw(m);
     const d = g.getImageData(x0, y0, w, h).data;
     let mass = 0;
     for (let i = 0; i < d.length; i += 4) {
       const l = (0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255;
       if (l > cfg.thresh) mass += l - cfg.thresh;
     }
-    out.push({ t: +m.t.toFixed(3), mass: +mass.toFixed(2), cut: !!AC.CINE.cut,
-               over: m.over });
-    if (m.over) break;
+    out.push({ frame: frame, t: +wall.toFixed(3), simT: +m.t.toFixed(3),
+               mass: +mass.toFixed(2), cut: !!CINE.cut,
+               wash: +(CINE.wash || 0).toFixed(3),
+               tier: CINE.cut ? (CINE.cut.fatal ? 'KILL' : 'T' + CINE.cut.tier) : null });
   }
-  return { samples: out, dur: +m.t.toFixed(2), over: m.over };
+  return { samples: out, wall: +wall.toFixed(2), frames: frame,
+           cuts: CINE.plan.length, over: m.over };
 }
 """
 
-SHEET_JS = r"""
-(cfg) => {
-  window.__frozen = true;
-  AC.setResolution(1080, 1920);
-  const dt = AC.CONFIG.physics.dt;
-  const FPS = 60, STEPS_PER_FRAME = Math.round(1 / (FPS * dt));   // 2 at dt=1/120
-  const cv = document.getElementById('cv');
-
-  const ov = document.createElement('canvas');
-  ov.style.display = 'none';
-  document.body.appendChild(ov);
-  const post = SWBPost.create(ov);
-
-  /* The readout layer gets its own canvas. The renderer only ever draws to
-     #cv, so one of the two passes has to be copied off it before the other
-     overwrites it -- the readouts, because they are the cheap one and because
-     the world is then what is left on #cv if the chain is switched off. */
-  const ro = document.createElement('canvas');
-  ro.width = cv.width; ro.height = cv.height;
-  const roCtx = ro.getContext('2d');
-
-  const R = AC.renderer;
-  const state = () => ({
-    enabled: true,
-    dt: 1 / FPS,
-    rect: { x: R.pad * R.k, y: R.arenaTop * R.k, w: R.aw * R.k, h: R.ah * R.k },
-    cine: AC.CINE ? { on: !!AC.CINE.on, cut: !!AC.CINE.cut,
-                      tier: AC.CINE.cut ? AC.CINE.cut.tier : null,
-                      fatal: AC.CINE.cut ? !!AC.CINE.cut.fatal : false } : null,
-  });
-
-  const cols = cfg.cols;
-  const TW = cfg.tile, TH = Math.round(TW * 1920 / 1080);
-  const PAD = 14, HEAD = 96, ROWH = TH + 40;
-  const W = PAD + cols.length * (TW + PAD);
-  const H = HEAD + cfg.moments.length * ROWH + PAD;
-
-  const sheet = document.createElement('canvas');
-  sheet.width = W; sheet.height = H;
-  const s = sheet.getContext('2d');
-  s.fillStyle = '#0B0B10'; s.fillRect(0, 0, W, H);
-  s.fillStyle = '#E8E4F0';
-  s.font = '700 26px sans-serif';
-  s.fillText(cfg.title, PAD, 34);
-  s.fillStyle = '#8A8296';
-  s.font = '400 15px monospace';
-  s.fillText(cfg.sub, PAD, 58);
-  s.fillText(cfg.runtime, PAD, 78);
-
-  const report = [];
-  const baseline = [];
-
-  /* COLUMN-MAJOR, AND FOR A REASON. A trail is history: it needs frames run
-     into it before the one being looked at, and a match cannot be rewound. So
-     each column gets its OWN match from the same seed -- deterministic, so it
-     is the same fight -- stepped to just before each moment and then run
-     forward at 60fps with the chain live, which is what fills the buffer.
-     A single cold frame would show no trail at all and read as "trails do
-     nothing". */
-  for (let c = 0; c < cols.length; c++) {
-    const key = cols[c];
-    let m = null, curPair = -1;
-
-    /* THE CONTROL HAS TO HOLD EVERYTHING ELSE. For a trail spread the
-       question is the TAIL, so the control column keeps bloom at the chosen
-       default and turns only trails off. A control with bloom off too would
-       make every number below the sum of two effects and the sheet would be
-       answering a question nobody asked. */
-    if (key === 'off' && cfg.effect === 'trails') {
-      post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
-      post.setTrails(null);
-    }
-    else if (key === 'off') { post.setBloom(null); post.setTrails(null); }
-    else if (key === 'chosen') {
-      post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
-      post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
-    }
-    else if (cfg.effect === 'trails') {
-      post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
-      post.setTrails(SWBPost.TRAILS[key]);
-    } else {
-      post.setTrails(null);
-      post.setBloom(SWBPost.SPREAD[key]);
-    }
-
-    for (let r = 0; r < cfg.moments.length; r++) {
-      const row = cfg.moments[r];
-      const target = row.t;
-      /* A ROW CAN COME FROM A DIFFERENT FIGHT. One sheet can then ask the
-         register against two kinds of art at once, which is the only way to
-         answer it -- a setting chosen on one relic is a setting chosen on one
-         relic. A fresh match per (column, pairing), deterministic from the
-         seed, so every column sees the identical fight. */
-      if (row.pair !== curPair) {
-        const P = cfg.pairs[row.pair];
-        m = new AC.Match(P.a, P.b, P.seed >>> 0);
-        m.introT = 0;
-        AC.__inject(m);
-        curPair = row.pair;
-      }
-      const preTo = Math.max(0, target - cfg.warm / FPS);
-      while (m.t < preTo - dt * 0.5) m.step(dt);
-
-      post.resetHistory();
-      const chainOn = post.passes.length > 0;
-      let drawn = cv;
-      for (let f = 0; f < cfg.warm; f++) {
-        for (let i2 = 0; i2 < STEPS_PER_FRAME; i2++) m.step(dt);
-        if (chainOn) {
-          /* TWO PASSES, and the order matters. Readouts first, copied off;
-             then the world, which is what the chain is handed. The control
-             column takes neither and draws the whole frame at roMode 0, so
-             it stays the untouched picture it is supposed to be. */
-          R.roMode = 2; AC.__draw(m);
-          roCtx.clearRect(0, 0, ro.width, ro.height);
-          roCtx.drawImage(cv, 0, 0);
-          R.roMode = 1; AC.__draw(m);
-          const st = state();
-          st.readouts = ro;
-          post.render(cv, st);
-          drawn = ov;
-        } else {
-          R.roMode = 0; AC.__draw(m);
-          drawn = cv;
-        }
-      }
-      R.roMode = 0;
-
-      const x = PAD + c * (TW + PAD), y = HEAD + r * ROWH;
-      s.drawImage(drawn, x, y, TW, TH);
-      s.strokeStyle = key === 'off' ? '#C9A227' : '#2A2436';
-      s.lineWidth = key === 'off' ? 2 : 1;
-      s.strokeRect(x + 0.5, y + 0.5, TW - 1, TH - 1);
-
-      /* The OFF column is drawn first and kept, so every other column is
-         measured against the SAME frame of the SAME fight rather than against
-         whatever it happens to sit next to. */
-      if (key === 'off') {
-        /* Read what the control actually PRODUCED -- the raw canvas for a
-           bloom spread, the bloom-only composite for a trail one -- and
-           record which way up it is so the comparison is like for like. */
-        if (chainOn) baseline[r] = { px: post.readPixels(), gl: true };
-        else baseline[r] = { px: cv.getContext('2d')
-                               .getImageData(0, 0, cv.width, cv.height).data, gl: false };
-      }
-
-      let changed = 0, meanAdd = 0;
-      if (key !== 'off' && baseline[r]) {
-        const px = post.readPixels(), base = baseline[r].px, baseGl = baseline[r].gl;
-        const w2 = cv.width, h2 = cv.height;
-        let diff = 0, add = 0;
-        for (let yy = 0; yy < h2; yy += 3) {
-          const gy = h2 - 1 - yy;
-          for (let xx = 0; xx < w2; xx += 3) {
-            const i3 = (gy * w2 + xx) * 4;
-            const j3 = (baseGl ? (gy * w2 + xx) : (yy * w2 + xx)) * 4;
-            const dd = Math.abs(px[i3] - base[j3]) + Math.abs(px[i3+1] - base[j3+1])
-                     + Math.abs(px[i3+2] - base[j3+2]);
-            if (dd) { diff++; add += dd; }
-          }
-        }
-        const n = Math.ceil(h2 / 3) * Math.ceil(w2 / 3);
-        changed = +(100 * diff / n).toFixed(1);
-        meanAdd = +(add / n).toFixed(2);
-      }
-
-      s.fillStyle = key === 'off' ? '#C9A227' : '#E8E4F0';
-      s.font = '700 15px sans-serif';
-      s.fillText(key === 'off'
-                 ? (cfg.effect === 'trails'
-                    ? 'TRAILS OFF  (the control -- bloom still on)'
-                    : 'OFF  (the control)')
-                 : (key === 'chosen' ? 'AS CHOSEN' : key.toUpperCase()),
-                 x, y + TH + 18);
-      s.fillStyle = '#8A8296';
-      s.font = '400 12px monospace';
-      const st = state();
-      if (key === 'off') {
-        const P = cfg.pairs[row.pair];
-        s.fillText(P.a + ' v ' + P.b + '  seed ' + P.seed + '   t='
-                   + m.t.toFixed(2) + 's' + (st.cine && st.cine.cut ? '  CUT' : ''),
-                   x, y + TH + 34);
-      } else if (key === 'chosen') {
-        s.fillText('bloom ' + SWBPost.SPREAD.DEFAULT + ' + trails '
-                   + SWBPost.TRAILS.DEFAULT + '   ' + changed + '% px  +' + meanAdd,
-                   x, y + TH + 34);
-        report.push({ t: +m.t.toFixed(2), variant: 'chosen', pctChanged: changed,
-                      meanAdd: meanAdd, cut: !!(st.cine && st.cine.cut) });
-      } else if (cfg.effect === 'trails') {
-        const o = SWBPost.TRAILS[key];
-        s.fillText(o.seconds + 's tail   ' + changed + '% px  +' + meanAdd,
-                   x, y + TH + 34);
-        report.push({ t: +m.t.toFixed(2), variant: key, pctChanged: changed,
-                      meanAdd: meanAdd, cut: !!(st.cine && st.cine.cut) });
-      } else {
-        const o = SWBPost.SPREAD[key];
-        s.fillText('thr ' + o.threshold + '  int ' + o.intensity
-                   + '   ' + changed + '% px  +' + meanAdd, x, y + TH + 34);
-        report.push({ t: +m.t.toFixed(2), variant: key, pctChanged: changed,
-                      meanAdd: meanAdd, cut: !!(st.cine && st.cine.cut) });
-      }
-    }
-  }
-  post.setBloom(null); post.setTrails(null);
-  return { png: sheet.toDataURL('image/png').slice(22), w: W, h: H,
-           report: report,
-           renderer: (() => { const g2 = ov.getContext('webgl2');
-             const d = g2.getExtension('WEBGL_debug_renderer_info');
-             return d ? g2.getParameter(d.UNMASKED_RENDERER_WEBGL) : g2.getParameter(g2.RENDERER);
-           })() };
-}
-"""
+SHEET_JS = (HERE / "postspread_sheet.js").read_text(encoding="utf-8")
 
 
 def pick(samples, n, apart):
@@ -319,13 +134,18 @@ def main() -> int:
                          "art at once. Overrides --a/--b/--seed.")
     ap.add_argument("--per", type=int, default=None,
                     help="moments taken from each pairing")
+    ap.add_argument("--cuts", action="store_true",
+                    help="only consider moments where the director is IN a "
+                         "cut. Required for --effect cut: outside a cut the "
+                         "ramp is zero by design and every column is the same "
+                         "picture.")
     ap.add_argument("--moments", type=int, default=3)
     ap.add_argument("--apart", type=float, default=2.0,
                     help="minimum seconds between chosen moments")
     ap.add_argument("--tile", type=int, default=380)
     ap.add_argument("--wide", type=int, default=620,
                     help="tile width for the two-column `chosen` sheet")
-    ap.add_argument("--effect", choices=("bloom", "trails", "chosen"),
+    ap.add_argument("--effect", choices=("bloom", "trails", "chosen", "cut"),
                     default="bloom",
                     help="which spread. `trails` holds bloom at the chosen "
                          "default and varies only the tail length.")
@@ -373,18 +193,36 @@ def main() -> int:
             scan = page.evaluate(SCAN_JS, {
                 "a": P["a"], "b": P["b"], "seed": P["seed"],
                 "every": A.every, "sw": 270, "sh": 480,
-                "thresh": 0.62, "maxSamples": 1200,
+                "thresh": 0.62, "maxFrames": 6000,
             })
-            chosen = pick(scan["samples"], per, A.apart)
+            print(f"    {scan['frames']} frames, {scan['wall']}s of video, "
+                  f"{scan['cuts']} cuts planned")
+            pool = scan["samples"]
+            if A.cuts or A.effect == "cut":
+                pool = [r for r in pool if r["cut"]]
+                print(f"    {len(pool)} of {len(scan['samples'])} samples are "
+                      f"inside a cut")
+            chosen = pick(pool, per, A.apart)
             if not chosen:
                 print("! nothing in this pairing clears the threshold; a row")
                 print("  from it would be identical tiles.")
                 return 1
             for mm in chosen:
-                print(f"    t={mm[chr(116)]:>6.2f}s  mass {mm[chr(109)+chr(97)+chr(115)+chr(115)]:>9.1f}")
-                moments.append({"pair": pi, "t": mm["t"]})
+                print("    frame " + str(mm["frame"]).rjust(5)
+                      + "  " + format(mm["t"], ">6.2f") + "s  mass "
+                      + format(mm["mass"], ">9.1f")
+                      + ("  " + mm["tier"] + " CUT" if mm["tier"] else ""))
+                moments.append({"pair": pi, "t": mm["t"],
+                                "frame": mm["frame"]})
 
-        if A.effect == "chosen":
+        if A.effect == "cut":
+            cols = ["off", "gentle", "mid", "strong"]
+            warm = A.warm if A.warm is not None else 24
+            title = "CUT RAMP — " + label
+            sub = ("one variable: how much brighter the director's own cut "
+                   "makes the bloom. every column is the chosen look. "
+                   + label + ", seed " + str(pairs[0]["seed"]))
+        elif A.effect == "chosen":
             cols = ["off", "chosen"]
             warm = A.warm if A.warm is not None else 20
             title = "AS CHOSEN — " + label
@@ -426,10 +264,16 @@ def main() -> int:
     out.write_bytes(base64.b64decode(sheet["png"]))
 
     print(f"\n  {sheet['renderer']}")
-    print(f"\n  {'t':>7} {'variant':>8} {'% px changed':>13} {'mean add':>9}  cut")
+    print("")
+    print("  " + "frame".rjust(7) + " " + "variant".rjust(8) + " "
+          + "% px changed".rjust(13) + " " + "mean add".rjust(9) + "  tier")
     for r in sheet["report"]:
-        print(f"  {r['t']:>7.2f} {r['variant']:>8} {r['pctChanged']:>12.1f}% "
-              f"{r['meanAdd']:>9.2f}  {'yes' if r['cut'] else ''}")
+        print("  " + str(r["frame"]).rjust(7) + " " + r["variant"].rjust(8)
+              + " " + format(r["pctChanged"], ">12.1f") + "% "
+              + format(r["meanAdd"], ">9.2f") + "  "
+              + (r.get("tier") or "-")
+              + ("  wash " + format(r["wash"], ".3f")
+                 if r.get("wash") is not None else ""))
     print(f"\n  wrote {out}  ({sheet['w']}x{sheet['h']}, "
           f"{out.stat().st_size // 1024} KB)")
     print("\n  THE CHECK IS RICK'S EYES. The numbers say the columns differ;")

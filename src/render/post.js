@@ -428,9 +428,12 @@
    *   intensity  how much of the blurred light is added back.
    *   scatter    tent radius on the way up; reach, not brightness.
    *   levels     pyramid depth, capped by the frame size.
-   *   tier       0..1 extra intensity while the director is in a cut. Brief
-   *              §6: ramp with the cut so a fatal blow looks like one. Zero
-   *              unless the caller passes CINE through in state.
+   *   cutGain    extra intensity at a FULL KILL, as a multiple of the base:
+   *              1.0 doubles it there and adds proportionally less on a
+   *              smaller cut, because the ramp is driven by CINE.wash, which
+   *              already peaks at each tier's own amplitude. Zero outside a
+   *              cut, and zero altogether unless the caller passes CINE
+   *              through in state. Brief §6.
    */
   Post.prototype.setBloom = function (opts) {
     var i, gl = this.gl;
@@ -452,7 +455,10 @@
       intensity: opts.intensity === undefined ? 0.55 : opts.intensity,
       scatter: opts.scatter === undefined ? 1.0 : opts.scatter,
       levels: opts.levels === undefined ? 5 : opts.levels,
-      tier: opts.tier === undefined ? 0 : opts.tier
+      /* Extra intensity at a full kill, as a multiple of the base. 0 is flat
+         — the chain applied at constant strength, which wastes everything the
+         director already knows. */
+      cutGain: opts.cutGain === undefined ? 0 : opts.cutGain
     };
     var self = this;
     this.passes.push({
@@ -611,7 +617,11 @@
     }
     gl.disable(gl.BLEND);
 
-    var amount = o.intensity * (1 + o.tier * (state && state.cutK ? state.cutK : 0));
+    /* Brief §6: a fatal blow should LOOK like one. At cutGain 1.0 a kill
+       doubles the bloom and a T2 adds a bit over half of that, because cutK
+       carries the tier. Outside a cut it is exactly the chosen look. */
+    var amount = o.intensity
+               * (1 + o.cutGain * (state && state.cutK ? state.cutK : 0));
     this._draw(this._pCombine, read.tex, write, function (g, p) {
       g.activeTexture(g.TEXTURE1);
       g.bindTexture(g.TEXTURE_2D, self._mips[0].tex);
@@ -655,7 +665,22 @@
                      state.rect.w / w,
                      state.rect.h / h];
     }
-    state.cutK = (state.cine && state.cine.cut) ? 1 : 0;
+    /* HOW BIG IS THIS MOMENT, RIGHT NOW — and the director already computes
+       it, so this reads rather than re-derives.
+     *
+     * `CINE.wash` is the scrim's current strength. It rises and falls across
+     * the three movements of the beat, and it PEAKS AT THE TIER'S OWN
+     * AMPLITUDE: 0.30 for a T2, 0.42 for a T3, 0.55 for a kill. So one number
+     * carries both the envelope and the tier, it is zero whenever no cut is
+     * running, and it stays correct on its own if the director is ever
+     * retuned. A second envelope written here would be a copy that drifts.
+     *
+     * Normalised by the kill amplitude so a fatal blow is 1.0 and everything
+     * else is honestly less than that. The constant is the one thing here
+     * that would go stale if TIER_KILL moved — named, so it can be found. */
+    var CUT_WASH_MAX = 0.55;            // TIER_KILL.wash
+    var wash = (state.cine && state.cine.wash) || 0;
+    state.cutK = Math.max(0, Math.min(1, wash / CUT_WASH_MAX));
     /* Seconds since the last composited frame. Trails decay against this and
        not against a frame count, so a trail is the same length in seconds
        whatever rate the caller is running at. Defaulted, never guessed at
@@ -870,10 +895,22 @@
     long:  { seconds: 0.24, intensity: 0.55, threshold: 0.70, knee: 0.18 }
   };
 
+  /* THE CUT RAMP SPREAD. One variable: how much brighter a fatal blow gets.
+     The control is the chosen look with the ramp OFF — flat intensity — so
+     the sheet answers only "should the director drive this", and not that
+     question tangled up with "is the base right", which is already settled. */
+  var CUTRAMP = {
+    off:    0,
+    gentle: 0.6,
+    mid:    1.2,
+    strong: 2.0
+  };
+
   var API = {
     VERSION: VERSION,
     SPREAD: SPREAD,
     TRAILS: TRAILS,
+    CUTRAMP: CUTRAMP,
     create: function (canvas) { return new Post(canvas); },
     supported: function () {
       try {
