@@ -330,6 +330,10 @@
     this._pCombine = null;
     this._pTrail = null;
 
+    /* The readout layer, uploaded separately and composited last. See
+       `state.readouts` on render(). */
+    this._ro = null;
+
     this._src = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, this._src);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
@@ -629,6 +633,10 @@
    *            here rather than trying to mask by content. See
    *            docs/RENDER-LAYERS.md §1.
    *   cine     { on, cut, tier, zoom, wash, bars, flash, fx, fy } — read only.
+   *   readouts a canvas holding ONLY the floats, tags and ult-name callout on
+   *            transparency (renderer.roMode 2). Composited last and never
+   *            bloomed. Omit it and they stay in the world, which is what
+   *            ate them on Ironhail — see docs/RENDER-LAYERS.md §4.
    */
   Post.prototype.render = function (src, state) {
     if (!state || state.enabled === false) return false;
@@ -673,6 +681,38 @@
     }
 
     this._draw(this._pCopy, read.tex, null);
+
+    /* THE READOUTS GO BACK ON TOP, UNTOUCHED, AND LAST.
+     *
+     * The damage floats, the status tags and the ultimate-name callout are
+     * text. On Paradox they survived the bloom; on Ironhail and Dawnbringer,
+     * whose art is warm and broad, the same settings ate them — because the
+     * light that destroys a readout comes from the art NEXT to it, which no
+     * threshold can reach. So they are not in the source that gets bloomed at
+     * all: the engine draws them separately (renderer.roMode 2) and they are
+     * blended over the finished picture here.
+     *
+     * Straight alpha, not premultiplied: UNPACK_PREMULTIPLY_ALPHA_WEBGL is
+     * false for every upload this file makes, so SRC_ALPHA / ONE_MINUS is the
+     * matching blend. Getting that pair wrong shows up as dark fringing round
+     * every glyph, which reads as a font problem. */
+    if (state.readouts && state.readouts.width) {
+      if (!this._ro) {
+        this._ro = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, this._ro);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      }
+      gl.bindTexture(gl.TEXTURE_2D, this._ro);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE,
+                    state.readouts);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      this._draw(this._pCopyFlip, this._ro, null);
+      gl.disable(gl.BLEND);
+    }
     return true;
   };
 
@@ -744,6 +784,8 @@
     freeTarget(gl, this._trBright);
     this._tr0 = this._tr1 = this._trBright = null;
     gl.deleteTexture(this._src);
+    if (this._ro) gl.deleteTexture(this._ro);
+    this._ro = null;
     gl.deleteProgram(this._pCopy);
     gl.deleteProgram(this._pCopyFlip);
     if (this._pTrail) gl.deleteProgram(this._pTrail);

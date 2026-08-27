@@ -345,40 +345,6 @@ const ULTBAR = { tip: true };
    down there is competing for pixels the app will draw over. The top strip is
    the one part of a vertical video the platform mostly leaves alone. */
 const BAND = { pos: "top" };
-/* VERTICAL-VIDEO SAFE FRAMING. `foot` is design-space pixels reserved at the
-   BOTTOM of the 1080x1920 frame, below the arena, for the platform to draw its
-   own caption, handle and music bar over. TikTok and Shorts both occupy
-   roughly the bottom 15-20%; 340 is 17.7%.
-
-   IT SHIPS AT ZERO. 340 was an over-correction and Rick rejected it twice:
-   "the last few videos have been poorly cropped ... missing a lot of the
-   bottom of the frame", and then again after the reserve existed, "the video
-   still has the bottom of the frame cut off. why can we not stretch this to
-   the full length?"
-
-   Measured, on the same frame:
-
-     foot    hall      runs        ink rows    fills   side margin
-        0    1056x1625  176..1801    9..1847     96%    12px
-      120    1048x1612  176..1788    9..1834     95%    16px
-      340     905x1392  176..1568    9..1614     84%    88px
-
-   The reserve cost twelve points of frame and 76px a side to protect the
-   bottom sixth from a caption -- and the caption claim was an INFERENCE from
-   an earlier session, never something Rick said. He has now twice said the
-   opposite. The encode fix that came with it was right and stands: the
-   79% letterbox is gone and the delivery is scale=1080:1920.
-
-   The knob stays, with its cost measured, because the next platform may want
-   it. The value is 0.
-
-   ZERO IS AN EXACT IDENTITY, not an approximation of one -- at foot 0 the
-   available height is 1744, 1744/800 = 2.18 is looser than 1056/520 = 2.031,
-   the WIDTH binds exactly as it always did, and all four layout numbers come
-   out at their old values. That is the negative control frame_probe.py runs,
-   and it is why this constant can be dialled to nothing without a second code
-   path existing to be wrong. */
-const FRAME = { foot: 0 };
 
 const TUG = { on: true, mode: "mirror", pct: true, num: false, h: 56 };
 
@@ -11077,40 +11043,20 @@ class Renderer {
        moving ball: the two names, the school, the ultimate charge and the
        named status chips. The reclaimed height goes back to the arena. */
     this.pad = 12;
-    /* Set below, from the fit. Left here so the field's declaration order and
-       its old value are both still visible: 12 is what it is whenever the
-       width binds, which is every case with FRAME.foot at 0. */
     /* 188 -> 152. The chip row under each ult bar is gone (see drawBar), so
        the two identity blocks close up and the band loses 36px. Nothing in the
        sim moves: `scale` is width-derived and `ah` follows from CONFIG.arena,
        so this is presentation only and does not force a retune. The reclaimed
        height becomes bottom margin, which the footer was already short of. */
     this.hud = 152;
-    /* THE ARENA FITS A BOX NOW, NOT A WIDTH.
-
-       It was width-bound, and the comment that used to sit here said so:
-       "the arena is width-bound -- its height follows from the sim and the
-       frame width -- so the height the HUD gave back cannot become more
-       arena." True, and it also meant the hall ran to 1801 of 1920 and the
-       bottom 200px of it lived under a TikTok caption. `cinema_clip --shorts`
-       was compensating by shrinking the WHOLE VIDEO to 79% and boxing it,
-       which spends every pixel in the frame to protect the bottom sixth.
-
-       `scale` is the smaller of the two bounds, which is what a fitted layout
-       should always have been -- the old code was correct only for viewports
-       at or below the arena's own 0.65 aspect, and 9:16 is 0.5625.
-
-       Presentation only. `CONFIG.arena` is untouched, nothing here is read by
-       the simulation, and `engine_ab` is the proof rather than this sentence. */
-    this.arenaTop = BAND.pos === "bottom" ? 20 : this.hud + 24;
-    const availW = this.W - 12 * 2;
-    const availH = this.H - this.arenaTop - FRAME.foot - 12;
-    this.scale = Math.min(availW / CONFIG.arena.w, availH / CONFIG.arena.h);
-    this.aw = CONFIG.arena.w * this.scale;
+    this.aw = this.W - this.pad * 2;
+    this.scale = this.aw / CONFIG.arena.w;
     this.ah = CONFIG.arena.h * this.scale;
-    /* Recentred, which is not new code -- the scrunch block already ends with
-       `this.pad = (this.W - this.aw) / 2` for exactly this reason. */
-    this.pad = (this.W - this.aw) / 2;
+    /* The arena is width-bound — its height follows from the 520x740 sim and
+       the frame width — so the height the HUD gave back cannot become more
+       arena. Centre the slack instead of letting it all pool at the bottom as
+       a dead black band under the footer. */
+    this.arenaTop = BAND.pos === "bottom" ? 20 : this.hud + 24;      // the hall now nearly fills what is left
   }
 
   /* Match the backing store to the pixels that will actually be shown.
@@ -17583,29 +17529,7 @@ class Renderer {
   drawScrunchPanel(m, k){
     const S = CONFIG.scrunch, c = this.ctx;
     const y = this.arenaTop + this.ah * k + S.gap;
-    /* AND THE PANEL LIVES IN THE SAME SAFE BOX THE HALL DOES.
-
-       `CONFIG.scrunch.bottom` is a hardcoded 1812 in design space, from when
-       1812 was simply "near the bottom of the frame". Reserving a strip made
-       it two bugs at once, and Rick found both:
-
-         the panel now runs to 1812, which is 232px BELOW the safe line -- so
-         the ULTIMATE row, the one thing the panel exists to show, sits under
-         the caption. "it also looks like the bottom of the video is still
-         cut off."
-
-         and `_panelFacts` pins ON HIT to the panel's top and ULTIMATE to its
-         BOTTOM, so the space between them is `h` minus two fixed blocks. A
-         shorter hall made `y` smaller, `h` bigger, and the gap grew by 244px.
-         "something has gone really wrong with the scrunch. it has a huge gap
-         in the middle."
-
-       One clamp fixes both, and `Math.min` keeps the identity exact: at
-       FRAME.foot 0 the safe line is 1908 and 1812 still wins, so nothing
-       moves. frame_probe asserts that on a SCRUNCHED frame now -- the first
-       version only ever rendered an ordinary one, which is why this shipped. */
-    const h = Math.min(S.bottom, this.H - FRAME.foot - 12) - y,
-          x = 24, w = this.W - 48;
+    const h = S.bottom - y, x = 24, w = this.W - 48;
     if (h < 60) return;
     /* the panel arrives as the hall retreats, on the same curve */
     const a = clamp((1 - k) / (1 - S.k), 0, 1);

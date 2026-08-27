@@ -33,6 +33,8 @@ const POST = {
   on: false,
   post: null,
   overlay: null,
+  ro: null,           // the readout layer, drawn separately
+  roCtx: null,
   src: null,          // the game's #cv
   raf: 0,
   err: null,
@@ -49,6 +51,11 @@ function postBoot(gameWindow) {
   if (!POST.src) { postFail('the game has no #cv canvas'); return; }
   if (!window.SWBPost) { postFail('src/render/post.js did not load'); return; }
   if (!window.SWBPost.supported()) { postFail('no WebGL2 on this machine'); return; }
+
+  /* The readout layer's own canvas. See postFrame: the engine only ever
+     draws to #cv, so the two passes cannot share it. */
+  POST.ro = document.createElement('canvas');
+  POST.roCtx = POST.ro.getContext('2d');
 
   const ov = document.createElement('canvas');
   ov.id = 'postOverlay';
@@ -110,6 +117,7 @@ function postFrame() {
   try {
     const st = postState();
     st.dt = dt;
+    st.readouts = postReadouts();
     POST.post.render(POST.src, st);
   } catch (e) {
     postToggle(false);
@@ -126,6 +134,38 @@ function postFrame() {
                + POST.post.passes.length + ' passes · '
                + POST.ms.toFixed(2) + ' ms/frame CPU-side');
   }
+}
+
+/* THE READOUT PASS.
+ *
+ * The engine's own rAF loop has already drawn this frame. It drew it at
+ * roMode 1 -- the world WITHOUT the damage floats, status tags and ult-name
+ * callout -- because postToggle set that when the chain came on. So #cv holds
+ * the bloom's source, and this draws the missing three into a canvas of their
+ * own for the compositor to put back on top afterwards.
+ *
+ * It costs one extra draw per frame, and it is a cheap one: three text layers,
+ * no arena, no fighters, no ult art. tools/post_cost.py is where that gets
+ * priced rather than assumed.
+ *
+ * The mode is restored to 1 before returning, because the engine's next frame
+ * is drawn by the engine and has to come out as the world again.
+ */
+function postReadouts() {
+  const w = document.getElementById('game').contentWindow;
+  const AC = w.AC;
+  if (!AC || !AC.renderer || !AC.match) return null;
+  const src = POST.src, ro = POST.ro;
+  if (ro.width !== src.width || ro.height !== src.height) {
+    ro.width = src.width; ro.height = src.height;
+  }
+  AC.renderer.roMode = 2;
+  AC.__draw(AC.match);
+  POST.roCtx.clearRect(0, 0, ro.width, ro.height);
+  POST.roCtx.drawImage(src, 0, 0);
+  AC.renderer.roMode = 1;
+  AC.__draw(AC.match);          // put the world back on #cv for the upload
+  return ro;
 }
 
 /* The state the chain is handed. Everything here is READ from the running
@@ -172,6 +212,11 @@ function postToggle(want) {
     b.textContent = POST.on ? 'Post chain: ON' : 'Post chain: OFF';
   }
   POST.overlay.style.display = POST.on ? 'block' : 'none';
+  /* THE ENGINE DRAWS THE WORLD WHILE THE CHAIN IS ON, and the whole frame
+     while it is off. Off has to be the untouched picture or the A/B toggle is
+     comparing two new things instead of one new thing against the old one. */
+  const gw = document.getElementById('game').contentWindow;
+  if (gw && gw.AC && gw.AC.renderer) gw.AC.renderer.roMode = POST.on ? 1 : 0;
   if (POST.on) {
     postSync();
     if (!POST.raf) POST.raf = requestAnimationFrame(postFrame);

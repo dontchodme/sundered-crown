@@ -91,6 +91,14 @@ SHEET_JS = r"""
   document.body.appendChild(ov);
   const post = SWBPost.create(ov);
 
+  /* The readout layer gets its own canvas. The renderer only ever draws to
+     #cv, so one of the two passes has to be copied off it before the other
+     overwrites it -- the readouts, because they are the cheap one and because
+     the world is then what is left on #cv if the chain is switched off. */
+  const ro = document.createElement('canvas');
+  ro.width = cv.width; ro.height = cv.height;
+  const roCtx = ro.getContext('2d');
+
   const R = AC.renderer;
   const state = () => ({
     enabled: true,
@@ -131,9 +139,7 @@ SHEET_JS = r"""
      nothing". */
   for (let c = 0; c < cols.length; c++) {
     const key = cols[c];
-    const m = new AC.Match(cfg.a, cfg.b, cfg.seed >>> 0);
-    m.introT = 0;
-    AC.__inject(m);
+    let m = null, curPair = -1;
 
     /* THE CONTROL HAS TO HOLD EVERYTHING ELSE. For a trail spread the
        question is the TAIL, so the control column keeps bloom at the chosen
@@ -158,7 +164,20 @@ SHEET_JS = r"""
     }
 
     for (let r = 0; r < cfg.moments.length; r++) {
-      const target = cfg.moments[r];
+      const row = cfg.moments[r];
+      const target = row.t;
+      /* A ROW CAN COME FROM A DIFFERENT FIGHT. One sheet can then ask the
+         register against two kinds of art at once, which is the only way to
+         answer it -- a setting chosen on one relic is a setting chosen on one
+         relic. A fresh match per (column, pairing), deterministic from the
+         seed, so every column sees the identical fight. */
+      if (row.pair !== curPair) {
+        const P = cfg.pairs[row.pair];
+        m = new AC.Match(P.a, P.b, P.seed >>> 0);
+        m.introT = 0;
+        AC.__inject(m);
+        curPair = row.pair;
+      }
       const preTo = Math.max(0, target - cfg.warm / FPS);
       while (m.t < preTo - dt * 0.5) m.step(dt);
 
@@ -167,9 +186,25 @@ SHEET_JS = r"""
       let drawn = cv;
       for (let f = 0; f < cfg.warm; f++) {
         for (let i2 = 0; i2 < STEPS_PER_FRAME; i2++) m.step(dt);
-        AC.__draw(m);
-        if (chainOn) { post.render(cv, state()); drawn = ov; }
+        if (chainOn) {
+          /* TWO PASSES, and the order matters. Readouts first, copied off;
+             then the world, which is what the chain is handed. The control
+             column takes neither and draws the whole frame at roMode 0, so
+             it stays the untouched picture it is supposed to be. */
+          R.roMode = 2; AC.__draw(m);
+          roCtx.clearRect(0, 0, ro.width, ro.height);
+          roCtx.drawImage(cv, 0, 0);
+          R.roMode = 1; AC.__draw(m);
+          const st = state();
+          st.readouts = ro;
+          post.render(cv, st);
+          drawn = ov;
+        } else {
+          R.roMode = 0; AC.__draw(m);
+          drawn = cv;
+        }
       }
+      R.roMode = 0;
 
       const x = PAD + c * (TW + PAD), y = HEAD + r * ROWH;
       s.drawImage(drawn, x, y, TW, TH);
@@ -221,7 +256,9 @@ SHEET_JS = r"""
       s.font = '400 12px monospace';
       const st = state();
       if (key === 'off') {
-        s.fillText('t=' + m.t.toFixed(2) + 's' + (st.cine && st.cine.cut ? '  CUT' : ''),
+        const P = cfg.pairs[row.pair];
+        s.fillText(P.a + ' v ' + P.b + '  seed ' + P.seed + '   t='
+                   + m.t.toFixed(2) + 's' + (st.cine && st.cine.cut ? '  CUT' : ''),
                    x, y + TH + 34);
       } else if (key === 'chosen') {
         s.fillText('bloom ' + SWBPost.SPREAD.DEFAULT + ' + trails '
@@ -276,6 +313,12 @@ def main() -> int:
     ap.add_argument("--a", default="paradox")
     ap.add_argument("--b", default="heartwood")
     ap.add_argument("--seed", type=int, default=25064)
+    ap.add_argument("--pairs", default=None,
+                    help="a:b:seed,a:b:seed -- one sheet, several fights, so a "
+                         "register can be judged against more than one kind of "
+                         "art at once. Overrides --a/--b/--seed.")
+    ap.add_argument("--per", type=int, default=None,
+                    help="moments taken from each pairing")
     ap.add_argument("--moments", type=int, default=3)
     ap.add_argument("--apart", type=float, default=2.0,
                     help="minimum seconds between chosen moments")
@@ -311,47 +354,58 @@ def main() -> int:
             print("! this build does not export CINE -- run cineexport_build.py")
             return 2
 
-        print(f"\nPOST SPREAD  {A.a} v {A.b}  seed {A.seed}")
-        print(f"  scanning at {A.every}s for emissive mass…")
-        scan = page.evaluate(SCAN_JS, {
-            "a": A.a, "b": A.b, "seed": A.seed, "every": A.every,
-            "sw": 270, "sh": 480, "thresh": 0.62, "maxSamples": 1200,
-        })
-        got = scan["samples"]
-        print(f"  {len(got)} samples, fight {scan['dur']}s, "
-              f"over={scan['over']}")
+        if A.pairs:
+            pairs = []
+            for spec in A.pairs.split(","):
+                x, y, sd = spec.split(":")
+                pairs.append({"a": x, "b": y, "seed": int(sd)})
+        else:
+            pairs = [{"a": A.a, "b": A.b, "seed": A.seed}]
+        per = A.per if A.per is not None else (
+            A.moments if len(pairs) == 1 else 2)
 
-        moments = pick(got, A.moments, A.apart)
-        if not moments:
-            print("! no frame in this fight has anything above the threshold.")
-            print("  A sheet from it would be four identical tiles.")
-            return 1
-        for mm in moments:
-            print(f"    t={mm['t']:>6.2f}s  mass {mm['mass']:>9.1f}"
-                  f"{'  CUT' if mm['cut'] else ''}")
+        label = " + ".join(P["a"] + " v " + P["b"] for P in pairs)
+        print("")
+        print("POST SPREAD  " + label)
+        moments = []
+        for pi, P in enumerate(pairs):
+            print(f"  scanning {P[chr(97)]} v {P[chr(98)]} seed {P[chr(115)+chr(101)+chr(101)+chr(100)]} at {A.every}s...")
+            scan = page.evaluate(SCAN_JS, {
+                "a": P["a"], "b": P["b"], "seed": P["seed"],
+                "every": A.every, "sw": 270, "sh": 480,
+                "thresh": 0.62, "maxSamples": 1200,
+            })
+            chosen = pick(scan["samples"], per, A.apart)
+            if not chosen:
+                print("! nothing in this pairing clears the threshold; a row")
+                print("  from it would be identical tiles.")
+                return 1
+            for mm in chosen:
+                print(f"    t={mm[chr(116)]:>6.2f}s  mass {mm[chr(109)+chr(97)+chr(115)+chr(115)]:>9.1f}")
+                moments.append({"pair": pi, "t": mm["t"]})
 
         if A.effect == "chosen":
             cols = ["off", "chosen"]
             warm = A.warm if A.warm is not None else 20
-            title = f"AS CHOSEN — {A.a} v {A.b}, seed {A.seed}"
+            title = "AS CHOSEN — " + label
             sub = ("does the register hold on art that is not Paradox's "
                    "lightning? bloom + trails at the chosen settings.")
         elif A.effect == "trails":
             cols = ["off", "short", "mid", "long"]
             warm = A.warm if A.warm is not None else 20
-            title = f"TRAIL SPREAD — {A.a} v {A.b}, seed {A.seed}"
+            title = "TRAIL SPREAD — " + label
             sub = ("one variable: tail length in SECONDS. bloom is held at "
                    "the chosen default in every column, the control included.")
         else:
             cols = ["off", "low", "mid", "high"]
             warm = A.warm if A.warm is not None else 1
-            title = f"BLOOM SPREAD — {A.a} v {A.b}, seed {A.seed}"
+            title = "BLOOM SPREAD — " + label
             sub = ("same seed, same frame, one runtime. OFF is the untouched "
                    "2D canvas.")
         print(f"  rendering the sheet at 1080x1920, {warm} warm frames…")
         sheet = page.evaluate(SHEET_JS, {
-            "a": A.a, "b": A.b, "seed": A.seed,
-            "moments": [mm["t"] for mm in moments],
+            "pairs": pairs,
+            "moments": moments,
             "cols": cols,
             "tile": A.wide if A.effect == "chosen" else A.tile,
             "effect": A.effect, "warm": warm,
@@ -366,7 +420,9 @@ def main() -> int:
 
     OUTDIR.mkdir(parents=True, exist_ok=True)
     out = pathlib.Path(A.out) if A.out else (
-        OUTDIR / f"{A.effect}-spread-{A.a}-{A.b}-{A.seed}.png")
+        OUTDIR / (A.effect + "-spread-"
+                  + "-".join(P["a"] + "-" + P["b"] + "-" + str(P["seed"])
+                             for P in pairs) + ".png"))
     out.write_bytes(base64.b64decode(sheet["png"]))
 
     print(f"\n  {sheet['renderer']}")
