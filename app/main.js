@@ -30,6 +30,93 @@ const GAME = process.env.SWB_GAME || '02-chain/sc-paradox-frame.html';
  * is driven from here, and the process exits on the result. */
 const IDENTITY = process.argv.includes('--identity-check');
 
+/* Same idea for the post chain. NOT a general "run this JS" flag: the gates
+ * are a fixed, named set, because a main process that will evaluate whatever
+ * it is handed is a hole that gets used for something else six months later.
+ * See docs/RENDERER-BRIEF.md §8.2. */
+const POSTCHECK = process.argv.includes('--post-check');
+const HEADLESS_GATE = IDENTITY || POSTCHECK;
+
+/* THE POST-CHAIN GATE, run in the page by --post-check.
+ *
+ * It drives the harness in app/ui/post-dev.js, which the headless
+ * tools/post_identity.py does NOT touch -- that one loads src/render/post.js
+ * into the game page directly and so says nothing about whether the overlay,
+ * its geometry or its state plumbing work. This closes that gap.
+ *
+ * IT REFUSES TO PASS ON AN EMPTY FRAME. A hidden window may never composite,
+ * and a passthrough check on a blank canvas is blank-equals-blank: a green
+ * result that measured nothing. So the source frame's distinct colours are
+ * counted first and a thin one is reported as SKIP, not PASS. verify.py has
+ * the same guard for the same reason -- "renderer draws a non-blank frame". */
+const POST_GATE = `(async () => {
+  const wait = (test, ms) => new Promise((res, rej) => {
+    const t0 = Date.now();
+    const t = setInterval(() => {
+      if (test()) { clearInterval(t); res(true); }
+      else if (Date.now() - t0 > ms) {
+        clearInterval(t);
+        rej(new Error('gave up waiting -- ' + (typeof POST === 'undefined'
+          ? 'post-dev.js never ran'
+          : 'POST.err=' + POST.err + ' post=' + !!POST.post + ' src=' + !!POST.src)));
+      }
+    }, 50);
+  });
+  await wait(() => typeof POST !== 'undefined' && (POST.err || (POST.post && POST.src)), 15000);
+  if (POST.err) return ['SKIP  post chain unavailable -- ' + POST.err];
+
+  const src = POST.src;
+  const px = src.getContext('2d').getImageData(0, 0, src.width, src.height).data;
+  const seen = new Set();
+  for (let i = 0; i < px.length; i += 4 * 97) {
+    seen.add((px[i] << 16) | (px[i + 1] << 8) | px[i + 2]);
+    if (seen.size > 64) break;
+  }
+  if (seen.size < 16) {
+    return ['SKIP  the source frame has only ' + seen.size + ' distinct colours ('
+            + src.width + 'x' + src.height + ').',
+            '      A hidden window did not composite, so passthrough would be',
+            '      checked against a blank canvas. That is not a pass.'];
+  }
+
+  postToggle(true);
+  const st = postState();
+  const r = POST.post.selfTest(src, st);
+  /* AFTER the render, not before: the overlay's backing store is sized by
+     resize() inside render(), so reading it first measures the 300x150 a
+     canvas is born at and reports a mismatch that is really a stale read. */
+  const geo = POST.overlay.getBoundingClientRect();
+  const sized = POST.overlay.width === src.width && POST.overlay.height === src.height;
+  postToggle(false);
+
+  const out = [];
+  out.push('[post] ' + POST.post.version + '  ' + src.width + 'x' + src.height
+           + '  ' + r.passes + ' effect passes  ' + seen.size + '+ colours in source');
+  out.push('[post] overlay backing store ' + POST.overlay.width + 'x' + POST.overlay.height
+           + (sized ? ' (1:1 with source)' : '  MISMATCHED'));
+  out.push('[post] overlay on screen ' + Math.round(geo.width) + 'x' + Math.round(geo.height)
+           + ' at ' + Math.round(geo.left) + ',' + Math.round(geo.top));
+  out.push('[post] arena rect ' + (st.rect
+           ? [Math.round(st.rect.x), Math.round(st.rect.y),
+              Math.round(st.rect.w), Math.round(st.rect.h)].join(',')
+           : 'null') + '   cine ' + (st.cine ? 'read' : 'null'));
+  out.push('');
+  if (!sized) {
+    out.push('FAIL  the overlay is not 1:1 with the source, so passthrough');
+    out.push('      resamples and every later comparison is off by a filter.');
+  } else if (r.differing === 0) {
+    out.push('PASS  ' + r.total.toLocaleString() + ' px identical, max delta 0,');
+    out.push('      through the app harness and not only the module.');
+  } else {
+    out.push('FAIL  ' + r.differing.toLocaleString() + ' of ' + r.total.toLocaleString()
+             + ' px differ, max delta ' + r.maxDelta);
+    if (r.sample) out.push('      first at ' + r.sample.x + ',' + r.sample.y
+                           + '  got ' + r.sample.got.join(',')
+                           + '  want ' + r.sample.want.join(','));
+  }
+  return out;
+})()`;
+
 protocol.registerSchemesAsPrivileged([{
   scheme: 'swb',
   privileges: { standard: true, secure: true, supportFetchAPI: true, stream: true },
@@ -61,7 +148,7 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1180,
     height: 980,
-    show: !IDENTITY,
+    show: !HEADLESS_GATE,
     backgroundColor: '#0b0b10',
     title: 'Super Weapon Ball — The Sundered Crown',
     webPreferences: {
@@ -72,7 +159,7 @@ function createWindow() {
       /* A hidden window gets its timers throttled to about 1 Hz, and the
        * shell reaches window.AC through a setInterval poll. Only relaxed for
        * the headless gate, where nothing is being shown to throttle for. */
-      backgroundThrottling: !IDENTITY,
+      backgroundThrottling: !HEADLESS_GATE,
     },
   });
   win.loadURL('swb://app/app/ui/shell.html');
@@ -120,24 +207,39 @@ app.whenReady().then(async () => {
   registerProtocol();
   const win = createWindow();
 
-  if (IDENTITY) {
+  if (HEADLESS_GATE) {
     /* Drives the page's own runIdentity() rather than reimplementing the
      * sweep here. Two implementations of one measurement is how the two sides
      * agree on a shared mistake and the check passes on it. */
     try {
+      /* The gate runs with no devtools and no window, so a page error is
+       * otherwise a shrug. Forward it. */
+      win.webContents.on('console-message', (ev) => {
+        if (ev.level === 'error' || ev.level === 'warning') {
+          process.stderr.write('  page: ' + ev.message
+                               + '  (' + ev.sourceId + ':' + ev.lineNumber + ')' + '\n');
+        }
+      });
       await new Promise((r) => win.webContents.once('did-finish-load', r));
       await win.webContents.executeJavaScript(
         'new Promise((r, j) => { let n = 0; const t = setInterval(() => {' +
         '  if (typeof AC !== "undefined" && AC && AC.WEAPONS) { clearInterval(t); r(1); }' +
         '  else if (++n > 200) { clearInterval(t); j(new Error("window.AC never appeared")); }' +
         '}, 50); })');
-      await win.webContents.executeJavaScript('runIdentity()');
-      const said = await win.webContents.executeJavaScript(
-        'document.getElementById("identityOut").textContent');
-      process.stdout.write(said + '\n');
+      if (IDENTITY) {
+        await win.webContents.executeJavaScript('runIdentity()');
+        const said = await win.webContents.executeJavaScript(
+          'document.getElementById("identityOut").textContent');
+        process.stdout.write(said + '\n');
+      } else {
+        const said = (await win.webContents.executeJavaScript(POST_GATE))
+          .join(String.fromCharCode(10));
+        process.stdout.write(said + '\n');
+      }
       app.exit(0);
     } catch (e) {
-      process.stderr.write('identity check failed: ' + (e && e.message || e) + '\n');
+      process.stderr.write((IDENTITY ? 'identity' : 'post') + ' check failed: '
+                           + (e && e.stack || e && e.message || e) + '\n');
       app.exit(1);
     }
     return;

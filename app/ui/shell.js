@@ -35,6 +35,12 @@ function onGameLoad() {
       fillRoster();
       wireControls();
       trackSeed(w);
+      /* The post chain reads the game's finished canvas and composites it
+         into an overlay. It does not touch the engine, and OFF leaves the
+         original pixels on screen because they were never written to.
+         docs/RENDERER-BRIEF.md §5. */
+      postBoot(w);
+      postWire();
     } else if (++tries > 100) {
       clearInterval(wait);
       $('build').textContent = 'window.AC never appeared — engine did not boot';

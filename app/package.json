@@ -6,7 +6,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "identity": "electron . --identity-check"
+    "identity": "electron . --identity-check",
+    "post": "electron . --post-check"
   },
   "devDependencies": {
     "electron": "44.0.0"

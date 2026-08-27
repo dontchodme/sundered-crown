@@ -185,6 +185,7 @@ a Linux container; they are records, not instructions. Substitute as you read.
 cd tools
 python3 math_fingerprint.py                                         # the runtime pair
 python3 shell_identity.py                                           # app == headless
+python3 post_identity.py                                            # the chain is invisible
 python3 verify.py --game ../02-chain/sc-paradox-frame.html --n 40   # 13 checks
 python3 engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python3 chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive

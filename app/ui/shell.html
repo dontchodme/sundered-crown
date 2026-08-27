@@ -63,6 +63,17 @@
         minutes. This ships with a job queue and live progress, or it lies.</p>
     </div>
 
+    <div class="card">
+      <h2>Post chain</h2>
+      <p class="note">The WebGL2 compositor, over the finished 2D frame.
+        OFF is the control — the untouched pixels, and it stays.</p>
+      <div class="btns">
+        <button id="btnPost">Post chain: OFF</button>
+        <button id="btnPostTest" title="with no effect passes the chain must be invisible">Check passthrough</button>
+      </div>
+      <pre id="postOut">not loaded</pre>
+    </div>
+
     <div class="card diag">
       <h2>Engine identity</h2>
       <p class="note">Phase 1's actual test: does this shell run the same engine
@@ -76,6 +87,8 @@
   </aside>
 </main>
 
+<script src="../../src/render/post.js"></script>
+<script src="post-dev.js"></script>
 <script src="shell.js"></script>
 </body>
 </html>

@@ -57,6 +57,35 @@ Chromiums are deliberately different versions that agree to the last bit; a
 newer Electron that fails the fingerprint is not usable here whatever its
 version number says. See `docs/RUNTIME-DRIFT.md`.
 
+## The post chain
+
+`src/render/post.js` is the WebGL2 compositor. It is **not app-only code** —
+the same module goes into the build later via `tools/post_build.py`, because an
+app with bloom and an mp4 without is a picture fault by construction.
+
+The app loads it through `app/ui/post-dev.js`, which stacks an overlay canvas
+on the game's `#cv` and composites into it. The engine is not touched, no draw
+call is intercepted, and **OFF leaves the original pixels on screen because
+they were never written to** — that is what makes the A/B toggle a control
+rather than a second unknown (`docs/RENDERER-BRIEF.md` §7 gate 4).
+
+Two gates, and they check different things:
+
+```bash
+cd tools && python post_identity.py     # the MODULE, on a real game frame
+cd app   && npm run post                # the module THROUGH the app harness
+```
+
+`post_identity.py` loads the module straight into the game page, so it says
+nothing about the overlay, its geometry, or the state plumbing. `npm run post`
+drives the harness and reports both. It refuses to pass on a blank frame:
+a hidden window that never composites would otherwise make passthrough a
+blank-equals-blank green.
+
+With no effect passes registered, both must report **zero differing pixels**.
+A chain that is not invisible while switched off is bending the picture before
+anything has asked it to.
+
 ## What is deliberately not built yet
 
 `swb:createShort` and `swb:speak` return `{ ok: false, reason }` on purpose.
