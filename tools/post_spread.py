@@ -147,7 +147,7 @@ def main() -> int:
                     help="tile width for the two-column `chosen` sheet")
     ap.add_argument("--effect",
                     choices=("bloom", "trails", "chosen", "cut", "grade",
-                             "adapt"),
+                             "adapt", "layers"),
                     default="bloom",
                     help="which spread. `trails` holds bloom at the chosen "
                          "default and varies only the tail length.")
@@ -217,7 +217,13 @@ def main() -> int:
                 moments.append({"pair": pi, "t": mm["t"],
                                 "frame": mm["frame"]})
 
-        if A.effect == "adapt":
+        if A.effect == "layers":
+            cols = ["off", "bloom", "trails", "all"]
+            warm = A.warm if A.warm is not None else 24
+            title = "THE CHAIN, ONE PASS AT A TIME — " + label
+            sub = ("each column adds one pass to the one before it. what is "
+                   "each actually buying?")
+        elif A.effect == "adapt":
             cols = ["off", "gentle", "mid", "strong"]
             warm = A.warm if A.warm is not None else 24
             title = "BLOOM ADAPT — " + label

@@ -221,6 +221,31 @@
     '}'
   ].join('\n');
 
+  /* THE WAKE, WHICH IS THE ONLY PART OF A TRAIL THAT SHOULD BE ADDED.
+     
+     The persistence buffer holds where a thing HAS BEEN, and that includes
+     where it is NOW. Adding all of it back puts the object's own brightness
+     on top of itself: a white relic at 0.892 luma went to 0.982 -- saturated
+     -- and read as washed out. Rick said so twice before this was measured,
+     and the second time was after the bloom had already been exonerated.
+     
+     Subtracting the current bright image leaves only the tail: where it was
+     and no longer is. A stationary bright object now adds exactly nothing,
+     which is correct -- a thing that has not moved has no motion blur. */
+  var FRAG_WAKE = [
+    '#version 300 es',
+    'precision highp float;',
+    'uniform sampler2D uSrc;',      // the trail so far
+    'uniform sampler2D uCur;',      // this frame's bright pass
+    'in vec2 vUv;',
+    'out vec4 oCol;',
+    'void main(){',
+    '  vec3 t = texture(uSrc, vUv).rgb;',
+    '  vec3 c = texture(uCur, vUv).rgb;',
+    '  oCol = vec4(max(t - c, vec3(0.0)), 1.0);',
+    '}'
+  ].join('\n');
+
   var FRAG_COMBINE = [
     '#version 300 es',
     'precision highp float;',
@@ -436,6 +461,7 @@
     this._pUp = null;
     this._pCombine = null;
     this._pTrail = null;
+    this._pWake = null;
     this._pGrade = null;
 
     /* The readout layer, uploaded separately and composited last. See
@@ -636,7 +662,10 @@
       this._pUp = program(gl, FRAG_UP, 'up');
       this._pCombine = program(gl, FRAG_COMBINE, 'combine');
     }
-    if (!this._pTrail) this._pTrail = program(gl, FRAG_TRAIL, 'trail');
+    if (!this._pTrail) {
+      this._pTrail = program(gl, FRAG_TRAIL, 'trail');
+      this._pWake = program(gl, FRAG_WAKE, 'wake');
+    }
 
     var o = {
       seconds: opts.seconds === undefined ? 0.10 : opts.seconds,
@@ -700,11 +729,20 @@
     });
     var t = this._tr0; this._tr0 = this._tr1; this._tr1 = t;
 
+    /* THE WAKE ONLY. _tr1 now holds the previous trail and is free, so it is
+       reused as the scratch for (trail - current). See FRAG_WAKE. */
+    this._draw(this._pWake, this._tr0.tex, this._tr1, function (g, p) {
+      g.activeTexture(g.TEXTURE1);
+      g.bindTexture(g.TEXTURE_2D, self._trBright.tex);
+      g.uniform1i(g.getUniformLocation(p, 'uCur'), 1);
+      g.activeTexture(g.TEXTURE0);
+    });
+
     /* Composited with the same masked add bloom uses, so the readout is left
        alone by the same geometry. */
     this._draw(this._pCombine, read.tex, write, function (g, p) {
       g.activeTexture(g.TEXTURE1);
-      g.bindTexture(g.TEXTURE_2D, self._tr0.tex);
+      g.bindTexture(g.TEXTURE_2D, self._tr1.tex);
       g.uniform1i(g.getUniformLocation(p, 'uBloom'), 1);
       g.uniform1f(g.getUniformLocation(p, 'uIntensity'), o.intensity);
       if (rect) g.uniform4f(g.getUniformLocation(p, 'uRect'),
@@ -1081,6 +1119,7 @@
     gl.deleteProgram(this._pCopy);
     gl.deleteProgram(this._pCopyFlip);
     if (this._pTrail) gl.deleteProgram(this._pTrail);
+    if (this._pWake) gl.deleteProgram(this._pWake);
     if (this._pGrade) gl.deleteProgram(this._pGrade);
     if (this._pBright) {
       gl.deleteProgram(this._pBright);
@@ -1202,11 +1241,11 @@
     DEFAULT: 'mid',
     off:    null,
     subtle: { vignette: 0.22, vignetteFrom: 0.55, washYield: 1,
-              grain: 0.012, contrast: 1.02, lift: 0 },
+              grain: 0.004, contrast: 1.02, lift: 0 },
     mid:    { vignette: 0.38, vignetteFrom: 0.45, washYield: 1,
-              grain: 0.022, contrast: 1.05, lift: -0.004 },
+              grain: 0.008, contrast: 1.05, lift: -0.004 },
     strong: { vignette: 0.55, vignetteFrom: 0.35, washYield: 1,
-              grain: 0.034, contrast: 1.09, lift: -0.008 }
+              grain: 0.014, contrast: 1.09, lift: -0.008 }
   };
 
   /* THE ADAPT SPREAD. One variable: how hard the bloom pulls itself back on

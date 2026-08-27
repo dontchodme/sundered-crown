@@ -85,7 +85,10 @@
     const key = cols[c];
     let m = null, curPair = -1, frame = 0;
 
-    if (key === 'off' && cfg.effect === 'adapt') {
+    if (key === 'off' && cfg.effect === 'layers') {
+      post.setBloom(null); post.setTrails(null); post.setGrade(null);
+    }
+    else if (key === 'off' && cfg.effect === 'adapt') {
       post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
                                   { adapt: 0 }));
       post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
@@ -120,6 +123,15 @@
       post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
                                   { cutGain: SWBPost.CUTRAMP[key] }));
       post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+    } else if (cfg.effect === 'layers') {
+      /* NOT a spread of one setting -- a spread of HOW MUCH CHAIN. Each
+         column adds one pass to the one before it, so the cost of each is
+         visible on its own instead of as part of a finished look. */
+      post.setBloom(key === 'bloom' || key === 'trails' || key === 'all'
+                    ? SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT] : null);
+      post.setTrails(key === 'trails' || key === 'all'
+                     ? SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT] : null);
+      post.setGrade(key === 'all' ? SWBPost.GRADE[SWBPost.GRADE.DEFAULT] : null);
     } else if (cfg.effect === 'adapt') {
       post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
                                   { adapt: SWBPost.ADAPT[key] }));
@@ -236,6 +248,7 @@
       s.fillText(key === 'off'
                  ? (cfg.effect === 'trails' ? 'TRAILS OFF  (control, bloom on)'
                   : cfg.effect === 'grade' ? 'GRADE OFF  (control, chain on)'
+                  : cfg.effect === 'layers' ? 'CHAIN OFF  (control)'
                   : cfg.effect === 'adapt' ? 'NO ADAPT  (control, as shipped)'
                   : cfg.effect === 'cut' ? 'RAMP OFF  (control, flat intensity)'
                   : 'OFF  (control, the untouched 2D canvas)')
@@ -254,6 +267,11 @@
         s.fillText('cutGain ' + SWBPost.CUTRAMP[key] + '   wash '
                    + st.cine.wash.toFixed(3) + '   ' + changed + '% px  +'
                    + meanAdd, x, y + TH + 34);
+      } else if (cfg.effect === 'layers') {
+        const lbl = { bloom: 'bloom only',
+                      trails: 'bloom + trails',
+                      all: 'bloom + trails + grade' }[key] || key;
+        s.fillText(lbl + '   ' + changed + '% px  +' + meanAdd, x, y + TH + 34);
       } else if (cfg.effect === 'adapt') {
         s.fillText('adapt ' + (SWBPost.ADAPT[key] || 'off') + '   ' + changed
                    + '% px  ' + meanAdd, x, y + TH + 34);
