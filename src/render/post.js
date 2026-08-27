@@ -240,6 +240,78 @@
     '}'
   ].join('\n');
 
+  /* ---------------------------------------------------------- GRADE ---
+     Vignette, grain and a small contrast curve, in one pass, at the end.
+     Brief §5: "filmic grade + tonemap: one place, instead of per-draw colour
+     choices".
+
+     THE VIGNETTE YIELDS TO THE DIRECTOR. `CINE.wash` is already a darkening
+     scrim centred on the point of contact, and it exists because a full-frame
+     scrim at 0.75 measured INVISIBLE against an already-dark arena -- the
+     frame is not the subject, the blow is. A lens vignette is a different
+     job: frame-centred, always on, keeping the eye in. They only collide
+     during a cut, near the focus, where both darken the same pixels.
+
+     So the vignette scales by (1 - yield * cutK) and backs off exactly as far
+     as the scrim comes in. Nobody has to choose which one fires. Priced
+     rather than asserted: tools/post_grade_probe.py measures the mid-tone
+     drop with each alone and both together, and if the stack turns out to be
+     negligible the yield can go to 0 and this comment becomes the reason why.
+
+     GRAIN IS KEYED TO THE FRAME INDEX, NOT A CLOCK. A wall-clock seed would
+     make the same seed grain differently in the app and in the mp4, and grain
+     that differs between two renders of one fight is the determinism problem
+     wearing a different hat. */
+  var FRAG_GRADE = [
+    '#version 300 es',
+    'precision highp float;',
+    'uniform sampler2D uSrc;',
+    'uniform vec4 uRect;',
+    'uniform vec2 uSize;',
+    'uniform float uVig;',      // strength, already yielded
+    'uniform float uVigR;',     // where the falloff starts, 0..1 of the radius
+    'uniform float uGrain;',
+    'uniform float uFrame;',
+    'uniform float uContrast;',
+    'uniform float uLift;',
+    'in vec2 vUv;',
+    'out vec4 oCol;',
+    'float hash(vec3 p){',
+    '  p = fract(p * vec3(443.897, 441.423, 437.195));',
+    '  p += dot(p, p.yzx + 19.19);',
+    '  return fract((p.x + p.y) * p.z);',
+    '}',
+    'void main(){',
+    '  vec3 c = texture(uSrc, vUv).rgb;',
+    '  if (uRect.z > 0.0 && (vUv.x < uRect.x || vUv.y < uRect.y ||',
+    '      vUv.x > uRect.x + uRect.z || vUv.y > uRect.y + uRect.w)) {',
+    '    oCol = vec4(c, 1.0); return;',
+    '  }',
+    /* Contrast about the mid, then the lift, then the vignette, then grain.
+       Order matters: grain added before the vignette would be darkened along
+       with everything else at the edges, and film grain does not fade out
+       towards the corners. */
+    '  c = (c - 0.5) * uContrast + 0.5 + uLift;',
+    '  if (uVig > 0.0) {',
+    /* Normalised to the RECT, not the frame, so the falloff is centred on the
+       hall and not on a point somewhere under the HUD. */
+    '    vec2 q = (vUv - uRect.xy) / uRect.zw - 0.5;',
+    '    q.x *= uRect.z * uSize.x / (uRect.w * uSize.y);',
+    '    float d = length(q) * 1.41421356;',
+    '    float v = 1.0 - uVig * smoothstep(uVigR, 1.0, d);',
+    '    c *= v;',
+    '  }',
+    '  if (uGrain > 0.0) {',
+    '    float n = hash(vec3(gl_FragCoord.xy, uFrame)) - 0.5;',
+    /* Scaled by luma so the grain sits in the mids and does not speckle the
+       blacks, which is where it reads as compression noise instead of film. */
+    '    float l = dot(c, vec3(0.2126, 0.7152, 0.0722));',
+    '    c += n * uGrain * (0.35 + 0.65 * smoothstep(0.02, 0.5, l));',
+    '  }',
+    '  oCol = vec4(clamp(c, 0.0, 1.0), 1.0);',
+    '}'
+  ].join('\n');
+
   function compile(gl, type, src, name) {
     var s = gl.createShader(type);
     gl.shaderSource(s, src);
@@ -329,6 +401,7 @@
     this._pUp = null;
     this._pCombine = null;
     this._pTrail = null;
+    this._pGrade = null;
 
     /* The readout layer, uploaded separately and composited last. See
        `state.readouts` on render(). */
@@ -579,6 +652,67 @@
     });
   };
 
+  /* THE GRADE. Last in the chain, so it sees the bloom and the trails as
+   * part of the picture rather than grading a frame they will later be added
+   * to.
+   *
+   * opts: { vignette, vignetteFrom, washYield, grain, contrast, lift }
+   *   vignette      strength of the corner falloff, 0..1.
+   *   vignetteFrom  where it starts, as a fraction of the half-diagonal.
+   *   washYield     how far the vignette gets out of CINE.wash's way during a
+   *                 cut. 1 = fully. See the note above FRAG_GRADE.
+   *   grain         amplitude, scaled by luma inside the shader.
+   *   contrast      about 0.5. 1.0 is untouched.
+   *   lift          added after contrast; negative crushes.
+   */
+  Post.prototype.setGrade = function (opts) {
+    var i, gl = this.gl;
+    for (i = 0; i < this.passes.length; i++) {
+      if (this.passes[i].name === 'grade') { this.passes.splice(i, 1); break; }
+    }
+    if (!opts) return this;
+    if (!this._pGrade) this._pGrade = program(gl, FRAG_GRADE, 'grade');
+
+    var o = {
+      vignette: opts.vignette === undefined ? 0.35 : opts.vignette,
+      vignetteFrom: opts.vignetteFrom === undefined ? 0.45 : opts.vignetteFrom,
+      washYield: opts.washYield === undefined ? 1 : opts.washYield,
+      grain: opts.grain === undefined ? 0.02 : opts.grain,
+      contrast: opts.contrast === undefined ? 1.04 : opts.contrast,
+      lift: opts.lift === undefined ? 0 : opts.lift
+    };
+    var self = this;
+    this.passes.push({
+      name: 'grade',
+      opts: o,
+      run: function (read, write, state) { self._grade(o, read, write, state); }
+    });
+    return this;
+  };
+
+  Post.prototype._grade = function (o, read, write, state) {
+    var self = this;
+    var rect = (state && state.rectN) ? state.rectN : null;
+    var cutK = (state && state.cutK) ? state.cutK : 0;
+    /* The yield. At a full kill with washYield 1 the vignette is gone and the
+       director owns the darkening outright; between cuts it owns none of it. */
+    var vig = o.vignette * Math.max(0, 1 - o.washYield * cutK);
+    var frame = (state && state.frame) ? state.frame : 0;
+
+    this._draw(this._pGrade, read.tex, write, function (g, p) {
+      g.uniform2f(g.getUniformLocation(p, 'uSize'), self._w, self._h);
+      g.uniform1f(g.getUniformLocation(p, 'uVig'), vig);
+      g.uniform1f(g.getUniformLocation(p, 'uVigR'), o.vignetteFrom);
+      g.uniform1f(g.getUniformLocation(p, 'uGrain'), o.grain);
+      g.uniform1f(g.getUniformLocation(p, 'uContrast'), o.contrast);
+      g.uniform1f(g.getUniformLocation(p, 'uLift'), o.lift);
+      g.uniform1f(g.getUniformLocation(p, 'uFrame'), frame % 1024);
+      if (rect) g.uniform4f(g.getUniformLocation(p, 'uRect'),
+                            rect[0], rect[1], rect[2], rect[3]);
+      else g.uniform4f(g.getUniformLocation(p, 'uRect'), 0, 0, -1, -1);
+    });
+  };
+
   Post.prototype._bloom = function (o, read, write, state) {
     var gl = this.gl, i;
     var n = Math.max(1, Math.min(o.levels | 0, this._mips.length));
@@ -687,6 +821,9 @@
        silently: a caller that does not pass it gets 60fps and the trail is
        wrong by exactly the ratio it lied about. */
     if (!(state.dt > 0)) state.dt = 1 / 60;
+    /* Grain is keyed to this, not to a clock: two renders of one seed have to
+       grain identically or the mp4 and the app are different pictures again. */
+    if (!(state.frame >= 0)) state.frame = (this._frame = (this._frame | 0) + 1);
 
     gl.bindTexture(gl.TEXTURE_2D, this._src);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, src);
@@ -814,6 +951,7 @@
     gl.deleteProgram(this._pCopy);
     gl.deleteProgram(this._pCopyFlip);
     if (this._pTrail) gl.deleteProgram(this._pTrail);
+    if (this._pGrade) gl.deleteProgram(this._pGrade);
     if (this._pBright) {
       gl.deleteProgram(this._pBright);
       gl.deleteProgram(this._pDown);
@@ -916,11 +1054,26 @@
     strong: 2.0
   };
 
+  /* THE GRADE SPREAD. One variable: how graded. All three components move
+     together, because "how filmic does this look" is the question a person
+     can answer from a picture — asking about contrast, vignette and grain
+     separately would be three sheets to settle one impression. */
+  var GRADE = {
+    off:    null,
+    subtle: { vignette: 0.22, vignetteFrom: 0.55, washYield: 1,
+              grain: 0.012, contrast: 1.02, lift: 0 },
+    mid:    { vignette: 0.38, vignetteFrom: 0.45, washYield: 1,
+              grain: 0.022, contrast: 1.05, lift: -0.004 },
+    strong: { vignette: 0.55, vignetteFrom: 0.35, washYield: 1,
+              grain: 0.034, contrast: 1.09, lift: -0.008 }
+  };
+
   var API = {
     VERSION: VERSION,
     SPREAD: SPREAD,
     TRAILS: TRAILS,
     CUTRAMP: CUTRAMP,
+    GRADE: GRADE,
     create: function (canvas) { return new Post(canvas); },
     supported: function () {
       try {

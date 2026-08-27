@@ -81,7 +81,14 @@
     const key = cols[c];
     let m = null, curPair = -1, frame = 0;
 
-    if (key === 'off' && cfg.effect === 'cut') {
+    if (key === 'off' && cfg.effect === 'grade') {
+      /* The control keeps the chosen bloom and trails and turns off ONLY the
+         grade, so the sheet asks one question. */
+      post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
+      post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+      post.setGrade(null);
+    }
+    else if (key === 'off' && cfg.effect === 'cut') {
       post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
                                   { cutGain: 0 }));
       post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
@@ -97,6 +104,10 @@
       post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
                                   { cutGain: SWBPost.CUTRAMP[key] }));
       post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+    } else if (cfg.effect === 'grade') {
+      post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
+      post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+      post.setGrade(SWBPost.GRADE[key]);
     } else if (cfg.effect === 'trails') {
       post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
       post.setTrails(SWBPost.TRAILS[key]);
@@ -191,6 +202,7 @@
       s.font = '700 15px sans-serif';
       s.fillText(key === 'off'
                  ? (cfg.effect === 'trails' ? 'TRAILS OFF  (control, bloom on)'
+                  : cfg.effect === 'grade' ? 'GRADE OFF  (control, chain on)'
                   : cfg.effect === 'cut' ? 'RAMP OFF  (control, flat intensity)'
                   : 'OFF  (control, the untouched 2D canvas)')
                  : (key === 'chosen' ? 'AS CHOSEN' : key.toUpperCase()),
@@ -208,6 +220,10 @@
         s.fillText('cutGain ' + SWBPost.CUTRAMP[key] + '   wash '
                    + st.cine.wash.toFixed(3) + '   ' + changed + '% px  +'
                    + meanAdd, x, y + TH + 34);
+      } else if (cfg.effect === 'grade') {
+        const o = SWBPost.GRADE[key];
+        s.fillText('vig ' + o.vignette + '  grain ' + o.grain + '  con '
+                   + o.contrast + '   ' + changed + '% px', x, y + TH + 34);
       } else if (cfg.effect === 'chosen') {
         s.fillText('bloom ' + SWBPost.SPREAD.DEFAULT + ' + trails '
                    + SWBPost.TRAILS.DEFAULT + '   ' + changed + '% px  +'
@@ -229,6 +245,7 @@
   }
   post.setBloom(null);
   post.setTrails(null);
+  post.setGrade(null);
   return { png: sheet.toDataURL('image/png').slice(22), w: W, h: H,
            report: report,
            renderer: (() => {

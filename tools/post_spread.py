@@ -145,7 +145,8 @@ def main() -> int:
     ap.add_argument("--tile", type=int, default=380)
     ap.add_argument("--wide", type=int, default=620,
                     help="tile width for the two-column `chosen` sheet")
-    ap.add_argument("--effect", choices=("bloom", "trails", "chosen", "cut"),
+    ap.add_argument("--effect",
+                    choices=("bloom", "trails", "chosen", "cut", "grade"),
                     default="bloom",
                     help="which spread. `trails` holds bloom at the chosen "
                          "default and varies only the tail length.")
@@ -215,7 +216,13 @@ def main() -> int:
                 moments.append({"pair": pi, "t": mm["t"],
                                 "frame": mm["frame"]})
 
-        if A.effect == "cut":
+        if A.effect == "grade":
+            cols = ["off", "subtle", "mid", "strong"]
+            warm = A.warm if A.warm is not None else 24
+            title = "GRADE — " + label
+            sub = ("one variable: how graded. vignette, grain and contrast "
+                   "move together; bloom and trails are the chosen ones.")
+        elif A.effect == "cut":
             cols = ["off", "gentle", "mid", "strong"]
             warm = A.warm if A.warm is not None else 24
             title = "CUT RAMP — " + label
