@@ -218,6 +218,7 @@ pattern), not a promise — brief §7 gate 3.
 ```
 bloom    LOW    thr 0.80  int 0.35      SWBPost.SPREAD.DEFAULT
 trails   LONG   0.24s tail              SWBPost.TRAILS.DEFAULT
+cut ramp GENTLE cutGain 0.6             SWBPost.CUTRAMP.DEFAULT
 ```
 
 **Bloom was MID for about an hour.** MID was chosen when Paradox was the only
@@ -235,6 +236,20 @@ at every setting — the structural fix, not a number.
 Both chosen off filmstrips in `05-reference/post/`, both masked to the arena
 rect at the bright pass AND at the composite — masking only the bright pass
 stops the HUD contributing light but not light being blurred OUT onto it.
+
+**THE RAMP IS DRIVEN BY THE DIRECTOR'S OWN NUMBER.** `CINE.wash` peaks at
+each tier's amplitude — 0.30 for a T2, 0.42 for a T3, 0.55 for a kill — and
+rises and falls across the beat, so one field carries both the envelope and
+the tier. `amount = intensity * (1 + cutGain * wash / 0.55)`, zero outside a
+cut. A second envelope written in the post chain would be a copy that drifts
+the first time the director is retuned.
+
+**AND CUTS ARE RARE.** Measured while building the ramp sheet: seed 25064 has
+ONE cut in 47 s of video and ironhail/dawnbringer 4412 has none; of 72 fights
+across three pairings, 42 had any cut and 8 had a kill. `CINE`'s own comment
+says zero cuts in a match is a correct answer. The ramp is a garnish on a rare
+moment rather than something most frames see — which is the honest reason
+GENTLE is enough.
 
 **THE TWO SETTINGS ARE NOT INDEPENDENT.** Trails were first judged against a
 MID bloom. When bloom came down to LOW the sheet was re-rendered rather than

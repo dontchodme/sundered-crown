@@ -855,9 +855,9 @@
        every setting. See docs/RENDER-LAYERS.md §4. */
     DEFAULT: 'low',
     off: null,
-    low: { threshold: 0.80, knee: 0.16, intensity: 0.35, scatter: 1.0, levels: 5 },
-    mid: { threshold: 0.72, knee: 0.18, intensity: 0.60, scatter: 1.1, levels: 5 },
-    high: { threshold: 0.62, knee: 0.22, intensity: 0.95, scatter: 1.25, levels: 6 }
+    low: { threshold: 0.80, knee: 0.16, intensity: 0.35, scatter: 1.0, levels: 5, cutGain: 0.6 },
+    mid: { threshold: 0.72, knee: 0.18, intensity: 0.60, scatter: 1.1, levels: 5, cutGain: 0.6 },
+    high: { threshold: 0.62, knee: 0.22, intensity: 0.95, scatter: 1.25, levels: 6, cutGain: 0.6 }
   };
 
   /* THE TRAIL SPREAD, and it varies ONE thing: how long the smear lasts, in
@@ -900,6 +900,16 @@
      the sheet answers only "should the director drive this", and not that
      question tangled up with "is the base right", which is already settled. */
   var CUTRAMP = {
+    /* CHOSEN BY RICK, 2026-08-27: gentle, 0.6. Carried on every SPREAD entry
+       above, so a caller that takes the chosen look gets the chosen ramp with
+       it and cannot accidentally ship the chain flat.
+
+       0.6 is a lift you notice without being able to name, and it is the
+       safest of the three against the failure that pushed bloom down to LOW
+       in the first place -- warm relic bodies fusing into one mass. STRONG
+       would have put a kill briefly into the HIGH register; that was both the
+       argument for it and the argument against it. */
+    DEFAULT: 'gentle',
     off:    0,
     gentle: 0.6,
     mid:    1.2,
