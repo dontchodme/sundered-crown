@@ -815,11 +815,20 @@
        the kill). At MID the lightning and the relic read as light sources and
        every float on the sheet still reads.
 
-       That also settles the open question in docs/RENDER-LAYERS.md §4:
-       drawFloats and drawTags survive MID inside the world pass, so moving
-       their call sites out of it stays OPTIONAL. It would have become
-       required work at HIGH. */
-    DEFAULT: 'mid',
+       REVISED THE SAME DAY, TO LOW, and the reason is the one this project
+       keeps relearning: MID was chosen when Paradox was the only evidence.
+       On ironhail v dawnbringer, whose relic bodies are already near white,
+       MID fuses the two fighters into a single mass by t=25.9 and HIGH loses
+       them entirely. LOW is the only setting on the two-pairing sheet
+       (bloom-spread-paradox-heartwood-25064-ironhail-dawnbringer-4412.png)
+       where both relics stay separable on BOTH kinds of art. It is subtler on
+       Paradox's lightning than MID was, and that is the price.
+
+       The readout question that was tangled up with this is now answered
+       separately and structurally -- floats, tags and the ult-name callout
+       leave the bloom's source entirely at renderer.roMode 1, so they read at
+       every setting. See docs/RENDER-LAYERS.md §4. */
+    DEFAULT: 'low',
     off: null,
     low: { threshold: 0.80, knee: 0.16, intensity: 0.35, scatter: 1.0, levels: 5 },
     mid: { threshold: 0.72, knee: 0.18, intensity: 0.60, scatter: 1.1, levels: 5 },

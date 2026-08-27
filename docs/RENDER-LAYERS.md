@@ -216,9 +216,21 @@ pattern), not a promise — brief §7 gate 3.
 ## 5b. THE POST CHAIN AS IT STANDS, 2026-08-27
 
 ```
-bloom    MID    thr 0.72  int 0.60      SWBPost.SPREAD.DEFAULT
-trails   SHORT  0.06s tail              SWBPost.TRAILS.DEFAULT
+bloom    LOW    thr 0.80  int 0.35      SWBPost.SPREAD.DEFAULT
+trails   SHORT  0.06s tail              SWBPost.TRAILS.DEFAULT   (under review)
 ```
+
+**Bloom was MID for about an hour.** MID was chosen when Paradox was the only
+evidence on the sheet. Added to it, Ironhail v Dawnbringer — relic bodies
+already near white — fuses both fighters into one mass at MID by t=25.9 and
+loses them entirely at HIGH. LOW is the only setting on the two-pairing sheet
+where both relics stay separable on both kinds of art, and it is subtler on
+Paradox's lightning than MID was. That is the price, and it was paid
+deliberately.
+
+**The readouts are no longer part of that trade.** They leave the bloom's
+source at `renderer.roMode` 1 and are composited back untouched, so they read
+at every setting — the structural fix, not a number.
 
 Both chosen off filmstrips in `05-reference/post/`, both masked to the arena
 rect at the bright pass AND at the composite — masking only the bright pass
