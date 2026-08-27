@@ -107,7 +107,45 @@ const POST_GATE = `(async () => {
   const sized = POST.overlay.width === src.width && POST.overlay.height === src.height;
   postToggle(false);
 
+  /* AND THEN THE LIVE PATH, WITH THE EFFECTS ON. The check above turns them
+     off on purpose -- it is asking whether the plumbing is invisible. That
+     leaves the two-pass readout draw, which only runs while the chain is on,
+     completely unexercised, and "it should work" is not a thing this project
+     gets to say about a picture. */
+  let live = 'live path NOT run';
+  try {
+    postToggle(true);
+    const ro = postReadouts();
+    const st2 = postState();
+    st2.dt = 1 / 60;
+    st2.readouts = ro;
+    POST.post.render(src, st2);
+    const after = POST.post.readPixels();
+    let diff = 0;
+    const w2 = src.width, h2 = src.height;
+    const base2 = src.getContext('2d').getImageData(0, 0, w2, h2).data;
+    for (let y = 0; y < h2; y += 3) {
+      const gy = h2 - 1 - y;
+      for (let x = 0; x < w2; x += 3) {
+        const i = (gy * w2 + x) * 4, j = (y * w2 + x) * 4;
+        if (after[i] !== base2[j] || after[i+1] !== base2[j+1]
+            || after[i+2] !== base2[j+2]) diff++;
+      }
+    }
+    const n2 = Math.ceil(h2 / 3) * Math.ceil(w2 / 3);
+    const roMode = document.getElementById('game').contentWindow.AC.renderer.roMode;
+    live = 'live path ok -- readouts ' + (ro ? ro.width + 'x' + ro.height : 'NULL')
+         + ', ' + (100 * diff / n2).toFixed(1) + '% px differ from the world pass'
+         + ', roMode left at ' + roMode;
+    if (!ro) live = 'live path FAILED -- postReadouts() returned null';
+    if (roMode !== 1) live += '  !! roMode should be 1 while the chain is on';
+    postToggle(false);
+  } catch (e) {
+    live = 'live path THREW -- ' + (e && e.message || e);
+  }
+
   const out = [];
+  out.push(live);
   out.push('[post] ' + POST.post.version + '  ' + src.width + 'x' + src.height
            + '  ' + r.passes + ' effect passes  ' + seen.size + '+ colours in source');
   out.push('[post] overlay backing store ' + POST.overlay.width + 'x' + POST.overlay.height
