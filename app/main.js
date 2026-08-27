@@ -95,11 +95,21 @@ const POST_GATE = `(async () => {
      which would make a green here mean the opposite of what it says. The
      picker is put back afterwards so the app is left as the user had it. */
   const sel = document.getElementById('bloom');
+  const selT = document.getElementById('trails');
   const was = sel ? sel.value : null;
+  const wasT = selT ? selT.value : null;
+  /* BOTH of them, and the first version of this cleared only bloom -- so the
+     passthrough test ran with the trail pass still registered and reported
+     zero differing pixels anyway, because the frame it happened to catch had
+     nothing above the trail's threshold. A green that measured nothing, which
+     is the same class of fault as the blank-frame case above. The assertion
+     below is the one that would have caught it. */
   POST.post.setBloom(null);
+  POST.post.setTrails(null);
   const st = postState();
   const r = POST.post.selfTest(src, st);
   if (sel && was !== null) { sel.value = was; postBloom(was); }
+  if (selT && wasT !== null) { selT.value = wasT; postTrails(wasT); }
   /* AFTER the render, not before: the overlay's backing store is sized by
      resize() inside render(), so reading it first measures the 300x150 a
      canvas is born at and reports a mismatch that is really a stale read. */
@@ -157,7 +167,12 @@ const POST_GATE = `(async () => {
               Math.round(st.rect.w), Math.round(st.rect.h)].join(',')
            : 'null') + '   cine ' + (st.cine ? 'read' : 'null'));
   out.push('');
-  if (!sized) {
+  if (r.passes !== 0) {
+    out.push('SKIP  ' + r.passes + ' effect passes were still registered when');
+    out.push('      the passthrough was measured, so a zero here would mean');
+    out.push('      nothing -- it would only say this frame had nothing bright');
+    out.push('      enough for them to touch. The gate cleared the wrong set.');
+  } else if (!sized) {
     out.push('FAIL  the overlay is not 1:1 with the source, so passthrough');
     out.push('      resamples and every later comparison is off by a filter.');
   } else if (r.differing === 0) {

@@ -217,7 +217,7 @@ pattern), not a promise — brief §7 gate 3.
 
 ```
 bloom    LOW    thr 0.80  int 0.35      SWBPost.SPREAD.DEFAULT
-trails   SHORT  0.06s tail              SWBPost.TRAILS.DEFAULT   (under review)
+trails   LONG   0.24s tail              SWBPost.TRAILS.DEFAULT
 ```
 
 **Bloom was MID for about an hour.** MID was chosen when Paradox was the only
@@ -236,14 +236,25 @@ Both chosen off filmstrips in `05-reference/post/`, both masked to the arena
 rect at the bright pass AND at the composite — masking only the bright pass
 stops the HUD contributing light but not light being blurred OUT onto it.
 
-**One artefact is known and unfixed.** At 60fps a fast arc still beads: a
-flail head travels much further between frames than its own width, and a
+**THE TWO SETTINGS ARE NOT INDEPENDENT.** Trails were first judged against a
+MID bloom. When bloom came down to LOW the sheet was re-rendered rather than
+re-read, and the answer changed: under MID the long tails competed with the
+bloom's own glow and the arena read as busy; under LOW they are the brightest
+moving thing in the frame and read as speed. **A look chosen against a base
+that has since moved is a look chosen for the wrong picture.**
+
+**One artefact is known and was taken knowingly.** At 60fps a fast arc beads:
+a flail head travels much further between frames than its own width, and a
 persistence buffer can only know where it was, not where it went. The tent
-softens it; it does not remove it. The fix is to run the chain per SIM step at
-120Hz rather than per rendered frame, which doubles the post cost — so it is
-gated on the frame-cost measurement (`tools/hud_cost.py`, brief §7 gate 3) and
-not on taste. SHORT is the least exposed setting, being three or four frames
-of history rather than fourteen.
+softens it; it does not remove it, and the artefact scales with how many
+frames of history are held — LONG holds about fourteen where SHORT held four,
+so it is more visible now than it was, on the flail's arc especially.
+
+The fix is to accumulate at the sim's 120 Hz rather than the render's 60, and
+`tools/post_cost.py` has priced it: the frame is already **7.36 ms against an
+8.33 ms budget at 120 Hz before the chain** on this Intel UHD. That makes it a
+real trade rather than a cleanup — and it is the strongest evidence in the
+repo against brief §4's claim that 120 fps is free for the asking.
 
 ---
 

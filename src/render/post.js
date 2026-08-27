@@ -843,16 +843,27 @@
      Seconds, not frames. A trail of 0.12s is 0.12s in a 120Hz app and in a
      60fps mp4; a trail of "8 frames" is two different pictures. */
   var TRAILS = {
-    /* CHOSEN BY RICK, 2026-08-27, off
-       05-reference/post/trails-spread-paradox-heartwood-25064.png — bloom held
-       at MID in all four columns, so the only variable was the tail.
+    /* CHOSEN BY RICK, 2026-08-27, off the trail spread; REVISED THE SAME
+       DAY to LONG once bloom came down to LOW.
 
-       SHORT is also the setting least exposed to the one honest artefact
-       left in this effect: at 60fps a fast arc still beads slightly, and a
-       0.06s tail is three or four frames of history rather than fourteen.
-       Lengthening it later means paying for the beading first — see the note
-       on running the chain per sim step in docs/RENDER-LAYERS.md. */
-    DEFAULT: 'short',
+       THE TWO SETTINGS ARE NOT INDEPENDENT, which is why the sheet was
+       re-rendered rather than re-read. Under MID the long tails competed
+       with the bloom's own glow and the arena read as busy. Under LOW they
+       are the brightest moving thing in the frame and read as speed. A look
+       chosen against a base that has since moved is a look chosen for the
+       wrong picture.
+
+       THE COST IS THE BEADING AND IT WAS TAKEN KNOWINGLY. At 60fps a fast
+       arc beads, because a persistence buffer knows where a thing WAS and
+       not where it went, and the artefact scales with how many frames of
+       history are held: LONG holds about fourteen where SHORT held four. On
+       the flail's arc it reads as stroboscopy rather than as a smear.
+
+       The fix is to accumulate at the sim's 120Hz instead of the render's
+       60, and tools/post_cost.py has priced it: the frame is already 7.36ms
+       against an 8.33ms budget at 120Hz BEFORE the chain, on this Intel UHD.
+       A real trade, not a cleanup. */
+    DEFAULT: 'long',
     off: null,
     short: { seconds: 0.06, intensity: 0.55, threshold: 0.70, knee: 0.18 },
     mid:   { seconds: 0.12, intensity: 0.55, threshold: 0.70, knee: 0.18 },
