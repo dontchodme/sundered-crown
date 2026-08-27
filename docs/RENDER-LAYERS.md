@@ -273,7 +273,30 @@ bloom    LOW    thr 0.80  int 0.35      SWBPost.SPREAD.DEFAULT
 trails   LONG   0.24s tail              SWBPost.TRAILS.DEFAULT
 cut ramp GENTLE cutGain 0.6             SWBPost.CUTRAMP.DEFAULT
 grade    MID    vig 0.38 grain 0.022   SWBPost.GRADE.DEFAULT
+adapt    STRONG adapt 50                 SWBPost.ADAPT.DEFAULT
 ```
+
+**THE BLOOM ADAPTS TO THE FRAME, and it has to.** A fixed gain is right only
+if every relic puts a similar amount of light on the floor, and they do not.
+Paradox is thin blue lightning on a dark hall; Dawnbringer's Daybreak is a
+broad near-white nova. At the setting that makes the lightning glow, the nova
+floods — Rick watched it and called it "WAY too loud". The bloom now divides
+its gain by the mean of the thresholded frame:
+
+```
+                 Daybreak (avg 0.0148)   Paradox lightning (avg 0.0050)
+adapt off              100%                        100%
+strong 50               28%                         83%
+```
+
+The **gap** is the whole point. Two wrong answers came first and both are worth
+remembering: a per-pixel CLAMP (measured inert — a clamp caps one pixel, and
+this is a bright AREA), and `generateMipmap` + `textureLod`, which returns
+black on this driver at every LOD and is indistinguishable from a wiring fault
+until you swap the texture read for a constant. The average is now built with
+the same downsample shader every pyramid level uses, walked to 1×1, and scaled
+×16 because the mean of a thresholded frame is about 1/255 and was rounding to
+zero in 8-bit.
 
 **What it costs, measured on the real GPU** (`tools/post_cost.py`, Intel UHD,
 D3D11 — not SwiftShader, which is what Playwright would have measured):

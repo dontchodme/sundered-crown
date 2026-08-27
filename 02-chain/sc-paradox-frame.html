@@ -19089,7 +19089,7 @@ window.cinePlan = cinePlan; window.cineScore = cineScore;
 
 /* ------------------------------------------------------------------ SHELL */
 const cv = document.getElementById("cv");
-/* ---- src/render/post.js, inlined by post_build.py. sha256:65406429ad1b19c9 ---- */
+/* ---- src/render/post.js, inlined by post_build.py. sha256:51638be9db3eb3c1 ---- */
 /* THE POST CHAIN — composite the finished 2D frame through WebGL2.
  *
  * `docs/RENDERER-BRIEF.md` §5. This file is NOT app-only code and must never
@@ -20168,9 +20168,9 @@ const cv = document.getElementById("cv");
        every setting. See docs/RENDER-LAYERS.md §4. */
     DEFAULT: 'low',
     off: null,
-    low: { threshold: 0.80, knee: 0.16, intensity: 0.35, scatter: 1.0, levels: 5, cutGain: 0.6 },
-    mid: { threshold: 0.72, knee: 0.18, intensity: 0.60, scatter: 1.1, levels: 5, cutGain: 0.6 },
-    high: { threshold: 0.62, knee: 0.22, intensity: 0.95, scatter: 1.25, levels: 6, cutGain: 0.6 }
+    low: { threshold: 0.80, knee: 0.16, intensity: 0.35, scatter: 1.0, levels: 5, cutGain: 0.6, adapt: 50 },
+    mid: { threshold: 0.72, knee: 0.18, intensity: 0.60, scatter: 1.1, levels: 5, cutGain: 0.6, adapt: 50 },
+    high: { threshold: 0.62, knee: 0.22, intensity: 0.95, scatter: 1.25, levels: 6, cutGain: 0.6, adapt: 50 }
   };
 
   /* THE TRAIL SPREAD, and it varies ONE thing: how long the smear lasts, in
@@ -20279,6 +20279,7 @@ const cv = document.getElementById("cv");
        The whole point is the GAP between those columns: the nova is pulled
        back hard and the thin lightning is barely touched, which is what one
        fixed gain across twenty-five relics could never do. */
+    DEFAULT: 'strong',
     off:    0,
     gentle: 10,
     mid:    25,
