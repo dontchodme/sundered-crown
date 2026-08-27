@@ -96,7 +96,9 @@ def main() -> int:
 
     import re
     m = re.search(r"Chrome/([\d.]+)", head)
-    print(f"[identity] headless Chromium {m.group(1) if m else '?'}")
+    head_chrome = m.group(1) if m else "?"
+    app_chrome = str(app.get("chrome", "?"))
+    print(f"[identity] headless Chromium {head_chrome}")
 
     bad = 0
     for i, (want, have) in enumerate(zip(rows, got)):
@@ -116,7 +118,26 @@ def main() -> int:
 
     n = len(rows)
     if bad:
-        print(f"\nFAIL  {n - bad}/{n} identical — the shell is not the same engine.")
+        print(f"\nFAIL  {n - bad}/{n} identical.")
+        # ATTRIBUTION MATTERS MORE THAN THE COUNT. This check was written to
+        # catch a shell that had changed the engine, and its only failure
+        # message said exactly that. It is not the only way to fail it. If the
+        # two runtimes are different Chromium builds, the engine is untouched
+        # and the maths under it is not: V8 promises no last bit for Math.pow,
+        # the sim integrates gravity through it every step, and about three
+        # fights in five come out different. Saying "the shell is not the same
+        # engine" here sends the next session to read a shell that is innocent.
+        if app_chrome != head_chrome and "?" not in (app_chrome, head_chrome):
+            print("      The two runtimes are DIFFERENT CHROMIUM BUILDS:")
+            print(f"        app      Chromium {app_chrome}")
+            print(f"        headless Chromium {head_chrome}")
+            print("      Before reading the shell, run:  python math_fingerprint.py")
+            print("      It says whether Math itself differs. If it does, this")
+            print("      failure is the runtime PAIR, not the shell, and the fix")
+            print("      is a pin. See docs/RUNTIME-DRIFT.md.")
+        else:
+            print(f"      Both runtimes report Chromium {head_chrome}, so this is")
+            print("      NOT runtime drift - the shell has changed the engine.")
         return 1
     print(f"\nPASS  {n}/{n} identical.")
     return 0

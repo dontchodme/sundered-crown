@@ -1,0 +1,24 @@
+# THE PYTHON SIDE OF THE PIN. Read docs/RUNTIME-DRIFT.md before changing a
+# version in this file.
+#
+# playwright is not a normal dependency here. It carries the Chromium that
+# every measurement in this repo is made on, and V8 does not promise a last
+# bit for Math.pow — which the sim integrates gravity through on every one of
+# ~4,800 steps in a fight. An unpinned playwright is an unpinned engine.
+#
+# The pin holds with app/package.json's electron, and the pair is checked by
+#
+#     cd tools && python math_fingerprint.py
+#
+# playwright 1.62.0  -> Chromium 151.0.7922.34
+# electron   44.0.0  -> Chromium 152.0.7977.54
+#
+# Different builds, IDENTICAL to the last bit across all 20 functions
+# fingerprinted, and 192/192 fights identical. Version equality was never
+# available (no Electron ships Chromium 151); bit equality is the property
+# that matters and it is measured, not assumed.
+#
+# MOVING EITHER ONE: bump it, run math_fingerprint.py, and only then
+# `npm run identity` in app/ followed by `python shell_identity.py`. A red
+# fingerprint means the pair is not usable, whatever the versions say.
+playwright==1.62.0

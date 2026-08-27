@@ -20,6 +20,16 @@ const REPO = path.resolve(__dirname, '..');
  * pipeline renders. Keep it pointed at the build of record. */
 const GAME = process.env.SWB_GAME || '02-chain/sc-paradox-frame.html';
 
+/* `npm run identity` has advertised this flag since the shell was written and
+ * nothing read it, so the script started the app normally and the gate could
+ * only be run by a person clicking a button. A gate that needs a human to run
+ * it does not get run: Phase 1's test had never been carried to a verdict
+ * until 2026-08-26, and when it was, it failed. See docs/RUNTIME-DRIFT.md.
+ *
+ * With the flag the window is hidden, the same runIdentity() the button calls
+ * is driven from here, and the process exits on the result. */
+const IDENTITY = process.argv.includes('--identity-check');
+
 protocol.registerSchemesAsPrivileged([{
   scheme: 'swb',
   privileges: { standard: true, secure: true, supportFetchAPI: true, stream: true },
@@ -51,6 +61,7 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1180,
     height: 980,
+    show: !IDENTITY,
     backgroundColor: '#0b0b10',
     title: 'Super Weapon Ball — The Sundered Crown',
     webPreferences: {
@@ -58,6 +69,10 @@ function createWindow() {
       contextIsolation: true,   // non-negotiable
       nodeIntegration: false,   // non-negotiable
       sandbox: true,            // non-negotiable
+      /* A hidden window gets its timers throttled to about 1 Hz, and the
+       * shell reaches window.AC through a setInterval poll. Only relaxed for
+       * the headless gate, where nothing is being shown to throttle for. */
+      backgroundThrottling: !IDENTITY,
     },
   });
   win.loadURL('swb://app/app/ui/shell.html');
@@ -101,9 +116,33 @@ ipcMain.handle('swb:speak', async () => {
   return { ok: false, reason: 'not built yet — docs/ARCHITECTURE.md §4' };
 });
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   registerProtocol();
-  createWindow();
+  const win = createWindow();
+
+  if (IDENTITY) {
+    /* Drives the page's own runIdentity() rather than reimplementing the
+     * sweep here. Two implementations of one measurement is how the two sides
+     * agree on a shared mistake and the check passes on it. */
+    try {
+      await new Promise((r) => win.webContents.once('did-finish-load', r));
+      await win.webContents.executeJavaScript(
+        'new Promise((r, j) => { let n = 0; const t = setInterval(() => {' +
+        '  if (typeof AC !== "undefined" && AC && AC.WEAPONS) { clearInterval(t); r(1); }' +
+        '  else if (++n > 200) { clearInterval(t); j(new Error("window.AC never appeared")); }' +
+        '}, 50); })');
+      await win.webContents.executeJavaScript('runIdentity()');
+      const said = await win.webContents.executeJavaScript(
+        'document.getElementById("identityOut").textContent');
+      process.stdout.write(said + '\n');
+      app.exit(0);
+    } catch (e) {
+      process.stderr.write('identity check failed: ' + (e && e.message || e) + '\n');
+      app.exit(1);
+    }
+    return;
+  }
+
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });

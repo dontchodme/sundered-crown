@@ -24,16 +24,38 @@ byte-identical, which is Phase 1's rule.
 
 ## The test that says Phase 1 is done
 
-Not "it opens". Click **Engine identity → Run 200 seeds**, then:
+Not "it opens". It runs without a person now — the window is hidden and the
+process exits on the result:
 
 ```bash
-cd tools
-python shell_identity.py
+cd app && npm run identity      # 192 fights, ~3s, writes out/shell_identity_app.json
+cd ../tools && python shell_identity.py
 ```
 
-Every field of every fight summary must match headless Chromium. One differing
-digit means the shell changed the engine, and the whole Electron-over-Tauri
-argument (§1 of `docs/ARCHITECTURE.md`) is void on this machine.
+(Or click **Engine identity → Run 200 seeds** in a running app; same code path.)
+
+Every field of every fight summary must match headless Chromium. Current
+state, 2026-08-26:
+
+```
+[identity] app      Chromium 152.0.7977.54  192 fights
+[identity] headless Chromium 151.0.7922.34
+PASS  192/192 identical.
+```
+
+**It did not always pass.** On Electron 32 (Chromium 128) it came back 80/192,
+and the failure was not the shell — V8 does not promise a last bit for
+`Math.pow`, which the sim integrates gravity through every step. The Electron
+and playwright versions are now pinned as a *pair*, and the pair is checked by:
+
+```bash
+cd tools && python math_fingerprint.py
+```
+
+Do not bump `electron` in `package.json` without re-running that. The two
+Chromiums are deliberately different versions that agree to the last bit; a
+newer Electron that fails the fingerprint is not usable here whatever its
+version number says. See `docs/RUNTIME-DRIFT.md`.
 
 ## What is deliberately not built yet
 

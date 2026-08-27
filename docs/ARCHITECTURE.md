@@ -3,6 +3,14 @@
 **Decided 2026-08-26 with Rick.** Electron shell over the existing engine.
 Extraction, not rewrite. Both Claude Code and Cowork against this repo.
 
+> **REORDERED, same day.** The renderer moved from phase 5 to first, and
+> `docs/RENDERER-BRIEF.md` supersedes §7 below on sequencing. The reason
+> is §0: because the sim cannot see a screen, a renderer rewrite cannot
+> change a fight — so it is the *safest* large change here, not one that
+> should wait behind the riskiest. The ordering argument in §2 was that
+> phases 1-3 hand the extraction a review instrument; the app now exists,
+> so that has been paid for. Phases 2 and 3 are unstarted and unchanged.
+
 ---
 
 ## 0. THE ONE FACT THE WHOLE PLAN RESTS ON
@@ -119,6 +127,16 @@ AC.simulate(idA, idB, seed)  in Playwright's headless Chromium
 Every field identical across a few hundred seeds, or the shell has changed the
 engine and the phase is not done. This is cheap and it is the only thing that
 proves the guarantee in §1 actually holds on Rick's machine.
+
+> **RUN 2026-08-26, AND IT FAILED: 80/192.** Not because the shell had changed
+> the engine — because the app's Chromium (128, via Electron 32) and
+> Playwright's (151) do not agree on the last bit of `Math.pow`, which the sim
+> integrates gravity through on every one of ~4,800 steps. **This paragraph
+> was right that the test was the only thing that could prove §1, and it was
+> incomplete about what a failure means.** The pair is now pinned — Electron
+> 44.0.0 and playwright 1.62.0, different Chromium versions, bit-identical
+> maths — and the test reads `PASS 192/192`. `docs/RUNTIME-DRIFT.md` carries
+> the measurement; `tools/math_fingerprint.py` is the standing check.
 
 ---
 

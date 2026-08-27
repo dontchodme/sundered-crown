@@ -41,7 +41,7 @@ The thing that matters most about it:
 | timestep | `CONFIG.physics.dt` = **1/120**. Never hardcode 1/60. |
 | randomness | mulberry32 on an integer seed. **The seed IS the fight.** |
 | audio | fully synthesized in WebAudio. There are no sound files. |
-| determinism | `(build, relic A, relic B, seed)` → the same fight, always. |
+| determinism | `(build, relic A, relic B, seed)` → the same fight, always — **on the same V8.** Measured 2026-08-26 and now pinned; `tools/math_fingerprint.py` is the check. `docs/RUNTIME-DRIFT.md`. |
 
 **Everything downstream rests on that last line.** Clips, measurements,
 `engine_ab`, every tuned number. Anything that breaks determinism invalidates
@@ -125,6 +125,16 @@ the ball *had*. When a thing is suspended and something is kept so it can
 resume, **every other reader of that field is reading a lie until checked.**
 There is no type-system answer. Grep the field, read every site.
 
+**2b. THE RUNTIME IS AN INPUT. IT IS PINNED NOW — KEEP IT THAT WAY.** V8 does
+not specify a last bit for `Math.pow`, the sim integrates gravity through it
+every step, and Chromium 128 against 151 was **112 of 192 fights different**.
+Seed 25064 — the v43 clip of record — is 44.52s on one and 46.41s on the other,
+same winner, same hp. The pin is `requirements.txt` (`playwright==1.62.0`) and
+`app/package.json` (`electron` exactly `44.0.0`); the two Chromiums differ in
+version and agree to the last bit, which is the property that matters. Run
+`tools/math_fingerprint.py` after touching either, and **never build a
+side-by-side filmstrip from two different runtimes.** `docs/RUNTIME-DRIFT.md`.
+
 **3. `|| default` on a number a sweep can set is a bug.** Use `=== undefined`.
 
 **4. A BROKEN SOUND IS INVISIBLE TO EVERY TOOL HERE.** `SFX.play` returns on
@@ -173,6 +183,8 @@ a Linux container; they are records, not instructions. Substitute as you read.
 
 ```bash
 cd tools
+python3 math_fingerprint.py                                         # the runtime pair
+python3 shell_identity.py                                           # app == headless
 python3 verify.py --game ../02-chain/sc-paradox-frame.html --n 40   # 13 checks
 python3 engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python3 chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
