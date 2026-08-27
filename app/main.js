@@ -58,19 +58,16 @@ const POST_GATE = `(async () => {
         clearInterval(t);
         rej(new Error('gave up waiting -- ' + (typeof POST === 'undefined'
           ? 'post-dev.js never ran'
-          : 'POST.err=' + POST.err + ' post=' + !!POST.post + ' src=' + !!POST.src)));
+          : 'POST.err=' + POST.err + ' fx=' + !!POST.fx)));
       }
     }, 50);
   });
-  await wait(() => typeof POST !== 'undefined' && (POST.err || (POST.post && POST.src)), 15000);
+  await wait(() => typeof POST !== 'undefined' && (POST.err || POST.fx), 15000);
   if (POST.err) return ['SKIP  post chain unavailable -- ' + POST.err];
 
-  const src = POST.src;
-  /* WAIT FOR PAINT, do not sample once and judge. A hidden window throttles
-     rAF hard, so the engine may not have drawn its first frame by the time
-     window.AC exists -- and a single early sample makes this gate flaky in
-     the one direction that matters, reporting a blank canvas as though the
-     renderer were broken. Poll until there is a picture, then decide. */
+  const w = document.getElementById('game').contentWindow;
+  const AC = w.AC, src = w.document.getElementById('cv');
+
   const colours = () => {
     const px = src.getContext('2d').getImageData(0, 0, src.width, src.height).data;
     const s2 = new Set();
@@ -80,114 +77,76 @@ const POST_GATE = `(async () => {
     }
     return s2.size;
   };
-  try { await wait(() => colours() >= 16, 20000); } catch (e) { /* reported below */ }
-  const seen = { size: colours() };
-  if (seen.size < 16) {
-    return ['SKIP  the source frame has only ' + seen.size + ' distinct colours ('
-            + src.width + 'x' + src.height + ').',
-            '      A hidden window did not composite, so passthrough would be',
-            '      checked against a blank canvas. That is not a pass.'];
-  }
-
-  postToggle(true);
-  /* THE PLUMBING IS WHAT THIS GATE CHECKS, so the effects come off first.
-     With bloom on, a difference is the POINT and zero would be the bug --
-     which would make a green here mean the opposite of what it says. The
-     picker is put back afterwards so the app is left as the user had it. */
-  const sel = document.getElementById('bloom');
-  const selT = document.getElementById('trails');
-  const was = sel ? sel.value : null;
-  const wasT = selT ? selT.value : null;
-  /* BOTH of them, and the first version of this cleared only bloom -- so the
-     passthrough test ran with the trail pass still registered and reported
-     zero differing pixels anyway, because the frame it happened to catch had
-     nothing above the trail's threshold. A green that measured nothing, which
-     is the same class of fault as the blank-frame case above. The assertion
-     below is the one that would have caught it. */
-  const selG = document.getElementById('grade');
-  const wasG = selG ? selG.value : null;
-  POST.post.setBloom(null);
-  POST.post.setTrails(null);
-  POST.post.setGrade(null);
-  const st = postState();
-  const r = POST.post.selfTest(src, st);
-  if (sel && was !== null) { sel.value = was; postBloom(was); }
-  if (selT && wasT !== null) { selT.value = wasT; postTrails(wasT); }
-  if (selG && wasG !== null) { selG.value = wasG; postGrade(wasG); }
-  /* AFTER the render, not before: the overlay's backing store is sized by
-     resize() inside render(), so reading it first measures the 300x150 a
-     canvas is born at and reports a mismatch that is really a stale read. */
-  const geo = POST.overlay.getBoundingClientRect();
-  const sized = POST.overlay.width === src.width && POST.overlay.height === src.height;
-  postToggle(false);
-
-  /* AND THEN THE LIVE PATH, WITH THE EFFECTS ON. The check above turns them
-     off on purpose -- it is asking whether the plumbing is invisible. That
-     leaves the two-pass readout draw, which only runs while the chain is on,
-     completely unexercised, and "it should work" is not a thing this project
-     gets to say about a picture. */
-  let live = 'live path NOT run';
-  try {
-    postToggle(true);
-    const ro = postReadouts();
-    const st2 = postState();
-    st2.dt = 1 / 60;
-    st2.readouts = ro;
-    POST.post.render(src, st2);
-    const after = POST.post.readPixels();
-    let diff = 0;
-    const w2 = src.width, h2 = src.height;
-    const base2 = src.getContext('2d').getImageData(0, 0, w2, h2).data;
-    for (let y = 0; y < h2; y += 3) {
-      const gy = h2 - 1 - y;
-      for (let x = 0; x < w2; x += 3) {
-        const i = (gy * w2 + x) * 4, j = (y * w2 + x) * 4;
-        if (after[i] !== base2[j] || after[i+1] !== base2[j+1]
-            || after[i+2] !== base2[j+2]) diff++;
-      }
-    }
-    const n2 = Math.ceil(h2 / 3) * Math.ceil(w2 / 3);
-    const roMode = document.getElementById('game').contentWindow.AC.renderer.roMode;
-    live = 'live path ok -- readouts ' + (ro ? ro.width + 'x' + ro.height : 'NULL')
-         + ', ' + (100 * diff / n2).toFixed(1) + '% px differ from the world pass'
-         + ', roMode left at ' + roMode;
-    if (!ro) live = 'live path FAILED -- postReadouts() returned null';
-    if (roMode !== 1) live += '  !! roMode should be 1 while the chain is on';
-    postToggle(false);
-  } catch (e) {
-    live = 'live path THREW -- ' + (e && e.message || e);
+  try { await wait(() => colours() >= 16, 20000); } catch (e) {}
+  const seen = colours();
+  if (seen < 16) {
+    return ['SKIP  the source frame has only ' + seen + ' distinct colours.',
+            '      A hidden window did not composite, so nothing below would',
+            '      have measured anything. That is not a pass.'];
   }
 
   const out = [];
-  out.push(live);
-  out.push('[post] ' + POST.post.version + '  ' + src.width + 'x' + src.height
-           + '  ' + r.passes + ' effect passes  ' + seen.size + '+ colours in source');
-  out.push('[post] overlay backing store ' + POST.overlay.width + 'x' + POST.overlay.height
-           + (sized ? ' (1:1 with source)' : '  MISMATCHED'));
-  out.push('[post] overlay on screen ' + Math.round(geo.width) + 'x' + Math.round(geo.height)
-           + ' at ' + Math.round(geo.left) + ',' + Math.round(geo.top));
-  out.push('[post] arena rect ' + (st.rect
-           ? [Math.round(st.rect.x), Math.round(st.rect.y),
-              Math.round(st.rect.w), Math.round(st.rect.h)].join(',')
-           : 'null') + '   cine ' + (st.cine ? 'read' : 'null'));
+  out.push('[post] build ' + POST.fx.post.version + '  ' + src.width + 'x'
+           + src.height + '  chain ' + (POST.fx.on ? 'ON' : 'OFF')
+           + '  passes: ' + POST.fx.post.passes.map(p => p.name).join('+'));
+  out.push('[post] shell ' + (window.SWBPost ? window.SWBPost.VERSION : '?')
+           + '   defaults ' + window.SWBPost.SPREAD.DEFAULT + '/'
+           + window.SWBPost.TRAILS.DEFAULT + '/' + window.SWBPost.GRADE.DEFAULT);
+
+  /* ONE CHAIN, AND THIS IS THE ASSERTION THAT SAYS SO. If the shell ever
+     builds its own again, the app post-processes an already post-processed
+     frame and shows Rick something the mp4 cannot contain. */
+  if (POST.overlay || (POST.post && POST.post !== POST.fx.post)) {
+    out.push('');
+    out.push('FAIL  the shell is running a SECOND chain. There must be one,');
+    out.push('      and it lives in the build.');
+    return out;
+  }
+  out.push('[post] one chain: the shell drives the one in the build');
+
+  /* the live path: the chain on, a real composited frame */
+  POST.fx.on = true;
+  POST.fx.reset();
+  AC.renderer.roMode = 0;
+  AC.__draw(AC.match);
+  const lit = colours();
+  out.push('[post] chain ON draws ' + lit + '+ distinct colours');
+
+  /* and the plumbing, with every pass off */
+  const b = document.getElementById('bloom').value;
+  const t2 = document.getElementById('trails').value;
+  const g = document.getElementById('grade').value;
+  POST.fx.post.setBloom(null);
+  POST.fx.post.setTrails(null);
+  POST.fx.post.setGrade(null);
+  POST.fx.on = false;
+  AC.renderer.roMode = 1;
+  AC.__draw(AC.match);
+  AC.renderer.roMode = 0;
+  const r = POST.fx.post.selfTest(src, {
+    enabled: true,
+    rect: { x: AC.renderer.pad * AC.renderer.k,
+            y: AC.renderer.arenaTop * AC.renderer.k,
+            w: AC.renderer.aw * AC.renderer.k,
+            h: AC.renderer.ah * AC.renderer.k },
+  });
+  document.getElementById('bloom').value = b;
+  document.getElementById('trails').value = t2;
+  document.getElementById('grade').value = g;
+  postApply();
+  POST.fx.on = true;
+
   out.push('');
   if (r.passes !== 0) {
-    out.push('SKIP  ' + r.passes + ' effect passes were still registered when');
-    out.push('      the passthrough was measured, so a zero here would mean');
-    out.push('      nothing -- it would only say this frame had nothing bright');
-    out.push('      enough for them to touch. The gate cleared the wrong set.');
-  } else if (!sized) {
-    out.push('FAIL  the overlay is not 1:1 with the source, so passthrough');
-    out.push('      resamples and every later comparison is off by a filter.');
+    out.push('SKIP  ' + r.passes + ' passes were still registered when the');
+    out.push('      passthrough was measured, so a zero would mean nothing.');
   } else if (r.differing === 0) {
     out.push('PASS  ' + r.total.toLocaleString() + ' px identical, max delta 0,');
-    out.push('      through the app harness and not only the module.');
+    out.push('      through the chain in the build, not a copy of it.');
   } else {
-    out.push('FAIL  ' + r.differing.toLocaleString() + ' of ' + r.total.toLocaleString()
-             + ' px differ, max delta ' + r.maxDelta);
-    if (r.sample) out.push('      first at ' + r.sample.x + ',' + r.sample.y
-                           + '  got ' + r.sample.got.join(',')
-                           + '  want ' + r.sample.want.join(','));
+    out.push('FAIL  ' + r.differing.toLocaleString() + ' of '
+             + r.total.toLocaleString() + ' px differ, max delta ' + r.maxDelta);
+    if (r.sample) out.push('      first at ' + r.sample.x + ',' + r.sample.y);
   }
   return out;
 })()`;

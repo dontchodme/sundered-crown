@@ -234,6 +234,38 @@ pattern), not a promise — brief §7 gate 3.
 
 ---
 
+## 5a. THE CHAIN IS IN THE BUILD
+
+`tools/post_build.py` inlines `src/render/post.js` and adds `POSTFX` plus ONE
+hook at the top of `Renderer.draw` — the single method every path into the
+picture goes through, so the live loop, `AC.__draw` and `CINE.drawLerped` are
+all covered without a second code path.
+
+```
+sc-paradox.html
+  -> cineexport_build   CINE on the export surface
+  -> readouts_build     renderer.roMode, the readout split
+  -> post_build         the chain, inlined, ON
+  -> frame_build        the tip
+```
+
+`#cv` stays the one canvas every tool reads. `POSTFX.frame` draws the readouts,
+copies them off, draws the world, composites, and puts the result back on
+`#cv` — so `cinema_clip`'s `toDataURL`, `verify`'s non-blank check and
+`render_ab`'s hash all keep working without learning a new name.
+
+**And there is exactly ONE chain.** `POSTFX` is exported on `AC` and the app
+shell *drives* it. The shell used to own its own instance, which was right
+while the chain was not in the build and became a defect the moment it was:
+two blooms, two grades, and an app showing a picture the mp4 cannot contain.
+`npm run post` asserts the shell has not built a second one.
+
+Without WebGL2, `POSTFX.on` goes false, `draw` runs exactly as before, and it
+says so once in the console. A silent fallback is how a clip ships missing an
+effect and nobody finds out.
+
+---
+
 ## 5b. THE POST CHAIN AS IT STANDS, 2026-08-27
 
 ```

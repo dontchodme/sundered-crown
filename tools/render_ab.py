@@ -47,6 +47,10 @@ FRAMES_JS = r"""
     m.introT = 0;
     AC.__inject(m);
     AC.SFX.play = function () {};
+    /* The grain is keyed to POSTFX's frame counter, so both builds have to
+       start it from the same place or the two pictures differ for a reason
+       that is nothing to do with the change being measured. */
+    if (typeof POSTFX !== 'undefined') POSTFX.reset();
     let cursor = 0;
     for (const at of cfg.frames) {
       while (m.t < at - dt * 0.5 && !m.over) m.step(dt);
