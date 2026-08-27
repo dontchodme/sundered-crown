@@ -792,6 +792,16 @@
      Seconds, not frames. A trail of 0.12s is 0.12s in a 120Hz app and in a
      60fps mp4; a trail of "8 frames" is two different pictures. */
   var TRAILS = {
+    /* CHOSEN BY RICK, 2026-08-27, off
+       05-reference/post/trails-spread-paradox-heartwood-25064.png — bloom held
+       at MID in all four columns, so the only variable was the tail.
+
+       SHORT is also the setting least exposed to the one honest artefact
+       left in this effect: at 60fps a fast arc still beads slightly, and a
+       0.06s tail is three or four frames of history rather than fourteen.
+       Lengthening it later means paying for the beading first — see the note
+       on running the chain per sim step in docs/RENDER-LAYERS.md. */
+    DEFAULT: 'short',
     off: null,
     short: { seconds: 0.06, intensity: 0.55, threshold: 0.70, knee: 0.18 },
     mid:   { seconds: 0.12, intensity: 0.55, threshold: 0.70, knee: 0.18 },

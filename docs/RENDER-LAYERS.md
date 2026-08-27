@@ -198,6 +198,28 @@ pattern), not a promise — brief §7 gate 3.
 
 ---
 
+## 5b. THE POST CHAIN AS IT STANDS, 2026-08-27
+
+```
+bloom    MID    thr 0.72  int 0.60      SWBPost.SPREAD.DEFAULT
+trails   SHORT  0.06s tail              SWBPost.TRAILS.DEFAULT
+```
+
+Both chosen off filmstrips in `05-reference/post/`, both masked to the arena
+rect at the bright pass AND at the composite — masking only the bright pass
+stops the HUD contributing light but not light being blurred OUT onto it.
+
+**One artefact is known and unfixed.** At 60fps a fast arc still beads: a
+flail head travels much further between frames than its own width, and a
+persistence buffer can only know where it was, not where it went. The tent
+softens it; it does not remove it. The fix is to run the chain per SIM step at
+120Hz rather than per rendered frame, which doubles the post cost — so it is
+gated on the frame-cost measurement (`tools/hud_cost.py`, brief §7 gate 3) and
+not on taste. SHORT is the least exposed setting, being three or four frames
+of history rather than fourteen.
+
+---
+
 ## 6. WHAT IS NOT ESTABLISHED HERE
 
 - **The 120 fps claim in brief §4 is unchecked.** `CONFIG.physics.dt` is 1/120

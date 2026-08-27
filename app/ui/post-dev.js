@@ -265,6 +265,10 @@ function postWire() {
   }
   const tr = document.getElementById('trails');
   if (tr) {
+    /* From the module, like bloom's, so the app and the filmstrip cannot
+       disagree about which one was picked. */
+    const tdef = (window.SWBPost && window.SWBPost.TRAILS.DEFAULT) || 'off';
+    if ([...tr.options].some((o) => o.value === tdef)) tr.value = tdef;
     tr.onchange = () => postTrails(tr.value);
     postTrails(tr.value);
   }
