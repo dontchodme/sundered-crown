@@ -573,6 +573,20 @@
      threshold that follows from it; reach and knee are held so the comparison
      has one variable. */
   var SPREAD = {
+    /* CHOSEN BY RICK, 2026-08-27, off the sheet at
+       05-reference/post/bloom-spread-paradox-heartwood-25064.png — three
+       moments of seed 25064, four columns, one runtime.
+
+       MID over HIGH on legibility: at HIGH the relic blows out to a white
+       disc and the damage floats are lost (the `24` at t=37.4 and the `89` at
+       the kill). At MID the lightning and the relic read as light sources and
+       every float on the sheet still reads.
+
+       That also settles the open question in docs/RENDER-LAYERS.md §4:
+       drawFloats and drawTags survive MID inside the world pass, so moving
+       their call sites out of it stays OPTIONAL. It would have become
+       required work at HIGH. */
+    DEFAULT: 'mid',
     off: null,
     low: { threshold: 0.80, knee: 0.16, intensity: 0.35, scatter: 1.0, levels: 5 },
     mid: { threshold: 0.72, knee: 0.18, intensity: 0.60, scatter: 1.1, levels: 5 },

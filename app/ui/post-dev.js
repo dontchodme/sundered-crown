@@ -230,6 +230,10 @@ function postWire() {
   if (b) b.onclick = () => postToggle();
   if (t) t.onclick = postSelfTest;
   if (sel) {
+    /* The default comes from the module, not from the markup, so the app and
+       the filmstrip cannot disagree about which one Rick picked. */
+    const def = (window.SWBPost && window.SWBPost.SPREAD.DEFAULT) || 'mid';
+    if ([...sel.options].some((o) => o.value === def)) sel.value = def;
     sel.onchange = () => postBloom(sel.value);
     postBloom(sel.value);
   }
