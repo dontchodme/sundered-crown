@@ -115,6 +115,14 @@
     '}'
   ].join('\n');
 
+  /* The same downsample, but scaled UP on the way in. The average chain ends
+     at one 8-bit texel, and the mean of a thresholded frame is small: the
+     Paradox lightning frame averages 0.005, which is 1.3/255 and rounds to 1
+     -- or to 0 one frame later. The adaptation then switches on and off with
+     rounding rather than with the picture. x16 in, /16 out, and the quantity
+     survives the trip. */
+  var FRAG_DOWN_GAIN = null;   // built from FRAG_DOWN below
+
   var FRAG_DOWN = [
     '#version 300 es',
     'precision highp float;',
@@ -133,6 +141,9 @@
 
   /* 3x3 tent on the way back up. Blended additively onto the level below, so
      each level contributes its own reach. */
+  FRAG_DOWN_GAIN = FRAG_DOWN.replace('oCol = vec4(c * 0.25, 1.0);',
+                                     'oCol = vec4(c * 0.25 * 16.0, 1.0);');
+
   var FRAG_UP = [
     '#version 300 es',
     'precision highp float;',
@@ -215,7 +226,9 @@
     'precision highp float;',
     'uniform sampler2D uSrc;',
     'uniform sampler2D uBloom;',
+    'uniform sampler2D uAvg;',
     'uniform float uIntensity;',
+    'uniform float uAdapt;',
     'uniform vec4 uRect;',
     'in vec2 vUv;',
     'out vec4 oCol;',
@@ -233,10 +246,31 @@
     '    oCol = vec4(base, 1.0); return;',
     '  }',
     '  vec3 b = texture(uBloom, vUv).rgb;',
+    /* HOW MUCH OF THIS FRAME IS ALREADY BRIGHT.
+     *
+     * A fixed gain is right only if every relic puts a similar amount of
+     * light on the floor, and they do not. Paradox is thin blue lightning on
+     * a dark hall; Daybreak is a broad near-white nova. At the setting that
+     * makes the lightning glow, the nova floods -- which is what Rick saw and
+     * called "WAY too loud".
+     *
+     * uAvg is the pyramid's smallest level with a full mip chain, so LOD 20
+     * is one texel: the mean of the whole THRESHOLDED image. Not the mean of
+     * the frame -- of the part that was bright enough to bloom at all, which
+     * is exactly the quantity that floods. No readback, so no GPU stall, and
+     * it is a pure function of the frame, so a rebuild grades identically.
+     *
+     * The +1 keeps a dark frame at full gain instead of dividing by nothing. */
+    '  float gain = uIntensity;',
+    '  if (uAdapt > 0.0) {',
+    '    float avg = dot(texture(uAvg, vec2(0.5)).rgb,',
+    '                    vec3(0.2126, 0.7152, 0.0722)) / 16.0;',
+    '    gain = uIntensity / (1.0 + uAdapt * avg);',
+    '  }',
     /* Added, not screened. The art underneath is already doing additive
        compositing in Canvas 2D; screening on top of it desaturates the
        gold, which is the one colour this game cannot afford to lose. */
-    '  oCol = vec4(base + b * uIntensity, 1.0);',
+    '  oCol = vec4(base + b * gain, 1.0);',
     '}'
   ].join('\n');
 
@@ -398,6 +432,7 @@
     this._pCopy = program(gl, FRAG_COPY_NOFLIP, 'copy-noflip');
     this._pBright = null;
     this._pDown = null;
+    this._pDownGain = null;
     this._pUp = null;
     this._pCombine = null;
     this._pTrail = null;
@@ -417,6 +452,7 @@
     this._a = null;
     this._b = null;
     this._mips = [];
+    this._avgChain = [];
     this._tr0 = null;
     this._tr1 = null;
     this._trBright = null;
@@ -458,6 +494,23 @@
       mw = Math.max(1, mw >> 1);
       mh = Math.max(1, mh >> 1);
     }
+    /* THE AVERAGE CHAIN. The pyramid stops at about 8px because levels below
+       that stop adding reach, but the ADAPT term needs the mean of the whole
+       thresholded image -- one number. generateMipmap plus textureLod was the
+       obvious way and it returned black on this driver at every LOD, which is
+       indistinguishable from a wiring fault until you probe with a constant.
+       So this walks the rest of the way down with the SAME downsample shader
+       every other level uses, into dedicated 1-deep targets, and the last one
+       is 1x1 and is read with a plain texture(). No new mechanism. */
+    for (i = 0; i < this._avgChain.length; i++) freeTarget(gl, this._avgChain[i]);
+    this._avgChain = [];
+    var aw = Math.max(1, mw), ah2 = Math.max(1, mh);
+    while (this._avgChain.length < 8 && (aw > 1 || ah2 > 1)) {
+      aw = Math.max(1, aw >> 1);
+      ah2 = Math.max(1, ah2 >> 1);
+      this._avgChain.push(makeTarget(gl, aw, ah2, true));
+    }
+
     /* Half res, like the pyramid's first level: a trail is a smear and does
        not need the detail. Two of them, because a pass cannot read and write
        the same texture. */
@@ -518,6 +571,7 @@
     if (!this._pBright) {
       this._pBright = program(gl, FRAG_BRIGHT, 'bright');
       this._pDown = program(gl, FRAG_DOWN, 'down');
+      this._pDownGain = program(gl, FRAG_DOWN_GAIN, 'down-gain');
       this._pUp = program(gl, FRAG_UP, 'up');
       this._pCombine = program(gl, FRAG_COMBINE, 'combine');
     }
@@ -531,7 +585,10 @@
       /* Extra intensity at a full kill, as a multiple of the base. 0 is flat
          — the chain applied at constant strength, which wastes everything the
          director already knows. */
-      cutGain: opts.cutGain === undefined ? 0 : opts.cutGain
+      cutGain: opts.cutGain === undefined ? 0 : opts.cutGain,
+      /* How hard the bloom pulls itself back when the frame is ALREADY full
+         of bright art. 0 = off, the fixed-gain bloom. See FRAG_COMBINE. */
+      adapt: opts.adapt === undefined ? 0 : opts.adapt
     };
     var self = this;
     this.passes.push({
@@ -571,6 +628,7 @@
     if (!this._pBright) {
       this._pBright = program(gl, FRAG_BRIGHT, 'bright');
       this._pDown = program(gl, FRAG_DOWN, 'down');
+      this._pDownGain = program(gl, FRAG_DOWN_GAIN, 'down-gain');
       this._pUp = program(gl, FRAG_UP, 'up');
       this._pCombine = program(gl, FRAG_COMBINE, 'combine');
     }
@@ -756,10 +814,32 @@
        carries the tier. Outside a cut it is exactly the chosen look. */
     var amount = o.intensity
                * (1 + o.cutGain * (state && state.cutK ? state.cutK : 0));
+
+    /* Walk the rest of the way to 1x1 with the same downsample used above, so
+       the last target holds the mean of the thresholded image in one texel.
+       Built rather than read back: a readPixels per frame would stall the
+       pipeline for a single number. */
+    var avgTex = this._mips[n - 1];
+    if (o.adapt > 0 && this._avgChain.length) {
+      var src2 = this._mips[n - 1];
+      for (i = 0; i < this._avgChain.length; i++) {
+        (function (from, to) {
+          self._draw(self._pDownGain, from.tex, to, function (g, p) {
+            g.uniform2f(g.getUniformLocation(p, 'uTexel'), 1 / from.w, 1 / from.h);
+          });
+        })(src2, this._avgChain[i]);
+        src2 = this._avgChain[i];
+      }
+      avgTex = src2;
+    }
     this._draw(this._pCombine, read.tex, write, function (g, p) {
       g.activeTexture(g.TEXTURE1);
       g.bindTexture(g.TEXTURE_2D, self._mips[0].tex);
       g.uniform1i(g.getUniformLocation(p, 'uBloom'), 1);
+      g.activeTexture(g.TEXTURE2);
+      g.bindTexture(g.TEXTURE_2D, avgTex.tex);
+      g.uniform1i(g.getUniformLocation(p, 'uAvg'), 2);
+      g.uniform1f(g.getUniformLocation(p, 'uAdapt'), o.adapt);
       g.uniform1f(g.getUniformLocation(p, 'uIntensity'), amount);
       if (rect) g.uniform4f(g.getUniformLocation(p, 'uRect'),
                             rect[0], rect[1], rect[2], rect[3]);
@@ -941,6 +1021,8 @@
     freeTarget(gl, this._b);
     for (i = 0; i < this._mips.length; i++) freeTarget(gl, this._mips[i]);
     this._mips = [];
+    for (i = 0; i < this._avgChain.length; i++) freeTarget(gl, this._avgChain[i]);
+    this._avgChain = [];
     freeTarget(gl, this._tr0);
     freeTarget(gl, this._tr1);
     freeTarget(gl, this._trBright);
@@ -955,6 +1037,7 @@
     if (this._pBright) {
       gl.deleteProgram(this._pBright);
       gl.deleteProgram(this._pDown);
+      if (this._pDownGain) gl.deleteProgram(this._pDownGain);
       gl.deleteProgram(this._pUp);
       gl.deleteProgram(this._pCombine);
     }
@@ -1078,12 +1161,45 @@
               grain: 0.034, contrast: 1.09, lift: -0.008 }
   };
 
+  /* THE ADAPT SPREAD. One variable: how hard the bloom pulls itself back on
+     a frame that is already full of bright art.
+
+     It exists because Rick watched Daybreak and said the bloom was "WAY too
+     loud". The first attempt at that was a per-pixel CLAMP, and measuring it
+     killed it: clamp 0, 0.85, 0.65 and 0.45 all returned the same mean luma
+     to three decimals. A clamp caps how bright ONE pixel may be; Daybreak is
+     not a bright pixel, it is a bright AREA, and the pyramid is fed by area
+     times brightness. The clamp was answering a question nobody had asked.
+
+     This measures how much of the frame is bright and divides the gain by it,
+     so thin blue lightning keeps its glow and a broad white nova stops
+     flooding. Free of a readback -- the pyramid's own smallest level, fully
+     mipped, IS the average. */
+  var ADAPT = {
+    /* Scaled from the measurement rather than guessed. Bloom retained, on the
+       frame that prompted the complaint against a frame that did not:
+
+                    Daybreak (avg 0.0148)   Paradox lightning (avg 0.0050)
+         gentle 10          ~65%                      ~96%
+         mid    25          ~44%                      ~90%
+         strong 50          ~28%                      ~83%
+
+       The whole point is the GAP between those columns: the nova is pulled
+       back hard and the thin lightning is barely touched, which is what one
+       fixed gain across twenty-five relics could never do. */
+    off:    0,
+    gentle: 10,
+    mid:    25,
+    strong: 50
+  };
+
   var API = {
     VERSION: VERSION,
     SPREAD: SPREAD,
     TRAILS: TRAILS,
     CUTRAMP: CUTRAMP,
     GRADE: GRADE,
+    ADAPT: ADAPT,
     create: function (canvas) { return new Post(canvas); },
     supported: function () {
       try {

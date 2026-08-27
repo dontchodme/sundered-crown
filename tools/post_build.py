@@ -149,11 +149,17 @@ const POSTFX = {
         this.ro.width = cv.width; this.ro.height = cv.height;
       }
       const keep = r.roMode | 0;
+      /* Sampled ONCE, here, and used by both draws below. See the note where
+         it is read in Renderer.draw. */
+      const sh = m.shake || 0;
+      r._shakeFix = sh ? [(Math.random() - 0.5) * sh, (Math.random() - 0.5) * sh]
+                       : [0, 0];
       r.roMode = 2; r.draw(m);
       this.roCtx.clearRect(0, 0, this.ro.width, this.ro.height);
       this.roCtx.drawImage(cv, 0, 0);
       r.roMode = 1; r.draw(m);
       r.roMode = keep;
+      r._shakeFix = null;
       this.frames++;
       if (this.post.render(cv, this.state(r))){
         /* Back into #cv, which stays the one canvas every tool reads --
@@ -169,6 +175,28 @@ const POSTFX = {
   },
 };
 '''
+
+
+SHAKE_OLD = """    const sh = m.shake;
+    const ox = sh ? (Math.random()-0.5) * sh : 0;
+    const oy = sh ? (Math.random()-0.5) * sh : 0;"""
+
+SHAKE_NEW = """    const sh = m.shake;
+    /* ONE OFFSET PER COMPOSITED FRAME. POSTFX draws this frame twice -- the
+       readouts, then the world -- and two calls to Math.random() would put
+       them at two different camera offsets. The readouts then detach from
+       the fight and judder after every hit, which does not look like a
+       drawing bug: it looks like the PHYSICS has gone wrong, and that is
+       how it was reported. Measured before the fix: two draws of one frame
+       differed in 291,125 of 518,400 px.
+
+       `_shakeFix` is set by POSTFX.frame for the pair and cleared after, so
+       with the chain off this is byte-for-byte the old behaviour and the
+       standing open decision about Math.random() in a frame is untouched. */
+    const ox = this._shakeFix ? this._shakeFix[0]
+                              : (sh ? (Math.random()-0.5) * sh : 0);
+    const oy = this._shakeFix ? this._shakeFix[1]
+                              : (sh ? (Math.random()-0.5) * sh : 0);"""
 
 HOOK = r'''  draw(m){
     /* THE POST CHAIN. One hook, at the top of the one method every path into
@@ -245,6 +273,14 @@ def main() -> int:
 
     s = one(s, "  draw(m){\n    const c = this.ctx;", HOOK,
             "the hook in Renderer.draw")
+
+    # ONE SHAKE PER COMPOSITED FRAME. The chain draws every frame TWICE --
+    # readouts, then world -- and the offset comes from Math.random(), so
+    # without this the readouts are composited over a world that shook
+    # somewhere else. Measured: two draws of one frame differ in 291,125 of
+    # 518,400 px with shake live. It reads as the fight juddering, which is
+    # why it was reported as janky PHYSICS and not as a drawing bug.
+    s = one(s, SHAKE_OLD, SHAKE_NEW, "one shake offset per composited frame")
 
     # A fight's trail history belongs to that fight.
     # THE APP MUST NOT RUN A SECOND CHAIN. Once the build has POSTFX, an

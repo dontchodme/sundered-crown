@@ -146,7 +146,8 @@ def main() -> int:
     ap.add_argument("--wide", type=int, default=620,
                     help="tile width for the two-column `chosen` sheet")
     ap.add_argument("--effect",
-                    choices=("bloom", "trails", "chosen", "cut", "grade"),
+                    choices=("bloom", "trails", "chosen", "cut", "grade",
+                             "adapt"),
                     default="bloom",
                     help="which spread. `trails` holds bloom at the chosen "
                          "default and varies only the tail length.")
@@ -216,7 +217,14 @@ def main() -> int:
                 moments.append({"pair": pi, "t": mm["t"],
                                 "frame": mm["frame"]})
 
-        if A.effect == "grade":
+        if A.effect == "adapt":
+            cols = ["off", "gentle", "mid", "strong"]
+            warm = A.warm if A.warm is not None else 24
+            title = "BLOOM ADAPT — " + label
+            sub = ("one variable: how hard the bloom pulls back on a frame "
+                   "already full of bright art. control is adapt off, which "
+                   "is what shipped.")
+        elif A.effect == "grade":
             cols = ["off", "subtle", "mid", "strong"]
             warm = A.warm if A.warm is not None else 24
             title = "GRADE — " + label

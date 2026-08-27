@@ -81,7 +81,19 @@
     const key = cols[c];
     let m = null, curPair = -1, frame = 0;
 
-    if (key === 'off' && cfg.effect === 'grade') {
+    if (key === 'off' && cfg.effect === 'adapt') {
+      post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
+                                  { adapt: 0 }));
+      post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+      post.setGrade(SWBPost.GRADE[SWBPost.GRADE.DEFAULT]);
+    }
+    else if (key === 'off' && cfg.effect === 'clamp') {
+      post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
+                                  { clamp: 0 }));
+      post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+      post.setGrade(SWBPost.GRADE[SWBPost.GRADE.DEFAULT]);
+    }
+    else if (key === 'off' && cfg.effect === 'grade') {
       /* The control keeps the chosen bloom and trails and turns off ONLY the
          grade, so the sheet asks one question. */
       post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
@@ -104,6 +116,19 @@
       post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
                                   { cutGain: SWBPost.CUTRAMP[key] }));
       post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+    } else if (cfg.effect === 'adapt') {
+      post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
+                                  { adapt: SWBPost.ADAPT[key] }));
+      post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+      post.setGrade(SWBPost.GRADE[SWBPost.GRADE.DEFAULT]);
+    } else if (cfg.effect === 'clamp') {
+      /* Only the clamp varies. Everything else is the chosen look, control
+         included -- the control being clamp OFF, which is what shipped and
+         what Rick called too loud. */
+      post.setBloom(Object.assign({}, SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT],
+                                  { clamp: SWBPost.CLAMP[key] }));
+      post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
+      post.setGrade(SWBPost.GRADE[SWBPost.GRADE.DEFAULT]);
     } else if (cfg.effect === 'grade') {
       post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
       post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
@@ -203,6 +228,7 @@
       s.fillText(key === 'off'
                  ? (cfg.effect === 'trails' ? 'TRAILS OFF  (control, bloom on)'
                   : cfg.effect === 'grade' ? 'GRADE OFF  (control, chain on)'
+                  : cfg.effect === 'adapt' ? 'NO ADAPT  (control, as shipped)'
                   : cfg.effect === 'cut' ? 'RAMP OFF  (control, flat intensity)'
                   : 'OFF  (control, the untouched 2D canvas)')
                  : (key === 'chosen' ? 'AS CHOSEN' : key.toUpperCase()),
@@ -220,6 +246,12 @@
         s.fillText('cutGain ' + SWBPost.CUTRAMP[key] + '   wash '
                    + st.cine.wash.toFixed(3) + '   ' + changed + '% px  +'
                    + meanAdd, x, y + TH + 34);
+      } else if (cfg.effect === 'adapt') {
+        s.fillText('adapt ' + (SWBPost.ADAPT[key] || 'off') + '   ' + changed
+                   + '% px  ' + meanAdd, x, y + TH + 34);
+      } else if (cfg.effect === 'clamp') {
+        s.fillText('clamp ' + (SWBPost.CLAMP[key] || 'off') + '   ' + changed
+                   + '% px  +' + meanAdd, x, y + TH + 34);
       } else if (cfg.effect === 'grade') {
         const o = SWBPost.GRADE[key];
         s.fillText('vig ' + o.vignette + '  grain ' + o.grain + '  con '
