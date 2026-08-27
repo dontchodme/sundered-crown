@@ -75,7 +75,7 @@ _A = _ap.parse_args()
 SRC = (HERE / _A.src)
 if not SRC.exists():
     sys.exit(f"no such source: {SRC}")
-s = SRC.read_text()
+s = SRC.read_text(encoding="utf-8")
 
 # NO REFUSAL ON A GENERATED INPUT. This builder used to reject one, and that
 # was overreach that broke the documented chain: `silhouette_build ->
@@ -221,7 +221,7 @@ if not s.startswith(_DOC):
 s = _DOC + STAMP + "\n" + s[len(_DOC):]
 
 out = HERE / _A.out
-out.write_text(s)
+out.write_text(s, encoding="utf-8", newline="\n")
 import hashlib
 print(f"{_A.out}  {hashlib.sha256(s.encode()).hexdigest()[:16]}  mode={_A.mode}"
       + (f" D={_A.down}" if _A.mode == "buf" else ""))

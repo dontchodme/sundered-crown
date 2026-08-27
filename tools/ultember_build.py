@@ -555,7 +555,7 @@ def replace_block(src, marker, new, which, label):
 
 
 def build(src_path, out_path, blade):
-    src = src_path.read_text()
+    src = src_path.read_text(encoding="utf-8")
 
     ult_new = ULT_NEW
     src = one(src, ULT_OLD, ult_new, "ult data")
@@ -582,7 +582,7 @@ def build(src_path, out_path, blade):
 
     # the ultFx life table entry is now overridden per phase; leave it as the
     # fallback for any path that forgets to set one.
-    out_path.write_text(src)
+    out_path.write_text(src, encoding="utf-8", newline="\n")
     h = hashlib.sha256(src.encode()).hexdigest()[:16]
     return h
 

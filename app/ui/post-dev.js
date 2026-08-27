@@ -109,7 +109,9 @@ function postFrame() {
   const dt = performance.now() - t0;
   POST.ms = POST.ms ? POST.ms * 0.9 + dt * 0.1 : dt;
   if ((++POST.frames & 31) === 0) {
-    postStatus('ON · ' + POST.post.passes.length + ' effect passes · '
+    const sel = document.getElementById('bloom');
+    postStatus('ON · bloom ' + (sel ? sel.value : '?') + ' · '
+               + POST.post.passes.length + ' passes · '
                + POST.ms.toFixed(2) + ' ms/frame CPU-side');
   }
 }
@@ -206,10 +208,30 @@ function postSelfTest() {
   });
 }
 
+/* The spread lives in src/render/post.js as SWBPost.SPREAD, so this picker,
+   tools/post_spread.py's filmstrip and whatever the builder eventually puts in
+   the chain are all reading the SAME three settings. Three places holding
+   three copies of "mid" is how Rick ends up approving one thing and shipping
+   another. */
+function postBloom(key) {
+  if (!POST.post) return;
+  const o = (key === 'off') ? null : (window.SWBPost.SPREAD[key] || null);
+  POST.post.setBloom(o);
+  POST.ms = 0;
+  postStatus(POST.on
+    ? 'ON · bloom ' + key + ' · measuring…'
+    : 'OFF — the control. These are the untouched 2D pixels. (bloom ' + key + ')');
+}
+
 function postWire() {
   const b = document.getElementById('btnPost');
   const t = document.getElementById('btnPostTest');
+  const sel = document.getElementById('bloom');
   if (b) b.onclick = () => postToggle();
   if (t) t.onclick = postSelfTest;
+  if (sel) {
+    sel.onchange = () => postBloom(sel.value);
+    postBloom(sel.value);
+  }
   window.addEventListener('resize', postSync);
 }

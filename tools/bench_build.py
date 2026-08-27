@@ -44,7 +44,7 @@ _ap.add_argument("--src", default="sundered-crown.html")
 _ap.add_argument("--out", default="sundered-crown-perf.html")
 _A = _ap.parse_args()
 
-SRC = (HERE / _A.src).read_text()
+SRC = (HERE / _A.src).read_text(encoding="utf-8")
 OUT = HERE / _A.out
 
 
@@ -478,7 +478,7 @@ LAB = r"""
 """
 
 s = rep(s, "</body>", LAB + "</body>", "lab", expect=1)
-OUT.write_text(s)
+OUT.write_text(s, encoding="utf-8", newline="\n")
 print(f"wrote {OUT}  ({len(s)//1024} KB, {n_sb} shadow sites hooked)")
 
 # --- IT HAS TO LOAD -----------------------------------------------------------

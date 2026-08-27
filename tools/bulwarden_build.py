@@ -870,7 +870,7 @@ def main() -> int:
     if not src_p.exists():
         raise SystemExit(f"no such build: {src_p}")
 
-    s0 = src_p.read_text()
+    s0 = src_p.read_text(encoding="utf-8")
     s = s0
     print(f"\nBULWARDEN BUILD -- the vigil warhammer and Aegis")
     print(f"  src {src_p.name}  {hashlib.sha256(s0.encode()).hexdigest()[:16]}")
@@ -896,7 +896,7 @@ def main() -> int:
         if k in s:
             raise SystemExit(f"unsubstituted placeholder left in the build: {k}")
 
-    out_p.write_text(s)
+    out_p.write_text(s, encoding="utf-8", newline="\n")
     h = hashlib.sha256(s.encode()).hexdigest()[:16]
     print(f"  out {out_p.name}  {h}   ({len(s) - len(s0):+d} bytes)")
     print(f"\n  NEXT, and none of it is optional:")

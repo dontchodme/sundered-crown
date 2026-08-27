@@ -398,7 +398,7 @@ def main() -> int:
     ap.add_argument("--k", type=float, default=None, help="override CONFIG.scrunch.k")
     a = ap.parse_args()
     src = pathlib.Path(a.src).resolve()
-    h0 = src.read_text()
+    h0 = src.read_text(encoding="utf-8")
     h = h0
     print(f"  src {src.name}  {hashlib.sha256(h0.encode()).hexdigest()[:16]}")
 
@@ -426,7 +426,7 @@ def main() -> int:
         print(f"  ok    k overridden to {a.k}")
 
     out = pathlib.Path(a.out).resolve()
-    out.write_text(h)
+    out.write_text(h, encoding="utf-8", newline="\n")
     print(f"\n  wrote {out.name}  {hashlib.sha256(h.encode()).hexdigest()[:16]}"
           f"  (+{len(h) - len(h0)} bytes)")
     print("  01-live untouched; CONFIG.intro and the card path are intact.")

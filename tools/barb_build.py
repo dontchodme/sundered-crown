@@ -160,7 +160,7 @@ def main() -> int:
     if not src_p.exists():
         raise SystemExit(f"no such build: {src_p}")
 
-    s = src_p.read_text()
+    s = src_p.read_text(encoding="utf-8")
     print(f"\nBARB BUILD -- red razor points, len {A.len}r")
     print(f"  src {src_p.name}  {hashlib.sha256(s.encode()).hexdigest()[:16]}")
 
@@ -179,9 +179,9 @@ def main() -> int:
     if "r * 1.86, Math.sin(a) * r * 1.86, r * 0.13" in s:
         raise SystemExit("the old dot geometry is still in the file")
 
-    out_p.write_text(s)
+    out_p.write_text(s, encoding="utf-8", newline="\n")
     h = hashlib.sha256(s.encode()).hexdigest()[:16]
-    print(f"  out {out_p.name}  {h}   ({len(s) - len(src_p.read_text()):+d} bytes)")
+    print(f"  out {out_p.name}  {h}   ({len(s) - len(src_p.read_text(encoding="utf-8")):+d} bytes)")
     print(f"\n  NEXT, and none of it is optional:")
     print(f"    python3 barb_probe.py --game {A.out} --built")
     print(f"    python3 engine_ab.py  --a {A.src} --b {A.out} --n 10")

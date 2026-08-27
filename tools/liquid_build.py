@@ -688,7 +688,7 @@ def main() -> int:
 
     out_p.write_text(s, encoding="utf-8")
     print(f"\n  -> {out_p}  {hashlib.sha256(s.encode()).hexdigest()[:16]}"
-          f"  ({len(s):,} chars, {len(s) - len(src_p.read_text()):+,})")
+          f"  ({len(s):,} chars, {len(s) - len(src_p.read_text(encoding="utf-8")):+,})")
     return 0
 
 

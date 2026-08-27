@@ -148,7 +148,7 @@ def main() -> int:
     ap.add_argument("--out", default="../02-chain/sc-nameplate.html")
     a = ap.parse_args()
     src = pathlib.Path(a.src).resolve()
-    h = src.read_text()
+    h = src.read_text(encoding="utf-8")
     print(f"  src {src.name}  {hashlib.sha256(h.encode()).hexdigest()[:16]}")
 
     # Every anchor must appear EXACTLY ONCE. A builder that silently matched
@@ -168,9 +168,9 @@ def main() -> int:
         h = h.replace(src_s, dst_s, 1)
 
     out = pathlib.Path(a.out).resolve()
-    out.write_text(h)
+    out.write_text(h, encoding="utf-8", newline="\n")
     print(f"\n  wrote {out.name}  {hashlib.sha256(h.encode()).hexdigest()[:16]}"
-          f"  ({len(h)} bytes, +{len(h) - len(src.read_text())})")
+          f"  ({len(h)} bytes, +{len(h) - len(src.read_text(encoding="utf-8"))})")
     print("  01-live untouched; the card path is intact and one flag away.")
     return 0
 

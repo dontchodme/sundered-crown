@@ -231,7 +231,7 @@ def main() -> int:
 
     out = HERE / A.out
     out.write_text(s, encoding="utf-8")
-    print(f"{A.src} -> {A.out}   {len(src.read_text())} -> {len(s)} bytes")
+    print(f"{A.src} -> {A.out}   {len(src.read_text(encoding="utf-8"))} -> {len(s)} bytes")
     print(f"  sha256 {hashlib.sha256(s.encode()).hexdigest()[:16]}")
 
     if A.no_check:

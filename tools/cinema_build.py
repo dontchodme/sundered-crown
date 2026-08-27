@@ -523,9 +523,9 @@ __CINE_PANEL__"""
 
 
 def build(src_path: pathlib.Path, out_path: pathlib.Path) -> None:
-    src = src_path.read_text()
-    module = (HERE / "_cinema_module.js").read_text()
-    panel = (HERE / "_cinema_panel.js").read_text()
+    src = src_path.read_text(encoding="utf-8")
+    module = (HERE / "_cinema_module.js").read_text(encoding="utf-8")
+    panel = (HERE / "_cinema_panel.js").read_text(encoding="utf-8")
 
     if "CINEMA" in src and "CINE.update" in src:
         raise SystemExit("[cinema_build] input already patched")
@@ -550,7 +550,7 @@ def build(src_path: pathlib.Path, out_path: pathlib.Path) -> None:
     src = sub1(src, SHELL_MARK, module + "\n\n" + SHELL_MARK, "module insert")
     src = sub1(src, TAIL_A, TAIL_B.replace("__CINE_PANEL__", panel), "panel insert")
 
-    out_path.write_text(src)
+    out_path.write_text(src, encoding="utf-8", newline="\n")
     h = hashlib.sha256(src.encode()).hexdigest()
     nbytes = len(src.encode("utf-8"))
     print(f"[cinema_build] wrote {out_path}  {nbytes:,} bytes  sha256 {h[:16]}")
@@ -636,7 +636,7 @@ FORBIDDEN = [
 
 
 def check(path: pathlib.Path) -> int:
-    src = path.read_text()
+    src = path.read_text(encoding="utf-8")
     bad = []
     for pat, why in FORBIDDEN:
         for mo in re.finditer(pat, src):

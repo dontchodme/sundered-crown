@@ -679,7 +679,7 @@ def main() -> int:
     if out.name in ("sundered-crown.html", "sc-base.html"):
         sys.exit("refusing to write the live line / the chain root")
 
-    t = src.read_text()
+    t = src.read_text(encoding="utf-8")
     print(f"src {a.src}  {hashlib.sha256(t.encode()).hexdigest()[:16]}")
 
     relic = (RELIC
@@ -838,7 +838,7 @@ def main() -> int:
 
     if not t.startswith("<!--"):
         t = STAMP + t
-    out.write_text(t)
+    out.write_text(t, encoding="utf-8", newline="\n")
     print(f"out {a.out}  {hashlib.sha256(t.encode()).hexdigest()[:16]}  {len(t)} chars")
     return 0
 

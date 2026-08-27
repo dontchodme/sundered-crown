@@ -113,7 +113,7 @@ def main():
         print("  [arm] heal stripped from Dawnbringer and Aureole; every other "
               "field of every ultimate untouched")
     if a.dmg:
-        for wid, d in json.loads(pathlib.Path(a.dmg).read_text()).items():
+        for wid, d in json.loads(pathlib.Path(a.dmg).read_text(encoding="utf-8")).items():
             t = replace_field(t, wid, r"dmg:\s*[0-9.]+", f"dmg:{float(d):g}", "dmg:")
         print(f"  [arm] damage written from {a.dmg}")
 

@@ -1571,7 +1571,7 @@ def preflight():
 def build(src_path: pathlib.Path, out_path: pathlib.Path, blade: float) -> str:
     if out_path.name == PROTECTED:
         raise SystemExit("refusing to write the live build")
-    s = src_path.read_text()
+    s = src_path.read_text(encoding="utf-8")
     before = len(s)
 
     relic = (RELIC
@@ -1638,7 +1638,7 @@ def build(src_path: pathlib.Path, out_path: pathlib.Path, blade: float) -> str:
     s = one(s, SNAP_OLD,  SNAP_NEW,  "CINE.snap")
     s = one(s, LERP_OLD,  LERP_NEW,  "CINE.drawLerped")
 
-    out_path.write_text(s)
+    out_path.write_text(s, encoding="utf-8", newline="\n")
     h = hashlib.sha256(s.encode()).hexdigest()[:16]
     print(f"\n  -> {out_path.name}  {h}  ({len(s):,} chars, "
           f"{len(s)-before:+,})")

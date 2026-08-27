@@ -80,8 +80,16 @@ const POST_GATE = `(async () => {
   }
 
   postToggle(true);
+  /* THE PLUMBING IS WHAT THIS GATE CHECKS, so the effects come off first.
+     With bloom on, a difference is the POINT and zero would be the bug --
+     which would make a green here mean the opposite of what it says. The
+     picker is put back afterwards so the app is left as the user had it. */
+  const sel = document.getElementById('bloom');
+  const was = sel ? sel.value : null;
+  POST.post.setBloom(null);
   const st = postState();
   const r = POST.post.selfTest(src, st);
+  if (sel && was !== null) { sel.value = was; postBloom(was); }
   /* AFTER the render, not before: the overlay's backing store is sized by
      resize() inside render(), so reading it first measures the 300x150 a
      canvas is born at and reports a mismatch that is really a stale read. */
