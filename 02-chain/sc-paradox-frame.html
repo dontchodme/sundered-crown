@@ -11174,29 +11174,39 @@ class Renderer {
         this.scale = __sv.scale * __sk; this.pad = (this.W - this.aw) / 2;
       }
     }
-    /* THE READOUT LAYER SPLIT, and it needs no field declared: an unset
-       `roMode` is undefined, and `undefined | 0` is 0, which is the mode that
-       behaves exactly as this renderer always has. Every existing caller gets
-       it without knowing this exists.
+    /* THE LAYER SPLIT. No field is declared for it: an unset `roMode` is
+       undefined, `undefined | 0` is 0, and 0 is the mode that behaves exactly
+       as this renderer always has. Every existing caller gets it without
+       knowing any of this is here.
 
          0  everything, as before. THE DEFAULT.
-         1  the world WITHOUT the damage floats, the status tags and the
-            ultimate-name callout -- the bloom's source.
-         2  ONLY those three, on a cleared canvas -- composited back on top.
+         1  the WORLD -- all of it except the three readouts. The base, and
+            the source for the trails, which should smear a moving relic.
+         2  the READOUTS only -- floats, tags, ult name -- on a cleared
+            canvas, composited back on top and never bloomed.
+         3  the EMISSIVE layers only, on a cleared canvas. THE BLOOM SOURCE.
 
-       It exists because the light that destroys a readout comes from the art
-       NEXT to it, so no threshold can save it. docs/RENDER-LAYERS.md §4. */
-    const __ro = this.roMode | 0, __ro2 = __ro === 2, __ro1 = __ro === 1;
+       Modes 2 and 3 exist because a threshold is a proxy for a property this
+       class already knows, and it failed twice: light from the art NEXT to a
+       readout destroys it whatever the threshold, and a white relic body sits
+       at 0.892 mean luma with 94% of its disc over 0.80 -- as bright as the
+       light itself. docs/RENDER-LAYERS.md §4. */
+    const __ro = this.roMode | 0;
+    const __ro1 = __ro === 1, __ro2 = __ro === 2, __ro3 = __ro === 3;
+    const __bg = !(__ro2 || __ro3);      // ground, HUD, every piece of chrome
+    const __world = !(__ro2 || __ro3);   // arena, relic bodies, shades, drips
+    const __emit = !__ro2;               // every layer drawn with `lighter`
+    const __read = !(__ro1 || __ro3);    // the three readouts
     c.save();
-    if (__ro2){
-      /* Cleared, not filled: the readouts have to arrive on transparency so
-         the compositor can put them over a picture rather than over a black
-         rectangle with three words in it. */
-      c.clearRect(0, 0, this.W, this.H);
-    } else {
+    if (__bg){
       c.fillStyle = "#07050C";
       c.fillRect(0, 0, this.W, this.H);
       if (!this._introScene) this.drawHud(m);
+    } else {
+      /* Cleared, not filled: modes 2 and 3 have to arrive on transparency so
+         the compositor can put them over a picture rather than over a black
+         rectangle with three words on it. */
+      c.clearRect(0, 0, this.W, this.H);
     }
 
     c.save();
@@ -11321,9 +11331,9 @@ class Renderer {
       this._cineCam = [px, py, z];
     } else { this._cineFocus = null; this._cineCam = null; }
 
-    if (!__ro2) this.drawArena(m);
+    if (__world) this.drawArena(m);
     c.scale(this.scale, this.scale);
-    if (!__ro2){
+    if (__emit){
     this.drawMotes(m);
     this.drawUltUnder(m);
     this.drawFx(m);
@@ -11332,12 +11342,22 @@ class Renderer {
        top of the two that do not. */
     this.drawShadeFire(m);
     this.drawSplitHold(m);
+    }
+    if (__world){
     this.drawShades(m);
     this.drawDrips(m);
+    }
     /* the garden is ON the wall and the balls are in front of it */
-    this.drawVines(m, false);
+    if (__emit) this.drawVines(m, false);
+    if (__world){
+    /* SKIPPED WHOLE IN THE EMISSIVE PASS, and the cost is named in this
+       builder's header: the `lighter` work inside drawFighter -- the aegis,
+       the field, the split window -- does not reach the bloom. Splitting
+       those out means splitting drawFighter, a far larger change. */
     this.drawFighter(m, m.b);
     this.drawFighter(m, m.a);
+    }
+    if (__emit){
     /* over the fighters: the last thing a mote does is go INTO a shell */
     this.drawDrains(m);
     this.drawShots(m);
@@ -11346,24 +11366,27 @@ class Renderer {
     /* and a lash is a strike, so it goes over the thing it struck */
     this.drawVines(m, true);
     }
-    /* THE THREE READOUTS. Emissive-looking, but they are text: a number, a
+    /* THE THREE READOUTS. Emissive-LOOKING, but they are text: a number, a
        status name, and the ultimate's name. They read or they do not. */
-    if (!__ro1) this.drawUltName(m);
-    if (!__ro2){
+    if (__read) this.drawUltName(m);
+    if (__emit){
     this.drawUltOver(m);
     this.drawRings(m);
     }
-    if (!__ro1){
+    if (__read){
     this.drawFloats(m);
     this.drawTags(m);
     }
-    if (!__ro2 && typeof CINE !== "undefined" && CINE.on && CINE.streak > 0.01)
+    if (__emit && typeof CINE !== "undefined" && CINE.on && CINE.streak > 0.01)
       this.drawCineStreaks(m);
     c.restore();
 
-    if (!__ro2 && typeof CINE !== "undefined" && CINE.on) this.drawCine(m);
+    /* drawCine is skipped whole outside the world pass: its tracer and flash
+       are light and should bloom, but it also draws the wash and the
+       letterbox, and those must never. Named in the header. */
+    if (__world && typeof CINE !== "undefined" && CINE.on) this.drawCine(m);
 
-    if (!__ro2 && m.finisher > 0){
+    if (__world && m.finisher > 0){
       c.save();
       /* THE KILL FLASH -- its own pass, and it applies with the director off
          too, because the problem predates the director.
@@ -11404,7 +11427,7 @@ class Renderer {
       c.restore();
     }
 
-    if (!__ro2){
+    if (__bg){
     this.drawArenaFrame(m);
     this.drawClock(m);
     this.drawBanner(m);
@@ -11416,7 +11439,7 @@ class Renderer {
     if (__sv){
       Object.assign(this, __sv);
       c.setTransform(this.k, 0, 0, this.k, 0, 0);
-      if (!__ro2) this.drawScrunchPanel(m, __sk);
+      if (__bg) this.drawScrunchPanel(m, __sk);
     }
   }
 
@@ -19089,7 +19112,7 @@ window.cinePlan = cinePlan; window.cineScore = cineScore;
 
 /* ------------------------------------------------------------------ SHELL */
 const cv = document.getElementById("cv");
-/* ---- src/render/post.js, inlined by post_build.py. sha256:51638be9db3eb3c1 ---- */
+/* ---- src/render/post.js, inlined by post_build.py. sha256:0416ccd87112ae26 ---- */
 /* THE POST CHAIN — composite the finished 2D frame through WebGL2.
  *
  * `docs/RENDERER-BRIEF.md` §5. This file is NOT app-only code and must never
@@ -19533,6 +19556,8 @@ const cv = document.getElementById("cv");
     /* The readout layer, uploaded separately and composited last. See
        `state.readouts` on render(). */
     this._ro = null;
+    this._em = null;      // the emissive pass, uploaded
+    this._emT = null;    // ...and flipped into GL orientation
 
     this._src = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, this._src);
@@ -19575,6 +19600,8 @@ const cv = document.getElementById("cv");
     this._mips = [];
     this._a = makeTarget(gl, w, h);
     this._b = makeTarget(gl, w, h);
+    freeTarget(gl, this._emT);
+    this._emT = makeTarget(gl, w, h);
     this._w = w;
     this._h = h;
     /* Down to about 8px on the short side. Levels beyond that stop adding
@@ -19868,9 +19895,12 @@ const cv = document.getElementById("cv");
     var n = Math.max(1, Math.min(o.levels | 0, this._mips.length));
     var rect = (state && state.rectN) ? state.rectN : null;
 
-    /* bright-pass, source -> mip 0 (already half size) */
+    /* bright-pass -> mip 0 (already half size). From the EMISSIVE pass when
+       there is one; from the world only as a fallback, which is what every
+       caller got before renderer.roMode 3 existed. */
     var self = this;
-    this._draw(this._pBright, read.tex, this._mips[0], function (g, p) {
+    var brightSrc = this._emReady ? this._emT : read;
+    this._draw(this._pBright, brightSrc.tex, this._mips[0], function (g, p) {
       g.uniform2f(g.getUniformLocation(p, 'uTexel'), 1 / self._w, 1 / self._h);
       g.uniform1f(g.getUniformLocation(p, 'uThresh'), o.threshold);
       g.uniform1f(g.getUniformLocation(p, 'uKnee'), o.knee);
@@ -19949,6 +19979,10 @@ const cv = document.getElementById("cv");
    *            here rather than trying to mask by content. See
    *            docs/RENDER-LAYERS.md §1.
    *   cine     { on, cut, tier, zoom, wash, bars, flash, fx, fy } — read only.
+   *   emissive a canvas holding ONLY the `lighter` layers on transparency
+   *            (renderer.roMode 3). The bloom reads THIS. Omit it and the
+   *            bloom falls back to thresholding the world, which treats a
+   *            white relic body as a lamp — see the note in render().
    *   readouts a canvas holding ONLY the floats, tags and ult-name callout on
    *            transparency (renderer.roMode 2). Composited last and never
    *            bloomed. Omit it and they stay in the world, which is what
@@ -19999,6 +20033,40 @@ const cv = document.getElementById("cv");
 
     gl.bindTexture(gl.TEXTURE_2D, this._src);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, src);
+
+    /* THE BLOOM'S SOURCE IS THE EMISSIVE PASS, when the caller supplies one.
+     *
+     * A threshold is a proxy for "is this light", and the proxy fails on this
+     * art: a white relic body sits at 0.892 mean luma with 94% of its disc
+     * over the 0.80 threshold — as bright as the light itself, with nothing in
+     * between to put a threshold in. Rick watched it and said the white
+     * fighters looked washed out, which is exactly what a relic being treated
+     * as a lamp looks like.
+     *
+     * The renderer knows which layers it draws with `lighter`, so it draws
+     * them alone (renderer.roMode 3) and the bloom takes light instead of
+     * guessing at it. The TRAILS still read the world — a moving relic body
+     * SHOULD smear, and that is a different question from whether it glows.
+     */
+    if (state.emissive && state.emissive.width) {
+      if (!this._em) {
+        this._em = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, this._em);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      }
+      gl.bindTexture(gl.TEXTURE_2D, this._em);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE,
+                    state.emissive);
+      /* Into GL orientation once, like the source, so every pass downstream
+         lives in one space. */
+      this._draw(this._pCopyFlip, this._em, this._emT);
+      this._emReady = true;
+    } else {
+      this._emReady = false;
+    }
 
     /* Upload -> A, flipping once on the way in. Even with no passes this hop
        is taken on purpose: it is the FBO path, and the identity check is
@@ -20118,8 +20186,11 @@ const cv = document.getElementById("cv");
     freeTarget(gl, this._tr0);
     freeTarget(gl, this._tr1);
     freeTarget(gl, this._trBright);
-    this._tr0 = this._tr1 = this._trBright = null;
+    freeTarget(gl, this._emT);
+    this._tr0 = this._tr1 = this._trBright = this._emT = null;
     gl.deleteTexture(this._src);
+    if (this._em) gl.deleteTexture(this._em);
+    this._em = null;
     if (this._ro) gl.deleteTexture(this._ro);
     this._ro = null;
     gl.deleteProgram(this._pCopy);
@@ -20329,6 +20400,8 @@ const POSTFX = {
   gl: null,
   ro: null,
   roCtx: null,
+  em: null,
+  emCtx: null,
   busy: false,
   frames: 0,
 
@@ -20340,6 +20413,8 @@ const POSTFX = {
       this.gl = c;
       this.ro = document.createElement("canvas");
       this.roCtx = this.ro.getContext("2d");
+      this.em = document.createElement("canvas");
+      this.emCtx = this.em.getContext("2d");
       this.post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
       this.post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
       this.post.setGrade(SWBPost.GRADE[SWBPost.GRADE.DEFAULT]);
@@ -20372,6 +20447,7 @@ const POSTFX = {
             fatal: CINE.cut ? !!CINE.cut.fatal : false }
         : null,
       readouts: this.ro,
+      emissive: this.em,
     };
   },
 
@@ -20384,6 +20460,7 @@ const POSTFX = {
     try {
       if (this.ro.width !== cv.width || this.ro.height !== cv.height){
         this.ro.width = cv.width; this.ro.height = cv.height;
+        this.em.width = cv.width; this.em.height = cv.height;
       }
       const keep = r.roMode | 0;
       /* Sampled ONCE, here, and used by both draws below. See the note where
@@ -20391,9 +20468,16 @@ const POSTFX = {
       const sh = m.shake || 0;
       r._shakeFix = sh ? [(Math.random() - 0.5) * sh, (Math.random() - 0.5) * sh]
                        : [0, 0];
+      /* THREE PASSES, and the order is chosen so the WORLD lands on #cv last
+         -- it is what stays visible if the chain is switched off, and it is
+         what post.render() is handed as the base. The other two are copied
+         off before it overwrites them. */
       r.roMode = 2; r.draw(m);
       this.roCtx.clearRect(0, 0, this.ro.width, this.ro.height);
       this.roCtx.drawImage(cv, 0, 0);
+      r.roMode = 3; r.draw(m);
+      this.emCtx.clearRect(0, 0, this.em.width, this.em.height);
+      this.emCtx.drawImage(cv, 0, 0);
       r.roMode = 1; r.draw(m);
       r.roMode = keep;
       r._shakeFix = null;

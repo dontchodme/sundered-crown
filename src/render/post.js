@@ -441,6 +441,8 @@
     /* The readout layer, uploaded separately and composited last. See
        `state.readouts` on render(). */
     this._ro = null;
+    this._em = null;      // the emissive pass, uploaded
+    this._emT = null;    // ...and flipped into GL orientation
 
     this._src = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, this._src);
@@ -483,6 +485,8 @@
     this._mips = [];
     this._a = makeTarget(gl, w, h);
     this._b = makeTarget(gl, w, h);
+    freeTarget(gl, this._emT);
+    this._emT = makeTarget(gl, w, h);
     this._w = w;
     this._h = h;
     /* Down to about 8px on the short side. Levels beyond that stop adding
@@ -776,9 +780,12 @@
     var n = Math.max(1, Math.min(o.levels | 0, this._mips.length));
     var rect = (state && state.rectN) ? state.rectN : null;
 
-    /* bright-pass, source -> mip 0 (already half size) */
+    /* bright-pass -> mip 0 (already half size). From the EMISSIVE pass when
+       there is one; from the world only as a fallback, which is what every
+       caller got before renderer.roMode 3 existed. */
     var self = this;
-    this._draw(this._pBright, read.tex, this._mips[0], function (g, p) {
+    var brightSrc = this._emReady ? this._emT : read;
+    this._draw(this._pBright, brightSrc.tex, this._mips[0], function (g, p) {
       g.uniform2f(g.getUniformLocation(p, 'uTexel'), 1 / self._w, 1 / self._h);
       g.uniform1f(g.getUniformLocation(p, 'uThresh'), o.threshold);
       g.uniform1f(g.getUniformLocation(p, 'uKnee'), o.knee);
@@ -857,6 +864,10 @@
    *            here rather than trying to mask by content. See
    *            docs/RENDER-LAYERS.md §1.
    *   cine     { on, cut, tier, zoom, wash, bars, flash, fx, fy } — read only.
+   *   emissive a canvas holding ONLY the `lighter` layers on transparency
+   *            (renderer.roMode 3). The bloom reads THIS. Omit it and the
+   *            bloom falls back to thresholding the world, which treats a
+   *            white relic body as a lamp — see the note in render().
    *   readouts a canvas holding ONLY the floats, tags and ult-name callout on
    *            transparency (renderer.roMode 2). Composited last and never
    *            bloomed. Omit it and they stay in the world, which is what
@@ -907,6 +918,40 @@
 
     gl.bindTexture(gl.TEXTURE_2D, this._src);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, src);
+
+    /* THE BLOOM'S SOURCE IS THE EMISSIVE PASS, when the caller supplies one.
+     *
+     * A threshold is a proxy for "is this light", and the proxy fails on this
+     * art: a white relic body sits at 0.892 mean luma with 94% of its disc
+     * over the 0.80 threshold — as bright as the light itself, with nothing in
+     * between to put a threshold in. Rick watched it and said the white
+     * fighters looked washed out, which is exactly what a relic being treated
+     * as a lamp looks like.
+     *
+     * The renderer knows which layers it draws with `lighter`, so it draws
+     * them alone (renderer.roMode 3) and the bloom takes light instead of
+     * guessing at it. The TRAILS still read the world — a moving relic body
+     * SHOULD smear, and that is a different question from whether it glows.
+     */
+    if (state.emissive && state.emissive.width) {
+      if (!this._em) {
+        this._em = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, this._em);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      }
+      gl.bindTexture(gl.TEXTURE_2D, this._em);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE,
+                    state.emissive);
+      /* Into GL orientation once, like the source, so every pass downstream
+         lives in one space. */
+      this._draw(this._pCopyFlip, this._em, this._emT);
+      this._emReady = true;
+    } else {
+      this._emReady = false;
+    }
 
     /* Upload -> A, flipping once on the way in. Even with no passes this hop
        is taken on purpose: it is the FBO path, and the identity check is
@@ -1026,8 +1071,11 @@
     freeTarget(gl, this._tr0);
     freeTarget(gl, this._tr1);
     freeTarget(gl, this._trBright);
-    this._tr0 = this._tr1 = this._trBright = null;
+    freeTarget(gl, this._emT);
+    this._tr0 = this._tr1 = this._trBright = this._emT = null;
     gl.deleteTexture(this._src);
+    if (this._em) gl.deleteTexture(this._em);
+    this._em = null;
     if (this._ro) gl.deleteTexture(this._ro);
     this._ro = null;
     gl.deleteProgram(this._pCopy);

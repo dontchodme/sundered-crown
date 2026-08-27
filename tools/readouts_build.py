@@ -1,46 +1,68 @@
 #!/usr/bin/env python3
-"""THE READOUTS BECOME A SEPARATE LAYER. Default off; nothing moves.
+"""THE RENDERER LEARNS TO DRAW ITS LAYERS SEPARATELY. Default off; nothing moves.
 
     python readouts_build.py --src ../02-chain/sc-paradox-cine.html \
                              --out ../02-chain/sc-paradox-readouts.html
 
-## Why
+## Why, twice over
 
-`docs/RENDER-LAYERS.md` §4 asked whether the damage floats and status tags
-needed to come out of the world pass, and the Paradox filmstrip said no. The
-Ironhail/Dawnbringer filmstrip at the SAME settings said yes: the `18` and its
-SMITE tag, the `17` and its SMITE, and the ultimate-name callout are all eaten
-by bloom and smeared by trails on art that is warm and broad rather than thin
-blue lightning.
+**The readouts.** `docs/RENDER-LAYERS.md` §4 asked whether the damage floats
+and status tags needed to leave the world pass, and the Paradox filmstrip said
+no. The Ironhail/Dawnbringer filmstrip at the SAME settings said yes: the `18`
+and its SMITE tag, the `17` and its SMITE, and the ultimate-name callout were
+all eaten. The light that destroys a readout comes from the art NEXT to it, so
+no threshold reaches it.
 
-**A readout that survives one relic and not another is a layering mistake, not
-a setting.** No threshold fixes it, because the light that destroys it comes
-from the art NEXT to it. So the three readout layers have to be drawable apart
-from the world, and the post chain composites them back on top, untouched.
+**The relic bodies.** Then Rick watched the white fighters and said they looked
+washed out, and the measurement said why:
 
-## What this adds
+    Paradox      mean luma 0.892   94.0% of its disc over the 0.80 threshold
+    Dawnbringer  mean 0.637        25.1%
+    Lastlight    mean 0.632        25.5%
+    Ironhail     mean 0.358         3.3%
 
-One field, `renderer.roMode`, and nothing else:
+**Paradox's whole body is above the bloom threshold.** It is not a bright
+highlight on a relic, it is a relic as bright as the light. No threshold
+separates those, because there is nothing in between to put a threshold in.
 
-    0   everything, exactly as before. THE DEFAULT.
-    1   the world WITHOUT the three readouts -- the bloom's source
-    2   ONLY the three readouts, on a cleared canvas -- composited back on top
+Both are the same lesson: **a threshold is a proxy for a property the renderer
+already knows.** `Renderer` knows exactly which layers it draws with
+`globalCompositeOperation = "lighter"`. So it draws them on their own and the
+bloom takes light instead of guessing at it.
 
-Mode 2 keeps the whole camera path: the same scrunch, shake, punch, clip and
-cinematic zoom the world was drawn with. That is the entire reason this is a
-mode inside `draw()` rather than a second method that redraws the readouts
-somewhere else -- the transform is fiddly, it is the director's, and a copy of
-it would drift from the original the first time CINE changed.
+## The modes
+
+    0   everything, exactly as before. THE DEFAULT, and it needs no field
+        declared: an unset `roMode` is undefined and `undefined | 0` is 0.
+    1   THE WORLD -- everything except the three readouts. The base picture,
+        and the source for the motion trails, which SHOULD smear a moving
+        relic body.
+    2   THE READOUTS ONLY -- floats, tags, ult name, on a cleared canvas.
+        Composited back on top, never bloomed.
+    3   THE EMISSIVE LAYERS ONLY -- every `lighter` layer, on a cleared
+        canvas. No arena, no relic bodies, no chrome. THE BLOOM'S SOURCE.
+
+Modes 2 and 3 keep the whole camera path -- scrunch, shake, punch, clip,
+cinematic zoom -- because they run through `draw()` rather than as separate
+methods. A copy of that transform would drift from the original the first time
+`CINE` changed.
+
+## What mode 3 leaves out, said out loud
+
+`drawFighter` is skipped whole, so the `lighter` work inside it -- the aegis,
+the field, the split window -- does not reach the bloom. Those are ult art
+attached to a relic and arguably should. Splitting them out means splitting
+`drawFighter`, which is a far larger change than this one, and it is not done
+here.
+
+`drawCine` is skipped too. Its tracer and flash are light and should bloom,
+but it also draws the wash and the letterbox, and those must never. Same
+trade, same reason.
 
 ## What it does NOT do
 
-At `roMode` 0, which is what the live page and every existing tool get, not one
-byte of behaviour changes. `engine_ab` must come back clean, and if it does not
-then a guard below is wrong.
-
-Two draws cost more than one. Mode 2 is cheap -- three text layers, no arena,
-no fighters -- but it is not free, and tools/post_cost.py is where that gets
-priced rather than assumed.
+At `roMode` 0 not one byte of behaviour changes. `engine_ab` and `render_ab`
+are the proof, and if either moves then a guard below is wrong.
 """
 from __future__ import annotations
 
@@ -56,47 +78,93 @@ STAMP = ("<!-- GENERATED by readouts_build.py --src %SRC% "
          "— do not hand-edit or tune in place -->\n")
 
 EDITS = [
-    ("the ground and the HUD",
+    ("the mode flags, the ground and the HUD",
      '''    c.save();
     c.fillStyle = "#07050C";
     c.fillRect(0, 0, this.W, this.H);
     if (!this._introScene) this.drawHud(m);''',
-     '''    /* THE READOUT LAYER SPLIT, and it needs no field declared: an unset
-       `roMode` is undefined, and `undefined | 0` is 0, which is the mode that
-       behaves exactly as this renderer always has. Every existing caller gets
-       it without knowing this exists.
+     '''    /* THE LAYER SPLIT. No field is declared for it: an unset `roMode` is
+       undefined, `undefined | 0` is 0, and 0 is the mode that behaves exactly
+       as this renderer always has. Every existing caller gets it without
+       knowing any of this is here.
 
          0  everything, as before. THE DEFAULT.
-         1  the world WITHOUT the damage floats, the status tags and the
-            ultimate-name callout -- the bloom's source.
-         2  ONLY those three, on a cleared canvas -- composited back on top.
+         1  the WORLD -- all of it except the three readouts. The base, and
+            the source for the trails, which should smear a moving relic.
+         2  the READOUTS only -- floats, tags, ult name -- on a cleared
+            canvas, composited back on top and never bloomed.
+         3  the EMISSIVE layers only, on a cleared canvas. THE BLOOM SOURCE.
 
-       It exists because the light that destroys a readout comes from the art
-       NEXT to it, so no threshold can save it. docs/RENDER-LAYERS.md §4. */
-    const __ro = this.roMode | 0, __ro2 = __ro === 2, __ro1 = __ro === 1;
+       Modes 2 and 3 exist because a threshold is a proxy for a property this
+       class already knows, and it failed twice: light from the art NEXT to a
+       readout destroys it whatever the threshold, and a white relic body sits
+       at 0.892 mean luma with 94% of its disc over 0.80 -- as bright as the
+       light itself. docs/RENDER-LAYERS.md §4. */
+    const __ro = this.roMode | 0;
+    const __ro1 = __ro === 1, __ro2 = __ro === 2, __ro3 = __ro === 3;
+    const __bg = !(__ro2 || __ro3);      // ground, HUD, every piece of chrome
+    const __world = !(__ro2 || __ro3);   // arena, relic bodies, shades, drips
+    const __emit = !__ro2;               // every layer drawn with `lighter`
+    const __read = !(__ro1 || __ro3);    // the three readouts
     c.save();
-    if (__ro2){
-      /* Cleared, not filled: the readouts have to arrive on transparency so
-         the compositor can put them over a picture rather than over a black
-         rectangle with three words in it. */
-      c.clearRect(0, 0, this.W, this.H);
-    } else {
+    if (__bg){
       c.fillStyle = "#07050C";
       c.fillRect(0, 0, this.W, this.H);
       if (!this._introScene) this.drawHud(m);
+    } else {
+      /* Cleared, not filled: modes 2 and 3 have to arrive on transparency so
+         the compositor can put them over a picture rather than over a black
+         rectangle with three words on it. */
+      c.clearRect(0, 0, this.W, this.H);
     }'''),
 
-    ("the hall",
+    ("the hall and the layers under the fighters",
      '''    this.drawArena(m);
     c.scale(this.scale, this.scale);
-    this.drawMotes(m);''',
-     '''    if (!__ro2) this.drawArena(m);
+    this.drawMotes(m);
+    this.drawUltUnder(m);
+    this.drawFx(m);''',
+     '''    if (__world) this.drawArena(m);
     c.scale(this.scale, this.scale);
-    if (!__ro2){
-    this.drawMotes(m);'''),
+    if (__emit){
+    this.drawMotes(m);
+    this.drawUltUnder(m);
+    this.drawFx(m);'''),
 
-    ("the world, up to the ult name",
-     '''    /* and a lash is a strike, so it goes over the thing it struck */
+    ("the fighters and their shades",
+     '''    this.drawShadeFire(m);
+    this.drawSplitHold(m);
+    this.drawShades(m);
+    this.drawDrips(m);
+    /* the garden is ON the wall and the balls are in front of it */
+    this.drawVines(m, false);
+    this.drawFighter(m, m.b);
+    this.drawFighter(m, m.a);''',
+     '''    this.drawShadeFire(m);
+    this.drawSplitHold(m);
+    }
+    if (__world){
+    this.drawShades(m);
+    this.drawDrips(m);
+    }
+    /* the garden is ON the wall and the balls are in front of it */
+    if (__emit) this.drawVines(m, false);
+    if (__world){
+    /* SKIPPED WHOLE IN THE EMISSIVE PASS, and the cost is named in this
+       builder's header: the `lighter` work inside drawFighter -- the aegis,
+       the field, the split window -- does not reach the bloom. Splitting
+       those out means splitting drawFighter, a far larger change. */
+    this.drawFighter(m, m.b);
+    this.drawFighter(m, m.a);
+    }'''),
+
+    ("over the fighters, and the readouts",
+     '''    /* over the fighters: the last thing a mote does is go INTO a shell */
+    this.drawDrains(m);
+    this.drawShots(m);
+    this.drawStuck(m);
+    this.drawSparks(m);
+    /* and a lash is a strike, so it goes over the thing it struck */
     this.drawVines(m, true);
     this.drawUltName(m);
     this.drawUltOver(m);
@@ -106,31 +174,40 @@ EDITS = [
     if (typeof CINE !== "undefined" && CINE.on && CINE.streak > 0.01)
       this.drawCineStreaks(m);
     c.restore();''',
-     '''    /* and a lash is a strike, so it goes over the thing it struck */
+     '''    if (__emit){
+    /* over the fighters: the last thing a mote does is go INTO a shell */
+    this.drawDrains(m);
+    this.drawShots(m);
+    this.drawStuck(m);
+    this.drawSparks(m);
+    /* and a lash is a strike, so it goes over the thing it struck */
     this.drawVines(m, true);
     }
-    /* THE THREE READOUTS. Emissive-looking, but they are text: a number, a
+    /* THE THREE READOUTS. Emissive-LOOKING, but they are text: a number, a
        status name, and the ultimate's name. They read or they do not. */
-    if (!__ro1) this.drawUltName(m);
-    if (!__ro2){
+    if (__read) this.drawUltName(m);
+    if (__emit){
     this.drawUltOver(m);
     this.drawRings(m);
     }
-    if (!__ro1){
+    if (__read){
     this.drawFloats(m);
     this.drawTags(m);
     }
-    if (!__ro2 && typeof CINE !== "undefined" && CINE.on && CINE.streak > 0.01)
+    if (__emit && typeof CINE !== "undefined" && CINE.on && CINE.streak > 0.01)
       this.drawCineStreaks(m);
     c.restore();'''),
 
-    ("everything after the arena",
+    ("the cinema overlays and the kill flash",
      '''    if (typeof CINE !== "undefined" && CINE.on) this.drawCine(m);
 
     if (m.finisher > 0){''',
-     '''    if (!__ro2 && typeof CINE !== "undefined" && CINE.on) this.drawCine(m);
+     '''    /* drawCine is skipped whole outside the world pass: its tracer and flash
+       are light and should bloom, but it also draws the wash and the
+       letterbox, and those must never. Named in the header. */
+    if (__world && typeof CINE !== "undefined" && CINE.on) this.drawCine(m);
 
-    if (!__ro2 && m.finisher > 0){'''),
+    if (__world && m.finisher > 0){'''),
 
     ("the chrome",
      '''    this.drawArenaFrame(m);
@@ -139,7 +216,7 @@ EDITS = [
     if (!this._introScene) this.drawFooter(m);
     this.drawTug(m);
     if (m.over) this.drawResult(m);''',
-     '''    if (!__ro2){
+     '''    if (__bg){
     this.drawArenaFrame(m);
     this.drawClock(m);
     this.drawBanner(m);
@@ -157,7 +234,7 @@ EDITS = [
      '''    if (__sv){
       Object.assign(this, __sv);
       c.setTransform(this.k, 0, 0, this.k, 0, 0);
-      if (!__ro2) this.drawScrunchPanel(m, __sk);
+      if (__bg) this.drawScrunchPanel(m, __sk);
     }'''),
 ]
 
@@ -191,9 +268,9 @@ def main() -> int:
 
     s0 = src_p.read_text(encoding="utf-8")
     s = s0
-    print("\nREADOUTS BUILD -- the three text layers become their own pass")
+    print("\nREADOUTS BUILD -- the renderer learns to draw its layers apart")
     print(f"  src {src_p.name}  {hashlib.sha256(s0.encode()).hexdigest()[:16]}")
-    if "__ro2" in s0:
+    if "__ro3" in s0:
         raise SystemExit("this source already has the split -- already built")
 
     for label, old, new in EDITS:
@@ -201,22 +278,20 @@ def main() -> int:
 
     s = STAMP.replace("%SRC%", src_p.name) + s
 
-    # A builder should syntax-check its own output (CLAUDE.md §4.11). Braces
-    # matter more than usual here: every edit above opens or closes one.
     if s.count("/*") != s.count("*/"):
         raise SystemExit(f"unbalanced block comments: {s.count('/*')} vs "
                          f"{s.count('*/')}")
     if s.count("{") != s.count("}"):
-        raise SystemExit(f"unbalanced braces: {s.count('{')} vs {s.count('}')} "
-                         f"(source had {s0.count('{')} vs {s0.count('}')})")
+        raise SystemExit(f"unbalanced braces: {s.count('{')} vs {s.count('}')}")
 
     out_p.write_text(s, encoding="utf-8", newline="\n")
     print(f"  out {out_p.name}  {hashlib.sha256(s.encode()).hexdigest()[:16]}"
           f"   ({len(s) - len(s0):+d} bytes)")
     print("\n  NEXT, and none of it is optional:")
     print(f"    python engine_ab.py --a {A.src} --b {A.out} --n 9")
+    print(f"    python render_ab.py --a {A.src} --b {A.out}   # roMode 0 must not move")
     print(f"    python verify.py --game {A.out} --n 40")
-    print("    then frame_build.py to carry the tip forward.\n")
+    print("    then post_build.py, then frame_build.py.\n")
     return 0
 
 

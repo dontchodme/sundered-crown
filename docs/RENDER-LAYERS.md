@@ -234,6 +234,24 @@ pattern), not a promise — brief §7 gate 3.
 
 ---
 
+## 5a0. THE TRAP THAT HAS CAUGHT THIS THREE TIMES
+
+**The engine is one classic script, so every top-level `const` is a LEXICAL
+global and NOT a property of `window`.** `CINE`, `renderer`, `match` and now
+`POSTFX` all resolve by bare name from any script in the same realm, and are
+all `undefined` when reached as `window.X` or `frame.contentWindow.X`.
+
+It has cost time three separate times today: the app shell reading
+`w.renderer`, `post_cost.js` reading `window.POSTFX`, and the app gate waiting
+on `window.POST`. Every one presented as "the engine did not boot".
+
+- **Same realm** (anything `page.evaluate` runs, anything inlined in the
+  build): use the bare name.
+- **Across realms** (the app shell reaching into the game frame): it must be
+  on the `AC` export, and `CINE` and `POSTFX` are there for exactly that.
+
+---
+
 ## 5a. THE CHAIN IS IN THE BUILD
 
 `tools/post_build.py` inlines `src/render/post.js` and adds `POSTFX` plus ONE
@@ -302,15 +320,23 @@ zero in 8-bit.
 D3D11 — not SwiftShader, which is what Playwright would have measured):
 
 ```
-                    453x805 (what the app draws)   1080x1920 (capture)
-  2D draw only          7.02                          13.08
-  + chain, no effects   8.52  (+1.50)                 15.97  (+2.89)
-  + ALL (as chosen)     8.52  (+1.49)                 23.07  (+9.99)
-
-  live:    51% of the 60fps budget, 102% of 120
-  capture: offline, so 138% of 60fps means the render takes about 28 s
-           longer over ~2,800 frames — not dropped frames
+  453x805 (what the app draws), THREE passes per frame
+    2D draw only          7.20
+    + chain, no effects   8.89  (+1.69)   upload, copies, readback: the floor
+    + bloom low           9.20  (+2.00)
+    + trails long         8.93  (+1.73)
+    + grade mid           8.92  (+1.72)
+    + ALL (as chosen)     9.48  (+2.28)   57% of the 60fps budget, 114% of 120
 ```
+
+Measured through `POSTFX` itself rather than a copy of the chain — `post_cost`
+used to build its own instance and time `AC.__draw` plus `post.render`, which
+double-counted the moment the chain went into the build.
+
+**The effects are still nearly free; the passes are what cost.** Three draws
+per composited frame — readouts, emissive, world — plus the upload and copies,
+against a 2D draw that was already 7.2 ms. 60 fps has room. 120 does not, and
+that is now the second measured argument against brief §4.
 
 **At live size the whole chain is lost inside the plumbing floor.** The upload,
 two copies and the readback are +1.50 ms; adding bloom, trails and grade on

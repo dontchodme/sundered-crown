@@ -32,6 +32,10 @@
   const ro = document.createElement('canvas');
   ro.width = cv.width; ro.height = cv.height;
   const roCtx = ro.getContext('2d');
+  /* and the emissive pass, which is what the bloom actually reads */
+  const em = document.createElement('canvas');
+  em.width = cv.width; em.height = cv.height;
+  const emCtx = em.getContext('2d');
 
   const state = () => ({
     enabled: true,
@@ -174,9 +178,13 @@
           R.roMode = 2; drawAt(m, alpha);
           roCtx.clearRect(0, 0, ro.width, ro.height);
           roCtx.drawImage(cv, 0, 0);
+          R.roMode = 3; drawAt(m, alpha);
+          emCtx.clearRect(0, 0, em.width, em.height);
+          emCtx.drawImage(cv, 0, 0);
           R.roMode = 1; drawAt(m, alpha);
           const st = state();
           st.readouts = ro;
+          st.emissive = em;
           post.render(cv, st);
           drawn = ov;
         } else {

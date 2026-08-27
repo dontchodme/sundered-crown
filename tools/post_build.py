@@ -92,6 +92,8 @@ const POSTFX = {
   gl: null,
   ro: null,
   roCtx: null,
+  em: null,
+  emCtx: null,
   busy: false,
   frames: 0,
 
@@ -103,6 +105,8 @@ const POSTFX = {
       this.gl = c;
       this.ro = document.createElement("canvas");
       this.roCtx = this.ro.getContext("2d");
+      this.em = document.createElement("canvas");
+      this.emCtx = this.em.getContext("2d");
       this.post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
       this.post.setTrails(SWBPost.TRAILS[SWBPost.TRAILS.DEFAULT]);
       this.post.setGrade(SWBPost.GRADE[SWBPost.GRADE.DEFAULT]);
@@ -135,6 +139,7 @@ const POSTFX = {
             fatal: CINE.cut ? !!CINE.cut.fatal : false }
         : null,
       readouts: this.ro,
+      emissive: this.em,
     };
   },
 
@@ -147,6 +152,7 @@ const POSTFX = {
     try {
       if (this.ro.width !== cv.width || this.ro.height !== cv.height){
         this.ro.width = cv.width; this.ro.height = cv.height;
+        this.em.width = cv.width; this.em.height = cv.height;
       }
       const keep = r.roMode | 0;
       /* Sampled ONCE, here, and used by both draws below. See the note where
@@ -154,9 +160,16 @@ const POSTFX = {
       const sh = m.shake || 0;
       r._shakeFix = sh ? [(Math.random() - 0.5) * sh, (Math.random() - 0.5) * sh]
                        : [0, 0];
+      /* THREE PASSES, and the order is chosen so the WORLD lands on #cv last
+         -- it is what stays visible if the chain is switched off, and it is
+         what post.render() is handed as the base. The other two are copied
+         off before it overwrites them. */
       r.roMode = 2; r.draw(m);
       this.roCtx.clearRect(0, 0, this.ro.width, this.ro.height);
       this.roCtx.drawImage(cv, 0, 0);
+      r.roMode = 3; r.draw(m);
+      this.emCtx.clearRect(0, 0, this.em.width, this.em.height);
+      this.emCtx.drawImage(cv, 0, 0);
       r.roMode = 1; r.draw(m);
       r.roMode = keep;
       r._shakeFix = null;
