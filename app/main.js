@@ -66,12 +66,22 @@ const POST_GATE = `(async () => {
   if (POST.err) return ['SKIP  post chain unavailable -- ' + POST.err];
 
   const src = POST.src;
-  const px = src.getContext('2d').getImageData(0, 0, src.width, src.height).data;
-  const seen = new Set();
-  for (let i = 0; i < px.length; i += 4 * 97) {
-    seen.add((px[i] << 16) | (px[i + 1] << 8) | px[i + 2]);
-    if (seen.size > 64) break;
-  }
+  /* WAIT FOR PAINT, do not sample once and judge. A hidden window throttles
+     rAF hard, so the engine may not have drawn its first frame by the time
+     window.AC exists -- and a single early sample makes this gate flaky in
+     the one direction that matters, reporting a blank canvas as though the
+     renderer were broken. Poll until there is a picture, then decide. */
+  const colours = () => {
+    const px = src.getContext('2d').getImageData(0, 0, src.width, src.height).data;
+    const s2 = new Set();
+    for (let i = 0; i < px.length; i += 4 * 97) {
+      s2.add((px[i] << 16) | (px[i + 1] << 8) | px[i + 2]);
+      if (s2.size > 64) break;
+    }
+    return s2.size;
+  };
+  try { await wait(() => colours() >= 16, 20000); } catch (e) { /* reported below */ }
+  const seen = { size: colours() };
   if (seen.size < 16) {
     return ['SKIP  the source frame has only ' + seen.size + ' distinct colours ('
             + src.width + 'x' + src.height + ').',

@@ -82,10 +82,8 @@ SHEET_JS = r"""
 (cfg) => {
   window.__frozen = true;
   AC.setResolution(1080, 1920);
-  const m = new AC.Match(cfg.a, cfg.b, cfg.seed >>> 0);
-  m.introT = 0;
-  AC.__inject(m);
   const dt = AC.CONFIG.physics.dt;
+  const FPS = 60, STEPS_PER_FRAME = Math.round(1 / (FPS * dt));   // 2 at dt=1/120
   const cv = document.getElementById('cv');
 
   const ov = document.createElement('canvas');
@@ -96,13 +94,14 @@ SHEET_JS = r"""
   const R = AC.renderer;
   const state = () => ({
     enabled: true,
+    dt: 1 / FPS,
     rect: { x: R.pad * R.k, y: R.arenaTop * R.k, w: R.aw * R.k, h: R.ah * R.k },
     cine: AC.CINE ? { on: !!AC.CINE.on, cut: !!AC.CINE.cut,
                       tier: AC.CINE.cut ? AC.CINE.cut.tier : null,
                       fatal: AC.CINE.cut ? !!AC.CINE.cut.fatal : false } : null,
   });
 
-  const cols = cfg.cols;                       // ['off','low','mid','high']
+  const cols = cfg.cols;
   const TW = cfg.tile, TH = Math.round(TW * 1920 / 1080);
   const PAD = 14, HEAD = 96, ROWH = TH + 40;
   const W = PAD + cols.length * (TW + PAD);
@@ -112,7 +111,6 @@ SHEET_JS = r"""
   sheet.width = W; sheet.height = H;
   const s = sheet.getContext('2d');
   s.fillStyle = '#0B0B10'; s.fillRect(0, 0, W, H);
-
   s.fillStyle = '#E8E4F0';
   s.font = '700 26px sans-serif';
   s.fillText(cfg.title, PAD, 34);
@@ -122,40 +120,83 @@ SHEET_JS = r"""
   s.fillText(cfg.runtime, PAD, 78);
 
   const report = [];
-  let cursor = 0;
+  const baseline = [];
 
-  for (let r = 0; r < cfg.moments.length; r++) {
-    const target = cfg.moments[r];
-    const need = Math.max(0, Math.round((target - cursor) / dt));
-    for (let i = 0; i < need; i++) m.step(dt);
-    cursor = m.t;
-    AC.__draw(m);
+  /* COLUMN-MAJOR, AND FOR A REASON. A trail is history: it needs frames run
+     into it before the one being looked at, and a match cannot be rewound. So
+     each column gets its OWN match from the same seed -- deterministic, so it
+     is the same fight -- stepped to just before each moment and then run
+     forward at 60fps with the chain live, which is what fills the buffer.
+     A single cold frame would show no trail at all and read as "trails do
+     nothing". */
+  for (let c = 0; c < cols.length; c++) {
+    const key = cols[c];
+    const m = new AC.Match(cfg.a, cfg.b, cfg.seed >>> 0);
+    m.introT = 0;
+    AC.__inject(m);
 
-    /* ONE DRAW, FOUR READS. The match is not stepped between columns, so the
-       only thing that differs across a row is the chain. */
-    const st = state();
-    const base = cv.getContext('2d').getImageData(0, 0, cv.width, cv.height).data;
+    /* THE CONTROL HAS TO HOLD EVERYTHING ELSE. For a trail spread the
+       question is the TAIL, so the control column keeps bloom at the chosen
+       default and turns only trails off. A control with bloom off too would
+       make every number below the sum of two effects and the sheet would be
+       answering a question nobody asked. */
+    if (key === 'off' && cfg.effect === 'trails') {
+      post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
+      post.setTrails(null);
+    }
+    else if (key === 'off') { post.setBloom(null); post.setTrails(null); }
+    else if (cfg.effect === 'trails') {
+      post.setBloom(SWBPost.SPREAD[SWBPost.SPREAD.DEFAULT]);
+      post.setTrails(SWBPost.TRAILS[key]);
+    } else {
+      post.setTrails(null);
+      post.setBloom(SWBPost.SPREAD[key]);
+    }
 
-    for (let c = 0; c < cols.length; c++) {
-      const key = cols[c];
+    for (let r = 0; r < cfg.moments.length; r++) {
+      const target = cfg.moments[r];
+      const preTo = Math.max(0, target - cfg.warm / FPS);
+      while (m.t < preTo - dt * 0.5) m.step(dt);
+
+      post.resetHistory();
+      const chainOn = post.passes.length > 0;
+      let drawn = cv;
+      for (let f = 0; f < cfg.warm; f++) {
+        for (let i2 = 0; i2 < STEPS_PER_FRAME; i2++) m.step(dt);
+        AC.__draw(m);
+        if (chainOn) { post.render(cv, state()); drawn = ov; }
+      }
+
       const x = PAD + c * (TW + PAD), y = HEAD + r * ROWH;
+      s.drawImage(drawn, x, y, TW, TH);
+      s.strokeStyle = key === 'off' ? '#C9A227' : '#2A2436';
+      s.lineWidth = key === 'off' ? 2 : 1;
+      s.strokeRect(x + 0.5, y + 0.5, TW - 1, TH - 1);
 
-      let img = cv, changed = 0, meanAdd = 0;
+      /* The OFF column is drawn first and kept, so every other column is
+         measured against the SAME frame of the SAME fight rather than against
+         whatever it happens to sit next to. */
       if (key === 'off') {
-        post.setBloom(null);
-      } else {
-        post.setBloom(SWBPost.SPREAD[key]);
-        post.render(cv, st);
-        img = ov;
-        const px = post.readPixels();
-        let diff = 0, add = 0;
+        /* Read what the control actually PRODUCED -- the raw canvas for a
+           bloom spread, the bloom-only composite for a trail one -- and
+           record which way up it is so the comparison is like for like. */
+        if (chainOn) baseline[r] = { px: post.readPixels(), gl: true };
+        else baseline[r] = { px: cv.getContext('2d')
+                               .getImageData(0, 0, cv.width, cv.height).data, gl: false };
+      }
+
+      let changed = 0, meanAdd = 0;
+      if (key !== 'off' && baseline[r]) {
+        const px = post.readPixels(), base = baseline[r].px, baseGl = baseline[r].gl;
         const w2 = cv.width, h2 = cv.height;
+        let diff = 0, add = 0;
         for (let yy = 0; yy < h2; yy += 3) {
           const gy = h2 - 1 - yy;
           for (let xx = 0; xx < w2; xx += 3) {
-            const i = (gy * w2 + xx) * 4, j = (yy * w2 + xx) * 4;
-            const dd = Math.abs(px[i] - base[j]) + Math.abs(px[i+1] - base[j+1])
-                     + Math.abs(px[i+2] - base[j+2]);
+            const i3 = (gy * w2 + xx) * 4;
+            const j3 = (baseGl ? (gy * w2 + xx) : (yy * w2 + xx)) * 4;
+            const dd = Math.abs(px[i3] - base[j3]) + Math.abs(px[i3+1] - base[j3+1])
+                     + Math.abs(px[i3+2] - base[j3+2]);
             if (dd) { diff++; add += dd; }
           }
         }
@@ -164,20 +205,26 @@ SHEET_JS = r"""
         meanAdd = +(add / n).toFixed(2);
       }
 
-      s.drawImage(img, x, y, TW, TH);
-      s.strokeStyle = key === 'off' ? '#C9A227' : '#2A2436';
-      s.lineWidth = key === 'off' ? 2 : 1;
-      s.strokeRect(x + 0.5, y + 0.5, TW - 1, TH - 1);
-
       s.fillStyle = key === 'off' ? '#C9A227' : '#E8E4F0';
       s.font = '700 15px sans-serif';
-      const label = key === 'off' ? 'OFF  (the control)' : key.toUpperCase();
-      s.fillText(label, x, y + TH + 18);
+      s.fillText(key === 'off'
+                 ? (cfg.effect === 'trails'
+                    ? 'TRAILS OFF  (the control -- bloom still on)'
+                    : 'OFF  (the control)')
+                 : key.toUpperCase(),
+                 x, y + TH + 18);
       s.fillStyle = '#8A8296';
       s.font = '400 12px monospace';
+      const st = state();
       if (key === 'off') {
         s.fillText('t=' + m.t.toFixed(2) + 's' + (st.cine && st.cine.cut ? '  CUT' : ''),
                    x, y + TH + 34);
+      } else if (cfg.effect === 'trails') {
+        const o = SWBPost.TRAILS[key];
+        s.fillText(o.seconds + 's tail   ' + changed + '% px  +' + meanAdd,
+                   x, y + TH + 34);
+        report.push({ t: +m.t.toFixed(2), variant: key, pctChanged: changed,
+                      meanAdd: meanAdd, cut: !!(st.cine && st.cine.cut) });
       } else {
         const o = SWBPost.SPREAD[key];
         s.fillText('thr ' + o.threshold + '  int ' + o.intensity
@@ -187,7 +234,7 @@ SHEET_JS = r"""
       }
     }
   }
-  post.setBloom(null);
+  post.setBloom(null); post.setTrails(null);
   return { png: sheet.toDataURL('image/png').slice(22), w: W, h: H,
            report: report,
            renderer: (() => { const g2 = ov.getContext('webgl2');
@@ -223,6 +270,12 @@ def main() -> int:
     ap.add_argument("--apart", type=float, default=2.0,
                     help="minimum seconds between chosen moments")
     ap.add_argument("--tile", type=int, default=380)
+    ap.add_argument("--effect", choices=("bloom", "trails"), default="bloom",
+                    help="which spread. `trails` holds bloom at the chosen "
+                         "default and varies only the tail length.")
+    ap.add_argument("--warm", type=int, default=None,
+                    help="frames run into the chain before the one captured. "
+                         "Trails are history and a cold buffer shows none.")
     ap.add_argument("--every", type=float, default=0.1, help="scan interval")
     ap.add_argument("--out", default=None)
     A = ap.parse_args()
@@ -264,15 +317,24 @@ def main() -> int:
             print(f"    t={mm['t']:>6.2f}s  mass {mm['mass']:>9.1f}"
                   f"{'  CUT' if mm['cut'] else ''}")
 
-        cols = ["off", "low", "mid", "high"]
-        print("  rendering the sheet at 1080x1920…")
+        if A.effect == "trails":
+            cols = ["off", "short", "mid", "long"]
+            warm = A.warm if A.warm is not None else 20
+            title = f"TRAIL SPREAD — {A.a} v {A.b}, seed {A.seed}"
+            sub = ("one variable: tail length in SECONDS. bloom is held at "
+                   "the chosen default in every column, the control included.")
+        else:
+            cols = ["off", "low", "mid", "high"]
+            warm = A.warm if A.warm is not None else 1
+            title = f"BLOOM SPREAD — {A.a} v {A.b}, seed {A.seed}"
+            sub = ("same seed, same frame, one runtime. OFF is the untouched "
+                   "2D canvas.")
+        print(f"  rendering the sheet at 1080x1920, {warm} warm frames…")
         sheet = page.evaluate(SHEET_JS, {
             "a": A.a, "b": A.b, "seed": A.seed,
             "moments": [mm["t"] for mm in moments],
-            "cols": cols, "tile": A.tile,
-            "title": f"BLOOM SPREAD — {A.a} v {A.b}, seed {A.seed}",
-            "sub": f"same seed, same frame, one runtime. OFF is the untouched "
-                   f"2D canvas.",
+            "cols": cols, "tile": A.tile, "effect": A.effect, "warm": warm,
+            "title": title, "sub": sub,
             "runtime": f"build {path.name}",
         })
         if errors:
@@ -283,7 +345,7 @@ def main() -> int:
 
     OUTDIR.mkdir(parents=True, exist_ok=True)
     out = pathlib.Path(A.out) if A.out else (
-        OUTDIR / f"bloom-spread-{A.a}-{A.b}-{A.seed}.png")
+        OUTDIR / f"{A.effect}-spread-{A.a}-{A.b}-{A.seed}.png")
     out.write_bytes(base64.b64decode(sheet["png"]))
 
     print(f"\n  {sheet['renderer']}")

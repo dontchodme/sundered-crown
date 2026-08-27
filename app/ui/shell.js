@@ -117,6 +117,8 @@ function trackSeed(w) {
 function startFight(seed) {
   const a = $('selA').value, b = $('selB').value;
   AC.newMatch(a, b, seed);
+  postReset();          // the trail buffer belongs to the fight that filled it
+
   frame.contentWindow.AC.SFX.resume && frame.contentWindow.AC.SFX.resume();
 }
 

@@ -156,6 +156,60 @@
     '}'
   ].join('\n');
 
+  /* --------------------------------------------------------- TRAILS ---
+     A persistence buffer, and the operator is a MAX rather than a sum:
+
+         trail = max(bright, trail_prev * decay)
+
+     A summing accumulator runs away. Stationary bright art converges to
+     bright/(1-decay), so the hex grid and a resting relic would climb frame
+     after frame into a bloom that has nothing to do with motion. Under a max
+     the trail can never exceed the source that fed it: something that does
+     not move sits at its own brightness and is invisible, and something that
+     does leaves a decaying smear behind it. That is the whole effect.
+
+     It runs on the THRESHOLDED image, not on the frame. Smearing everything
+     would ghost the arena floor and the hall grid into a permanent haze —
+     which is fog, not speed. */
+  var FRAG_TRAIL = [
+    '#version 300 es',
+    'precision highp float;',
+    'uniform sampler2D uSrc;',      // this frame's bright pass
+    'uniform sampler2D uPrev;',     // the trail so far
+    'uniform float uDecay;',
+    'uniform vec2 uSpread;',
+    'in vec2 vUv;',
+    'out vec4 oCol;',
+    'void main(){',
+    '  vec3 cur = texture(uSrc, vUv).rgb;',
+    /* A TENT ON THE WAY BACK, AND NOT A DILATION. Without any spreading the
+       trail is a string of beads: at 60fps a flail head travels much further
+       between frames than its own width, so a plain max() of two positions
+       leaves two separate blobs and every frame adds another one.
+
+       The first attempt at closing that gap took the MAX of the neighbours,
+       which is a box dilation -- and a box dilation grows a square. Over the
+       dozen frames of a 0.12s tail it turned every trail into a grey
+       rectangle, which was worse than the beading and obviously wrong in one
+       glance at the sheet.
+
+       A 3x3 tent conserves energy instead of taking the brightest neighbour,
+       so the beads bleed into each other and the whole thing dims as it
+       spreads. It softens; it does not grow. */
+    '  vec3 old = texture(uPrev, vUv + vec2(-uSpread.x,  uSpread.y)).rgb;',
+    '  old += texture(uPrev, vUv + vec2( 0.0,  uSpread.y)).rgb * 2.0;',
+    '  old += texture(uPrev, vUv + vec2( uSpread.x,  uSpread.y)).rgb;',
+    '  old += texture(uPrev, vUv + vec2(-uSpread.x,  0.0)).rgb * 2.0;',
+    '  old += texture(uPrev, vUv).rgb * 4.0;',
+    '  old += texture(uPrev, vUv + vec2( uSpread.x,  0.0)).rgb * 2.0;',
+    '  old += texture(uPrev, vUv + vec2(-uSpread.x, -uSpread.y)).rgb;',
+    '  old += texture(uPrev, vUv + vec2( 0.0, -uSpread.y)).rgb * 2.0;',
+    '  old += texture(uPrev, vUv + vec2( uSpread.x, -uSpread.y)).rgb;',
+    '  old *= (1.0 / 16.0);',
+    '  oCol = vec4(max(cur, old * uDecay), 1.0);',
+    '}'
+  ].join('\n');
+
   var FRAG_COMBINE = [
     '#version 300 es',
     'precision highp float;',
@@ -274,6 +328,7 @@
     this._pDown = null;
     this._pUp = null;
     this._pCombine = null;
+    this._pTrail = null;
 
     this._src = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, this._src);
@@ -285,6 +340,10 @@
     this._a = null;
     this._b = null;
     this._mips = [];
+    this._tr0 = null;
+    this._tr1 = null;
+    this._trBright = null;
+    this._historyValid = false;
     this._w = 0;
     this._h = 0;
 
@@ -316,11 +375,22 @@
     /* Down to about 8px on the short side. Levels beyond that stop adding
        reach and start adding a wash over the whole frame. */
     var mw = Math.max(1, w >> 1), mh = Math.max(1, h >> 1);
+    var hw = mw, hh = mh;
     while (this._mips.length < 6 && Math.min(mw, mh) >= 8) {
       this._mips.push(makeTarget(gl, mw, mh, true));
       mw = Math.max(1, mw >> 1);
       mh = Math.max(1, mh >> 1);
     }
+    /* Half res, like the pyramid's first level: a trail is a smear and does
+       not need the detail. Two of them, because a pass cannot read and write
+       the same texture. */
+    freeTarget(gl, this._tr0);
+    freeTarget(gl, this._tr1);
+    freeTarget(gl, this._trBright);
+    this._tr0 = makeTarget(gl, hw, hh, true);
+    this._tr1 = makeTarget(gl, hw, hh, true);
+    this._trBright = makeTarget(gl, hw, hh, true);
+    this._historyValid = false;
     if (this.canvas.width !== w) this.canvas.width = w;
     if (this.canvas.height !== h) this.canvas.height = h;
   };
@@ -387,6 +457,116 @@
       run: function (read, write, state) { self._bloom(o, read, write, state); }
     });
     return this;
+  };
+
+  /* TRAILS. Registered like bloom, and removed the same way, so
+   * `passes.length === 0` keeps meaning "nothing is switched on" for
+   * post_identity.py.
+   *
+   * opts: { seconds, intensity, threshold, knee }
+   *   seconds    TIME CONSTANT, not a per-frame factor, and this is the whole
+   *              correctness argument. The app runs at whatever rAF gives it
+   *              — 60 on one machine, 120 on another — and cinema_clip
+   *              captures at a fixed 60. A per-frame decay would make the same
+   *              seed leave a trail of one length on screen and a different
+   *              one in the mp4, which is a picture fault by construction and
+   *              the exact thing docs/ARCHITECTURE.md §1 was built to stop.
+   *              Decay is exp(-dt/seconds), so a trail is the same number of
+   *              SECONDS long everywhere.
+   *   intensity  how much of it is added back.
+   *   threshold  its own bright-pass. Held near bloom's by default, but
+   *              separate: what is worth smearing and what is worth glowing
+   *              are not the same question.
+   */
+  Post.prototype.setTrails = function (opts) {
+    var i, gl = this.gl;
+    for (i = 0; i < this.passes.length; i++) {
+      if (this.passes[i].name === 'trails') { this.passes.splice(i, 1); break; }
+    }
+    if (!opts) { this._historyValid = false; return this; }
+
+    if (!this._pBright) {
+      this._pBright = program(gl, FRAG_BRIGHT, 'bright');
+      this._pDown = program(gl, FRAG_DOWN, 'down');
+      this._pUp = program(gl, FRAG_UP, 'up');
+      this._pCombine = program(gl, FRAG_COMBINE, 'combine');
+    }
+    if (!this._pTrail) this._pTrail = program(gl, FRAG_TRAIL, 'trail');
+
+    var o = {
+      seconds: opts.seconds === undefined ? 0.10 : opts.seconds,
+      intensity: opts.intensity === undefined ? 0.55 : opts.intensity,
+      threshold: opts.threshold === undefined ? 0.70 : opts.threshold,
+      knee: opts.knee === undefined ? 0.18 : opts.knee,
+      spread: opts.spread === undefined ? 1.0 : opts.spread
+    };
+    var self = this;
+    /* FIRST in the list, before bloom, so the smear is part of the picture
+       bloom then sees. A trail that does not glow reads as a printing fault. */
+    this.passes.unshift({
+      name: 'trails',
+      opts: o,
+      run: function (read, write, state) { self._trails(o, read, write, state); }
+    });
+    return this;
+  };
+
+  /* The history is a fight's worth of state. It belongs to ONE match: carry it
+     across a restart and the first frame of the new fight arrives with the old
+     one smeared over it. The app calls this on every new match; the capture
+     calls it at init and between the columns of a filmstrip. */
+  Post.prototype.resetHistory = function () {
+    this._historyValid = false;
+    return this;
+  };
+
+  Post.prototype._trails = function (o, read, write, state) {
+    var gl = this.gl, self = this;
+    var rect = (state && state.rectN) ? state.rectN : null;
+    var dt = (state && state.dt > 0) ? Math.min(state.dt, 0.25) : (1 / 60);
+
+    /* its own bright pass, at half res */
+    this._draw(this._pBright, read.tex, this._trBright, function (g, p) {
+      g.uniform2f(g.getUniformLocation(p, 'uTexel'), 1 / self._w, 1 / self._h);
+      g.uniform1f(g.getUniformLocation(p, 'uThresh'), o.threshold);
+      g.uniform1f(g.getUniformLocation(p, 'uKnee'), o.knee);
+      if (rect) g.uniform4f(g.getUniformLocation(p, 'uRect'),
+                            rect[0], rect[1], rect[2], rect[3]);
+      else g.uniform4f(g.getUniformLocation(p, 'uRect'), 0, 0, -1, -1);
+    });
+
+    /* A cold buffer holds whatever the driver left in it. Seed it from this
+       frame rather than clearing to black: a trail that fades IN over its own
+       time constant on the first frame of a fight is a flash of nothing. */
+    if (!this._historyValid) {
+      this._draw(this._pCopy, this._trBright.tex, this._tr0);
+      this._historyValid = true;
+    }
+
+    var decay = Math.exp(-dt / Math.max(1e-3, o.seconds));
+    this._draw(this._pTrail, this._trBright.tex, this._tr1, function (g, p) {
+      g.activeTexture(g.TEXTURE1);
+      g.bindTexture(g.TEXTURE_2D, self._tr0.tex);
+      g.uniform1i(g.getUniformLocation(p, 'uPrev'), 1);
+      g.uniform1f(g.getUniformLocation(p, 'uDecay'), decay);
+      g.uniform2f(g.getUniformLocation(p, 'uSpread'),
+                  o.spread / self._tr0.w, o.spread / self._tr0.h);
+      g.activeTexture(g.TEXTURE0);
+    });
+    var t = this._tr0; this._tr0 = this._tr1; this._tr1 = t;
+
+    /* Composited with the same masked add bloom uses, so the readout is left
+       alone by the same geometry. */
+    this._draw(this._pCombine, read.tex, write, function (g, p) {
+      g.activeTexture(g.TEXTURE1);
+      g.bindTexture(g.TEXTURE_2D, self._tr0.tex);
+      g.uniform1i(g.getUniformLocation(p, 'uBloom'), 1);
+      g.uniform1f(g.getUniformLocation(p, 'uIntensity'), o.intensity);
+      if (rect) g.uniform4f(g.getUniformLocation(p, 'uRect'),
+                            rect[0], rect[1], rect[2], rect[3]);
+      else g.uniform4f(g.getUniformLocation(p, 'uRect'), 0, 0, -1, -1);
+      g.activeTexture(g.TEXTURE0);
+    });
   };
 
   Post.prototype._bloom = function (o, read, write, state) {
@@ -468,6 +648,12 @@
                      state.rect.h / h];
     }
     state.cutK = (state.cine && state.cine.cut) ? 1 : 0;
+    /* Seconds since the last composited frame. Trails decay against this and
+       not against a frame count, so a trail is the same length in seconds
+       whatever rate the caller is running at. Defaulted, never guessed at
+       silently: a caller that does not pass it gets 60fps and the trail is
+       wrong by exactly the ratio it lied about. */
+    if (!(state.dt > 0)) state.dt = 1 / 60;
 
     gl.bindTexture(gl.TEXTURE_2D, this._src);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, src);
@@ -553,9 +739,14 @@
     freeTarget(gl, this._b);
     for (i = 0; i < this._mips.length; i++) freeTarget(gl, this._mips[i]);
     this._mips = [];
+    freeTarget(gl, this._tr0);
+    freeTarget(gl, this._tr1);
+    freeTarget(gl, this._trBright);
+    this._tr0 = this._tr1 = this._trBright = null;
     gl.deleteTexture(this._src);
     gl.deleteProgram(this._pCopy);
     gl.deleteProgram(this._pCopyFlip);
+    if (this._pTrail) gl.deleteProgram(this._pTrail);
     if (this._pBright) {
       gl.deleteProgram(this._pBright);
       gl.deleteProgram(this._pDown);
@@ -593,9 +784,24 @@
     high: { threshold: 0.62, knee: 0.22, intensity: 0.95, scatter: 1.25, levels: 6 }
   };
 
+  /* THE TRAIL SPREAD, and it varies ONE thing: how long the smear lasts, in
+     seconds. Intensity and threshold are held, because "how long" is the
+     question a person can actually answer from a picture — and because the
+     bloom spread already established the register these sit inside.
+
+     Seconds, not frames. A trail of 0.12s is 0.12s in a 120Hz app and in a
+     60fps mp4; a trail of "8 frames" is two different pictures. */
+  var TRAILS = {
+    off: null,
+    short: { seconds: 0.06, intensity: 0.55, threshold: 0.70, knee: 0.18 },
+    mid:   { seconds: 0.12, intensity: 0.55, threshold: 0.70, knee: 0.18 },
+    long:  { seconds: 0.24, intensity: 0.55, threshold: 0.70, knee: 0.18 }
+  };
+
   var API = {
     VERSION: VERSION,
     SPREAD: SPREAD,
+    TRAILS: TRAILS,
     create: function (canvas) { return new Post(canvas); },
     supported: function () {
       try {

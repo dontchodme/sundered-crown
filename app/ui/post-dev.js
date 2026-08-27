@@ -36,6 +36,7 @@ const POST = {
   src: null,          // the game's #cv
   raf: 0,
   err: null,
+  lastT: 0,
   /* CPU-side wall clock around render(), smoothed. Honest about what it is:
      it does not see GPU time, and it is one upload more than the build will
      pay. A number to notice a regression by, not a number to quote. */
@@ -99,18 +100,29 @@ function postFrame() {
   if (!POST.on || !POST.post) return;
   postSync();
   const t0 = performance.now();
+  /* REAL SECONDS BETWEEN COMPOSITED FRAMES, and the trail decays against
+     this rather than against a frame count. The app runs at whatever rAF
+     gives it and cinema_clip captures at a fixed 60 — a per-frame decay
+     would make the same seed smear differently on screen and in the mp4,
+     which is the divergence Electron was chosen to prevent. */
+  const dt = POST.lastT ? Math.min(0.25, (t0 - POST.lastT) / 1000) : 1 / 60;
+  POST.lastT = t0;
   try {
-    POST.post.render(POST.src, postState());
+    const st = postState();
+    st.dt = dt;
+    POST.post.render(POST.src, st);
   } catch (e) {
     postToggle(false);
     postFail(String(e.message || e));
     return;
   }
-  const dt = performance.now() - t0;
-  POST.ms = POST.ms ? POST.ms * 0.9 + dt * 0.1 : dt;
+  const cost = performance.now() - t0;
+  POST.ms = POST.ms ? POST.ms * 0.9 + cost * 0.1 : cost;
   if ((++POST.frames & 31) === 0) {
     const sel = document.getElementById('bloom');
-    postStatus('ON · bloom ' + (sel ? sel.value : '?') + ' · '
+    const tr = document.getElementById('trails');
+    postStatus('ON · bloom ' + (sel ? sel.value : '?')
+               + ' · trails ' + (tr ? tr.value : '?') + ' · '
                + POST.post.passes.length + ' passes · '
                + POST.ms.toFixed(2) + ' ms/frame CPU-side');
   }
@@ -223,6 +235,20 @@ function postBloom(key) {
     : 'OFF — the control. These are the untouched 2D pixels. (bloom ' + key + ')');
 }
 
+function postTrails(key) {
+  if (!POST.post) return;
+  POST.post.setTrails(key === 'off' ? null : (window.SWBPost.TRAILS[key] || null));
+  POST.post.resetHistory();
+  POST.ms = 0;
+}
+
+/* A trail is one fight's history. Carried across a restart, the first frame
+   of the new fight arrives with the last one smeared over it. */
+function postReset() {
+  if (POST.post) POST.post.resetHistory();
+  POST.lastT = 0;
+}
+
 function postWire() {
   const b = document.getElementById('btnPost');
   const t = document.getElementById('btnPostTest');
@@ -236,6 +262,11 @@ function postWire() {
     if ([...sel.options].some((o) => o.value === def)) sel.value = def;
     sel.onchange = () => postBloom(sel.value);
     postBloom(sel.value);
+  }
+  const tr = document.getElementById('trails');
+  if (tr) {
+    tr.onchange = () => postTrails(tr.value);
+    postTrails(tr.value);
   }
   window.addEventListener('resize', postSync);
 }
