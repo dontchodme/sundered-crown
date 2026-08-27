@@ -175,13 +175,28 @@ The alternative is to accept bloomed damage numbers. It is not obviously wrong
 a picture question, so it is Rick's, and it should be shown as a spread rather
 than argued.**
 
-> **ANSWERED 2026-08-27, and by looking rather than by arguing.** They survive.
-> On the bloom spread (`05-reference/post/bloom-spread-paradox-heartwood-25064.png`)
-> every damage float still reads at MID, which is the register Rick took; at
-> HIGH the `24` at t=37.4 and the `89` at the kill are both lost. **So the
-> split is optional at the chosen setting and would have been required one
-> step brighter.** If a later effect raises the effective brightness — trails
-> and the director ramp both can — this becomes live again.
+> **ANSWERED 2026-08-27 — and then reopened the same day by a second relic.**
+>
+> On the bloom spread (`bloom-spread-paradox-heartwood-25064.png`) every damage
+> float still read at MID, and the conclusion written here was that the split
+> was optional. **That was true of Paradox and false in general.**
+>
+> `chosen-spread-ironhail-dawnbringer-4412.png`, same settings, different art:
+> the `18` and its SMITE tag at t=16.2 and the `17` and its SMITE at t=25.9 are
+> **gone**, and the ultimate-name callout smears into an illegible shape.
+> Paradox's ult art is thin blue lightning on a dark hall — close to the ideal
+> case for a threshold. Ironhail and Dawnbringer are warm and broad and their
+> relic bodies are already near white, so the same threshold catches the
+> bodies rather than the effect.
+>
+> **So the split is REQUIRED, not optional.** Floats, tags and the ult-name
+> callout have to leave the bloom's source, whatever register is finally
+> chosen — a readout that survives one relic and not another is not a setting
+> that can be tuned, it is a layering mistake.
+>
+> The lesson is the older one in `CLAUDE.md` §4.8: *if you generalise from a
+> subset, look at the superset first.* One extra sheet, four minutes, would
+> have caught this before a decision was recorded.
 
 ---
 
