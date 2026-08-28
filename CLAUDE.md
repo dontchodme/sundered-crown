@@ -163,6 +163,32 @@ could not see a full-frame wash at all. `tools/harrow_bloom_probe.py` is the
 arena-wide one. **A count-driven ult must be swept across its count** — the
 captured block had `n=2` against a cap of 12.
 
+**1d. THE BLOOM ADAPTS, SO A BRIGHT FRAME GETS *LESS* OF IT — AND A
+"BRIGHTEST IN THE GAME" IS NOT AUTOMATICALLY A DEFECT.** Foregone's Retrace is
+the largest light source measured: 565,816 emissive px, arena mean 0.2000,
+2.72% clipped — all higher than Daybreak's. It needs no change, and the
+measurement is why.
+
+All of it is `_retraceField`. Suppressed, the relic drops to **2,254** emissive
+px and +0.0000 lift: there is no second contributor to hunt. And that field is
+the TELEGRAPH — an ultimate nothing can interrupt has to be legible before it
+lands — so it is bright on purpose.
+
+Then the trap. Cutting its wide soft-bloom pass, the obvious way to take area
+out of the chain, makes the picture **worse**: lift +0.0050 → +0.0178 and
+clipping 2.72% → 3.68%.
+
+> `adapt: 50` normalises the bloom against the FRAME'S OWN MEAN. A pass that
+> raises the mean therefore DAMPS the bloom. Removing it hands the chain a
+> darker frame and it blooms the remaining hard edges harder.
+
+Measured at `adapt: 0` for the proof — foregone +0.0050 → +0.0183, grudgebearer
+−0.0026 → +0.0004, paradox unchanged at +0.0002 because a dim frame gives
+adaptation nothing to work with. **That also explains the negative lifts**: on a
+bright frame the chain can come out darker than no chain at all. It is not a
+bug and nothing needs fixing; it just has to be known before anyone reads a
+lift as damage.
+
 **2. A HELD OBJECT'S STORED STATE IS NOT ITS CURRENT STATE.** `f.pinV` holds
 the velocity a frozen ball *resumes* on; `_ballPair` read it as the velocity
 the ball *had*. When a thing is suspended and something is kept so it can
