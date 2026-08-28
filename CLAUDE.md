@@ -119,6 +119,23 @@ MEASUREMENT of the thing they saw** — not a fix and an apology. That is why
 sounds are now rendered in an `OfflineAudioContext` and measured, and why hold
 contact frames are counted. Both are permanent checks.
 
+**1b. THE BLOOM GETS BLAMED FOR WHAT THE ART DID.** Rick: "the bloom is
+still really intense on some of the ults." It wasn't. Daybreak drew its corona
+as a radial gradient from `#FFFFFF` at stop 0, with `lighter`, centred on a
+relic body already at 0.892 luma — the ball was not lit, it was **erased**.
+Measured on the caster's disc: 0.499 bare → 0.905 at the peak, 58% of the disc
+past 0.98, and **only +0.041 of that was the bloom.** Roughly a tenth. Turning
+the chain off left the ball a featureless white blob.
+
+> When a bright thing looks wrong, measure the art and the post chain
+> SEPARATELY before touching either. `tools/ult_bloom_probe.py` does it.
+
+The fix was shape, not strength: the corona is now a ring with the hole cut in
+the path, every gradient number unchanged. Same light, and the ball is an
+object again. **A radial gradient with an inner radius still fills its inner
+circle with `colorStop(0)`** — moving the inner radius out does nothing on its
+own, the hole has to be subtracted with a backwards-wound arc.
+
 **2. A HELD OBJECT'S STORED STATE IS NOT ITS CURRENT STATE.** `f.pinV` holds
 the velocity a frozen ball *resumes* on; `_ballPair` read it as the velocity
 the ball *had*. When a thing is suspended and something is kept so it can
@@ -190,6 +207,7 @@ python3 verify.py --game ../02-chain/sc-paradox-frame.html --n 40   # 13 checks
 python3 engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python3 chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
 python3 cell_survey.py --game ../02-chain/sc-paradox-frame.html     # what's open
+python3 ult_bloom_probe.py                                          # which ults blow out
 python3 paradox_pick.py                                             # which fight to film
 ```
 

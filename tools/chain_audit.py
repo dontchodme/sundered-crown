@@ -57,6 +57,43 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
                  and not l.strip("{}(); ") == ""]
         if cands:
             out.append((name, max(cands, key=len)))
+
+    # SOURCE-READING MISSES AN INSERT THAT IS NOT A LITERAL. A builder may
+    # COMPUTE its insert, or import it from the builder that owns the art so
+    # there is only one copy of it -- daybreak_annulus_build.py does exactly
+    # that, and this tool answered "no *_NEW inserts found", which reads as a
+    # missing builder rather than as a form it cannot see. Second time the
+    # discovery has been too narrow; the raw-string note above was the first.
+    #
+    # So: fall back to IMPORTING the builder and reading its module-level
+    # *_NEW strings. Import, not exec -- a builder does its work in main(),
+    # and every one of them is import-safe behind `if __name__ == "__main__"`.
+    if not out:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(builder.stem, builder)
+        try:
+            mod = importlib.util.module_from_spec(spec)
+            sys.modules.setdefault(builder.stem, mod)
+            spec.loader.exec_module(mod)
+        except Exception as e:
+            print(f"  (could not import {builder.name} to look for computed "
+                  f"inserts: {e})")
+            return out
+        for name in dir(mod):
+            if not name.endswith("_NEW"):
+                continue
+            body = getattr(mod, name)
+            if not isinstance(body, str):
+                continue
+            cands = [l.strip() for l in body.splitlines()]
+            cands = [l for l in cands
+                     if len(l) > 18 and not l.startswith(("/*", "*", "//"))
+                     and not l.strip("{}(); ") == ""]
+            if cands:
+                out.append((name, max(cands, key=len)))
+        if out:
+            print(f"  ({len(out)} insert(s) found by importing {builder.name} "
+                  f"-- computed or imported, not source literals)")
     return out
 
 

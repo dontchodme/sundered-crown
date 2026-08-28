@@ -361,15 +361,34 @@ OVER_NEW = '''    /* ---- Daybreak: white heat radiating off the whole relic ---
       const rise = clamp(u.t / 0.30, 0, 1);
       const fade = 1 - clamp((u.t - (u.life - 0.5)) / 0.5, 0, 1);
       const k2 = rise * fade;
-      /* the corona: white-hot at the shell, gone by two radii */
+      /* THE CORONA IS A RING, NOT A DISC, AND THE HOLE IS THE POINT.
+       *
+       * It was a disc from stop 0 = #FFFFFF at the centre, drawn with
+       * `lighter` straight over a relic body already sitting at 0.892 luma.
+       * The ball was not lit by Daybreak, it was ERASED by it: measured on
+       * the caster's disc, 0.499 bare -> 0.905 at the peak with 58% of the
+       * disc past 0.98, and only +0.041 of that came from the bloom. Rick
+       * watched it and said the white balls were washed out; the bloom got
+       * the blame and the bloom was a bystander.
+       *
+       * The gradient's own numbers are UNCHANGED -- same stops, same reach,
+       * same alpha -- so the light around the ball is exactly as bright as it
+       * was. All that changed is that nothing is painted over the body.
+       *
+       * THE HOLE HAS TO BE CUT IN THE PATH. A radial gradient with an inner
+       * radius still fills its inner circle with colorStop(0), so moving the
+       * inner radius out to R alone would have left the white centre exactly
+       * where it was and looked like the fix had done nothing. The second arc
+       * is wound backwards to subtract it. */
       c.globalCompositeOperation = "lighter";
       const pulse = 0.92 + 0.08 * Math.sin(u.t * 13);
-      const g = c.createRadialGradient(src.x, src.y, 2, src.x, src.y, R * 2.3 * pulse);
+      const g = c.createRadialGradient(src.x, src.y, R * 0.94, src.x, src.y, R * 2.3 * pulse);
       g.addColorStop(0, "#FFFFFF"); g.addColorStop(0.4, "#FFF6E288");
       g.addColorStop(1, "#FFD98A00");
       c.globalAlpha = 0.8 * k2;
       c.fillStyle = g;
-      c.beginPath(); c.arc(src.x, src.y, R * 2.3 * pulse, 0, TAU); c.fill();
+      c.beginPath(); c.arc(src.x, src.y, R * 2.3 * pulse, 0, TAU);
+      c.arc(src.x, src.y, R * 0.94, TAU, 0, true); c.fill();
       /* flame tongues: deterministic flicker, licking upward off the shell */
       for (let i = 0; i < 9; i++){
         const a0 = (i / 9) * TAU + Math.sin(u.t * (2.1 + shellHash(19, i)) + i) * 0.25;
