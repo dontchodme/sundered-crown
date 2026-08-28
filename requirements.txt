@@ -22,3 +22,13 @@
 # `npm run identity` in app/ followed by `python shell_identity.py`. A red
 # fingerprint means the pair is not usable, whatever the versions say.
 playwright==1.62.0
+
+# Pillow composes the contact sheets — ult_filmstrip.py, every *_spread.py in
+# 05-reference/post. It was never listed, so a fresh machine hit
+# `ModuleNotFoundError: No module named 'PIL'` on the first filmstrip and the
+# sheets looked like a tool that had rotted.
+#
+# NOT part of the pin, and the distinction matters: playwright is pinned
+# because it carries the V8 the fights are measured on. Pillow only pastes
+# finished PNGs side by side — it never touches a number. Floor, not equality.
+Pillow>=10.0

@@ -58,6 +58,14 @@ MATE = {"oathwound": ("widowmaker", "Exsanguinate", 1.3),
         "nightfell": ("gravemourn", "Dirge", 1.6),
         "axiom":     ("spellbreaker", "Unmaking", 1.4)}
 FOE = "grudgebearer"
+ALT_FOE = "dawnbringer"    # `new Match` throws on a mirror match
+
+
+def foe_for(rid):
+    """A relic cannot fight itself -- the engine throws, and with one FOE
+    constant that aborted the entire strip on grudgebearer's row rather than
+    skipping one cell."""
+    return ALT_FOE if rid == FOE else FOE
 
 
 def png(d):
@@ -89,6 +97,7 @@ def main():
           for i in range(A.frames)]
 
     pairs = NEW
+    guessed = []
     with game(game_path=g.resolve()) as (page0, _e0):
         if A.ids:
             pairs = page0.evaluate("""(ids) => ids.map(id => {
@@ -96,23 +105,37 @@ def main():
               // read `life` out of the build's own table rather than restating
               // it here: a strip that samples a different duration than the
               // game plays is showing you a set-piece nobody will ever see.
+              /* MIRRORS THE ENGINE'S OWN MAP at Match.castUlt (search
+                 `life: { dawnbringer`). Kept complete: the previous sixteen
+                 entries silently gave the nine newest relics 1.5s, which is
+                 wrong by 8s on Paradox and by 7.1s on the Ballista. A strip
+                 that samples a duration the game never plays is showing you a
+                 set-piece nobody will ever see. */
               const L = { dawnbringer:1.6, widowmaker:1.3, grudgebearer:1.7,
                           thornwake:2.4, gravemourn:1.6, spellbreaker:1.4,
                           oathwound:1.5, heartwood:2.2, nightfell:1.4, axiom:1.5,
                           ironhail:1.3, lightkeeper:1.5, farwarden:2.6,
-                          aureole:1.6, censer:1.6, emberedge:1.5 }[id] || 1.5;
-              return [id, w.ult.name, L];
+                          aureole:1.6, censer:1.6, emberedge:1.5,
+                          slagheart:4.9, vinesower:5.4, bulwarden:9.5,
+                          marrowdraw:8.6, paradox:9.5 }[id];
+              /* `=== undefined`, not `|| 1.5`. The four that are missing here
+                 -- lastlight, twinshade, redflail, foregone -- never reach the
+                 generic cast path at all; they build their own ultFx. Say so
+                 rather than quietly drawing 1.5s of the wrong thing. */
+              return [id, w.ult.name, L === undefined ? 1.5 : L, L === undefined];
             })""", A.ids.split(","))
+            guessed = [q[0] for q in pairs if len(q) > 3 and q[3]]
+            pairs = [(q[0], q[1], q[2]) for q in pairs]
 
     rows = []
     with game(game_path=g.resolve()) as (page, errors):
         for rid, uname, life in pairs:
-            ims = [png(page.evaluate(SHOT_JS, [rid, FOE, A.seed, f * life, life]))
+            ims = [png(page.evaluate(SHOT_JS, [rid, foe_for(rid), A.seed, f * life, life]))
                    for f in fr]
             rows.append((f"{uname}  ({rid})", ims))
             if A.vs and rid in MATE:
                 mid, mname, mlife = MATE[rid]
-                ims2 = [png(page.evaluate(SHOT_JS, [mid, FOE, A.seed, f * mlife, mlife]))
+                ims2 = [png(page.evaluate(SHOT_JS, [mid, foe_for(mid), A.seed, f * mlife, mlife]))
                         for f in fr]
                 rows.append((f"    vs {mname}  ({mid})", ims2))
         if errors:
@@ -135,6 +158,9 @@ def main():
     out = HERE.parent / A.out
     sh.save(out)
     print(f"  {out}  ({sh.width}x{sh.height})")
+    if guessed:
+        print("  LIFE GUESSED AT 1.5s (not in the engine's map, builds its own "
+              "ultFx): " + ", ".join(guessed))
 
 
 if __name__ == "__main__":
