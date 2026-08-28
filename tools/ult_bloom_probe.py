@@ -48,7 +48,7 @@ LIFE = {"dawnbringer":1.6,"widowmaker":1.3,"grudgebearer":1.7,"thornwake":2.4,
         "paradox":9.5}
 FOE, ALT_FOE = "grudgebearer", "dawnbringer"
 
-MEASURE_JS = """([id, foe, seed, t, life]) => {
+MEASURE_JS = """([id, foe, seed, t, life, block]) => {
   window.__frozen = true;
   AC.setResolution(1080, 1920);
   AC.SFX.play = function(){}; AC.SFX.resume = function(){};
@@ -66,9 +66,21 @@ MEASURE_JS = """([id, foe, seed, t, life]) => {
      up as spellbreaker moving 0.46 -> 0.42 between two identical runs.
      Zeroed here: this measures light, not camera. */
   m.shake = 0;
-  m.ultFx = { w: id, kind: w.ult.kind, src: "a", tgt: "b",
-              x: m.a.x, y: m.a.y, tx: m.b.x, ty: m.b.y, hit: true,
-              radius: w.ult.radius || 300, aff: m.a.aff, t: t, life: life };
+  if (block) {
+    /* A REAL BLOCK, CAPTURED OUT OF A REAL FIGHT by ult_fx_capture.py. Every
+       relic-specific field and `phase` are the engine's own; only the geometry
+       is substituted, so each relic is judged on the same frame. Writing those
+       fields by hand instead would put a picture on the sheet that the game
+       never draws -- CLAUDE.md 4.1, committed on purpose. */
+    m.ultFx = Object.assign({}, block, {
+      src: "a", tgt: "b",
+      x: m.a.x, y: m.a.y, tx: m.b.x, ty: m.b.y,
+      aff: m.a.aff, t: t, life: life });
+  } else {
+    m.ultFx = { w: id, kind: w.ult.kind, src: "a", tgt: "b",
+                x: m.a.x, y: m.a.y, tx: m.b.x, ty: m.b.y, hit: true,
+                radius: w.ult.radius || 300, aff: m.a.aff, t: t, life: life };
+  }
 
   const r = AC.renderer, cv = document.getElementById('cv');
   const ctx = cv.getContext('2d');
@@ -176,12 +188,24 @@ def main():
     ap.add_argument("--seed", type=int, default=31337)
     ap.add_argument("--frames", type=int, default=7)
     ap.add_argument("--json", default="")
+    ap.add_argument("--fx", default="../05-reference/post/ultfx-library.json",
+                    help="captured ultFx blocks from ult_fx_capture.py. Without "
+                         "it the synthetic block is used and eight relics "
+                         "render empty frames.")
     A = ap.parse_args()
 
     g = (HERE / A.game).resolve()
     if not g.exists():
         sys.exit(f"no such build: {g}")
     ids = [i.strip() for i in A.ids.split(",") if i.strip()]
+    fxlib = {}
+    fxp = (HERE / A.fx).resolve() if A.fx else None
+    if fxp and fxp.exists():
+        fxlib = json.loads(fxp.read_text(encoding="utf8"))
+        print(f"  fx library: {fxp.name}, {len(fxlib)} relics")
+    elif A.fx:
+        print(f"  ! no fx library at {fxp} -- falling back to the SYNTHETIC "
+              f"block, which renders eight ultimates as empty frames.")
     fr = [round(0.06 + 0.82 * (i / max(1, A.frames - 1)) ** 1.5, 3)
           for i in range(A.frames)]
 
@@ -193,16 +217,25 @@ def main():
         for rid in ids:
             life = LIFE.get(rid, 1.5)
             foe = ALT_FOE if rid == FOE else FOE
-            peak, peak_t, emis = None, None, 0
-            for f in fr:
-                s = page.evaluate(MEASURE_JS, [rid, foe, A.seed, f * life, life])
+            # One entry per captured PHASE: a latch's `blast` and its `lit`
+            # are two different pictures and the worst of them is the one that
+            # gets watched. Falls back to a single synthetic pass (None) for a
+            # relic the library does not carry.
+            entry = fxlib.get(rid)
+            variants = ([(ph, entry["blocks"][ph]) for ph in entry["phases"]]
+                        if entry else [(None, None)])
+            peak, peak_t, emis, peak_ph = None, None, 0, None
+            for ph, blk in variants:
+              for f in fr:
+                s = page.evaluate(MEASURE_JS, [rid, foe, A.seed, f * life, life, blk])
                 emis = max(emis, s["emis"])
                 # The worst frame is the one that gets watched. Ranked on the
                 # DISC, because the complaint is about the ball.
                 if peak is None or s["onD"]["mean"] > peak["onD"]["mean"]:
-                    peak, peak_t = s, f
+                    peak, peak_t, peak_ph = s, f, ph
             rows.append({"id": rid, "life": life, "guessed": rid not in LIFE,
                          "t": peak_t, "emis": emis, "drew": emis > 500,
+                         "phase": peak_ph,
                          "blown": peak["on"]["blown"],
                          "gain": peak["on"]["blown"] - peak["off"]["blown"],
                          "body": peak["onD"]["mean"],
@@ -221,19 +254,26 @@ def main():
     print("  ranked on THE CASTER'S DISC: how far the ult's light pushes a")
     print("  body that the bloom never reads directly.")
     print("")
-    print(f"  {'relic':<14}{'t/life':>7}{'bare':>7}{'body':>8}{'+bloom':>8}"
-          f"{'clip%':>8}{'arena%':>8}{'+bloom':>8}")
+    print(f"  {'relic':<14}{'phase':<9}{'t/life':>7}{'bare':>7}{'body':>8}"
+          f"{'+bloom':>8}{'clip%':>8}{'arena%':>8}")
     for r in drew:
         mark = " *" if r["guessed"] else ""
-        print(f"  {r['id']:<14}{r['t']:>7}{r['bare']:>7.3f}{r['body']:>8.3f}"
-              f"{r['bodyLift']:>+8.3f}{100*r['bodyClip']:>8.2f}"
-              f"{100*r['blown']:>8.2f}{100*r['gain']:>+8.2f}{mark}")
+        print(f"  {r['id']:<14}{(r['phase'] or '-'):<9}{r['t']:>7}"
+              f"{r['bare']:>7.3f}{r['body']:>8.3f}{r['bodyLift']:>+8.3f}"
+              f"{100*r['bodyClip']:>8.2f}{100*r['blown']:>8.2f}{mark}")
     if blank:
         print("")
         print(f"  NOT MEASURED -- {len(blank)} ults render an EMPTY frame here.")
-        print("  The synthetic ultFx sets `kind` but no `phase`, and every")
-        print("  phase-driven draw branch is if/else-if with no fallback. These")
-        print("  are not low scores, they are no measurement at all:")
+        print("  NOT a phase problem -- that was the first diagnosis and it was")
+        print("  only half right. These ultimates do not draw from `ultFx` at")
+        print("  all: their picture lives in MATCH STATE that a frozen match")
+        print("  does not have -- m.splitHold for the Split, and the same shape")
+        print("  for the Stasis Field, the Ballista window, the Spinstorm and")
+        print("  the Retrace's laid wave. drawSplitHold(m) and its dozen")
+        print("  siblings are called from draw() beside drawUltOver, not from")
+        print("  it. Replaying a captured block cannot reach them; only")
+        print("  stepping a real fight to the moment can. These are not low")
+        print("  scores, they are no measurement at all:")
         for r in blank:
             print(f"    {r['id']:<14}{r['emis']:>8,} emissive px above the empty arena")
     if any(r["guessed"] for r in rows):

@@ -1,0 +1,939 @@
+{
+ "dawnbringer": {
+  "kind": "radiant",
+  "name": "Daybreak",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "dawnbringer",
+    "kind": "radiant",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.06612615148674,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "sanctified",
+     "name": "Sanctified",
+     "core": "#FFF6E2",
+     "glow": "#FFFFFF",
+     "dark": "#5A4E30",
+     "steel": "#FFFFFF",
+     "status": "smite"
+    },
+    "t": 0.016666666666666666,
+    "life": 5.3,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "widowmaker": {
+  "kind": "nova",
+  "name": "Exsanguinate",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "widowmaker",
+    "kind": "nova",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.0400413731928,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": false,
+    "radius": 240,
+    "aff": {
+     "key": "bloodsworn",
+     "name": "Bloodsworn",
+     "core": "#E03A4E",
+     "glow": "#FF97A2",
+     "dark": "#450710",
+     "steel": "#EBD3D3",
+     "status": "hemorrhage"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.3,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "grudgebearer": {
+  "kind": "forge",
+  "name": "Crucible",
+  "phases": [
+   "wind",
+   "strike"
+  ],
+  "blocks": {
+   "wind": {
+    "w": "grudgebearer",
+    "kind": "forge",
+    "phase": "wind",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.08536849448564,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "dwarven",
+     "name": "Dwarven",
+     "core": "#9C6326",
+     "glow": "#E8A34E",
+     "dark": "#2E1B0A",
+     "steel": "#6A6E74",
+     "status": "sunder"
+    },
+    "t": 0.016666666666666666,
+    "life": 4.4,
+    "__capturedAt": 0.008333333333333333
+   },
+   "strike": {
+    "w": "grudgebearer",
+    "kind": "forge",
+    "phase": "strike",
+    "src": "a",
+    "tgt": "b",
+    "x": 158.5349139940478,
+    "y": 172.98902392910676,
+    "tx": 169.38288150385034,
+    "ty": 212.13676826529576,
+    "hit": true,
+    "stacks": 1,
+    "radius": 300,
+    "aff": {
+     "key": "dwarven",
+     "name": "Dwarven",
+     "core": "#9C6326",
+     "glow": "#E8A34E",
+     "dark": "#2E1B0A",
+     "steel": "#6A6E74",
+     "status": "sunder"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.7,
+    "__capturedAt": 4
+   }
+  }
+ },
+ "thornwake": {
+  "kind": "freeze",
+  "name": "Bramblesnare",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "thornwake",
+    "kind": "freeze",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.05914502792592,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": false,
+    "radius": 260,
+    "aff": {
+     "key": "verdant",
+     "name": "Verdant",
+     "core": "#4FD06B",
+     "glow": "#BCF7C7",
+     "dark": "#0D3A1A",
+     "steel": "#DCEBD8",
+     "status": "entangle"
+    },
+    "t": 0.016666666666666666,
+    "life": 2.4,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "lastlight": {
+  "kind": "harrow",
+  "name": "Harrowing",
+  "phases": [
+   "cast",
+   "bloom"
+  ],
+  "blocks": {
+   "cast": {
+    "w": "lastlight",
+    "kind": "harrow",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.05914502792592,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "sanctified",
+     "name": "Sanctified",
+     "core": "#FFF6E2",
+     "glow": "#FFFFFF",
+     "dark": "#5A4E30",
+     "steel": "#FFFFFF",
+     "status": "smite"
+    },
+    "t": 0.016666666666666666,
+    "life": 5.3,
+    "phase": "cast",
+    "n": 12,
+    "__capturedAt": 0.008333333333333333
+   },
+   "bloom": {
+    "w": "lastlight",
+    "kind": "harrow",
+    "phase": "bloom",
+    "src": "a",
+    "tgt": "b",
+    "x": 34.994031482259295,
+    "y": 579.9328085647857,
+    "tx": 34.994031482259295,
+    "ty": 579.9328085647857,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "sanctified",
+     "name": "Sanctified",
+     "core": "#FFF6E2",
+     "glow": "#FFFFFF",
+     "dark": "#5A4E30",
+     "steel": "#FFFFFF",
+     "status": "smite"
+    },
+    "t": 0.016666666666666666,
+    "n": 2,
+    "life": 1.7,
+    "__capturedAt": 2.6666666666666665
+   }
+  }
+ },
+ "gravemourn": {
+  "kind": "pull",
+  "name": "Dirge",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "gravemourn",
+    "kind": "pull",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.07243756962058,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": false,
+    "radius": 320,
+    "aff": {
+     "key": "umbral",
+     "name": "Umbral",
+     "core": "#A45CF0",
+     "glow": "#DDB8FF",
+     "dark": "#280A44",
+     "steel": "#B6A5C9",
+     "status": "curse"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.6,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "slagheart": {
+  "kind": "latch",
+  "name": "Ironbloom",
+  "phases": [
+   "lit",
+   "held",
+   "blast"
+  ],
+  "blocks": {
+   "lit": {
+    "w": "slagheart",
+    "kind": "latch",
+    "phase": "lit",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.07243756962058,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "dwarven",
+     "name": "Dwarven",
+     "core": "#9C6326",
+     "glow": "#E8A34E",
+     "dark": "#2E1B0A",
+     "steel": "#6A6E74",
+     "status": "sunder"
+    },
+    "t": 0.016666666666666666,
+    "life": 12.8,
+    "__capturedAt": 0.008333333333333333
+   },
+   "held": {
+    "w": "slagheart",
+    "kind": "latch",
+    "phase": "held",
+    "src": "a",
+    "tgt": "b",
+    "x": 68.95715327302912,
+    "y": 694.807481207686,
+    "tx": 36.98832608060898,
+    "ty": 708.489600910373,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "dwarven",
+     "name": "Dwarven",
+     "core": "#9C6326",
+     "glow": "#E8A34E",
+     "dark": "#2E1B0A",
+     "steel": "#6A6E74",
+     "status": "sunder"
+    },
+    "t": 0.016666666666666666,
+    "life": 0.8500000000000001,
+    "__capturedAt": 5.433333333333334
+   },
+   "blast": {
+    "w": "slagheart",
+    "kind": "latch",
+    "phase": "blast",
+    "src": "a",
+    "tgt": "b",
+    "x": 36.98832608060898,
+    "y": 708.489600910373,
+    "tx": 36.98832608060898,
+    "ty": 708.489600910373,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "dwarven",
+     "name": "Dwarven",
+     "core": "#9C6326",
+     "glow": "#E8A34E",
+     "dark": "#2E1B0A",
+     "steel": "#6A6E74",
+     "status": "sunder"
+    },
+    "t": 0,
+    "life": 3,
+    "__capturedAt": 6.241666666666666
+   }
+  }
+ },
+ "spellbreaker": {
+  "kind": "bolt",
+  "name": "Unmaking",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "spellbreaker",
+    "kind": "bolt",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.0400413731928,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "runic",
+     "name": "Runic",
+     "core": "#4A9EFF",
+     "glow": "#BCDDFF",
+     "dark": "#08264F",
+     "steel": "#D4E4FF",
+     "status": "hex"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.4,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "ironhail": {
+  "kind": "volley",
+  "name": "Quarrelstorm",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "ironhail",
+    "kind": "volley",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.0482917130804,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "dwarven",
+     "name": "Dwarven",
+     "core": "#9C6326",
+     "glow": "#E8A34E",
+     "dark": "#2E1B0A",
+     "steel": "#6A6E74",
+     "status": "sunder"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.3,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "lightkeeper": {
+  "kind": "nova",
+  "name": "Bulwark",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "lightkeeper",
+    "kind": "nova",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.06612615148674,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": false,
+    "radius": 260,
+    "aff": {
+     "key": "vigil",
+     "name": "Vigil",
+     "core": "#F06BB8",
+     "glow": "#FFD1EC",
+     "dark": "#4A0A31",
+     "steel": "#D8B9C9",
+     "status": "ward"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.5,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "farwarden": {
+  "kind": "aimedshot",
+  "name": "Reprisal",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "farwarden",
+    "kind": "aimedshot",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.0482917130804,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "vigil",
+     "name": "Vigil",
+     "core": "#F06BB8",
+     "glow": "#FFD1EC",
+     "dark": "#4A0A31",
+     "steel": "#D8B9C9",
+     "status": "ward"
+    },
+    "t": 0.016666666666666666,
+    "life": 2.6,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "aureole": {
+  "kind": "beam",
+  "name": "Benediction",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "aureole",
+    "kind": "beam",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.0482917130804,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "sanctified",
+     "name": "Sanctified",
+     "core": "#FFF6E2",
+     "glow": "#FFFFFF",
+     "dark": "#5A4E30",
+     "steel": "#FFFFFF",
+     "status": "smite"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.6,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "censer": {
+  "kind": "nova",
+  "name": "Consecration",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "censer",
+    "kind": "nova",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.08536849448564,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": false,
+    "radius": 300,
+    "aff": {
+     "key": "sanctified",
+     "name": "Sanctified",
+     "core": "#FFF6E2",
+     "glow": "#FFFFFF",
+     "dark": "#5A4E30",
+     "steel": "#FFFFFF",
+     "status": "smite"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.6,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "emberedge": {
+  "kind": "detonate",
+  "name": "Slagburst",
+  "phases": [
+   "cold"
+  ],
+  "blocks": {
+   "cold": {
+    "w": "emberedge",
+    "kind": "detonate",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.06612615148674,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": false,
+    "radius": 230,
+    "aff": {
+     "key": "dwarven",
+     "name": "Dwarven",
+     "core": "#9C6326",
+     "glow": "#E8A34E",
+     "dark": "#2E1B0A",
+     "steel": "#6A6E74",
+     "status": "sunder"
+    },
+    "t": 0.016666666666666666,
+    "life": 0.55,
+    "phase": "cold",
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "oathwound": {
+  "kind": "beam",
+  "name": "Bloodprice",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "oathwound",
+    "kind": "beam",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.06612615148674,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "bloodsworn",
+     "name": "Bloodsworn",
+     "core": "#E03A4E",
+     "glow": "#FF97A2",
+     "dark": "#450710",
+     "steel": "#EBD3D3",
+     "status": "hemorrhage"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.5,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "heartwood": {
+  "kind": "freeze",
+  "name": "Rootfast",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "heartwood",
+    "kind": "freeze",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.06612615148674,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": false,
+    "radius": 230,
+    "aff": {
+     "key": "verdant",
+     "name": "Verdant",
+     "core": "#4FD06B",
+     "glow": "#BCF7C7",
+     "dark": "#0D3A1A",
+     "steel": "#DCEBD8",
+     "status": "entangle"
+    },
+    "t": 0.016666666666666666,
+    "life": 2.2,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "nightfell": {
+  "kind": "nova",
+  "name": "Eclipse",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "nightfell",
+    "kind": "nova",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.06612615148674,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": false,
+    "radius": 250,
+    "aff": {
+     "key": "umbral",
+     "name": "Umbral",
+     "core": "#A45CF0",
+     "glow": "#DDB8FF",
+     "dark": "#280A44",
+     "steel": "#B6A5C9",
+     "status": "curse"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.4,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "axiom": {
+  "kind": "bolt",
+  "name": "Corollary",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "axiom",
+    "kind": "bolt",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.06612615148674,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "runic",
+     "name": "Runic",
+     "core": "#4A9EFF",
+     "glow": "#BCDDFF",
+     "dark": "#08264F",
+     "steel": "#D4E4FF",
+     "status": "hex"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.5,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "twinshade": {
+  "kind": "split",
+  "name": "Triplicate",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "twinshade",
+    "kind": "split",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.0400413731928,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "umbral",
+     "name": "Umbral",
+     "core": "#A45CF0",
+     "glow": "#DDB8FF",
+     "dark": "#280A44",
+     "steel": "#B6A5C9",
+     "status": "curse"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.5,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "redflail": {
+  "kind": "spinstorm",
+  "name": "Bloodmill",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "redflail",
+    "kind": "spinstorm",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.07243756962058,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "bloodsworn",
+     "name": "Bloodsworn",
+     "core": "#E03A4E",
+     "glow": "#FF97A2",
+     "dark": "#450710",
+     "steel": "#EBD3D3",
+     "status": "hemorrhage"
+    },
+    "t": 0.016666666666666666,
+    "life": 1.5,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "foregone": {
+  "kind": "retrace",
+  "name": "Converse",
+  "phases": [
+   "lay"
+  ],
+  "blocks": {
+   "lay": {
+    "w": "foregone",
+    "kind": "retrace",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.05914502792592,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "runic",
+     "name": "Runic",
+     "core": "#4A9EFF",
+     "glow": "#BCDDFF",
+     "dark": "#08264F",
+     "steel": "#D4E4FF",
+     "status": "hex"
+    },
+    "t": 0.016666666666666666,
+    "life": 10.8,
+    "phase": "lay",
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "vinesower": {
+  "kind": "seedfall",
+  "name": "Thicket",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "vinesower",
+    "kind": "seedfall",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.0482917130804,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "verdant",
+     "name": "Verdant",
+     "core": "#4FD06B",
+     "glow": "#BCF7C7",
+     "dark": "#0D3A1A",
+     "steel": "#DCEBD8",
+     "status": "entangle"
+    },
+    "t": 0.016666666666666666,
+    "life": 3.3200000000000003,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "bulwarden": {
+  "kind": "aegis",
+  "name": "Aegis",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "bulwarden",
+    "kind": "aegis",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.08536849448564,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "vigil",
+     "name": "Vigil",
+     "core": "#F06BB8",
+     "glow": "#FFD1EC",
+     "dark": "#4A0A31",
+     "steel": "#D8B9C9",
+     "status": "ward"
+    },
+    "t": 0.016666666666666666,
+    "life": 19,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "marrowdraw": {
+  "kind": "ballista",
+  "name": "Bloodhunt",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "marrowdraw",
+    "kind": "ballista",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.0482917130804,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "bloodsworn",
+     "name": "Bloodsworn",
+     "core": "#E03A4E",
+     "glow": "#FF97A2",
+     "dark": "#450710",
+     "steel": "#EBD3D3",
+     "status": "hemorrhage"
+    },
+    "t": 0.016666666666666666,
+    "life": 8.6,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ },
+ "paradox": {
+  "kind": "stasis",
+  "name": "Stasis Field",
+  "phases": [
+   "-"
+  ],
+  "blocks": {
+   "-": {
+    "w": "paradox",
+    "kind": "stasis",
+    "src": "a",
+    "tgt": "b",
+    "x": 135.20000000000002,
+    "y": 240.07243756962058,
+    "tx": 384.8,
+    "ty": 544,
+    "hit": true,
+    "radius": 300,
+    "aff": {
+     "key": "runic",
+     "name": "Runic",
+     "core": "#4A9EFF",
+     "glow": "#BCDDFF",
+     "dark": "#08264F",
+     "steel": "#D4E4FF",
+     "status": "hex"
+    },
+    "t": 0.016666666666666666,
+    "life": 19,
+    "__capturedAt": 0.008333333333333333
+   }
+  }
+ }
+}
