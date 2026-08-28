@@ -13,9 +13,23 @@ short-form video for TikTok and YouTube Shorts.
 
 ```
 02-chain/sc-paradox-frame.html   BUILD OF RECORD   25 relics · Stasis Field
+                                                   + the post chain, bloom ON
 01-live/sundered-crown.html      LIVE              16 relics — NINE BEHIND
 01-live/sc-playable.html         LIVE              16 relics — NINE BEHIND
 ```
+
+**The build of record now carries a WebGL post chain** (`src/render/post.js`,
+inserted by `post_build.py`). Bloom ships; trails and grade are in the build
+and default OFF. Four chain links are newer than the v43 tip — see
+`docs/BUILD-CHAIN.md`, and do not reproduce the tip from a builder's bare
+defaults.
+
+**The runtime is pinned and that pin is load-bearing**: electron 44.0.0 and
+playwright 1.62.0, chosen on measured bit-equality rather than version
+equality. `(build, relics, seed)` names a fight *on a given V8* — see
+§4.2b and `docs/RUNTIME-DRIFT.md`. Anything re-derived from a seed from
+2026-08-26 onward is on the pinned pair and will not match a number recorded
+before it.
 
 `01-live` has been untouched since v37. **That gap is the oldest open item in
 the project** (v27 open decision 1) and it is not a bug — nobody has decided
@@ -61,7 +75,9 @@ the entire history of the project, not just the current session.
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
-| `app/` | the Electron desktop app. NEW — see `docs/ARCHITECTURE.md`. |
+| `app/` | the Electron desktop app. Pinned electron 44.0.0 — see `docs/ARCHITECTURE.md`. |
+| `src/` | shared render code that is NOT app-only. `render/post.js` is the post chain; `post_build.py` inserts it into the build so the app and the video run the same one. |
+| `docs/` | how the app and the render work is being built. `BUILD-CHAIN.md` reproduces the tip; `RUNTIME-DRIFT.md` is why the runtime is pinned. |
 
 ### Why `tools/` has no subfolders
 
@@ -253,23 +269,23 @@ a Linux container; they are records, not instructions. Substitute as you read.
 
 ```bash
 cd tools
-python3 math_fingerprint.py                                         # the runtime pair
-python3 shell_identity.py                                           # app == headless
-python3 post_identity.py                                            # the chain is invisible
-python3 verify.py --game ../02-chain/sc-paradox-frame.html --n 40   # 13 checks
-python3 engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
-python3 chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python3 cell_survey.py --game ../02-chain/sc-paradox-frame.html     # what's open
-python3 ult_bloom_probe.py                                          # which ults blow out
-python3 ult_fx_capture.py                                           # real ultFx, per relic
-python3 ult_live_probe.py                                           # ults that need a PLAYED match
-python3 paradox_pick.py                                             # which fight to film
+python math_fingerprint.py                                         # the runtime pair
+python shell_identity.py                                           # app == headless
+python post_identity.py                                            # the chain is invisible
+python verify.py --game ../02-chain/sc-paradox-frame.html --n 40   # 13 checks
+python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
+python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
+python cell_survey.py --game ../02-chain/sc-paradox-frame.html     # what's open
+python ult_bloom_probe.py                                          # which ults blow out
+python ult_fx_capture.py                                           # real ultFx, per relic
+python ult_live_probe.py                                           # ults that need a PLAYED match
+python paradox_pick.py                                             # which fight to film
 ```
 
 A clip (`--shorts` only if it is going to a platform):
 
 ```bash
-python3 cinema_clip.py --game ../02-chain/sc-paradox-frame.html \
+python cinema_clip.py --game ../02-chain/sc-paradox-frame.html \
   --a paradox --b heartwood --seed 25064 --lead 18 --fps 60 --w 540 \
   --out ../07-shorts/v43/stasis-v-heartwood.mp4
 ```
