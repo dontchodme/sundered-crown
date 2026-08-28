@@ -284,81 +284,40 @@ effect and nobody finds out.
 
 ---
 
-## 5b. THE POST CHAIN AS IT STANDS, 2026-08-27
+## 5b. WHAT SHIPS, 2026-08-27
 
 ```
-bloom    LOW    thr 0.80  int 0.35      SWBPost.SPREAD.DEFAULT
-trails   LONG   0.24s tail              SWBPost.TRAILS.DEFAULT
-cut ramp GENTLE cutGain 0.6             SWBPost.CUTRAMP.DEFAULT
-grade    MID    vig 0.38 grain 0.022   SWBPost.GRADE.DEFAULT
-adapt    STRONG adapt 50                 SWBPost.ADAPT.DEFAULT
+bloom     LOW     thr 0.80  int 0.35, from the EMISSIVE pass (roMode 3)
+adapt     STRONG  50, against the mean of the thresholded frame
+cut ramp  GENTLE  cutGain 0.6, driven by CINE.wash
+trails    OFF     the wake operator and every setting stay; the build does not
+grade     OFF     turn them on
 ```
 
-**THE BLOOM ADAPTS TO THE FRAME, and it has to.** A fixed gain is right only
-if every relic puts a similar amount of light on the floor, and they do not.
-Paradox is thin blue lightning on a dark hall; Dawnbringer's Daybreak is a
-broad near-white nova. At the setting that makes the lightning glow, the nova
-floods — Rick watched it and called it "WAY too loud". The bloom now divides
-its gain by the mean of the thresholded frame:
+**Bloom only, and Rick chose it after watching rather than after a sheet.**
+The other two were each picked off a filmstrip and each turned out worse in
+motion, for reasons a still could not show:
 
-```
-                 Daybreak (avg 0.0148)   Paradox lightning (avg 0.0050)
-adapt off              100%                        100%
-strong 50               28%                         83%
-```
+- **Trails** were adding the object to itself. A persistence buffer holds
+  where a thing has been, which includes where it *is*, so the relic's own
+  brightness went back on top of the relic: **+0.090 luma on a body already at
+  0.892** — saturated, and exactly what "washed out" looks like. The wake
+  operator (subtract this frame's bright pass) took it to +0.008, and what was
+  left did not earn a pass.
+- **Grain** was chosen at 0.022 off stills and reads far stronger in motion.
+  It is 0.008 now and still off by default.
 
-The **gap** is the whole point. Two wrong answers came first and both are worth
-remembering: a per-pixel CLAMP (measured inert — a clamp caps one pixel, and
-this is a bright AREA), and `generateMipmap` + `textureLod`, which returns
-black on this driver at every LOD and is indistinguishable from a wiring fault
-until you swap the texture read for a constant. The average is now built with
-the same downsample shader every pyramid level uses, walked to 1×1, and scaled
-×16 because the mean of a thresholded frame is about 1/255 and was rounding to
-zero in 8-bit.
+**The lesson is not "the settings were wrong".** Three settings were chosen
+off sheets and two of them were wrong in ways only movement revealed —
+`CLAUDE.md` §4.0 says film before you tune when the ultimate is a picture, and
+this is the same rule one level up: **a still cannot review an effect whose
+whole subject is motion.** Every one of these was caught by Rick watching.
 
-**What it costs, measured on the real GPU** (`tools/post_cost.py`, Intel UHD,
-D3D11 — not SwiftShader, which is what Playwright would have measured):
+Cost, bloom only, at the app's 453x805: **8.05 ms**, 48% of the 60 fps budget.
 
-```
-  453x805 (what the app draws), THREE passes per frame
-    2D draw only          7.20
-    + chain, no effects   8.89  (+1.69)   upload, copies, readback: the floor
-    + bloom low           9.20  (+2.00)
-    + trails long         8.93  (+1.73)
-    + grade mid           8.92  (+1.72)
-    + ALL (as chosen)     9.48  (+2.28)   57% of the 60fps budget, 114% of 120
-```
+---
 
-Measured through `POSTFX` itself rather than a copy of the chain — `post_cost`
-used to build its own instance and time `AC.__draw` plus `post.render`, which
-double-counted the moment the chain went into the build.
-
-**The effects are still nearly free; the passes are what cost.** Three draws
-per composited frame — readouts, emissive, world — plus the upload and copies,
-against a 2D draw that was already 7.2 ms. 60 fps has room. 120 does not, and
-that is now the second measured argument against brief §4.
-
-**At live size the whole chain is lost inside the plumbing floor.** The upload,
-two copies and the readback are +1.50 ms; adding bloom, trails and grade on
-top brings it to +1.49. The three effects together cost nothing measurable
-there. At capture size they cost real time, and it does not matter, because
-that path is not realtime.
-
-**Bloom was MID for about an hour.** MID was chosen when Paradox was the only
-evidence on the sheet. Added to it, Ironhail v Dawnbringer — relic bodies
-already near white — fuses both fighters into one mass at MID by t=25.9 and
-loses them entirely at HIGH. LOW is the only setting on the two-pairing sheet
-where both relics stay separable on both kinds of art, and it is subtler on
-Paradox's lightning than MID was. That is the price, and it was paid
-deliberately.
-
-**The readouts are no longer part of that trade.** They leave the bloom's
-source at `renderer.roMode` 1 and are composited back untouched, so they read
-at every setting — the structural fix, not a number.
-
-Both chosen off filmstrips in `05-reference/post/`, both masked to the arena
-rect at the bright pass AND at the composite — masking only the bright pass
-stops the HUD contributing light but not light being blurred OUT onto it.
+## 5c. THE FULL SET, KEPT AND MEASURED
 
 **THE RAMP IS DRIVEN BY THE DIRECTOR'S OWN NUMBER.** `CINE.wash` peaks at
 each tier's amplitude — 0.30 for a T2, 0.42 for a T3, 0.55 for a kill — and

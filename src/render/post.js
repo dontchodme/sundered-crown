@@ -1196,7 +1196,16 @@
        60, and tools/post_cost.py has priced it: the frame is already 7.36ms
        against an 8.33ms budget at 120Hz BEFORE the chain, on this Intel UHD.
        A real trade, not a cleanup. */
-    DEFAULT: 'long',
+    /* SHIPS OFF, 2026-08-27. LONG was chosen off a sheet, and then Rick
+       watched it move and said the picture looked worse. The measurement
+       found a real fault -- the trail was adding the relic to itself, +0.090
+       luma on a body already at 0.892 -- and fixing it took most of what was
+       visible with it. What is left did not earn a pass, and he took bloom
+       only.
+
+       The wake operator and every setting below stay, and the app's picker
+       still offers them: this is what the BUILD turns on, not what exists. */
+    DEFAULT: 'off',
     off: null,
     short: { seconds: 0.06, intensity: 0.55, threshold: 0.70, knee: 0.18 },
     mid:   { seconds: 0.12, intensity: 0.55, threshold: 0.70, knee: 0.18 },
@@ -1238,7 +1247,13 @@
        recovers 62% of that. Small either way. The scrim is much the stronger
        of the two darkenings and the vignette is a garnish on top of it, which
        is the opposite of the "two effects fighting" this was first framed as. */
-    DEFAULT: 'mid',
+    /* SHIPS OFF, 2026-08-27, with the trails and for the same reason: chosen
+       off stills, and in motion Rick called it grainy and worse. The grain is
+       down to a third of what he saw and the vignette measures as the most
+       visible thing in the frame, but neither had to be argued about -- he
+       took bloom only, which is the pass that is doing visible work on the
+       emissive art at almost no cost to the white relics. */
+    DEFAULT: 'off',
     off:    null,
     subtle: { vignette: 0.22, vignetteFrom: 0.55, washYield: 1,
               grain: 0.004, contrast: 1.02, lift: 0 },
