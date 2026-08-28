@@ -236,6 +236,7 @@ python3 chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts su
 python3 cell_survey.py --game ../02-chain/sc-paradox-frame.html     # what's open
 python3 ult_bloom_probe.py                                          # which ults blow out
 python3 ult_fx_capture.py                                           # real ultFx, per relic
+python3 ult_live_probe.py                                           # ults that need a PLAYED match
 python3 paradox_pick.py                                             # which fight to film
 ```
 

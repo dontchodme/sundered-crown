@@ -17,6 +17,7 @@ imports `scpage.py` the same way, so subfolders would break all of them.
 - `ult_bloom_probe.py` — which ults blow out, and how much of it is the bloom. Ranked on the caster's disc. Zero simulated fights
 - `ult_fx_capture.py` — every ultimate's REAL ultFx, caught out of a real fight. The alternative was hand-writing phases, which is a 4.1 defect on purpose
 - `harrow_bloom_probe.py` — the Harrowing's arena-wide wash, decomposed into ring vs scythes and swept across the blade count
+- `ult_live_probe.py` — the ults a FROZEN match cannot show. Plays a real fight and draws it frame by frame, so the five whose picture lives in match state (stasis, ballista, split, spinstorm, retrace) are finally measurable
 - `share_build.py` — the share/phone shell around any engine
 - `lastlight_build.py` — LASTLIGHT, the sanctified scythe + the Harrowing. TUNED_LL and every ult number
 - `harrow_probe.py` — the Harrowing falsified: 22 checks, incl. the dud rate and the burden identity at zero
