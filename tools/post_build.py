@@ -241,8 +241,15 @@ def one(src: str, old: str, new: str, label: str) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--src", default="../02-chain/sc-paradox-readouts.html")
-    ap.add_argument("--out", default="../02-chain/sc-paradox-post.html")
+    # THE DEFAULTS ARE THE CHAIN OF RECORD, and they went stale the day
+    # ultcarry_build.py was inserted ahead of this step. They pointed at
+    # sc-paradox-readouts.html -- the link BEFORE the ult art corrections --
+    # and wrote sc-paradox-post.html, which is not the tip. A bare run
+    # therefore rebuilt a build of record that silently lacked Daybreak's
+    # ring, Benediction's lance and the Harrowing's reach, and said nothing.
+    # Nothing failed; the output was just quietly a build nobody had approved.
+    ap.add_argument("--src", default="../02-chain/sc-paradox-dawn.html")
+    ap.add_argument("--out", default="../02-chain/sc-paradox-frame.html")
     ap.add_argument("--off", action="store_true",
                     help="insert the chain but leave it switched off. For an "
                          "A/B build -- the picture is then identical to --src.")

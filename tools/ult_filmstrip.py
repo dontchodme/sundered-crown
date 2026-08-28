@@ -68,6 +68,20 @@ def foe_for(rid):
     return ALT_FOE if rid == FOE else FOE
 
 
+def ascii_only(t):
+    """PIL's DEFAULT FONT IS ASCII AND DRAWS EVERYTHING ELSE AS A TOFU BOX.
+
+    An em-dash in a sheet title renders as a black rectangle, and this project
+    reviews by photograph -- so the one artefact a reviewer is looking at
+    arrives with a corruption mark in its header. No font is loaded here on
+    purpose: a TTF path that exists on one machine and not the next is a worse
+    bug than a plain hyphen."""
+    return (t.replace("—", "--").replace("–", "-")
+             .replace("‘", "'").replace("’", "'")
+             .replace("“", '"').replace("”", '"')
+             .encode("ascii", "replace").decode("ascii"))
+
+
 def png(d):
     return Image.open(io.BytesIO(base64.b64decode(d.split(",", 1)[1]))).convert("RGB")
 
@@ -147,11 +161,11 @@ def main():
     H = HDR + len(rows) * (th + LBL + PAD) + PAD
     sh = Image.new("RGB", (W, H), (10, 8, 16))
     dr = ImageDraw.Draw(sh)
-    dr.text((PAD, 9), f"ULT SET-PIECES — {A.game}   t/life = "
-                      + "  ".join(str(f) for f in fr), fill=(201, 162, 39))
+    dr.text((PAD, 9), ascii_only(f"ULT SET-PIECES -- {A.game}   t/life = "
+                      + "  ".join(str(f) for f in fr)), fill=(201, 162, 39))
     y = HDR
     for lab, ims in rows:
-        dr.text((PAD, y + 5), lab, fill=(214, 200, 170))
+        dr.text((PAD, y + 5), ascii_only(lab), fill=(214, 200, 170))
         for i, im in enumerate(ims):
             sh.paste(im.resize((tw, th), Image.LANCZOS), (PAD + i * (tw + PAD), y + LBL))
         y += th + LBL + PAD
