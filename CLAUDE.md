@@ -136,6 +136,33 @@ object again. **A radial gradient with an inner radius still fills its inner
 circle with `colorStop(0)`** — moving the inner radius out does nothing on its
 own, the hole has to be subtracted with a backwards-wound arc.
 
+**1c. AND SOMETIMES IT REALLY IS THE BLOOM — SO MEASURE, DO NOT PATTERN-MATCH.**
+Daybreak and Benediction were art painted over a near-white body. The Harrowing
+is not: Lastlight's ball stays legible throughout. Its `drawUltUnder` fills a
+white radial disc at radius `86 + n * 26` — **398px at `scythes:12`** — and the
+post chain turns that into a full-arena fog. Arena mean 0.3956 with **+0.0628
+of it made by the bloom**, the largest contribution in the game.
+
+Two things that cost a whole spread to learn, both now permanent:
+
+> **THE FAULT IS NOT ALWAYS IN THE BLOCK NAMED FOR IT.** Three candidates were
+> built on `drawUltOver`'s `lastlight && phase === "bloom"` branch — the ring
+> and all twelve scythes. Suppressing **both** moves the arena by 1% of what
+> the under-layer disc does. `19.5% → 19.5%`. Decompose by suppressing one
+> contributor at a time; a single number over a whole set-piece cannot tell
+> you which half to change.
+
+> **ALPHA IS INVISIBLE TO THE BLOOM. REACH IS NOT.** Thinning the gradient's
+> plateau moved the bloom's own share by 0.0001. The bloom reads the emissive
+> layer and a white core is white at any alpha. To take light out of the
+> chain, take away AREA.
+
+And a metric is only right for the fault it was built for: the caster's-disc
+measurement that found Daybreak ranked Lastlight #1 for the wrong reason and
+could not see a full-frame wash at all. `tools/harrow_bloom_probe.py` is the
+arena-wide one. **A count-driven ult must be swept across its count** — the
+captured block had `n=2` against a cap of 12.
+
 **2. A HELD OBJECT'S STORED STATE IS NOT ITS CURRENT STATE.** `f.pinV` holds
 the velocity a frozen ball *resumes* on; `_ballPair` read it as the velocity
 the ball *had*. When a thing is suspended and something is kept so it can
@@ -208,6 +235,7 @@ python3 engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing mo
 python3 chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
 python3 cell_survey.py --game ../02-chain/sc-paradox-frame.html     # what's open
 python3 ult_bloom_probe.py                                          # which ults blow out
+python3 ult_fx_capture.py                                           # real ultFx, per relic
 python3 paradox_pick.py                                             # which fight to film
 ```
 

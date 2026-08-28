@@ -13,8 +13,10 @@ imports `scpage.py` the same way, so subfolders would break all of them.
 - `roster_gs_build.py` — the four new greatswords + TUNED_GS + a structural preflight
 - `ultart_build.py` — ult set-pieces for the four new greatswords
 - `ultart2_build.py` — ult set-pieces for the last six bare relics
-- `daybreak_annulus_build.py` — carries Daybreak's corrected corona to the tip; imports the block from `ultdawn_build` so there is one copy of the art
+- `ultcarry_build.py` — carries corrected ult set-pieces to the tip when their owning builder cannot be replayed. Imports/slices each block from its owner so there is one copy of the art
 - `ult_bloom_probe.py` — which ults blow out, and how much of it is the bloom. Ranked on the caster's disc. Zero simulated fights
+- `ult_fx_capture.py` — every ultimate's REAL ultFx, caught out of a real fight. The alternative was hand-writing phases, which is a 4.1 defect on purpose
+- `harrow_bloom_probe.py` — the Harrowing's arena-wide wash, decomposed into ring vs scythes and swept across the blade count
 - `share_build.py` — the share/phone shell around any engine
 - `lastlight_build.py` — LASTLIGHT, the sanctified scythe + the Harrowing. TUNED_LL and every ult number
 - `harrow_probe.py` — the Harrowing falsified: 22 checks, incl. the dud rate and the burden identity at zero
