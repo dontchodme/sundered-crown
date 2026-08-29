@@ -114,7 +114,7 @@ the entire history of the project, not just the current session.
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
-| `app/` | the Electron desktop app. Pinned electron 44.0.0 — see `docs/ARCHITECTURE.md`. |
+| `app/` | the Electron desktop app. Pinned electron 44.0.0 — see `docs/ARCHITECTURE.md`. Launch it by double-clicking `launch-app.cmd` in the repo root. |
 | `src/` | shared render code that is NOT app-only. `render/post.js` is the post chain; `post_build.py` inserts it into the build so the app and the video run the same one. |
 | `docs/` | how the app and the render work is being built. `BUILD-CHAIN.md` reproduces the tip; `RUNTIME-DRIFT.md` is why the runtime is pinned. |
 
@@ -305,6 +305,13 @@ python.org installer creates `python.exe` and `py.exe` and no `python3.exe`, so
 Windows hands `python3` to a Microsoft Store stub that reports Python is not
 installed. Every doc in `06-docs/` says `python3` because those sessions ran in
 a Linux container; they are records, not instructions. Substitute as you read.
+
+Launching the app: double-click **`launch-app.cmd`** in the repo root, or run
+it from a terminal. It is a launcher and NOT a packaged `.exe` on purpose — a
+packaged build would bundle its own Electron and freeze a snapshot of the game
+inside it, and both halves of that are wrong here: the runtime is pinned
+(`docs/RUNTIME-DRIFT.md`) and the app must show the live build of record so it
+cannot drift from what the video renders (`docs/ARCHITECTURE.md` §1).
 
 ```bash
 cd tools
