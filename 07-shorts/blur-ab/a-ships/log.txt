@@ -1,0 +1,203 @@
+[progress] capture frames=0 elapsed=0.0
+[progress] capture frames=13 elapsed=1.0
+[progress] capture frames=25 elapsed=2.0
+[progress] capture frames=37 elapsed=3.1
+[progress] capture frames=49 elapsed=4.1
+[progress] capture frames=61 elapsed=5.2
+[progress] capture frames=72 elapsed=6.3
+[progress] capture frames=83 elapsed=7.3
+[progress] capture frames=93 elapsed=8.4
+[progress] capture frames=104 elapsed=9.5
+[progress] capture frames=114 elapsed=10.5
+[progress] capture frames=124 elapsed=11.6
+[progress] capture frames=134 elapsed=12.6
+[progress] capture frames=144 elapsed=13.6
+[progress] capture frames=154 elapsed=14.6
+[progress] capture frames=165 elapsed=15.7
+[progress] capture frames=175 elapsed=16.7
+[progress] capture frames=185 elapsed=17.8
+[progress] capture frames=195 elapsed=18.8
+[progress] capture frames=206 elapsed=19.9
+[progress] capture frames=216 elapsed=20.9
+[progress] capture frames=226 elapsed=21.9
+[progress] capture frames=236 elapsed=23.0
+[progress] capture frames=246 elapsed=24.0
+[progress] capture frames=256 elapsed=25.0
+[progress] capture frames=267 elapsed=26.1
+[progress] capture frames=277 elapsed=27.1
+[progress] capture frames=287 elapsed=28.1
+[progress] capture frames=297 elapsed=29.2
+[progress] capture frames=307 elapsed=30.2
+[progress] capture frames=317 elapsed=31.3
+[progress] capture frames=327 elapsed=32.3
+[progress] capture frames=337 elapsed=33.3
+[progress] capture frames=347 elapsed=34.4
+[progress] capture frames=357 elapsed=35.5
+[progress] capture frames=366 elapsed=36.5
+[progress] capture frames=376 elapsed=37.5
+[progress] capture frames=386 elapsed=38.5
+[progress] capture frames=396 elapsed=39.5
+[progress] capture frames=406 elapsed=40.6
+[progress] capture frames=415 elapsed=41.6
+[progress] capture frames=425 elapsed=42.7
+[progress] capture frames=435 elapsed=43.7
+[progress] capture frames=445 elapsed=44.8
+[progress] capture frames=455 elapsed=45.8
+[progress] capture frames=465 elapsed=46.8
+[progress] capture frames=474 elapsed=47.8
+[progress] capture frames=483 elapsed=48.9
+[progress] capture frames=492 elapsed=49.9
+[progress] capture frames=502 elapsed=51.0
+[progress] capture frames=512 elapsed=52.0
+[progress] capture frames=522 elapsed=53.1
+[progress] capture frames=532 elapsed=54.1
+[progress] capture frames=542 elapsed=55.2
+[progress] capture frames=552 elapsed=56.2
+[progress] capture frames=562 elapsed=57.2
+[progress] capture frames=572 elapsed=58.2
+[progress] capture frames=582 elapsed=59.3
+[progress] capture frames=592 elapsed=60.3
+[progress] capture frames=602 elapsed=61.4
+[progress] capture frames=611 elapsed=62.4
+[progress] capture frames=620 elapsed=63.5
+[progress] capture frames=629 elapsed=64.5
+[progress] capture frames=638 elapsed=65.6
+[progress] capture frames=646 elapsed=66.6
+[progress] capture frames=655 elapsed=67.7
+[progress] capture frames=664 elapsed=68.7
+[progress] capture frames=673 elapsed=69.7
+[progress] capture frames=682 elapsed=70.7
+[progress] capture frames=692 elapsed=71.8
+[progress] capture frames=702 elapsed=72.8
+[progress] capture frames=712 elapsed=73.9
+[progress] capture frames=722 elapsed=74.9
+[progress] capture frames=732 elapsed=75.9
+[progress] capture frames=742 elapsed=77.0
+[progress] capture frames=752 elapsed=78.0
+[progress] capture frames=762 elapsed=79.1
+[progress] capture frames=772 elapsed=80.2
+[progress] capture frames=781 elapsed=81.2
+[progress] capture frames=790 elapsed=82.3
+[progress] capture frames=799 elapsed=83.4
+[progress] capture frames=808 elapsed=84.5
+[progress] capture frames=817 elapsed=85.5
+[progress] capture frames=826 elapsed=86.5
+[progress] capture frames=835 elapsed=87.5
+[progress] capture frames=845 elapsed=88.6
+[progress] capture frames=855 elapsed=89.6
+[progress] capture frames=865 elapsed=90.7
+[progress] capture frames=875 elapsed=91.8
+[progress] capture frames=884 elapsed=92.8
+[progress] capture frames=894 elapsed=93.8
+[progress] capture frames=904 elapsed=94.9
+[progress] capture frames=914 elapsed=96.0
+[progress] capture frames=923 elapsed=97.0
+[progress] capture frames=933 elapsed=98.1
+[progress] capture frames=942 elapsed=99.1
+[progress] capture frames=951 elapsed=100.1
+[progress] capture frames=960 elapsed=101.2
+[progress] capture frames=969 elapsed=102.2
+[progress] capture frames=978 elapsed=103.2
+[progress] capture frames=987 elapsed=104.2
+[progress] capture frames=997 elapsed=105.2
+[progress] capture frames=1007 elapsed=106.2
+[progress] capture frames=1017 elapsed=107.3
+[progress] capture frames=1027 elapsed=108.4
+[progress] capture frames=1037 elapsed=109.4
+[progress] capture frames=1047 elapsed=110.5
+[progress] capture frames=1057 elapsed=111.5
+[progress] capture frames=1067 elapsed=112.6
+[progress] capture frames=1077 elapsed=113.6
+[progress] capture frames=1086 elapsed=114.7
+[progress] capture frames=1094 elapsed=115.7
+[progress] capture frames=1102 elapsed=116.7
+[progress] capture frames=1111 elapsed=117.8
+[progress] capture frames=1120 elapsed=118.9
+[progress] capture frames=1129 elapsed=119.9
+[progress] capture frames=1138 elapsed=121.0
+[progress] capture frames=1147 elapsed=122.1
+[progress] capture frames=1154 elapsed=123.1
+[progress] capture frames=1161 elapsed=124.2
+[progress] capture frames=1168 elapsed=125.2
+[progress] capture frames=1175 elapsed=126.3
+[progress] capture frames=1182 elapsed=127.3
+[progress] capture frames=1189 elapsed=128.3
+[progress] capture frames=1197 elapsed=129.4
+[progress] capture frames=1205 elapsed=130.4
+[progress] capture frames=1213 elapsed=131.5
+[progress] capture frames=1221 elapsed=132.5
+[progress] capture frames=1230 elapsed=133.6
+[progress] capture frames=1239 elapsed=134.7
+[progress] capture frames=1248 elapsed=135.8
+[progress] capture frames=1258 elapsed=136.9
+[progress] capture frames=1267 elapsed=137.9
+[progress] capture frames=1277 elapsed=139.0
+[progress] capture frames=1287 elapsed=140.1
+[progress] capture frames=1297 elapsed=141.2
+[progress] capture frames=1307 elapsed=142.3
+[progress] capture frames=1316 elapsed=143.3
+[progress] capture frames=1326 elapsed=144.4
+[progress] capture frames=1335 elapsed=145.5
+[progress] capture frames=1343 elapsed=146.7
+[progress] capture frames=1351 elapsed=147.8
+[progress] capture frames=1359 elapsed=148.8
+[progress] capture frames=1367 elapsed=149.9
+[progress] capture frames=1375 elapsed=151.1
+[progress] capture frames=1384 elapsed=152.1
+[progress] capture frames=1393 elapsed=153.2
+[progress] capture frames=1402 elapsed=154.2
+[progress] capture frames=1411 elapsed=155.2
+[progress] capture frames=1420 elapsed=156.3
+[progress] capture frames=1429 elapsed=157.3
+[progress] capture frames=1438 elapsed=158.3
+[progress] capture frames=1448 elapsed=159.5
+[progress] capture frames=1457 elapsed=160.5
+[progress] capture frames=1466 elapsed=161.5
+[progress] capture frames=1475 elapsed=162.6
+[progress] capture frames=1483 elapsed=163.7
+[progress] capture frames=1491 elapsed=164.7
+[progress] capture frames=1499 elapsed=165.8
+no killing blow on this seed (timeout finish); using the last cut
+seed 25064: kill at 40.12s, clip starts at 22.12s
+cut list: 40.1s T2
+  rendering director ON ...
+    verdict panel held 2.40s of the 3.43s tail (armed 1.03s after the kill)
+    on: 1707 frames, 28.4s wall, 190s to render, match ended {'seed': 25064, 't': 22.116666666666053, 'kill': None}
+Traceback (most recent call last):
+  File "C:\dev\sundered-crown\tools\cinema_clip.py", line 660, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\dev\sundered-crown\tools\cinema_clip.py", line 566, in main
+    subprocess.run(
+    ~~~~~~~~~~~~~~^
+        ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<40 lines>...
+         "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-ac", "2",
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         "-shortest", str(seg)], check=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified

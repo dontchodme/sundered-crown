@@ -189,6 +189,36 @@ step 3's, not step 2's.
 > k = 1 — but do not sell it to Rick as the thing that makes the clip look
 > better. Step 3 is that.
 
+### AND RICK WATCHED IT — 2026-08-28. STEP 2 IS PARKED.
+
+Two full clips, paradox v heartwood seed 25064, identical except for the fix.
+Rick: *"i truthfully cant tell the difference between them."*
+
+**That is the gate answering, and it answers NO.** The prediction was 0.6% of
+arena mean and the eye agrees with the number, which is the outcome this
+project should want from a cheap test: the measurement and the person said the
+same thing before 74 edits were made rather than after.
+
+What survives:
+
+- **Do not ship the `_blur` helper for the way it looks.** It does not look
+  like anything.
+- The one argument left is that the app, the bloom spread and the clip show
+  three different glow widths, so every FUTURE look decision is made on a
+  picture that is not the one that ships. That is real and it is invisible
+  today. It is a reason to fix this the next time a look call is being made,
+  not a reason to spend a session now.
+- **Step 3 does not depend on it after all.** The k = 1 identity means raising
+  `--w` to 1080 needs no sequencing: at 1080 the helper is a no-op, so there is
+  nothing for it to cancel. The fix-then-raise ordering in §7 was insurance
+  against a picture changing twice, and with the fix parked the insurance is
+  not needed.
+
+> **The cheap test earned its keep and the expensive one was not run.** Two
+> clips and a sentence from Rick closed a nine-step item that this brief had
+> priced at 129 edits and an `engine_ab` pass. `CLAUDE.md` §6: six percent of
+> a session changes a decision, and it is the cheap six percent.
+
 The k = 1 identity is **asserted, not assumed**: 1080 patched and 1080 unpatched
 come back bit-identical for all three relics, so §7's sequencing (fix, then
 raise `--w`) holds and Rick reviews one change rather than two.
@@ -390,11 +420,13 @@ catches what no tool could, the deliverable is a measurement of what they saw.
                                  --census added; §1 corrected on three points
 1b blurscale_spread.py           DONE. The step-2 spread, rendered without
                                  touching the build. Sheets in 05-reference/post
-2  the _blur(px) helper          74 live sites on the renderer's ctx PLUS
-                                 drawGlassRelic, which has no this.k in scope;
-                                 engine_ab 192/192; SPREAD to Rick
-3  --w 1080 default              after 2, so the two changes cancel at k=1 --
-                                 asserted bit-identical, not assumed
+2  the _blur(px) helper          PARKED 2026-08-28. Two clips in front of
+                                 Rick: "i truthfully cant tell the difference
+                                 between them." Not a picture win; do not
+                                 spend the 74 edits on looks alone
+3  --w 1080 default              NO LONGER GATED ON 2. The helper is a no-op
+                                 at k=1 (asserted bit-identical), so there is
+                                 nothing to sequence against
 4  lossless frames               mind the .slice(23); measure the encode time
 5  drop the conditional upscale
 6  master + delivery encodes     A/B aq-mode=3 on and off, same seed

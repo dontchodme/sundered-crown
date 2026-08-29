@@ -210,6 +210,12 @@ RENDER_JS = r"""([id, foe, seed, t, life, block, w, h, patch, crop]) => {
 }"""
 
 
+def out_dir_for(args):
+    d = OUT / "blurscale"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
 def render(page, ident, seed, t, life, block, w, h, patch, crop):
     return page.evaluate(RENDER_JS, [ident, FOE, seed, t, life, block,
                                      w, round(w * 16 / 9), patch, crop])
@@ -362,6 +368,42 @@ def main() -> int:
         d.text((PAD + 4, y + ch + 5),
                f"{r['id']}  {r['phase'] or '-'}  t={r['t']:.2f}/{r['life']:.1f}",
                fill=(170, 160, 185))
+
+    # ---- ONE FILE PER ARM, AT FULL SIZE ----
+    #
+    # Rick, 2026-08-28: "i cannot judge anything from the sheet. only you can
+    # read stuff like that. i need clips and pictures to judge every time."
+    #
+    # He is right and it is the same mistake CLAUDE.md §4.1 keeps recording
+    # from the other side: a contact sheet is an INSTRUMENT'S output. Three
+    # 300px columns is a layout for ranking twenty-five things at a glance, and
+    # it is useless for judging whether one of them looks better -- the
+    # difference being argued about here is a glow a few pixels wide, and the
+    # sheet threw those pixels away before he ever saw it.
+    #
+    # So the sheet stays as the tool's own read-out, and the DELIVERABLE is one
+    # full-resolution file per arm, every arm at the same 1080x1920 so flipping
+    # between them holds the frame still. Nothing to read, only to look at.
+    singles = out_dir_for(args)
+    for r in rows:
+        for arm, name in (("ship_off", "1-ships-today"),
+                          ("ship_on", "2-blur-fix"),
+                          ("ref_off", "3-at-1080")):
+            im = load(r[arm]["png"])
+            if args.crop:
+                rc = r[arm]["rect"]
+                im = im.crop((rc["x"], rc["y"],
+                              rc["x"] + rc["w"], rc["y"] + rc["h"]))
+            # EVERY ARM TO THE SAME 1080 WIDE, which is the frame the viewer
+            # actually sees. The 540 arms get upscaled here exactly as
+            # shorts_build.py upscales them, so this is the delivery path and
+            # not a courtesy -- and it is what makes flipping between the files
+            # a fair comparison instead of a size illusion.
+            im = im.resize((1080, round(1080 * im.height / im.width)),
+                           Image.LANCZOS)
+            f = singles / f"{r['id']}-{name}{'-crop' if args.crop else ''}.png"
+            im.save(f)
+            print(f"   {f}")
 
     tag = "-crop" if args.crop else ""
     out = pathlib.Path(args.out) if args.out else \

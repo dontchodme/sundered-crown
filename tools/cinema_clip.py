@@ -29,6 +29,46 @@ from scpage import game
 
 HERE = pathlib.Path(__file__).parent
 
+BLUR_SCALE_JS = r"""() => {
+  /* WHAT `_blur(px){ this.ctx.shadowBlur = px * this.k; }` WOULD DRAW, without
+     editing a file in 02-chain/. docs/DELIVERY-QUALITY-BRIEF.md §1.
+
+     `shadowBlur` is in the output bitmap's space and the CTM does not touch
+     it, so a 540 capture draws every glow twice as wide RELATIVE TO THE FRAME
+     as the 1080 the art was authored at. Measured: 16 device px at every k,
+     which is 16 design px at 1080 and 32 at 540. tools/shadowblur_probe.py.
+
+     THE FACTOR IS cv.width/1080 AND NOTHING ELSE. Inside the arena the CTM is
+     k * renderer.scale, but `scale` is aw/arena.w off a design width of 1080 --
+     a constant 2.03 at every resolution. Only k moves with the capture size.
+
+     TWO SURFACES, and the second is the one the brief missed. _ballBuf
+     (:13790) bakes each relic body into its own canvas at the same k and draws
+     it back 1:1, so drawGlassRelic's halo is device-space on the frame too --
+     and it is on screen for both relics on EVERY frame, ult or not.
+
+     The sealed-walls buffer (:11561) is NOT on the list. It already
+     compensates by hand with `30 / D` for its own downscale; scaling it again
+     would double-compensate. It is the one place whose author knew. */
+  const cv = document.getElementById('cv');
+  const proto = CanvasRenderingContext2D.prototype;
+  const base = Object.getOwnPropertyDescriptor(proto, 'shadowBlur');
+  if (window.__blurScaled) return false;
+  window.__blurScaled = true;
+  Object.defineProperty(proto, 'shadowBlur', {
+    configurable: true,
+    get(){ return base.get.call(this); },
+    set(v){
+      if (v && this.canvas &&
+          (this.canvas === cv || this.canvas === AC.renderer._bbuf)) {
+        v = v * (cv.width / 1080);
+      }
+      base.set.call(this, v);
+    }
+  });
+  return true;
+}"""
+
 HARNESS = r"""
 window.__clip = {
   m: null, events: [], curve: [], wall: 0, acc: 0, on: true,
@@ -70,7 +110,11 @@ window.__clip = {
      Routed through CINE.pump and CINE.drawLerped -- the SAME code the live
      page runs -- so the mp4 cannot show something the game does not, which is
      exactly the trap a bespoke capture loop sets. */
-  frame(raw, q) {
+  /* ONE SUB-FRAME: advance the world by `raw` seconds of video and draw it.
+     Split out of frame() so an output frame can be built from more than one
+     of these and averaged -- sub-frame motion blur, DELIVERY-QUALITY-BRIEF.md
+     §5. Nothing else changed: this is frame()'s old body verbatim. */
+  _sub(raw) {
     const AC = window.AC, m = this.m, dt = AC.CONFIG.physics.dt;
     let alpha = 0;
     if (this.on) {
@@ -81,6 +125,55 @@ window.__clip = {
       while (this.acc >= dt && steps < 4000) { m.step(dt); this.acc -= dt; steps++; }
     }
     if (alpha > 0) CINE.drawLerped(AC.renderer, m, alpha); else AC.__draw(m);
+  },
+
+  /* `mb` output sub-frames averaged into one. CONFIG.physics.dt is 1/120 and
+     the output is 60, so at mb = 2 each sub-frame is exactly ONE sim step:
+     no interpolation, no invented state, and the frame carries the temporal
+     information the picture currently throws away every second frame.
+
+     THE AVERAGE IS INCREMENTAL, alpha = 1/(s+1). drawImage under globalAlpha
+     computes dst = src*a + dst*(1-a), so after s sub-frames the buffer holds
+     their exact mean and no divide is needed at the end.
+
+     THIS IS NOT PROVABLY FREE AND THE TOOL SAYS SO. CINE.pump is not linear
+     in `raw`: it advances the director's own phase clock, and below
+     timeScale 0.02 it calls m.decayImpactOnly(raw * 0.85) -- which touches
+     MATCH state. Two half-pumps are therefore not identical to one whole
+     pump by construction, only by measurement. run_pass prints the fight's
+     telemetry so an mb=2 clip can be diffed against mb=1 on winner, duration
+     and clank count. If those move, this is a change to the fight and not a
+     change to the picture, and CLAUDE.md §8 of the FX brief says stop and
+     hand it to Rick rather than reaching into the sim. */
+  frame(raw, q, mb) {
+    const AC = window.AC, cv = document.getElementById('cv');
+    const N = Math.max(1, mb | 0), m = this.m;
+    if (N === 1) {
+      this._sub(raw);
+    } else {
+      if (!this._mb) this._mb = document.createElement('canvas');
+      const acc = this._mb;
+      if (acc.width !== cv.width || acc.height !== cv.height) {
+        acc.width = cv.width; acc.height = cv.height;
+      }
+      const ax = acc.getContext('2d');
+      ax.setTransform(1, 0, 0, 1, 0, 0);
+      ax.globalCompositeOperation = 'source-over';
+      ax.globalAlpha = 1;
+      ax.clearRect(0, 0, acc.width, acc.height);
+      for (let s = 0; s < N; s++) {
+        this._sub(raw / N);
+        ax.globalAlpha = 1 / (s + 1);
+        ax.drawImage(cv, 0, 0);
+      }
+      /* the mean, back onto the canvas every downstream reader expects */
+      const c2 = cv.getContext('2d');
+      c2.setTransform(1, 0, 0, 1, 0, 0);
+      c2.globalCompositeOperation = 'source-over';
+      c2.globalAlpha = 1;
+      c2.clearRect(0, 0, cv.width, cv.height);
+      c2.drawImage(acc, 0, 0);
+    }
     this.wall += raw;
     this.curve.push([ +this.wall.toFixed(4),
                       this.on ? +CINE.timeScale.toFixed(4) : 1,
@@ -88,7 +181,18 @@ window.__clip = {
                       this.on ? Math.round(CINE.send.lp) : 20000,
                       this.on ? +CINE.send.dry.toFixed(3) : 1,
                       +m.t.toFixed(4) ]);
-    return { i: document.getElementById('cv').toDataURL('image/jpeg', q).slice(23),
+    /* `q` is the JPEG quality, or null for lossless PNG.
+
+       THE .slice(23) LANDMINE. 23 is the length of "data:image/jpeg;base64,".
+       The PNG prefix "data:image/png;base64," is 22, so keeping the constant
+       across a format swap silently drops the first base64 character of EVERY
+       frame -- a corrupt file with no error anywhere. Cut at the comma
+       instead and neither format can be wrong.
+       docs/DELIVERY-QUALITY-BRIEF.md §3.2. */
+    const url = q === null
+      ? document.getElementById('cv').toDataURL('image/png')
+      : document.getElementById('cv').toDataURL('image/jpeg', q);
+    return { i: url.slice(url.indexOf(',') + 1),
              o: m.over, t: m.t, c: m.clankCount,
              /* the scrunch's verdict beat is an EVENT the capture loop has to
                 wait for; a frame count cannot see it. See run_pass. */
@@ -224,7 +328,15 @@ window.__clip = {
 """
 
 
+# `q` is the JPEG quality, or None for lossless PNG, and the frame extension
+# follows from it rather than being a second thing to keep in step. A mismatch
+# here is silent: ffmpeg's -i pattern simply finds no frames.
+def _ext(q):
+    return "jpg" if q is not None else "png"
+
+
 def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
+             mb=1,
              intro=False, cold_open=None, verdict_hold=2.4):
     page.evaluate("([c]) => { window.__coldOpen = c; }", [cold_open is not None])
     info = page.evaluate("([a,b,s,o,t,i]) => window.__clip.init(a,b,s,o,t,i)",
@@ -255,7 +367,8 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
             last_beat = now
             print(f"[progress] capture frames={i} elapsed={now - t0:.1f}",
                   file=sys.stderr, flush=True)
-        r = page.evaluate("([raw,q]) => window.__clip.frame(raw,q)", [raw, q])
+        r = page.evaluate("([raw,q,mb]) => window.__clip.frame(raw,q,mb)",
+                          [raw, q, mb])
         if not card_up and (r["c"] > 0 or r["t"] >= cold_open):
             # The EVENT is the anchor; the clock is only a cap. Measured over
             # 144 matches, a timer alone cuts mid-approach: 17% have clanked
@@ -267,7 +380,7 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
                   f"({'first clank' if r['c'] > 0 else 'cap'})")
         if clank_wall is None and r["c"] > 0:
             clank_wall = i / fps
-        p = outdir / f"{tag}_{i:05d}.jpg"
+        p = outdir / f"{tag}_{i:05d}.{_ext(q)}"
         p.write_bytes(base64.b64decode(r["i"]))
         frames.append(p)
         i += 1
@@ -288,8 +401,10 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
             # so any constant here is wrong for some fight. Wait for the event.
             held, cap = 0, int(fps * (verdict_hold + 8.0))
             for k in range(cap):
-                r2 = page.evaluate("([raw,q]) => window.__clip.frame(raw,q)", [raw, q])
-                p2 = outdir / f"{tag}_{i:05d}.jpg"
+                r2 = page.evaluate(
+                    "([raw,q,mb]) => window.__clip.frame(raw,q,mb)",
+                    [raw, q, mb])
+                p2 = outdir / f"{tag}_{i:05d}.{_ext(q)}"
                 p2.write_bytes(base64.b64decode(r2["i"]))
                 frames.append(p2)
                 i += 1
@@ -318,6 +433,19 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
     print(f"    {tag}: {len(frames)} frames, {dur:.1f}s wall, "
           f"{time.time()-t0:.0f}s to render, match ended {info}")
     info = dict(info or {}); info['clankWall'] = clank_wall
+    # THE FIGHT, AS FOUR NUMBERS, so a --motion-blur run can be diffed against
+    # a plain one. Sub-stepping CINE.pump is not provably free (see frame()):
+    # if any of these moves, motion blur changed the MATCH and not the picture,
+    # and that is Rick's call rather than a thing to patch around.
+    fight = page.evaluate("() => { const m = window.__clip.m; return {"
+                          "over: m.over || null, t: +m.t.toFixed(4),"
+                          "clanks: m.clankCount,"
+                          "hp: [Math.round(m.a.hp*1000)/1000,"
+                          "     Math.round(m.b.hp*1000)/1000] }; }")
+    info['fight'] = fight
+    print(f"    {tag}: FIGHT over={fight['over']} t={fight['t']} "
+          f"clanks={fight['clanks']} hp={fight['hp']}"
+          f"{'   <- mb=' + str(mb) if mb > 1 else ''}")
     return frames, wav, dur, info
 
 
@@ -333,6 +461,32 @@ def main() -> int:
     ap.add_argument("--w", type=int, default=540)
     ap.add_argument("--q", type=float, default=0.80)
     ap.add_argument("--crf", type=int, default=22)
+    # ---- THE DELIVERY-QUALITY FLAGS, docs/DELIVERY-QUALITY-BRIEF.md §7 ----
+    # Every one of these is OPT-IN and every default above is the shipping
+    # path unchanged. They exist so one clip can be rendered both ways off the
+    # same seed and looked at, which is the only thing that can turn that
+    # brief's predictions into a decision. Do not flip a default here until
+    # Rick has watched the pair.
+    ap.add_argument("--blur-scale", action="store_true",
+                    help="scale every shadowBlur by k, so a sub-1080 capture "
+                         "shows the glow at the width the art was authored "
+                         "for. shadowblur_probe.py is the measurement; a "
+                         "NO-OP at --w 1080")
+    ap.add_argument("--png", action="store_true",
+                    help="lossless frames instead of JPEG at --q. Slower to "
+                         "encode in-canvas and 33%% bigger over the wire; no "
+                         "DCT ringing on the ult art before x264 sees it")
+    ap.add_argument("--motion-blur", type=int, default=1, metavar="N",
+                    help="average N sub-frames into each output frame. dt is "
+                         "1/120 and output is 60, so N=2 is exactly one sim "
+                         "step per sub-frame -- no interpolation and no "
+                         "invented state. NOT provably free: CINE.pump is not "
+                         "linear in raw, so compare the fight telemetry "
+                         "against N=1 before believing it")
+    ap.add_argument("--preset", default="veryfast",
+                    help="x264 preset. `veryslow` is free quality in exchange "
+                         "for encode minutes -- the source only has to be "
+                         "visually lossless, the platform re-encodes anyway")
     ap.add_argument("--out", default="cinema-clip.mp4")
     ap.add_argument("--cold-open", type=float, nargs="?", const=5.0, default=None,
                     metavar="CAP",
@@ -407,16 +561,21 @@ def main() -> int:
         for f in tmp.glob("*"):
             f.unlink()
 
+    Q = None if a.png else a.q
     seed = a.seed if a.seed is not None else 2901315739
 
     if a.encode_only:
-        f_on = sorted(tmp.glob("on_*.jpg")); w_on = tmp / "on.wav"
+        f_on = sorted(tmp.glob(f"on_*.{_ext(Q)}")); w_on = tmp / "on.wav"
         d_on = len(f_on) / a.fps; d_off = 0.0; f_off = w_off = None
         cap = 0
     else:
       with game(game_path=(HERE / a.game).resolve()) as (page, errors):
         page.evaluate(f"AC.setResolution({a.w}, {round(a.w*16/9)})")
         page.evaluate(HARNESS)
+        if a.blur_scale:
+            page.evaluate(BLUR_SCALE_JS)
+            note = "a no-op here" if a.w == 1080 else "the glow narrows"
+            print(f"    shadowBlur scaled by k={a.w/1080:.3f} -- {note}")
 
         # Where is the killing blow? Ask the prescan, then back up `lead`.
         plan = page.evaluate("([a,b,s]) => window.cinePlan(a,b,s)",
@@ -462,10 +621,12 @@ def main() -> int:
         if a.ab:
             print("  rendering director OFF ...")
             f_off, w_off, d_off, _ = run_pass(page, a.a, a.b, seed, False, start,
-                                              a.fps, cap, a.q, tmp, "off")
+                                              a.fps, cap, Q, tmp, "off",
+                                              mb=a.motion_blur)
         print("  rendering director ON ...")
         f_on, w_on, d_on, info_on = run_pass(page, a.a, a.b, seed, True, start,
-                                       a.fps, cap, a.q, tmp, "on",
+                                       a.fps, cap, Q, tmp, "on",
+                                       mb=a.motion_blur,
                                        intro=a.full and a.intro,
                                        verdict_hold=a.verdict_hold,
                                        cold_open=a.cold_open)
@@ -483,7 +644,7 @@ def main() -> int:
         seg = tmp / f"{tag}.mp4"
         subprocess.run(
             ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
-             "-framerate", str(a.fps), "-i", str(tmp / f"{tag}_%05d.jpg"),
+             "-framerate", str(a.fps), "-i", str(tmp / f"{tag}_%05d.{_ext(Q)}"),
              "-i", str(wav),
              # trunc/2*2 first: libx264 rejects an odd dimension, and a
              # width-derived vertical frame lands on one about half the time.
@@ -512,12 +673,17 @@ def main() -> int:
              # A build WITHOUT FRAME still renders its hall down to y=1800 and
              # will have its bottom wall covered. That is the correct trade to
              # surface loudly rather than to paper over here a second time.
-             "-vf", ("scale=1080:1920:flags=lanczos" if a.shorts
+             # A CAPTURE THAT IS ALREADY 1080 IS NOT UPSCALED. lanczos on a
+             # correct-size image is a resample that can only lose, and at
+             # --w 1080 the source IS the deliverable size.
+             # docs/DELIVERY-QUALITY-BRIEF.md §3.3.
+             "-vf", ("scale=1080:1920:flags=lanczos"
+                     if (a.shorts and a.w != 1080)
                      else "scale=trunc(iw/2)*2:trunc(ih/2)*2") + (
                      f",drawtext=text='{label}':x=(w-tw)/2:y=h-52:"
                      f"fontsize=22:fontcolor=0xC9A227:box=1:boxcolor=0x000000AA:"
                      f"boxborderw=8" if label else ""),
-             "-c:v", "libx264", "-preset", "veryfast", "-crf", str(a.crf),
+             "-c:v", "libx264", "-preset", a.preset, "-crf", str(a.crf),
              "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-ac", "2",
              "-shortest", str(seg)], check=True)
         parts.append(seg)
