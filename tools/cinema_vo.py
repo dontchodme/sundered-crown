@@ -55,6 +55,68 @@ SPOKEN = {
 }
 
 
+# THE DEFAULT LINE, IN ONE PLACE. shorts_build.py built these three parts and
+# their two gaps inline, and the app needed the same line for its preview --
+# two constructions of one thing, which is how the preview ends up sounding
+# like something the short does not. Both call `--hook` now.
+#
+# THE GAPS ARE THE LINE'S TIMING AND THEY ARE NOT PUNCTUATION. Kokoro gives
+# "?...", "? ..." and "." the same contour, so every beat here is real silence
+# between separately rendered clips.
+HOOK_GAPS = (0.38, 0.14)
+
+
+def hook_parts(a: str, b: str) -> list[str]:
+    return ["Who wins?", f"{a},", f"or {b}."]
+
+
+# A LINE WITH ITS PAUSES IN IT, IN ONE SYNTAX.
+#
+# `--parts`/`--gaps` are two parallel lists, which is fine for a builder and
+# useless for a text box: a person types a sentence, not a list and a matching
+# list of floats. So a script is ONE string with the pauses written where they
+# fall:
+#
+#     Who wins? |0.38 Paradox, |0.14 or Heartwood.
+#
+# `|` is a pause. A number after it is its length in seconds; bare `|` uses
+# DEFAULT_GAP. Text with no pipes is one continuous read, exactly as --text.
+#
+# THIS EXISTS BECAUSE LOADING THE DEFAULT LINE INTO THE APP'S BOX CHANGED HOW
+# IT WAS SPOKEN. The words were identical and the delivery was not: the shipped
+# line is three clips with measured silence between them, and a box that could
+# only carry plain text collapsed it to a single utterance. Punctuation cannot
+# put it back -- Kokoro gives "?...", "? ..." and "." the same contour -- so the
+# pause had to become something the text can actually say.
+DEFAULT_GAP = 0.38
+
+
+def parse_script(text: str, default_gap: float = DEFAULT_GAP):
+    """'a |0.4 b |c' -> (['a','b','c'], [0.4, DEFAULT_GAP])"""
+    import re as _re
+    chunks = _re.split(r"\|\s*([0-9]*\.?[0-9]+)?\s*", text)
+    parts, gaps = [chunks[0].strip()], []
+    for i in range(1, len(chunks), 2):
+        gaps.append(float(chunks[i]) if chunks[i] else default_gap)
+        parts.append((chunks[i + 1] or "").strip())
+    keep = [(p, i) for i, p in enumerate(parts) if p]
+    if not keep:
+        raise SystemExit("! the script has no words in it")
+    parts = [p for p, _ in keep]
+    gaps = [gaps[i - 1] for _, i in keep[1:]]
+    return parts, gaps
+
+
+def hook_script(a: str, b: str) -> str:
+    """The shipped line AS A SCRIPT, so the app's box can hold the real thing
+    -- pauses included -- and render it identically."""
+    ps, gs = hook_parts(a, b), HOOK_GAPS
+    out = ps[0]
+    for g, part in zip(gs, ps[1:]):
+        out += f" |{g:g} {part}"
+    return out
+
+
 def normalise(text: str) -> str:
     for raw, spoken in SPOKEN.items():
         text = re.sub(rf"\b{re.escape(raw)}\b", spoken, text)
@@ -75,10 +137,39 @@ def main() -> int:
                          "in Kokoro -- '?...', '? ...' and '.' all give the same "
                          "contour -- so a pause has to be real silence, measured, "
                          "rather than punctuation and hope.")
+    ap.add_argument("--script", default=None,
+                    help="one string with its pauses in it: `a |0.38 b |c`. "
+                         "`|` is a pause, an optional number is its length in "
+                         "seconds. Equivalent to --parts/--gaps but writable by "
+                         "a person in a text box.")
+    ap.add_argument("--print-hook-script", action="store_true",
+                    help="print the default line in --script form and exit")
+    ap.add_argument("--hook", action="store_true",
+                    help="render THE DEFAULT LINE for --a versus --b, with the "
+                         "shipped parts and gaps. This is what a short gets when "
+                         "no --vo is supplied, and the app's preview calls it so "
+                         "the two cannot diverge.")
     ap.add_argument("--gaps", default="",
                     help="comma-separated seconds between parts (len(parts)-1)")
     args = ap.parse_args()
 
+    if args.print_hook_script:
+        print(hook_script(args.a, args.b))
+        return 0
+    if args.script:
+        if args.text or args.parts or args.hook:
+            raise SystemExit("! --script carries its own parts; do not also pass "
+                             "--text, --parts or --hook")
+        ps, gs = parse_script(args.script)
+        args.parts = "|".join(ps)
+        args.gaps = ",".join(str(g) for g in gs)
+    if args.hook:
+        if args.text or args.parts:
+            raise SystemExit("! --hook builds the line itself; do not also pass "
+                             "--text or --parts")
+        args.parts = "|".join(hook_parts(args.a, args.b))
+        if not args.gaps:
+            args.gaps = ",".join(str(g) for g in HOOK_GAPS)
     line = args.text or f"The Sundered Crown. {args.a}... versus {args.b}."
     from kokoro_onnx import Kokoro
     import soundfile as sf

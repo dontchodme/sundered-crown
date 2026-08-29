@@ -200,6 +200,65 @@ function createWindow() {
   return win;
 }
 
+/* ---- PYTHON, FOR THE TWO FEATURES THAT SHELL OUT --------------------------
+ *
+ * execFile, NEVER exec: the announcer's text is user input and it goes in as
+ * ONE ARGV ELEMENT. With a shell in the way a line containing `&` or a quote
+ * would be a command, not a sentence. There is no shell here and there must
+ * not be one.
+ *
+ * `python`, not `python3`: the python.org installer makes python.exe and
+ * py.exe and no python3.exe, so python3 hits a Microsoft Store stub that
+ * reports Python is not installed. Three tools in tools/ had this bug and it
+ * cost a render today. CLAUDE.md §5. SWB_PYTHON overrides for a venv.
+ */
+const { execFile } = require('node:child_process');
+const os = require('node:os');
+const PYTHON = process.env.SWB_PYTHON || 'python';
+
+/* The last non-empty line of a tool's stderr is where its complaint is; the
+ * lines above it are a traceback nobody in the UI can act on. */
+function lastLine(t) {
+  const lines = String(t || '').split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  return lines.length ? lines[lines.length - 1] : '';
+}
+
+function runPython(args, { timeout = 120000 } = {}) {
+  return new Promise((resolve) => {
+    execFile(PYTHON, args, { cwd: path.join(REPO, 'tools'), timeout,
+                             maxBuffer: 16 * 1024 * 1024 },
+      (err, stdout, stderr) => resolve({
+        ok: !err, code: err ? (err.code ?? -1) : 0,
+        stdout: String(stdout || ''), stderr: String(stderr || ''),
+        timedOut: !!(err && err.killed),
+      }));
+  });
+}
+
+/* Duration straight out of the RIFF header rather than off cinema_vo's stdout.
+ * Parsing a tool's printed text is a contract nobody wrote down; the header is
+ * one. Walks the chunks because a WAV is not required to put `data` at byte 36
+ * -- soundfile does, but a file that has been through anything else may not. */
+function wavSeconds(buf) {
+  if (buf.length < 12 || buf.toString('ascii', 0, 4) !== 'RIFF') return null;
+  let off = 12, fmt = null;
+  while (off + 8 <= buf.length) {
+    const id = buf.toString('ascii', off, off + 4);
+    const size = buf.readUInt32LE(off + 4);
+    if (id === 'fmt ') {
+      fmt = { channels: buf.readUInt16LE(off + 10),
+              rate: buf.readUInt32LE(off + 12),
+              bits: buf.readUInt16LE(off + 22) };
+    } else if (id === 'data' && fmt) {
+      const bytesPerFrame = fmt.channels * Math.max(1, fmt.bits / 8);
+      if (!bytesPerFrame || !fmt.rate) return null;
+      return size / bytesPerFrame / fmt.rate;
+    }
+    off += 8 + size + (size % 2);
+  }
+  return null;
+}
+
 /* ---- IPC. Every capability the page has is named here and nowhere else. ---- */
 
 ipcMain.handle('swb:gamePath', () => GAME);
@@ -231,10 +290,97 @@ ipcMain.handle('swb:createShort', async () => {
   return { ok: false, reason: 'not built yet — docs/ARCHITECTURE.md §5' };
 });
 
-/* PLACEHOLDER. Phase 2. cinema_vo.py --text already speaks arbitrary text
- * verbatim; this wires to it. */
-ipcMain.handle('swb:speak', async () => {
-  return { ok: false, reason: 'not built yet — docs/ARCHITECTURE.md §4' };
+/* THE ANNOUNCER. cinema_vo.py already speaks arbitrary text verbatim and
+ * carries the two things that must not be reimplemented here: the SPOKEN
+ * compound-splitting table (Kokoro says "Ironhail" as one mushy cluster; ten
+ * relic names are corrected in it) and --parts/--gaps (punctuation does not
+ * control timing in Kokoro, so a pause has to be real measured silence). So
+ * this SHELLS OUT to it rather than reproducing any of that in JS.
+ *
+ * The audio comes back as base64 and is played by the page. The alternative
+ * was serving the temp wav over the swb:// protocol, which means widening the
+ * protocol handler to a directory outside the repo -- a general file-reading
+ * capability, bought to avoid one base64 encode of a 100 KB file. */
+let VOICE_CACHE = null;
+
+ipcMain.handle('swb:voices', async () => {
+  if (VOICE_CACHE) return VOICE_CACHE;
+  const r = await runPython(['vo_voices.py'], { timeout: 20000 });
+  if (!r.ok) return { ok: false, reason: lastLine(r.stderr) || `python exited ${r.code}` };
+  try {
+    const parsed = JSON.parse(r.stdout);
+    if (parsed.ok) VOICE_CACHE = parsed;
+    return parsed;
+  } catch {
+    return { ok: false, reason: 'vo_voices.py did not return JSON' };
+  }
+});
+
+/* The default line IN THE BOX'S OWN SYNTAX, so "load default" cannot drift
+ * from what --hook renders. Returns before cinema_vo imports Kokoro, so it is
+ * a process spawn and not a model load. */
+ipcMain.handle('swb:hookScript', async (_e, opts = {}) => {
+  const a = String(opts.a || '').trim(), b = String(opts.b || '').trim();
+  if (!(a && b)) return { ok: false, reason: 'no relics on screen' };
+  const r = await runPython(['cinema_vo.py', '--a', a, '--b', b,
+                             '--print-hook-script'], { timeout: 20000 });
+  if (!r.ok) return { ok: false, reason: lastLine(r.stderr) || 'could not build the line' };
+  return { ok: true, script: r.stdout.trim() };
+});
+
+ipcMain.handle('swb:speak', async (_e, opts = {}) => {
+  const text = String(opts.text ?? '').trim();
+  const voice = String(opts.voice || 'bm_lewis');
+  /* EMPTY BOX MEANS THE DEFAULT LINE, NOT AN ERROR. The announcer's job is the
+   * line the short already ships -- "Who wins? <A>, or <B>." with its two
+   * measured gaps -- and the textarea is there to CHANGE it for a fight or add
+   * something extra, not to be the only way to get a voice at all.
+   *
+   * `--hook` is the same flag shorts_build calls, so this preview is the line
+   * the short will contain and not a second construction of it. The parts and
+   * gaps live in cinema_vo.hook_parts/HOOK_GAPS and nowhere else. */
+  const hook = !text;
+  const na = String(opts.a || '').trim(), nb = String(opts.b || '').trim();
+  if (hook && !(na && nb)) {
+    return { ok: false, reason: 'no relics on screen to name — start a fight first' };
+  }
+  if (text.length > 400) {
+    return { ok: false, reason: `${text.length} characters is past the 400 this ` +
+                                `preview will render. Shorten it, or raise the ` +
+                                `limit deliberately.` };
+  }
+  /* A voice the model does not carry fails deep inside onnxruntime with a
+   * message about an array shape. Checked here so it fails as a sentence. */
+  if (!/^[a-z]{2}_[a-z]+$/.test(voice)) {
+    return { ok: false, reason: `not a voice id: ${voice}` };
+  }
+  for (const f of ['kokoro-v1.0.onnx', 'voices-v1.0.bin']) {
+    if (!fs.existsSync(path.join(REPO, 'tools', f))) {
+      return { ok: false, reason: `missing tools/${f} — see tools/FETCH-KOKORO.md` };
+    }
+  }
+
+  const out = path.join(os.tmpdir(), `swb-vo-${Date.now()}.wav`);
+  /* `--script`, NOT `--text`. The box carries pauses now -- `|` with an
+   * optional seconds value -- so loading the default line into it and rendering
+   * gives back the same audio, verified byte-for-byte. With --text it did not:
+   * the words survived and the two measured silences did not, and it came back
+   * as one flat continuous read. */
+  const args = hook
+    ? ['cinema_vo.py', '--a', na, '--b', nb, '--hook', '--voice', voice, '--out', out]
+    : ['cinema_vo.py', '--a', na || 'A', '--b', nb || 'B',
+       '--script', text, '--voice', voice, '--out', out];
+  const r = await runPython(args, { timeout: 180000 });
+  if (!r.ok || !fs.existsSync(out)) {
+    if (r.timedOut) return { ok: false, reason: 'the voice render timed out' };
+    const last = lastLine(r.stderr) || lastLine(r.stdout);
+    return { ok: false, reason: last || `cinema_vo.py exited ${r.code}` };
+  }
+  let buf;
+  try { buf = fs.readFileSync(out); } finally { try { fs.unlinkSync(out); } catch {} }
+  return { ok: true, voice, hook, chars: text.length,
+           line: hook ? `Who wins? ${na}, or ${nb}.` : text,
+           seconds: wavSeconds(buf), wav: buf.toString('base64') };
 });
 
 app.whenReady().then(async () => {

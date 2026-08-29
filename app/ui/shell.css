@@ -67,3 +67,10 @@ pre{
 }
 pre.pass{color:#8fe388; border-color:#2c4a2c}
 pre.fail{color:#ff7b7b; border-color:#5a2a2a}
+
+/* The announcer's measured length. Green while it fits inside the opening,
+   amber past it -- a WARNING and not a refusal: what the ceiling should be
+   is Rick's call, and the box's job is to make the number visible while he
+   types rather than to decide for him. */
+.ok{color:var(--acc)} .over{color:var(--warn)}
+#voVoice{margin-top:6px}

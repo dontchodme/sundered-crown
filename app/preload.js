@@ -10,4 +10,6 @@ contextBridge.exposeInMainWorld('swb', {
   revealFile:    (p) => ipcRenderer.invoke('swb:revealFile', p),
   createShort:   (opts) => ipcRenderer.invoke('swb:createShort', opts),
   speak:         (opts) => ipcRenderer.invoke('swb:speak', opts),
+  voices:        () => ipcRenderer.invoke('swb:voices'),
+  hookScript:    (opts) => ipcRenderer.invoke('swb:hookScript', opts),
 });

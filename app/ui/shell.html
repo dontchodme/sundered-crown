@@ -44,13 +44,24 @@
 
     <div class="card">
       <h2>Announcer</h2>
-      <p class="note">Typed here, spoken verbatim in the short. Local, offline.</p>
-      <textarea id="vo" rows="3" placeholder="The Sundered Crown. Paradox… versus Heartwood."></textarea>
+      <p class="note">Typed here, spoken verbatim at the start of the fight.
+        Local and offline &mdash; nothing typed here leaves this machine.</p>
+      <p class="note" style="margin-top:6px">Punctuation does not make a pause &mdash;
+        Kokoro gives <code>?...</code>, <code>? ...</code> and <code>.</code> the same
+        contour. Write pauses with <code>|</code>, optionally followed by seconds:
+        <code>Who wins? |0.38 Paradox, |0.14 or Heartwood.</code></p>
+      <textarea id="vo" rows="3" placeholder="Empty = the default line. Or write your own, using | for a pause."></textarea>
+      <select id="voVoice" title="Kokoro voice. bm_lewis is the voice of record."></select>
       <div class="btns">
-        <button id="btnPreview">Preview voice</button>
+        <button class="pri" id="btnPreview">Preview voice</button>
+        <button id="btnLoadDefault" title="put the shipped line in the box so you can edit it or add to it">Load default line</button>
+        <button id="btnStop" hidden>Stop</button>
       </div>
-      <p class="stub" id="voStub">Phase 2 — <code>cinema_vo.py --text</code> already speaks
-        arbitrary text; this box is not wired to it yet.</p>
+      <p class="note" id="voMeter">&nbsp;</p>
+      <p class="note" style="opacity:.75">Preview is played at the same
+        <code>volume 2.0</code> the mix applies, so it sits where it will in
+        the short. There is no music or fight audio under it here.</p>
+      <p class="stub" id="voStub" hidden></p>
     </div>
 
     <div class="card">

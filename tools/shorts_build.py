@@ -30,6 +30,8 @@ import pathlib
 import subprocess
 import sys
 
+import cinema_vo
+
 HERE = pathlib.Path(__file__).resolve().parent
 
 # §3c, with the §8 addendum folded in. Each term is load-bearing:
@@ -322,10 +324,13 @@ def main() -> int:
     if vo is None:
         vo = out.resolve().parent / (out.stem + '-hook.wav')
         na, nb = display_names(a.game, [a.a, a.b])
-        parts = ['Who wins?', f'{na},', f'or {nb}.']
-        print(f"[vo]  {a.voice}  \"{' '.join(parts)}\"")
+        # `--hook` rather than the parts restated here. They were built inline
+        # in this file and the app's preview needed the same line; one of the
+        # two would have drifted, and the failure mode is a preview that sounds
+        # like something the short does not contain.
+        print(f"[vo]  {a.voice}  \"{' '.join(cinema_vo.hook_parts(na, nb))}\"")
         print(run([sys.executable, HERE / 'cinema_vo.py', '--a', na, '--b', nb,
-                   '--voice', a.voice, '--parts', '|'.join(parts),
+                   '--voice', a.voice, '--hook',
                    '--gaps', f'{a.gap},{a.name_gap}', '--out', vo],
                   cwd=HERE).strip())
     m = encode(out, a.fps, a.crf, pathlib.Path(vo).resolve(), keep=a.keep,
