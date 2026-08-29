@@ -104,7 +104,14 @@ RELICS = '''
 TUNED = {
     "dawnbringer": 8.88,
     "widowmaker": 11.95,
-    "grudgebearer": 27.93,
+    # 27.93 -> 23.50, 2026-08-29. Grudgebearer came out of the pace
+    # change at 62.8% (+/-2.5 over 1,440 fights) because a longer fight
+    # suits a heavy hitter; 23.50 puts it at 53.8%, mid-roster.
+    # ALSO APPLIED AT THE TIP by pace_build.py, because this chain
+    # cannot be replayed from here -- ultcarry_build.py exists exactly
+    # because some links have owning builders that cannot be replayed.
+    # If the two ever disagree, THIS ONE IS RIGHT and the tip is stale.
+    "grudgebearer": 23.50,
     "thornwake": 31.35,
     "gravemourn": 44.1,
     "spellbreaker": 8.81,
