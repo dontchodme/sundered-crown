@@ -91,7 +91,8 @@ def font_arg() -> str:
     for name in ("segoeui.ttf", "arial.ttf", "tahoma.ttf", "consola.ttf"):
         f = pathlib.Path(os.environ.get("SystemRoot", "C:/Windows")) / "Fonts" / name
         if f.exists():
-            return "fontfile='" + str(f).replace("\\", "/").replace(":", "\:") + "':"
+            return ("fontfile='" + str(f).replace("\\", "/").replace(":", "\\:")
+                + "':")
     return ""      # non-Windows: fontconfig will find something
 
 
