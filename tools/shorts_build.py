@@ -85,7 +85,25 @@ def mix_graph(limit, tp, vo_vol=2.0, vo_at=0.0):
 CEILINGS = [(0.79, -2.0), (0.63, -3.0), (0.50, -4.0)]
 
 
-def run(cmd, **kw):
+def run(cmd, stream_err=False, **kw):
+    """stream_err: let the child's stderr go STRAIGHT THROUGH to ours.
+
+    `capture_output=True` pipes stderr and hands it back only when the child
+    exits. cinema_clip's capture emits a progress line a second on stderr, and
+    every one of them sat in that pipe for the whole 3-5 minute capture and
+    arrived at the end -- so a caller watching for progress saw nothing until
+    there was nothing left to wait for. Measured: 0 beats over a 304s render.
+
+    Inheriting instead means the lines reach whoever is reading, live. The
+    cost is that a failure's stderr is no longer quotable in the exception --
+    it has already been printed, which is where it was wanted anyway."""
+    if stream_err:
+        q = subprocess.run([str(c) for c in cmd], stdout=subprocess.PIPE,
+                           text=True, **kw)
+        if q.returncode:
+            raise SystemExit("FAILED: " + " ".join(str(c) for c in cmd)
+                             + chr(10) + (q.stdout or "")[-2000:])
+        return q.stdout
     p = subprocess.run([str(c) for c in cmd], capture_output=True, text=True, **kw)
     if p.returncode:
         raise SystemExit(f"FAILED: {' '.join(str(c) for c in cmd)}\n"
@@ -172,7 +190,7 @@ def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True,
                # that has ever been posted.
                *(["--lead", str(lead)] if lead is not None else []),
                "--fps", fps, "--w", w, "--q", q, "--out", out],
-              cwd=HERE).strip())
+              cwd=HERE, stream_err=True).strip())
 
 
 def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):

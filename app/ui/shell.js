@@ -117,6 +117,11 @@ function trackSeed(w) {
 function startFight(seed) {
   const a = $('selA').value, b = $('selB').value;
   AC.newMatch(a, b, seed);
+  /* Written NOW, not on the next poll tick. trackSeed's 250ms interval is a
+   * readout for a human; anything that acts on the seed has to see it the
+   * instant the fight exists. */
+  const live = frame.contentWindow.__lastSeed;
+  if (live !== undefined) $('seed').value = String(live);
   postReset();          // the trail buffer belongs to the fight that filled it
 
   frame.contentWindow.AC.SFX.resume && frame.contentWindow.AC.SFX.resume();
@@ -341,9 +346,28 @@ function wireControls() {
     $('shFrames').hidden = true;
     $('btnReveal').hidden = true;
     shSay('starting…');
+    /* THE SEED THE ENGINE IS ACTUALLY RUNNING, NOT THE ONE IN THE BOX.
+     *
+     * The box is filled by a 250ms poll that SKIPS WHILE IT HAS FOCUS -- so
+     * clicking into it to read or copy the seed freezes it, and every Fight
+     * after that rolls a new fight while the box still shows the old number.
+     * Filming then rendered a fight that was not the one on screen: the seed
+     * is the fight, so a stale seed is a different fight, and nothing about
+     * the output looks wrong enough to notice.
+     *
+     * `__lastSeed` is what newMatch set. The box is a readout of it and is
+     * never the source of truth again. */
+    const liveSeed = frame.contentWindow.__lastSeed;
+    if (liveSeed === undefined) { shSay(''); alertInto('btnShort', 'no fight on screen yet'); return; }
+    /* And the relics off the live match for the same reason: newMatch
+     * SUBSTITUTES idB when both sides are the same relic, and it writes that
+     * into the game's own picker, not the shell's. Reading the dropdowns would
+     * name a fight the engine declined to run. */
+    const lm = frame.contentWindow.AC.match;
     const r = await window.swb.createShort({
-      a: $('selA').value, b: $('selB').value,
-      seed: Number($('seed').value) >>> 0,
+      a: lm ? lm.a.w.id : $('selA').value,
+      b: lm ? lm.b.w.id : $('selB').value,
+      seed: liveSeed >>> 0,
       /* EMPTY LEAD MEANS THE WHOLE FIGHT. shorts_build passes --full when no
        * --lead is given, and --full is what start=0 comes from. */
       lead: $('shWhole').checked ? null : (Number($('shLead').value) || 18),

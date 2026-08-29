@@ -85,3 +85,13 @@ pre.fail{color:#ff7b7b; border-color:#5a2a2a}
 #shLog{max-height:150px; overflow:auto; margin-top:9px; font:11px/1.45 var(--mono);
        color:var(--dim); background:#0b0b12; border:1px solid var(--line);
        border-radius:6px; padding:8px; white-space:pre-wrap}
+
+/* THE BAR MEASURES STAGES, WHICH ARE REAL. capture -> encode -> mix, a third
+   each. Inside the capture the denominator is genuinely unknown -- the loop
+   runs until the match ends -- so that third fills on ELAPSED against a
+   typical capture and is capped short of the boundary rather than pretending
+   to know. It never reaches 100% until the job actually finishes. */
+.bar{height:6px; margin-top:10px; border-radius:3px; background:#1b1b26; overflow:hidden}
+.bar i{display:block; height:100%; width:0; background:var(--acc);
+       transition:width .45s linear}
+.bar.stalled i{background:var(--warn)}

@@ -223,9 +223,30 @@ function lastLine(t) {
   return lines.length ? lines[lines.length - 1] : '';
 }
 
+/* THE CHILD'S PATH, NOT THIS PROCESS'S.
+ *
+ * winget installs ffmpeg without a shim, so it is only on PATH if the user
+ * added it -- and a GUI app inherits the PATH of whatever launched it, which
+ * may predate that. The app itself never needs ffmpeg; shorts_build's ENCODE
+ * stage does, three minutes into a job, long after the capture has succeeded.
+ * So the failure looked like a mystery: the frames were all there and the
+ * pipeline died at the end.
+ *
+ * Resolved and injected here rather than asking the user to fix their
+ * environment, and it is also why docs/ARCHITECTURE.md §5 says to ship
+ * ffmpeg-static with the app: this is the same problem, patched. */
+function childEnv() {
+  const ff = resolveFfmpeg();
+  if (ff === 'ffmpeg') return process.env;          // already on PATH
+  const dir = path.dirname(ff);
+  const key = Object.keys(process.env).find((k) => k.toUpperCase() === 'PATH') || 'PATH';
+  return { ...process.env, [key]: dir + path.delimiter + (process.env[key] || '') };
+}
+
 function runPython(args, { timeout = 120000 } = {}) {
   return new Promise((resolve) => {
     execFile(PYTHON, args, { cwd: path.join(REPO, 'tools'), timeout,
+                             env: childEnv(),
                              maxBuffer: 16 * 1024 * 1024 },
       (err, stdout, stderr) => resolve({
         ok: !err, code: err ? (err.code ?? -1) : 0,
@@ -358,7 +379,13 @@ ipcMain.handle('swb:createShort', async (e, opts = {}) => {
   fs.mkdirSync(dir, { recursive: true });
   const out = path.join(dir, `${a}-v-${b}-${seed}.mp4`);
 
-  const args = ['shorts_build.py', '--game', GAME, '--a', a, '--b', b,
+  /* ABSOLUTE. GAME is repo-relative ('02-chain/...'), and shorts_build
+   * resolves --game against its OWN directory -- `HERE / game` -- so passing
+   * it through unchanged looked for tools/02-chain/... and the job died on its
+   * first line. The app and the tools do not share a base directory and there
+   * is no reason they should; the path that crosses between them is absolute. */
+  const gameAbs = path.isAbsolute(GAME) ? GAME : path.join(REPO, GAME);
+  const args = ['shorts_build.py', '--game', gameAbs, '--a', a, '--b', b,
                 '--seed', String(seed), '--no-card', '--out', out];
   /* --no-card is not a preference. cinema_clip REFUSES --intro without
    * --legacy-card: the fight card is retired (rule 1) and card-first videos
@@ -390,7 +417,7 @@ ipcMain.handle('swb:createShort', async (e, opts = {}) => {
   }
 
   const child = require('node:child_process').spawn(PYTHON, args,
-    { cwd: path.join(REPO, 'tools'), windowsHide: true });
+    { cwd: path.join(REPO, 'tools'), windowsHide: true, env: childEnv() });
   JOB = { child, out, cancelled: false, log: [] };
 
   const feed = (buf, stream) => {
