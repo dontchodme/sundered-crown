@@ -14,8 +14,8 @@ short-form video for TikTok and YouTube Shorts.
 ```
 02-chain/sc-paradox-frame.html   BUILD OF RECORD   25 relics · Stasis Field
                                                    + the post chain, bloom ON
-01-live/sundered-crown.html      LIVE              16 relics — NINE BEHIND
-01-live/sc-playable.html         LIVE              16 relics — NINE BEHIND
+01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
+01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
 
 **The build of record now carries a WebGL post chain** (`src/render/post.js`,
@@ -31,9 +31,19 @@ equality. `(build, relics, seed)` names a fight *on a given V8* — see
 2026-08-26 onward is on the pinned pair and will not match a number recorded
 before it.
 
-`01-live` has been untouched since v37. **That gap is the oldest open item in
-the project** (v27 open decision 1) and it is not a bug — nobody has decided
-which of the nine ships.
+**THE DELIVERABLE IS THE VIDEO. THERE IS NO PLAYABLE BUILD TO SHIP.**
+
+Rick, 2026-08-28: *"we are building an app to make shorts. not an app to ship
+to other people."* This file used to open by calling `01-live` nine relics
+behind and "the oldest open item in the project", which framed a playable
+release as a goal it has never been. Every session that read §0 dutifully
+raised it, and Rick had to say so more than once.
+
+`01-live` is an old snapshot, untouched since v37. **It is not behind, because
+there is nothing for it to be behind ON.** Do not raise it, do not plan to
+carry relics into it, and do not treat the count as a gap. If a playable
+release ever becomes a goal, that is Rick saying so — not this file implying
+it.
 
 ---
 
@@ -67,7 +77,7 @@ the entire history of the project, not just the current session.
 
 | folder | what is in it |
 |---|---|
-| `01-live/` | what ships. `sc-playable.html` is the same engine in the share shell. |
+| `01-live/` | an OLD SNAPSHOT, v37, kept for reference. Nothing ships from here — see §0. |
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
@@ -372,29 +382,28 @@ git push
 
 ## 8. THE OPEN ITEMS, OLDEST FIRST
 
-1. **`01-live` IS NINE RELICS BEHIND.** v27 od 1. The oldest open thing here.
-2. **THE SHARED `cineFloor` IS STILL NOT BUILT.** v40 item 1, six relics deep.
+1. **THE SHARED `cineFloor` IS STILL NOT BUILT.** v40 item 1, six relics deep.
    §3 of the v43 handoff is the first measurement it would be set against: a
    fatal cut is rare for **every** melee relic — 8% to 23% across six.
-3. **THE FIGHT CARD IS STILL IN THE BUILD.** Rule 1, five sessions unmoved.
-4. **TWO BEATLESS DEATHS.** Daybreak's spark burn and `_traceHit` both take hp
+2. **THE FIGHT CARD IS STILL IN THE BUILD.** Rule 1, five sessions unmoved.
+3. **TWO BEATLESS DEATHS.** Daybreak's spark burn and `_traceHit` both take hp
    through `hurt()` and file nothing; Dawnbringer is 22.1% blind. The general
    fix is one backstop — *if a fighter died this step and no beat was filed,
    file one* — chain-wide, therefore Rick's call.
-5. **`tip_audit.py` DOES NOT CHECK ULT TIPS.** v40, v41, v42, v43.
-6. **PARADOX'S SCRUNCH CARD WORDING** has not arrived. The placeholder is 67
+4. **`tip_audit.py` DOES NOT CHECK ULT TIPS.** v40, v41, v42, v43.
+5. **PARADOX'S SCRUNCH CARD WORDING** has not arrived. The placeholder is 67
    of the 72 characters `verify` allows.
-7. **`_burst` / `_tone`** — §4.5, live, measured, chain-wide.
-8. **`shot.life: 3.4` IS DEAD CONFIG ON ALL FIVE BOWS** (v40).
-9. **`cell_survey`'s OCCUPANCY COLUMN HAS MISPRICED TWO CELLS.** Occupancy is
+6. **`_burst` / `_tone`** — §4.5, live, measured, chain-wide.
+7. **`shot.life: 3.4` IS DEAD CONFIG ON ALL FIVE BOWS** (v40).
+8. **`cell_survey`'s OCCUPANCY COLUMN HAS MISPRICED TWO CELLS.** Occupancy is
    a proxy twice removed for a status that is a RATE, and the tool does not
    say so in its own output.
-10. **THE GREATSWORD DEADLOCK IS SIX THOUSANDTHS FROM A WIN** — 0.1537 against
+9. **THE GREATSWORD DEADLOCK IS SIX THOUSANDTHS FROM A WIN** — 0.1537 against
     a 0.16 threshold, 100% deadlocks over 112 binds.
-11. **A STUNNED GREATSWORD'S BLADE KEEPS TURNING.** `mode:"swing"` recomputes
+10. **A STUNNED GREATSWORD'S BLADE KEEPS TURNING.** `mode:"swing"` recomputes
     theta from the AIM every frame — the only type whose facing is not an
     integral of its own spin. Inert for damage, live for the picture.
-12. **EVERY TYPE-LEVEL MEASUREMENT STILL WANTS A `--noult` PASS.** v38 od 5
+11. **EVERY TYPE-LEVEL MEASUREMENT STILL WANTS A `--noult` PASS.** v38 od 5
     onward, five sessions.
 
 Full detail: `NEXT-SESSION.md` and `06-docs/v43/`.
