@@ -116,7 +116,54 @@ The Canvas 2D path stays. It is the control, permanently, exactly as
 
 ## 3. THE FOUR LAYERS, IN ORDER OF RETURN PER LINE
 
-### 3.1 THE ENVELOPE — no new technology, the largest perceived gain
+### 3.1 THE ENVELOPE — TESTED 2026-08-28, AND IT LOST
+
+> **RICK PREFERRED THE SHIPPED TIMING.** Three ultimates, two arms each, same
+> geometry and same length, the only difference being where the time goes:
+>
+> ```
+>   widowmaker (nova)    linear      <- the game as it ships
+>   lastlight  (field)   linear      <- the game as it ships
+>   aureole    (beam)    "first or second, both look good"
+> ```
+>
+> Linear won twice and tied once. The envelope won nothing.
+
+This is not "he could not tell them apart" — he could, and he chose the ramp.
+The section below claimed the envelope was **the largest perceived gain in the
+document** and said to do it first precisely so that this answer would arrive
+cheaply. It did: ~150 lines, two runs, six short clips, no build touched.
+
+**And the section named its own consequence.** "If better timing does not read
+as better animation on a phone, nothing further down this list will save it."
+Taken at its word, that refutes the premise the whole FX arc was planned on —
+that what these set-pieces lack is a clock.
+
+What survives, and it is worth separating carefully:
+
+- **§3.4 is untouched by this.** The camera question is not a timing question.
+  Whether an ultimate gets a SHOT is independent of how its art is paced, and
+  the measurement behind it — 41% of matches with zero cuts — still stands.
+- **§3.2 and §3.3 are re-priced but not refuted.** They add things the medium
+  cannot currently draw at all: particles that fly and tumble, screen-space
+  distortion. That is a different claim from "the timing is wrong", and this
+  test says nothing about it either way. But they can no longer be justified by
+  §3.1's argument, because §3.1's argument is now known to be false.
+- **The measurement stands even though the result was negative.** Peak
+  brightness after the cast moved 0.30s → 0.15s on aureole. The envelope did
+  what it was built to do. It simply was not an improvement.
+
+**Two caveats, recorded so a re-test is possible rather than being an argument
+for ignoring the result.** `snap` is one point in a large space and a gentler
+curve was never tried; and these were isolated set-pieces against static
+fighters, so an ult inside a real fight with a camera cut on it was not what
+was judged. Neither is a reason to proceed as though the result were positive.
+
+`tools/ult_envelope_lab.py`, clips in `07-shorts/envelope/`.
+
+---
+
+### 3.1a WHAT THE SECTION SAID BEFORE THE TEST
 
 Replace `k = t / life` with a shared shaping module: **anticipation → snap →
 hold → decay**, with overshoot, per stage, authored as numbers.
@@ -462,6 +509,11 @@ their timing only. Nothing else changes.
 **Gate:** side-by-side played clips, old timing and new, same seed. A spread,
 not a recommendation (Rule 2). If Rick cannot tell them apart on a phone, stop
 and re-plan — that answer is worth a session and it arrives cheap.
+
+**DONE 2026-08-28 AND THE GATE CLOSED RED.** Rick chose the shipped linear
+timing on two of three and called the third a tie. See §3.1. The stage did
+exactly what it was for: it cost one tool and twenty minutes of render, and it
+stopped Stages 2-4 being built on a premise that turns out to be false.
 
 ### Stage 2 — the particle runtime, on ONE relic *(one to two sessions)*
 
