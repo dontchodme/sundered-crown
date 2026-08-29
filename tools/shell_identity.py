@@ -55,6 +55,12 @@ def flatten(prefix, obj, out):
     return out
 
 
+def _when(p: pathlib.Path) -> str:
+    import datetime
+    return datetime.datetime.fromtimestamp(
+        p.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--app", default=str(APP_JSON),
@@ -62,6 +68,9 @@ def main() -> int:
     ap.add_argument("--game", default=None,
                     help="build to compare against; defaults to the one the "
                          "app recorded, so the two cannot silently differ")
+    ap.add_argument("--stale-ok", action="store_true",
+                    help="compare even when the app json predates the build. "
+                         "Almost never what you want -- read the guard")
     args = ap.parse_args()
 
     app_path = pathlib.Path(args.app)
@@ -80,6 +89,31 @@ def main() -> int:
     if not path.exists():
         print(f"! {path} does not exist")
         return 2
+
+    # THIS GATE CAN PASS WITHOUT THE APP EVER HAVING RUN, and it did.
+    #
+    # 2026-08-29: fx_build.py made a new tip and app/main.js was repointed at
+    # it. This tool then reported PASS 192/192 -- against a json the app had
+    # written THREE DAYS EARLIER, naming the OLD build. It does not launch the
+    # app; it diffs an artifact on disk. So the one gate whose entire job is
+    # "the app and the video agree" was comparing a stale app against a fresh
+    # headless, and a green result meant nothing.
+    #
+    # That is CLAUDE.md §4.1's defect class in a gate rather than in the art:
+    # right and wrong produce the same output. Two guards, and both are loud
+    # rather than advisory, because a warning in a passing run is not read.
+    stale = path.stat().st_mtime - app_path.stat().st_mtime
+    if stale > 0:
+        print("\n! THE APP JSON IS OLDER THAN THE BUILD IT NAMES.")
+        print(f"    {app_path.name}  {_when(app_path)}")
+        print(f"    {path.name}  {_when(path)}   ({stale / 3600:.1f}h newer)")
+        print("  The app has not been run against this build, so a PASS here "
+              "would be a\n  comparison with a stale artifact. Run the app's "
+              "own check first:")
+        print("\n    cd app && npm run identity\n")
+        if not args.stale_ok:
+            return 2
+        print("  --stale-ok given; continuing against the old run.\n")
 
     print(f"[identity] app   Chromium {app.get('chrome','?')}  {len(rows)} fights")
     print(f"[identity] build {build}")

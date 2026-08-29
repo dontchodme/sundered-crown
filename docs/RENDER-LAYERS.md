@@ -2,7 +2,7 @@
 
 **Step 1 of `docs/RENDERER-BRIEF.md` §8.** Read before writing a line of the
 post chain. Everything below is read out of the build of record
-(`02-chain/sc-paradox-frame.html`) or measured off the live renderer; nothing
+(`02-chain/sc-paradox-fx.html`) or measured off the live renderer; nothing
 here is inferred from the shape of the code.
 
 ---

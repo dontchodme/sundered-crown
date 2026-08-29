@@ -296,6 +296,8 @@ a Linux container; they are records, not instructions. Substitute as you read.
 cd tools
 python math_fingerprint.py                                         # the runtime pair
 python shell_identity.py                                           # app == headless
+                                        # run `cd app && npm run identity` FIRST --
+                                        # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
 python verify.py --game ../02-chain/sc-paradox-fx.html --n 40      # 13 checks
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved

@@ -1,5 +1,5 @@
 {
-  "build": "02-chain/sc-paradox-frame.html",
+  "build": "02-chain/sc-paradox-fx.html",
   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) sundered-crown-app/0.1.0 Chrome/152.0.7977.54 Electron/44.0.0 Safari/537.36",
   "chrome": "152.0.7977.54",
   "rows": [
