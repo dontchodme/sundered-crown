@@ -219,6 +219,18 @@ FX_JS = r"""() => {
      side of that split. */
   const R = AC.renderer;
   if (R.__fxWrapped) return false;
+  /* THE BUILD MAY ALREADY HAVE A FIELD. Since fx_build.py ran, the tip carries
+     its own ULTFX hooked into the same method -- so installing this one on top
+     draws TWO fields, and every number taken through it is the sum. It is the
+     "must not run a second chain" fault post_build.py warned about, reproduced
+     in a lab tool: a --cost baseline of "0 particles" was really measuring the
+     BUILD's 1890, and the run came back NON-MONOTONIC, which is the only
+     reason it was caught. Loud, because a silent double is a wrong number that
+     looks like a right one. */
+  if (typeof ULTFX !== "undefined")
+    throw new Error("this build already has ULTFX (fx_build.py has run on it)."
+      + " Point --game at the link BEFORE fx_build, or drive the build's own"
+      + " field instead of installing a second one.");
   R.__fxWrapped = true;
 
   function mulberry32(a){
@@ -542,7 +554,7 @@ def main() -> int:
                "setupArgs": [ident, foe, blk, life, W,
                              round(W * 16 / 9)],
                "cost": COST_JS,
-               "costArgs": [SPECS[ident], [0, 120, 420, 900, 2000], 5, 30]}
+               "costArgs": [SPECS[ident], [0, 900, 1350, 1890], 5, 30]}
         # A file, not an argument: cfg carries whole JS sources and
         # electron.cmd is a batch shim, so cmd.exe parses the `>` in them and
         # dies with "> was unexpected at this time" before Electron starts.

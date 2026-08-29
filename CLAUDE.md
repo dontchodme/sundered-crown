@@ -399,6 +399,15 @@ git push
 
 ## 8. THE OPEN ITEMS, OLDEST FIRST
 
+0. **THE APP CANNOT HOLD 60 fps THROUGH THE LOUD ULTIMATES.** Measured on the
+   real GPU at 453x805: fields off 7.33 ms, Slagburst's 1890 particles 26.13 ms
+   — 157% of a frame, so ~38 fps for the 1.5s it is alive. **The video is
+   unaffected** (offline capture) and **the picture is unaffected** (the field
+   is aged off `ultFx.t`, so a dropped frame is fewer samples of the same
+   set-piece, not a different one). It is a smoothness cost in a preview tool.
+   Rick's call: accept it, or give the app a named lighter tier — never a
+   silent one. `docs/FX-RUNTIME-BRIEF.md` §3.2.
+
 1. **THE SHARED `cineFloor` IS STILL NOT BUILT.** v40 item 1, six relics deep.
    §3 of the v43 handoff is the first measurement it would be set against: a
    fatal cut is rare for **every** melee relic — 8% to 23% across six.

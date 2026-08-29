@@ -234,6 +234,33 @@ app at the density that won, and the video was never constrained at all since
 it renders offline. The GPU runtime buys headroom nobody currently needs, and
 it is a session of work.
 
+> **AND THAT NUMBER DID NOT SURVIVE THE DENSITY RICK PICKED.** 1.64 ms was
+> 420 particles. He then chose 4.5x that, and the specs shipped at 1000-1890.
+> Re-measured on the real GPU against the SHIPPED field, at the app's size:
+>
+> ```
+>   fields off                7.33 ms     44% of a 60 fps frame
+>   900                      11.97       72%
+>   1350                     19.13      115%   <- over
+>   1890  (Slagburst)        26.13      157%   <- over
+> ```
+>
+> **The app cannot hold 60 fps through the loud ultimates.** Slagburst puts it
+> at ~38 fps for the 1.5s the field is alive. The video is unaffected — it
+> captures offline, where a slow frame costs wall-clock only.
+>
+> What this does NOT do is change the picture, and that is worth being precise
+> about: the field is aged off `ultFx.t`, so a dropped frame in the app shows
+> the same set-piece with fewer samples of it, not a different one. The mp4 is
+> byte-identical either way.
+>
+> **So it is a smoothness cost in a preview tool, not a defect in the
+> deliverable** — and Rick's own framing is the reason that might be
+> acceptable: *"we are building an app to make shorts. not an app to ship to
+> other people."* Still his call, and it is §5.0b's two-tier question arriving
+> from the art side: if the app gets a lighter field than the film, that has to
+> be a NAMED setting the app displays, not a silent fallback.
+
 > **The "about a dozen sprites" figure was about `shadowBlur`.** Each of the
 > current art's sprites carries a full-canvas shadow; these carry none. That
 > is why the estimate was an order of magnitude out — it priced a different
