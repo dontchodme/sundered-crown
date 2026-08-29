@@ -188,6 +188,33 @@ Two results, 2026-08-28, and the second is the expensive one.
 lost outright and the camera work is out of scope, and particles won on the
 first spread.
 
+**Then four shapes, and all four won.** *"do it on a few other ults first"* —
+the right instinct, because the first spread could not tell whether particles
+work or whether an explosion was a lucky fit. So the emitter became
+spec-driven: three modes and a handful of numbers each, one shared
+implementation.
+
+```
+  emberedge   burst   the explosion: hard radial, heavy gravity, tumbling debris
+  widowmaker  burst   a nova is a burst that does NOT fall -- gravity is most of
+                      what separates explosion from shockwave, and it is one number
+  aureole     beam    sheds along its length, not from a point, motes drifting UP
+  lastlight   field   seeds motes across its whole radius over its whole life
+```
+
+Rick: *"the louder one is better every time."* Four for four, across an
+explosion, a nova, a beam and a sustained field.
+
+> **THAT IS THE RESULT THAT MATTERS, AND IT IS NOT "PARTICLES LOOK NICE".** The
+> four differ only in data. If the vocabulary reaches four shapes it reaches
+> the roster, and §4's argument — that a set-piece stops being sixty
+> hand-written lines and becomes a spec — is no longer a proposal. It is the
+> thing that was just demonstrated on four relics.
+
+Colours are deliberately NOT in the specs: each field reads the relic's own
+affinity at draw time, because a per-relic palette is exactly the number §4.9
+says not to strand, and the schools already own their colour.
+
 **And they do not need a GPU.** This section asks for a texture-state system
 in `src/render/fx.js` on the premise that Canvas 2D can only afford about a
 dozen sprites a frame. Measured on the real GPU through Electron, at the app's

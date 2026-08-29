@@ -63,10 +63,21 @@ EL_JS = HERE / "fxcost_electron.js"
 EL_BIN = [REPO / "app" / "node_modules" / ".bin" / n
           for n in ("electron.cmd", "electron")]
 
-# Density arms. One variable, because "should there be particles at all" is the
-# question and a spread that moved colour and count together could not answer
-# it. `heavy` is the multiplier Rick chose on Slagburst.
-ARMS = {"off": 0.0, "light": 0.30, "heavy": 1.0}
+# Density arms as MULTIPLIERS on each spec's own n, so "heavy" means the same
+# thing to a 300-mote beam and a 420-ember explosion.
+#
+# `louder` and `loudest` exist because Rick, shown off-vs-heavy on four relics:
+# "the louder one is better every time." 420 was the top of the first spread,
+# not a ceiling anyone had found -- so the spread was extended upward rather
+# than assumed to have bracketed the answer. Section 4.8: if you generalise
+# from a subset, look at the superset first.
+#
+# The app's budget stops mattering above `heavy` and the video's does not
+# exist: 900 particles cost +4.28 ms against 4.77 ms of headroom, and 2000
+# cost +9.12 which the app cannot take. The mp4 renders offline, where a slow
+# frame costs wall-clock and nothing else -- and the mp4 is the deliverable.
+ARMS = {"off": 0.0, "light": 0.30, "heavy": 1.0,
+        "louder": 2.2, "loudest": 4.5}
 
 # Colours are NOT in the specs. They come from the relic's own affinity at draw
 # time (`aff.core`, `aff.dark`), because a hand-picked palette per relic is the
