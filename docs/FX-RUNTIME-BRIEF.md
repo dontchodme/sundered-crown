@@ -385,13 +385,16 @@ rejected in motion, and `CLAUDE.md` §4.0 is the same rule one level down.
 
 ### Stage 0 — clear the debts and get the number *(half a session)*
 
-- `post_build.py`'s `--src`/`--out` defaults still point at the pre-`ultcarry`
-  link. **A bare run silently builds a tip with none of the ult art fixes, and
-  nothing errors.** Two strings, then `chain_audit.py --builder post_build.py`
-  and `engine_ab.py`. Named in `BUILD-CHAIN.md` §3 and `APP-FEATURES-BRIEF.md`
-  §0.1 and still open — and it is the exact trap `CLAUDE.md` §4.10 warns about.
-- `tools/README.md` says 62 files over ~200 and is missing three of the four
-  newest chain links.
+- ~~`post_build.py`'s `--src`/`--out` defaults~~ **ALREADY FIXED, and this
+  bullet was wrong when it was written.** The defaults point at
+  `sc-paradox-dawn.html` → `sc-paradox-frame.html` and a bare run is
+  byte-identical to the tip (verified 2026-08-28). Closed in `c743897`, which
+  is an ANCESTOR of `46e37edc`, the commit this brief was written off.
+  `BUILD-CHAIN.md` §3 and `APP-FEATURES-BRIEF.md` §0.1 both still described it
+  as live, and this brief inherited the error from them.
+- ~~`tools/README.md` says 62 files over ~200 and is missing three of the four
+  newest chain links.~~ **ALSO ALREADY FIXED.** The header counts the tools
+  and all four newest chain links are in the BUILD section.
 - **`git status` before anything.** `src/render/post.js` and
   `02-chain/sc-paradox-frame.html` both carry mtime `1787974707495` — the same
   millisecond, and later than commit `46e37edc`. Identical mtimes across two

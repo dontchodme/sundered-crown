@@ -71,25 +71,35 @@ python post_build.py       --src ../02-chain/sc-paradox-dawn.html \
 
 ---
 
-## 3. THE TRAP, AND IT IS LIVE
+## 3. THE TRAP — CLOSED, AND THIS SECTION WAS STALE
 
-> **`post_build.py` run with no arguments does NOT rebuild the tip.**
+> **`post_build.py` run with no arguments DOES rebuild the tip.** Verified
+> 2026-08-28: a bare run into a scratch path is **byte-identical** to
+> `02-chain/sc-paradox-frame.html`.
 
-**Three of the four builders' defaults are correct** — `cineexport_build.py`,
-`readouts_build.py` and `ultcarry_build.py` each default to exactly the link
-they made. `post_build.py` is the one that is not: its defaults are still the
-ones from the session before `ultcarry_build.py` existed.
+All four builders' defaults are now correct — `cineexport_build.py`,
+`readouts_build.py`, `ultcarry_build.py` and `post_build.py` each default to
+exactly the link they made:
 
 ```python
-ap.add_argument("--src", default="../02-chain/sc-paradox-readouts.html")
-ap.add_argument("--out", default="../02-chain/sc-paradox-post.html")
+ap.add_argument("--src", default="../02-chain/sc-paradox-dawn.html")
+ap.add_argument("--out", default="../02-chain/sc-paradox-frame.html")
 ```
 
-So a bare `python post_build.py` reads `sc-paradox-readouts.html`, **skips
-`ultcarry_build.py` entirely**, and writes `sc-paradox-post.html` — a build
-with none of the ult art fixes, under a filename that is not the build of
-record. Nothing errors. `02-chain/sc-paradox-post.html` on disk is that
-superseded output; it is not on the current chain.
+**What the trap WAS**, kept because it is the clearest example of §4.10 in the
+repo: `post_build.py`'s defaults were left over from the session before
+`ultcarry_build.py` existed, so a bare run read `sc-paradox-readouts.html`,
+skipped `ultcarry_build.py` entirely, and wrote `sc-paradox-post.html` — a
+build with none of the ult art fixes, under a filename that is not the build of
+record, with nothing erroring. `02-chain/sc-paradox-post.html` on disk is that
+superseded output and is not on the current chain.
+
+Fixed in `c743897`. **And this document went on describing it as live for
+several sessions afterward** — long enough that
+`docs/FX-RUNTIME-BRIEF.md`'s Stage 0, written off `46e37edc`, listed it as the
+first debt to clear. `c743897` is an ancestor of that commit. A doc that
+describes a closed trap costs the same as one that hides an open one: the next
+session spends its first half hour on work that is already done.
 
 This is §4.10 wearing a different hat: **a builder whose default points at the
 wrong link will happily produce a wrong build and say nothing.** Pass `--src`

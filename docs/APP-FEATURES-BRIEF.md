@@ -11,15 +11,17 @@ Read `CLAUDE.md`, then `docs/BUILD-CHAIN.md`, then this.
 
 ## 0. THE DEBTS, FIRST, BECAUSE THEY ARE SMALL AND THEY ROT
 
-1. **`post_build.py`'s defaults do not rebuild the tip.** `--src` still points
-   at `sc-paradox-readouts.html` and `--out` at `sc-paradox-post.html`, from
-   before `ultcarry_build.py` existed. A bare run silently skips the ult art
-   fixes. Two strings, then `chain_audit.py` and `engine_ab.py`.
-   `docs/BUILD-CHAIN.md` §3.
-2. **`tools/README.md` is stale.** It says "62 files" over ~200, its BUILD
-   section is missing `cineexport_build.py`, `readouts_build.py` and
-   `post_build.py` — three of the four newest chain links — and it files four
-   probes under "the shipping chain, in order".
+**BOTH OF THE FIRST TWO ARE DONE.** Closed in `c743897`, and verified again
+2026-08-28 — but three separate documents went on listing them as open long
+afterward, and `docs/FX-RUNTIME-BRIEF.md` inherited the error into its Stage 0.
+Left here struck through rather than deleted, because "the debts rot" turned
+out to be true of the debt LIST and not the debts.
+
+1. ~~**`post_build.py`'s defaults do not rebuild the tip.**~~ **FIXED.** The
+   defaults are `sc-paradox-dawn.html` → `sc-paradox-frame.html` and a bare
+   run is byte-identical to the build of record. `docs/BUILD-CHAIN.md` §3.
+2. ~~**`tools/README.md` is stale.**~~ **FIXED.** The header counts the tools
+   and all four newest chain links are in the BUILD section.
 3. **The contact sheets render a tofu box** where an em-dash belongs
    (`harrow-before-after.png`, `daybreak-ball-ab.png`). The sheet font lacks
    the glyph. Cosmetic, but this project reviews by photograph.
