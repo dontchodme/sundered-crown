@@ -393,6 +393,71 @@ This is the highest-value item in this document after §1, because:
 
 Determinism is unaffected: averaging introduces no randomness.
 
+### BUILT AND MEASURED — 2026-08-28
+
+`cinema_clip.py --motion-blur N`. Each output frame is the mean of N
+sub-frames, accumulated incrementally so no divide is needed at the end.
+
+**IT WAS NOT PROVABLY FREE.** `CINE.pump` is not linear in `raw`: it advances
+the director's phase clock, and below `timeScale 0.02` it calls
+`m.decayImpactOnly(raw * 0.85)`, which touches MATCH state. `run_pass` prints
+the fight as four numbers so the arms can be diffed, and on
+paradox v heartwood 25064:
+
+```
+  N=1   over=True  t=46.4083  clanks=17  hp=[17, 0]
+  N=2   over=True  t=46.4083  clanks=17  hp=[17, 0]
+```
+
+**Identical — the fight is untouched.** Only the verdict-hold tail differs, by
+two frames, because it waits on an event rather than a frame count. (46.4083 is
+also `CLAUDE.md` §4.2b's recorded value for this seed on the pinned pair, so
+the runtime is intact.)
+
+### AND THEN RICK WATCHED IT: "THE BLUR ON IT SEEMS TOO STRONG"
+
+He is right, and the reason is not the strength. **N = 2 does not make a smear.
+It makes a double exposure.**
+
+Two samples across a frame interval draw a fast relic TWICE at half opacity.
+There is no continuum between the two positions because there is no third
+sample to put there, so the eye reads an echo rather than motion. Turning it
+down does not fix that — it only thins the second copy.
+
+The measurement says the same thing and it is the tell. Edge energy against the
+blend weight S is **not monotonic**:
+
+```
+   S           0.00     0.25     0.50     0.75     1.00
+  frame 400      0%    -4.9%    -8.0%    -8.4%    -6.1%
+  frame 300      0%    -6.3%   -10.0%   -10.8%    -7.9%
+  frame 120      0%    -8.5%   -13.7%   -14.5%    -8.5%
+```
+
+It bottoms out near S = 0.75 and comes back UP at S = 1.0. A real shutter angle
+cannot do that — more exposure is always more blur. A two-sample pair can,
+because an EQUAL-weight pair reads as two distinct edges while an unequal one
+reads as one edge plus a faint ghost, and a gradient metric prefers the ghost.
+**The non-monotonicity is the proof that this is not blur.**
+
+> **So `--shutter` is misnamed if it is read as an angle, and its help says so.**
+> It controls how much of the earlier copy survives — 50% at 1.0, 25% at 0.5,
+> 12.5% at 0.25. That is a ghost-opacity knob, not an exposure.
+
+**What a real one needs.** 8–16 samples across the interval, i.e. drawing the
+world at times BETWEEN sim steps. The engine can already do that:
+`CINE.drawLerped(renderer, m, alpha)` draws an interpolated frame and the
+capture loop already calls it. What is missing is a snapshot outside a cut —
+`CINE.pump` only takes one when `interp && this.cut`. So sub-frame sampling is
+free exactly during cuts and needs a snapshot path everywhere else.
+
+> **What §5 got right and what it got wrong.** Right: the sim carries temporal
+> information the picture throws away, and putting it back is the highest-value
+> item here after §1. Wrong: that N=2 is enough to do it, and that it costs
+> "one extra draw per frame and nothing else." The honest number is 8–16 draws
+> per output frame plus a snapshot path in `CINE` — which is a change to the
+> director, and therefore Rick's call rather than a capture-tool flag.
+
 ---
 
 ## 6. THE UPLOAD PATH — FREE, AND NOT IN THE CODE

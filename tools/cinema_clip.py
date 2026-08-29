@@ -106,11 +106,11 @@ window.__clip = {
     return { seed: m.seed, t: m.t, kill: (CINE.plan.find(c => c.fatal) || {}).t };
   },
 
-  /* One output frame. `raw` is real seconds of video time.
+  /* ONE SUB-FRAME: advance the world by `raw` seconds of video and draw it.
      Routed through CINE.pump and CINE.drawLerped -- the SAME code the live
      page runs -- so the mp4 cannot show something the game does not, which is
-     exactly the trap a bespoke capture loop sets. */
-  /* ONE SUB-FRAME: advance the world by `raw` seconds of video and draw it.
+     exactly the trap a bespoke capture loop sets.
+
      Split out of frame() so an output frame can be built from more than one
      of these and averaged -- sub-frame motion blur, DELIVERY-QUALITY-BRIEF.md
      §5. Nothing else changed: this is frame()'s old body verbatim. */
@@ -145,9 +145,31 @@ window.__clip = {
      and clank count. If those move, this is a change to the fight and not a
      change to the picture, and CLAUDE.md §8 of the FX brief says stop and
      hand it to Rick rather than reaching into the sim. */
-  frame(raw, q, mb) {
+  frame(raw, q, mb, shutter) {
     const AC = window.AC, cv = document.getElementById('cv');
     const N = Math.max(1, mb | 0), m = this.m;
+    /* SHUTTER WEIGHT, and read the warning under --motion-blur first: at
+       N=2 this is not a shutter angle and the thing it controls is not blur.
+
+       Two samples across a frame interval is a DOUBLE EXPOSURE, not a smear.
+       A fast relic is drawn twice at half opacity, and Rick's first look at
+       S=1 said "too strong" -- which is what an echo looks like. S thins the
+       earlier copy: 50% of it at S=1, 25% at S=0.5, 12.5% at S=0.25.
+
+       Measured, and this is why the honest name is `weight` and not `angle`:
+       edge energy against S is NOT monotonic. It bottoms out near S=0.75 and
+       comes back up at S=1, because an equal-weight pair reads as two edges
+       and an unequal one as an edge plus a faint ghost. A real shutter angle
+       would be monotonic. This knob is not one.
+
+       Weights: the newest sub-frame always lands, the earlier ones are
+       admitted in proportion to S.
+         w[s]   = S / N              for s < N-1
+         w[N-1] = 1 - S * (N-1) / N
+       S=1 gives the flat mean back, S=0 gives the last sub-frame alone and
+       therefore no blur at all -- so the knob spans the whole range with no
+       special cases. */
+    const S = shutter === undefined || shutter === null ? 1 : shutter;
     if (N === 1) {
       this._sub(raw);
     } else {
@@ -161,9 +183,15 @@ window.__clip = {
       ax.globalCompositeOperation = 'source-over';
       ax.globalAlpha = 1;
       ax.clearRect(0, 0, acc.width, acc.height);
+      /* Incremental weighted mean: after drawing sub-frame s the buffer must
+         hold the weighted mean of 0..s, so its alpha is its own weight over
+         the running total. At S=1 that collapses to 1/(s+1). */
+      let run = 0;
       for (let s = 0; s < N; s++) {
         this._sub(raw / N);
-        ax.globalAlpha = 1 / (s + 1);
+        const w = (s === N - 1) ? 1 - S * (N - 1) / N : S / N;
+        run += w;
+        ax.globalAlpha = run > 0 ? w / run : 1;
         ax.drawImage(cv, 0, 0);
       }
       /* the mean, back onto the canvas every downstream reader expects */
@@ -336,7 +364,7 @@ def _ext(q):
 
 
 def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
-             mb=1,
+             mb=1, shutter=1.0,
              intro=False, cold_open=None, verdict_hold=2.4):
     page.evaluate("([c]) => { window.__coldOpen = c; }", [cold_open is not None])
     info = page.evaluate("([a,b,s,o,t,i]) => window.__clip.init(a,b,s,o,t,i)",
@@ -367,8 +395,9 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
             last_beat = now
             print(f"[progress] capture frames={i} elapsed={now - t0:.1f}",
                   file=sys.stderr, flush=True)
-        r = page.evaluate("([raw,q,mb]) => window.__clip.frame(raw,q,mb)",
-                          [raw, q, mb])
+        r = page.evaluate(
+            "([raw,q,mb,sh]) => window.__clip.frame(raw,q,mb,sh)",
+            [raw, q, mb, shutter])
         if not card_up and (r["c"] > 0 or r["t"] >= cold_open):
             # The EVENT is the anchor; the clock is only a cap. Measured over
             # 144 matches, a timer alone cuts mid-approach: 17% have clanked
@@ -402,8 +431,8 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
             held, cap = 0, int(fps * (verdict_hold + 8.0))
             for k in range(cap):
                 r2 = page.evaluate(
-                    "([raw,q,mb]) => window.__clip.frame(raw,q,mb)",
-                    [raw, q, mb])
+                    "([raw,q,mb,sh]) => window.__clip.frame(raw,q,mb,sh)",
+                    [raw, q, mb, shutter])
                 p2 = outdir / f"{tag}_{i:05d}.{_ext(q)}"
                 p2.write_bytes(base64.b64decode(r2["i"]))
                 frames.append(p2)
@@ -478,11 +507,21 @@ def main() -> int:
                          "DCT ringing on the ult art before x264 sees it")
     ap.add_argument("--motion-blur", type=int, default=1, metavar="N",
                     help="average N sub-frames into each output frame. dt is "
-                         "1/120 and output is 60, so N=2 is exactly one sim "
-                         "step per sub-frame -- no interpolation and no "
-                         "invented state. NOT provably free: CINE.pump is not "
-                         "linear in raw, so compare the fight telemetry "
-                         "against N=1 before believing it")
+                         "1/120 and output is 60, so N=2 is one sim step per "
+                         "sub-frame -- no interpolation and no invented "
+                         "state. AND TWO SAMPLES IS NOT MOTION BLUR: it is a "
+                         "double exposure, and it looks like one. A smear "
+                         "needs 8-16 samples across the interval, which means "
+                         "interpolating BETWEEN sim steps. Also not provably "
+                         "free -- CINE.pump is not linear in raw -- so compare "
+                         "the fight telemetry against N=1 before believing it")
+    ap.add_argument("--shutter", type=float, default=1.0, metavar="S",
+                    help="how much of the EARLIER sub-frame survives, with "
+                         "--motion-blur. NOT a shutter angle: at N=2 the "
+                         "effect is a double exposure rather than a smear, so "
+                         "S thins the second copy (50%% of it at 1.0, 12.5%% "
+                         "at 0.25) instead of shortening an exposure. 0 is no "
+                         "blur")
     ap.add_argument("--preset", default="veryfast",
                     help="x264 preset. `veryslow` is free quality in exchange "
                          "for encode minutes -- the source only has to be "
@@ -622,11 +661,13 @@ def main() -> int:
             print("  rendering director OFF ...")
             f_off, w_off, d_off, _ = run_pass(page, a.a, a.b, seed, False, start,
                                               a.fps, cap, Q, tmp, "off",
-                                              mb=a.motion_blur)
+                                              mb=a.motion_blur,
+                                              shutter=a.shutter)
         print("  rendering director ON ...")
         f_on, w_on, d_on, info_on = run_pass(page, a.a, a.b, seed, True, start,
                                        a.fps, cap, Q, tmp, "on",
                                        mb=a.motion_blur,
+                                       shutter=a.shutter,
                                        intro=a.full and a.intro,
                                        verdict_hold=a.verdict_hold,
                                        cold_open=a.cold_open)
