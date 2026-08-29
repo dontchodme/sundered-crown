@@ -1,4 +1,4 @@
-# tools/ — 210 files, grouped by what they answer
+# tools/ — 211 files, grouped by what they answer
 
 Flat on disk on purpose: every tool resolves the game beside itself and
 imports `scpage.py` the same way, so subfolders would break all of them.
