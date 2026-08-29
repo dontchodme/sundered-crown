@@ -1,4 +1,4 @@
-# tools/ — 207 files, grouped by what they answer
+# tools/ — 208 files, grouped by what they answer
 
 Flat on disk on purpose: every tool resolves the game beside itself and
 imports `scpage.py` the same way, so subfolders would break all of them.
@@ -68,6 +68,7 @@ Not stamped at the tip, but chain-adjacent:
 - `ult_bloom_probe.py` — which ults blow out, and how much of it is the bloom. Ranked on the caster's disc. Zero simulated fights
 - `ult_fx_capture.py` — every ultimate's REAL ultFx, caught out of a real fight, so a probe replays what the engine built instead of what a session guessed
 - `ult_live_probe.py` — the ults a FROZEN match cannot show. Plays a real fight and draws it frame by frame; the five whose picture lives in match state (stasis, ballista, split, spinstorm, retrace) are only visible here
+- `ult_camera_probe.py` — does an ultimate ever get a SHOT? 98% of casts have no cut within a second. Also prices seven camera policies in cuts/match against today's 0.64
 - `ult_envelope_lab.py` — the same set-piece under a different CLOCK. Warps `u.t`, not `k`, because fifteen branches compute their own fade off the seconds and would not follow `k`. `linear` is bit-exactly the shipped game. Zero simulated fights
 - `clip_spread.py` — N clips side by side in ONE file at native resolution, because a spread Rick cannot see is not a spread. Refuses to stack clips of different lengths: same seed, different length means something changed the FIGHT, and that is the finding
 - `shadowblur_probe.py` — is `shadowBlur` scaled by the CTM? No, it is in device space, so every glow is 2.00x wider relative to the frame at `--w 540` and 2.24x in the app. `--census` traps the setter through a drawn frame per relic and shows which half of the fix is where. Zero simulated fights
