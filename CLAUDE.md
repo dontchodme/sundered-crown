@@ -293,6 +293,30 @@ python cinema_clip.py --game ../02-chain/sc-paradox-frame.html \
 **Expect `verdict panel held 2.40s of the ... tail` on every capture and treat
 its absence as a defect.**
 
+**`ffmpeg` IS NOT ON PATH IN A TERMINAL, AND THE FAILURE LOOKS LIKE A BROKEN
+RENDER.** winget installs it without a shim. The capture succeeds, three or
+ten minutes pass, and the encode dies with a bare `FileNotFoundError
+[WinError 2]` naming no file — so the command above fails on a machine where
+the app renders clips perfectly, because `app/main.js` resolves it and injects
+PATH for its children while the tools never did. The frames survive; finish
+with `--encode-only` after putting it on PATH:
+
+```bash
+export PATH="$PATH:$LOCALAPPDATA/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin"
+```
+
+`tools/clip_spread.py` carries a `resolve_ffmpeg()` that mirrors the app's;
+`cinema_clip.py` and `shorts_build.py` still call bare `ffmpeg`.
+
+**Delivery-quality flags, all opt-in and all measured** —
+`docs/DELIVERY-QUALITY-BRIEF.md`. `--blur-scale`, `--png`, `--preset`,
+`--motion-blur N`, `--shutter S`. Rick watched clips off seed 25064 on
+2026-08-28: he could not tell 540-as-shipped from a 1080/lossless/veryslow
+render, so **the pristine path does not currently earn its 4x render time**,
+and `--blur-scale` is invisible and parked. `--motion-blur 2` he could see and
+called too strong — it is a double exposure rather than a smear, and the brief
+says what a real one costs. Clip spreads: `tools/clip_spread.py`.
+
 Voiceover needs two model files that are **not in the repo** — see
 `tools/FETCH-KOKORO.md`. Voice of record is `bm_lewis`.
 
