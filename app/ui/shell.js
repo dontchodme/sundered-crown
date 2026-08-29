@@ -123,10 +123,15 @@ function startFight(seed) {
 }
 
 function wireControls() {
-  $('btnFight').onclick = () => {
-    const raw = $('seed').value.trim();
-    startFight(raw === '' ? undefined : (Number(raw) >>> 0));
-  };
+  /* FIGHT IS ALWAYS A NEW FIGHT. It used to read the seed box and replay
+   * whatever was in it -- which made it identical to Replay, because
+   * `trackSeed` writes the live seed into that box four times a second. The
+   * box is a READOUT of the fight on screen (and the thing worth copying out
+   * of the app); it was never meant to be an instruction to repeat it.
+   *
+   * So the two buttons say what their labels always claimed: Fight rolls a
+   * new seed on the same two relics, Replay runs the seed in the box again. */
+  $('btnFight').onclick = () => startFight(undefined);
 
   $('btnReplay').onclick = () => {
     const raw = $('seed').value.trim();
@@ -281,12 +286,76 @@ function wireControls() {
     }
   };
 
+  /* ---- CREATE SHORT -------------------------------------------------------
+   * The job runs in the main process and PUSHES. Nothing here polls: a capture
+   * says something once a second and a second clock in the UI would only be a
+   * thing to keep in step with the first. */
+  let shortRunning = false;
+  const shSay = (t) => { $('shProg').textContent = t || '\u00a0'; };
+  const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+
+  window.swb.onShortProgress((d) => {
+    if (d.stage === 'capture') {
+      /* FRAMES AND ELAPSED, NOT A PERCENTAGE. The capture runs until the match
+       * ends, so the denominator is genuinely unknown -- a bar here would be
+       * invented, which is the thing this card is not allowed to be. */
+      shSay(`capturing — ${d.frames.toLocaleString()} frames · ${mmss(d.elapsed)}`);
+    }
+  });
+
+  window.swb.onShortLog((d) => {
+    const el = $('shLog');
+    el.hidden = false;
+    el.textContent += d.line + '\n';
+    el.scrollTop = el.scrollHeight;
+    if (/^\[\d\/3\]/.test(d.line)) shSay(d.line);
+  });
+
+  window.swb.onShortDone((d) => {
+    shortRunning = false;
+    $('btnShort').disabled = false;
+    $('btnCancelShort').hidden = true;
+    if (d.cancelled) { shSay('cancelled'); return; }
+    if (!d.ok) { shSay(''); alertInto('btnShort', d.reason); return; }
+    shSay(`done — ${d.seconds}s`);
+    $('btnReveal').hidden = false;
+    $('btnReveal').onclick = () => window.swb.revealFile(d.file);
+    const grid = $('shFrames');
+    grid.hidden = false;
+    grid.innerHTML = (d.frames || []).map((f) =>
+      `<img src="data:image/jpeg;base64,${f.jpg}" title="${f.t.toFixed(1)}s">`).join('');
+  });
+
+  $('shWhole').onchange = () => {
+    const whole = $('shWhole').checked;
+    $('shLead').disabled = whole;
+    $('shLeadRow').style.opacity = whole ? 0.45 : 1;
+  };
+  $('shWhole').onchange();
+
+  $('btnCancelShort').onclick = () => window.swb.cancelShort();
+
   $('btnShort').onclick = async () => {
+    if (shortRunning) return;
+    $('shLog').textContent = '';
+    $('shFrames').hidden = true;
+    $('btnReveal').hidden = true;
+    shSay('starting…');
     const r = await window.swb.createShort({
       a: $('selA').value, b: $('selB').value,
       seed: Number($('seed').value) >>> 0,
-      vo: $('vo').value,
+      /* EMPTY LEAD MEANS THE WHOLE FIGHT. shorts_build passes --full when no
+       * --lead is given, and --full is what start=0 comes from. */
+      lead: $('shWhole').checked ? null : (Number($('shLead').value) || 18),
+      vo: $('vo').value, voice: $('voVoice').value,
     });
+    if (r.ok) {
+      shortRunning = true;
+      $('btnShort').disabled = true;
+      $('btnCancelShort').hidden = false;
+      return;
+    }
+    shSay('');
     if (!r.ok) alertInto('btnShort', r.reason);
   };
 

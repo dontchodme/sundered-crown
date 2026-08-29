@@ -282,12 +282,171 @@ ipcMain.handle('swb:revealFile', async (_e, p) => {
   return true;
 });
 
-/* PLACEHOLDER, and deliberately honest about it. Phase 3 replaces this with a
- * real job queue over shorts_build.py: a full 60fps capture is ~2,800 frames
- * and 3-4 minutes, so this can never be a blocking call that returns a file.
- * It returns progress or it lies. */
-ipcMain.handle('swb:createShort', async () => {
-  return { ok: false, reason: 'not built yet — docs/ARCHITECTURE.md §5' };
+/* ---- CREATE SHORT -------------------------------------------------------
+ *
+ * A full capture is ~1,400-2,800 frames and 3-4 minutes, so this cannot be a
+ * call that returns a file. It starts a job, streams what the pipeline says,
+ * and can be cancelled. ONE AT A TIME: two captures would fight over the same
+ * _clip_frames directory and the second would encode the first one's frames.
+ *
+ * The pipeline is shorts_build.py, unchanged and unreimplemented. Its mix
+ * graph has one flag (`alimiter ... level=false`) that is invisible in the
+ * output and merely makes the file clip if forgotten, and its law -- never
+ * patch a mix, re-capture -- is held by construction there. Moving any of that
+ * in here would be rewriting the one part of this project that is measured.
+ */
+let JOB = null;
+
+function jobSend(win, channel, payload) {
+  if (win && !win.isDestroyed()) win.webContents.send(channel, payload);
+}
+
+/* ffmpeg is needed to pull frames off the finished file. winget installs it
+ * without a shim, so `ffmpeg` is not on PATH until the user adds it -- and a
+ * GUI app inherits the PATH it was LAUNCHED with, which may predate that. So:
+ * PATH first, then the place winget actually puts it, then say so plainly. */
+function resolveFfmpeg() {
+  const candidates = ['ffmpeg'];
+  const local = process.env.LOCALAPPDATA;
+  if (local) {
+    const base = path.join(local, 'Microsoft', 'WinGet', 'Packages');
+    try {
+      for (const d of fs.readdirSync(base)) {
+        if (!d.startsWith('Gyan.FFmpeg')) continue;
+        for (const b of fs.readdirSync(path.join(base, d))) {
+          const exe = path.join(base, d, b, 'bin', 'ffmpeg.exe');
+          if (fs.existsSync(exe)) candidates.push(exe);
+        }
+      }
+    } catch {}
+  }
+  for (const c of candidates.slice(1)) if (fs.existsSync(c)) return c;
+  return 'ffmpeg';
+}
+
+/* FOUR FRAMES OFF THE FINISHED FILE, BECAUSE EVERY FAILURE THIS PIPELINE HAS
+ * PRODUCED WAS INVISIBLE TO ITS OWN CHECKS AND OBVIOUS IN ONE FRAME: relics
+ * halved by the bottom edge, a beige-washed kill, a voiceover naming a relic
+ * the card does not call by that name. The delivery checks pass on all of
+ * those. SHORTSHANDOFF's second law, enforced in the UI rather than trusted. */
+function pullFrames(mp4, seconds) {
+  const ff = resolveFfmpeg();
+  const at = [0.10, 0.35, 0.65, 0.92].map((f) => Math.max(0, seconds * f));
+  return Promise.all(at.map((t) => new Promise((resolve) => {
+    const out = path.join(os.tmpdir(), `swb-f-${Date.now()}-${Math.round(t * 100)}.jpg`);
+    execFile(ff, ['-y', '-hide_banner', '-loglevel', 'error', '-ss', String(t),
+                  '-i', mp4, '-frames:v', '1', '-q:v', '4', out], (err) => {
+      if (err || !fs.existsSync(out)) return resolve(null);
+      let b64 = null;
+      try { b64 = fs.readFileSync(out).toString('base64'); } catch {}
+      try { fs.unlinkSync(out); } catch {}
+      resolve(b64 ? { t, jpg: b64 } : null);
+    });
+  }))).then((r) => r.filter(Boolean));
+}
+
+ipcMain.handle('swb:createShort', async (e, opts = {}) => {
+  if (JOB) return { ok: false, reason: 'a short is already rendering' };
+  const win = BrowserWindow.fromWebContents(e.sender);
+
+  const a = String(opts.a || '').trim(), b = String(opts.b || '').trim();
+  const seed = Number(opts.seed) >>> 0;
+  if (!a || !b) return { ok: false, reason: 'pick two relics first' };
+  if (a === b) return { ok: false, reason: 'a relic cannot fight itself' };
+
+  const dir = path.join(REPO, '07-shorts', 'app');
+  fs.mkdirSync(dir, { recursive: true });
+  const out = path.join(dir, `${a}-v-${b}-${seed}.mp4`);
+
+  const args = ['shorts_build.py', '--game', GAME, '--a', a, '--b', b,
+                '--seed', String(seed), '--no-card', '--out', out];
+  /* --no-card is not a preference. cinema_clip REFUSES --intro without
+   * --legacy-card: the fight card is retired (rule 1) and card-first videos
+   * lose 71-75% of the audience present when it appears. */
+  if (opts.lead) args.push('--lead', String(Number(opts.lead)));
+
+  /* THE ANNOUNCER BOX HAS TO REACH THE SHORT, AND `--vo` TAKES A WAV.
+   *
+   * shorts_build renders the default hook itself when no --vo is given, which
+   * is the right behaviour for an empty box. A typed line is not text it can
+   * accept: passing it as --vo would hand a sentence where a file path goes.
+   * So the line is rendered HERE first, through the same --script path the
+   * preview uses, and the wav is handed over.
+   *
+   * Written next to the mp4 rather than into tmp: shorts_build names its own
+   * hook wav that way, and a voiceover that outlives its render is worth
+   * having when a mix is questioned later. */
+  const line = String(opts.vo ?? '').trim();
+  if (line) {
+    const voOut = out.replace(/\.mp4$/, '-vo.wav');
+    const rv = await runPython(['cinema_vo.py', '--a', a, '--b', b,
+                                '--script', line, '--voice',
+                                String(opts.voice || 'bm_lewis'),
+                                '--out', voOut], { timeout: 180000 });
+    if (!rv.ok || !fs.existsSync(voOut)) {
+      return { ok: false, reason: lastLine(rv.stderr) || 'the voice line failed to render' };
+    }
+    args.push('--vo', voOut);
+  }
+
+  const child = require('node:child_process').spawn(PYTHON, args,
+    { cwd: path.join(REPO, 'tools'), windowsHide: true });
+  JOB = { child, out, cancelled: false, log: [] };
+
+  const feed = (buf, stream) => {
+    for (const raw of String(buf).split(/\r?\n/)) {
+      const line = raw.trimEnd();
+      if (!line) continue;
+      JOB.log.push(line);
+      const m = /^\[progress\] capture frames=(\d+) elapsed=([\d.]+)/.exec(line);
+      if (m) {
+        jobSend(win, 'swb:shortProgress',
+                { stage: 'capture', frames: +m[1], elapsed: +m[2] });
+      } else {
+        jobSend(win, 'swb:shortLog', { line, stream });
+      }
+    }
+  };
+  child.stdout.on('data', (d) => feed(d, 'out'));
+  child.stderr.on('data', (d) => feed(d, 'err'));
+
+  child.on('close', async (code) => {
+    const cancelled = JOB && JOB.cancelled;
+    const log = JOB ? JOB.log : [];
+    JOB = null;
+    if (cancelled) return jobSend(win, 'swb:shortDone', { ok: false, cancelled: true });
+    if (code !== 0 || !fs.existsSync(out)) {
+      return jobSend(win, 'swb:shortDone', { ok: false,
+        reason: log.filter(Boolean).slice(-1)[0] || `shorts_build exited ${code}`, log });
+    }
+    /* The tool prints its own measured delivery line; the duration is read back
+     * off it rather than assumed, and the frames are sampled against it. */
+    const dur = (() => {
+      for (const l of log) {
+        const m = /([\d.]+)s\s+[\d.]+MB/.exec(l);
+        if (m) return parseFloat(m[1]);
+      }
+      return 23;
+    })();
+    const frames = await pullFrames(out, dur);
+    jobSend(win, 'swb:shortDone',
+            { ok: true, file: out, seconds: dur, frames, log });
+  });
+
+  return { ok: true, started: true, out };
+});
+
+ipcMain.handle('swb:cancelShort', async () => {
+  if (!JOB) return { ok: false, reason: 'nothing rendering' };
+  JOB.cancelled = true;
+  /* The python parent spawns cinema_clip as a child; killing the parent alone
+   * leaves a Playwright Chromium capturing into a directory nobody is watching.
+   * /T takes the tree. */
+  try {
+    require('node:child_process').execFile(
+      'taskkill', ['/pid', String(JOB.child.pid), '/T', '/F'], () => {});
+  } catch { try { JOB.child.kill(); } catch {} }
+  return { ok: true };
 });
 
 /* THE ANNOUNCER. cinema_vo.py already speaks arbitrary text verbatim and

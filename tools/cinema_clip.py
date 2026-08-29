@@ -240,7 +240,21 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
     frames, i = [], 0
     t0 = time.time()
     hit_cap = True
+    # A CAPTURE IS 3-4 MINUTES AND THIS LOOP SAID NOTHING FOR ALL OF IT.
+    #
+    # Fine for a CLI a person watches finish; useless behind a button, where
+    # silence and a hang look identical and any bar drawn over it is a lie.
+    # One line per second of wall time, on stderr so nothing that parses stdout
+    # for a result changes. `frames` is a COUNT and not a percentage: the loop
+    # runs until the match ends, so the denominator genuinely is not known here
+    # and inventing one would be the same lie in nicer clothes.
+    last_beat = 0.0
     while i < int(max_secs * fps):
+        now = time.time()
+        if now - last_beat >= 1.0:
+            last_beat = now
+            print(f"[progress] capture frames={i} elapsed={now - t0:.1f}",
+                  file=sys.stderr, flush=True)
         r = page.evaluate("([raw,q]) => window.__clip.frame(raw,q)", [raw, q])
         if not card_up and (r["c"] > 0 or r["t"] >= cold_open):
             # The EVENT is the anchor; the clock is only a cap. Measured over
