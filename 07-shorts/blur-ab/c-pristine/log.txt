@@ -425,3 +425,41 @@
 [progress] capture frames=1492 elapsed=508.2
 [progress] capture frames=1495 elapsed=509.4
 [progress] capture frames=1498 elapsed=510.7
+    shadowBlur scaled by k=1.000 -- a no-op here
+no killing blow on this seed (timeout finish); using the last cut
+seed 25064: kill at 40.12s, clip starts at 22.12s
+cut list: 40.1s T2
+  rendering director ON ...
+    verdict panel held 2.40s of the 3.43s tail (armed 1.03s after the kill)
+    on: 1707 frames, 28.4s wall, 589s to render, match ended {'seed': 25064, 't': 22.116666666666053, 'kill': None}
+Traceback (most recent call last):
+  File "C:\dev\sundered-crown\tools\cinema_clip.py", line 660, in <module>
+    # cuts clipped the near relic, and the platform was covering it --
+  File "C:\dev\sundered-crown\tools\cinema_clip.py", line 566, in main
+    
+    ...<42 lines>...
+        else:
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
