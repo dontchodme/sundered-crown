@@ -48,7 +48,7 @@ def chrome_of(ua: str) -> str:
 
 def headless_fp() -> dict:
     """Playwright's bundled Chromium — the one every mp4 is rendered on."""
-    with game(game_path=REPO / "02-chain" / "sc-paradox-hold-clamp.html") as (page, _):
+    with game(game_path=REPO / "02-chain" / "sc-paradox-arc.html") as (page, _):
         return page.evaluate(FP_JS.read_text())
 
 

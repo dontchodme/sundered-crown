@@ -34,7 +34,7 @@ from scpage import game
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
 POST_JS = REPO / "src" / "render" / "post.js"
-BUILD = REPO / "02-chain" / "sc-paradox-hold-clamp.html"
+BUILD = REPO / "02-chain" / "sc-paradox-arc.html"
 
 # Deliberately runs selfTest against the LIVE canvas rather than a synthetic
 # test pattern. A gradient would exercise the copy; only the real frame

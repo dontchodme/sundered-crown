@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """GRAVITY KEEPS ACTING THROUGH HIT STOP, so a frozen arc is still an arc.
 
-    python hitstop_build.py --src ../02-chain/sc-paradox-pace.html \
+    python hitstop_build.py --src ../02-chain/sc-paradox-hold-clamp.html \
                             --out ../02-chain/sc-paradox-arc.html
 
 Rick, 2026-08-29, on seed 1150834333: *"at 35 seconds grudgebearer is climbing
@@ -141,7 +141,7 @@ def one(src: str, old: str, new: str, label: str) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--src", default="../02-chain/sc-paradox-pace.html")
+    ap.add_argument("--src", default="../02-chain/sc-paradox-hold-clamp.html")
     ap.add_argument("--out", default="../02-chain/sc-paradox-arc.html")
     A = ap.parse_args()
 
@@ -164,6 +164,7 @@ def main() -> int:
                          ("ULTFX.sync(m)", "the fx hook"),
                          ("SWBPost", "the post chain"),
                          ("baseHP: 400", "the pace change"),
+                         ("Math.max(0, f.pinV[1])", "the stasis hold fix"),
                          ("dmg:23.50", "the grudgebearer nerf")):
         if marker not in s:
             raise SystemExit(f"! {what} ({marker!r}) is not in the output -- "

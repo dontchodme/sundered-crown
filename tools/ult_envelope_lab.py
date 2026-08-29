@@ -56,7 +56,7 @@ from clip_spread import resolve_ffmpeg
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
-BUILD = REPO / "02-chain" / "sc-paradox-hold-clamp.html"
+BUILD = REPO / "02-chain" / "sc-paradox-arc.html"
 LIB = REPO / "05-reference" / "post" / "ultfx-library.json"
 
 # THREE SHAPES, WHICH IS THE BRIEF'S OWN INSTRUCTION -- "a nova, a beam, a

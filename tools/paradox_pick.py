@@ -2,7 +2,7 @@
 """WHICH FIGHT IS WORTH FILMING — scored on the DIRECTOR'S PLAN, not only on
    the relic's own telemetry.
 
-    python3 paradox_pick.py --game ../02-chain/sc-paradox-hold-clamp.html
+    python3 paradox_pick.py --game ../02-chain/sc-paradox-arc.html
 
 v41 lost two renders to seeds whose plan carried no FATAL cut, and v42 closed
 that by asking `window.cinePlan` before offering a seed rather than after a
@@ -94,7 +94,7 @@ PLAN_JS = """([a, b, s]) => {
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--game", default="../02-chain/sc-paradox-hold-clamp.html")
+    ap.add_argument("--game", default="../02-chain/sc-paradox-arc.html")
     ap.add_argument("--foes", default="heartwood,grudgebearer,twinshade,"
                                       "lastlight,widowmaker,slagheart,"
                                       "dawnbringer,marrowdraw")

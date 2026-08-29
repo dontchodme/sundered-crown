@@ -25,7 +25,7 @@ went stale without anyone noticing.
 - `ultcarry_build.py` — corrected ult set-pieces carried to the tip when their owning builder cannot be replayed. Imports/slices each block from its owner so there is one copy of the art
 - `post_build.py` — the WebGL2 post chain into the build, so the app and the video run the same one
 - `pinrelease_build.py` — what a Stasis hold releases a ball WITH. `--mode clamp` ships: never resume upward, because a stored upward velocity goes stale the instant the hold starts
-- `hitstop_build.py` — gravity keeps acting through hit stop, so a frozen arc is still an arc. Built and verified, NOT shipped — Rick's call
+- `hitstop_build.py` — gravity keeps acting through hit stop, so a frozen arc is still an arc. Universal: every relic, every impact. Pins excluded
 - `pace_build.py` — the long-fight pace: baseHP 400, seals 21/49, the timeout raised to a backstop, and Grudgebearer nerfed to match. The ONLY chain link that touches the simulation, so engine_ab MUST differ on it
 - `fx_build.py` — `src/render/fx.js` into the build: deterministic particle fields on all 25 ultimates, aged off sim time so the hook is idempotent and the app and the video cannot diverge
 

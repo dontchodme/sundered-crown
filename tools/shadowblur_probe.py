@@ -63,7 +63,7 @@ from scpage import game
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
-BUILD = REPO / "02-chain" / "sc-paradox-hold-clamp.html"
+BUILD = REPO / "02-chain" / "sc-paradox-arc.html"
 
 # The surfaces that matter, not a sweep. 1080 is what the art was authored at
 # and what the bloom spread was rendered at; 540 is what --w ships; 453 is the

@@ -33,7 +33,7 @@ import sys
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
-BUILD = REPO / "02-chain" / "sc-paradox-hold-clamp.html"
+BUILD = REPO / "02-chain" / "sc-paradox-arc.html"
 POST_JS = REPO / "src" / "render" / "post.js"
 COST_JS = HERE / "postcost.js"
 EL_JS = HERE / "postcost_electron.js"
