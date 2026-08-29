@@ -222,7 +222,7 @@ RENDER_JS = r"""async ([gap, secs, mode]) => {
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--game", default="../02-chain/sc-paradox-fx.html")
+    ap.add_argument("--game", default="../02-chain/sc-paradox-pace.html")
     ap.add_argument("--gap", type=float, default=2.8)
     ap.add_argument("--hold", action="store_true",
                     help="the four hold sounds instead of the six casts")

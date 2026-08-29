@@ -73,7 +73,7 @@ from scpage import game
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
-BUILD = REPO / "02-chain" / "sc-paradox-fx.html"
+BUILD = REPO / "02-chain" / "sc-paradox-pace.html"
 LIB = REPO / "05-reference" / "post" / "ultfx-library.json"
 OUT = REPO / "05-reference" / "post"
 

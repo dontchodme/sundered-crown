@@ -18,7 +18,7 @@ const REPO = path.resolve(__dirname, '..');
 
 /* THE BUILD THE APP SHOWS. One place, so it cannot drift from what the video
  * pipeline renders. Keep it pointed at the build of record. */
-const GAME = process.env.SWB_GAME || '02-chain/sc-paradox-fx.html';
+const GAME = process.env.SWB_GAME || '02-chain/sc-paradox-pace.html';
 
 /* `npm run identity` has advertised this flag since the shell was written and
  * nothing read it, so the script started the app normally and the gate could

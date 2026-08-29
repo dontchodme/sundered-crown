@@ -106,7 +106,7 @@ app/
     shell.js
 ```
 
-The window loads `02-chain/sc-paradox-fx.html` **unchanged**. No engine
+The window loads `02-chain/sc-paradox-pace.html` **unchanged**. No engine
 edits in this phase, none.
 
 Security posture, non-negotiable: `contextIsolation: true`,

@@ -109,7 +109,7 @@ JS = """([id, foe, seed, window, fps]) => {
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
             formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--game", default="../02-chain/sc-paradox-fx.html")
+    ap.add_argument("--game", default="../02-chain/sc-paradox-pace.html")
     ap.add_argument("--ids", default="paradox,marrowdraw,twinshade,redflail,foregone")
     ap.add_argument("--seed", type=int, default=31337)
     ap.add_argument("--window", type=float, default=12.0, help="seconds of match to play")

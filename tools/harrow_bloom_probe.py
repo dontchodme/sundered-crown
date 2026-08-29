@@ -89,7 +89,7 @@ JS = """([t, life, block]) => {
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
             formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--game", default="../02-chain/sc-paradox-fx.html")
+    ap.add_argument("--game", default="../02-chain/sc-paradox-pace.html")
     ap.add_argument("--fx", default="../05-reference/post/ultfx-library.json")
     ap.add_argument("--ns", default="1,2,4,8,12")
     ap.add_argument("--frames", type=int, default=7)

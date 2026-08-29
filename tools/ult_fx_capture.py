@@ -89,7 +89,7 @@ CAPTURE_JS = """([id, foe, seed, maxT]) => {
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
             formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--game", default="../02-chain/sc-paradox-fx.html")
+    ap.add_argument("--game", default="../02-chain/sc-paradox-pace.html")
     ap.add_argument("--ids", default="")
     ap.add_argument("--seed", type=int, default=31337)
     ap.add_argument("--max-t", type=float, default=14.0,

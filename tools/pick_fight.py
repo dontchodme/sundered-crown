@@ -68,7 +68,7 @@ SCAN_JS = r"""([a, b, seeds]) => {
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
             formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--game", default="../02-chain/sc-paradox-fx.html")
+    ap.add_argument("--game", default="../02-chain/sc-paradox-pace.html")
     ap.add_argument("--a", required=True)
     ap.add_argument("--b", required=True)
     ap.add_argument("--n", type=int, default=300, help="seeds to scan")

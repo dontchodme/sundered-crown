@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """WHICH ULTS BLOW OUT, AND BY HOW MUCH — measured, not eyeballed.
 
-    python ult_bloom_probe.py --game ../02-chain/sc-paradox-fx.html
+    python ult_bloom_probe.py --game ../02-chain/sc-paradox-pace.html
     python ult_bloom_probe.py --game ... --ids paradox,slagheart --frames 9
 
 Rick: "the bloom is still really intense on some of the ults." This turns
@@ -183,7 +183,7 @@ MEASURE_JS = """([id, foe, seed, t, life, block]) => {
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
             formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--game", default="../02-chain/sc-paradox-fx.html")
+    ap.add_argument("--game", default="../02-chain/sc-paradox-pace.html")
     ap.add_argument("--ids", default=",".join(LIFE) + ",lastlight,twinshade,redflail,foregone")
     ap.add_argument("--seed", type=int, default=31337)
     ap.add_argument("--frames", type=int, default=7)

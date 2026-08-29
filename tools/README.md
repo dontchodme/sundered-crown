@@ -1,4 +1,4 @@
-# tools/ — 212 files, grouped by what they answer
+# tools/ — 214 files, grouped by what they answer
 
 Flat on disk on purpose: every tool resolves the game beside itself and
 imports `scpage.py` the same way, so subfolders would break all of them.
@@ -24,6 +24,7 @@ went stale without anyone noticing.
 - `readouts_build.py` — floats, tags and the ult-name callout out of the bloom's source
 - `ultcarry_build.py` — corrected ult set-pieces carried to the tip when their owning builder cannot be replayed. Imports/slices each block from its owner so there is one copy of the art
 - `post_build.py` — the WebGL2 post chain into the build, so the app and the video run the same one
+- `pace_build.py` — the long-fight pace: baseHP 400, seals 21/49, the timeout raised to a backstop, and Grudgebearer nerfed to match. The ONLY chain link that touches the simulation, so engine_ab MUST differ on it
 - `fx_build.py` — `src/render/fx.js` into the build: deterministic particle fields on all 25 ultimates, aged off sim time so the hook is idempotent and the app and the video cannot diverge
 
 Not stamped at the tip, but chain-adjacent:
@@ -70,6 +71,7 @@ Not stamped at the tip, but chain-adjacent:
 - `ult_fx_capture.py` — every ultimate's REAL ultFx, caught out of a real fight, so a probe replays what the engine built instead of what a session guessed
 - `ult_live_probe.py` — the ults a FROZEN match cannot show. Plays a real fight and draws it frame by frame; the five whose picture lives in match state (stasis, ballista, split, spinstorm, retrace) are only visible here
 - `ult_particle_lab.py` — do particles make a set-piece better? Canvas 2D on purpose: the question is whether it LOOKS better, and the GPU runtime is only worth building if it does. Deterministic, mulberry32 on (seed, index), fixed-dt integration
+- `pace_sweep.py` — how long is a fight, and what makes it that long? Sweeps baseHP against the act clock and reports duration, timeouts, ults/fight. Reads the source's OWN config so the label cannot lie
 - `ult_camera_probe.py` — does an ultimate ever get a SHOT? 98% of casts have no cut within a second. Also prices seven camera policies in cuts/match against today's 0.64
 - `ult_envelope_lab.py` — the same set-piece under a different CLOCK. Warps `u.t`, not `k`, because fifteen branches compute their own fade off the seconds and would not follow `k`. `linear` is bit-exactly the shipped game. Zero simulated fights
 - `clip_spread.py` — N clips side by side in ONE file at native resolution, because a spread Rick cannot see is not a spread. Refuses to stack clips of different lengths: same seed, different length means something changed the FIGHT, and that is the finding

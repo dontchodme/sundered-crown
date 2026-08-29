@@ -56,7 +56,7 @@ from ult_envelope_lab import life_map
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
-BUILD = REPO / "02-chain" / "sc-paradox-fx.html"
+BUILD = REPO / "02-chain" / "sc-paradox-pace.html"
 BURST = REPO / "05-reference" / "post" / "slagburst-burst.json"
 LIB = REPO / "05-reference" / "post" / "ultfx-library.json"
 EL_JS = HERE / "fxcost_electron.js"
