@@ -431,7 +431,10 @@ catches what no tool could, the deliverable is a measurement of what they saw.
 5  drop the conditional upscale
 6  master + delivery encodes     A/B aq-mode=3 on and off, same seed
 7  the range ramp                one black-to-white ramp, read back, before anything ships
-8  sub-frame motion blur         N=2, sim-aligned
+8  sub-frame motion blur         BUILT 2026-08-28, --motion-blur N. Fight
+                                 telemetry identical at N=1 and N=2, so it is
+                                 a picture change and not a fight change.
+                                 -3.9% edge energy, -8.5% on fast frames
 9  THE ROUND TRIP                post one, download it back, contact-sheet it
 ```
 
