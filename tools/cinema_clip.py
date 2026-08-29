@@ -422,11 +422,33 @@ def main() -> int:
         plan = page.evaluate("([a,b,s]) => window.cinePlan(a,b,s)",
                              [a.a, a.b, seed])
         kill = next((c for c in plan["cuts"] if c.get("fatal")), None)
-        if not kill:
+        if not kill and plan["cuts"]:
             print("no killing blow on this seed (timeout finish); using the last cut")
             kill = plan["cuts"][-1]
+        # A PLAN CAN BE EMPTY, AND THE FALLBACK ASSUMED IT NEVER WAS.
+        #
+        # `plan["cuts"][-1]` on a fight the director found nothing in threw
+        # IndexError and took the whole tool down -- one line after printing
+        # that it was falling back, so the message said it had recovered and
+        # then it did not. Two fighters can trade for the full window without
+        # ever earning a cut: no fatal blow, and nothing big enough for a T2.
+        #
+        # --full does not need a cut at all: it starts at zero and films
+        # everything. Only --lead does, because it measures BACKWARDS from the
+        # payoff, and there is no payoff here to measure from.
+        if not kill:
+            if not a.full:
+                sys.exit("! this seed has no cuts at all -- no killing blow and "
+                         "nothing the director scored. --lead measures back from "
+                         "a payoff, so there is nothing to anchor to. Film it with "
+                         "--full, or pick a seed with a FATAL cut in its plan "
+                         "(tools/pick_fight.py filters on exactly that).")
+            print("no cuts in this seed's plan at all -- filming the whole fight")
         start = 0.0 if a.full else max(0.0, kill["t"] - a.lead)
-        print(f"seed {seed}: kill at {kill['t']:.2f}s, clip starts at {start:.2f}s")
+        if kill:
+            print(f"seed {seed}: kill at {kill['t']:.2f}s, clip starts at {start:.2f}s")
+        else:
+            print(f"seed {seed}: no cuts, clip starts at {start:.2f}s")
         print(f"cut list: " + ", ".join(
             f"{c['t']:.1f}s {'KILL' if c.get('fatal') else 'T'+str(c['tier'])}"
             for c in plan["cuts"]))

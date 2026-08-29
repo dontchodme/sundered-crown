@@ -375,9 +375,44 @@ ipcMain.handle('swb:createShort', async (e, opts = {}) => {
   if (!a || !b) return { ok: false, reason: 'pick two relics first' };
   if (a === b) return { ok: false, reason: 'a relic cannot fight itself' };
 
-  const dir = path.join(REPO, '07-shorts', 'app');
+  /* ONE DIRECTORY PER JOB, because shorts_build puts `_clip_frames` NEXT TO
+   * THE OUTPUT FILE. Two renders sharing a parent folder share that frame
+   * directory and interleave into each other -- the second capture's frames
+   * land among the first's and the encode splices two different fights into
+   * one file. Measured: 4,747 h264 decode errors against 0 for a render that
+   * had its folder to itself.
+   *
+   * The in-app guard stops two jobs from the button, and cannot see a render
+   * started from a terminal. A folder per job makes the collision impossible
+   * rather than merely disallowed. */
+  /* WHERE A SHORT LANDS.
+   *
+   *   07-shorts/app/2026-08-28/1904-dawnbringer-v-widowmaker-2195072936/
+   *       1904-dawnbringer-v-widowmaker-2195072936.mp4
+   *       ...-hook.wav          the voiceover, kept beside its render
+   *       _clip_frames/         transient, deleted on a clean pass
+   *
+   * A DATE FOLDER because a day's output is the unit a person actually looks
+   * for, and a TIME PREFIX because within a day the order they were made in is
+   * the order they are worth comparing in -- `ls` sorts them correctly with no
+   * effort.
+   *
+   * A FOLDER PER JOB because shorts_build puts `_clip_frames` NEXT TO THE
+   * OUTPUT FILE. Two renders sharing a parent share that directory and
+   * interleave: the second capture's frames land among the first's and the
+   * encode splices two different fights into one file. Measured at 4,747 h264
+   * decode errors against 0 for a render that had its folder to itself. The
+   * in-app guard stops two jobs from the button and cannot see one started
+   * from a terminal -- a folder per job makes it impossible rather than
+   * merely disallowed. */
+  const now = new Date();
+  const p2 = (n) => String(n).padStart(2, '0');
+  const day = `${now.getFullYear()}-${p2(now.getMonth() + 1)}-${p2(now.getDate())}`;
+  const hhmm = `${p2(now.getHours())}${p2(now.getMinutes())}`;
+  const stem = `${hhmm}-${a}-v-${b}-${seed}`;
+  const dir = path.join(REPO, '07-shorts', 'app', day, stem);
   fs.mkdirSync(dir, { recursive: true });
-  const out = path.join(dir, `${a}-v-${b}-${seed}.mp4`);
+  const out = path.join(dir, `${stem}.mp4`);
 
   /* ABSOLUTE. GAME is repo-relative ('02-chain/...'), and shorts_build
    * resolves --game against its OWN directory -- `HERE / game` -- so passing
