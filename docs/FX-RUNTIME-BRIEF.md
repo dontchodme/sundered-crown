@@ -178,7 +178,57 @@ no new API, and it is the cheapest possible test of the whole thesis: if
 better timing does not read as better animation on a phone, nothing further
 down this list will save it. If it does, it re-prices everything below.
 
-### 3.2 THE PARTICLE RUNTIME — the real new capability
+### 3.2 THE PARTICLE RUNTIME — PARTICLES WIN, THE GPU RUNTIME IS NOT NEEDED
+
+Two results, 2026-08-28, and the second is the expensive one.
+
+**Rick chose the heaviest arm.** Slagburst, three arms differing only in count
+— 0 (as shipped), 120, 420 — same seed, same length, nothing else touched.
+*"3 for sure."* This is the first thing in the FX arc to land: the envelope
+lost outright and the camera work is out of scope, and particles won on the
+first spread.
+
+**And they do not need a GPU.** This section asks for a texture-state system
+in `src/render/fx.js` on the premise that Canvas 2D can only afford about a
+dozen sprites a frame. Measured on the real GPU through Electron, at the app's
+453x805:
+
+```
+   particles   ms/frame   added        the app has 4.77 ms of headroom
+           0      7.530   0.000        (post_cost.py, same day)
+         120      8.357   0.827
+         420      9.173   1.643   <-   the density Rick picked
+         900     11.807   4.277
+        2000     16.653   9.123   <-   the first row that does not fit
+```
+
+**420 particles cost 1.64 ms — a third of the budget.** Canvas 2D reaches the
+app at the density that won, and the video was never constrained at all since
+it renders offline. The GPU runtime buys headroom nobody currently needs, and
+it is a session of work.
+
+> **The "about a dozen sprites" figure was about `shadowBlur`.** Each of the
+> current art's sprites carries a full-canvas shadow; these carry none. That
+> is why the estimate was an order of magnitude out — it priced a different
+> thing.
+
+**MEASURE IT THE WAY `post_cost.py` DOES OR DO NOT MEASURE IT.** Two errors
+were made getting this number and both flattered the result:
+
+1. *Through Playwright first.* It launches `--disable-gpu`, so Canvas
+   rasterisation is SwiftShader: a 43 ms baseline for a frame the app draws in
+   9. `post_cost.py`'s header says exactly this and defaults to Electron.
+2. *Without forcing the raster.* Canvas 2D submission is asynchronous, so a
+   loop of draws with no readback times how fast the calls were QUEUED — a
+   1.20 ms baseline against post_cost's 9.06 on the same canvas. `postcost.js`
+   forces it once at the end with a `getImageData` inside a rAF; this now does
+   the same.
+
+Both were caught by disagreeing with `post_cost.py` rather than by anything in
+the tool. A cost measurement with no second instrument to disagree with is the
+§4.1 defect class with a stopwatch.
+
+### 3.2a WHAT THIS SECTION ORIGINALLY ASKED FOR
 
 A GPU particle system in `src/render/fx.js`, sharing `post.js`'s context.
 State in a texture, ping-pong integrated, spawned from `ultFx` events, drawn

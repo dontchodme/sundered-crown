@@ -46,6 +46,7 @@ import pathlib
 import shutil
 import subprocess
 import sys
+import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from scpage import game
@@ -55,6 +56,9 @@ HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
 BUILD = REPO / "02-chain" / "sc-paradox-frame.html"
 BURST = REPO / "05-reference" / "post" / "slagburst-burst.json"
+EL_JS = HERE / "fxcost_electron.js"
+EL_BIN = [REPO / "app" / "node_modules" / ".bin" / n
+          for n in ("electron.cmd", "electron")]
 
 # A SPREAD, NOT A GUESS (Rule 2). One variable -- how many -- because "should
 # there be particles at all" is the question and a spread that moved colour and
@@ -204,6 +208,54 @@ FRAME_JS = r"""([t, mt, q, dt]) => {
 }"""
 
 
+COST_JS = r"""([counts, reps, n]) => {
+  /* WHAT DOES THE FIELD COST PER FRAME, on this canvas, on the real GPU?
+     The same shape post_cost.py uses: median of `reps` repetitions of `n`
+     draws, because one scheduling hiccup in a run of five should not become
+     the answer. The 2D draw is measured first as the baseline, then the same
+     draw with the field on top; the DIFFERENCE is the field. */
+  const L = window.__lab, m = L.m, b = L.block;
+  m.ultFx = Object.assign({}, b, { src:"a", tgt:"b", x:m.b.x, y:m.b.y,
+                                   tx:m.b.x, ty:m.b.y, aff:m.a.aff, t:0.35 });
+  const med = (a) => { a = a.slice().sort((x,y)=>x-y); return a[a.length>>1]; };
+  const ctx = document.getElementById('cv').getContext('2d');
+
+  /* FORCE THE RASTER, ONCE, AT THE END -- postcost.js's technique and the
+     reason this is a rewrite. Canvas2D command submission is asynchronous, so
+     timing a loop of draws without a readback measures how fast the calls were
+     QUEUED. The first version of this did exactly that and reported a 1.20 ms
+     baseline for a frame post_cost.py measures at 9.06 on the same canvas --
+     an eightfold error, in the flattering direction, on the number that was
+     about to decide whether §3.2's GPU runtime gets built.
+
+     Inside a rAF as well: outside one the compositor can defer the whole
+     batch past the measurement. */
+  function timed(draws){
+    return new Promise(res => {
+      requestAnimationFrame(() => {
+        const t0 = performance.now();
+        for (let i = 0; i < draws; i++) AC.__draw(m);
+        ctx.getImageData(0, 0, 1, 1);
+        res((performance.now() - t0) / draws);
+      });
+    });
+  }
+
+  return (async () => {
+    const out = [];
+    for (const c of counts){
+      window.__fx.reset(c, 25064);
+      for (let i = 0; i < 40; i++) window.__fx.step(1/120);   /* mid-flight */
+      const reps_ms = [];
+      for (let r = 0; r < reps; r++) reps_ms.push(await timed(n));
+      out.push({ n: c, ms: med(reps_ms) });
+    }
+    window.__fx.reset(0, 25064);
+    return out;
+  })();
+}"""
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--game", default=str(BUILD))
@@ -216,6 +268,13 @@ def main() -> int:
     ap.add_argument("--q", type=float, default=0.95)
     ap.add_argument("--crf", type=int, default=16)
     ap.add_argument("--out", default=str(REPO / "07-shorts" / "particles"))
+    ap.add_argument("--cost", action="store_true",
+                    help="measure ms/frame against particle count instead of "
+                         "rendering clips. The number that decides whether "
+                         "§3.2's GPU runtime is needed at all")
+    ap.add_argument("--cost-w", type=int, default=453,
+                    help="the app's canvas, which is the only realtime "
+                         "surface; the video is captured offline")
     args = ap.parse_args()
 
     path = pathlib.Path(args.game).resolve()
@@ -235,6 +294,53 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
     H = round(args.w * 16 / 9)
     dt = 1.0 / args.fps
+
+    if args.cost:
+        # THROUGH ELECTRON, NOT PLAYWRIGHT. Playwright launches with
+        # --disable-gpu, so its Canvas rasteriser is SwiftShader and a number
+        # off it is a measurement of SwiftShader: the first run of this
+        # reported a 43 ms baseline for a frame the app draws in 9. That is
+        # not noise, it is a different machine. post_cost.py's header says so
+        # and defaults to Electron; this follows it.
+        exe = next((q for q in EL_BIN if q.exists()), None)
+        if exe is None:
+            print("! no Electron in app/node_modules -- run `npm install` in "
+                  "app/.\n  This measurement is NOT worth taking through "
+                  "Playwright; see the header.")
+            return 2
+        W = args.cost_w
+        cfg = {"fx": FX_JS, "setup": SETUP_JS,
+               "setupArgs": [block, W, round(W * 16 / 9)],
+               "cost": COST_JS, "costArgs": [[0, 120, 420, 900, 2000], 5, 30]}
+        # Written to a file rather than passed as an argument: cfg carries
+        # whole JS sources and electron.cmd is a batch shim, so cmd.exe would
+        # parse the `>` in them first and fail with "> was unexpected at this
+        # time" before Electron started.
+        cfgf = pathlib.Path(tempfile.gettempdir()) / "sc_fxcost_cfg.json"
+        cfgf.write_text(json.dumps(cfg), encoding="utf-8")
+        r = subprocess.run([str(exe), str(EL_JS), "--game", str(path),
+                            "--cfgfile", str(cfgf)],
+                           capture_output=True, text=True)
+        if r.returncode != 0 or "{" not in r.stdout:
+            print("! electron run failed")
+            print((r.stderr or r.stdout)[-1200:])
+            return 1
+        res = json.loads(r.stdout[r.stdout.index("{"):])
+        rows, rend = res["rows"], res["renderer"]
+        base = rows[0]["ms"]
+        print(f"\nPARTICLE COST  {W}x{round(W*16/9)} (the app's canvas)  "
+              f"median of 5 x 30 draws")
+        print(f"  {rend}\n")
+        print(f"  {'particles':>10}{'ms/frame':>11}{'added':>9}"
+              f"{'% of 16.67':>12}")
+        for r in rows:
+            print(f"  {r['n']:>10}{r['ms']:>11.3f}{r['ms']-base:>9.3f}"
+                  f"{100*r['ms']/16.67:>11.0f}%")
+        print(f"\n  THE APP HAS 4.77 ms OF HEADROOM (post_cost.py, "
+              f"2026-08-28).\n  A Canvas 2D field that fits inside it does "
+              f"not need §3.2's GPU runtime\n  to reach the app -- and the "
+              f"video, captured offline, never needed one.")
+        return 0
 
     with game(game_path=path) as (page, errors):
         info = page.evaluate(SETUP_JS, [block, args.w, H])
