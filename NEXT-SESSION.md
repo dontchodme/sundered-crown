@@ -19,6 +19,13 @@ engine_ab          2760/2760     IDENTICAL on the other twenty-four
 chain_audit            12/12     every insert survives to the tip
 frame_probe            11/11
 verify.py --n 40       13/13     Paradox 47.7%, 0/12000 timeouts
+SEED 25064 NO LONGER LANDS A KILL. On the pinned runtime it is a 40.12s
+timeout finish, so the clip below cannot be rebuilt from its own seed -- 4.2b,
+working exactly as documented, and this is the first time anyone has hit it.
+paradox_pick.py on the current tip offers seed 55957: 41.1s, 2 casts, 3 holds,
+two blows landed on a held quarry for 282, and the hold lands the last blow.
+That is the paradox clip to film now.
+
 07-shorts/v43/stasis-v-heartwood.mp4   seed 25064, 23.0s, three holds and the
                                        window lands the last blow
 ```

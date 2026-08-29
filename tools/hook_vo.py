@@ -106,7 +106,7 @@ def main() -> int:
 
     with tempfile.TemporaryDirectory() as td:
         vo = pathlib.Path(td) / "vo.wav"
-        cmd = ["python3", str(HERE / "cinema_vo.py"), "--a", na, "--b", nb,
+        cmd = [sys.executable, str(HERE / "cinema_vo.py"), "--a", na, "--b", nb,
                "--voice", A.voice, "--out", str(vo)]
         if A.text:
             cmd += ["--text", A.text]

@@ -33,7 +33,13 @@ import sys
 HERE = pathlib.Path(__file__).resolve().parent
 
 # §3c, with the §8 addendum folded in. Each term is load-bearing:
-#   adelay 300      the line starts after the card is up, not under the cut to it
+#   adelay          WHERE THE SPOKEN LINE STARTS, in ms. Was a hardcoded 300,
+#                   chosen so the line began after the 4.0s intro card was up.
+#                   The card does not ship (rule 1), so that 300ms waited for
+#                   nothing and the line played over the opening by default --
+#                   a placement nobody had picked. Rick chose the START of the
+#                   fight, 2026-08-28, off a three-way spread rendered on
+#                   paradox v heartwood seed 55957 (07-shorts/v44). Default 0.
 #   volume 2.0      the VO sits over a full music bed; unlifted it is mush.
 #                   Was 1.5. Rick asked for louder; 2.0 is +2.5dB on that.
 #                   NOTE this chain is not hook_vo.py's: it targets -14 LUFS
@@ -46,8 +52,14 @@ HERE = pathlib.Path(__file__).resolve().parent
 #   alimiter        catches what single-pass loudnorm cannot hold
 #   level=false     MANDATORY. alimiter's default re-levels to full scale and
 #                   made true peak WORSE (+0.6 dBTP measured on short-4).
-def mix_graph(limit, tp, vo_vol=2.0):
-    return (f"[1:a]aresample=48000,adelay=300|300,volume={vo_vol:.3f},apad[v1];"
+def mix_graph(limit, tp, vo_vol=2.0, vo_at=0.0):
+    # `adelay` IS THE PLACEMENT, and it was a constant describing a dead card.
+    # 300ms was chosen so the line started after the 4.0s intro card was up.
+    # The card does not ship (rule 1), so that 300ms now waits for nothing and
+    # the line plays over the cold open -- a placement nobody picked. It is a
+    # parameter so the choice can be made and measured instead of inherited.
+    ms = max(0, int(round(vo_at * 1000)))
+    return (f"[1:a]aresample=48000,adelay={ms}|{ms},volume={vo_vol:.3f},apad[v1];"
             "[0:a][v1]amix=inputs=2:duration=first:normalize=0[m];"
             f"[m]loudnorm=I=-14:TP={tp}:LRA=11,aresample=48000,"
             f"alimiter=attack=5:release=60:limit={limit}:level=false[a]")
@@ -105,7 +117,8 @@ def has_scrunch(game):
     return "CONFIG.scrunch" in src or "scrunchAuto" in src
 
 
-def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True):
+def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True,
+            verdict_hold=None, lead=None):
     """THE CARD AND THE SCRUNCH ARE NOT ADDITIVE -- THEY STACK, AND STACKING IS
     THE WORST OF THE THREE OPTIONS.
 
@@ -132,16 +145,35 @@ def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True):
         print("  !! panel again at ~6s. Pass --no-card unless you mean it.")
     print(f"[1/3] capture  {a} v {b}  seed {seed}"
           f"   card={'on' if card else 'OFF (scrunch carries the names)'}")
-    print(run(["python3", HERE / "cinema_clip.py",
-               "--game", game, "--full", "--capture-only",
+    print(run([sys.executable, HERE / "cinema_clip.py",
+               "--game", game,
+               # `--full` OVERRIDES `--lead` -- cinema_clip line 414 is
+               # `start = 0.0 if a.full else max(0.0, kill["t"] - a.lead)`.
+               # It was hardcoded here, so every short this tool has ever
+               # produced was the WHOLE fight, and passing --lead did nothing
+               # at all. That is why the output ran 46s against a shipped
+               # length of ~23s: not a missing flag, a flag that could never
+               # take effect.
+               *([] if lead is not None else ["--full"]),
+               "--capture-only",
                *(["--intro"] if card else []),
                *(["--cold-open", str(cold_open)] if cold_open is not None else []),
                "--a", a, "--b", b, "--seed", seed,
+               *(["--verdict-hold", str(verdict_hold)]
+                 if verdict_hold is not None else []),
+               # --lead IS WHY THE SHIPPED CLIPS ARE SHORT AND THE FIGHTS ARE NOT.
+               # paradox_pick wants a 30-55s fight -- two windows and their
+               # holds -- and the v43 clip of record was 23.0s because
+               # `--lead 18` filmed only the last stretch of one. Without
+               # this passthrough shorts_build could only ever produce the
+               # WHOLE fight, so its output was twice the length of anything
+               # that has ever been posted.
+               *(["--lead", str(lead)] if lead is not None else []),
                "--fps", fps, "--w", w, "--q", q, "--out", out],
               cwd=HERE).strip())
 
 
-def encode(out, fps, crf, vo, keep=False, vo_vol=2.0):
+def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
     tmp = pathlib.Path(out).resolve().parent / "_clip_frames"
     frames = sorted(tmp.glob("on_*.jpg"))
     wav = tmp / "on.wav"
@@ -164,7 +196,7 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0):
         # bit-identical to the one measured at the encode stage, and identical
         # across every rung of the ceiling ladder.
         run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
-             "-i", raw, "-i", vo, "-filter_complex", mix_graph(limit, tp, vo_vol),
+             "-i", raw, "-i", vo, "-filter_complex", mix_graph(limit, tp, vo_vol, vo_at),
              "-map", "0:v", "-map", "[a]", "-c:v", "copy",
              "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
              "-movflags", "+faststart", out])
@@ -240,6 +272,19 @@ def main() -> int:
     ap.add_argument("--gap", type=float, default=0.38)
     ap.add_argument("--name-gap", type=float, default=0.14)
     ap.add_argument("--vo-vol", type=float, default=2.0)
+    ap.add_argument("--lead", type=float, default=None,
+                    help="seconds of fight to film before the finish; the "
+                         "rest of the opening is trimmed. The shipped shorts "
+                         "are ~23s clips of 40-50s fights.")
+    ap.add_argument("--verdict-hold", type=float, default=None,
+                    help="seconds the verdict panel is held. Passed straight to "
+                         "cinema_clip; the rendered AUDIO tail follows it, so a "
+                         "line placed in the tail is not cut off by silence.")
+    ap.add_argument("--vo-at", type=float, default=0.0,
+                    help="seconds into the video where the spoken line starts. "
+                         "0 is Rick's choice, 2026-08-28: the announcer belongs "
+                         "at the start of the fight. The old 0.300 was inherited "
+                         "from an intro card that no longer ships.")
     ap.add_argument("--cold-open", type=float, nargs="?", const=5.0, default=None,
                     metavar="CAP")
     ap.add_argument("--out", required=True)
@@ -262,7 +307,8 @@ def main() -> int:
 
     if not a.encode_only:
         capture(a.game, a.a, a.b, a.seed, out, a.fps, a.w, a.q,
-                cold_open=a.cold_open, card=a.card)
+                cold_open=a.cold_open, card=a.card,
+                verdict_hold=a.verdict_hold, lead=a.lead)
     if a.capture_only:
         print("captured; finish with --encode-only")
         return 0
@@ -278,12 +324,12 @@ def main() -> int:
         na, nb = display_names(a.game, [a.a, a.b])
         parts = ['Who wins?', f'{na},', f'or {nb}.']
         print(f"[vo]  {a.voice}  \"{' '.join(parts)}\"")
-        print(run(['python3', HERE / 'cinema_vo.py', '--a', na, '--b', nb,
+        print(run([sys.executable, HERE / 'cinema_vo.py', '--a', na, '--b', nb,
                    '--voice', a.voice, '--parts', '|'.join(parts),
                    '--gaps', f'{a.gap},{a.name_gap}', '--out', vo],
                   cwd=HERE).strip())
     m = encode(out, a.fps, a.crf, pathlib.Path(vo).resolve(), keep=a.keep,
-               vo_vol=a.vo_vol)
+               vo_vol=a.vo_vol, vo_at=a.vo_at)
     print(f"\n  {out.name}")
     print(f"  {m['w']}x{m['h']} {m['vcodec']}+{m['acodec']}  {m['dur']}s  "
           f"{m['mb']}MB  {m['lufs']} LUFS  {m['dbtp']} dBTP  "

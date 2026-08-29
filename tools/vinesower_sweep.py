@@ -573,7 +573,7 @@ def main():
               "is the only reason a grid this\n    wide is affordable. v39 "
               "established that this has to be shown, not assumed.\n")
         OV, OFULL, ofoes, oseeds = override_args
-        args = ["python3", "vinesower_build.py",
+        args = [sys.executable, "vinesower_build.py",
                 "--src", "../02-chain/sc-foregone.html",
                 "--out", "/tmp/sc-vinesower-ovtest.html"]
         for k, v in OFULL.items():

@@ -53,7 +53,28 @@ not ship.
 
 ### What actually has to be decided
 
-Where the line lives now. Real candidates:
+**ANSWERED 2026-08-28. THE ANNOUNCER GOES AT THE START OF THE FIGHT.** Rick,
+off three rendered files rather than a description: *"the announcer has to be at
+the start of the fight. it doesnt make sense anywhere else."* `--vo-at` now
+defaults to 0.0 in `shorts_build.py`.
+
+The spread was paradox v heartwood seed 55957, `--lead 18`, one line and one
+voice with only the placement moving:
+
+```
+1  audio-first     23.0s   line at 0.00-2.99s     CHOSEN
+2  cold open       23.0s   line at 0.30-3.29s     the inherited 300ms
+3  verdict panel   24.2s   line at 19.90-22.89s   rejected
+```
+
+The 300ms of arm 2 was never a decision -- it was chosen so the line began
+after the 4.0s intro card was up, and with the card retired it waited for
+nothing. Arm 3 needed `--verdict-hold 3.6` to exist at all, because the line is
+2.99s against a 2.40s hold; that flag stays, and so does the audio-tail fix it
+forced (below), but the placement is dead.
+
+Kept for the record, because the rejected options are the reason the answer is
+trustworthy. Where the line lives now. Real candidates:
 
 | placement | the argument |
 |---|---|

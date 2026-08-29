@@ -109,8 +109,15 @@ window.__clip = {
      synth is not modified. Added here on top of that: the director's send
      (lowpass -> convolver -> duck) and the tape-slowed bed, both replayed from
      the recorded curve so the mix matches the picture frame for frame. */
-  async renderAudio(dur) {
-    const AC = window.AC, sr = 48000, tail = 2.4;
+  async renderAudio(dur, tailArg) {
+    /* THE TAIL FOLLOWS --verdict-hold. It was a hardcoded 2.4 while the VIDEO
+       tail it has to cover was already a flag, so raising the hold produced a
+       clip whose last second and a bit was silent -- and silence at the end of
+       a video is exactly the fault class this project cannot see: nothing
+       errors, the frames are all there, and only a person watching notices the
+       sound stopped before the picture did. */
+    const AC = window.AC, sr = 48000;
+    const tail = (tailArg === undefined ? 2.4 : tailArg) + 0.5;
     const oc = new OfflineAudioContext(2, Math.ceil((dur + tail) * sr), sr);
     let cursor = 0;
     const proxy = new Proxy(oc, {
@@ -290,7 +297,8 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
               f"ENDED — this clip has no ending. Raise --lead's cap or shorten "
               f"the window; do not ship it.")
     dur = len(frames) / fps
-    wav_b64 = page.evaluate("(d) => window.__clip.renderAudio(d)", dur + 0.5)
+    wav_b64 = page.evaluate("([d,t]) => window.__clip.renderAudio(d,t)",
+                            [dur + 0.5, verdict_hold])
     wav = outdir / f"{tag}.wav"
     wav.write_bytes(base64.b64decode(wav_b64))
     print(f"    {tag}: {len(frames)} frames, {dur:.1f}s wall, "
