@@ -84,30 +84,131 @@ ARMS = {"off": 0.0, "light": 0.30, "heavy": 1.0,
 # kind of number `CLAUDE.md` §4.9 says not to strand in a prototype -- and
 # because the schools already own their colour.
 SPECS = {
+    # ---- BURSTS: something is thrown outward from a point --------------
     # THE EXPLOSION. Hard radial, heavy gravity, tumbling debris.
-    "emberedge": dict(mode="burst", n=420, sp=(90, 710), grav=520, drag=1.9,
+    "emberedge": dict(mode="burst", n=1890, sp=(90, 710), grav=520, drag=1.9,
                       life=(0.40, 1.05), heavy=0.14, size=(0.9, 2.8),
                       spawn=0.0, up=40),
-    # A NOVA IS A BURST THAT DOES NOT FALL. Faster, lighter, shorter, and it
-    # keeps its ring instead of slumping -- gravity is most of what separates
-    # "explosion" from "shockwave" and it is one number.
-    "widowmaker": dict(mode="burst", n=360, sp=(240, 620), grav=90, drag=2.6,
+    # AN ANVIL. The forge strike is the only other one that throws real debris
+    # -- it is metalwork, so it gets the highest heavy fraction in the game.
+    "grudgebearer": dict(mode="burst", n=1500, sp=(140, 660), grav=620,
+                         drag=2.0, life=(0.35, 0.95), heavy=0.22,
+                         size=(0.9, 2.6), spawn=0.06, up=60),
+    # A LATCH THAT LETS GO. Ironbloom blooms outward off the foe.
+    "slagheart": dict(mode="burst", n=1450, sp=(120, 520), grav=440, drag=2.1,
+                      life=(0.45, 1.20), heavy=0.12, size=(0.9, 2.6),
+                      spawn=0.10, up=30),
+    # THREE OF THEM AT ONCE. Triplicate splits, so the field is wide and thin
+    # rather than dense and central.
+    "twinshade": dict(mode="burst", n=1350, sp=(200, 640), grav=180, drag=2.4,
+                      life=(0.30, 0.80), heavy=0.04, size=(0.8, 2.2),
+                      spawn=0.12, up=0),
+
+    # ---- NOVAS: a burst that does NOT fall -----------------------------
+    # Gravity is most of what separates "explosion" from "shockwave", and it is
+    # one number. All four novas share the shape and differ only in reach.
+    "widowmaker": dict(mode="burst", n=1620, sp=(240, 620), grav=90, drag=2.6,
                        life=(0.30, 0.75), heavy=0.05, size=(0.8, 2.2),
                        spawn=0.05, up=0),
-    # A BEAM SHEDS ALONG ITS LENGTH, not from a point, and its motes drift UP
-    # out of it. Negative gravity is what makes a beam read as light rather
-    # than as an explosion pointed sideways.
-    "aureole": dict(mode="beam", n=300, sp=(20, 120), grav=-120, drag=1.2,
+    "lightkeeper": dict(mode="burst", n=1500, sp=(210, 560), grav=70,
+                        drag=2.5, life=(0.35, 0.85), heavy=0.03,
+                        size=(0.8, 2.2), spawn=0.05, up=0),
+    "censer": dict(mode="burst", n=1500, sp=(180, 540), grav=40, drag=2.2,
+                   life=(0.40, 1.00), heavy=0.0, size=(0.7, 2.0),
+                   spawn=0.08, up=20),
+    # ECLIPSE. The one nova that should read as dark, so it runs slower and
+    # longer -- the school's own colours do the rest.
+    "nightfell": dict(mode="burst", n=1400, sp=(150, 480), grav=60, drag=2.3,
+                      life=(0.45, 1.05), heavy=0.02, size=(0.8, 2.4),
+                      spawn=0.08, up=0),
+    # DAYBREAK. A corona, not a detonation: it rises. CLAUDE.md §4.1b is about
+    # this relic's art blowing out, so the field is deliberately sparse in the
+    # middle and it lifts away from the already-white body.
+    "dawnbringer": dict(mode="burst", n=1350, sp=(120, 470), grav=-90,
+                        drag=1.8, life=(0.45, 1.15), heavy=0.0,
+                        size=(0.7, 2.1), spawn=0.10, up=110),
+
+    # ---- BEAMS AND BOLTS: it travels, so it sheds along its length -----
+    # Negative gravity is what stops a beam reading as an explosion pointed
+    # sideways.
+    "aureole": dict(mode="beam", n=1350, sp=(20, 120), grav=-120, drag=1.2,
                     life=(0.45, 1.10), heavy=0.0, size=(0.7, 2.0),
                     spawn=0.55, up=0),
-    # A SUSTAINED FIELD seeds motes THROUGHOUT its radius across its whole
-    # life, barely moving. Nothing is thrown; the air is full.
-    "lastlight": dict(mode="field", n=340, sp=(8, 55), grav=-30, drag=0.8,
+    "oathwound": dict(mode="beam", n=1250, sp=(25, 140), grav=-60, drag=1.3,
+                      life=(0.40, 1.00), heavy=0.0, size=(0.7, 2.0),
+                      spawn=0.50, up=0),
+    "spellbreaker": dict(mode="beam", n=1200, sp=(40, 200), grav=-40,
+                         drag=1.6, life=(0.25, 0.70), heavy=0.0,
+                         size=(0.6, 1.8), spawn=0.35, up=0),
+    "axiom": dict(mode="beam", n=1200, sp=(40, 190), grav=-40, drag=1.6,
+                  life=(0.28, 0.72), heavy=0.0, size=(0.6, 1.8),
+                  spawn=0.35, up=0),
+    # A VOLLEY IS MANY SHOTS, so it emits across nearly its whole life rather
+    # than in one pass.
+    "ironhail": dict(mode="beam", n=1300, sp=(50, 240), grav=140, drag=1.4,
+                     life=(0.22, 0.65), heavy=0.03, size=(0.6, 1.7),
+                     spawn=0.80, up=0),
+    # ONE AIMED SHOT. Sparse and fast: an aimedshot holds a draw and then
+    # releases, so almost everything arrives at once and late.
+    "farwarden": dict(mode="beam", n=900, sp=(60, 260), grav=120, drag=1.5,
+                      life=(0.20, 0.60), heavy=0.02, size=(0.6, 1.8),
+                      spawn=0.25, up=0),
+    "marrowdraw": dict(mode="beam", n=1100, sp=(45, 220), grav=150, drag=1.5,
+                       life=(0.25, 0.70), heavy=0.04, size=(0.7, 1.9),
+                       spawn=0.40, up=0),
+
+    # ---- FIELDS: nothing is thrown, the air fills ----------------------
+    "lastlight": dict(mode="field", n=1530, sp=(8, 55), grav=-30, drag=0.8,
                       life=(0.60, 1.40), heavy=0.0, size=(0.6, 1.8),
                       spawn=0.75, up=0),
+    # RETRACE IS THE TELEGRAPH. §4.1d measured it as the largest light source
+    # in the game and said it is bright ON PURPOSE, so the field is wide and
+    # slow and does not add another bright core.
+    "foregone": dict(mode="field", n=1400, sp=(6, 40), grav=-16, drag=0.7,
+                     life=(0.70, 1.60), heavy=0.0, size=(0.6, 1.7),
+                     spawn=0.80, up=0),
+    # STASIS. Nearly still, by definition -- the one field whose motes should
+    # look like they have been stopped rather than like they are drifting.
+    "paradox": dict(mode="field", n=1300, sp=(2, 18), grav=-4, drag=0.4,
+                    life=(0.90, 2.00), heavy=0.0, size=(0.6, 1.6),
+                    spawn=0.85, up=0),
+
+    # ---- SWIRLS: something orbits the wielder --------------------------
+    "redflail": dict(mode="swirl", n=1300, sp=(180, 420), grav=60, drag=1.0,
+                     life=(0.35, 0.90), heavy=0.06, size=(0.7, 2.0),
+                     spawn=0.70, up=0),
+    "bulwarden": dict(mode="swirl", n=1200, sp=(90, 240), grav=-20, drag=0.8,
+                      life=(0.60, 1.50), heavy=0.0, size=(0.6, 1.8),
+                      spawn=0.85, up=0, ccw=True),
+
+    # ---- FALLS: it arrives rather than escapes -------------------------
+    "vinesower": dict(mode="fall", n=1000, sp=(60, 220), grav=260, drag=0.9,
+                      life=(0.60, 1.50), heavy=0.05, size=(0.7, 2.1),
+                      spawn=0.85, up=0),
+    # A FREEZE HOLDS, so its frost settles slowly and lasts. Bramblesnare and
+    # Rootfast are both long for the same reason the art is: the hold they
+    # explain is still in force.
+    "thornwake": dict(mode="fall", n=1100, sp=(30, 120), grav=110, drag=1.0,
+                      life=(0.80, 1.80), heavy=0.02, size=(0.6, 1.9),
+                      spawn=0.85, up=0),
+    "heartwood": dict(mode="fall", n=1050, sp=(30, 120), grav=110, drag=1.0,
+                      life=(0.80, 1.70), heavy=0.02, size=(0.6, 1.9),
+                      spawn=0.85, up=0),
+
+    # ---- IMPLOSION: a burst run backwards ------------------------------
+    "gravemourn": dict(mode="implode", n=1250, sp=(140, 420), grav=0,
+                       drag=0.55, life=(0.40, 1.00), heavy=0.03,
+                       size=(0.7, 2.0), spawn=0.55, up=0),
 }
 
-DEFAULT_IDS = ["emberedge", "widowmaker", "aureole", "lastlight"]
+# The whole roster, in the order AC.WEAPONS lists it.
+DEFAULT_IDS = ["dawnbringer", "widowmaker", "grudgebearer", "thornwake",
+               "lastlight", "gravemourn", "slagheart", "spellbreaker",
+               "ironhail", "lightkeeper", "farwarden", "aureole",
+               "censer", "emberedge", "oathwound", "heartwood",
+               "nightfell", "axiom", "twinshade", "redflail",
+               "foregone", "vinesower", "bulwarden", "marrowdraw",
+               "paradox"]
 
 FX_JS = r"""() => {
   /* A deterministic particle field, drawn into the arena transform right after
@@ -162,6 +263,30 @@ FX_JS = r"""() => {
           ox = Math.cos(a) * rr; oy = Math.sin(a) * rr;
           const b = rnd() * Math.PI * 2;
           vx = Math.cos(b) * sp; vy = Math.sin(b) * sp;
+        } else if (S.mode === "swirl"){
+          /* TANGENTIAL, not radial. A spinstorm and an aegis are the same
+             gesture -- something orbiting the wielder -- and the only thing
+             that separates them from a nova is which way the velocity points.
+             Held at a radius rather than launched from the middle. */
+          const rr = (0.35 + 0.65 * Math.sqrt(rnd())) * (L.radius || 180);
+          ox = Math.cos(a) * rr; oy = Math.sin(a) * rr;
+          const dir = S.ccw ? -1 : 1;
+          vx = -Math.sin(a) * sp * dir; vy = Math.cos(a) * sp * dir;
+        } else if (S.mode === "fall"){
+          /* SEEDFALL AND FROST. Spawned across a band ABOVE the point and let
+             down onto it, so the motes arrive rather than escape. The band is
+             wider than it is tall because the arena is 520x740 and a square
+             spawn box reads as a column. */
+          ox = (rnd() - 0.5) * 2 * (L.radius || 200);
+          oy = -(L.radius || 200) * (0.4 + rnd() * 0.9);
+          vx = (rnd() - 0.5) * sp * 0.5; vy = sp * 0.5;
+        } else if (S.mode === "implode"){
+          /* A PULL IS A BURST RUN BACKWARDS. Spawned on the rim, aimed in.
+             `CLAUDE.md` on Slagburst's own tell: running a ring inward is the
+             cheapest possible way to say "this is not one of those". */
+          const rr = (0.7 + 0.3 * rnd()) * (L.radius || 220);
+          ox = Math.cos(a) * rr; oy = Math.sin(a) * rr;
+          vx = -Math.cos(a) * sp; vy = -Math.sin(a) * sp;
         } else {
           vx = Math.cos(a) * sp; vy = Math.sin(a) * sp - (S.up || 0);
         }
@@ -355,6 +480,11 @@ def main() -> int:
     ap.add_argument("--fps", type=int, default=60)
     ap.add_argument("--lead", type=float, default=0.30)
     ap.add_argument("--tail", type=float, default=1.1)
+    ap.add_argument("--max-life", type=float, default=3.0,
+                    help="film at most this many seconds of the set-piece. "
+                         "Aegis, Bloodhunt and the Stasis Field all run 8.6-9.5s "
+                         "and their particle fields are spent inside two, so "
+                         "the rest is a still frame with a clock on it")
     ap.add_argument("--w", type=int, default=1080)
     ap.add_argument("--q", type=float, default=0.95)
     ap.add_argument("--crf", type=int, default=16)
@@ -404,11 +534,12 @@ def main() -> int:
             return 2
         W, ident = args.cost_w, ids[0]
         blk, _ = block_for(ident, lib, bp)
+        foe = "dawnbringer" if ident == "bulwarden" else "bulwarden"
         with game(game_path=path) as (page, _e):
             lives = life_map(path, page)
         life = blk.get("life") or lives.get(ident) or 1.5
         cfg = {"fx": FX_JS, "setup": SETUP_JS,
-               "setupArgs": [ident, "bulwarden", blk, life, W,
+               "setupArgs": [ident, foe, blk, life, W,
                              round(W * 16 / 9)],
                "cost": COST_JS,
                "costArgs": [SPECS[ident], [0, 120, 420, 900, 2000], 5, 30]}
@@ -457,13 +588,19 @@ def main() -> int:
                 print(f"! {ident}: no life in the block or in Match's map; "
                       f"skipping rather than guessing")
                 continue
+            # "A relic cannot fight itself" -- a hardcoded foe kills the run
+            # the moment the roster reaches that relic, and it did: bulwarden
+            # crashed the sweep and took marrowdraw and paradox with it. The
+            # same trap ult_camera_probe.py hit with grudgebearer.
+            foe = "dawnbringer" if ident == "bulwarden" else "bulwarden"
             info = page.evaluate(SETUP_JS,
-                                 [ident, "bulwarden", blk, life, args.w, H])
+                                 [ident, foe, blk, life, args.w, H])
             spec = SPECS[ident]
             print(f"\n{ident:<12} {spec['mode']:<6} phase={ph or '-':<6} "
                   f"life={life:.2f}s  n={spec['n']}")
+            shown = min(life, args.max_life)
             n_lead = round(args.lead * args.fps)
-            n_body = round((life + args.tail) * args.fps)
+            n_body = round((shown + args.tail) * args.fps)
             for arm in arms:
                 page.evaluate(
                     "([s, g, k]) => window.__fx.reset(s, 25064, g, k)",
@@ -479,7 +616,7 @@ def main() -> int:
                     (tmp / f"f_{i:05d}.jpg").write_bytes(base64.b64decode(b64))
                     i += 1
                 for f in range(n_body):
-                    t = min(life, f / args.fps)
+                    t = min(shown, f / args.fps)
                     b64 = page.evaluate(
                         FRAME_JS, [t, (n_lead + f) / args.fps, args.q, dt])
                     (tmp / f"f_{i:05d}.jpg").write_bytes(base64.b64decode(b64))
