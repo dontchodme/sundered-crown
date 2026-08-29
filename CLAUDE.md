@@ -12,17 +12,32 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-paradox-frame.html   BUILD OF RECORD   25 relics · Stasis Field
+02-chain/sc-paradox-fx.html      BUILD OF RECORD   25 relics · Stasis Field
                                                    + the post chain, bloom ON
+                                                   + PARTICLE FIELDS on all 25
+02-chain/sc-paradox-frame.html   the link before it
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
 
-**The build of record now carries a WebGL post chain** (`src/render/post.js`,
+**The build of record carries a WebGL post chain** (`src/render/post.js`,
 inserted by `post_build.py`). Bloom ships; trails and grade are in the build
-and default OFF. Four chain links are newer than the v43 tip — see
-`docs/BUILD-CHAIN.md`, and do not reproduce the tip from a builder's bare
-defaults.
+and default OFF. See `docs/BUILD-CHAIN.md`.
+
+**And as of 2026-08-29 it carries PARTICLE FIELDS** (`src/render/fx.js`,
+inserted by `fx_build.py`): every one of the twenty-five ultimates now emits a
+deterministic field — six emitter modes, twenty-five specs, one
+implementation. Approved off played clips four times: particles at all, the
+vocabulary across four shapes, the density, and finally a real fight out of the
+build itself.
+
+> **THE FIELD IS AGED OFF `ultFx.t`, WHICH IS SIM TIME, AND THAT IS
+> LOAD-BEARING.** `stepTo` integrates to an ABSOLUTE time, so the hook is a
+> no-op the second time the post chain draws a frame — and the app's rAF and
+> the capture's fixed cadence produce the same picture. A field advanced by a
+> per-frame delta would have both bugs, and the first one presented as
+> juddering *physics* the last time this project hit it (`post_build.py`, the
+> camera shake).
 
 **The runtime is pinned and that pin is load-bearing**: electron 44.0.0 and
 playwright 1.62.0, chosen on measured bit-equality rather than version
@@ -282,10 +297,10 @@ cd tools
 python math_fingerprint.py                                         # the runtime pair
 python shell_identity.py                                           # app == headless
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-paradox-frame.html --n 40   # 13 checks
+python verify.py --game ../02-chain/sc-paradox-fx.html --n 40      # 13 checks
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-paradox-frame.html     # what's open
+python cell_survey.py --game ../02-chain/sc-paradox-fx.html        # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -295,7 +310,7 @@ python paradox_pick.py                                             # which fight
 A clip (`--shorts` only if it is going to a platform):
 
 ```bash
-python cinema_clip.py --game ../02-chain/sc-paradox-frame.html \
+python cinema_clip.py --game ../02-chain/sc-paradox-fx.html \
   --a paradox --b heartwood --seed 25064 --lead 18 --fps 60 --w 540 \
   --out ../07-shorts/v43/stasis-v-heartwood.mp4
 ```

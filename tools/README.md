@@ -1,4 +1,4 @@
-# tools/ — 211 files, grouped by what they answer
+# tools/ — 212 files, grouped by what they answer
 
 Flat on disk on purpose: every tool resolves the game beside itself and
 imports `scpage.py` the same way, so subfolders would break all of them.
@@ -24,6 +24,7 @@ went stale without anyone noticing.
 - `readouts_build.py` — floats, tags and the ult-name callout out of the bloom's source
 - `ultcarry_build.py` — corrected ult set-pieces carried to the tip when their owning builder cannot be replayed. Imports/slices each block from its owner so there is one copy of the art
 - `post_build.py` — the WebGL2 post chain into the build, so the app and the video run the same one
+- `fx_build.py` — `src/render/fx.js` into the build: deterministic particle fields on all 25 ultimates, aged off sim time so the hook is idempotent and the app and the video cannot diverge
 
 Not stamped at the tip, but chain-adjacent:
 

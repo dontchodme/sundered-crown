@@ -68,6 +68,7 @@ python post_build.py       --src ../02-chain/sc-paradox-dawn.html \
 | `readouts_build.py` | splits floats, tags and HUD into their own layer, so bloom reaches the fight and not the numbers |
 | `ultcarry_build.py` | carries corrected ult set-pieces to the tip when their owning builder cannot be replayed — Daybreak's corona, Benediction, the Harrowing |
 | `post_build.py` | inserts `src/render/post.js`. Bloom ON; trails and grade present and default OFF |
+| `fx_build.py` | inserts `src/render/fx.js` — the particle fields, 25 specs over 6 emitter modes. One hook, at the end of `drawUltOver`, which is the layer `readouts_build.py` split out for the bloom |
 
 ---
 
