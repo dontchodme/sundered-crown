@@ -12,11 +12,13 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-paradox-pace.html    BUILD OF RECORD   25 relics · Stasis Field
+02-chain/sc-paradox-hold-clamp.html  BUILD OF RECORD  25 relics · Stasis
                                                    + the post chain, bloom ON
                                                    + PARTICLE FIELDS on all 25
                                                    + the LONG-FIGHT pace
-02-chain/sc-paradox-fx.html      the link before it
+                                                   + the Stasis hold released
+                                                     correctly
+02-chain/sc-paradox-pace.html    the link before it
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
@@ -49,6 +51,23 @@ fight buys set-pieces for free.
 > 74s average pairing still yields usable clips. **Do not read this as a green
 > verify.** Clearing it means either backing the pace to baseHP 370 / seals
 > 19-44 (45.4s mean, the floor of the ask) or tuning those four relics.
+
+**A STASIS HOLD NO LONGER RELEASES A BALL UPWARD** (`pinrelease_build.py`,
+`--mode clamp`). `pin` exists on no other relic, so this was Paradox-only and
+Rick had said so three times before it was measured: a quarry caught RISING
+hung dead still for 2.32s and then resumed climbing at the speed it was caught
+with. Store-and-release works exactly as written — the stored vector is simply
+stale, because gravity is continuous and an upward velocity stops being true
+one step into a hold. `f.vy = Math.max(0, pinV[1])`: a ball caught falling is
+untouched, a ball caught rising is released at rest.
+
+> **THE BANKING RULE IS NOT WHAT WAS WRONG, AND IT STILL HOLDS.** `move` still
+> ASSIGNS, so knockback banked during a hold is discarded — Rick's v43 call,
+> "no banked knockback and no loss of momentum after the stun". It LOOKS like
+> it banks if you sample the step the pin expires; `move` cannot run while
+> `pin > 0`, so the restore lands one step later and is exact. That early sample
+> produced a wrong "confirmed, it banks" during the investigation. Follow it
+> one step further before believing it.
 
 **THE APP DROPS TO ~38 fps THROUGH A LOUD ULTIMATE, AND THAT IS ACCEPTED.**
 Measured on the real GPU at 453x805: fields off 7.33 ms, Slagburst's 1890
@@ -339,10 +358,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-paradox-pace.html --n 40    # 13 checks (12/13, see §0)
+python verify.py --game ../02-chain/sc-paradox-hold-clamp.html --n 40  # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-paradox-pace.html      # what's open
+python cell_survey.py --game ../02-chain/sc-paradox-hold-clamp.html  # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -352,7 +371,7 @@ python paradox_pick.py                                             # which fight
 A clip (`--shorts` only if it is going to a platform):
 
 ```bash
-python cinema_clip.py --game ../02-chain/sc-paradox-pace.html \
+python cinema_clip.py --game ../02-chain/sc-paradox-hold-clamp.html \
   --a paradox --b heartwood --seed 25064 --lead 18 --fps 60 --w 540 \
   --out ../07-shorts/v43/stasis-v-heartwood.mp4
 ```

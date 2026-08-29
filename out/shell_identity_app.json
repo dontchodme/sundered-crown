@@ -1,5 +1,5 @@
 {
-  "build": "02-chain/sc-paradox-pace.html",
+  "build": "02-chain/sc-paradox-hold-clamp.html",
   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) sundered-crown-app/0.1.0 Chrome/152.0.7977.54 Electron/44.0.0 Safari/537.36",
   "chrome": "152.0.7977.54",
   "rows": [
@@ -81,18 +81,18 @@
         "a": "Thornwake",
         "b": "Paradox",
         "winner": "Paradox",
-        "hp": 7,
-        "duration": 44.48,
+        "hp": 72,
+        "duration": 40.09,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 9
+          "a": 8,
+          "b": 8
         },
         "crits": {
-          "a": 1,
+          "a": 0,
           "b": 0
         },
-        "clanks": 11
+        "clanks": 6
       }
     },
     {
@@ -542,7 +542,7 @@
         "b": "Vinesower",
         "winner": "Vinesower",
         "hp": 135,
-        "duration": 47.66,
+        "duration": 45,
         "reason": "slain",
         "hits": {
           "a": 6,
@@ -632,19 +632,19 @@
         "seed": 1309769621,
         "a": "Thornwake",
         "b": "Paradox",
-        "winner": "Thornwake",
-        "hp": 26,
-        "duration": 52.67,
+        "winner": "Paradox",
+        "hp": 280,
+        "duration": 43.09,
         "reason": "slain",
         "hits": {
-          "a": 7,
-          "b": 7
+          "a": 3,
+          "b": 9
         },
         "crits": {
           "a": 0,
-          "b": 2
+          "b": 1
         },
-        "clanks": 16
+        "clanks": 10
       }
     },
     {
@@ -1092,19 +1092,19 @@
         "seed": 1218345754,
         "a": "Paradox",
         "b": "Vinesower",
-        "winner": "Vinesower",
-        "hp": 236,
-        "duration": 45.52,
+        "winner": "Paradox",
+        "hp": 28,
+        "duration": 47.27,
         "reason": "slain",
         "hits": {
-          "a": 4,
-          "b": 52
+          "a": 7,
+          "b": 54
         },
         "crits": {
-          "a": 0,
-          "b": 7
+          "a": 1,
+          "b": 2
         },
-        "clanks": 2
+        "clanks": 4
       }
     },
     {
@@ -1185,18 +1185,18 @@
         "a": "Thornwake",
         "b": "Paradox",
         "winner": "Paradox",
-        "hp": 263,
-        "duration": 34.52,
+        "hp": 194,
+        "duration": 35.67,
         "reason": "slain",
         "hits": {
-          "a": 4,
-          "b": 11
+          "a": 5,
+          "b": 10
         },
         "crits": {
           "a": 0,
-          "b": 0
+          "b": 1
         },
-        "clanks": 6
+        "clanks": 3
       }
     },
     {
@@ -1644,19 +1644,19 @@
         "seed": 3154730339,
         "a": "Paradox",
         "b": "Vinesower",
-        "winner": "Vinesower",
-        "hp": 4,
-        "duration": 52.63,
+        "winner": "Paradox",
+        "hp": 177,
+        "duration": 45.4,
         "reason": "slain",
         "hits": {
           "a": 8,
-          "b": 54
+          "b": 37
         },
         "crits": {
           "a": 1,
-          "b": 5
+          "b": 6
         },
-        "clanks": 6
+        "clanks": 8
       }
     },
     {
@@ -1737,18 +1737,18 @@
         "a": "Thornwake",
         "b": "Paradox",
         "winner": "Thornwake",
-        "hp": 55,
-        "duration": 50.77,
+        "hp": 66,
+        "duration": 51.07,
         "reason": "slain",
         "hits": {
-          "a": 7,
-          "b": 7
+          "a": 8,
+          "b": 6
         },
         "crits": {
           "a": 1,
-          "b": 0
+          "b": 1
         },
-        "clanks": 15
+        "clanks": 12
       }
     },
     {
@@ -2197,18 +2197,18 @@
         "a": "Paradox",
         "b": "Vinesower",
         "winner": "Vinesower",
-        "hp": 121,
-        "duration": 40.99,
+        "hp": 188,
+        "duration": 49.88,
         "reason": "slain",
         "hits": {
           "a": 4,
-          "b": 33
+          "b": 47
         },
         "crits": {
-          "a": 2,
+          "a": 1,
           "b": 6
         },
-        "clanks": 4
+        "clanks": 5
       }
     },
     {
@@ -2289,18 +2289,18 @@
         "a": "Thornwake",
         "b": "Paradox",
         "winner": "Thornwake",
-        "hp": 172,
-        "duration": 49.69,
+        "hp": 227,
+        "duration": 43.66,
         "reason": "slain",
         "hits": {
-          "a": 8,
-          "b": 5
+          "a": 9,
+          "b": 4
         },
         "crits": {
           "a": 1,
           "b": 0
         },
-        "clanks": 15
+        "clanks": 13
       }
     },
     {
@@ -2748,19 +2748,19 @@
         "seed": 2732532213,
         "a": "Paradox",
         "b": "Vinesower",
-        "winner": "Paradox",
-        "hp": 101,
-        "duration": 46.96,
+        "winner": "Vinesower",
+        "hp": 106,
+        "duration": 53.05,
         "reason": "slain",
         "hits": {
-          "a": 7,
-          "b": 46
+          "a": 5,
+          "b": 44
         },
         "crits": {
-          "a": 2,
+          "a": 1,
           "b": 3
         },
-        "clanks": 5
+        "clanks": 4
       }
     },
     {
@@ -2841,18 +2841,18 @@
         "a": "Thornwake",
         "b": "Paradox",
         "winner": "Paradox",
-        "hp": 24,
-        "duration": 46.62,
+        "hp": 138,
+        "duration": 39.8,
         "reason": "slain",
         "hits": {
-          "a": 6,
+          "a": 5,
           "b": 9
         },
         "crits": {
-          "a": 3,
-          "b": 0
+          "a": 1,
+          "b": 1
         },
-        "clanks": 9
+        "clanks": 8
       }
     },
     {
@@ -3393,8 +3393,8 @@
         "a": "Thornwake",
         "b": "Paradox",
         "winner": "Thornwake",
-        "hp": 209,
-        "duration": 44.64,
+        "hp": 122,
+        "duration": 33.57,
         "reason": "slain",
         "hits": {
           "a": 9,
@@ -3402,9 +3402,9 @@
         },
         "crits": {
           "a": 2,
-          "b": 0
+          "b": 1
         },
-        "clanks": 11
+        "clanks": 8
       }
     },
     {
@@ -3944,19 +3944,19 @@
         "seed": 43175243,
         "a": "Thornwake",
         "b": "Paradox",
-        "winner": "Thornwake",
-        "hp": 66,
-        "duration": 44.09,
+        "winner": "Paradox",
+        "hp": 249,
+        "duration": 38.72,
         "reason": "slain",
         "hits": {
-          "a": 7,
-          "b": 8
+          "a": 3,
+          "b": 10
         },
         "crits": {
-          "a": 1,
+          "a": 0,
           "b": 1
         },
-        "clanks": 13
+        "clanks": 7
       }
     },
     {
@@ -4406,17 +4406,17 @@
         "b": "Vinesower",
         "winner": "Vinesower",
         "hp": 10,
-        "duration": 49.02,
+        "duration": 52.32,
         "reason": "slain",
         "hits": {
           "a": 7,
-          "b": 54
+          "b": 49
         },
         "crits": {
           "a": 0,
-          "b": 8
+          "b": 7
         },
-        "clanks": 4
+        "clanks": 5
       }
     }
   ]

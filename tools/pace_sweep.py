@@ -74,7 +74,7 @@ from scpage import game
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
-BUILD = REPO / "02-chain" / "sc-paradox-pace.html"
+BUILD = REPO / "02-chain" / "sc-paradox-hold-clamp.html"
 
 # Ten pairings across schools rather than one. Duration is a property of a
 # MATCHUP as much as of the config -- verify.py's own range is 22.5s to 59.2s

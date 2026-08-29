@@ -44,7 +44,7 @@ from scpage import game
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
-BUILD = REPO / "02-chain" / "sc-paradox-pace.html"
+BUILD = REPO / "02-chain" / "sc-paradox-hold-clamp.html"
 
 # Six pairings across schools rather than one, because "does the ult get a
 # shot" could easily be a property of how HITTY a particular relic is -- a

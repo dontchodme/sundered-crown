@@ -40,7 +40,7 @@ from scpage import game
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
-BUILD = REPO / "02-chain" / "sc-paradox-pace.html"
+BUILD = REPO / "02-chain" / "sc-paradox-hold-clamp.html"
 POST_JS = REPO / "src" / "render" / "post.js"
 
 PROBE_JS = r"""
