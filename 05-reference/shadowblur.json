@@ -1,0 +1,495 @@
+{
+ "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+ "measure": {
+  "blur": 20,
+  "radius": 40,
+  "rows": [
+   {
+    "w": 1080,
+    "k": 1,
+    "discDevicePx": 39,
+    "discDesignPx": 39,
+    "blurOnlyDevicePx": 16,
+    "blurOnlyDesignPx": 16
+   },
+   {
+    "w": 540,
+    "k": 0.5,
+    "discDevicePx": 19,
+    "discDesignPx": 38,
+    "blurOnlyDevicePx": 16,
+    "blurOnlyDesignPx": 32
+   },
+   {
+    "w": 453,
+    "k": 0.41944444444444445,
+    "discDevicePx": 16.5,
+    "discDesignPx": 39.3,
+    "blurOnlyDevicePx": 15,
+    "blurOnlyDesignPx": 35.8
+   }
+  ]
+ },
+ "sites": {
+  "assignments": 132,
+  "scaled_by_this_k": 0,
+  "scaled_examples": [],
+  "zeroing": 58,
+  "live": 74
+ },
+ "census": [
+  {
+   "id": "dawnbringer",
+   "phase": "-",
+   "ult": 0,
+   "main": 2,
+   "off": 8,
+   "offw": [
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "widowmaker",
+   "phase": "-",
+   "ult": 30,
+   "main": 32,
+   "off": 9,
+   "offw": [
+    147,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "grudgebearer",
+   "phase": "strike",
+   "ult": 18,
+   "main": 20,
+   "off": 8,
+   "offw": [
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "thornwake",
+   "phase": "-",
+   "ult": 18,
+   "main": 20,
+   "off": 9,
+   "offw": [
+    195,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "lastlight",
+   "phase": "bloom",
+   "ult": 2,
+   "main": 4,
+   "off": 9,
+   "offw": [
+    195,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "gravemourn",
+   "phase": "-",
+   "ult": 6,
+   "main": 9,
+   "off": 8,
+   "offw": [
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8
+   },
+   "other": {
+    "Renderer.drawWeapon": 1,
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "slagheart",
+   "phase": "blast",
+   "ult": 20,
+   "main": 23,
+   "off": 8,
+   "offw": [
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8
+   },
+   "other": {
+    "Renderer.drawWeapon": 1,
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "spellbreaker",
+   "phase": "-",
+   "ult": 36,
+   "main": 38,
+   "off": 15,
+   "offw": [
+    147,
+    223,
+    457
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1,
+    "Object._conjure": 6
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "ironhail",
+   "phase": "-",
+   "ult": 0,
+   "main": 2,
+   "off": 9,
+   "offw": [
+    137,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "lightkeeper",
+   "phase": "-",
+   "ult": 36,
+   "main": 38,
+   "off": 9,
+   "offw": [
+    209,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "farwarden",
+   "phase": "-",
+   "ult": 2,
+   "main": 4,
+   "off": 9,
+   "offw": [
+    137,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "aureole",
+   "phase": "-",
+   "ult": 6,
+   "main": 8,
+   "off": 9,
+   "offw": [
+    137,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "censer",
+   "phase": "-",
+   "ult": 0,
+   "main": 2,
+   "off": 9,
+   "offw": [
+    163,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "emberedge",
+   "phase": "cold",
+   "ult": 0,
+   "main": 2,
+   "off": 9,
+   "offw": [
+    209,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "oathwound",
+   "phase": "-",
+   "ult": 4,
+   "main": 6,
+   "off": 9,
+   "offw": [
+    209,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "heartwood",
+   "phase": "-",
+   "ult": 18,
+   "main": 20,
+   "off": 9,
+   "offw": [
+    209,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "nightfell",
+   "phase": "-",
+   "ult": 2,
+   "main": 4,
+   "off": 9,
+   "offw": [
+    209,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "axiom",
+   "phase": "-",
+   "ult": 4,
+   "main": 6,
+   "off": 31,
+   "offw": [
+    209,
+    223,
+    457
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1,
+    "Object._shatter": 22
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "twinshade",
+   "phase": "-",
+   "ult": 0,
+   "main": 2,
+   "off": 9,
+   "offw": [
+    147,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "redflail",
+   "phase": "-",
+   "ult": 0,
+   "main": 3,
+   "off": 8,
+   "offw": [
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8
+   },
+   "other": {
+    "Renderer.drawWeapon": 1,
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "foregone",
+   "phase": "lay",
+   "ult": 0,
+   "main": 4,
+   "off": 13,
+   "offw": [
+    195,
+    223,
+    457
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1,
+    "Object._scConjured": 4
+   },
+   "other": {
+    "Object._scConjured": 2,
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "vinesower",
+   "phase": "-",
+   "ult": 2,
+   "main": 4,
+   "off": 9,
+   "offw": [
+    137,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "bulwarden",
+   "phase": "-",
+   "ult": 0,
+   "main": 2,
+   "off": 9,
+   "offw": [
+    163,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "marrowdraw",
+   "phase": "-",
+   "ult": 0,
+   "main": 2,
+   "off": 9,
+   "offw": [
+    137,
+    223
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "weaponGlow": 1
+   },
+   "other": {
+    "Renderer.drawTug": 2
+   }
+  },
+  {
+   "id": "paradox",
+   "phase": "-",
+   "ult": 0,
+   "main": 4,
+   "off": 9,
+   "offw": [
+    223,
+    457
+   ],
+   "offfn": {
+    "drawGlassRelic": 8,
+    "Object._fhConjured": 1
+   },
+   "other": {
+    "Object._fhConjured": 1,
+    "Renderer.drawWeapon": 1,
+    "Renderer.drawTug": 2
+   }
+  }
+ ],
+ "ctm_scaled": false
+}
