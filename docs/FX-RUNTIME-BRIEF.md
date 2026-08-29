@@ -255,11 +255,14 @@ it is a session of work.
 > byte-identical either way.
 >
 > **So it is a smoothness cost in a preview tool, not a defect in the
-> deliverable** — and Rick's own framing is the reason that might be
-> acceptable: *"we are building an app to make shorts. not an app to ship to
-> other people."* Still his call, and it is §5.0b's two-tier question arriving
-> from the art side: if the app gets a lighter field than the film, that has to
-> be a NAMED setting the app displays, not a silent fallback.
+> deliverable** — and Rick's own framing is why: *"we are building an app to
+> make shorts. not an app to ship to other people."*
+>
+> **DECIDED 2026-08-29: accepted.** Rick, told the numbers: *"thats fine, dont
+> worry about the app fps."* So §5.0b's two-tier question does NOT arise here —
+> there is one tier, the loud one, and the app simply renders it less smoothly
+> than the film does. Do not reopen this by lowering the density; that would
+> spend what he chose to buy what he said not to worry about.
 
 > **The "about a dozen sprites" figure was about `shadowBlur`.** Each of the
 > current art's sprites carries a full-canvas shadow; these carry none. That

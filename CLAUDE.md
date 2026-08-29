@@ -31,6 +31,20 @@ implementation. Approved off played clips four times: particles at all, the
 vocabulary across four shapes, the density, and finally a real fight out of the
 build itself.
 
+**THE APP DROPS TO ~38 fps THROUGH A LOUD ULTIMATE, AND THAT IS ACCEPTED.**
+Measured on the real GPU at 453x805: fields off 7.33 ms, Slagburst's 1890
+particles 26.13 ms — 157% of a 60 fps frame, for the 1.5s the field is alive.
+Rick, 2026-08-29, told: *"thats fine, dont worry about the app fps."*
+
+> **DO NOT "FIX" THIS.** It is not a defect and it is not an open item. The
+> video is unaffected — it captures offline, where a slow frame costs
+> wall-clock and nothing else — and the PICTURE is unaffected, because the
+> field is aged off `ultFx.t`: a dropped frame in the app is fewer samples of
+> the same set-piece, not a different one, and the mp4 is byte-identical
+> either way. The app is a tool for making shorts (§0), so smoothness in it is
+> not the deliverable. Lowering the density to buy app frames would spend the
+> thing Rick actually chose on the thing he explicitly said not to worry about.
+
 > **THE FIELD IS AGED OFF `ultFx.t`, WHICH IS SIM TIME, AND THAT IS
 > LOAD-BEARING.** `stepTo` integrates to an ABSOLUTE time, so the hook is a
 > no-op the second time the post chain draws a frame — and the app's rAF and
@@ -398,15 +412,6 @@ git push
 ---
 
 ## 8. THE OPEN ITEMS, OLDEST FIRST
-
-0. **THE APP CANNOT HOLD 60 fps THROUGH THE LOUD ULTIMATES.** Measured on the
-   real GPU at 453x805: fields off 7.33 ms, Slagburst's 1890 particles 26.13 ms
-   — 157% of a frame, so ~38 fps for the 1.5s it is alive. **The video is
-   unaffected** (offline capture) and **the picture is unaffected** (the field
-   is aged off `ultFx.t`, so a dropped frame is fewer samples of the same
-   set-piece, not a different one). It is a smoothness cost in a preview tool.
-   Rick's call: accept it, or give the app a named lighter tier — never a
-   silent one. `docs/FX-RUNTIME-BRIEF.md` §3.2.
 
 1. **THE SHARED `cineFloor` IS STILL NOT BUILT.** v40 item 1, six relics deep.
    §3 of the v43 handoff is the first measurement it would be set against: a
