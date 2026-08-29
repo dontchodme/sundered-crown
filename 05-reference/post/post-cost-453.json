@@ -1,0 +1,157 @@
+{
+ "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A78B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+ "size": "453x805",
+ "at": 22.01,
+ "rows": [
+  {
+   "name": "2D draw only",
+   "rep": 0,
+   "ms": 12.321666665871938
+  },
+  {
+   "name": "+ chain, no effects",
+   "rep": 0,
+   "ms": 10.34666666984558
+  },
+  {
+   "name": "+ bloom low",
+   "rep": 0,
+   "ms": 9.87666666507721
+  },
+  {
+   "name": "+ trails off",
+   "rep": 0,
+   "ms": 11.093333331743876
+  },
+  {
+   "name": "+ grade off",
+   "rep": 0,
+   "ms": 11.441666666666666
+  },
+  {
+   "name": "+ ALL (as chosen)",
+   "rep": 0,
+   "ms": 13.859999998410542
+  },
+  {
+   "name": "2D draw only",
+   "rep": 1,
+   "ms": 8.00166666507721
+  },
+  {
+   "name": "+ chain, no effects",
+   "rep": 1,
+   "ms": 12.111666663487751
+  },
+  {
+   "name": "+ bloom low",
+   "rep": 1,
+   "ms": 12.320000000794728
+  },
+  {
+   "name": "+ trails off",
+   "rep": 1,
+   "ms": 11.254999999205271
+  },
+  {
+   "name": "+ grade off",
+   "rep": 1,
+   "ms": 12.439999997615814
+  },
+  {
+   "name": "+ ALL (as chosen)",
+   "rep": 1,
+   "ms": 11.896666665871939
+  },
+  {
+   "name": "2D draw only",
+   "rep": 2,
+   "ms": 9.591666666666667
+  },
+  {
+   "name": "+ chain, no effects",
+   "rep": 2,
+   "ms": 12.003333330154419
+  },
+  {
+   "name": "+ bloom low",
+   "rep": 2,
+   "ms": 13.031666664282481
+  },
+  {
+   "name": "+ trails off",
+   "rep": 2,
+   "ms": 13.006666668256123
+  },
+  {
+   "name": "+ grade off",
+   "rep": 2,
+   "ms": 12.404999999205272
+  },
+  {
+   "name": "+ ALL (as chosen)",
+   "rep": 2,
+   "ms": 11.833333333333334
+  },
+  {
+   "name": "2D draw only",
+   "rep": 3,
+   "ms": 8.72166666984558
+  },
+  {
+   "name": "+ chain, no effects",
+   "rep": 3,
+   "ms": 12.258333333333333
+  },
+  {
+   "name": "+ bloom low",
+   "rep": 3,
+   "ms": 12.125
+  },
+  {
+   "name": "+ trails off",
+   "rep": 3,
+   "ms": 13.09833333492279
+  },
+  {
+   "name": "+ grade off",
+   "rep": 3,
+   "ms": 11.771666665871939
+  },
+  {
+   "name": "+ ALL (as chosen)",
+   "rep": 3,
+   "ms": 12.978333334128061
+  },
+  {
+   "name": "2D draw only",
+   "rep": 4,
+   "ms": 9.061666667461395
+  },
+  {
+   "name": "+ chain, no effects",
+   "rep": 4,
+   "ms": 12.146666665871939
+  },
+  {
+   "name": "+ bloom low",
+   "rep": 4,
+   "ms": 12.341666666666667
+  },
+  {
+   "name": "+ trails off",
+   "rep": 4,
+   "ms": 11.155000003178914
+  },
+  {
+   "name": "+ grade off",
+   "rep": 4,
+   "ms": 12.313333336512247
+  },
+  {
+   "name": "+ ALL (as chosen)",
+   "rep": 4,
+   "ms": 11.60166666507721
+  }
+ ]
+}

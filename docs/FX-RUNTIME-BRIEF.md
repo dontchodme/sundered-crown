@@ -342,12 +342,50 @@ the file `shorts_build.py` writes, **it is what the platform's encoder does to
 it**, and this project's whole doctrine is to measure the thing that actually
 ships. It is one post, one download, and one contact sheet.
 
-### 5.3 STILL MEASURE THE FRAME BUDGET FIRST
+### 5.3 THE FRAME BUDGET — MEASURED 2026-08-28, AND IT RE-PRICES §3
 
-`post_cost.py` exists and the one number that prices §3 is the frame budget on
-the machine that owns the chain, at 60 fps, at the app's size and at
-1080x1920 — **which §5.1 may be about to change.** Get it after the capture
-resolution is settled, not before.
+`post_cost.py` on the real GPU through Electron — ANGLE / Intel UHD Graphics,
+D3D11 — paradox v heartwood 25064 at t=22s, 60 draws x 5 reps, median:
+
+```
+                        453x805 (the app)        1080x1920
+  2D draw only            9.062 ms                12.888 ms
+  + chain, no effects    12.112  (+3.050)         20.207  (+7.318)
+  + ALL (as chosen)      11.897  (+2.835)         22.468  (+9.580)
+
+  60 fps budget is 16.67 ms
+  as chosen:             71% of budget            135% of budget
+```
+
+**The app has 4.77 ms of headroom per frame and that is the whole FX budget.**
+1080x1920 is already 135% of a 60 fps frame, but nothing realtime runs there —
+the video is captured offline where a slow frame costs wall-clock and nothing
+else. So the number that constrains §3 is the 453 one.
+
+> **AND THE CHAIN'S COST IS THE PLUMBING, NOT THE EFFECTS.** At 453 the chain
+> with NOTHING switched on costs +3.050 ms — upload, two copies, readback —
+> and turning on everything Rick chose brings the total to +2.835, i.e. the
+> effects are free inside the spread. At 1080 the floor is +7.318 and all the
+> effects together add 2.26 on top of it.
+
+That inverts the assumption §3 was written under. A displacement pass (§3.3) is
+**one more FBO in a chain that has already paid for itself**, and a particle
+system that draws into the emissive layer the bloom already reads (§3.2) is
+adding work to a target that already exists. The expensive thing was having a
+GPU chain at all, and that is already spent.
+
+**What is NOT settled by this.** These are draw-cost numbers for passes that
+exist. A particle system's cost is its own — thousands of instances, a state
+texture, a ping-pong integrate — and none of that is in this measurement.
+4.77 ms is the envelope it has to fit inside, not evidence that it will.
+
+**One discrepancy, recorded rather than resolved.** §5.0 quotes 8.05 ms at the
+app's size for bloom-only; this run reads 11.90 ms with a 11.60..13.86 spread,
+so the two do not overlap. Same machine, same tool. The likely cause is thermal
+state — this ran immediately after five 1080 clip captures — and it does not
+change the conclusion, since the ratio between rows is what `post_cost.py`
+says transfers and the ratio held. Re-run it cold before anything is designed
+to a hard millisecond.
 
 ---
 
@@ -411,9 +449,10 @@ rejected in motion, and `CLAUDE.md` §4.0 is the same rule one level down.
 - **The platform round trip, §5.2.** Post one, download it back, contact-sheet
   it against the local file. One post, and it prices every thin-stroke and
   grain decision in §3.
-- `post_cost.py` at 60 fps, at the app's size and at whatever capture
-  resolution §5.1 settles on. **Everything below is priced off this number**,
-  which is why it comes after the resolution question and not before.
+- ~~`post_cost.py` at 60 fps~~ **DONE 2026-08-28**, §5.3. 4.77 ms of headroom
+  at the app's size; 540 stays the capture resolution because the pristine
+  path did not earn its cost (`DELIVERY-QUALITY-BRIEF.md`). **Stage 0 is now
+  clear except the platform round trip, which needs Rick to post one.**
 
 ### Stage 1 — the envelope, on three relics *(one session)*
 
@@ -490,8 +529,11 @@ four.
 
 ## 10. WHAT IS NOT ESTABLISHED HERE
 
-- **The frame budget on the real machine at 60 fps is unmeasured.** Every cost
-  claim in this document is conditional on Stage 0.
+- ~~**The frame budget on the real machine at 60 fps is unmeasured.**~~
+  **MEASURED 2026-08-28**, §5.3. 11.90 ms of 16.67 at the app's 453x805, so
+  **4.77 ms of headroom**, and the chain's cost turned out to be its plumbing
+  rather than its effects. Taken warm, after five clip captures; re-run cold
+  before designing to a hard millisecond.
 - **§5.1 is read off the code, not off a picture.** That a shipped short is
   540x960 JPEG-0.80 upscaled 2x is certain — it is four argparse defaults and
   one ffmpeg line. That fixing it is *visibly* better is a prediction, and the
