@@ -444,3 +444,13 @@
 [progress] capture frames=1489 elapsed=505.8
 [progress] capture frames=1493 elapsed=507.1
 [progress] capture frames=1497 elapsed=508.3
+no killing blow on this seed (timeout finish); using the last cut
+seed 25064: kill at 40.12s, clip starts at 22.12s
+cut list: 40.1s T2
+  rendering director ON ...
+    verdict panel held 2.40s of the 3.43s tail (armed 1.03s after the kill)
+    on: 1707 frames, 28.4s wall, 569s to render, match ended {'seed': 25064, 't': 22.116666666666053, 'kill': None}
+    on: FIGHT over=True t=46.4083 clanks=17 hp=[17, 0]
+
+wrote C:\dev\sundered-crown\07-shorts\blur-ab\d-mb1\d-no-motion-blur.mp4  30.73 MB  (0.0s off + 28.4s on)
+the two halves are the same seed. If the winner differs, the feature is broken.
