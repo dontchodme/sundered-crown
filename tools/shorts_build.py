@@ -138,7 +138,7 @@ def has_scrunch(game):
 
 
 def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True,
-            verdict_hold=None, lead=None):
+            verdict_hold=None, lead=None, stakes=None, stakes_sub=None):
     """THE CARD AND THE SCRUNCH ARE NOT ADDITIVE -- THEY STACK, AND STACKING IS
     THE WORST OF THE THREE OPTIONS.
 
@@ -189,6 +189,13 @@ def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True,
                # WHOLE fight, so its output was twice the length of anything
                # that has ever been posted.
                *(["--lead", str(lead)] if lead is not None else []),
+               # THE STAKES BAND RIDES WITH THE OPEN, NOT SEPARATELY.
+               # Hook brief §5a and §6: band and ignition open are ONE
+               # bundle so a posting slate stays a single variable. No
+               # default copy is baked in here -- the line is Rule 2 and
+               # Rick's pick, so no band unless one is passed.
+               *(["--stakes", stakes] if stakes else []),
+               *(["--stakes-sub", stakes_sub] if stakes_sub else []),
                "--fps", fps, "--w", w, "--q", q, "--out", out],
               cwd=HERE, stream_err=True).strip())
 
@@ -291,6 +298,12 @@ def main() -> int:
     ap.add_argument("--voice", default="bm_lewis")
     ap.add_argument("--gap", type=float, default=0.38)
     ap.add_argument("--name-gap", type=float, default=0.14)
+    ap.add_argument("--stakes", default=None, metavar="LINE",
+                    help="a stakes band over the opening, passed "
+                         "through to cinema_clip. Fades out on the "
+                         "first clank.")
+    ap.add_argument("--stakes-sub", default=None, metavar="LINE",
+                    help="the gold sub-line under it")
     ap.add_argument("--vo-vol", type=float, default=2.0)
     ap.add_argument("--lead", type=float, default=None,
                     help="seconds of fight to film before the finish; the "
@@ -328,7 +341,8 @@ def main() -> int:
     if not a.encode_only:
         capture(a.game, a.a, a.b, a.seed, out, a.fps, a.w, a.q,
                 cold_open=a.cold_open, card=a.card,
-                verdict_hold=a.verdict_hold, lead=a.lead)
+                verdict_hold=a.verdict_hold, lead=a.lead,
+                stakes=a.stakes, stakes_sub=a.stakes_sub)
     if a.capture_only:
         print("captured; finish with --encode-only")
         return 0
