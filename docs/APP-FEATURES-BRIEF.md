@@ -55,6 +55,16 @@ not ship.
 
 ### What actually has to be decided
 
+**AND ANSWERED AGAIN, 2026-08-29: IT NOW HAS A HOME AGAIN, AND IT IS THE
+IGNITION OPEN.** Everything below stands — the placement is still the start of
+the fight — but "the start of the fight" is no longer an empty stretch of live
+play. `src/render/open.js` puts a solo shot on each relic with an ignition
+flare on it, and Rick placed the line ON those flares: `<A>,` at 0.10s, `<B>.`
+at 0.95s, `Who wins?` at 1.95s on the pull wide. The onsets are read out of
+`open.js` by `cinema_vo.ignition_beats()` and never copied. Before that, the
+shipped line said the first relic's name 1.08s after it ignited and 0.23s after
+the OTHER one did. `06-docs/v46/` §6.
+
 **ANSWERED 2026-08-28. THE ANNOUNCER GOES AT THE START OF THE FIGHT.** Rick,
 off three rendered files rather than a description: *"the announcer has to be at
 the start of the fight. it doesnt make sense anywhere else."* `--vo-at` now

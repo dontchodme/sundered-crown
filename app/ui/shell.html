@@ -48,9 +48,11 @@
         Local and offline &mdash; nothing typed here leaves this machine.</p>
       <p class="note" style="margin-top:6px">Punctuation does not make a pause &mdash;
         Kokoro gives <code>?...</code>, <code>? ...</code> and <code>.</code> the same
-        contour. Write pauses with <code>|</code>, optionally followed by seconds:
-        <code>Who wins? |0.38 Paradox, |0.14 or Heartwood.</code></p>
-      <textarea id="vo" rows="3" placeholder="Empty = the default line. Or write your own, using | for a pause."></textarea>
+        contour. Write pauses with <code>|</code>, optionally followed by seconds,
+        and <code>@</code> for an absolute time in the clip:
+        <code>@0.1 Paradox, |@0.95 Heartwood. |@1.95 Who wins?</code> &mdash;
+        that is the shipped line, with each name on its own ignition.</p>
+      <textarea id="vo" rows="3" placeholder="Empty = the default line. Or write your own: | for a pause, @T for a time."></textarea>
       <select id="voVoice" title="Kokoro voice. bm_lewis is the voice of record."></select>
       <div class="btns">
         <button class="pri" id="btnPreview">Preview voice</button>

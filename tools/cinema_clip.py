@@ -551,13 +551,18 @@ def main() -> int:
                          "somebody copied.")
     ap.add_argument("--vo", default=None,
                     help="wav to mix over the start (made by cinema_vo.py)")
-    ap.add_argument("--vo-at", default="0.3",
+    ap.add_argument("--vo-at", default="0.0",
                     help="seconds into the video to place the voiceover, or "
                          "'clank' to place it on the first clank -- which is "
-                         "where the scrunch arms, and therefore where the "
-                         "introduction happens when there is no intro card. "
-                         "0.3 (into the card) is the historical behaviour and "
-                         "stays the default so nothing that worked changes.")
+                         "where the scrunch arms. 0.0 since 2026-08-29: the "
+                         "old 0.3 default was never a decision, it was chosen "
+                         "so the line began after the 4.0s intro card was up, "
+                         "and the card has been dead for five sessions -- "
+                         "shorts_build.py moved to 0.0 when Rick placed the "
+                         "line at the start of the fight. It now actively "
+                         "breaks sync: cinema_vo bakes the lead silence into "
+                         "the wav so the names land on the ignition open's "
+                         "flares, and 0.3 pushes every one of them late.")
     ap.add_argument("--capture-only", action="store_true",
                     help="stop after frames + wav (finish with --encode-only); "
                          "the two halves each fit the tool window where the "

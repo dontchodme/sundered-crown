@@ -77,9 +77,26 @@ happen. `06-docs/v46/`.
 > nineteenth is the final 10ms, where the module hands back at `z <= 1.02` and
 > the lab ran one more frame at 1.0005.
 
-> **THE OPENING IS SILENT, AND THAT IS RICK'S CALL TO MAKE.** The clip he
-> approved had no ignition sound and none was invented here. A sound is one of
-> the seven things that are his (Rule 2) — offer it as a spread.
+> **AND THE SOUND OF IT IS THE ANNOUNCER, ON THE IGNITIONS.** Rick, asked what
+> the flare should sound like: *"i think sound should be the announcer."* He
+> was answering a better question than the one he was asked. The announcer has
+> existed since v30-something and has been **timed to nothing** since the intro
+> card was retired for losing 71–75% of the audience — measured against the new
+> opening, the shipped line said "Ironhail" 1.08s after Ironhail ignited and
+> 0.23s after GORESHARD did. Every name over the wrong relic. He picked arm C
+> of three: `<A>,` on flareA, `<B>.` on flareB, `Who wins?` on the pull wide.
+> `cinema_vo.py` now places parts at ABSOLUTE ONSETS read out of
+> `src/render/open.js` — one source of truth, no second copy of the timings —
+> and bakes the lead silence into the wav so every consumer places it at 0.0.
+> `tools/vo_sync_probe.py`, `06-docs/v46/` §6.
+
+> **THE NAMES DO NOT ALL FIT THE STAGGER, AND THE NUMBER IS 0.15s.** The flares
+> are 0.85s apart and 11 of 25 spoken names are longer than that, worst
+> Emberedge at 1.00s. A name that overruns DELAYS the next part rather than
+> overlapping it, and the drift is printed on every render. Nine frames at
+> 60fps, against a stated 0.20s bar. The fix if it is ever wanted is `flareB`,
+> one number in `open.js` — and that is a change to a look Rick approved, so it
+> is his.
 
 > **AND IT ONLY REACHES A SHORT THAT STARTS AT ZERO.** `cinema_clip --lead`
 > measures back from the killing blow, so an ordinary clip begins thirty
@@ -565,10 +582,13 @@ git push
     integral of its own spin. Inert for damage, live for the picture.
 11. **EVERY TYPE-LEVEL MEASUREMENT STILL WANTS A `--noult` PASS.** v38 od 5
     onward, five sessions.
-12. **THE IGNITION OPEN HAS NO SOUND, AND NO ROUTE INTO A SHORT.** Both are
-    Rick's, both are named in §0, and neither is a defect: the sound was never
-    part of what he approved, and `--lead` clips start after the opening by
-    construction. Ask; do not decide either one from this file.
+12. **THE IGNITION OPEN HAS NO ROUTE INTO A SHORT EXCEPT `--full`.** `--lead`
+    measures back from the killing blow and starts thirty seconds in, so it
+    never sees the opening — and the announcer that now rides on the opening's
+    flares then has nothing to land on. Whether shorts open at zero is Rick's,
+    it is named in §0, and it is not a defect. Ask; do not decide it from this
+    file. (The other half of this item, the opening's sound, was answered on
+    2026-08-29: it is the announcer.)
 
 Full detail: `06-docs/v46/` for the tip, `NEXT-SESSION.md` and
 `06-docs/v43/` for the relic before it.

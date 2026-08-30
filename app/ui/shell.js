@@ -218,7 +218,7 @@ function wireControls() {
                                             b: displayName($('selB').value) });
     if (!r.ok) { voSay(r.reason); return; }
     $('vo').value = r.script;
-    voSay('Loaded. The `|0.38` marks are the pauses — edit the words, move the '
+    voSay('Loaded. The `@` marks are onsets — each name sits on its own ignition. Edit the words, move the '
         + 'bars, change the numbers. Rendered as-is this is the same audio the '
         + 'short ships, to the byte.');
   };

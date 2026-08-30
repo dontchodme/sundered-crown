@@ -553,13 +553,15 @@ ipcMain.handle('swb:speak', async (_e, opts = {}) => {
   const text = String(opts.text ?? '').trim();
   const voice = String(opts.voice || 'bm_lewis');
   /* EMPTY BOX MEANS THE DEFAULT LINE, NOT AN ERROR. The announcer's job is the
-   * line the short already ships -- "Who wins? <A>, or <B>." with its two
-   * measured gaps -- and the textarea is there to CHANGE it for a fight or add
-   * something extra, not to be the only way to get a voice at all.
+   * line the short already ships -- "<A>, <B>. Who wins?", each name placed on
+   * its own ignition -- and the textarea is there to CHANGE it for a fight or
+   * add something extra, not to be the only way to get a voice at all.
    *
    * `--hook` is the same flag shorts_build calls, so this preview is the line
-   * the short will contain and not a second construction of it. The parts and
-   * gaps live in cinema_vo.hook_parts/HOOK_GAPS and nowhere else. */
+   * the short will contain and not a second construction of it. The parts live
+   * in cinema_vo.hook_parts and their onsets are read out of
+   * src/render/open.js by cinema_vo.ignition_beats -- nowhere else, and never
+   * copied into this file. */
   const hook = !text;
   const na = String(opts.a || '').trim(), nb = String(opts.b || '').trim();
   if (hook && !(na && nb)) {
@@ -582,11 +584,11 @@ ipcMain.handle('swb:speak', async (_e, opts = {}) => {
   }
 
   const out = path.join(os.tmpdir(), `swb-vo-${Date.now()}.wav`);
-  /* `--script`, NOT `--text`. The box carries pauses now -- `|` with an
-   * optional seconds value -- so loading the default line into it and rendering
-   * gives back the same audio, verified byte-for-byte. With --text it did not:
-   * the words survived and the two measured silences did not, and it came back
-   * as one flat continuous read. */
+  /* `--script`, NOT `--text`. The box carries the line's TIMING now -- `|` for
+   * a pause, `@T` for an absolute onset -- so loading the default line into it
+   * and rendering gives back the same audio, verified byte-for-byte. With
+   * --text it did not: the words survived and the measured silences did not,
+   * and it came back as one flat continuous read. */
   const args = hook
     ? ['cinema_vo.py', '--a', na, '--b', nb, '--hook', '--voice', voice, '--out', out]
     : ['cinema_vo.py', '--a', na || 'A', '--b', nb || 'B',

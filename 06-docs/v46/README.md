@@ -105,12 +105,9 @@ clamp wins over the lean clamp.
 
 ## 3. WHAT IT DOES NOT DO, AND ONE OF THEM IS A QUESTION FOR RICK
 
-**THE OPENING IS SILENT.** The clip Rick approved had no ignition sound —
-`SFX` events come from the sim and the sim knows nothing about this — so
-shipping one unasked would be shipping something he has not heard. The ult
-sound is one of the seven things that are his (Rule 2), and a strike this loud
-visually wants a voice. **Offered as a spread when he wants it**, not decided
-here.
+**THE SOUND OF IT IS THE ANNOUNCER — see §6.** This section used to say the
+opening was silent and that a sound would be offered as a spread. It was, he
+answered, and the answer was better than the question.
 
 **A DIRECTOR CUT INSIDE THE OPENING LOSES THE CAMERA.** Measured: `cinePlan`
 schedules a first cut before 2.35s on **2 of 120 pairings (1.7%)**, at 1.62s
@@ -220,3 +217,105 @@ that shipped. It is now on `sc-paradox-ignition.html`.
 something the mp4 will not, and a pointer nobody moves is the quiet way that
 guarantee stops being true. It is one line in one file and it needs to move in
 the same commit as every future build of record.
+
+---
+
+## 6. THE SOUND OF IT IS THE ANNOUNCER
+
+Asked what the flare should sound like, Rick said: *"i think sound should be
+the announcer. does that sound right to you?"*
+
+It was a better question than the one he was asked. §3 of this document, as
+first written, was looking for a WebAudio strike to go under the flare. The
+announcer already existed — `cinema_vo.py`, `bm_lewis`, chosen on a measured
+f0/IQR sweep — and he had already decided where it goes, on 2026-08-28: *"the
+announcer has to be at the start of the fight. it doesnt make sense anywhere
+else."*
+
+**What it never had was a picture built to its shape.** Its home was the 4.0s
+intro card; the card was retired for losing 71–75% of the audience present when
+it appeared; the line kept the card's pacing and played at 0.0 over whatever
+the fight happened to be doing. `docs/APP-FEATURES-BRIEF.md` §1 is the record.
+
+### 6.1 WHAT THE SHIPPED LINE WAS ACTUALLY DOING
+
+Measured against the new opening, ironhail v goreshard:
+
+```
+0.10s   IRONHAIL ignites
+0.95s   GORESHARD ignites
+1.18s   "Ironhail,"        1.08s after its own flare -- and 0.23s after the OTHER
+2.19s   "or Goreshard."    1.24s late, over the pull wide
+3.17s   the line ends      past the end of the shot and past the first clank
+```
+
+**Every name was being spoken over the wrong relic.** Not an argument against
+his instinct — the strongest possible argument for it.
+
+### 6.2 THE SPREAD, AND ARM C
+
+Three arms over the same 5.4s of the build's own opening. One line, one voice,
+only the timing moving — the same shape as the placement spread he answered in
+August, and the shape `06-docs/v43` says lands a sound in one round trip.
+
+| arm | | |
+|---|---|---|
+| A | as it ships | the control; names 1.08s and 1.24s late |
+| B | names on the flares | `Ironhail,` 0.10 · `Goreshard.` 0.97 |
+| **C** | **names, then the question** | **B, plus `Who wins?` at 1.95 on the pull** |
+
+**"go c".** So the question stops being the opener and becomes the button,
+landing as the hall opens and the first clank arrives at 2.22s.
+
+### 6.3 THE PART THAT IS ENGINEERING, NOT COPY
+
+> **A GAP THAT SYNCS ONE PAIRING MIS-SYNCS THE NEXT.** The line used to be
+> parts joined by two constant gaps. The flares are at fixed times and the
+> names are not a fixed length — across the roster they run 0.69s to 1.00s, a
+> spread of 0.31s — so constants cannot put two different names on two fixed
+> beats. The parts are now placed at **absolute onsets**.
+
+Three consequences, all of them the point:
+
+1. **The onsets are READ OUT OF `src/render/open.js`** (`ignition_beats()`),
+   never copied into the audio tool. One source of truth, and it fails loudly
+   if the pattern stops matching rather than falling back to constants — a line
+   silently timed to numbers that no longer match the picture is the exact
+   defect this change exists to remove.
+2. **The lead silence is baked into the wav**, so every consumer places the
+   file at 0.0 and gets the sync for free. `shorts_build.py --vo-at` was
+   already 0.0. `cinema_clip.py --vo-at` was still **0.3** — the same
+   inherited "after the card is up" 300ms, which for five sessions waited for
+   nothing and now actively pushed every name late. It is 0.0.
+3. **The box syntax grew `@`.** `|0.38` is a pause; `|@1.95` is an onset. The
+   app hands its textarea straight to `--script`, so `--print-hook-script` →
+   textarea → render must come back byte-identical to `--hook`, and it does:
+   both wavs hash `01d91524ca3366f1`.
+
+### 6.4 THE NAMES DO NOT ALL FIT, AND THE NUMBER IS 0.15s
+
+`tools/vo_sync_probe.py`, all 25 relics, both spoken forms:
+
+```
+the stagger between the flares            0.85s
+first names longer than it                11/25   worst Emberedge 1.00s
+the SECOND NAME lands late by (worst)     0.15s   nine frames at 60fps
+the QUESTION lands late by (worst)        0.14s
+                                          PASS against a stated 0.20s bar
+```
+
+A part that overruns its onset is **delayed, never overlapped and never
+clipped**, and the drift is printed on every single render. Fifty renders
+cover all 300 pairings, because the second name's drift depends only on the
+first name's length and the question's only on the second's.
+
+The fix, if 0.15s ever turns out to be visible, is `flareB` in `open.js` — one
+number, and a change to a look Rick approved, so it is his and not this file's.
+
+### 6.5 WHAT IS STILL OPEN
+
+**The app's ignition is still silent**, because the engine has no sound files
+by design (§1: *"fully synthesized in WebAudio. There are no sound files."*).
+The announcer lives in the clip's mix, as all voiceover does. If the app should
+have an ignition you can hear, that is a separate and much smaller thing — a
+synthesized strike under the voice — and it was not asked for.
