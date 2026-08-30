@@ -31,6 +31,7 @@ import subprocess
 import sys
 
 import cinema_vo
+from scpage import resolve_game
 
 # THE SAME RESOLVER THE APP USES, AND CLAUDE.md §5 SAYS WHY IT HAS TO BE HERE.
 # winget installs ffmpeg without a shim, so it is on PATH only if someone put it
@@ -346,15 +347,31 @@ def main() -> int:
     ap.add_argument("--w", type=int, default=540)
     ap.add_argument("--q", type=float, default=0.80)
     ap.add_argument("--crf", type=int, default=23)
-    ap.add_argument("--no-card", dest="card", action="store_false", default=True,
-                    help="film WITHOUT the 4s intro card. Correct on any build "
-                         "carrying the scrunch -- see capture()'s docstring for "
-                         "the measurement.")
+    # OFF BY DEFAULT SINCE 2026-08-30, AND IT SHOULD HAVE BEEN FOR FIVE
+    # SESSIONS. The fight card is retired (CLAUDE.md rule 1) -- card-first
+    # videos lose 71-75% of the audience present when it appears, and
+    # `cinema_clip` REFUSES `--intro` without `--legacy-card`. So this tool's
+    # own default could not produce a file: it asked for the card, printed its
+    # own warning about stacking with the scrunch, and then the capture it
+    # spawned exited on the guard. app/main.js has hardcoded `--no-card` since
+    # it was written, which is why nothing noticed. Rick ran the bare command
+    # and it died on exactly this.
+    ap.add_argument("--card", dest="card", action="store_true", default=False,
+                    help="film WITH the 4s intro card. Needs --legacy-card "
+                         "downstream and is almost certainly wrong: the card "
+                         "is retired and stacks with the scrunch.")
+    ap.add_argument("--no-card", dest="card", action="store_false",
+                    help="explicit no-card. Now the default; kept so every "
+                         "command and doc that passes it still runs.")
     ap.add_argument("--capture-only", action="store_true")
     ap.add_argument("--encode-only", action="store_true")
     ap.add_argument("--keep", action="store_true",
                     help="keep the captured frames even on a clean pass")
     a = ap.parse_args()
+    # ONE RESOLUTION, HERE, so every downstream use agrees --
+    # has_scrunch() reads it off disk and cinema_clip is handed it as a
+    # string, and those two disagreed about what a relative path meant.
+    a.game = str(resolve_game(a.game))
 
     out = pathlib.Path(a.out).resolve()
     out.parent.mkdir(parents=True, exist_ok=True)

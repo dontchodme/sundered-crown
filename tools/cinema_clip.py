@@ -25,7 +25,7 @@ import subprocess
 import sys
 import time
 
-from scpage import game
+from scpage import game, resolve_game
 
 # THE SAME RESOLVER THE APP USES, AND CLAUDE.md §5 SAYS WHY IT HAS TO BE HERE.
 # winget installs ffmpeg without a shim, so it is on PATH only if someone put it
@@ -769,7 +769,7 @@ def main() -> int:
         d_on = len(f_on) / a.fps; d_off = 0.0; f_off = w_off = None
         cap = 0
     else:
-      with game(game_path=(HERE / a.game).resolve()) as (page, errors):
+      with game(game_path=resolve_game(a.game)) as (page, errors):
         page.evaluate(f"AC.setResolution({a.w}, {round(a.w*16/9)})")
         page.evaluate(HARNESS)
         if a.blur_scale:

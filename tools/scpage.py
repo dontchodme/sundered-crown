@@ -14,6 +14,32 @@ HERE = pathlib.Path(__file__).parent
 GAME = HERE / "sundered-crown.html"
 
 
+def resolve_game(spec) -> pathlib.Path:
+    """A game path from wherever the caller happens to be standing.
+
+    Every tool resolves `--game` as `HERE / spec` because they are all run from
+    `tools/` (CLAUDE.md §2 -- that self-locating import is why the folder is
+    flat). But the two tools a PERSON runs by hand get handed repo-relative
+    paths by CLAUDE.md, by app/main.js and by habit, and `HERE / "02-chain/x"`
+    is `tools/02-chain/x`, which does not exist. app/main.js already carries a
+    comment about the job dying on exactly that; Rick hit it from the repo root
+    on 2026-08-30.
+
+    Absolute, then tools-relative, then repo-relative, then cwd -- and if none
+    of them exist, say all four rather than the last one tried.
+    """
+    p = pathlib.Path(spec)
+    tried = []
+    for cand in ([p] if p.is_absolute() else
+                 [HERE / p, HERE.parent / p, pathlib.Path.cwd() / p]):
+        c = cand.resolve()
+        tried.append(c)
+        if c.exists():
+            return c
+    raise FileNotFoundError(
+        "no game at any of:" + "".join(f"\n  {t}" for t in tried))
+
+
 class PageErrors(Exception):
     pass
 
