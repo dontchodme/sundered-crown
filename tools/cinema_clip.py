@@ -91,6 +91,22 @@ them is ever on screen alone doing half of it. Same anchor `--vo-at clank`
 uses, for the same reason: measured over 144 matches a timer alone cuts
 mid-approach, 17% having clanked by 1.5s and 48% by 3.0s.
 """
+# THE SHIPPED LINE, IN ONE PLACE. Rick picked it out of a five-candidate spread
+# rendered in motion over the real opening, 2026-08-30: "i think id reject
+# everything but 1". The four he rejected are kept here, because a rejected
+# option is the reason the answer is trustworthy -- the same record
+# docs/APP-FEATURES-BRIEF.md §1 keeps for the VO placement spread:
+#
+#   2  WHICH BALL WOULD YOU PICK?   / ONE OF THEM IS ABOUT TO LOSE
+#   3  CROSSBOW vs SWORD            / A FIGHT TO THE LAST HIT
+#   4  REAL PHYSICS. REAL STAKES.   / STAY FOR THE FINAL BLOW
+#   5  TWO ENTER. ONE FALLS.        / PHYSICS DECIDES EVERYTHING
+#
+# It obeys the bar he set in hook brief §3a: premise and why-stay, in language
+# a first-time watcher can read, with no project vocabulary in it.
+STAKES_LINE = "TWO WEAPONS. ONE SURVIVES."
+STAKES_SUB = "ONLY ONE KEEPS THE CROWN"
+
 STAKES_JS = r"""([text, sub, inDur, outDur, y0f]) => {
   window.__stakesAt = null;
   /* TELL THE OPENING HOW MUCH FRAME THIS TAKES. Rick's call, 2026-08-30, of
@@ -658,13 +674,15 @@ def main() -> int:
     # OUTRO CARD IN THIS TREE -- §7 of that brief says it was written off the
     # project record and never saw the repo, and asks for exactly this to be
     # confirmed. It was, and the answer is no. See 06-docs/v46/ §7.4.
-    ap.add_argument("--stakes", default=None, metavar="LINE",
+    ap.add_argument("--stakes", nargs="?", const=STAKES_LINE, default=None,
+                    metavar="LINE",
                     help="a stakes band over the opening: the promise, in "
                          "language a first-time watcher can read. Fades in "
                          "over --stakes-in and out over --stakes-out ON THE "
                          "FIRST CLANK, handing the introduction to the scrunch "
-                         "legend at the moment that arms. Omitted: no band, "
-                         "and the draw hook is a no-op.")
+                         "legend at the moment that arms. BARE --stakes is the "
+                         "shipped line; omitted is no band at all, and the draw "
+                         "hook is then a no-op.")
     ap.add_argument("--stakes-sub", default=None, metavar="LINE",
                     help="the gold sub-line under it. A series number can ride "
                          "here when it is wanted.")
@@ -748,6 +766,11 @@ def main() -> int:
             page.evaluate(BLUR_SCALE_JS)
             note = "a no-op here" if a.w == 1080 else "the glow narrows"
             print(f"    shadowBlur scaled by k={a.w/1080:.3f} -- {note}")
+        # A bare --stakes means the shipped PAIR, line and sub-line. Passing the
+        # shipped line explicitly gets the same sub; any other line is the
+        # caller's own copy and carries only the sub they gave.
+        if a.stakes == STAKES_LINE and a.stakes_sub is None:
+            a.stakes_sub = STAKES_SUB
         if a.stakes:
             r = page.evaluate(STAKES_JS, [a.stakes, a.stakes_sub or None,
                                           a.stakes_in, a.stakes_out,

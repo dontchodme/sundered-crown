@@ -194,7 +194,8 @@ def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True,
                # bundle so a posting slate stays a single variable. No
                # default copy is baked in here -- the line is Rule 2 and
                # Rick's pick, so no band unless one is passed.
-               *(["--stakes", stakes] if stakes else []),
+               *(["--stakes"] if stakes == "" else
+                 (["--stakes", stakes] if stakes else [])),
                *(["--stakes-sub", stakes_sub] if stakes_sub else []),
                "--fps", fps, "--w", w, "--q", q, "--out", out],
               cwd=HERE, stream_err=True).strip())
@@ -298,7 +299,11 @@ def main() -> int:
     ap.add_argument("--voice", default="bm_lewis")
     ap.add_argument("--gap", type=float, default=0.38)
     ap.add_argument("--name-gap", type=float, default=0.14)
-    ap.add_argument("--stakes", default=None, metavar="LINE",
+    # nargs="?" with an EMPTY const, so a bare --stakes is passed through
+    # bare and cinema_clip supplies the shipped line. The copy lives in ONE
+    # place (cinema_clip.STAKES_LINE) and this tool never learns it.
+    ap.add_argument("--stakes", nargs="?", const="", default=None,
+                    metavar="LINE",
                     help="a stakes band over the opening, passed "
                          "through to cinema_clip. Fades out on the "
                          "first clank.")

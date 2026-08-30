@@ -543,3 +543,32 @@ open is built and shipped** (this document), **§2d's three named probe checks
 all exist** and `ignition_probe.py` carries eight more, and **§3a's VO-alignment
 worry is resolved** — the line is now placed on the opening's own flares (§6)
 rather than colliding with anything.
+
+### 7.5 THE COPY IS PICKED
+
+Five candidates rendered in motion over the real opening — the same shape as
+every spread this project trusts — and Rick, 2026-08-30: *"i think id reject
+everything but 1"*.
+
+```
+1  TWO WEAPONS. ONE SURVIVES. / ONLY ONE KEEPS THE CROWN     <- SHIPS
+2  WHICH BALL WOULD YOU PICK? / ONE OF THEM IS ABOUT TO LOSE
+3  CROSSBOW vs SWORD          / A FIGHT TO THE LAST HIT
+4  REAL PHYSICS. REAL STAKES. / STAY FOR THE FINAL BLOW
+5  TWO ENTER. ONE FALLS.      / PHYSICS DECIDES EVERYTHING
+```
+
+It lives in `cinema_clip.STAKES_LINE` / `STAKES_SUB`, one place, the way the
+announcer's line lives in `cinema_vo.hook_parts`. **A bare `--stakes` is the
+shipped pair**; an explicit line is the caller's own copy; no flag is no band.
+`shorts_build.py` passes a bare `--stakes` through bare, so the copy is never
+written down twice.
+
+The four rejected are kept in the source beside the one that shipped. A
+rejected option is the reason the answer is trustworthy — the same record
+`docs/APP-FEATURES-BRIEF.md` §1 keeps for the VO placement spread.
+
+> **AND THE SPREAD DID ITS JOB IN ONE ROUND.** Copy 3 was the only
+> pair-specific candidate ("CROSSBOW vs SWORD" names the actual weapon types)
+> and would have needed generating per fight; it is out, so the shipped line is
+> one constant string and there is nothing to build for it.
