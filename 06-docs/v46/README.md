@@ -78,7 +78,7 @@ mistake a third time, on purpose.
 `Renderer.draw`'s feasibility clamp — both relics' magnified bodies must fit
 the usable frame — is **why an opening shot could not exist before**: at spawn
 separation (~503 su) it pulls any asked zoom back to ~1.0. The opening stands
-it down for its 2.35s, exactly as the lab's `__openShot` gate did.
+it down for its 2.83s, exactly as the lab's `__openShot` gate did.
 
 But that clamp was bought with a probe that found **8/8 wall-adjacent
 set-pieces clipping relic body, by 137–376px**, and standing it down gives that
@@ -111,18 +111,15 @@ opening was silent and that a sound would be offered as a spread. It was, he
 answered, and the answer was better than the question.
 
 **A DIRECTOR CUT INSIDE THE OPENING LOSES THE CAMERA.** Measured: `cinePlan`
-schedules a first cut before 2.35s on **2 of 120 pairings (1.7%)**, at 1.62s
+schedules a first cut before 2.83s on **2 of 120 pairings (1.7%)**, at 1.62s
 and 1.64s. The opening wins those — the cut still runs, its time dilation and
 its audio duck still apply, and the lens is handed back mid-cut. It is rare
 enough to leave alone and it is now a number rather than a hope.
 
-**AND IT ONLY REACHES A SHORT THAT STARTS AT ZERO.** `cinema_clip` measures
-`--lead` backwards from the killing blow, so an ordinary clip starts thirty
-seconds into the fight and never sees the opening. `--full` starts at 0.0 and
-films everything, which at the current pace is a ~50s fight plus the verdict
-hold. **Whether shorts now open at zero is an editorial decision and it is
-Rick's**, not a thing this build should decide by itself. The app shows the
-opening on every fight either way.
+**AND IT ONLY REACHES A SHORT THAT STARTS AT ZERO** — which, this section said
+when it was written, implied shorts do not. **They do, by default.** Corrected
+in §6.7 off the code: `shorts_build.py --lead` defaults to None and hands
+`cinema_clip` `--full`. The live question is length, not placement.
 
 ---
 
