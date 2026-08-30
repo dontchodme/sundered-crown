@@ -650,9 +650,14 @@ def main() -> int:
                          "ENFORCED rather than remembered: three clips went out "
                          "with the card on because the flag was in a command "
                          "somebody copied.")
-    # THE STAKES BAND -- hook brief §5a. Capture-side, following the outro
-    # card's precedent, so the band and the ignition open ship as ONE bundle
-    # and a posting slate stays a single variable (§6).
+    # THE STAKES BAND -- hook brief §5a. Capture-side, like --vo and
+    # --cold-open, so the band and the ignition open ship as ONE bundle and
+    # a posting slate stays a single variable (§6).
+    #
+    # The brief says "following the outro card's precedent". THERE IS NO
+    # OUTRO CARD IN THIS TREE -- §7 of that brief says it was written off the
+    # project record and never saw the repo, and asks for exactly this to be
+    # confirmed. It was, and the answer is no. See 06-docs/v46/ §7.4.
     ap.add_argument("--stakes", default=None, metavar="LINE",
                     help="a stakes band over the opening: the promise, in "
                          "language a first-time watcher can read. Fades in "

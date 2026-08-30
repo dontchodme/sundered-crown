@@ -516,3 +516,30 @@ with the inset        0 of 24, worst 0px — tangent to the band's lower edge
 > `topInset` set, which is a different camera, so "no --stakes is a no-op" read
 > 105/133. Both are the same mistake: a flag that moves the picture has to be
 > undone in full before anything is compared against it.
+
+### 7.4 THE BRIEF'S §7 ASKED TO BE CHECKED AT THE TIP. IT WAS.
+
+The hook brief says of itself: *"This brief has not seen the repo. It is
+written off the project record through v45. Confirm at the tip before
+building."* Three things it names, checked:
+
+| the brief asks | at the tip |
+|---|---|
+| did the scrunch survive the rebuild into `C:\dev\sundered-crown` | **yes** — 41 references in the build, and it arms on the first clank in every clip rendered this session |
+| is v43b's **converging limiter** in the tree | **yes** — `shorts_build.py`, `alimiter …level=false` with the mandatory-flag note intact |
+| is v43b's **outro card**, **PCM segment path** and **`on_info.json`** in `cinema_clip.py` | **no. None of the three.** `cinema_clip.py` has no outro, no `on_info`, and the only occurrence of the word "outro" in the tool is a comment written this session quoting the brief |
+
+That last row matters beyond bookkeeping: §5a specifies the stakes band as
+*"a capture-side flag on `cinema_clip.py` following the outro card's
+precedent"*, and **there is no outro card here to follow.** The flag was built
+on the precedent that does exist — `--vo`, `--cold-open`, `--motion-blur`: a
+capture-side option that changes what is photographed, not a post pass. The
+comment in `cinema_clip.py` that first repeated the brief's phrasing has been
+corrected to say so, because a false citation in a file is exactly the kind of
+thing this repo's own §7 rule exists to stop.
+
+Also worth recording against the brief, which predates today: **§2's ignition
+open is built and shipped** (this document), **§2d's three named probe checks
+all exist** and `ignition_probe.py` carries eight more, and **§3a's VO-alignment
+worry is resolved** — the line is now placed on the opening's own flares (§6)
+rather than colliding with anything.
