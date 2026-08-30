@@ -58,15 +58,22 @@ fight buys set-pieces for free.
 > 19-44 (45.4s mean, the floor of the ask) or tuning those four relics.
 
 **A FIGHT NOW STARTS AS A SHOT** (`src/render/open.js`, inserted by
-`ignition_build.py`). The first **2.35s** of every match: fighter A at 2.25x,
-a hard cut at 0.85s to fighter B, a pull wide from 1.55s that lands just before
-the first clank — and the two relics IGNITE, staggered onto the cut, each in
-its own affinity palette, while every `shadowBlur` in the hall powers on from
-0.30 through an overshoot to exactly 1.0. Then it hands the lens back and the
-build is pixel-identical to the one it was built from (`render_ab` 20/20 at
-3–31s). Prototyped as four variants in `tools/ignition_lab.py`; Rick watched
+`ignition_build.py`). The first **2.83s** of every match: fighter A at 2.25x,
+a hard cut at 1.33s to fighter B, a pull wide from 2.03s — and the two relics
+IGNITE, each 0.10s after the cut to it, each in its own affinity palette, while
+every `shadowBlur` in the hall powers on from 0.30 through an overshoot to
+exactly 1.0. Then it hands the lens back and the build is pixel-identical to
+the one it was built from (`render_ab` 20/20 at 3–31s). Prototyped as four
+variants in `tools/ignition_lab.py`; Rick watched
 `05-reference/v46-ignition/ignition-open-both-solo.mp4` and said make it
 happen. `06-docs/v46/`.
+
+> **THE SHOT TABLE IS 0.48s LONGER THAN THE ONE HE FIRST APPROVED, AND A WORD
+> IS WHY.** The first cut was at 0.85s and flareB at 0.95s until 2026-08-30,
+> when Rick asked for the announcer to say *"Ironhail, OR Goreshard"* and for
+> the opening to last a bit longer to fit it. `tools/ignition_lab.py` still
+> holds the ORIGINAL table — it is the prototype of what was approved, not the
+> build, and it has not been re-timed.
 
 > **IT IS THE SAME OPENING, AND THAT IS MEASURED, NOT ASSERTED.** Played
 > side by side the lab render and the build render differ by a mean 1.43/255 —
@@ -80,29 +87,37 @@ happen. `06-docs/v46/`.
 > **AND THE SOUND OF IT IS THE ANNOUNCER, ON THE IGNITIONS.** Rick, asked what
 > the flare should sound like: *"i think sound should be the announcer."* He
 > was answering a better question than the one he was asked. The announcer has
-> existed since v30-something and has been **timed to nothing** since the intro
-> card was retired for losing 71–75% of the audience — measured against the new
+> existed for sessions and has been **timed to nothing** since the intro card
+> was retired for losing 71–75% of the audience — measured against the new
 > opening, the shipped line said "Ironhail" 1.08s after Ironhail ignited and
 > 0.23s after GORESHARD did. Every name over the wrong relic. He picked arm C
-> of three: `<A>,` on flareA, `<B>.` on flareB, `Who wins?` on the pull wide.
-> `cinema_vo.py` now places parts at ABSOLUTE ONSETS read out of
-> `src/render/open.js` — one source of truth, no second copy of the timings —
-> and bakes the lead silence into the wav so every consumer places it at 0.0.
-> `tools/vo_sync_probe.py`, `06-docs/v46/` §6.
+> of three, then asked for the "or" back: **`<A>, or` on flareA, `<B>.` on
+> flareB, `Who wins?` on the pull wide.** `cinema_vo.py` places parts at
+> ABSOLUTE ONSETS read out of `src/render/open.js` — one source of truth, no
+> second copy of the timings — and bakes the lead silence into the wav so every
+> consumer places it at 0.0. `tools/vo_sync_probe.py`, `06-docs/v46/` §6.
 
-> **THE NAMES DO NOT ALL FIT THE STAGGER, AND THE NUMBER IS 0.15s.** The flares
-> are 0.85s apart and 11 of 25 spoken names are longer than that, worst
-> Emberedge at 1.00s. A name that overruns DELAYS the next part rather than
-> overlapping it, and the drift is printed on every render. Nine frames at
-> 60fps, against a stated 0.20s bar. The fix if it is ever wanted is `flareB`,
-> one number in `open.js` — and that is a change to a look Rick approved, so it
-> is his.
+> **THE "or" HANGS OFF THE FIRST NAME, AND THAT IS THE WHOLE TRICK.** Put it at
+> the head of the second part instead and the flare lights on the conjunction
+> while the name arrives 0.4s later. Hung on the first part, both names still
+> start exactly on their own ignitions — but it needs room: across all 25 relics
+> `"<name>, or"` runs 1.00s to 1.33s (the "or" costs a mean 0.37s), so flareB
+> had to clear 0.10 + 1.33 = **1.43s**. That is where the 0.48s of extra opening
+> went, and it buys **0.00s of drift on every relic in the roster** where the
+> two-name form had 11 of 25 overrunning and a 0.15s worst case.
 
-> **AND IT ONLY REACHES A SHORT THAT STARTS AT ZERO.** `cinema_clip --lead`
-> measures back from the killing blow, so an ordinary clip begins thirty
-> seconds in and never sees it. `--full` starts at 0.0. Whether shorts now open
-> at zero is an editorial decision and nobody has made it. The app shows the
-> opening on every fight regardless.
+> **AND SHORTS ALREADY OPEN AT ZERO BY DEFAULT — THE QUESTION IS LENGTH, NOT
+> PLACEMENT.** Stated wrongly once in this file, so here it is from the code.
+> `shorts_build.py --lead` defaults to **None**, and with no lead it hands
+> `cinema_clip` `--full`, which starts at 0.0; the app leaves its lead box empty
+> and drives the same path. **Only `--lead N` moves the start**, to N seconds
+> before the killing blow — the v43 clip of record was `--lead 18` and 23.0s of
+> a ~45s fight. `cinema_clip.py` run directly is the one exception: its own
+> `--lead` still defaults to 6.0.
+>
+> So the opening reaches every short that does not pass `--lead`, and the real
+> decision is **~53s at zero against ~23s at lead 18** — a length call, and
+> Rick's. The app shows the opening on every fight regardless.
 
 **GRAVITY KEEPS ACTING THROUGH HIT STOP** (`hitstop_build.py`). `step()`
 returned before `move()` while `hitStop` ran, so nobody got gravity for up to

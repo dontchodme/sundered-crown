@@ -17,13 +17,14 @@ tools/ignition_probe.py             <- the picture, measured, 11/11
 
 ## 1. WHAT SHIPPED
 
-The first **2.35 seconds** of every fight are now a shot, in three parts, all
-of them a pure function of `m.t`:
+The first **2.83 seconds** of every fight are now a shot, in three parts, all
+of them a pure function of `m.t`. (2.35s as first approved; §6.6 is the word
+that bought the other 0.48s.)
 
 | | |
 |---|---|
-| **the camera** | fighter A at 2.25x easing to 2.02x, a hard cut at 0.85s to fighter B, then a pull wide from 1.55s to 2.35s that lands just before a ~2.3s first clank arms the scrunch |
-| **the ignition** | A flares at 0.10s and B at 0.95s — staggered ONTO the cut, which is the whole difference between "both" and the ignition-only variant — each in its own affinity palette: a white core strike for three frames, an expanding ring, a corona that overshoots and settles, 0.90s each |
+| **the camera** | fighter A at 2.25x easing to 2.02x, a hard cut at 1.33s to fighter B, then a pull wide from 2.03s to 2.83s |
+| **the ignition** | A flares at 0.10s and B at 1.43s — each 0.10s after the cut to it, which is the whole difference between "both" and the ignition-only variant — each in its own affinity palette: a white core strike for three frames, an expanding ring, a corona that overshoots and settles, 0.90s each |
 | **the swell** | every `shadowBlur` in the hall powers on: 0.30 -> overshoot 1.42 -> exactly 1.0 over 0.95s |
 
 Then it hands the lens back and the build is, frame for frame, the build it was
@@ -319,3 +320,70 @@ by design (§1: *"fully synthesized in WebAudio. There are no sound files."*).
 The announcer lives in the clip's mix, as all voiceover does. If the app should
 have an ignition you can hear, that is a separate and much smaller thing — a
 synthesized strike under the voice — and it was not asked for.
+
+### 6.6 AND THEN THE "or" CAME BACK, WHICH COST 0.48s OF OPENING
+
+Rick, on arm C as shipped: *"can we make the ignition last just a bit longer to
+fit in the or so it can still say Ironhail OR goreshard. who wins?"*
+
+**The conjunction cannot go where it reads like it should.** Written
+`["<A>,", "or <B>.", "Who wins?"]` — the obvious way — the second part is placed
+on flareB, so the flare lights on the word "or" and the name arrives 0.4s
+afterwards. The name is the thing that has to hit the light.
+
+So it hangs off the END of the first part: `["<A>, or", "<B>.", "Who wins?"]`.
+Both names still start exactly on their own ignitions and the conjunction fills
+the gap between them — which now has to be big enough to hold it.
+
+**Measured across all 25 relics**, because the room has to fit the worst one:
+
+```
+"<name>, or"      worst 1.33s (Ironhail)   median 1.22s   min 1.00s (Aureole)
+the "or" costs    a mean 0.37s -- much more than the word, it carries a
+                  trailing beat, which is exactly what a "<A>, or ... <B>" wants
+so flareB >=      0.10 + 1.33 = 1.43s for EVERY pairing to land exactly
+```
+
+Shot 1 grows by that 0.48s; shots 2 and 3 keep their own lengths and slide, so
+the relationship Rick approved — **each relic ignites 0.10s after the cut to
+it** — is untouched. The question stays at pull + 0.40 and lands at 2.43,
+which is exactly where the longest possible second name ends.
+
+| | before the "or" | after |
+|---|---|---|
+| opening | 2.35s | **2.83s** |
+| cut to B | 0.85s | 1.33s |
+| flareB | 0.95s | 1.43s |
+| the question | 1.95s | 2.43s |
+| names that miss their flare | 11 of 25, worst 0.15s | **0 of 25, worst 0.00s** |
+
+The extra room did not just fit a word — it removed the drift entirely. Every
+relic in the roster now starts its name on its own light, exactly.
+
+> **AND THE PROBE PASSED FOR THE WRONG REASON FIRST.** `vo_sync_probe.py` built
+> the spoken forms itself (`f"{n},"`), so when the parts grew an "or" it went on
+> timing the bare name and reported 0.00s drift on **a string the tool no longer
+> says**. It now takes its forms from `cinema_vo.hook_parts` and cannot drift
+> from what is spoken. CLAUDE.md §4.6 — an instrument that fires where the
+> mechanic does not measures something else — in miniature, caught in one commit.
+
+> **THE LAB STILL HOLDS THE ORIGINAL SHOT TABLE.** `tools/ignition_lab.py` is
+> the prototype of what was approved on 2026-08-29 and has not been re-timed.
+> That is deliberate: it is the record of the four variants, not the build.
+
+### 6.7 WHERE SHORTS ACTUALLY OPEN, SINCE THIS DOCUMENT GOT IT WRONG ONCE
+
+§3 said the opening "only reaches a short that starts at zero", implying shorts
+do not. They do, by default:
+
+```
+shorts_build.py       --lead defaults to None -> passes --full -> starts at 0.0
+the app's Create      empty lead box -> same path -> starts at 0.0
+--lead N              starts N seconds before the killing blow. The v43 clip of
+                      record was --lead 18: 23.0s of a ~45s fight
+cinema_clip.py alone  its own --lead still defaults to 6.0
+```
+
+So the opening reaches every short that does not pass `--lead`, and the open
+question is not placement but **length**: ~53s opening at zero, against ~23s at
+lead 18. That is Rick's call and it is a different question from this one.

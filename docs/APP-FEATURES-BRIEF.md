@@ -59,8 +59,10 @@ not ship.
 IGNITION OPEN.** Everything below stands — the placement is still the start of
 the fight — but "the start of the fight" is no longer an empty stretch of live
 play. `src/render/open.js` puts a solo shot on each relic with an ignition
-flare on it, and Rick placed the line ON those flares: `<A>,` at 0.10s, `<B>.`
-at 0.95s, `Who wins?` at 1.95s on the pull wide. The onsets are read out of
+flare on it, and Rick placed the line ON those flares: `<A>, or` at 0.10s,
+`<B>.` at 1.43s, `Who wins?` at 2.43s on the pull wide. The "or" hangs off
+the FIRST name so both names still start on their own light, and the opening
+grew 0.48s to make room for it. The onsets are read out of
 `open.js` by `cinema_vo.ignition_beats()` and never copied. Before that, the
 shipped line said the first relic's name 1.08s after it ignited and 0.23s after
 the OTHER one did. `06-docs/v46/` §6.

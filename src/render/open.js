@@ -48,11 +48,29 @@
      relic, which is the whole reason the feasibility clamp has to stand down
      for it (see cam()). */
   var SHOTS = [
-    { t0: 0.00, t1: 0.85, at: 'a', z0: 2.25, z1: 2.02 },
-    { t0: 0.85, t1: 1.55, at: 'b', z0: 2.25, z1: 2.02 },
-    { t0: 1.55, t1: 2.35, from: 'b', to: 'center',
+    { t0: 0.00, t1: 1.33, at: 'a', z0: 2.25, z1: 2.02 },
+    { t0: 1.33, t1: 2.03, at: 'b', z0: 2.25, z1: 2.02 },
+    { t0: 2.03, t1: 2.83, from: 'b', to: 'center',
       z0: 2.02, z1: 1.00, ease: 'smooth' }
   ];
+
+  /* THE FIRST SHOT IS 0.48s LONGER THAN THE ONE RICK FIRST APPROVED, AND THE
+     WORD "or" IS WHY. 2026-08-30: he asked for the announcer to say "Ironhail,
+     OR Goreshard. Who wins?" rather than the clipped two-name form, and asked
+     for the ignition to last a bit longer to fit it.
+
+     The conjunction is spoken as the TAIL of the first name -- "<A>, or" --
+     because that is the only arrangement in which both names still land on
+     their own flares: put the "or" at the head of the second part instead and
+     the flare lights on the conjunction while the name arrives 0.4s late.
+
+     So the room has to exist between the two ignitions, and the amount is
+     measured, not guessed. Across all 25 relics "<name>, or" runs 1.00s to
+     1.33s (the "or" costs a mean 0.37s), so flareB must be at least
+     0.10 + 1.33 = 1.43 for EVERY pairing to land exactly. Shot 1 grows by that
+     0.48s; shots 2 and 3 keep their own lengths and slide, so the relationship
+     Rick approved -- each relic ignites 0.10s after the cut to it -- is
+     unchanged. tools/vo_sync_probe.py is the check. */
 
   /* ---------------------------------------------------------- the look ---
      THE SETTINGS LIVE HERE, not in the builder's glue. Same rule post_build.py
@@ -61,8 +79,11 @@
      numbers off the clip Rick approved — the lab's "both" variant. */
   var LOOK = {
     flareA: 0.10,      // when relic A ignites, sim seconds
-    flareB: 0.95,      // and B — staggered onto the cut, which is what
-                       // separates "both" from the ignition-only variant
+    flareB: 1.43,      // and B — staggered onto the cut, which is what
+                       // separates "both" from the ignition-only variant.
+                       // 0.95 until the announcer needed room for its "or";
+                       // see the note on SHOTS above, and note that BOTH are
+                       // still exactly 0.10s after their own cut.
     flareLife: 0.90,   // one flare, start to gone
     swellDur: 0.95,    // the global glow power-on
     swellFrom: 0.30,   // every shadowBlur in the hall starts at 30% ...

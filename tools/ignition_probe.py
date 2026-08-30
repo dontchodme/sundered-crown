@@ -61,10 +61,12 @@ W, H = 540, 960
 # stamp is what catches drift -- but it is what lets check 2 say the zoom on
 # screen is the zoom that was authored, at the sim time it was authored for.
 SHOTS = [
-    (0.00, 0.85, "a", 2.25, 2.02, "cubic"),
-    (0.85, 1.55, "b", 2.25, 2.02, "cubic"),
-    (1.55, 2.35, None, 2.02, 1.00, "smooth"),
+    (0.00, 1.33, "a", 2.25, 2.02, "cubic"),
+    (1.33, 2.03, "b", 2.25, 2.02, "cubic"),
+    (2.03, 2.83, None, 2.02, 1.00, "smooth"),
 ]
+CUT = SHOTS[1][0]        # the hard cut from A to B
+PULL = SHOTS[2][0]       # the pull wide starts
 
 
 def expect_z(t):
@@ -350,8 +352,8 @@ def main() -> int:
             a1 = screen(q, 260, 400)
             jumps.append((round(q["t"], 2), math.hypot(a1[0] - a0[0],
                                                        a1[1] - a0[1])))
-        seam = [d for t2, d in jumps if abs(t2 - 0.86) < 0.03]
-        pull = [d for t2, d in jumps if 1.57 <= t2 <= DUR - 0.02]
+        seam = [d for t2, d in jumps if abs(t2 - (CUT + 0.01)) < 0.03]
+        pull = [d for t2, d in jumps if PULL + 0.02 <= t2 <= DUR - 0.02]
         # A cut and a move are told apart by the RATIO, not by a pixel count:
         # the pull-wide is a fast deliberate move (2.02 -> 1.00 in 0.80s) and a
         # threshold in pixels would only be measuring how fast it was authored.

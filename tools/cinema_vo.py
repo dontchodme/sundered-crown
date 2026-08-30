@@ -147,7 +147,19 @@ def ignition_beats(path: pathlib.Path = OPEN_JS) -> tuple[float, float, float]:
 
 
 def hook_parts(a: str, b: str) -> list[str]:
-    return [f"{a},", f"{b}.", "Who wins?"]
+    """THE "or" IS THE TAIL OF THE FIRST PART, AND THAT IS THE WHOLE TRICK.
+
+    Rick, 2026-08-30: *"can we make the ignition last just a bit longer to fit
+    in the or so it can still say Ironhail OR goreshard. who wins?"*
+
+    Written the other way -- `["<A>,", "or <B>.", ...]` -- the second part is
+    placed on flareB and the flare therefore lights on the word "or", with the
+    name arriving 0.4s afterwards. Hung on the end of the first part instead,
+    both names still start exactly on their own ignitions and the conjunction
+    fills the gap between them. It cost 0.48s of opening (src/render/open.js
+    SHOTS) and it buys a line that reads as a sentence.
+    """
+    return [f"{a}, or", f"{b}.", "Who wins?"]
 
 
 def hook_onsets() -> tuple[float, float, float]:
