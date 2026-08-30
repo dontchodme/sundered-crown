@@ -125,8 +125,10 @@ happen. `06-docs/v46/`.
 > `--lead` still defaults to 6.0.
 >
 > So the opening reaches every short that does not pass `--lead`, and the real
-> decision is **~53s at zero against ~23s at lead 18** — a length call, and
-> Rick's. The app shows the opening on every fight regardless.
+> decision was **~53s at zero against ~23s at lead 18** — a length call, and
+> Rick made it on 2026-08-30: *"lets go with the full fight at zero."* That is
+> `shorts_build`'s default and needs no flag. The app shows the opening on every
+> fight regardless.
 
 **GRAVITY KEEPS ACTING THROUGH HIT STOP** (`hitstop_build.py`). `step()`
 returned before `move()` while `hitStop` ran, so nobody got gravity for up to
@@ -495,31 +497,42 @@ python vo_sync_probe.py                                            # the announc
 python ignition_lab.py --scan --a <a> --b <b> --n 40                # a seed whose first clank lands in the opening's window
 ```
 
-A clip (`--shorts` only if it is going to a platform):
+A SHORT, which since 2026-08-30 is **the full fight from zero** — Rick's call,
+and already `shorts_build`'s default. The opening, the announcer on its flares
+and the stakes band all ride on it with no flags at all:
 
 ```bash
-python cinema_clip.py --game ../02-chain/sc-paradox-ignition.html \
-  --a paradox --b heartwood --seed 25064 --lead 18 --fps 60 --w 540 \
-  --out ../07-shorts/v43/stasis-v-heartwood.mp4
+python tools/shorts_build.py --game 02-chain/sc-paradox-ignition.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v46/short.mp4
 ```
+
+`--no-stakes` drops the band, `--lead N` goes back to filming the last N
+seconds before the kill, `--vo <wav>` overrides the announcer.
+
+A raw clip, one tool down:
+
+```bash
+python tools/cinema_clip.py --game ../02-chain/sc-paradox-ignition.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v46/clip.mp4
+```
+
+> **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
+> `--game` and `--out` are resolved from the tool's directory, so the `../`
+> above is right even run from the repo root. `shorts_build` makes `--game`
+> absolute first, so its paths are repo-relative. What fails from the repo root
+> is `python cinema_clip.py` — the INTERPRETER cannot find the file. Say
+> `python tools/cinema_clip.py`.
 
 **Expect `verdict panel held 2.40s of the ... tail` on every capture and treat
 its absence as a defect.**
 
-**`ffmpeg` IS NOT ON PATH IN A TERMINAL, AND THE FAILURE LOOKS LIKE A BROKEN
-RENDER.** winget installs it without a shim. The capture succeeds, three or
-ten minutes pass, and the encode dies with a bare `FileNotFoundError
-[WinError 2]` naming no file — so the command above fails on a machine where
-the app renders clips perfectly, because `app/main.js` resolves it and injects
-PATH for its children while the tools never did. The frames survive; finish
-with `--encode-only` after putting it on PATH:
-
-```bash
-export PATH="$PATH:$LOCALAPPDATA/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin"
-```
-
-`tools/clip_spread.py` carries a `resolve_ffmpeg()` that mirrors the app's;
-`cinema_clip.py` and `shorts_build.py` still call bare `ffmpeg`.
+**`ffmpeg` IS NOT ON PATH IN A TERMINAL, AND IT NO LONGER MATTERS.** winget
+installs it without a shim, and the failure was vicious: the capture succeeded,
+three or ten minutes passed, and the encode died with a bare
+`FileNotFoundError [WinError 2]` naming no file — on a machine where the app
+renders clips perfectly, because `app/main.js` resolves it and injects PATH for
+its children while the tools never did. **Fixed 2026-08-30**: `cinema_clip.py`
+and `shorts_build.py` now import `clip_spread.resolve_ffmpeg()`, the same
+resolver the app uses, so nothing needs putting on PATH first. Rick hit this on
+this file's own canonical command the day before it was fixed.
 
 **Delivery-quality flags, all opt-in and all measured** —
 `docs/DELIVERY-QUALITY-BRIEF.md`. `--blur-scale`, `--png`, `--preset`,

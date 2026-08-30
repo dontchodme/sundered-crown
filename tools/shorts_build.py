@@ -32,6 +32,16 @@ import sys
 
 import cinema_vo
 
+# THE SAME RESOLVER THE APP USES, AND CLAUDE.md §5 SAYS WHY IT HAS TO BE HERE.
+# winget installs ffmpeg without a shim, so it is on PATH only if someone put it
+# there -- and the failure is vicious: the capture succeeds, three to ten
+# minutes pass, and the encode dies with a bare FileNotFoundError naming no
+# file. app/main.js resolves it and injects PATH for its children; a tool run
+# from a terminal got nothing, so the canonical command in CLAUDE.md §5 failed
+# this way on the machine where the app renders clips perfectly. Rick hit it
+# 2026-08-30, from the repo root, on the command this session handed him.
+from clip_spread import resolve_ffmpeg
+
 HERE = pathlib.Path(__file__).resolve().parent
 
 # §3c, with the §8 addendum folded in. Each term is load-bearing:
@@ -209,7 +219,7 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
         raise SystemExit(f"no captured frames in {tmp} — run the capture stage")
     print(f"[2/3] encode   {len(frames)} frames ({len(frames)/fps:.1f}s) -> 1080x1920")
     raw = tmp / "_raw.mp4"
-    run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+    run([resolve_ffmpeg(), "-y", "-hide_banner", "-loglevel", "error",
          "-framerate", fps, "-i", tmp / "on_%05d.jpg", "-i", wav,
          "-vf", "scale=1080:1920:flags=lanczos",
          "-c:v", "libx264", "-preset", "veryfast", "-crf", crf,
@@ -223,7 +233,7 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
         # Video is COPIED, never re-encoded: the picture in the delivered file is
         # bit-identical to the one measured at the encode stage, and identical
         # across every rung of the ceiling ladder.
-        run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+        run([resolve_ffmpeg(), "-y", "-hide_banner", "-loglevel", "error",
              "-i", raw, "-i", vo, "-filter_complex", mix_graph(limit, tp, vo_vol, vo_at),
              "-map", "0:v", "-map", "[a]", "-c:v", "copy",
              "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
@@ -255,13 +265,13 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
 
 def measure(path):
     """§3's pass marks, as data rather than as something to eyeball."""
-    j = json.loads(run(["ffprobe", "-v", "error", "-show_entries",
+    j = json.loads(run([resolve_ffmpeg("ffprobe"), "-v", "error", "-show_entries",
                         "stream=width,height,codec_name,codec_type",
                         "-show_entries", "format=duration,size",
                         "-of", "json", path]))
     v = next(s for s in j["streams"] if s["codec_type"] == "video")
     au = next((s for s in j["streams"] if s["codec_type"] == "audio"), {})
-    p = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(path), "-af",
+    p = subprocess.run([resolve_ffmpeg(), "-hide_banner", "-i", str(path), "-af",
                         "loudnorm=I=-14:TP=-2.0:print_format=summary",
                         "-f", "null", "-"], capture_output=True, text=True)
     lufs = tp = None
@@ -302,13 +312,19 @@ def main() -> int:
     # nargs="?" with an EMPTY const, so a bare --stakes is passed through
     # bare and cinema_clip supplies the shipped line. The copy lives in ONE
     # place (cinema_clip.STAKES_LINE) and this tool never learns it.
-    ap.add_argument("--stakes", nargs="?", const="", default=None,
+    # ON BY DEFAULT since 2026-08-30. Hook brief §6: the ignition open and
+    # the stakes band are ONE bundle so a posting slate stays a single
+    # variable, and Rick picked the line the same day. --no-stakes is the
+    # opt-out; a value here is the caller's own copy.
+    ap.add_argument("--stakes", nargs="?", const="", default="",
                     metavar="LINE",
                     help="a stakes band over the opening, passed "
                          "through to cinema_clip. Fades out on the "
                          "first clank.")
     ap.add_argument("--stakes-sub", default=None, metavar="LINE",
                     help="the gold sub-line under it")
+    ap.add_argument("--no-stakes", dest="stakes", action="store_const",
+                    const=None, help="no stakes band at all")
     ap.add_argument("--vo-vol", type=float, default=2.0)
     ap.add_argument("--lead", type=float, default=None,
                     help="seconds of fight to film before the finish; the "

@@ -27,6 +27,16 @@ import time
 
 from scpage import game
 
+# THE SAME RESOLVER THE APP USES, AND CLAUDE.md §5 SAYS WHY IT HAS TO BE HERE.
+# winget installs ffmpeg without a shim, so it is on PATH only if someone put it
+# there -- and the failure is vicious: the capture succeeds, three to ten
+# minutes pass, and the encode dies with a bare FileNotFoundError naming no
+# file. app/main.js resolves it and injects PATH for its children; a tool run
+# from a terminal got nothing, so the canonical command in CLAUDE.md §5 failed
+# this way on the machine where the app renders clips perfectly. Rick hit it
+# 2026-08-30, from the repo root, on the command this session handed him.
+from clip_spread import resolve_ffmpeg
+
 HERE = pathlib.Path(__file__).parent
 
 BLUR_SCALE_JS = r"""() => {
@@ -849,7 +859,7 @@ def main() -> int:
     for tag, frames, wav, label in segs:
         seg = tmp / f"{tag}.mp4"
         subprocess.run(
-            ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+            [resolve_ffmpeg(), "-y", "-hide_banner", "-loglevel", "error",
              "-framerate", str(a.fps), "-i", str(tmp / f"{tag}_%05d.{_ext(Q)}"),
              "-i", str(wav),
              # trunc/2*2 first: libx264 rejects an odd dimension, and a
@@ -896,7 +906,7 @@ def main() -> int:
 
     lst = tmp / "list.txt"
     lst.write_text("".join(f"file '{p}'\n" for p in parts))
-    subprocess.run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+    subprocess.run([resolve_ffmpeg(), "-y", "-hide_banner", "-loglevel", "error",
                     "-f", "concat", "-safe", "0", "-i", str(lst),
                     "-c", "copy", "-movflags", "+faststart", str(out)], check=True)
     if a.vo or a.shorts:
@@ -907,7 +917,7 @@ def main() -> int:
         # mix is loudnorm'd in one pass. Video stream is copied untouched.
         raw = out.with_name(out.stem + "_raw.mp4")
         out.rename(raw)
-        cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", str(raw)]
+        cmd = [resolve_ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(raw)]
         if a.vo:
             if a.vo_at == "clank":
                 cw = (info_on or {}).get("clankWall")
