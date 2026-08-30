@@ -12,14 +12,16 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-paradox-arc.html     BUILD OF RECORD   25 relics · Stasis
+02-chain/sc-paradox-crucible.html BUILD OF RECORD  25 relics · Stasis
                                                    + the post chain, bloom ON
                                                    + PARTICLE FIELDS on all 25
                                                    + the LONG-FIGHT pace
                                                    + the Stasis hold released
                                                      correctly
                                                    + ARCS SURVIVE HIT STOP
-02-chain/sc-paradox-hold-clamp.html  the link before it
+                                                   + A TRUE STUN TURNS THE
+                                                     CRUCIBLE'S BLACK HOLE OFF
+02-chain/sc-paradox-arc.html         the link before it
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
@@ -44,11 +46,12 @@ fight buys set-pieces for free.
 
 > **IT SHIPS AT 12/13, AND THE THIRTEENTH IS KNOWN.** `verify`'s "every pairing
 > mean duration in 18-70s" fails: six to eight of 300 pairings run over, worst
-> Lightkeeper/Farwarden at 76.9s, clustered on Lightkeeper, Axiom, Farwarden
-> and Spellbreaker. It is a PAIRING ceiling, not the average — the overall mean
-> is inside its band and every relic is inside the 30-70% winrate band
-> (Heartwood 43.6 .. Ironhail 60.0, spread 16.4pp against 14.5 before any of
-> this). Accepted rather than fixed because a short films ~45s of a fight, so a
+> Lightkeeper/Farwarden at **74.6s** (76.9s before the Crucible change),
+> clustered on Lightkeeper, Axiom, Farwarden and Spellbreaker. It is a PAIRING
+> ceiling, not the average — the overall mean is inside its band (48.8s) and
+> every relic is inside the 30-70% winrate band (Heartwood 42.5 .. Farwarden
+> 57.4, **spread 14.9pp**, against 16.4 at the pace change and 14.5 before any
+> of this). Accepted rather than fixed because a short films ~45s of a fight, so a
 > 74s average pairing still yields usable clips. **Do not read this as a green
 > verify.** Clearing it means either backing the pace to baseHP 370 / seals
 > 19-44 (45.4s mean, the floor of the ask) or tuning those four relics.
@@ -62,6 +65,43 @@ from that summit. Universal, every relic, and invisible to a position log —
 which is why thirty probes and a 13/13 verify never saw it. Now velocity keeps
 earning what the clock owes it while position stays held, so a freeze displaces
 an arc in time instead of deforming it. Pins are skipped, for the reason below.
+
+**A TRUE STUN TURNS THE CRUCIBLE'S BLACK HOLE OFF** (`forgehold_build.py`).
+Rick: *"currently when its true stunned it black hole effect still happens. a
+true stun should turn it off."* The forge tick opens with `f.stun = 0` — the
+wheel cannot be stopped — and that line erased a TRUE stun as readily as a
+hitstun, so Grudgebearer went on dragging its quarry across the floor while it
+was hexed, rooted or held. Now the pull stops and **both clocks stop with it**,
+the forge's and the set-piece's, so the cast is delayed and nothing is spent.
+Measured with `tools/forgestun_probe.py` before it was built: 121 of 819 casts
+eat a true stun, four fifths of the time against **Axiom, Spellbreaker,
+Foregone and Paradox — and never against the other twenty relics.**
+
+> **RICK PICKED THE MILDEST OF THREE, SO THIS IS A DELAY AND NOT A COUNTER.**
+> Offered cancel-the-cast (mirroring `breakSpin` on Bloodmill's wind-up),
+> pull-off-while-the-window-runs, and pull-off-with-the-window-PAUSED. He took
+> the third. The Crucible still gets its full 4.0s of pull, still has to clear
+> `minT` before the hammer can connect, and **still lands** — 40/41 strikes
+> against Axiom after the change. `f.stun = 0` is untouched, so the wheel keeps
+> turning and a held Crucible keeps swinging; his sentence named the black hole
+> and nothing else. Stopping the wheel too is a second decision and his.
+
+> **WHAT IT COSTS IS WALL TIME, AND THE NUMBER IS 15.4 SECONDS.** Hex re-stuns
+> every 1.15s per stack for 0.20s, so at five stacks the hold is very nearly
+> continuous and the longest lit Crucible measured went 5.0s → **15.4s**. The
+> charge does not rebuild while the forge is lit, so against Axiom that is
+> roughly one ultimate's worth of fight spent holding one open. Grudgebearer
+> vs Axiom 80.0% → 66.5% at n=200; the other three moved under 3pp. Nothing
+> caps it today — say so if it should.
+
+`forgeHold` is a second field about being stunned, which v39 explicitly refused
+(*"the two would drift"*). It is not a stun clock: the forge erases `f.stun` one
+step later, so there is nothing left for anything to read. It is written only
+through `breakSpin` — already the one hook every true stun calls, now carrying
+the stun's duration — read only in the forge tick, and zeroed when the forge
+lights. **A wrapper around `breakSpin` with a fixed arity now silently measures
+the old build**; `forgestun_probe.py` did exactly that once and its comment says
+so.
 
 **A STASIS HOLD NO LONGER RELEASES A BALL UPWARD** (`pinrelease_build.py`,
 `--mode clamp`). `pin` exists on no other relic, so this was Paradox-only and
@@ -369,10 +409,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-paradox-arc.html --n 40     # 12/13, see §0
+python verify.py --game ../02-chain/sc-paradox-crucible.html --n 40     # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-paradox-arc.html      # what's open
+python cell_survey.py --game ../02-chain/sc-paradox-crucible.html      # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -382,7 +422,7 @@ python paradox_pick.py                                             # which fight
 A clip (`--shorts` only if it is going to a platform):
 
 ```bash
-python cinema_clip.py --game ../02-chain/sc-paradox-arc.html \
+python cinema_clip.py --game ../02-chain/sc-paradox-crucible.html \
   --a paradox --b heartwood --seed 25064 --lead 18 --fps 60 --w 540 \
   --out ../07-shorts/v43/stasis-v-heartwood.mp4
 ```
