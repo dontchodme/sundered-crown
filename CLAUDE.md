@@ -490,6 +490,8 @@ python ult_fx_capture.py                                           # real ultFx,
 python ult_live_probe.py                                           # ults that need a PLAYED match
 python paradox_pick.py                                             # which fight to film
 python ignition_probe.py                                           # the opening, in pixels
+python stakes_probe.py                                             # the stakes band, in pixels
+python vo_sync_probe.py                                            # the announcer lands on the flares
 python ignition_lab.py --scan --a <a> --b <b> --n 40                # a seed whose first clank lands in the opening's window
 ```
 
