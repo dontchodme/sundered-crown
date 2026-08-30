@@ -24,6 +24,8 @@ tools/*.bin
 # --- Frame caches. cinema_clip.py rebuilds and deletes these itself.
 _clip_frames/
 **/_clip_frames/
+# ignition_lab.py's, which it does NOT delete: four variants x 324 jpgs.
+tools/out-ignition/
 
 # --- Python
 __pycache__/

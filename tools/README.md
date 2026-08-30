@@ -28,6 +28,7 @@ went stale without anyone noticing.
 - `hitstop_build.py` — gravity keeps acting through hit stop, so a frozen arc is still an arc. Universal: every relic, every impact. Pins excluded
 - `pace_build.py` — the long-fight pace: baseHP 400, seals 21/49, the timeout raised to a backstop, and Grudgebearer nerfed to match. The ONLY chain link that touches the simulation, so engine_ab MUST differ on it
 - `fx_build.py` — `src/render/fx.js` into the build: deterministic particle fields on all 25 ultimates, aged off sim time so the hook is idempotent and the app and the video cannot diverge
+- `ignition_build.py` — `src/render/open.js` into the build: THE IGNITION OPEN. The first 2.35s of every fight is a shot — a solo on each relic, a hard cut, a pull wide, both relics igniting, and every glow in the hall powering on. Four one-line hooks in `Renderer.draw`, all of them a pure function of `m.t`
 
 Not stamped at the tip, but chain-adjacent:
 
@@ -72,6 +73,8 @@ Not stamped at the tip, but chain-adjacent:
 - `ult_bloom_probe.py` — which ults blow out, and how much of it is the bloom. Ranked on the caster's disc. Zero simulated fights
 - `ult_fx_capture.py` — every ultimate's REAL ultFx, caught out of a real fight, so a probe replays what the engine built instead of what a session guessed
 - `ult_live_probe.py` — the ults a FROZEN match cannot show. Plays a real fight and draws it frame by frame; the five whose picture lives in match state (stasis, ballista, split, spinstorm, retrace) are only visible here
+- `ignition_lab.py` — the OPENING, four variants of one seed: control, the ignition alone, the camera alone, and both. Nothing in `02-chain/` is edited; two in-memory patches at capture time. `--scan` finds a seed whose first clank lands where the pull-wide ends
+- `ignition_probe.py` — the opening in PIXELS: is the flare drawn, does the subject stay in frame across the roster, is a frame drawn three times one frame. Decomposes flare from swell by suppressing one at a time
 - `ult_particle_lab.py` — do particles make a set-piece better? Canvas 2D on purpose: the question is whether it LOOKS better, and the GPU runtime is only worth building if it does. Deterministic, mulberry32 on (seed, index), fixed-dt integration
 - `pace_sweep.py` — how long is a fight, and what makes it that long? Sweeps baseHP against the act clock and reports duration, timeouts, ults/fight. Reads the source's OWN config so the label cannot lie
 - `ult_camera_probe.py` — does an ultimate ever get a SHOT? 98% of casts have no cut within a second. Also prices seven camera policies in cuts/match against today's 0.64

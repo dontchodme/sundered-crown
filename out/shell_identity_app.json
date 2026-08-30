@@ -1,5 +1,5 @@
 {
-  "build": "02-chain/sc-paradox-arc.html",
+  "build": "02-chain/sc-paradox-ignition.html",
   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) sundered-crown-app/0.1.0 Chrome/152.0.7977.54 Electron/44.0.0 Safari/537.36",
   "chrome": "152.0.7977.54",
   "rows": [
@@ -172,19 +172,19 @@
         "seed": 1401193488,
         "a": "Spellbreaker",
         "b": "Grudgebearer",
-        "winner": "Grudgebearer",
-        "hp": 13,
-        "duration": 49.94,
+        "winner": "Spellbreaker",
+        "hp": 39,
+        "duration": 59.09,
         "reason": "slain",
         "hits": {
-          "a": 27,
-          "b": 6
+          "a": 22,
+          "b": 7
         },
         "crits": {
-          "a": 0,
+          "a": 3,
           "b": 1
         },
-        "clanks": 16
+        "clanks": 22
       }
     },
     {
@@ -610,18 +610,18 @@
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Grudgebearer",
-        "hp": 182,
-        "duration": 46.9,
+        "hp": 162,
+        "duration": 50.4,
         "reason": "slain",
         "hits": {
-          "a": 10,
-          "b": 17
+          "a": 6,
+          "b": 18
         },
         "crits": {
-          "a": 0,
-          "b": 0
+          "a": 1,
+          "b": 1
         },
-        "clanks": 22
+        "clanks": 25
       }
     },
     {
@@ -725,12 +725,12 @@
         "a": "Spellbreaker",
         "b": "Grudgebearer",
         "winner": "Spellbreaker",
-        "hp": 95,
-        "duration": 56.92,
+        "hp": 106,
+        "duration": 55.15,
         "reason": "slain",
         "hits": {
-          "a": 24,
-          "b": 7
+          "a": 23,
+          "b": 6
         },
         "crits": {
           "a": 3,
@@ -1161,19 +1161,19 @@
         "seed": 591718445,
         "a": "Grudgebearer",
         "b": "Axiom",
-        "winner": "Grudgebearer",
-        "hp": 93,
-        "duration": 53.95,
+        "winner": "Axiom",
+        "hp": 9,
+        "duration": 51.01,
         "reason": "slain",
         "hits": {
-          "a": 10,
-          "b": 21
+          "a": 7,
+          "b": 24
         },
         "crits": {
           "a": 1,
-          "b": 2
+          "b": 6
         },
-        "clanks": 23
+        "clanks": 17
       }
     },
     {
@@ -1277,18 +1277,18 @@
         "a": "Spellbreaker",
         "b": "Grudgebearer",
         "winner": "Grudgebearer",
-        "hp": 166,
-        "duration": 44.7,
+        "hp": 26,
+        "duration": 52.72,
         "reason": "slain",
         "hits": {
-          "a": 14,
+          "a": 21,
           "b": 9
         },
         "crits": {
-          "a": 0,
-          "b": 3
+          "a": 1,
+          "b": 1
         },
-        "clanks": 16
+        "clanks": 22
       }
     },
     {
@@ -1714,18 +1714,18 @@
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Grudgebearer",
-        "hp": 76,
-        "duration": 56.94,
+        "hp": 120,
+        "duration": 56.85,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 20
+          "a": 10,
+          "b": 16
         },
         "crits": {
-          "a": 1,
-          "b": 0
+          "a": 0,
+          "b": 2
         },
-        "clanks": 23
+        "clanks": 27
       }
     },
     {
@@ -1829,18 +1829,18 @@
         "a": "Spellbreaker",
         "b": "Grudgebearer",
         "winner": "Spellbreaker",
-        "hp": 2,
-        "duration": 53.35,
+        "hp": 83,
+        "duration": 52.62,
         "reason": "slain",
         "hits": {
           "a": 24,
-          "b": 5
+          "b": 6
         },
         "crits": {
           "a": 4,
-          "b": 1
+          "b": 0
         },
-        "clanks": 19
+        "clanks": 18
       }
     },
     {
@@ -2266,18 +2266,18 @@
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Grudgebearer",
-        "hp": 256,
-        "duration": 43.89,
+        "hp": 221,
+        "duration": 41.42,
         "reason": "slain",
         "hits": {
-          "a": 4,
-          "b": 9
+          "a": 9,
+          "b": 13
         },
         "crits": {
-          "a": 2,
-          "b": 0
+          "a": 0,
+          "b": 2
         },
-        "clanks": 17
+        "clanks": 20
       }
     },
     {
@@ -2381,18 +2381,18 @@
         "a": "Spellbreaker",
         "b": "Grudgebearer",
         "winner": "Grudgebearer",
-        "hp": 317,
-        "duration": 25.12,
+        "hp": 340,
+        "duration": 23.34,
         "reason": "slain",
         "hits": {
-          "a": 5,
+          "a": 3,
           "b": 6
         },
         "crits": {
           "a": 1,
           "b": 1
         },
-        "clanks": 10
+        "clanks": 9
       }
     },
     {
@@ -2818,18 +2818,18 @@
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Grudgebearer",
-        "hp": 113,
-        "duration": 45.15,
+        "hp": 27,
+        "duration": 62.65,
         "reason": "slain",
         "hits": {
-          "a": 8,
-          "b": 15
+          "a": 10,
+          "b": 20
         },
         "crits": {
-          "a": 1,
-          "b": 3
+          "a": 0,
+          "b": 2
         },
-        "clanks": 15
+        "clanks": 23
       }
     },
     {
@@ -2932,19 +2932,19 @@
         "seed": 2493181821,
         "a": "Spellbreaker",
         "b": "Grudgebearer",
-        "winner": "Spellbreaker",
-        "hp": 51,
-        "duration": 59.52,
+        "winner": "Grudgebearer",
+        "hp": 135,
+        "duration": 50.92,
         "reason": "slain",
         "hits": {
-          "a": 24,
-          "b": 8
+          "a": 16,
+          "b": 9
         },
         "crits": {
-          "a": 0,
-          "b": 0
+          "a": 1,
+          "b": 2
         },
-        "clanks": 25
+        "clanks": 15
       }
     },
     {
@@ -3370,18 +3370,18 @@
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Grudgebearer",
-        "hp": 315,
-        "duration": 23.77,
+        "hp": 142,
+        "duration": 56.36,
         "reason": "slain",
         "hits": {
-          "a": 5,
-          "b": 7
+          "a": 9,
+          "b": 17
         },
         "crits": {
           "a": 1,
-          "b": 1
+          "b": 2
         },
-        "clanks": 12
+        "clanks": 25
       }
     },
     {
@@ -3485,18 +3485,18 @@
         "a": "Spellbreaker",
         "b": "Grudgebearer",
         "winner": "Spellbreaker",
-        "hp": 9,
-        "duration": 54.98,
+        "hp": 75,
+        "duration": 59.52,
         "reason": "slain",
         "hits": {
           "a": 24,
-          "b": 7
+          "b": 6
         },
         "crits": {
           "a": 0,
-          "b": 2
+          "b": 1
         },
-        "clanks": 22
+        "clanks": 26
       }
     },
     {
@@ -3922,18 +3922,18 @@
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Grudgebearer",
-        "hp": 82,
-        "duration": 63.24,
+        "hp": 51,
+        "duration": 57.11,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 19
+          "a": 7,
+          "b": 25
         },
         "crits": {
-          "a": 0,
-          "b": 0
+          "a": 1,
+          "b": 1
         },
-        "clanks": 27
+        "clanks": 24
       }
     },
     {
@@ -4037,18 +4037,18 @@
         "a": "Spellbreaker",
         "b": "Grudgebearer",
         "winner": "Grudgebearer",
-        "hp": 186,
-        "duration": 44.93,
+        "hp": 202,
+        "duration": 45.54,
         "reason": "slain",
         "hits": {
-          "a": 12,
+          "a": 11,
           "b": 10
         },
         "crits": {
           "a": 1,
           "b": 1
         },
-        "clanks": 17
+        "clanks": 18
       }
     },
     {

@@ -12,7 +12,7 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-paradox-crucible.html BUILD OF RECORD  25 relics · Stasis
+02-chain/sc-paradox-ignition.html BUILD OF RECORD  25 relics · Stasis
                                                    + the post chain, bloom ON
                                                    + PARTICLE FIELDS on all 25
                                                    + the LONG-FIGHT pace
@@ -21,7 +21,8 @@ short-form video for TikTok and YouTube Shorts.
                                                    + ARCS SURVIVE HIT STOP
                                                    + A TRUE STUN TURNS THE
                                                      CRUCIBLE'S BLACK HOLE OFF
-02-chain/sc-paradox-arc.html         the link before it
+                                                   + THE IGNITION OPEN
+02-chain/sc-paradox-crucible.html    the link before it
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
@@ -55,6 +56,36 @@ fight buys set-pieces for free.
 > 74s average pairing still yields usable clips. **Do not read this as a green
 > verify.** Clearing it means either backing the pace to baseHP 370 / seals
 > 19-44 (45.4s mean, the floor of the ask) or tuning those four relics.
+
+**A FIGHT NOW STARTS AS A SHOT** (`src/render/open.js`, inserted by
+`ignition_build.py`). The first **2.35s** of every match: fighter A at 2.25x,
+a hard cut at 0.85s to fighter B, a pull wide from 1.55s that lands just before
+the first clank — and the two relics IGNITE, staggered onto the cut, each in
+its own affinity palette, while every `shadowBlur` in the hall powers on from
+0.30 through an overshoot to exactly 1.0. Then it hands the lens back and the
+build is pixel-identical to the one it was built from (`render_ab` 20/20 at
+3–31s). Prototyped as four variants in `tools/ignition_lab.py`; Rick watched
+`05-reference/v46-ignition/ignition-open-both-solo.mp4` and said make it
+happen. `06-docs/v46/`.
+
+> **IT IS THE SAME OPENING, AND THAT IS MEASURED, NOT ASSERTED.** Played
+> side by side the lab render and the build render differ by a mean 1.43/255 —
+> **all of it the lab harness evaluating its driver one frame behind the sim.**
+> With the clock removed as a variable (same page, same sim state, same
+> rasteriser) the build's `SWBOpen` is byte-for-byte identical to the lab's
+> driver at 18 of 19 instants, every flare and both seams included. The
+> nineteenth is the final 10ms, where the module hands back at `z <= 1.02` and
+> the lab ran one more frame at 1.0005.
+
+> **THE OPENING IS SILENT, AND THAT IS RICK'S CALL TO MAKE.** The clip he
+> approved had no ignition sound and none was invented here. A sound is one of
+> the seven things that are his (Rule 2) — offer it as a spread.
+
+> **AND IT ONLY REACHES A SHORT THAT STARTS AT ZERO.** `cinema_clip --lead`
+> measures back from the killing blow, so an ordinary clip begins thirty
+> seconds in and never sees it. `--full` starts at 0.0. Whether shorts now open
+> at zero is an editorial decision and nobody has made it. The app shows the
+> opening on every fight regardless.
 
 **GRAVITY KEEPS ACTING THROUGH HIT STOP** (`hitstop_build.py`). `step()`
 returned before `move()` while `hitStop` ran, so nobody got gravity for up to
@@ -199,7 +230,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v43/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v46/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -409,20 +440,22 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-paradox-crucible.html --n 40     # 12/13, see §0
+python verify.py --game ../02-chain/sc-paradox-ignition.html --n 40     # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-paradox-crucible.html      # what's open
+python cell_survey.py --game ../02-chain/sc-paradox-ignition.html      # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
 python paradox_pick.py                                             # which fight to film
+python ignition_probe.py                                           # the opening, in pixels
+python ignition_lab.py --scan --a <a> --b <b> --n 40                # a seed whose first clank lands in the opening's window
 ```
 
 A clip (`--shorts` only if it is going to a platform):
 
 ```bash
-python cinema_clip.py --game ../02-chain/sc-paradox-crucible.html \
+python cinema_clip.py --game ../02-chain/sc-paradox-ignition.html \
   --a paradox --b heartwood --seed 25064 --lead 18 --fps 60 --w 540 \
   --out ../07-shorts/v43/stasis-v-heartwood.mp4
 ```
@@ -532,5 +565,10 @@ git push
     integral of its own spin. Inert for damage, live for the picture.
 11. **EVERY TYPE-LEVEL MEASUREMENT STILL WANTS A `--noult` PASS.** v38 od 5
     onward, five sessions.
+12. **THE IGNITION OPEN HAS NO SOUND, AND NO ROUTE INTO A SHORT.** Both are
+    Rick's, both are named in §0, and neither is a defect: the sound was never
+    part of what he approved, and `--lead` clips start after the opening by
+    construction. Ask; do not decide either one from this file.
 
-Full detail: `NEXT-SESSION.md` and `06-docs/v43/`.
+Full detail: `06-docs/v46/` for the tip, `NEXT-SESSION.md` and
+`06-docs/v43/` for the relic before it.
