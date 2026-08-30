@@ -387,3 +387,97 @@ cinema_clip.py alone  its own --lead still defaults to 6.0
 So the opening reaches every short that does not pass `--lead`, and the open
 question is not placement but **length**: ~53s opening at zero, against ~23s at
 lead 18. That is Rick's call and it is a different question from this one.
+
+---
+
+## 7. THE STAKES BAND — hook brief §5a, built 2026-08-30
+
+Rick sent `stakes-open.mp4` and the hook brief. §5a promoted the band to a
+build when he retired the stinger it was riding on: *"i dont think i wanna
+persue the hook stack or pre showing the later part of the fight. its a bit
+jaring and confusing to look at. i do want to persue the stakes line."*
+
+**Shipping home, as the brief specified it:** a capture-side flag on
+`cinema_clip.py` — `--stakes`, `--stakes-sub`, `--stakes-in`, `--stakes-out`,
+`--stakes-y` — following the outro card's precedent, so the band and the
+ignition open ship as ONE bundle and slate 1 stays a single variable.
+
+**It leaves on an event, not a clock.** The band fades out on the first clank,
+which is where `scrunchAuto` arms the tape, so the introduction job hands over
+to the scrunch legend at the moment the legend exists and neither is ever on
+screen doing half of it alone. Same anchor `--vo-at clank` uses.
+
+`tools/stakes_probe.py`, and three of its checks earned their place by failing:
+
+```
+0  the band installs                                          ok
+1  the band is actually drawn                +0.089 luma on the strip
+2  in on the clock, out on the CLANK    full by 0.15s (asked 0.25s), clank
+                                        2.22s, gone by 2.53s (asked 2.57s)
+3  the relic being FILMED never reaches its rows              SEE §7.2
+4  no --stakes, no change                     133/133 frames identical
+5  the line fits inside the frame       no bright pixel in the outer 5px
+```
+
+### 7.1 THE PROTOTYPE FITTED FOR THE WRONG REASON
+
+The band's font was built as `700 * 0 + '700 ' + Math.round(64*k) + 'px ...'`.
+That leading `700 * 0` evaluates to `0`, so the string is `"0700 32px ui-serif,
+Georgia, serif"` — **not a valid font**, which a canvas silently ignores,
+keeping whatever font it already had. The prototype's line was therefore
+smaller than it asked to be, and it fitted the frame by accident.
+
+Transcribed correctly into the build, the line rendered at its real 64px and
+ran off **both** edges — "TWO WEAPONS. ONE SURVIVES." became "WO WEAPONS. ONE
+SURVIVES". Invisible to every number in this repo, obvious in one glance:
+`CLAUDE.md` §4.1's defect class, arriving by way of a typo that was hiding it.
+
+The band now measures its own line and shrinks to fit, never grows past the
+design size — which it has to anyway, because five candidate lines of different
+lengths and a delivery width that is a flag cannot share one point size. Check
+5 is the permanent guard.
+
+### 7.2 AND THE BAND COLLIDES WITH THE OPENING ON SOME PAIRINGS
+
+The brief placed the band at y = 14.5% by eye, *"measured against both camera
+shots"* — the camera shots of the 2.35s opening. **The opening is 2.83s now**
+(§6.6), so the subject sits somewhere else at every instant, and the placement
+was measured against a shot table that no longer exists.
+
+Swept over 19 pairings, asking how high the FILMED relic climbs while the band
+is up:
+
+```
+spellbreaker v twinshade   subject top at   88px, 0.72s   <- above the band's TOP
+dawnbringer v gravemourn                   158px, 0.60s
+aureole v lastlight                        201px, 0.56s
+ironhail v oathwound (the record seed)     175px, 0.58s   <- grazes the hairline
+                                     the band occupies 139-214px
+```
+
+On the filmed seed the band's lower hairline just clips the top of the ball —
+invisible in motion. On spellbreaker v twinshade **the caption cuts the ball in
+half.**
+
+> **AND THERE IS NO FIXED PLACEMENT THAT CLEARS IT.** To sit above the worst
+> case the band's bottom would have to be at 88px, putting its top at 13px —
+> inside the HUD. The lean clamp is what does it: it stops the opening centring
+> a subject that is high in the hall (§2.3), so on some pairings the relic is
+> simply up there.
+
+Four ways out, and the choice is Rick's:
+
+1. **Accept it.** A caption in front of the action is what captions do, and it
+   is only wrong on some pairings for a few frames.
+2. **Move the band up** to ~y=9%, which fixes the common case and still fails
+   the worst one.
+3. **A picker floor** — reject a pairing whose subject climbs into the band.
+   The measurement already exists; it would join `liveFrac` and `clanks/s` the
+   way brief §2c proposes for pair contrast.
+4. **Let the band tell the opening how much frame it has taken.** `SWBOpen`'s
+   subject-fit clamp already keeps the relic inside the frame; giving it a top
+   inset the band sets is the same thing the renderer does for the letterbox.
+   This is the principled one — the opening owns the camera, so it should frame
+   the subject in the space it actually has — and it is the only one that fixes
+   every pairing. It also moves a look Rick approved, which is why it is not
+   built here.

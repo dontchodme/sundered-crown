@@ -69,6 +69,82 @@ BLUR_SCALE_JS = r"""() => {
   return true;
 }"""
 
+"""THE STAKES BAND. Hook brief §5a, promoted to a build 2026-08-30 when Rick
+kept this lever and retired the stinger it was riding on.
+
+WHAT IT IS FOR, IN HIS WORDS: the first band read `ENDS IN 7 TRADED BLOWS`, and
+that *"means nothing to someone whos never seen one of these videos before. we
+need to introduce them to the project and show them the value of staying to
+watch in language a first time watcher can understand."* That is the bar for
+every line this flag ever carries -- premise and why-stay, zero project
+vocabulary.
+
+THE SHAPE IS THE VERDICT PANEL'S OWN REGISTER: parchment serif over a dark
+band, gold sans sub-line, gold hairlines top and bottom. Top placement at
+y = 14.5% of the frame, under the HUD -- measured against BOTH opening camera
+shots, because a low band crowds the fighter name in the shot on relic B.
+
+AND IT LEAVES ON AN EVENT, NOT A CLOCK. It fades out on the first clank, which
+is where `scrunchAuto` arms the tape -- so the band hands the introduction job
+to the scrunch legend at the exact moment the legend exists, and neither of
+them is ever on screen alone doing half of it. Same anchor `--vo-at clank`
+uses, for the same reason: measured over 144 matches a timer alone cuts
+mid-approach, 17% having clanked by 1.5s and 48% by 3.0s.
+"""
+STAKES_JS = r"""([text, sub, inDur, outDur, y0f]) => {
+  window.__stakesAt = null;
+  window.__stakes = function (wall, clanked) {
+    const sm = u => u <= 0 ? 0 : u >= 1 ? 1 : u * u * (3 - 2 * u);
+    /* The clank is an EDGE. Stamped once, in wall seconds, because the
+       director dilates and the exit has to run on screen time. */
+    if (clanked && window.__stakesAt === null) window.__stakesAt = wall;
+    let a = sm(inDur > 0 ? wall / inDur : 1);
+    if (window.__stakesAt !== null && outDur > 0)
+      a = Math.min(a, 1 - sm((wall - window.__stakesAt) / outDur));
+    else if (window.__stakesAt !== null) a = 0;
+    if (a <= 0.002) return;
+    const cv = document.getElementById('cv');
+    const c = cv.getContext('2d');
+    const W = cv.width, H = cv.height, k = W / 1080;
+    c.save();
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    c.globalAlpha = a;
+    const bandH = 150 * k, y0 = H * y0f;
+    c.fillStyle = 'rgba(7,5,12,0.78)';
+    c.fillRect(0, y0, W, bandH);
+    c.fillStyle = '#C9A227';
+    c.fillRect(0, y0, W, 3 * k);
+    c.fillRect(0, y0 + bandH - 3 * k, W, 3 * k);
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    /* THE LINE MUST FIT THE FRAME, AND IT IS NOT ALLOWED TO BE ASSUMED.
+       Five candidate lines of different lengths, plus pair-specific copy, plus
+       a delivery width that is a flag -- a fixed point size is a caption that
+       silently runs off both edges. Measured, then shrunk to fit, never
+       grown past the design size. */
+    const fit = (s, px, family, margin) => {
+      let p = px;
+      c.font = '700 ' + Math.round(p) + 'px ' + family;
+      const avail = W - 2 * margin;
+      const w = c.measureText(s).width;
+      if (w > avail) {
+        p = Math.max(8, Math.floor(p * avail / w));
+        c.font = '700 ' + Math.round(p) + 'px ' + family;
+      }
+      return p;
+    };
+    c.fillStyle = '#EDE3D0';
+    fit(text, 64 * k, 'ui-serif, Georgia, serif', 48 * k);
+    c.fillText(text, W / 2, y0 + bandH * (sub ? 0.40 : 0.5));
+    if (sub) {
+      c.fillStyle = '#C9A227';
+      fit(sub, 26 * k, '"Atkinson Hyperlegible Next", sans-serif', 48 * k);
+      c.fillText(sub, W / 2, y0 + bandH * 0.78);
+    }
+    c.restore();
+  };
+  return "ok";
+}"""
+
 HARNESS = r"""
 window.__clip = {
   m: null, events: [], curve: [], wall: 0, acc: 0, on: true,
@@ -80,6 +156,11 @@ window.__clip = {
   init(idA, idB, seed, on, startAt, intro) {
     const AC = window.AC;
     this.on = on; this.events = []; this.curve = []; this.wall = 0; this.acc = 0;
+    /* The stakes band stamps the clank it exits on. `--ab` runs this harness
+       twice against one install, so without this the director-ON pass would
+       inherit the director-OFF pass's stamp and open with the band already
+       gone. Reset with the wall clock it is measured against. */
+    window.__stakesAt = null;
     window.__frozen = true;                       // the live rAF loop stands down
     CINE.on = on; CINE.interp = true; CINE.reset(); CINE.acc = 0;
     if (on) { const p = cinePlan(idA, idB, seed); CINE.plan = p.cuts; }
@@ -209,6 +290,13 @@ window.__clip = {
                       this.on ? Math.round(CINE.send.lp) : 20000,
                       this.on ? +CINE.send.dry.toFixed(3) : 1,
                       +m.t.toFixed(4) ]);
+    /* THE STAKES BAND, over the composited frame and BEFORE the encode.
+       Hook brief §5a. Drawn here rather than in a second pass because a
+       re-capture for a text pass is not frame-identical (v43b §16), and
+       drawn after the frame is composited because it is a caption, not
+       something the bloom should see. A no-op -- one property read -- unless
+       --stakes installed it. */
+    if (window.__stakes) window.__stakes(this.wall, m.clankCount > 0);
     /* `q` is the JPEG quality, or null for lossless PNG.
 
        THE .slice(23) LANDMINE. 23 is the length of "data:image/jpeg;base64,".
@@ -549,6 +637,28 @@ def main() -> int:
                          "ENFORCED rather than remembered: three clips went out "
                          "with the card on because the flag was in a command "
                          "somebody copied.")
+    # THE STAKES BAND -- hook brief §5a. Capture-side, following the outro
+    # card's precedent, so the band and the ignition open ship as ONE bundle
+    # and a posting slate stays a single variable (§6).
+    ap.add_argument("--stakes", default=None, metavar="LINE",
+                    help="a stakes band over the opening: the promise, in "
+                         "language a first-time watcher can read. Fades in "
+                         "over --stakes-in and out over --stakes-out ON THE "
+                         "FIRST CLANK, handing the introduction to the scrunch "
+                         "legend at the moment that arms. Omitted: no band, "
+                         "and the draw hook is a no-op.")
+    ap.add_argument("--stakes-sub", default=None, metavar="LINE",
+                    help="the gold sub-line under it. A series number can ride "
+                         "here when it is wanted.")
+    ap.add_argument("--stakes-in", type=float, default=0.25,
+                    help="seconds to fade the band in, from t=0")
+    ap.add_argument("--stakes-out", type=float, default=0.35,
+                    help="seconds to fade it out, starting on the first clank")
+    ap.add_argument("--stakes-y", type=float, default=0.145,
+                    help="top of the band as a fraction of frame height. 0.145 "
+                         "sits under the HUD and clears the fighter name in "
+                         "BOTH opening shots; a low band crowds the name in "
+                         "the shot on relic B.")
     ap.add_argument("--vo", default=None,
                     help="wav to mix over the start (made by cinema_vo.py)")
     ap.add_argument("--vo-at", default="0.0",
@@ -620,6 +730,15 @@ def main() -> int:
             page.evaluate(BLUR_SCALE_JS)
             note = "a no-op here" if a.w == 1080 else "the glow narrows"
             print(f"    shadowBlur scaled by k={a.w/1080:.3f} -- {note}")
+        if a.stakes:
+            r = page.evaluate(STAKES_JS, [a.stakes, a.stakes_sub or None,
+                                          a.stakes_in, a.stakes_out,
+                                          a.stakes_y])
+            if r != "ok":
+                sys.exit(f"! the stakes band did not install: {r}")
+            print(f'    stakes band "{a.stakes}"'
+                  + (f' / "{a.stakes_sub}"' if a.stakes_sub else "")
+                  + f"  in {a.stakes_in}s, out {a.stakes_out}s on the clank")
 
         # Where is the killing blow? Ask the prescan, then back up `lead`.
         plan = page.evaluate("([a,b,s]) => window.cinePlan(a,b,s)",
