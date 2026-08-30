@@ -93,6 +93,19 @@ mid-approach, 17% having clanked by 1.5s and 48% by 3.0s.
 """
 STAKES_JS = r"""([text, sub, inDur, outDur, y0f]) => {
   window.__stakesAt = null;
+  /* TELL THE OPENING HOW MUCH FRAME THIS TAKES. Rick's call, 2026-08-30, of
+     four ways to stop the band cutting across the relic it is captioning: the
+     shot owns the camera, so the shot should frame the subject in the space it
+     actually has -- the same thing Renderer.draw already does for the
+     letterbox. Published ONCE, as the band's bottom edge in device pixels,
+     and held for the whole opening rather than released on the fade so the
+     camera never steps. src/render/open.js reads it in cam(). */
+  {
+    const cv0 = document.getElementById('cv');
+    const k0 = cv0.width / 1080;
+    if (typeof SWBOpen !== 'undefined')
+      SWBOpen.topInset = cv0.height * y0f + 150 * k0;
+  }
   window.__stakes = function (wall, clanked) {
     const sm = u => u <= 0 ? 0 : u >= 1 ? 1 : u * u * (3 - 2 * u);
     /* The clank is an EDGE. Stamped once, in wall seconds, because the

@@ -106,6 +106,15 @@ happen. `06-docs/v46/`.
 > went, and it buys **0.00s of drift on every relic in the roster** where the
 > two-name form had 11 of 25 overrunning and a 0.15s worst case.
 
+> **AND A CAPTION OVER THE OPENING TAKES FRAME AWAY FROM THE SHOT.**
+> `SWBOpen.topInset` is device pixels of frame, from the top, that something
+> else has claimed; `cinema_clip --stakes` publishes its own band's bottom edge
+> into it and the subject-fit clamp frames the relic below it. The letterbox
+> rule applied to a caption, and Rick's pick of four ways to stop the stakes
+> band cutting across the relic it captions. Without it, 4 of 24 pairings put
+> the filmed relic behind the band, worst 126px; with it, 0 of 24.
+> `06-docs/v46/` §7.
+
 > **AND SHORTS ALREADY OPEN AT ZERO BY DEFAULT — THE QUESTION IS LENGTH, NOT
 > PLACEMENT.** Stated wrongly once in this file, so here it is from the code.
 > `shorts_build.py --lead` defaults to **None**, and with no lead it hands

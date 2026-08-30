@@ -465,19 +465,54 @@ half.**
 > a subject that is high in the hall (§2.3), so on some pairings the relic is
 > simply up there.
 
-Four ways out, and the choice is Rick's:
+Four ways out were put to Rick — accept it; move the band up to ~y=9% (fixes
+the common case, still fails the worst); a picker floor rejecting pairings
+whose subject climbs into the band; or give the opening a top inset.
 
-1. **Accept it.** A caption in front of the action is what captions do, and it
-   is only wrong on some pairings for a few frames.
-2. **Move the band up** to ~y=9%, which fixes the common case and still fails
-   the worst one.
-3. **A picker floor** — reject a pairing whose subject climbs into the band.
-   The measurement already exists; it would join `liveFrac` and `clanks/s` the
-   way brief §2c proposes for pair contrast.
-4. **Let the band tell the opening how much frame it has taken.** `SWBOpen`'s
-   subject-fit clamp already keeps the relic inside the frame; giving it a top
-   inset the band sets is the same thing the renderer does for the letterbox.
-   This is the principled one — the opening owns the camera, so it should frame
-   the subject in the space it actually has — and it is the only one that fixes
-   every pairing. It also moves a look Rick approved, which is why it is not
-   built here.
+**"do 4".**
+
+### 7.3 THE BAND TELLS THE OPENING HOW MUCH FRAME IT HAS TAKEN
+
+`SWBOpen.topInset` — device pixels of frame, from the top, that something else
+has claimed. `--stakes` publishes its own bottom edge into it at install; the
+subject-fit clamp in `cam()` subtracts it before deciding what fits.
+
+**This is the letterbox rule applied to a caption.** `Renderer.draw`'s own
+feasibility clamp already subtracts `barH` before solving what fits the usable
+frame; the opening now does the same for whatever is laid over it. The
+principle the brief argued for ults in FX §3.4 — the shot owns the camera —
+is the reason it belongs here rather than in the band: a caption should not
+have to know about relic radii, and a shot should not be framed against a
+frame it does not have.
+
+Three things it is careful about:
+
+- **Device pixels, published by the drawer.** The band is drawing in device
+  space over the composited frame; making it convert to arena-local design
+  units would be a conversion every future writer has to remember. `cam()`
+  converts once, where the clamp lives.
+- **Held for the whole opening, not released on the fade.** The band leaves on
+  the clank, the opening runs to 2.83s; releasing the inset with the band would
+  step the camera in the middle of the pull. A constant inset never moves.
+- **The new constraint wins an impossible window.** If the disc cannot fit
+  between caption and floor at this zoom, staying out from behind the caption
+  is what is kept — the floor has the rest of the frame to give.
+
+Measured over 24 pairings, worst subject top against a band bottom of 214px:
+
+```
+                      pairings with the filmed relic behind the caption
+without the inset     4 of 24, worst 126px behind (spellbreaker v twinshade)
+with the inset        0 of 24, worst 0px — tangent to the band's lower edge
+```
+
+`stakes_probe.py` 6/6, `ignition_probe.py` 11/11, `engine_ab` 150/150,
+`render_ab` 20/20 pixel-identical after the opening releases.
+
+> **AND TWO OF THE PROBE'S CHECKS WERE MEASURING THE WRONG PASS.** Check 3 read
+> the relic positions out of the BARE capture — the one with no band and
+> therefore no inset — so it went on reporting the old collision after the fix
+> landed. And the control pass for check 4 deleted `window.__stakes` but left
+> `topInset` set, which is a different camera, so "no --stakes is a no-op" read
+> 105/133. Both are the same mistake: a flag that moves the picture has to be
+> undone in full before anything is compared against it.

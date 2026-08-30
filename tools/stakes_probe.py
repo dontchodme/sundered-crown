@@ -151,7 +151,12 @@ def main() -> int:
         band = frames(page, n)
 
         # ---- pass 3: uninstalled again, for the no-op check
-        page.evaluate("() => { delete window.__stakes; }")
+        # AND THE INSET GOES WITH IT. --stakes publishes the band's bottom
+        # edge to SWBOpen.topInset, which MOVES THE CAMERA; leaving it set
+        # while pretending the flag is absent made this control a different
+        # shot, and check 4 read 105/133 for a reason that was the probe's.
+        page.evaluate("() => { delete window.__stakes;"
+                      " if (typeof SWBOpen !== 'undefined') SWBOpen.topInset = 0; }")
         page.evaluate("([a,b,s]) => window.__clip.init(a,b,s,true,0,false)",
                       [A.a, A.b, A.seed])
         again = frames(page, n)
@@ -210,7 +215,7 @@ def main() -> int:
     #    band is up, neither relic's magnified disc may reach into its rows.
     upt = {t for t, v in al if v > 0.05 * full}
     clear, closest = [], None
-    for t, a_im, _c, _st, discs, rpx, subj in bare:
+    for t, a_im, _c, _st, discs, rpx, subj in band:
         if t not in upt or subj is None:
             continue
         for (dx, dy) in [discs[0] if subj == "a" else discs[1]]:

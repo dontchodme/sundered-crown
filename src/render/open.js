@@ -199,11 +199,35 @@
 
        From ls = px + (s·sc - px)·z, the subject's disc sits inside the frame
        for px in [(s·sc·z - (aw - rr))/(z - 1), (s·sc·z - rr)/(z - 1)]. */
+    /* AND THE TOP OF THE FRAME IS NOT ALWAYS THE TOP OF THE FRAME. Whatever is
+       laid over the opening — today the stakes band (hook brief §5a) — takes
+       rows away from the shot, and the subject has to be framed in what is
+       left. `topInset` is DEVICE pixels from the top of the canvas, published
+       by whoever drew the thing; converted here into the same space the clamp
+       works in, which is arena-local design units.
+
+       This is the letterbox rule, applied to a caption: `Renderer.draw`'s own
+       feasibility clamp already subtracts `barH` before deciding what fits.
+       Rick's call, 2026-08-30, over moving the band or filtering pairings —
+       and it is the only one of the four that fixes EVERY pairing, because
+       there is no fixed band placement that clears a subject the lean clamp
+       has pushed high. */
+    var inset = 0;
+    if (root.SWBOpen && root.SWBOpen.topInset > 0 && r.k > 0)
+      inset = Math.max(0, root.SWBOpen.topInset / r.k - (r.arenaTop || 0));
+
     var rr = LOOK.relicSu * sc * z;
     var loX = (spx * z - (r.aw - rr)) / (z - 1), hiX = (spx * z - rr) / (z - 1);
-    var loY = (spy * z - (r.ah - rr)) / (z - 1), hiY = (spy * z - rr) / (z - 1);
+    var loY = (spy * z - (r.ah - rr)) / (z - 1);
+    var hiY = (spy * z - (rr + inset)) / (z - 1);
     if (loX <= hiX) px = Math.min(Math.max(px, loX), hiX);
+    /* An empty window means the disc cannot fit between the caption and the
+       floor at this zoom. Keeping it OUT FROM BEHIND THE CAPTION is the
+       constraint that was just added and the one that would otherwise be
+       silently dropped, so it wins; the floor has the whole rest of the frame
+       to give. */
     if (loY <= hiY) py = Math.min(Math.max(py, loY), hiY);
+    else if (inset > 0) py = hiY;
     return [px, py, z];
   }
 
@@ -334,6 +358,14 @@
     VERSION: VERSION,
     on: true,
     mul: 1,            // the live shadowBlur multiplier; 1 is identity
+    /* DEVICE pixels of frame, from the top, that something else has taken --
+       a caption laid over the opening. Written from outside (cinema_clip's
+       --stakes band publishes its own bottom edge here), read only by cam(),
+       and 0 means the shot has the whole frame. Device pixels rather than
+       design units because the thing that sets it is drawing in device space
+       over the composited frame, and a unit conversion at the writer is a
+       conversion every future writer has to remember. */
+    topInset: 0,
     DUR: DUR,
     SHOTS: SHOTS,
     LOOK: LOOK,
