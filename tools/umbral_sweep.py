@@ -202,6 +202,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--game", default="../02-chain/sc-curse.html")
     ap.add_argument("--relics", default=",".join(UMBRAL))
+    # STAGE 2b MOVES THE BRACKET, because the relic moved. Gravemourn was
+    # swept in 1b with no ultimate and read 76.0% once it had one, so the
+    # 28..52 bracket in RANGE cannot contain the answer any more. Named on
+    # the command line rather than edited into the constant: the constant
+    # is the record of where these relics sit WITHOUT their new ultimates.
+    ap.add_argument("--lo", type=float, default=0.0)
+    ap.add_argument("--hi", type=float, default=0.0)
     ap.add_argument("--pts", type=int, default=6, help="pass 1 sweep points")
     ap.add_argument("--sn", type=int, default=4, help="pass 1 seeds per pairing")
     ap.add_argument("--steps", type=int, default=6, help="pass 2 bisection steps")
@@ -244,6 +251,8 @@ def main() -> int:
             print("  --answers given: skipping the search, confirming only")
         for rid in ([] if A.answers else A.relics.split(",")):
             lo, hi = RANGE[rid]
+            if A.lo or A.hi:
+                lo, hi = (A.lo or lo), (A.hi or hi)
             d0 = page.evaluate("([id]) => AC.WEAPONS.find(x => x.id === id).dmg",
                                [rid])
             print(f"\n  ---- {rid.upper()}   ships at dmg {d0:g}  "

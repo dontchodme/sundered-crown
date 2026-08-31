@@ -12,14 +12,19 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-curse.html           BUILD OF RECORD  27 relics · CURSE REMEMBERS
+02-chain/sc-gravemourn.html      BUILD OF RECORD  27 relics · GRASP
                                                    everything below, plus
+                                                   A WINDOW THAT LENGTHENS THE
+                                                   CHAIN, AND A SKELETAL HAND
+                                                   OFF EVERY BLOW THAT FLIES,
+                                                   CLENCHES AND DIVES
+02-chain/sc-curse.html           the link before it, 27 relics · CURSE REMEMBERS
                                                    A STATUS THAT REMEMBERS THE
                                                    BLOWS THAT MADE IT AND PAYS
                                                    A SHARE OF THEM BACK ON
                                                    EVERY LATER HIT, FROM ANY
                                                    SOURCE
-02-chain/sc-vesper.html          the link before it, 27 relics · SENTINEL
+02-chain/sc-vesper.html          27 relics · SENTINEL
                                                    A BEAM THAT PERSISTS,
                                                    TURNS, GROWS AND IS PAID
                                                    FOR WITH THE ARMOUR THE
@@ -39,6 +44,73 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**GRAVEMOURN'S ULTIMATE IS GRASP, AND THE HANDS ARE THE ULTIMATE — NOT THE
+CHAIN THE DESIGN SAID THEY WERE** (`gravemourn_build.py`, 2026-08-31). Stage 2
+of the v51/52 brief. A cast opens an 8s window: the flail's chain lengthens by
+1.35 (per-fighter), and every blow landed inside it throws ONE SKELETAL HAND
+PER ENTRY IN THE FOE'S CURSE POOL, each taking its entry. A hand soars for 1.8s,
+clenches to a fist, dives, deals exactly the memory it carries, RE-PARKS that
+memory as a fresh curse stack, and knocks back at 700. Blade 39.79 -> **24.03**.
+`06-docs/v53/grasp-build-v53.md`.
+
+> **THE DESIGN'S HEADLINE CLAIM IS FALSE ON THE BUILT RELIC.** v51 is titled
+> "the chain is the ultimate and the hand is the payload" and priced the chain
+> at 75% of Grasp's value. **Deleting the chain buff entirely costs 3.8
+> points** (76.3% -> 72.4%, n=780). `hand_lab` measured a chain with nothing
+> coming off it; once the hands exist and carry pool entries AS their damage
+> they swamp it. The mechanism is still real — without the chain the foe's
+> damage into this relic goes 203 -> 244 — it is only its SHARE that was wrong.
+> **AND `charge` IS THE STRONGEST LEVER (-23.7pp), which the brief explicitly
+> ruled out.** Two registered predictions struck in one stage.
+
+> **THE BLADE AND THE HANDS ARE THE SAME DAMAGE COUNTED TWICE**, so they trade
+> one for one: a hand carries a curse pool entry, and a pool entry IS a blade
+> blow. Asked to "bring back the blade and do a weaker grasp", the curve says
+> restoring 39.79 costs the hand SIX SEVENTHS of its bite (handMul 0.15).
+> Shown it, Rick kept 24.03 and a full-strength Grasp.
+
+> **HALF OF GRAVEMOURN'S KILLS WERE INVISIBLE TO THE DIRECTOR, AND NO CHECK IN
+> THIS REPO SAW IT.** `cinema_clip` finds the killing blow with
+> `plan.find(c => c.fatal)`; the hand filed a `kind:"ult"` beat, which carries
+> no such flag. **30 of 58 kills over 80 fights were landed by a hand and ALL
+> THIRTY produced a clip with no killing blow**, falling back to "the last
+> cut". Worse than Dawnbringer's 22.1%, the current worst in open item 3. Found
+> by reading a `kill: None` line in a render log. The probe passed throughout,
+> because it asserted A beat was filed rather than that a FATAL one was.
+> **ANY PAYLOAD THAT RESOLVES OUTSIDE `resolveHit` HAS THIS HOLE** — Nightfell's
+> charges are next.
+
+> **A PROBE THAT ENCODES ITS OWN MODEL OF A RULE FAILS ON EVERY LEGITIMATE
+> CHANGE TO IT.** Three checks in `gravemourn_relic_probe` reported defects
+> that were not there: the chain "not lengthening" (two maxima taken in
+> different acts, and `actMods.reach` climbs 1.0 -> 1.1 over a fight); "one
+> hand per pool entry" off by one (the blow that throws the hands is one of the
+> blows they remember); and "a hand re-parks what it dealt" breaking the moment
+> flight time rose (a re-parked memory pushed into a full pool is DISPLACED by
+> curse's own top-K rule). All three now reconstruct the engine's rule instead
+> of assuming their own.
+
+> **NOTHING BELOW n≈700 RANKS ANYTHING ON THIS ROSTER.** Two measurements of
+> the SAME arm at n=156 and n=208 came back 50.6% and 63.9%. A roster win rate
+> is 26 pairings of correlated fights, not N independent flips, and its real
+> precision is far worse than the binomial figure. Third time this bit in one
+> session.
+
+> **SHAPE QUESTIONS GO TO A SHEET. SCALE QUESTIONS NEED THE VIDEO.** The hand
+> art took two rounds of rendered spreads and settled every shape question in
+> one round trip each — but the SIZE took three goes (1.15, 0.6, 0.7) because a
+> sheet shows the object still and every size complaint was about it in motion
+> among two others. Rick's reference video settled a register four rounds of
+> guessing had not. `hand_art_lab.py`, `05-reference/v53/hand-shapes.png`.
+
+> **AND `w.reach` IS MODULE-LEVEL, WHICH IS THE HAZARD THE BRIEF NAMED FIRST.**
+> Closed with a per-fighter `f.reachMul` multiplied at all seven read sites —
+> five in the sim, two in the renderer. **The first pass missed one**: there are
+> TWO projectile origins, not one, and a printed count said "18 mentions" while
+> the seventh sat unmultiplied. The builder now REFUSES TO WRITE if any
+> `f.w.reach` read lacks it. A printed count is something a person has to
+> notice; an assertion is not.
 
 **CURSE NO LONGER EATS MAXIMUM LIFE — IT REMEMBERS** (`curse_build.py`,
 2026-08-30). Rick's design off Path of Exile's Impale, priced by Cowork across
@@ -711,10 +783,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-curse.html --n 40            # 12/13, see §0
+python verify.py --game ../02-chain/sc-gravemourn.html --n 40       # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-curse.html              # what's open
+python cell_survey.py --game ../02-chain/sc-gravemourn.html         # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -734,6 +806,9 @@ python sentinel_hum_audition.py                                    # ONE REAL WI
 python beam_probe.py --game ../02-chain/sc-vesper.html             # §1 priced by overlay, 14/14
 python curse_check.py --game ../02-chain/sc-curse.html             # the rework, one check per sentence
 python umbral_sweep.py --game ../02-chain/sc-curse.html            # three blades: curve, bisect, wide confirm
+python gravemourn_relic_probe.py                                   # §1 asserted, and the render path CALLED
+python grasp_price.py --blade 39.79                                # four ways to weaken an ultimate, priced
+python hand_art_lab.py                                             # an ult's art as a spread, before anybody is asked
 python row_price.py --type scythe --game ...                       # a cell by DELIVERED EFFECT, not by occupancy
 ```
 
@@ -747,7 +822,7 @@ and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-curse.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-gravemourn.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -756,7 +831,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-curse.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-gravemourn.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -911,28 +986,40 @@ git push
     half x turn. Section 3's finding — that `range` is no longer a trade —
     changes what both would mean, so they were left rather than run against a
     superseded reading.
-19. **NOBODY HAS WATCHED THE NEW CURSE ART.** `_stCurse` was re-cut — motes are
+19. **STAGE 3 IS NEXT AND IT IS NIGHTFELL.** `06-docs/v52/echoes-v52.md` is the
+    design, `06-docs/v51/umbral-build-brief-v51.md` §8 is the plan, and
+    `06-docs/v53/grasp-build-v53.md` §9 is what stage 2 leaves it. Built on
+    `sc-gravemourn.html`, NOT beside it. **ECLIPSE IS A DEAD ULTIMATE RIGHT
+    NOW** — it lost `apply:{curse:3}` in stage 1 and got nothing back, so
+    Nightfell's 50.6% is temporary by construction.
+20. **A FATAL PAYLOAD MUST FILE A FATAL BEAT, AND NIGHTFELL'S CHARGES WILL HAVE
+    THE SAME HOLE.** Grasp's hands resolve outside `resolveHit` and filed no
+    `fatal` flag; 51.7% of the relic's kills rendered a clip with no killing
+    blow. The sigils detonate outside `resolveHit` too.
+    `nightfell_relic_probe` must check the FATAL case, not just that a beat
+    exists — that is exactly what let this through.
+21. **NOBODY HAS WATCHED THE NEW CURSE ART.** `_stCurse` was re-cut — motes are
     drawn IN and never leave, one per remembered blow, sized by its share of
     the pool — and the status tag now prints `CURSE nn`. It is measured to draw
     without throwing over 2817 frames and to draw the right number of motes on
     every one. **That is not the same as being legible.** §4.1's whole point,
     and it is the F1 gate in the build brief. Rick's.
-20. **`row_price` CANNOT PRICE AN OCCUPIED CELL**, so it cannot be the gate the
+22. **`row_price` CANNOT PRICE AN OCCUPIED CELL**, so it cannot be the gate the
     v51 brief asks it to be for curse — umbral × flail is Gravemourn's.
     `curse_check [8]` is the delivered-effect measurement instead. Whether
     `row_price` should grow an occupied-cell mode is a real question and open
     item 8 is next to it.
-21. **SUNDER AND WARD HAVE NEVER BEEN PRICED, AND NOW HAVE BEEN.** `curse_check
+23. **SUNDER AND WARD HAVE NEVER BEEN PRICED, AND NOW HAVE BEEN.** `curse_check
     [8]`: sunder is the biggest damage-rate channel in the game (+13.6%) and
     costs **−1.4pp** of win rate; ward buys **−0.4%** of damage rate and
     **+27.8pp** of win rate. Both are coherent readings of what those statuses
     are. Neither is a defect and neither has been looked at.
-22. **THE RAW-`dealt` A/B IS CONFOUNDED BY FIGHT LENGTH AND INVERTS.** Delete a
+24. **THE RAW-`dealt` A/B IS CONFOUNDED BY FIGHT LENGTH AND INVERTS.** Delete a
     damaging status and the fight runs longer, so the blade delivers more:
     smite and hemorrhage both read NEGATIVE on it (−28.1%, −25.1%). Normalise
     to damage RATE, or measure the channel directly. Named here because the
     v51 brief's §5.8 specifies the confounded form and anything reusing it will
     hit the same wall.
-Full detail: `06-docs/v53/` for the tip, `06-docs/v49`-`v52` for the designs behind it,
+Full detail: `06-docs/v53/` for the tip (curse-build then grasp-build), `06-docs/v49`-`v52` for the designs behind it,
 `06-docs/v48/` for the relic before it, `06-docs/v47/` for the one before that, `06-docs/v46/` for the opening, and
 `NEXT-SESSION.md` plus `06-docs/v43/` for the relic before it.

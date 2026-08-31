@@ -1,5 +1,5 @@
 {
-  "build": "02-chain/sc-curse.html",
+  "build": "02-chain/sc-gravemourn.html",
   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) sundered-crown-app/0.1.0 Chrome/152.0.7977.54 Electron/44.0.0 Safari/537.36",
   "chrome": "152.0.7977.54",
   "rows": [
@@ -104,18 +104,18 @@
         "a": "Gravemourn",
         "b": "Aureole",
         "winner": "Aureole",
-        "hp": 59,
-        "duration": 42.05,
+        "hp": 200,
+        "duration": 42.12,
         "reason": "slain",
         "hits": {
-          "a": 7,
-          "b": 13
+          "a": 6,
+          "b": 15
         },
         "crits": {
           "a": 0,
-          "b": 1
+          "b": 0
         },
-        "clanks": 3
+        "clanks": 6
       }
     },
     {
@@ -173,18 +173,18 @@
         "a": "Ironhail",
         "b": "Gravemourn",
         "winner": "Ironhail",
-        "hp": 89,
-        "duration": 39.38,
+        "hp": 354,
+        "duration": 32.48,
         "reason": "slain",
         "hits": {
-          "a": 13,
-          "b": 5
+          "a": 15,
+          "b": 2
         },
         "crits": {
-          "a": 3,
+          "a": 1,
           "b": 0
         },
-        "clanks": 4
+        "clanks": 2
       }
     },
     {
@@ -656,18 +656,18 @@
         "a": "Gravemourn",
         "b": "Aureole",
         "winner": "Gravemourn",
-        "hp": 105,
-        "duration": 35.27,
+        "hp": 48,
+        "duration": 42.22,
         "reason": "slain",
         "hits": {
           "a": 7,
-          "b": 10
+          "b": 12
         },
         "crits": {
-          "a": 0,
+          "a": 1,
           "b": 0
         },
-        "clanks": 7
+        "clanks": 3
       }
     },
     {
@@ -725,16 +725,16 @@
         "a": "Ironhail",
         "b": "Gravemourn",
         "winner": "Ironhail",
-        "hp": 70,
-        "duration": 40.82,
+        "hp": 165,
+        "duration": 35.27,
         "reason": "slain",
         "hits": {
-          "a": 12,
+          "a": 16,
           "b": 5
         },
         "crits": {
-          "a": 1,
-          "b": 1
+          "a": 0,
+          "b": 0
         },
         "clanks": 2
       }
@@ -1208,18 +1208,18 @@
         "a": "Gravemourn",
         "b": "Aureole",
         "winner": "Aureole",
-        "hp": 240,
-        "duration": 31.37,
+        "hp": 244,
+        "duration": 24.85,
         "reason": "slain",
         "hits": {
-          "a": 4,
-          "b": 15
+          "a": 3,
+          "b": 17
         },
         "crits": {
           "a": 0,
           "b": 1
         },
-        "clanks": 6
+        "clanks": 2
       }
     },
     {
@@ -1276,19 +1276,19 @@
         "seed": 1366272279,
         "a": "Ironhail",
         "b": "Gravemourn",
-        "winner": "Ironhail",
-        "hp": 5,
-        "duration": 41.5,
+        "winner": "Gravemourn",
+        "hp": 83,
+        "duration": 37.64,
         "reason": "slain",
         "hits": {
-          "a": 13,
+          "a": 10,
           "b": 5
         },
         "crits": {
-          "a": 2,
-          "b": 1
+          "a": 1,
+          "b": 2
         },
-        "clanks": 1
+        "clanks": 3
       }
     },
     {
@@ -1760,18 +1760,18 @@
         "a": "Gravemourn",
         "b": "Aureole",
         "winner": "Aureole",
-        "hp": 231,
-        "duration": 33.86,
+        "hp": 230,
+        "duration": 34.83,
         "reason": "slain",
         "hits": {
-          "a": 4,
-          "b": 14
+          "a": 5,
+          "b": 13
         },
         "crits": {
           "a": 0,
           "b": 2
         },
-        "clanks": 4
+        "clanks": 9
       }
     },
     {
@@ -1829,18 +1829,18 @@
         "a": "Ironhail",
         "b": "Gravemourn",
         "winner": "Ironhail",
-        "hp": 234,
-        "duration": 27.57,
+        "hp": 343,
+        "duration": 25.32,
         "reason": "slain",
         "hits": {
-          "a": 14,
-          "b": 2
+          "a": 15,
+          "b": 1
         },
         "crits": {
           "a": 1,
           "b": 1
         },
-        "clanks": 1
+        "clanks": 0
       }
     },
     {
@@ -2311,19 +2311,19 @@
         "seed": 3598509914,
         "a": "Gravemourn",
         "b": "Aureole",
-        "winner": "Gravemourn",
-        "hp": 109,
-        "duration": 40.23,
+        "winner": "Aureole",
+        "hp": 99,
+        "duration": 35.1,
         "reason": "slain",
         "hits": {
           "a": 6,
-          "b": 10
+          "b": 14
         },
         "crits": {
-          "a": 1,
-          "b": 1
+          "a": 0,
+          "b": 2
         },
-        "clanks": 5
+        "clanks": 4
       }
     },
     {
@@ -2381,18 +2381,18 @@
         "a": "Ironhail",
         "b": "Gravemourn",
         "winner": "Ironhail",
-        "hp": 195,
-        "duration": 27.79,
+        "hp": 106,
+        "duration": 21.67,
         "reason": "slain",
         "hits": {
-          "a": 15,
-          "b": 4
+          "a": 16,
+          "b": 5
         },
         "crits": {
-          "a": 2,
-          "b": 0
+          "a": 0,
+          "b": 1
         },
-        "clanks": 6
+        "clanks": 3
       }
     },
     {
@@ -2863,19 +2863,19 @@
         "seed": 2253831429,
         "a": "Gravemourn",
         "b": "Aureole",
-        "winner": "Gravemourn",
-        "hp": 127,
-        "duration": 35.07,
+        "winner": "Aureole",
+        "hp": 221,
+        "duration": 44.26,
         "reason": "slain",
         "hits": {
-          "a": 6,
-          "b": 10
+          "a": 3,
+          "b": 15
         },
         "crits": {
-          "a": 1,
-          "b": 0
+          "a": 0,
+          "b": 1
         },
-        "clanks": 6
+        "clanks": 3
       }
     },
     {
@@ -2933,15 +2933,15 @@
         "a": "Ironhail",
         "b": "Gravemourn",
         "winner": "Ironhail",
-        "hp": 145,
-        "duration": 29.59,
+        "hp": 349,
+        "duration": 23.86,
         "reason": "slain",
         "hits": {
-          "a": 14,
-          "b": 5
+          "a": 16,
+          "b": 2
         },
         "crits": {
-          "a": 3,
+          "a": 1,
           "b": 0
         },
         "clanks": 4
@@ -3416,18 +3416,18 @@
         "a": "Gravemourn",
         "b": "Aureole",
         "winner": "Aureole",
-        "hp": 291,
-        "duration": 32.84,
+        "hp": 330,
+        "duration": 30.89,
         "reason": "slain",
         "hits": {
-          "a": 3,
-          "b": 15
+          "a": 4,
+          "b": 13
         },
         "crits": {
           "a": 0,
-          "b": 2
+          "b": 4
         },
-        "clanks": 5
+        "clanks": 4
       }
     },
     {
@@ -3484,19 +3484,19 @@
         "seed": 282525635,
         "a": "Ironhail",
         "b": "Gravemourn",
-        "winner": "Gravemourn",
-        "hp": 334,
-        "duration": 18.76,
+        "winner": "Ironhail",
+        "hp": 36,
+        "duration": 27.66,
         "reason": "slain",
         "hits": {
-          "a": 3,
-          "b": 7
+          "a": 13,
+          "b": 4
         },
         "crits": {
-          "a": 0,
+          "a": 3,
           "b": 2
         },
-        "clanks": 4
+        "clanks": 3
       }
     },
     {
@@ -3967,19 +3967,19 @@
         "seed": 3859441755,
         "a": "Gravemourn",
         "b": "Aureole",
-        "winner": "Aureole",
-        "hp": 339,
-        "duration": 28.45,
+        "winner": "Gravemourn",
+        "hp": 61,
+        "duration": 28.91,
         "reason": "slain",
         "hits": {
-          "a": 2,
-          "b": 15
+          "a": 6,
+          "b": 10
         },
         "crits": {
-          "a": 0,
-          "b": 2
+          "a": 1,
+          "b": 3
         },
-        "clanks": 2
+        "clanks": 5
       }
     },
     {
@@ -4037,18 +4037,18 @@
         "a": "Ironhail",
         "b": "Gravemourn",
         "winner": "Ironhail",
-        "hp": 58,
-        "duration": 32.17,
+        "hp": 136,
+        "duration": 33.44,
         "reason": "slain",
         "hits": {
-          "a": 14,
-          "b": 5
+          "a": 13,
+          "b": 4
         },
         "crits": {
-          "a": 2,
-          "b": 1
+          "a": 1,
+          "b": 0
         },
-        "clanks": 4
+        "clanks": 2
       }
     },
     {
