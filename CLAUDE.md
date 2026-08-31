@@ -50,6 +50,20 @@ wielder's biggest blows. `maxStacks` 8 → 3, `maxHpLoss` **deleted**, and Dirge
 and Eclipse lose the `apply:{curse:3}` that `ult_price` measured at −3.2 and
 +7.2 against a field median of +20.4. `06-docs/v53/`.
 
+> **THE CARD LINE IS RICK'S — `"Hits reflect 8% of the damage that cursed"` —
+> AND THE LIMIT IT WAS FIRST MEASURED AGAINST WAS FOLKLORE.** The v51 brief
+> says the status tip cap is 40, twice; `verify.py` says 40 **in a comment**
+> and enforces **48 in the line under it**. Every shipped tip is under 40, so
+> nothing has ever exercised the gap. His line is 41 — it fails the folklore
+> number and passes the real one.
+> **AND CHARACTERS ARE THE WRONG UNIT.** The scrunch panel is **536px on one
+> line at 25px**, and `"Each hit reflects 8% of remembered cursed damage"` is 48
+> characters and **583px** — it passes `verify` and overflows the card.
+> `tip_audit` measures pixels and is the gate that protects the layout.
+> **Measure a tip there; do not count its letters.** His first clause
+> ("applies curse on hit") is not in the tip because `_scrunchFacts` already
+> prints `ON HIT` and `+1 CURSE` directly above it.
+
 > **THE STACK COUNT IS DERIVED FROM THE POOL, WHICH THE BRIEF DID NOT ASK FOR.**
 > It asked that `stacks("curse")` and `cursePool.length` agree, and to assert
 > it. A convention that two call sites must both fire is not agreement, it is a

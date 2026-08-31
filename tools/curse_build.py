@@ -86,7 +86,36 @@ MAX_STACKS = 3      # v49 §1: Gravemourn lands 5.6 blows a fight and cannot
                     # fill more. A small cap is also what narrows the gap
                     # between the two archetypes the mechanic serves (v49 §4).
 ECHO = 0.08         # share of the remembered pool added to every later hit
-CURSE_TIP = "Adds 8% of a remembered blow per stack"          # 38/40
+
+# RICK'S WORDING, 2026-08-30. He asked for "Applies curse on hit, enemies are
+# reflected a portion of cursed damage when they are hit again" and picked this
+# trim off a measured spread once the budget was on the table.
+#
+# HIS FIRST CLAUSE IS NOT HERE BECAUSE THE CARD ALREADY SAYS IT. `_scrunchFacts`
+# prints the tag `ON HIT` and the name `+1 CURSE` directly above this line, so
+# "applies curse on hit" would be the third time the panel said it. The whole
+# budget goes to the half the card cannot say for itself.
+#
+# THE 8% STAYS AND IS NOT NEGOTIABLE COPY. `tip_audit`'s entire job is finding
+# effect fields the tip never mentions; "a portion" has no number in it and
+# `echo` would be flagged. A number-free line needs a JUSTIFIED entry in
+# tip_audit saying why, and there is no reason to write one here.
+CURSE_TIP = "Hits reflect 8% of the damage that cursed"    # 41 ch, 471 px
+
+# THE LIMIT IS 48, NOT 40, AND THE REAL LIMIT IS PIXELS.
+#
+# The v51 brief says 40 twice and this builder copied it; `verify.py` says 40 in
+# a COMMENT and enforces 48 in the line under it. 48 is what actually runs, and
+# every shipped status tip is under 40 today, so nothing has ever tested the
+# gap -- which is how a folklore number survives.
+#
+# And characters are the wrong unit anyway. The panel budget is 536px on one
+# line at 25px, and "Each hit reflects 8% of remembered cursed damage" is 48
+# characters and 583px: it passes verify and overflows the card. `tip_audit` is
+# the gate that measures pixels and it is in the gate list for that reason.
+# MEASURE A NEW TIP THERE, do not count its letters.
+TIP_MAX = 48
+PANEL_PX = 536      # what tip_audit checks; this builder cannot measure it
 
 # Dirge and Eclipse: same ultimates, one field lighter. PLACEHOLDER TIPS --
 # the copy is Rick's (brief open decision 3) and neither name is settled.
@@ -495,9 +524,9 @@ def main() -> int:
 
     # A STATUS TIP HAS A HARD LIMIT AND verify.py IS WHERE IT IS ENFORCED,
     # which is 12000 fights too late to find out.
-    if len(A.tip) > 40:
+    if len(A.tip) > TIP_MAX:
         raise SystemExit(f"STATUS TIP is {len(A.tip)} characters against "
-                         f"verify.py's limit of 40:\n  {A.tip}")
+                         f"verify.py's enforced limit of {TIP_MAX}:\n  {A.tip}")
     for t, who in ((DIRGE_TIP, "Dirge"), (ECLIPSE_TIP, "Eclipse")):
         if len(t) > 72:
             raise SystemExit(f"{who} tip is {len(t)}/72")
@@ -508,7 +537,9 @@ def main() -> int:
         raise SystemExit(f"the status tip does not name the echo it ships "
                          f"({pct}):\n  {A.tip}")
     print(f"  set maxStacks {A.max_stacks}   echo {A.echo:g}   "
-          f"tip {len(A.tip)}/40  {A.tip!r}")
+          f"tip {len(A.tip)}/{TIP_MAX}  {A.tip!r}")
+    print(f"      the PIXEL budget is {PANEL_PX} and this builder cannot see "
+          f"it — tip_audit is that gate")
 
     subs = {"%MAXSTACKS%": str(A.max_stacks), "%ECHO%": f"{A.echo:g}",
             "%CURSETIP%": A.tip, "%DIRGETIP%": DIRGE_TIP,

@@ -79,7 +79,13 @@ LEGIBILITY_JS = r"""
     if (!u.tip || !u.tip.trim()) bad.push(`${w.name}: ultimate ${u.name} has no tip`);
     // 44 -> 72 with the v2 fight card (2026-08-14): ult tips render on
     // their own 25px line now, so the budget is the line, not the tag row.
-    // Status tips keep 40 — the in-arena first-landing panel still prints those.
+    // Status tips are 48, and this comment said 40 for a long time while the
+    // line under it enforced 48 — which is how "the status limit is 40" ended
+    // up stated twice in a build brief. Every shipped tip is under 40, so the
+    // gap has never been tested and nothing caught the drift.
+    // CHARACTERS ARE ALSO THE WRONG UNIT: the scrunch panel is 536px on one
+    // line, and a 48-character tip can be 583px. tip_audit measures pixels and
+    // is the gate that actually protects the layout.
     else if (u.tip.length > 72) bad.push(`${w.name}: ult tip ${u.tip.length} chars (max 72)`);
     for (const k of Object.keys(u.apply || {}))
       if (!statusKeys.includes(k))

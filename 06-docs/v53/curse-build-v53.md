@@ -42,7 +42,7 @@ this cannot be quietly undone by passing the old `--src`.
 | `maxHpLoss` | **deleted**, not zeroed |
 | `echo` | **0.08** of everything remembered, added to every later blow |
 | `dur` | 99, unchanged |
-| tip | `"Adds 8% of a remembered blow per stack"` — 38/40 |
+| tip | `"Hits reflect 8% of the damage that cursed"` — 41 ch, **471 px** |
 | Dirge, Eclipse | `apply:{curse:3}` deleted; tips lose the clause |
 
 Three edits in `resolveHit`, in the order the brief specifies: the echo is read
@@ -91,6 +91,41 @@ countable at phone size.
 
 Every position stays a pure function of `(side, index, m.t)` through
 `shellHash`. Never `this.rng()`.
+
+## 2.4b THE CARD WORDING IS RICK'S, AND THE LIMIT IT WAS MEASURED AGAINST WAS WRONG
+
+He asked for *"Applies curse on hit, enemies are reflected a portion of cursed
+damage when they are hit again"* and picked the trim above off a measured
+spread. Three things came out of measuring it, and two of them outlive the
+copy:
+
+**HIS FIRST CLAUSE IS ALREADY ON THE CARD.** `_scrunchFacts` prints the tag
+`ON HIT` and the name `+1 CURSE` immediately above the tip line, so
+"applies curse on hit" would be the panel's third way of saying the same thing.
+Cutting it hands the whole budget to the half the card cannot say structurally.
+
+**THE STATUS LIMIT IS 48, NOT 40.** The v51 brief says 40 twice; `verify.py`
+says 40 **in a comment** and enforces **48 in the line under it**; and this
+builder copied the 40. Every shipped status tip is under 40, so the gap has
+never been exercised and nothing caught the drift. Rick's pick is 41 characters
+— it fails the folklore number and passes the real one. The comment is fixed
+and the builder now enforces what actually runs.
+
+**AND CHARACTERS ARE THE WRONG UNIT ANYWAY.** The panel is **536px on one line
+at 25px**, and `"Each hit reflects 8% of remembered cursed damage"` is 48
+characters and **583px**: it passes `verify` and overflows the card. `tip_audit`
+is the gate that measures pixels. **Measure a tip there; do not count its
+letters.**
+
+**THE 8% IS NOT NEGOTIABLE COPY.** `tip_audit`'s whole job is finding effect
+fields the tip never mentions, and "a portion" has no number in it — `echo`
+would be flagged. A number-free line needs a `JUSTIFIED` entry saying why.
+
+One thing flagged to Rick and left to him: **"reflect" already means something
+else in this game.** Bulwarden's Aegis reflects — it returns damage to the
+ATTACKER. Curse returns nothing to the attacker; the cursed fighter simply
+takes more on its next hit. A viewer who has seen the wall may read the line as
+"it bounces back at me". He has the collision and the wording is his.
 
 ## 2.5 THE TAG PRINTS THE POOL, AND THE TEACHING PANEL DOES NOT
 
