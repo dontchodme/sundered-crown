@@ -1,5 +1,5 @@
 {
-  "build": "02-chain/sc-thornshear.html",
+  "build": "02-chain/sc-curse.html",
   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) sundered-crown-app/0.1.0 Chrome/152.0.7977.54 Electron/44.0.0 Safari/537.36",
   "chrome": "152.0.7977.54",
   "rows": [
@@ -96,204 +96,411 @@
       }
     },
     {
-      "a": "lastlight",
-      "b": "gravemourn",
-      "seed": 2027820797,
+      "a": "gravemourn",
+      "b": "aureole",
+      "seed": 387289262,
       "r": {
-        "seed": 2027820797,
-        "a": "Lastlight",
-        "b": "Gravemourn",
-        "winner": "Lastlight",
-        "hp": 64,
-        "duration": 36.53,
+        "seed": 387289262,
+        "a": "Gravemourn",
+        "b": "Aureole",
+        "winner": "Aureole",
+        "hp": 59,
+        "duration": 42.05,
         "reason": "slain",
         "hits": {
-          "a": 17,
-          "b": 5
+          "a": 7,
+          "b": 13
         },
         "crits": {
-          "a": 2,
+          "a": 0,
           "b": 1
+        },
+        "clanks": 3
+      }
+    },
+    {
+      "a": "slagheart",
+      "b": "twinshade",
+      "seed": 3041725023,
+      "r": {
+        "seed": 3041725023,
+        "a": "Slagheart",
+        "b": "Twinshade",
+        "winner": "Slagheart",
+        "hp": 180,
+        "duration": 35.22,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 16
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
         },
         "clanks": 10
       }
     },
     {
-      "a": "gravemourn",
-      "b": "censer",
-      "seed": 387289262,
+      "a": "spellbreaker",
+      "b": "thornshear",
+      "seed": 1401193488,
       "r": {
-        "seed": 387289262,
-        "a": "Gravemourn",
-        "b": "Censer",
-        "winner": "Gravemourn",
-        "hp": 77,
-        "duration": 35.32,
+        "seed": 1401193488,
+        "a": "Spellbreaker",
+        "b": "Thornshear",
+        "winner": "Thornshear",
+        "hp": 116,
+        "duration": 64.6,
         "reason": "slain",
         "hits": {
-          "a": 8,
-          "b": 7
+          "a": 12,
+          "b": 68
+        },
+        "crits": {
+          "a": 1,
+          "b": 8
+        },
+        "clanks": 21
+      }
+    },
+    {
+      "a": "ironhail",
+      "b": "gravemourn",
+      "seed": 4055629249,
+      "r": {
+        "seed": 4055629249,
+        "a": "Ironhail",
+        "b": "Gravemourn",
+        "winner": "Ironhail",
+        "hp": 89,
+        "duration": 39.38,
+        "reason": "slain",
+        "hits": {
+          "a": 13,
+          "b": 5
+        },
+        "crits": {
+          "a": 3,
+          "b": 0
+        },
+        "clanks": 4
+      }
+    },
+    {
+      "a": "lightkeeper",
+      "b": "censer",
+      "seed": 2415097714,
+      "r": {
+        "seed": 2415097714,
+        "a": "Lightkeeper",
+        "b": "Censer",
+        "winner": "Censer",
+        "hp": 72,
+        "duration": 45.81,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 9
+        },
+        "crits": {
+          "a": 1,
+          "b": 2
+        },
+        "clanks": 17
+      }
+    },
+    {
+      "a": "farwarden",
+      "b": "redflail",
+      "seed": 774566179,
+      "r": {
+        "seed": 774566179,
+        "a": "Farwarden",
+        "b": "Threshmaw",
+        "winner": "Threshmaw",
+        "hp": 56,
+        "duration": 52.33,
+        "reason": "slain",
+        "hits": {
+          "a": 14,
+          "b": 45
         },
         "crits": {
           "a": 0,
+          "b": 4
+        },
+        "clanks": 8
+      }
+    },
+    {
+      "a": "aureole",
+      "b": "vesper",
+      "seed": 3429001940,
+      "r": {
+        "seed": 3429001940,
+        "a": "Aureole",
+        "b": "Vesper",
+        "winner": "Aureole",
+        "hp": 266,
+        "duration": 36.67,
+        "reason": "slain",
+        "hits": {
+          "a": 15,
+          "b": 15
+        },
+        "crits": {
+          "a": 2,
           "b": 0
         },
         "clanks": 9
       }
     },
     {
-      "a": "slagheart",
-      "b": "redflail",
-      "seed": 3041725023,
+      "a": "censer",
+      "b": "slagheart",
+      "seed": 1788470405,
       "r": {
-        "seed": 3041725023,
-        "a": "Slagheart",
-        "b": "Threshmaw",
-        "winner": "Threshmaw",
-        "hp": 108,
-        "duration": 41.16,
+        "seed": 1788470405,
+        "a": "Censer",
+        "b": "Slagheart",
+        "winner": "Censer",
+        "hp": 82,
+        "duration": 42.42,
         "reason": "slain",
         "hits": {
-          "a": 8,
-          "b": 27
+          "a": 6,
+          "b": 10
         },
         "crits": {
-          "a": 0,
-          "b": 3
-        },
-        "clanks": 3
-      }
-    },
-    {
-      "a": "spellbreaker",
-      "b": "dawnbringer",
-      "seed": 1401193488,
-      "r": {
-        "seed": 1401193488,
-        "a": "Spellbreaker",
-        "b": "Dawnbringer",
-        "winner": "Dawnbringer",
-        "hp": 15,
-        "duration": 62.21,
-        "reason": "slain",
-        "hits": {
-          "a": 22,
-          "b": 16
-        },
-        "crits": {
-          "a": 2,
+          "a": 1,
           "b": 0
         },
-        "clanks": 31
+        "clanks": 10
       }
     },
     {
-      "a": "ironhail",
-      "b": "spellbreaker",
-      "seed": 4055629249,
+      "a": "oathwound",
+      "b": "foregone",
+      "seed": 2802374631,
       "r": {
-        "seed": 4055629249,
-        "a": "Ironhail",
-        "b": "Spellbreaker",
-        "winner": "Spellbreaker",
-        "hp": 73,
-        "duration": 50.16,
+        "seed": 2802374631,
+        "a": "Goreshard",
+        "b": "Foregone",
+        "winner": "Goreshard",
+        "hp": 162,
+        "duration": 50.74,
         "reason": "slain",
         "hits": {
           "a": 14,
-          "b": 23
-        },
-        "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 13
-      }
-    },
-    {
-      "a": "lightkeeper",
-      "b": "oathwound",
-      "seed": 2415097714,
-      "r": {
-        "seed": 2415097714,
-        "a": "Lightkeeper",
-        "b": "Goreshard",
-        "winner": "Lightkeeper",
-        "hp": 81,
-        "duration": 62.67,
-        "reason": "slain",
-        "hits": {
-          "a": 18,
-          "b": 15
+          "b": 4
         },
         "crits": {
           "a": 2,
           "b": 0
         },
-        "clanks": 35
+        "clanks": 20
       }
     },
     {
-      "a": "farwarden",
+      "a": "heartwood",
+      "b": "dawnbringer",
+      "seed": 1161843096,
+      "r": {
+        "seed": 1161843096,
+        "a": "Heartwood",
+        "b": "Dawnbringer",
+        "winner": "Heartwood",
+        "hp": 100,
+        "duration": 63.41,
+        "reason": "slain",
+        "hits": {
+          "a": 19,
+          "b": 11
+        },
+        "crits": {
+          "a": 2,
+          "b": 0
+        },
+        "clanks": 34
+      }
+    },
+    {
+      "a": "nightfell",
+      "b": "spellbreaker",
+      "seed": 3816278857,
+      "r": {
+        "seed": 3816278857,
+        "a": "Nightfell",
+        "b": "Spellbreaker",
+        "winner": "Spellbreaker",
+        "hp": 57,
+        "duration": 61.08,
+        "reason": "slain",
+        "hits": {
+          "a": 10,
+          "b": 22
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 37
+      }
+    },
+    {
+      "a": "axiom",
+      "b": "oathwound",
+      "seed": 2175747322,
+      "r": {
+        "seed": 2175747322,
+        "a": "Axiom",
+        "b": "Goreshard",
+        "winner": "Goreshard",
+        "hp": 173,
+        "duration": 54.32,
+        "reason": "slain",
+        "hits": {
+          "a": 12,
+          "b": 13
+        },
+        "crits": {
+          "a": 0,
+          "b": 0
+        },
+        "clanks": 29
+      }
+    },
+    {
+      "a": "twinshade",
       "b": "vinesower",
-      "seed": 774566179,
+      "seed": 535215787,
       "r": {
-        "seed": 774566179,
-        "a": "Farwarden",
+        "seed": 535215787,
+        "a": "Twinshade",
         "b": "Vinesower",
-        "winner": "Farwarden",
-        "hp": 180,
-        "duration": 49.11,
+        "winner": "Vinesower",
+        "hp": 37,
+        "duration": 54.64,
         "reason": "slain",
         "hits": {
-          "a": 22,
-          "b": 48
+          "a": 23,
+          "b": 55
         },
         "crits": {
-          "a": 0,
-          "b": 5
+          "a": 1,
+          "b": 3
         },
-        "clanks": 6
+        "clanks": 14
       }
     },
     {
-      "a": "aureole",
-      "b": "grudgebearer",
-      "seed": 3429001940,
+      "a": "redflail",
+      "b": "widowmaker",
+      "seed": 3189651548,
       "r": {
-        "seed": 3429001940,
-        "a": "Aureole",
-        "b": "Grudgebearer",
-        "winner": "Grudgebearer",
-        "hp": 319,
-        "duration": 22.71,
+        "seed": 3189651548,
+        "a": "Threshmaw",
+        "b": "Widowmaker",
+        "winner": "Threshmaw",
+        "hp": 80,
+        "duration": 37.48,
         "reason": "slain",
         "hits": {
-          "a": 3,
-          "b": 7
+          "a": 19,
+          "b": 11
+        },
+        "crits": {
+          "a": 2,
+          "b": 2
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "foregone",
+      "b": "ironhail",
+      "seed": 1549120013,
+      "r": {
+        "seed": 1549120013,
+        "a": "Foregone",
+        "b": "Ironhail",
+        "winner": "Foregone",
+        "hp": 94,
+        "duration": 35.97,
+        "reason": "slain",
+        "hits": {
+          "a": 11,
+          "b": 11
         },
         "crits": {
           "a": 0,
+          "b": 2
+        },
+        "clanks": 5
+      }
+    },
+    {
+      "a": "vinesower",
+      "b": "heartwood",
+      "seed": 4203555774,
+      "r": {
+        "seed": 4203555774,
+        "a": "Vinesower",
+        "b": "Heartwood",
+        "winner": "Vinesower",
+        "hp": 58,
+        "duration": 54.79,
+        "reason": "slain",
+        "hits": {
+          "a": 49,
+          "b": 16
+        },
+        "crits": {
+          "a": 5,
+          "b": 1
+        },
+        "clanks": 19
+      }
+    },
+    {
+      "a": "marrowdraw",
+      "b": "grudgebearer",
+      "seed": 922492704,
+      "r": {
+        "seed": 922492704,
+        "a": "Marrowdraw",
+        "b": "Grudgebearer",
+        "winner": "Marrowdraw",
+        "hp": 150,
+        "duration": 38.22,
+        "reason": "slain",
+        "hits": {
+          "a": 13,
+          "b": 3
+        },
+        "crits": {
+          "a": 1,
           "b": 2
         },
         "clanks": 7
       }
     },
     {
-      "a": "censer",
+      "a": "paradox",
       "b": "lightkeeper",
-      "seed": 1788470405,
+      "seed": 3576928465,
       "r": {
-        "seed": 1788470405,
-        "a": "Censer",
+        "seed": 3576928465,
+        "a": "Paradox",
         "b": "Lightkeeper",
-        "winner": "Censer",
-        "hp": 113,
-        "duration": 45.96,
+        "winner": "Paradox",
+        "hp": 1,
+        "duration": 57.86,
         "reason": "slain",
         "hits": {
           "a": 11,
-          "b": 15
+          "b": 18
         },
         "crits": {
           "a": 1,
@@ -303,917 +510,411 @@
       }
     },
     {
-      "a": "emberedge",
+      "a": "thornshear",
       "b": "nightfell",
-      "seed": 147938870,
+      "seed": 1936396930,
       "r": {
-        "seed": 147938870,
-        "a": "Emberedge",
+        "seed": 1936396930,
+        "a": "Thornshear",
         "b": "Nightfell",
         "winner": "Nightfell",
-        "hp": 4,
-        "duration": 58.23,
+        "hp": 79,
+        "duration": 57.42,
         "reason": "slain",
         "hits": {
-          "a": 13,
-          "b": 16
+          "a": 57,
+          "b": 11
         },
         "crits": {
-          "a": 1,
-          "b": 0
+          "a": 3,
+          "b": 1
         },
-        "clanks": 29
+        "clanks": 24
       }
     },
     {
-      "a": "oathwound",
+      "a": "vesper",
       "b": "marrowdraw",
-      "seed": 2802374631,
+      "seed": 295865395,
       "r": {
-        "seed": 2802374631,
-        "a": "Goreshard",
+        "seed": 295865395,
+        "a": "Vesper",
         "b": "Marrowdraw",
-        "winner": "Goreshard",
-        "hp": 209,
-        "duration": 41.85,
+        "winner": "Vesper",
+        "hp": 128,
+        "duration": 39.95,
         "reason": "slain",
         "hits": {
-          "a": 17,
-          "b": 8
+          "a": 24,
+          "b": 13
         },
         "crits": {
-          "a": 1,
-          "b": 0
+          "a": 3,
+          "b": 1
         },
         "clanks": 9
       }
     },
     {
-      "a": "heartwood",
-      "b": "lastlight",
-      "seed": 1161843096,
+      "a": "dawnbringer",
+      "b": "thornwake",
+      "seed": 2950301156,
       "r": {
-        "seed": 1161843096,
-        "a": "Heartwood",
-        "b": "Lastlight",
-        "winner": "Lastlight",
-        "hp": 50,
-        "duration": 43.79,
+        "seed": 2950301156,
+        "a": "Dawnbringer",
+        "b": "Thornwake",
+        "winner": "Dawnbringer",
+        "hp": 170,
+        "duration": 51.1,
+        "reason": "slain",
+        "hits": {
+          "a": 16,
+          "b": 6
+        },
+        "crits": {
+          "a": 0,
+          "b": 2
+        },
+        "clanks": 24
+      }
+    },
+    {
+      "a": "widowmaker",
+      "b": "farwarden",
+      "seed": 1309769621,
+      "r": {
+        "seed": 1309769621,
+        "a": "Widowmaker",
+        "b": "Farwarden",
+        "winner": "Farwarden",
+        "hp": 57,
+        "duration": 52.51,
+        "reason": "slain",
+        "hits": {
+          "a": 22,
+          "b": 18
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 18
+      }
+    },
+    {
+      "a": "grudgebearer",
+      "b": "axiom",
+      "seed": 3964205382,
+      "r": {
+        "seed": 3964205382,
+        "a": "Grudgebearer",
+        "b": "Axiom",
+        "winner": "Grudgebearer",
+        "hp": 191,
+        "duration": 49.54,
+        "reason": "slain",
+        "hits": {
+          "a": 9,
+          "b": 15
+        },
+        "crits": {
+          "a": 2,
+          "b": 0
+        },
+        "clanks": 22
+      }
+    },
+    {
+      "a": "thornwake",
+      "b": "paradox",
+      "seed": 2323673847,
+      "r": {
+        "seed": 2323673847,
+        "a": "Thornwake",
+        "b": "Paradox",
+        "winner": "Thornwake",
+        "hp": 160,
+        "duration": 56.27,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 5
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
+        },
+        "clanks": 14
+      }
+    },
+    {
+      "a": "gravemourn",
+      "b": "aureole",
+      "seed": 3337578073,
+      "r": {
+        "seed": 3337578073,
+        "a": "Gravemourn",
+        "b": "Aureole",
+        "winner": "Gravemourn",
+        "hp": 105,
+        "duration": 35.27,
+        "reason": "slain",
+        "hits": {
+          "a": 7,
+          "b": 10
+        },
+        "crits": {
+          "a": 0,
+          "b": 0
+        },
+        "clanks": 7
+      }
+    },
+    {
+      "a": "slagheart",
+      "b": "twinshade",
+      "seed": 1697046538,
+      "r": {
+        "seed": 1697046538,
+        "a": "Slagheart",
+        "b": "Twinshade",
+        "winner": "Slagheart",
+        "hp": 10,
+        "duration": 54.93,
+        "reason": "slain",
+        "hits": {
+          "a": 12,
+          "b": 22
+        },
+        "crits": {
+          "a": 0,
+          "b": 3
+        },
+        "clanks": 20
+      }
+    },
+    {
+      "a": "spellbreaker",
+      "b": "thornshear",
+      "seed": 56515003,
+      "r": {
+        "seed": 56515003,
+        "a": "Spellbreaker",
+        "b": "Thornshear",
+        "winner": "Thornshear",
+        "hp": 101,
+        "duration": 64,
+        "reason": "slain",
+        "hits": {
+          "a": 14,
+          "b": 67
+        },
+        "crits": {
+          "a": 0,
+          "b": 7
+        },
+        "clanks": 26
+      }
+    },
+    {
+      "a": "ironhail",
+      "b": "gravemourn",
+      "seed": 2710950764,
+      "r": {
+        "seed": 2710950764,
+        "a": "Ironhail",
+        "b": "Gravemourn",
+        "winner": "Ironhail",
+        "hp": 70,
+        "duration": 40.82,
+        "reason": "slain",
+        "hits": {
+          "a": 12,
+          "b": 5
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 2
+      }
+    },
+    {
+      "a": "lightkeeper",
+      "b": "censer",
+      "seed": 1070419229,
+      "r": {
+        "seed": 1070419229,
+        "a": "Lightkeeper",
+        "b": "Censer",
+        "winner": "Censer",
+        "hp": 104,
+        "duration": 43.65,
         "reason": "slain",
         "hits": {
           "a": 17,
           "b": 12
         },
         "crits": {
-          "a": 5,
-          "b": 1
-        },
-        "clanks": 16
-      }
-    },
-    {
-      "a": "nightfell",
-      "b": "aureole",
-      "seed": 3816278857,
-      "r": {
-        "seed": 3816278857,
-        "a": "Nightfell",
-        "b": "Aureole",
-        "winner": "Aureole",
-        "hp": 151,
-        "duration": 35.51,
-        "reason": "slain",
-        "hits": {
-          "a": 12,
-          "b": 17
-        },
-        "crits": {
-          "a": 0,
+          "a": 1,
           "b": 0
         },
-        "clanks": 9
+        "clanks": 21
       }
     },
     {
-      "a": "axiom",
-      "b": "twinshade",
-      "seed": 2175747322,
+      "a": "farwarden",
+      "b": "redflail",
+      "seed": 3724854990,
       "r": {
-        "seed": 2175747322,
-        "a": "Axiom",
-        "b": "Twinshade",
-        "winner": "Twinshade",
-        "hp": 131,
-        "duration": 58.64,
-        "reason": "slain",
-        "hits": {
-          "a": 21,
-          "b": 27
-        },
-        "crits": {
-          "a": 5,
-          "b": 2
-        },
-        "clanks": 30
-      }
-    },
-    {
-      "a": "twinshade",
-      "b": "thornshear",
-      "seed": 535215787,
-      "r": {
-        "seed": 535215787,
-        "a": "Twinshade",
-        "b": "Thornshear",
-        "winner": "Thornshear",
-        "hp": 117,
-        "duration": 66.46,
+        "seed": 3724854990,
+        "a": "Farwarden",
+        "b": "Threshmaw",
+        "winner": "Farwarden",
+        "hp": 54,
+        "duration": 47.32,
         "reason": "slain",
         "hits": {
           "a": 20,
-          "b": 66
+          "b": 47
         },
         "crits": {
           "a": 1,
-          "b": 6
+          "b": 4
         },
-        "clanks": 27
+        "clanks": 3
       }
     },
     {
-      "a": "redflail",
-      "b": "slagheart",
-      "seed": 3189651548,
+      "a": "aureole",
+      "b": "vesper",
+      "seed": 2084323455,
       "r": {
-        "seed": 3189651548,
-        "a": "Threshmaw",
-        "b": "Slagheart",
-        "winner": "Threshmaw",
-        "hp": 78,
-        "duration": 28.83,
+        "seed": 2084323455,
+        "a": "Aureole",
+        "b": "Vesper",
+        "winner": "Aureole",
+        "hp": 104,
+        "duration": 39.34,
         "reason": "slain",
         "hits": {
-          "a": 32,
-          "b": 8
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "foregone",
-      "b": "emberedge",
-      "seed": 1549120013,
-      "r": {
-        "seed": 1549120013,
-        "a": "Foregone",
-        "b": "Emberedge",
-        "winner": "Emberedge",
-        "hp": 110,
-        "duration": 52.54,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
-          "b": 15
+          "a": 17,
+          "b": 22
         },
         "crits": {
           "a": 1,
-          "b": 1
-        },
-        "clanks": 23
-      }
-    },
-    {
-      "a": "vinesower",
-      "b": "foregone",
-      "seed": 4203555774,
-      "r": {
-        "seed": 4203555774,
-        "a": "Vinesower",
-        "b": "Foregone",
-        "winner": "Foregone",
-        "hp": 24,
-        "duration": 50.28,
-        "reason": "slain",
-        "hits": {
-          "a": 38,
-          "b": 9
-        },
-        "crits": {
-          "a": 4,
-          "b": 1
-        },
-        "clanks": 10
-      }
-    },
-    {
-      "a": "bulwarden",
-      "b": "widowmaker",
-      "seed": 2563024239,
-      "r": {
-        "seed": 2563024239,
-        "a": "Bulwarden",
-        "b": "Widowmaker",
-        "winner": "Bulwarden",
-        "hp": 64,
-        "duration": 58.9,
-        "reason": "slain",
-        "hits": {
-          "a": 9,
-          "b": 18
-        },
-        "crits": {
-          "a": 0,
           "b": 0
         },
-        "clanks": 22
+        "clanks": 7
       }
     },
     {
-      "a": "marrowdraw",
-      "b": "ironhail",
-      "seed": 922492704,
+      "a": "censer",
+      "b": "slagheart",
+      "seed": 443791920,
       "r": {
-        "seed": 922492704,
-        "a": "Marrowdraw",
-        "b": "Ironhail",
-        "winner": "Ironhail",
-        "hp": 132,
-        "duration": 34.77,
-        "reason": "slain",
-        "hits": {
-          "a": 9,
-          "b": 16
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "paradox",
-      "b": "heartwood",
-      "seed": 3576928465,
-      "r": {
-        "seed": 3576928465,
-        "a": "Paradox",
-        "b": "Heartwood",
-        "winner": "Paradox",
-        "hp": 183,
-        "duration": 41.62,
+        "seed": 443791920,
+        "a": "Censer",
+        "b": "Slagheart",
+        "winner": "Slagheart",
+        "hp": 21,
+        "duration": 48.44,
         "reason": "slain",
         "hits": {
           "a": 8,
-          "b": 11
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 14
-      }
-    },
-    {
-      "a": "thornshear",
-      "b": "bulwarden",
-      "seed": 1936396930,
-      "r": {
-        "seed": 1936396930,
-        "a": "Thornshear",
-        "b": "Bulwarden",
-        "winner": "Bulwarden",
-        "hp": 242,
-        "duration": 58.85,
-        "reason": "slain",
-        "hits": {
-          "a": 53,
-          "b": 11
-        },
-        "crits": {
-          "a": 6,
-          "b": 0
-        },
-        "clanks": 12
-      }
-    },
-    {
-      "a": "dawnbringer",
-      "b": "thornwake",
-      "seed": 295865395,
-      "r": {
-        "seed": 295865395,
-        "a": "Dawnbringer",
-        "b": "Thornwake",
-        "winner": "Dawnbringer",
-        "hp": 71,
-        "duration": 46.97,
-        "reason": "slain",
-        "hits": {
-          "a": 15,
-          "b": 8
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 22
-      }
-    },
-    {
-      "a": "widowmaker",
-      "b": "farwarden",
-      "seed": 2950301156,
-      "r": {
-        "seed": 2950301156,
-        "a": "Widowmaker",
-        "b": "Farwarden",
-        "winner": "Farwarden",
-        "hp": 210,
-        "duration": 54.05,
-        "reason": "slain",
-        "hits": {
-          "a": 12,
-          "b": 15
+          "b": 9
         },
         "crits": {
           "a": 0,
-          "b": 2
-        },
-        "clanks": 14
-      }
-    },
-    {
-      "a": "grudgebearer",
-      "b": "axiom",
-      "seed": 1309769621,
-      "r": {
-        "seed": 1309769621,
-        "a": "Grudgebearer",
-        "b": "Axiom",
-        "winner": "Grudgebearer",
-        "hp": 70,
-        "duration": 59.16,
-        "reason": "slain",
-        "hits": {
-          "a": 9,
-          "b": 21
-        },
-        "crits": {
-          "a": 1,
-          "b": 2
-        },
-        "clanks": 28
-      }
-    },
-    {
-      "a": "thornwake",
-      "b": "paradox",
-      "seed": 3964205382,
-      "r": {
-        "seed": 3964205382,
-        "a": "Thornwake",
-        "b": "Paradox",
-        "winner": "Thornwake",
-        "hp": 34,
-        "duration": 46.35,
-        "reason": "slain",
-        "hits": {
-          "a": 10,
-          "b": 6
-        },
-        "crits": {
-          "a": 1,
-          "b": 2
-        },
-        "clanks": 9
-      }
-    },
-    {
-      "a": "lastlight",
-      "b": "gravemourn",
-      "seed": 2323673847,
-      "r": {
-        "seed": 2323673847,
-        "a": "Lastlight",
-        "b": "Gravemourn",
-        "winner": "Lastlight",
-        "hp": 324,
-        "duration": 35.52,
-        "reason": "slain",
-        "hits": {
-          "a": 16,
-          "b": 1
-        },
-        "crits": {
-          "a": 1,
           "b": 0
         },
         "clanks": 8
       }
     },
     {
-      "a": "gravemourn",
-      "b": "censer",
-      "seed": 683142312,
+      "a": "oathwound",
+      "b": "foregone",
+      "seed": 1457696146,
       "r": {
-        "seed": 683142312,
-        "a": "Gravemourn",
-        "b": "Censer",
-        "winner": "Gravemourn",
-        "hp": 8,
-        "duration": 38.17,
+        "seed": 1457696146,
+        "a": "Goreshard",
+        "b": "Foregone",
+        "winner": "Foregone",
+        "hp": 120,
+        "duration": 48.17,
         "reason": "slain",
         "hits": {
-          "a": 8,
+          "a": 9,
           "b": 8
         },
         "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 3
-      }
-    },
-    {
-      "a": "slagheart",
-      "b": "redflail",
-      "seed": 3337578073,
-      "r": {
-        "seed": 3337578073,
-        "a": "Slagheart",
-        "b": "Threshmaw",
-        "winner": "Slagheart",
-        "hp": 212,
-        "duration": 32.88,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
-          "b": 21
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "spellbreaker",
-      "b": "dawnbringer",
-      "seed": 1697046538,
-      "r": {
-        "seed": 1697046538,
-        "a": "Spellbreaker",
-        "b": "Dawnbringer",
-        "winner": "Spellbreaker",
-        "hp": 37,
-        "duration": 62.02,
-        "reason": "slain",
-        "hits": {
-          "a": 25,
-          "b": 14
-        },
-        "crits": {
           "a": 1,
-          "b": 1
-        },
-        "clanks": 33
-      }
-    },
-    {
-      "a": "ironhail",
-      "b": "spellbreaker",
-      "seed": 56515003,
-      "r": {
-        "seed": 56515003,
-        "a": "Ironhail",
-        "b": "Spellbreaker",
-        "winner": "Spellbreaker",
-        "hp": 26,
-        "duration": 54.22,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 24
-        },
-        "crits": {
-          "a": 0,
-          "b": 4
-        },
-        "clanks": 16
-      }
-    },
-    {
-      "a": "lightkeeper",
-      "b": "oathwound",
-      "seed": 2710950764,
-      "r": {
-        "seed": 2710950764,
-        "a": "Lightkeeper",
-        "b": "Goreshard",
-        "winner": "Goreshard",
-        "hp": 93,
-        "duration": 62.82,
-        "reason": "slain",
-        "hits": {
-          "a": 16,
-          "b": 18
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 36
-      }
-    },
-    {
-      "a": "farwarden",
-      "b": "vinesower",
-      "seed": 1070419229,
-      "r": {
-        "seed": 1070419229,
-        "a": "Farwarden",
-        "b": "Vinesower",
-        "winner": "Farwarden",
-        "hp": 218,
-        "duration": 49.29,
-        "reason": "slain",
-        "hits": {
-          "a": 19,
-          "b": 50
-        },
-        "crits": {
-          "a": 3,
           "b": 3
         },
-        "clanks": 5
-      }
-    },
-    {
-      "a": "aureole",
-      "b": "grudgebearer",
-      "seed": 3724854990,
-      "r": {
-        "seed": 3724854990,
-        "a": "Aureole",
-        "b": "Grudgebearer",
-        "winner": "Aureole",
-        "hp": 157,
-        "duration": 38.21,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 6
-        },
-        "crits": {
-          "a": 3,
-          "b": 1
-        },
-        "clanks": 3
-      }
-    },
-    {
-      "a": "censer",
-      "b": "lightkeeper",
-      "seed": 2084323455,
-      "r": {
-        "seed": 2084323455,
-        "a": "Censer",
-        "b": "Lightkeeper",
-        "winner": "Censer",
-        "hp": 33,
-        "duration": 53.17,
-        "reason": "slain",
-        "hits": {
-          "a": 10,
-          "b": 18
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 23
-      }
-    },
-    {
-      "a": "emberedge",
-      "b": "nightfell",
-      "seed": 443791920,
-      "r": {
-        "seed": 443791920,
-        "a": "Emberedge",
-        "b": "Nightfell",
-        "winner": "Emberedge",
-        "hp": 131,
-        "duration": 49.7,
-        "reason": "slain",
-        "hits": {
-          "a": 12,
-          "b": 13
-        },
-        "crits": {
-          "a": 3,
-          "b": 0
-        },
-        "clanks": 25
-      }
-    },
-    {
-      "a": "oathwound",
-      "b": "marrowdraw",
-      "seed": 3098227681,
-      "r": {
-        "seed": 3098227681,
-        "a": "Goreshard",
-        "b": "Marrowdraw",
-        "winner": "Marrowdraw",
-        "hp": 90,
-        "duration": 39.81,
-        "reason": "slain",
-        "hits": {
-          "a": 11,
-          "b": 14
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 13
+        "clanks": 17
       }
     },
     {
       "a": "heartwood",
-      "b": "lastlight",
-      "seed": 1457696146,
+      "b": "dawnbringer",
+      "seed": 4112131907,
       "r": {
-        "seed": 1457696146,
+        "seed": 4112131907,
         "a": "Heartwood",
-        "b": "Lastlight",
+        "b": "Dawnbringer",
         "winner": "Heartwood",
-        "hp": 54,
-        "duration": 59.87,
+        "hp": 52,
+        "duration": 68.76,
         "reason": "slain",
         "hits": {
-          "a": 22,
-          "b": 11
+          "a": 18,
+          "b": 13
         },
         "crits": {
-          "a": 1,
-          "b": 0
+          "a": 2,
+          "b": 2
         },
-        "clanks": 23
+        "clanks": 37
       }
     },
     {
       "a": "nightfell",
-      "b": "aureole",
-      "seed": 4112131907,
-      "r": {
-        "seed": 4112131907,
-        "a": "Nightfell",
-        "b": "Aureole",
-        "winner": "Aureole",
-        "hp": 138,
-        "duration": 40.82,
-        "reason": "slain",
-        "hits": {
-          "a": 11,
-          "b": 14
-        },
-        "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 15
-      }
-    },
-    {
-      "a": "axiom",
-      "b": "twinshade",
+      "b": "spellbreaker",
       "seed": 2471600372,
       "r": {
         "seed": 2471600372,
-        "a": "Axiom",
-        "b": "Twinshade",
-        "winner": "Axiom",
-        "hp": 7,
-        "duration": 67.22,
+        "a": "Nightfell",
+        "b": "Spellbreaker",
+        "winner": "Nightfell",
+        "hp": 107,
+        "duration": 57.52,
         "reason": "slain",
         "hits": {
-          "a": 31,
-          "b": 23
-        },
-        "crits": {
-          "a": 2,
-          "b": 5
-        },
-        "clanks": 35
-      }
-    },
-    {
-      "a": "twinshade",
-      "b": "thornshear",
-      "seed": 831068837,
-      "r": {
-        "seed": 831068837,
-        "a": "Twinshade",
-        "b": "Thornshear",
-        "winner": "Twinshade",
-        "hp": 125,
-        "duration": 55.06,
-        "reason": "slain",
-        "hits": {
-          "a": 30,
-          "b": 51
+          "a": 11,
+          "b": 17
         },
         "crits": {
           "a": 1,
-          "b": 7
-        },
-        "clanks": 23
-      }
-    },
-    {
-      "a": "redflail",
-      "b": "slagheart",
-      "seed": 3485504598,
-      "r": {
-        "seed": 3485504598,
-        "a": "Threshmaw",
-        "b": "Slagheart",
-        "winner": "Threshmaw",
-        "hp": 251,
-        "duration": 34.91,
-        "reason": "slain",
-        "hits": {
-          "a": 35,
-          "b": 4
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "foregone",
-      "b": "emberedge",
-      "seed": 1844973063,
-      "r": {
-        "seed": 1844973063,
-        "a": "Foregone",
-        "b": "Emberedge",
-        "winner": "Foregone",
-        "hp": 86,
-        "duration": 55.04,
-        "reason": "slain",
-        "hits": {
-          "a": 10,
-          "b": 10
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
+          "b": 1
         },
         "clanks": 27
       }
     },
     {
-      "a": "vinesower",
-      "b": "foregone",
-      "seed": 204441528,
+      "a": "axiom",
+      "b": "oathwound",
+      "seed": 831068837,
       "r": {
-        "seed": 204441528,
-        "a": "Vinesower",
-        "b": "Foregone",
-        "winner": "Foregone",
-        "hp": 99,
-        "duration": 48.59,
-        "reason": "slain",
-        "hits": {
-          "a": 43,
-          "b": 12
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 3
-      }
-    },
-    {
-      "a": "bulwarden",
-      "b": "widowmaker",
-      "seed": 2858877289,
-      "r": {
-        "seed": 2858877289,
-        "a": "Bulwarden",
-        "b": "Widowmaker",
-        "winner": "Widowmaker",
-        "hp": 51,
-        "duration": 49.95,
-        "reason": "slain",
-        "hits": {
-          "a": 11,
-          "b": 22
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 15
-      }
-    },
-    {
-      "a": "marrowdraw",
-      "b": "ironhail",
-      "seed": 1218345754,
-      "r": {
-        "seed": 1218345754,
-        "a": "Marrowdraw",
-        "b": "Ironhail",
-        "winner": "Marrowdraw",
-        "hp": 44,
-        "duration": 40.85,
+        "seed": 831068837,
+        "a": "Axiom",
+        "b": "Goreshard",
+        "winner": "Goreshard",
+        "hp": 148,
+        "duration": 50.32,
         "reason": "slain",
         "hits": {
           "a": 16,
-          "b": 12
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "paradox",
-      "b": "heartwood",
-      "seed": 3872781515,
-      "r": {
-        "seed": 3872781515,
-        "a": "Paradox",
-        "b": "Heartwood",
-        "winner": "Paradox",
-        "hp": 74,
-        "duration": 55.26,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 17
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 11
-      }
-    },
-    {
-      "a": "thornshear",
-      "b": "bulwarden",
-      "seed": 2232249980,
-      "r": {
-        "seed": 2232249980,
-        "a": "Thornshear",
-        "b": "Bulwarden",
-        "winner": "Thornshear",
-        "hp": 34,
-        "duration": 60.48,
-        "reason": "slain",
-        "hits": {
-          "a": 76,
-          "b": 9
-        },
-        "crits": {
-          "a": 7,
-          "b": 1
-        },
-        "clanks": 14
-      }
-    },
-    {
-      "a": "dawnbringer",
-      "b": "thornwake",
-      "seed": 591718445,
-      "r": {
-        "seed": 591718445,
-        "a": "Dawnbringer",
-        "b": "Thornwake",
-        "winner": "Thornwake",
-        "hp": 37,
-        "duration": 54.4,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 8
+          "b": 14
         },
         "crits": {
           "a": 2,
@@ -1223,24 +924,231 @@
       }
     },
     {
-      "a": "widowmaker",
-      "b": "farwarden",
-      "seed": 3246154206,
+      "a": "twinshade",
+      "b": "vinesower",
+      "seed": 3485504598,
       "r": {
-        "seed": 3246154206,
-        "a": "Widowmaker",
-        "b": "Farwarden",
-        "winner": "Farwarden",
-        "hp": 50,
-        "duration": 64.73,
+        "seed": 3485504598,
+        "a": "Twinshade",
+        "b": "Vinesower",
+        "winner": "Twinshade",
+        "hp": 168,
+        "duration": 51.31,
         "reason": "slain",
         "hits": {
-          "a": 15,
-          "b": 20
+          "a": 28,
+          "b": 44
+        },
+        "crits": {
+          "a": 2,
+          "b": 7
+        },
+        "clanks": 17
+      }
+    },
+    {
+      "a": "redflail",
+      "b": "widowmaker",
+      "seed": 1844973063,
+      "r": {
+        "seed": 1844973063,
+        "a": "Threshmaw",
+        "b": "Widowmaker",
+        "winner": "Threshmaw",
+        "hp": 33,
+        "duration": 45.03,
+        "reason": "slain",
+        "hits": {
+          "a": 28,
+          "b": 13
+        },
+        "crits": {
+          "a": 4,
+          "b": 1
+        },
+        "clanks": 13
+      }
+    },
+    {
+      "a": "foregone",
+      "b": "ironhail",
+      "seed": 204441528,
+      "r": {
+        "seed": 204441528,
+        "a": "Foregone",
+        "b": "Ironhail",
+        "winner": "Ironhail",
+        "hp": 84,
+        "duration": 51.62,
+        "reason": "slain",
+        "hits": {
+          "a": 7,
+          "b": 12
+        },
+        "crits": {
+          "a": 0,
+          "b": 2
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "vinesower",
+      "b": "heartwood",
+      "seed": 2858877289,
+      "r": {
+        "seed": 2858877289,
+        "a": "Vinesower",
+        "b": "Heartwood",
+        "winner": "Vinesower",
+        "hp": 84,
+        "duration": 51.76,
+        "reason": "slain",
+        "hits": {
+          "a": 40,
+          "b": 15
+        },
+        "crits": {
+          "a": 6,
+          "b": 2
+        },
+        "clanks": 9
+      }
+    },
+    {
+      "a": "marrowdraw",
+      "b": "grudgebearer",
+      "seed": 3872781515,
+      "r": {
+        "seed": 3872781515,
+        "a": "Marrowdraw",
+        "b": "Grudgebearer",
+        "winner": "Grudgebearer",
+        "hp": 253,
+        "duration": 24.89,
+        "reason": "slain",
+        "hits": {
+          "a": 6,
+          "b": 6
         },
         "crits": {
           "a": 0,
           "b": 1
+        },
+        "clanks": 3
+      }
+    },
+    {
+      "a": "paradox",
+      "b": "lightkeeper",
+      "seed": 2232249980,
+      "r": {
+        "seed": 2232249980,
+        "a": "Paradox",
+        "b": "Lightkeeper",
+        "winner": "Paradox",
+        "hp": 287,
+        "duration": 47.01,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 6
+        },
+        "crits": {
+          "a": 2,
+          "b": 0
+        },
+        "clanks": 19
+      }
+    },
+    {
+      "a": "thornshear",
+      "b": "nightfell",
+      "seed": 591718445,
+      "r": {
+        "seed": 591718445,
+        "a": "Thornshear",
+        "b": "Nightfell",
+        "winner": "Thornshear",
+        "hp": 31,
+        "duration": 55.02,
+        "reason": "slain",
+        "hits": {
+          "a": 57,
+          "b": 10
+        },
+        "crits": {
+          "a": 9,
+          "b": 0
+        },
+        "clanks": 25
+      }
+    },
+    {
+      "a": "vesper",
+      "b": "marrowdraw",
+      "seed": 3246154206,
+      "r": {
+        "seed": 3246154206,
+        "a": "Vesper",
+        "b": "Marrowdraw",
+        "winner": "Vesper",
+        "hp": 45,
+        "duration": 46.15,
+        "reason": "slain",
+        "hits": {
+          "a": 25,
+          "b": 16
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "dawnbringer",
+      "b": "thornwake",
+      "seed": 1605622671,
+      "r": {
+        "seed": 1605622671,
+        "a": "Dawnbringer",
+        "b": "Thornwake",
+        "winner": "Dawnbringer",
+        "hp": 69,
+        "duration": 49.99,
+        "reason": "slain",
+        "hits": {
+          "a": 15,
+          "b": 8
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 23
+      }
+    },
+    {
+      "a": "widowmaker",
+      "b": "farwarden",
+      "seed": 4260058432,
+      "r": {
+        "seed": 4260058432,
+        "a": "Widowmaker",
+        "b": "Farwarden",
+        "winner": "Widowmaker",
+        "hp": 76,
+        "duration": 57.32,
+        "reason": "slain",
+        "hits": {
+          "a": 20,
+          "b": 17
+        },
+        "crits": {
+          "a": 6,
+          "b": 0
         },
         "clanks": 20
       }
@@ -1248,41 +1156,225 @@
     {
       "a": "grudgebearer",
       "b": "axiom",
-      "seed": 1605622671,
+      "seed": 2619526897,
       "r": {
-        "seed": 1605622671,
+        "seed": 2619526897,
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Axiom",
-        "hp": 21,
-        "duration": 66,
+        "hp": 127,
+        "duration": 60.42,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 24
+          "a": 8,
+          "b": 27
         },
         "crits": {
           "a": 0,
-          "b": 0
+          "b": 6
         },
-        "clanks": 26
+        "clanks": 30
       }
     },
     {
       "a": "thornwake",
       "b": "paradox",
-      "seed": 4260058432,
+      "seed": 978995362,
       "r": {
-        "seed": 4260058432,
+        "seed": 978995362,
         "a": "Thornwake",
         "b": "Paradox",
         "winner": "Paradox",
-        "hp": 232,
-        "duration": 36.85,
+        "hp": 176,
+        "duration": 46.72,
+        "reason": "slain",
+        "hits": {
+          "a": 6,
+          "b": 8
+        },
+        "crits": {
+          "a": 0,
+          "b": 2
+        },
+        "clanks": 5
+      }
+    },
+    {
+      "a": "gravemourn",
+      "b": "aureole",
+      "seed": 1992899588,
+      "r": {
+        "seed": 1992899588,
+        "a": "Gravemourn",
+        "b": "Aureole",
+        "winner": "Aureole",
+        "hp": 240,
+        "duration": 31.37,
         "reason": "slain",
         "hits": {
           "a": 4,
+          "b": 15
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 6
+      }
+    },
+    {
+      "a": "slagheart",
+      "b": "twinshade",
+      "seed": 352368053,
+      "r": {
+        "seed": 352368053,
+        "a": "Slagheart",
+        "b": "Twinshade",
+        "winner": "Twinshade",
+        "hp": 52,
+        "duration": 57.52,
+        "reason": "slain",
+        "hits": {
+          "a": 11,
+          "b": 25
+        },
+        "crits": {
+          "a": 2,
+          "b": 2
+        },
+        "clanks": 16
+      }
+    },
+    {
+      "a": "spellbreaker",
+      "b": "thornshear",
+      "seed": 3006803814,
+      "r": {
+        "seed": 3006803814,
+        "a": "Spellbreaker",
+        "b": "Thornshear",
+        "winner": "Spellbreaker",
+        "hp": 11,
+        "duration": 61.52,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 63
+        },
+        "crits": {
+          "a": 2,
+          "b": 5
+        },
+        "clanks": 20
+      }
+    },
+    {
+      "a": "ironhail",
+      "b": "gravemourn",
+      "seed": 1366272279,
+      "r": {
+        "seed": 1366272279,
+        "a": "Ironhail",
+        "b": "Gravemourn",
+        "winner": "Ironhail",
+        "hp": 5,
+        "duration": 41.5,
+        "reason": "slain",
+        "hits": {
+          "a": 13,
+          "b": 5
+        },
+        "crits": {
+          "a": 2,
+          "b": 1
+        },
+        "clanks": 1
+      }
+    },
+    {
+      "a": "lightkeeper",
+      "b": "censer",
+      "seed": 4020708040,
+      "r": {
+        "seed": 4020708040,
+        "a": "Lightkeeper",
+        "b": "Censer",
+        "winner": "Lightkeeper",
+        "hp": 28,
+        "duration": 58.18,
+        "reason": "slain",
+        "hits": {
+          "a": 18,
           "b": 10
+        },
+        "crits": {
+          "a": 3,
+          "b": 0
+        },
+        "clanks": 22
+      }
+    },
+    {
+      "a": "farwarden",
+      "b": "redflail",
+      "seed": 2380176505,
+      "r": {
+        "seed": 2380176505,
+        "a": "Farwarden",
+        "b": "Threshmaw",
+        "winner": "Threshmaw",
+        "hp": 78,
+        "duration": 46.76,
+        "reason": "slain",
+        "hits": {
+          "a": 16,
+          "b": 47
+        },
+        "crits": {
+          "a": 1,
+          "b": 7
+        },
+        "clanks": 15
+      }
+    },
+    {
+      "a": "aureole",
+      "b": "vesper",
+      "seed": 739644970,
+      "r": {
+        "seed": 739644970,
+        "a": "Aureole",
+        "b": "Vesper",
+        "winner": "Aureole",
+        "hp": 147,
+        "duration": 46.92,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 21
+        },
+        "crits": {
+          "a": 0,
+          "b": 2
+        },
+        "clanks": 9
+      }
+    },
+    {
+      "a": "censer",
+      "b": "slagheart",
+      "seed": 3394080731,
+      "r": {
+        "seed": 3394080731,
+        "a": "Censer",
+        "b": "Slagheart",
+        "winner": "Slagheart",
+        "hp": 187,
+        "duration": 31.63,
+        "reason": "slain",
+        "hits": {
+          "a": 5,
+          "b": 11
         },
         "crits": {
           "a": 0,
@@ -1292,1105 +1384,1933 @@
       }
     },
     {
-      "a": "lastlight",
-      "b": "gravemourn",
-      "seed": 2619526897,
+      "a": "oathwound",
+      "b": "foregone",
+      "seed": 113017661,
       "r": {
-        "seed": 2619526897,
-        "a": "Lastlight",
-        "b": "Gravemourn",
-        "winner": "Gravemourn",
-        "hp": 15,
-        "duration": 35.85,
+        "seed": 113017661,
+        "a": "Goreshard",
+        "b": "Foregone",
+        "winner": "Goreshard",
+        "hp": 27,
+        "duration": 49.92,
         "reason": "slain",
         "hits": {
-          "a": 17,
-          "b": 6
+          "a": 13,
+          "b": 8
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 20
+      }
+    },
+    {
+      "a": "heartwood",
+      "b": "dawnbringer",
+      "seed": 2767453422,
+      "r": {
+        "seed": 2767453422,
+        "a": "Heartwood",
+        "b": "Dawnbringer",
+        "winner": "Heartwood",
+        "hp": 124,
+        "duration": 60.6,
+        "reason": "slain",
+        "hits": {
+          "a": 21,
+          "b": 9
         },
         "crits": {
           "a": 2,
+          "b": 0
+        },
+        "clanks": 33
+      }
+    },
+    {
+      "a": "nightfell",
+      "b": "spellbreaker",
+      "seed": 1126921887,
+      "r": {
+        "seed": 1126921887,
+        "a": "Nightfell",
+        "b": "Spellbreaker",
+        "winner": "Spellbreaker",
+        "hp": 41,
+        "duration": 57.72,
+        "reason": "slain",
+        "hits": {
+          "a": 13,
+          "b": 17
+        },
+        "crits": {
+          "a": 0,
+          "b": 3
+        },
+        "clanks": 31
+      }
+    },
+    {
+      "a": "axiom",
+      "b": "oathwound",
+      "seed": 3781357648,
+      "r": {
+        "seed": 3781357648,
+        "a": "Axiom",
+        "b": "Goreshard",
+        "winner": "Axiom",
+        "hp": 70,
+        "duration": 61.04,
+        "reason": "slain",
+        "hits": {
+          "a": 25,
+          "b": 9
+        },
+        "crits": {
+          "a": 1,
           "b": 1
+        },
+        "clanks": 36
+      }
+    },
+    {
+      "a": "twinshade",
+      "b": "vinesower",
+      "seed": 2140826113,
+      "r": {
+        "seed": 2140826113,
+        "a": "Twinshade",
+        "b": "Vinesower",
+        "winner": "Vinesower",
+        "hp": 17,
+        "duration": 58.43,
+        "reason": "slain",
+        "hits": {
+          "a": 21,
+          "b": 45
+        },
+        "crits": {
+          "a": 2,
+          "b": 6
+        },
+        "clanks": 20
+      }
+    },
+    {
+      "a": "redflail",
+      "b": "widowmaker",
+      "seed": 500294578,
+      "r": {
+        "seed": 500294578,
+        "a": "Threshmaw",
+        "b": "Widowmaker",
+        "winner": "Widowmaker",
+        "hp": 24,
+        "duration": 41.93,
+        "reason": "slain",
+        "hits": {
+          "a": 34,
+          "b": 15
+        },
+        "crits": {
+          "a": 3,
+          "b": 2
+        },
+        "clanks": 9
+      }
+    },
+    {
+      "a": "foregone",
+      "b": "ironhail",
+      "seed": 3154730339,
+      "r": {
+        "seed": 3154730339,
+        "a": "Foregone",
+        "b": "Ironhail",
+        "winner": "Ironhail",
+        "hp": 70,
+        "duration": 38.49,
+        "reason": "slain",
+        "hits": {
+          "a": 9,
+          "b": 15
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 10
+      }
+    },
+    {
+      "a": "vinesower",
+      "b": "heartwood",
+      "seed": 1514198804,
+      "r": {
+        "seed": 1514198804,
+        "a": "Vinesower",
+        "b": "Heartwood",
+        "winner": "Vinesower",
+        "hp": 63,
+        "duration": 58.13,
+        "reason": "slain",
+        "hits": {
+          "a": 59,
+          "b": 16
+        },
+        "crits": {
+          "a": 3,
+          "b": 1
+        },
+        "clanks": 17
+      }
+    },
+    {
+      "a": "marrowdraw",
+      "b": "grudgebearer",
+      "seed": 2528103030,
+      "r": {
+        "seed": 2528103030,
+        "a": "Marrowdraw",
+        "b": "Grudgebearer",
+        "winner": "Marrowdraw",
+        "hp": 320,
+        "duration": 28.44,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 2
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
+        },
+        "clanks": 4
+      }
+    },
+    {
+      "a": "paradox",
+      "b": "lightkeeper",
+      "seed": 887571495,
+      "r": {
+        "seed": 887571495,
+        "a": "Paradox",
+        "b": "Lightkeeper",
+        "winner": "Paradox",
+        "hp": 214,
+        "duration": 44.68,
+        "reason": "slain",
+        "hits": {
+          "a": 11,
+          "b": 7
+        },
+        "crits": {
+          "a": 0,
+          "b": 2
+        },
+        "clanks": 19
+      }
+    },
+    {
+      "a": "thornshear",
+      "b": "nightfell",
+      "seed": 3542007256,
+      "r": {
+        "seed": 3542007256,
+        "a": "Thornshear",
+        "b": "Nightfell",
+        "winner": "Thornshear",
+        "hp": 237,
+        "duration": 58.03,
+        "reason": "slain",
+        "hits": {
+          "a": 61,
+          "b": 5
+        },
+        "crits": {
+          "a": 4,
+          "b": 0
+        },
+        "clanks": 24
+      }
+    },
+    {
+      "a": "vesper",
+      "b": "marrowdraw",
+      "seed": 1901475721,
+      "r": {
+        "seed": 1901475721,
+        "a": "Vesper",
+        "b": "Marrowdraw",
+        "winner": "Vesper",
+        "hp": 138,
+        "duration": 38.92,
+        "reason": "slain",
+        "hits": {
+          "a": 29,
+          "b": 10
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 3
+      }
+    },
+    {
+      "a": "dawnbringer",
+      "b": "thornwake",
+      "seed": 260944186,
+      "r": {
+        "seed": 260944186,
+        "a": "Dawnbringer",
+        "b": "Thornwake",
+        "winner": "Thornwake",
+        "hp": 18,
+        "duration": 51.09,
+        "reason": "slain",
+        "hits": {
+          "a": 14,
+          "b": 9
+        },
+        "crits": {
+          "a": 2,
+          "b": 2
+        },
+        "clanks": 21
+      }
+    },
+    {
+      "a": "widowmaker",
+      "b": "farwarden",
+      "seed": 2915379947,
+      "r": {
+        "seed": 2915379947,
+        "a": "Widowmaker",
+        "b": "Farwarden",
+        "winner": "Widowmaker",
+        "hp": 38,
+        "duration": 56.17,
+        "reason": "slain",
+        "hits": {
+          "a": 19,
+          "b": 15
+        },
+        "crits": {
+          "a": 2,
+          "b": 2
+        },
+        "clanks": 13
+      }
+    },
+    {
+      "a": "grudgebearer",
+      "b": "axiom",
+      "seed": 1274848412,
+      "r": {
+        "seed": 1274848412,
+        "a": "Grudgebearer",
+        "b": "Axiom",
+        "winner": "Grudgebearer",
+        "hp": 226,
+        "duration": 37.75,
+        "reason": "slain",
+        "hits": {
+          "a": 10,
+          "b": 11
+        },
+        "crits": {
+          "a": 2,
+          "b": 2
+        },
+        "clanks": 15
+      }
+    },
+    {
+      "a": "thornwake",
+      "b": "paradox",
+      "seed": 3929284173,
+      "r": {
+        "seed": 3929284173,
+        "a": "Thornwake",
+        "b": "Paradox",
+        "winner": "Thornwake",
+        "hp": 83,
+        "duration": 37.06,
+        "reason": "slain",
+        "hits": {
+          "a": 7,
+          "b": 8
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
         },
         "clanks": 7
       }
     },
     {
       "a": "gravemourn",
-      "b": "censer",
-      "seed": 978995362,
+      "b": "aureole",
+      "seed": 648221103,
       "r": {
-        "seed": 978995362,
+        "seed": 648221103,
         "a": "Gravemourn",
-        "b": "Censer",
-        "winner": "Gravemourn",
-        "hp": 82,
-        "duration": 43.9,
+        "b": "Aureole",
+        "winner": "Aureole",
+        "hp": 231,
+        "duration": 33.86,
         "reason": "slain",
         "hits": {
-          "a": 5,
-          "b": 5
+          "a": 4,
+          "b": 14
         },
         "crits": {
-          "a": 1,
-          "b": 1
+          "a": 0,
+          "b": 2
         },
-        "clanks": 12
+        "clanks": 4
       }
     },
     {
       "a": "slagheart",
-      "b": "redflail",
-      "seed": 3633431123,
+      "b": "twinshade",
+      "seed": 3302656864,
       "r": {
-        "seed": 3633431123,
+        "seed": 3302656864,
         "a": "Slagheart",
-        "b": "Threshmaw",
+        "b": "Twinshade",
         "winner": "Slagheart",
-        "hp": 69,
-        "duration": 32.12,
+        "hp": 19,
+        "duration": 52.87,
         "reason": "slain",
         "hits": {
-          "a": 10,
-          "b": 25
+          "a": 16,
+          "b": 23
         },
         "crits": {
           "a": 1,
           "b": 1
         },
-        "clanks": 6
+        "clanks": 11
       }
     },
     {
       "a": "spellbreaker",
-      "b": "dawnbringer",
-      "seed": 1992899588,
+      "b": "thornshear",
+      "seed": 1662125329,
       "r": {
-        "seed": 1992899588,
+        "seed": 1662125329,
         "a": "Spellbreaker",
-        "b": "Dawnbringer",
-        "winner": "Spellbreaker",
-        "hp": 32,
-        "duration": 65.63,
+        "b": "Thornshear",
+        "winner": "Thornshear",
+        "hp": 156,
+        "duration": 58.84,
         "reason": "slain",
         "hits": {
-          "a": 21,
-          "b": 14
+          "a": 12,
+          "b": 52
         },
         "crits": {
-          "a": 4,
-          "b": 0
+          "a": 0,
+          "b": 8
         },
-        "clanks": 31
+        "clanks": 18
       }
     },
     {
       "a": "ironhail",
-      "b": "spellbreaker",
-      "seed": 352368053,
+      "b": "gravemourn",
+      "seed": 21593794,
       "r": {
-        "seed": 352368053,
+        "seed": 21593794,
         "a": "Ironhail",
-        "b": "Spellbreaker",
-        "winner": "Spellbreaker",
-        "hp": 139,
-        "duration": 57.62,
+        "b": "Gravemourn",
+        "winner": "Ironhail",
+        "hp": 234,
+        "duration": 27.57,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 24
+          "a": 14,
+          "b": 2
         },
         "crits": {
           "a": 1,
+          "b": 1
+        },
+        "clanks": 1
+      }
+    },
+    {
+      "a": "lightkeeper",
+      "b": "censer",
+      "seed": 2676029555,
+      "r": {
+        "seed": 2676029555,
+        "a": "Lightkeeper",
+        "b": "Censer",
+        "winner": "Lightkeeper",
+        "hp": 51,
+        "duration": 55.97,
+        "reason": "slain",
+        "hits": {
+          "a": 19,
+          "b": 9
+        },
+        "crits": {
+          "a": 2,
+          "b": 1
+        },
+        "clanks": 25
+      }
+    },
+    {
+      "a": "farwarden",
+      "b": "redflail",
+      "seed": 1035498020,
+      "r": {
+        "seed": 1035498020,
+        "a": "Farwarden",
+        "b": "Threshmaw",
+        "winner": "Farwarden",
+        "hp": 29,
+        "duration": 50.68,
+        "reason": "slain",
+        "hits": {
+          "a": 22,
+          "b": 37
+        },
+        "crits": {
+          "a": 1,
+          "b": 5
+        },
+        "clanks": 3
+      }
+    },
+    {
+      "a": "aureole",
+      "b": "vesper",
+      "seed": 3689933781,
+      "r": {
+        "seed": 3689933781,
+        "a": "Aureole",
+        "b": "Vesper",
+        "winner": "Vesper",
+        "hp": 129,
+        "duration": 46.57,
+        "reason": "slain",
+        "hits": {
+          "a": 13,
+          "b": 21
+        },
+        "crits": {
+          "a": 1,
+          "b": 3
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "censer",
+      "b": "slagheart",
+      "seed": 2049402246,
+      "r": {
+        "seed": 2049402246,
+        "a": "Censer",
+        "b": "Slagheart",
+        "winner": "Censer",
+        "hp": 91,
+        "duration": 60.74,
+        "reason": "slain",
+        "hits": {
+          "a": 7,
+          "b": 9
+        },
+        "crits": {
+          "a": 0,
           "b": 1
         },
         "clanks": 14
       }
     },
     {
-      "a": "lightkeeper",
-      "b": "oathwound",
-      "seed": 3006803814,
+      "a": "oathwound",
+      "b": "foregone",
+      "seed": 3063306472,
       "r": {
-        "seed": 3006803814,
-        "a": "Lightkeeper",
-        "b": "Goreshard",
-        "winner": "Lightkeeper",
-        "hp": 70,
-        "duration": 59.82,
+        "seed": 3063306472,
+        "a": "Goreshard",
+        "b": "Foregone",
+        "winner": "Goreshard",
+        "hp": 83,
+        "duration": 51.14,
         "reason": "slain",
         "hits": {
-          "a": 16,
-          "b": 16
+          "a": 13,
+          "b": 7
+        },
+        "crits": {
+          "a": 2,
+          "b": 1
+        },
+        "clanks": 20
+      }
+    },
+    {
+      "a": "heartwood",
+      "b": "dawnbringer",
+      "seed": 1422774937,
+      "r": {
+        "seed": 1422774937,
+        "a": "Heartwood",
+        "b": "Dawnbringer",
+        "winner": "Heartwood",
+        "hp": 181,
+        "duration": 59.44,
+        "reason": "slain",
+        "hits": {
+          "a": 21,
+          "b": 9
+        },
+        "crits": {
+          "a": 2,
+          "b": 0
+        },
+        "clanks": 31
+      }
+    },
+    {
+      "a": "nightfell",
+      "b": "spellbreaker",
+      "seed": 4077210698,
+      "r": {
+        "seed": 4077210698,
+        "a": "Nightfell",
+        "b": "Spellbreaker",
+        "winner": "Spellbreaker",
+        "hp": 29,
+        "duration": 62.11,
+        "reason": "slain",
+        "hits": {
+          "a": 13,
+          "b": 20
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 30
+      }
+    },
+    {
+      "a": "axiom",
+      "b": "oathwound",
+      "seed": 2436679163,
+      "r": {
+        "seed": 2436679163,
+        "a": "Axiom",
+        "b": "Goreshard",
+        "winner": "Axiom",
+        "hp": 21,
+        "duration": 62.23,
+        "reason": "slain",
+        "hits": {
+          "a": 22,
+          "b": 11
         },
         "crits": {
           "a": 3,
+          "b": 0
+        },
+        "clanks": 36
+      }
+    },
+    {
+      "a": "twinshade",
+      "b": "vinesower",
+      "seed": 796147628,
+      "r": {
+        "seed": 796147628,
+        "a": "Twinshade",
+        "b": "Vinesower",
+        "winner": "Twinshade",
+        "hp": 63,
+        "duration": 60.24,
+        "reason": "slain",
+        "hits": {
+          "a": 24,
+          "b": 59
+        },
+        "crits": {
+          "a": 3,
+          "b": 3
+        },
+        "clanks": 21
+      }
+    },
+    {
+      "a": "redflail",
+      "b": "widowmaker",
+      "seed": 3450583389,
+      "r": {
+        "seed": 3450583389,
+        "a": "Threshmaw",
+        "b": "Widowmaker",
+        "winner": "Widowmaker",
+        "hp": 16,
+        "duration": 46.32,
+        "reason": "slain",
+        "hits": {
+          "a": 35,
+          "b": 15
+        },
+        "crits": {
+          "a": 6,
+          "b": 1
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "foregone",
+      "b": "ironhail",
+      "seed": 1810051854,
+      "r": {
+        "seed": 1810051854,
+        "a": "Foregone",
+        "b": "Ironhail",
+        "winner": "Ironhail",
+        "hp": 183,
+        "duration": 43.72,
+        "reason": "slain",
+        "hits": {
+          "a": 4,
+          "b": 16
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 7
+      }
+    },
+    {
+      "a": "vinesower",
+      "b": "heartwood",
+      "seed": 169520319,
+      "r": {
+        "seed": 169520319,
+        "a": "Vinesower",
+        "b": "Heartwood",
+        "winner": "Vinesower",
+        "hp": 30,
+        "duration": 56.77,
+        "reason": "slain",
+        "hits": {
+          "a": 42,
+          "b": 16
+        },
+        "crits": {
+          "a": 4,
+          "b": 3
+        },
+        "clanks": 21
+      }
+    },
+    {
+      "a": "marrowdraw",
+      "b": "grudgebearer",
+      "seed": 1183424545,
+      "r": {
+        "seed": 1183424545,
+        "a": "Marrowdraw",
+        "b": "Grudgebearer",
+        "winner": "Marrowdraw",
+        "hp": 61,
+        "duration": 46.19,
+        "reason": "slain",
+        "hits": {
+          "a": 15,
+          "b": 8
+        },
+        "crits": {
+          "a": 0,
+          "b": 0
+        },
+        "clanks": 10
+      }
+    },
+    {
+      "a": "paradox",
+      "b": "lightkeeper",
+      "seed": 3837860306,
+      "r": {
+        "seed": 3837860306,
+        "a": "Paradox",
+        "b": "Lightkeeper",
+        "winner": "Paradox",
+        "hp": 170,
+        "duration": 55.37,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 11
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 24
+      }
+    },
+    {
+      "a": "thornshear",
+      "b": "nightfell",
+      "seed": 2197328771,
+      "r": {
+        "seed": 2197328771,
+        "a": "Thornshear",
+        "b": "Nightfell",
+        "winner": "Thornshear",
+        "hp": 27,
+        "duration": 55.85,
+        "reason": "slain",
+        "hits": {
+          "a": 56,
+          "b": 11
+        },
+        "crits": {
+          "a": 2,
+          "b": 1
+        },
+        "clanks": 26
+      }
+    },
+    {
+      "a": "vesper",
+      "b": "marrowdraw",
+      "seed": 556797236,
+      "r": {
+        "seed": 556797236,
+        "a": "Vesper",
+        "b": "Marrowdraw",
+        "winner": "Marrowdraw",
+        "hp": 101,
+        "duration": 40.62,
+        "reason": "slain",
+        "hits": {
+          "a": 16,
+          "b": 18
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 7
+      }
+    },
+    {
+      "a": "dawnbringer",
+      "b": "thornwake",
+      "seed": 3211232997,
+      "r": {
+        "seed": 3211232997,
+        "a": "Dawnbringer",
+        "b": "Thornwake",
+        "winner": "Dawnbringer",
+        "hp": 152,
+        "duration": 50.38,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 8
+        },
+        "crits": {
+          "a": 0,
+          "b": 0
+        },
+        "clanks": 24
+      }
+    },
+    {
+      "a": "widowmaker",
+      "b": "farwarden",
+      "seed": 1570701462,
+      "r": {
+        "seed": 1570701462,
+        "a": "Widowmaker",
+        "b": "Farwarden",
+        "winner": "Farwarden",
+        "hp": 293,
+        "duration": 40.68,
+        "reason": "slain",
+        "hits": {
+          "a": 11,
+          "b": 17
+        },
+        "crits": {
+          "a": 0,
+          "b": 3
+        },
+        "clanks": 14
+      }
+    },
+    {
+      "a": "grudgebearer",
+      "b": "axiom",
+      "seed": 4225137223,
+      "r": {
+        "seed": 4225137223,
+        "a": "Grudgebearer",
+        "b": "Axiom",
+        "winner": "Grudgebearer",
+        "hp": 74,
+        "duration": 52.77,
+        "reason": "slain",
+        "hits": {
+          "a": 5,
+          "b": 24
+        },
+        "crits": {
+          "a": 1,
+          "b": 3
+        },
+        "clanks": 24
+      }
+    },
+    {
+      "a": "thornwake",
+      "b": "paradox",
+      "seed": 2584605688,
+      "r": {
+        "seed": 2584605688,
+        "a": "Thornwake",
+        "b": "Paradox",
+        "winner": "Thornwake",
+        "hp": 148,
+        "duration": 51.83,
+        "reason": "slain",
+        "hits": {
+          "a": 9,
+          "b": 6
+        },
+        "crits": {
+          "a": 0,
+          "b": 0
+        },
+        "clanks": 14
+      }
+    },
+    {
+      "a": "gravemourn",
+      "b": "aureole",
+      "seed": 3598509914,
+      "r": {
+        "seed": 3598509914,
+        "a": "Gravemourn",
+        "b": "Aureole",
+        "winner": "Gravemourn",
+        "hp": 109,
+        "duration": 40.23,
+        "reason": "slain",
+        "hits": {
+          "a": 6,
+          "b": 10
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 5
+      }
+    },
+    {
+      "a": "slagheart",
+      "b": "twinshade",
+      "seed": 1957978379,
+      "r": {
+        "seed": 1957978379,
+        "a": "Slagheart",
+        "b": "Twinshade",
+        "winner": "Slagheart",
+        "hp": 17,
+        "duration": 51.89,
+        "reason": "slain",
+        "hits": {
+          "a": 10,
+          "b": 25
+        },
+        "crits": {
+          "a": 2,
+          "b": 1
+        },
+        "clanks": 17
+      }
+    },
+    {
+      "a": "spellbreaker",
+      "b": "thornshear",
+      "seed": 317446844,
+      "r": {
+        "seed": 317446844,
+        "a": "Spellbreaker",
+        "b": "Thornshear",
+        "winner": "Thornshear",
+        "hp": 104,
+        "duration": 58.74,
+        "reason": "slain",
+        "hits": {
+          "a": 12,
+          "b": 58
+        },
+        "crits": {
+          "a": 2,
+          "b": 4
+        },
+        "clanks": 27
+      }
+    },
+    {
+      "a": "ironhail",
+      "b": "gravemourn",
+      "seed": 2971882605,
+      "r": {
+        "seed": 2971882605,
+        "a": "Ironhail",
+        "b": "Gravemourn",
+        "winner": "Ironhail",
+        "hp": 195,
+        "duration": 27.79,
+        "reason": "slain",
+        "hits": {
+          "a": 15,
+          "b": 4
+        },
+        "crits": {
+          "a": 2,
+          "b": 0
+        },
+        "clanks": 6
+      }
+    },
+    {
+      "a": "lightkeeper",
+      "b": "censer",
+      "seed": 1331351070,
+      "r": {
+        "seed": 1331351070,
+        "a": "Lightkeeper",
+        "b": "Censer",
+        "winner": "Censer",
+        "hp": 299,
+        "duration": 36.48,
+        "reason": "slain",
+        "hits": {
+          "a": 5,
+          "b": 9
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "farwarden",
+      "b": "redflail",
+      "seed": 3985786831,
+      "r": {
+        "seed": 3985786831,
+        "a": "Farwarden",
+        "b": "Threshmaw",
+        "winner": "Farwarden",
+        "hp": 216,
+        "duration": 54.05,
+        "reason": "slain",
+        "hits": {
+          "a": 21,
+          "b": 34
+        },
+        "crits": {
+          "a": 2,
+          "b": 1
+        },
+        "clanks": 3
+      }
+    },
+    {
+      "a": "aureole",
+      "b": "vesper",
+      "seed": 2345255296,
+      "r": {
+        "seed": 2345255296,
+        "a": "Aureole",
+        "b": "Vesper",
+        "winner": "Vesper",
+        "hp": 82,
+        "duration": 39.73,
+        "reason": "slain",
+        "hits": {
+          "a": 14,
+          "b": 25
+        },
+        "crits": {
+          "a": 1,
+          "b": 2
+        },
+        "clanks": 9
+      }
+    },
+    {
+      "a": "censer",
+      "b": "slagheart",
+      "seed": 704723761,
+      "r": {
+        "seed": 704723761,
+        "a": "Censer",
+        "b": "Slagheart",
+        "winner": "Censer",
+        "hp": 291,
+        "duration": 31.55,
+        "reason": "slain",
+        "hits": {
+          "a": 9,
+          "b": 2
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
+        },
+        "clanks": 10
+      }
+    },
+    {
+      "a": "oathwound",
+      "b": "foregone",
+      "seed": 1718627987,
+      "r": {
+        "seed": 1718627987,
+        "a": "Goreshard",
+        "b": "Foregone",
+        "winner": "Foregone",
+        "hp": 53,
+        "duration": 39.4,
+        "reason": "slain",
+        "hits": {
+          "a": 14,
+          "b": 9
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 16
+      }
+    },
+    {
+      "a": "heartwood",
+      "b": "dawnbringer",
+      "seed": 78096452,
+      "r": {
+        "seed": 78096452,
+        "a": "Heartwood",
+        "b": "Dawnbringer",
+        "winner": "Dawnbringer",
+        "hp": 97,
+        "duration": 59.63,
+        "reason": "slain",
+        "hits": {
+          "a": 14,
+          "b": 16
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 34
+      }
+    },
+    {
+      "a": "nightfell",
+      "b": "spellbreaker",
+      "seed": 2732532213,
+      "r": {
+        "seed": 2732532213,
+        "a": "Nightfell",
+        "b": "Spellbreaker",
+        "winner": "Nightfell",
+        "hp": 101,
+        "duration": 53.48,
+        "reason": "slain",
+        "hits": {
+          "a": 13,
+          "b": 17
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 25
+      }
+    },
+    {
+      "a": "axiom",
+      "b": "oathwound",
+      "seed": 1092000678,
+      "r": {
+        "seed": 1092000678,
+        "a": "Axiom",
+        "b": "Goreshard",
+        "winner": "Axiom",
+        "hp": 12,
+        "duration": 67.93,
+        "reason": "slain",
+        "hits": {
+          "a": 19,
+          "b": 11
+        },
+        "crits": {
+          "a": 2,
+          "b": 0
+        },
+        "clanks": 41
+      }
+    },
+    {
+      "a": "twinshade",
+      "b": "vinesower",
+      "seed": 3746436439,
+      "r": {
+        "seed": 3746436439,
+        "a": "Twinshade",
+        "b": "Vinesower",
+        "winner": "Twinshade",
+        "hp": 146,
+        "duration": 60.65,
+        "reason": "slain",
+        "hits": {
+          "a": 22,
+          "b": 47
+        },
+        "crits": {
+          "a": 4,
+          "b": 1
+        },
+        "clanks": 16
+      }
+    },
+    {
+      "a": "redflail",
+      "b": "widowmaker",
+      "seed": 2105904904,
+      "r": {
+        "seed": 2105904904,
+        "a": "Threshmaw",
+        "b": "Widowmaker",
+        "winner": "Threshmaw",
+        "hp": 10,
+        "duration": 46.32,
+        "reason": "slain",
+        "hits": {
+          "a": 25,
+          "b": 16
+        },
+        "crits": {
+          "a": 2,
+          "b": 2
+        },
+        "clanks": 16
+      }
+    },
+    {
+      "a": "foregone",
+      "b": "ironhail",
+      "seed": 465373369,
+      "r": {
+        "seed": 465373369,
+        "a": "Foregone",
+        "b": "Ironhail",
+        "winner": "Foregone",
+        "hp": 117,
+        "duration": 37.06,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 10
+        },
+        "crits": {
+          "a": 4,
+          "b": 1
+        },
+        "clanks": 6
+      }
+    },
+    {
+      "a": "vinesower",
+      "b": "heartwood",
+      "seed": 3119809130,
+      "r": {
+        "seed": 3119809130,
+        "a": "Vinesower",
+        "b": "Heartwood",
+        "winner": "Vinesower",
+        "hp": 63,
+        "duration": 58.33,
+        "reason": "slain",
+        "hits": {
+          "a": 56,
+          "b": 17
+        },
+        "crits": {
+          "a": 2,
+          "b": 0
+        },
+        "clanks": 20
+      }
+    },
+    {
+      "a": "marrowdraw",
+      "b": "grudgebearer",
+      "seed": 4133713356,
+      "r": {
+        "seed": 4133713356,
+        "a": "Marrowdraw",
+        "b": "Grudgebearer",
+        "winner": "Marrowdraw",
+        "hp": 266,
+        "duration": 35.5,
+        "reason": "slain",
+        "hits": {
+          "a": 15,
+          "b": 4
+        },
+        "crits": {
+          "a": 2,
+          "b": 0
+        },
+        "clanks": 7
+      }
+    },
+    {
+      "a": "paradox",
+      "b": "lightkeeper",
+      "seed": 2493181821,
+      "r": {
+        "seed": 2493181821,
+        "a": "Paradox",
+        "b": "Lightkeeper",
+        "winner": "Paradox",
+        "hp": 143,
+        "duration": 48.49,
+        "reason": "slain",
+        "hits": {
+          "a": 9,
+          "b": 12
+        },
+        "crits": {
+          "a": 3,
+          "b": 3
+        },
+        "clanks": 14
+      }
+    },
+    {
+      "a": "thornshear",
+      "b": "nightfell",
+      "seed": 852650286,
+      "r": {
+        "seed": 852650286,
+        "a": "Thornshear",
+        "b": "Nightfell",
+        "winner": "Thornshear",
+        "hp": 77,
+        "duration": 56.92,
+        "reason": "slain",
+        "hits": {
+          "a": 53,
+          "b": 7
+        },
+        "crits": {
+          "a": 5,
+          "b": 3
+        },
+        "clanks": 26
+      }
+    },
+    {
+      "a": "vesper",
+      "b": "marrowdraw",
+      "seed": 3507086047,
+      "r": {
+        "seed": 3507086047,
+        "a": "Vesper",
+        "b": "Marrowdraw",
+        "winner": "Marrowdraw",
+        "hp": 36,
+        "duration": 49.53,
+        "reason": "slain",
+        "hits": {
+          "a": 24,
+          "b": 16
+        },
+        "crits": {
+          "a": 0,
+          "b": 2
+        },
+        "clanks": 7
+      }
+    },
+    {
+      "a": "dawnbringer",
+      "b": "thornwake",
+      "seed": 1866554512,
+      "r": {
+        "seed": 1866554512,
+        "a": "Dawnbringer",
+        "b": "Thornwake",
+        "winner": "Thornwake",
+        "hp": 102,
+        "duration": 49.16,
+        "reason": "slain",
+        "hits": {
+          "a": 14,
+          "b": 10
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 22
+      }
+    },
+    {
+      "a": "widowmaker",
+      "b": "farwarden",
+      "seed": 226022977,
+      "r": {
+        "seed": 226022977,
+        "a": "Widowmaker",
+        "b": "Farwarden",
+        "winner": "Widowmaker",
+        "hp": 34,
+        "duration": 53,
+        "reason": "slain",
+        "hits": {
+          "a": 16,
+          "b": 17
+        },
+        "crits": {
+          "a": 3,
+          "b": 3
+        },
+        "clanks": 17
+      }
+    },
+    {
+      "a": "grudgebearer",
+      "b": "axiom",
+      "seed": 2880458738,
+      "r": {
+        "seed": 2880458738,
+        "a": "Grudgebearer",
+        "b": "Axiom",
+        "winner": "Axiom",
+        "hp": 91,
+        "duration": 66.37,
+        "reason": "slain",
+        "hits": {
+          "a": 6,
+          "b": 27
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 28
+      }
+    },
+    {
+      "a": "thornwake",
+      "b": "paradox",
+      "seed": 1239927203,
+      "r": {
+        "seed": 1239927203,
+        "a": "Thornwake",
+        "b": "Paradox",
+        "winner": "Paradox",
+        "hp": 14,
+        "duration": 48.68,
+        "reason": "slain",
+        "hits": {
+          "a": 7,
+          "b": 8
+        },
+        "crits": {
+          "a": 1,
+          "b": 2
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "gravemourn",
+      "b": "aureole",
+      "seed": 2253831429,
+      "r": {
+        "seed": 2253831429,
+        "a": "Gravemourn",
+        "b": "Aureole",
+        "winner": "Gravemourn",
+        "hp": 127,
+        "duration": 35.07,
+        "reason": "slain",
+        "hits": {
+          "a": 6,
+          "b": 10
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
+        },
+        "clanks": 6
+      }
+    },
+    {
+      "a": "slagheart",
+      "b": "twinshade",
+      "seed": 613299894,
+      "r": {
+        "seed": 613299894,
+        "a": "Slagheart",
+        "b": "Twinshade",
+        "winner": "Slagheart",
+        "hp": 38,
+        "duration": 50.29,
+        "reason": "slain",
+        "hits": {
+          "a": 12,
+          "b": 24
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 13
+      }
+    },
+    {
+      "a": "spellbreaker",
+      "b": "thornshear",
+      "seed": 3267735655,
+      "r": {
+        "seed": 3267735655,
+        "a": "Spellbreaker",
+        "b": "Thornshear",
+        "winner": "Spellbreaker",
+        "hp": 19,
+        "duration": 73.04,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 69
+        },
+        "crits": {
+          "a": 2,
+          "b": 12
+        },
+        "clanks": 28
+      }
+    },
+    {
+      "a": "ironhail",
+      "b": "gravemourn",
+      "seed": 1627204120,
+      "r": {
+        "seed": 1627204120,
+        "a": "Ironhail",
+        "b": "Gravemourn",
+        "winner": "Ironhail",
+        "hp": 145,
+        "duration": 29.59,
+        "reason": "slain",
+        "hits": {
+          "a": 14,
+          "b": 5
+        },
+        "crits": {
+          "a": 3,
+          "b": 0
+        },
+        "clanks": 4
+      }
+    },
+    {
+      "a": "lightkeeper",
+      "b": "censer",
+      "seed": 4281639881,
+      "r": {
+        "seed": 4281639881,
+        "a": "Lightkeeper",
+        "b": "Censer",
+        "winner": "Lightkeeper",
+        "hp": 19,
+        "duration": 54.92,
+        "reason": "slain",
+        "hits": {
+          "a": 21,
+          "b": 9
+        },
+        "crits": {
+          "a": 3,
+          "b": 1
+        },
+        "clanks": 25
+      }
+    },
+    {
+      "a": "farwarden",
+      "b": "redflail",
+      "seed": 2641108346,
+      "r": {
+        "seed": 2641108346,
+        "a": "Farwarden",
+        "b": "Threshmaw",
+        "winner": "Farwarden",
+        "hp": 37,
+        "duration": 45.08,
+        "reason": "slain",
+        "hits": {
+          "a": 20,
+          "b": 43
+        },
+        "crits": {
+          "a": 4,
+          "b": 2
+        },
+        "clanks": 10
+      }
+    },
+    {
+      "a": "aureole",
+      "b": "vesper",
+      "seed": 1000576811,
+      "r": {
+        "seed": 1000576811,
+        "a": "Aureole",
+        "b": "Vesper",
+        "winner": "Vesper",
+        "hp": 99,
+        "duration": 55.02,
+        "reason": "slain",
+        "hits": {
+          "a": 11,
+          "b": 24
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "censer",
+      "b": "slagheart",
+      "seed": 3655012572,
+      "r": {
+        "seed": 3655012572,
+        "a": "Censer",
+        "b": "Slagheart",
+        "winner": "Censer",
+        "hp": 85,
+        "duration": 46.55,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 5
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "oathwound",
+      "b": "foregone",
+      "seed": 373949502,
+      "r": {
+        "seed": 373949502,
+        "a": "Goreshard",
+        "b": "Foregone",
+        "winner": "Goreshard",
+        "hp": 84,
+        "duration": 50.52,
+        "reason": "slain",
+        "hits": {
+          "a": 11,
+          "b": 6
+        },
+        "crits": {
+          "a": 4,
+          "b": 0
+        },
+        "clanks": 21
+      }
+    },
+    {
+      "a": "heartwood",
+      "b": "dawnbringer",
+      "seed": 3028385263,
+      "r": {
+        "seed": 3028385263,
+        "a": "Heartwood",
+        "b": "Dawnbringer",
+        "winner": "Heartwood",
+        "hp": 160,
+        "duration": 60.54,
+        "reason": "slain",
+        "hits": {
+          "a": 18,
+          "b": 9
+        },
+        "crits": {
+          "a": 4,
           "b": 0
         },
         "clanks": 32
       }
     },
     {
-      "a": "farwarden",
-      "b": "vinesower",
-      "seed": 1366272279,
+      "a": "nightfell",
+      "b": "spellbreaker",
+      "seed": 1387853728,
       "r": {
-        "seed": 1366272279,
-        "a": "Farwarden",
-        "b": "Vinesower",
-        "winner": "Farwarden",
-        "hp": 385,
-        "duration": 41.4,
+        "seed": 1387853728,
+        "a": "Nightfell",
+        "b": "Spellbreaker",
+        "winner": "Spellbreaker",
+        "hp": 79,
+        "duration": 60.16,
         "reason": "slain",
         "hits": {
-          "a": 21,
-          "b": 30
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 7
-      }
-    },
-    {
-      "a": "aureole",
-      "b": "grudgebearer",
-      "seed": 4020708040,
-      "r": {
-        "seed": 4020708040,
-        "a": "Aureole",
-        "b": "Grudgebearer",
-        "winner": "Grudgebearer",
-        "hp": 146,
-        "duration": 40.93,
-        "reason": "slain",
-        "hits": {
-          "a": 9,
-          "b": 11
-        },
-        "crits": {
-          "a": 1,
-          "b": 2
-        },
-        "clanks": 8
-      }
-    },
-    {
-      "a": "censer",
-      "b": "lightkeeper",
-      "seed": 2380176505,
-      "r": {
-        "seed": 2380176505,
-        "a": "Censer",
-        "b": "Lightkeeper",
-        "winner": "Censer",
-        "hp": 50,
-        "duration": 53.67,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 12
+          "a": 11,
+          "b": 17
         },
         "crits": {
           "a": 1,
           "b": 3
         },
-        "clanks": 26
-      }
-    },
-    {
-      "a": "emberedge",
-      "b": "nightfell",
-      "seed": 739644970,
-      "r": {
-        "seed": 739644970,
-        "a": "Emberedge",
-        "b": "Nightfell",
-        "winner": "Emberedge",
-        "hp": 193,
-        "duration": 49.53,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 8
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 27
-      }
-    },
-    {
-      "a": "oathwound",
-      "b": "marrowdraw",
-      "seed": 3394080731,
-      "r": {
-        "seed": 3394080731,
-        "a": "Goreshard",
-        "b": "Marrowdraw",
-        "winner": "Goreshard",
-        "hp": 12,
-        "duration": 48.13,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 16
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 16
-      }
-    },
-    {
-      "a": "heartwood",
-      "b": "lastlight",
-      "seed": 1753549196,
-      "r": {
-        "seed": 1753549196,
-        "a": "Heartwood",
-        "b": "Lastlight",
-        "winner": "Lastlight",
-        "hp": 63,
-        "duration": 54.39,
-        "reason": "slain",
-        "hits": {
-          "a": 17,
-          "b": 12
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 23
-      }
-    },
-    {
-      "a": "nightfell",
-      "b": "aureole",
-      "seed": 113017661,
-      "r": {
-        "seed": 113017661,
-        "a": "Nightfell",
-        "b": "Aureole",
-        "winner": "Nightfell",
-        "hp": 169,
-        "duration": 53.96,
-        "reason": "slain",
-        "hits": {
-          "a": 18,
-          "b": 6
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 14
+        "clanks": 30
       }
     },
     {
       "a": "axiom",
-      "b": "twinshade",
-      "seed": 2767453422,
+      "b": "oathwound",
+      "seed": 4042289489,
       "r": {
-        "seed": 2767453422,
+        "seed": 4042289489,
         "a": "Axiom",
-        "b": "Twinshade",
-        "winner": "Axiom",
-        "hp": 45,
-        "duration": 70.93,
-        "reason": "slain",
-        "hits": {
-          "a": 33,
-          "b": 25
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 39
-      }
-    },
-    {
-      "a": "twinshade",
-      "b": "thornshear",
-      "seed": 1126921887,
-      "r": {
-        "seed": 1126921887,
-        "a": "Twinshade",
-        "b": "Thornshear",
-        "winner": "Twinshade",
-        "hp": 1,
-        "duration": 68.32,
-        "reason": "slain",
-        "hits": {
-          "a": 29,
-          "b": 68
-        },
-        "crits": {
-          "a": 2,
-          "b": 7
-        },
-        "clanks": 29
-      }
-    },
-    {
-      "a": "redflail",
-      "b": "slagheart",
-      "seed": 3781357648,
-      "r": {
-        "seed": 3781357648,
-        "a": "Threshmaw",
-        "b": "Slagheart",
-        "winner": "Slagheart",
-        "hp": 28,
-        "duration": 38.62,
-        "reason": "slain",
-        "hits": {
-          "a": 33,
-          "b": 11
-        },
-        "crits": {
-          "a": 5,
-          "b": 1
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "foregone",
-      "b": "emberedge",
-      "seed": 2140826113,
-      "r": {
-        "seed": 2140826113,
-        "a": "Foregone",
-        "b": "Emberedge",
-        "winner": "Foregone",
-        "hp": 47,
-        "duration": 48.86,
-        "reason": "slain",
-        "hits": {
-          "a": 11,
-          "b": 10
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 17
-      }
-    },
-    {
-      "a": "vinesower",
-      "b": "foregone",
-      "seed": 500294578,
-      "r": {
-        "seed": 500294578,
-        "a": "Vinesower",
-        "b": "Foregone",
-        "winner": "Foregone",
-        "hp": 11,
-        "duration": 50.16,
-        "reason": "slain",
-        "hits": {
-          "a": 38,
-          "b": 9
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 10
-      }
-    },
-    {
-      "a": "bulwarden",
-      "b": "widowmaker",
-      "seed": 3154730339,
-      "r": {
-        "seed": 3154730339,
-        "a": "Bulwarden",
-        "b": "Widowmaker",
-        "winner": "Widowmaker",
-        "hp": 23,
-        "duration": 57.37,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
-          "b": 18
-        },
-        "crits": {
-          "a": 1,
-          "b": 2
-        },
-        "clanks": 17
-      }
-    },
-    {
-      "a": "marrowdraw",
-      "b": "ironhail",
-      "seed": 1514198804,
-      "r": {
-        "seed": 1514198804,
-        "a": "Marrowdraw",
-        "b": "Ironhail",
-        "winner": "Ironhail",
-        "hp": 147,
-        "duration": 25.74,
-        "reason": "slain",
-        "hits": {
-          "a": 9,
-          "b": 16
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 3
-      }
-    },
-    {
-      "a": "paradox",
-      "b": "heartwood",
-      "seed": 4168634565,
-      "r": {
-        "seed": 4168634565,
-        "a": "Paradox",
-        "b": "Heartwood",
-        "winner": "Paradox",
-        "hp": 37,
-        "duration": 66.26,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 19
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 25
-      }
-    },
-    {
-      "a": "thornshear",
-      "b": "bulwarden",
-      "seed": 2528103030,
-      "r": {
-        "seed": 2528103030,
-        "a": "Thornshear",
-        "b": "Bulwarden",
-        "winner": "Thornshear",
-        "hp": 14,
-        "duration": 64.59,
-        "reason": "slain",
-        "hits": {
-          "a": 93,
-          "b": 11
-        },
-        "crits": {
-          "a": 6,
-          "b": 0
-        },
-        "clanks": 15
-      }
-    },
-    {
-      "a": "dawnbringer",
-      "b": "thornwake",
-      "seed": 887571495,
-      "r": {
-        "seed": 887571495,
-        "a": "Dawnbringer",
-        "b": "Thornwake",
-        "winner": "Dawnbringer",
-        "hp": 199,
-        "duration": 55.87,
+        "b": "Goreshard",
+        "winner": "Goreshard",
+        "hp": 15,
+        "duration": 65.27,
         "reason": "slain",
         "hits": {
           "a": 17,
-          "b": 6
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 23
-      }
-    },
-    {
-      "a": "widowmaker",
-      "b": "farwarden",
-      "seed": 3542007256,
-      "r": {
-        "seed": 3542007256,
-        "a": "Widowmaker",
-        "b": "Farwarden",
-        "winner": "Widowmaker",
-        "hp": 59,
-        "duration": 62.62,
-        "reason": "slain",
-        "hits": {
-          "a": 16,
-          "b": 20
-        },
-        "crits": {
-          "a": 2,
-          "b": 2
-        },
-        "clanks": 18
-      }
-    },
-    {
-      "a": "grudgebearer",
-      "b": "axiom",
-      "seed": 1901475721,
-      "r": {
-        "seed": 1901475721,
-        "a": "Grudgebearer",
-        "b": "Axiom",
-        "winner": "Grudgebearer",
-        "hp": 178,
-        "duration": 49.1,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
           "b": 12
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 20
-      }
-    },
-    {
-      "a": "thornwake",
-      "b": "paradox",
-      "seed": 260944186,
-      "r": {
-        "seed": 260944186,
-        "a": "Thornwake",
-        "b": "Paradox",
-        "winner": "Thornwake",
-        "hp": 271,
-        "duration": 38.59,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 2
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 7
-      }
-    },
-    {
-      "a": "lastlight",
-      "b": "gravemourn",
-      "seed": 2915379947,
-      "r": {
-        "seed": 2915379947,
-        "a": "Lastlight",
-        "b": "Gravemourn",
-        "winner": "Gravemourn",
-        "hp": 23,
-        "duration": 36.16,
-        "reason": "slain",
-        "hits": {
-          "a": 12,
-          "b": 6
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 6
-      }
-    },
-    {
-      "a": "gravemourn",
-      "b": "censer",
-      "seed": 1274848412,
-      "r": {
-        "seed": 1274848412,
-        "a": "Gravemourn",
-        "b": "Censer",
-        "winner": "Gravemourn",
-        "hp": 273,
-        "duration": 26.84,
-        "reason": "slain",
-        "hits": {
-          "a": 5,
-          "b": 3
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "slagheart",
-      "b": "redflail",
-      "seed": 3929284173,
-      "r": {
-        "seed": 3929284173,
-        "a": "Slagheart",
-        "b": "Threshmaw",
-        "winner": "Threshmaw",
-        "hp": 71,
-        "duration": 27.72,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 30
-        },
-        "crits": {
-          "a": 0,
-          "b": 3
-        },
-        "clanks": 5
-      }
-    },
-    {
-      "a": "spellbreaker",
-      "b": "dawnbringer",
-      "seed": 2288752638,
-      "r": {
-        "seed": 2288752638,
-        "a": "Spellbreaker",
-        "b": "Dawnbringer",
-        "winner": "Spellbreaker",
-        "hp": 66,
-        "duration": 67.79,
-        "reason": "slain",
-        "hits": {
-          "a": 22,
-          "b": 11
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 34
-      }
-    },
-    {
-      "a": "ironhail",
-      "b": "spellbreaker",
-      "seed": 648221103,
-      "r": {
-        "seed": 648221103,
-        "a": "Ironhail",
-        "b": "Spellbreaker",
-        "winner": "Ironhail",
-        "hp": 163,
-        "duration": 53.95,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 14
         },
         "crits": {
           "a": 3,
           "b": 0
         },
+        "clanks": 38
+      }
+    },
+    {
+      "a": "twinshade",
+      "b": "vinesower",
+      "seed": 2401757954,
+      "r": {
+        "seed": 2401757954,
+        "a": "Twinshade",
+        "b": "Vinesower",
+        "winner": "Vinesower",
+        "hp": 101,
+        "duration": 54.15,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 53
+        },
+        "crits": {
+          "a": 3,
+          "b": 6
+        },
         "clanks": 18
       }
     },
     {
-      "a": "lightkeeper",
-      "b": "oathwound",
-      "seed": 3302656864,
+      "a": "redflail",
+      "b": "widowmaker",
+      "seed": 761226419,
       "r": {
-        "seed": 3302656864,
-        "a": "Lightkeeper",
-        "b": "Goreshard",
-        "winner": "Lightkeeper",
-        "hp": 54,
-        "duration": 56.73,
+        "seed": 761226419,
+        "a": "Threshmaw",
+        "b": "Widowmaker",
+        "winner": "Widowmaker",
+        "hp": 98,
+        "duration": 44.95,
         "reason": "slain",
         "hits": {
-          "a": 17,
-          "b": 17
+          "a": 18,
+          "b": 14
         },
         "crits": {
-          "a": 2,
-          "b": 1
+          "a": 3,
+          "b": 2
         },
-        "clanks": 28
+        "clanks": 11
       }
     },
     {
-      "a": "farwarden",
-      "b": "vinesower",
-      "seed": 1662125329,
+      "a": "foregone",
+      "b": "ironhail",
+      "seed": 3415662180,
       "r": {
-        "seed": 1662125329,
-        "a": "Farwarden",
-        "b": "Vinesower",
-        "winner": "Vinesower",
-        "hp": 67,
-        "duration": 60.99,
+        "seed": 3415662180,
+        "a": "Foregone",
+        "b": "Ironhail",
+        "winner": "Foregone",
+        "hp": 188,
+        "duration": 49.54,
         "reason": "slain",
         "hits": {
-          "a": 15,
-          "b": 69
+          "a": 10,
+          "b": 8
         },
         "crits": {
           "a": 2,
-          "b": 5
-        },
-        "clanks": 8
-      }
-    },
-    {
-      "a": "aureole",
-      "b": "grudgebearer",
-      "seed": 21593794,
-      "r": {
-        "seed": 21593794,
-        "a": "Aureole",
-        "b": "Grudgebearer",
-        "winner": "Grudgebearer",
-        "hp": 240,
-        "duration": 29.86,
-        "reason": "slain",
-        "hits": {
-          "a": 6,
-          "b": 9
-        },
-        "crits": {
-          "a": 0,
           "b": 2
         },
         "clanks": 9
       }
     },
     {
-      "a": "censer",
-      "b": "lightkeeper",
-      "seed": 2676029555,
+      "a": "vinesower",
+      "b": "heartwood",
+      "seed": 1775130645,
       "r": {
-        "seed": 2676029555,
-        "a": "Censer",
-        "b": "Lightkeeper",
-        "winner": "Lightkeeper",
-        "hp": 96,
-        "duration": 60.95,
+        "seed": 1775130645,
+        "a": "Vinesower",
+        "b": "Heartwood",
+        "winner": "Heartwood",
+        "hp": 53,
+        "duration": 64.74,
         "reason": "slain",
         "hits": {
-          "a": 7,
-          "b": 19
+          "a": 47,
+          "b": 17
         },
         "crits": {
-          "a": 0,
-          "b": 0
+          "a": 9,
+          "b": 1
         },
-        "clanks": 28
+        "clanks": 21
       }
     },
     {
-      "a": "emberedge",
-      "b": "nightfell",
-      "seed": 1035498020,
+      "a": "marrowdraw",
+      "b": "grudgebearer",
+      "seed": 2789034871,
       "r": {
-        "seed": 1035498020,
-        "a": "Emberedge",
-        "b": "Nightfell",
-        "winner": "Emberedge",
-        "hp": 101,
-        "duration": 48.87,
+        "seed": 2789034871,
+        "a": "Marrowdraw",
+        "b": "Grudgebearer",
+        "winner": "Marrowdraw",
+        "hp": 107,
+        "duration": 40.26,
         "reason": "slain",
         "hits": {
-          "a": 19,
-          "b": 11
+          "a": 15,
+          "b": 8
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 5
+      }
+    },
+    {
+      "a": "paradox",
+      "b": "lightkeeper",
+      "seed": 1148503336,
+      "r": {
+        "seed": 1148503336,
+        "a": "Paradox",
+        "b": "Lightkeeper",
+        "winner": "Lightkeeper",
+        "hp": 40,
+        "duration": 65.99,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 23
         },
         "crits": {
           "a": 0,
-          "b": 1
+          "b": 2
         },
         "clanks": 26
       }
     },
     {
-      "a": "oathwound",
-      "b": "marrowdraw",
-      "seed": 3689933781,
+      "a": "thornshear",
+      "b": "nightfell",
+      "seed": 3802939097,
       "r": {
-        "seed": 3689933781,
-        "a": "Goreshard",
-        "b": "Marrowdraw",
-        "winner": "Goreshard",
-        "hp": 268,
-        "duration": 45.52,
+        "seed": 3802939097,
+        "a": "Thornshear",
+        "b": "Nightfell",
+        "winner": "Thornshear",
+        "hp": 7,
+        "duration": 60.15,
         "reason": "slain",
         "hits": {
-          "a": 14,
-          "b": 4
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 17
-      }
-    },
-    {
-      "a": "heartwood",
-      "b": "lastlight",
-      "seed": 2049402246,
-      "r": {
-        "seed": 2049402246,
-        "a": "Heartwood",
-        "b": "Lastlight",
-        "winner": "Lastlight",
-        "hp": 120,
-        "duration": 48.02,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 16
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 24
-      }
-    },
-    {
-      "a": "nightfell",
-      "b": "aureole",
-      "seed": 408870711,
-      "r": {
-        "seed": 408870711,
-        "a": "Nightfell",
-        "b": "Aureole",
-        "winner": "Aureole",
-        "hp": 202,
-        "duration": 49.92,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 13
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 19
-      }
-    },
-    {
-      "a": "axiom",
-      "b": "twinshade",
-      "seed": 3063306472,
-      "r": {
-        "seed": 3063306472,
-        "a": "Axiom",
-        "b": "Twinshade",
-        "winner": "Twinshade",
-        "hp": 88,
-        "duration": 71.4,
-        "reason": "slain",
-        "hits": {
-          "a": 25,
-          "b": 26
-        },
-        "crits": {
-          "a": 5,
-          "b": 1
-        },
-        "clanks": 33
-      }
-    },
-    {
-      "a": "twinshade",
-      "b": "thornshear",
-      "seed": 1422774937,
-      "r": {
-        "seed": 1422774937,
-        "a": "Twinshade",
-        "b": "Thornshear",
-        "winner": "Twinshade",
-        "hp": 32,
-        "duration": 60.97,
-        "reason": "slain",
-        "hits": {
-          "a": 22,
-          "b": 56
-        },
-        "crits": {
-          "a": 4,
-          "b": 5
-        },
-        "clanks": 24
-      }
-    },
-    {
-      "a": "redflail",
-      "b": "slagheart",
-      "seed": 4077210698,
-      "r": {
-        "seed": 4077210698,
-        "a": "Threshmaw",
-        "b": "Slagheart",
-        "winner": "Slagheart",
-        "hp": 140,
-        "duration": 26.48,
-        "reason": "slain",
-        "hits": {
-          "a": 20,
+          "a": 61,
           "b": 12
         },
         "crits": {
-          "a": 2,
+          "a": 3,
           "b": 0
         },
-        "clanks": 2
+        "clanks": 24
       }
     },
     {
-      "a": "foregone",
-      "b": "emberedge",
-      "seed": 2436679163,
+      "a": "vesper",
+      "b": "marrowdraw",
+      "seed": 2162407562,
       "r": {
-        "seed": 2436679163,
-        "a": "Foregone",
-        "b": "Emberedge",
-        "winner": "Foregone",
-        "hp": 240,
-        "duration": 37.18,
+        "seed": 2162407562,
+        "a": "Vesper",
+        "b": "Marrowdraw",
+        "winner": "Marrowdraw",
+        "hp": 7,
+        "duration": 53.64,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 8
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 14
-      }
-    },
-    {
-      "a": "vinesower",
-      "b": "foregone",
-      "seed": 796147628,
-      "r": {
-        "seed": 796147628,
-        "a": "Vinesower",
-        "b": "Foregone",
-        "winner": "Vinesower",
-        "hp": 264,
-        "duration": 44.55,
-        "reason": "slain",
-        "hits": {
-          "a": 48,
-          "b": 3
-        },
-        "crits": {
-          "a": 5,
-          "b": 0
-        },
-        "clanks": 10
-      }
-    },
-    {
-      "a": "bulwarden",
-      "b": "widowmaker",
-      "seed": 3450583389,
-      "r": {
-        "seed": 3450583389,
-        "a": "Bulwarden",
-        "b": "Widowmaker",
-        "winner": "Widowmaker",
-        "hp": 13,
-        "duration": 59.67,
-        "reason": "slain",
-        "hits": {
-          "a": 10,
-          "b": 16
-        },
-        "crits": {
-          "a": 0,
-          "b": 3
-        },
-        "clanks": 20
-      }
-    },
-    {
-      "a": "marrowdraw",
-      "b": "ironhail",
-      "seed": 1810051854,
-      "r": {
-        "seed": 1810051854,
-        "a": "Marrowdraw",
-        "b": "Ironhail",
-        "winner": "Ironhail",
-        "hp": 115,
-        "duration": 23.37,
-        "reason": "slain",
-        "hits": {
-          "a": 12,
-          "b": 14
+          "a": 16,
+          "b": 19
         },
         "crits": {
           "a": 1,
           "b": 1
-        },
-        "clanks": 2
-      }
-    },
-    {
-      "a": "paradox",
-      "b": "heartwood",
-      "seed": 169520319,
-      "r": {
-        "seed": 169520319,
-        "a": "Paradox",
-        "b": "Heartwood",
-        "winner": "Paradox",
-        "hp": 93,
-        "duration": 53.61,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 13
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 17
-      }
-    },
-    {
-      "a": "thornshear",
-      "b": "bulwarden",
-      "seed": 2823956080,
-      "r": {
-        "seed": 2823956080,
-        "a": "Thornshear",
-        "b": "Bulwarden",
-        "winner": "Bulwarden",
-        "hp": 206,
-        "duration": 59.42,
-        "reason": "slain",
-        "hits": {
-          "a": 66,
-          "b": 11
-        },
-        "crits": {
-          "a": 8,
-          "b": 0
         },
         "clanks": 13
       }
@@ -2398,41 +3318,41 @@
     {
       "a": "dawnbringer",
       "b": "thornwake",
-      "seed": 1183424545,
+      "seed": 521876027,
       "r": {
-        "seed": 1183424545,
+        "seed": 521876027,
         "a": "Dawnbringer",
         "b": "Thornwake",
-        "winner": "Thornwake",
-        "hp": 230,
-        "duration": 39.86,
+        "winner": "Dawnbringer",
+        "hp": 212,
+        "duration": 51.82,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 8
+          "a": 17,
+          "b": 5
         },
         "crits": {
           "a": 0,
-          "b": 2
+          "b": 0
         },
-        "clanks": 17
+        "clanks": 19
       }
     },
     {
       "a": "widowmaker",
       "b": "farwarden",
-      "seed": 3837860306,
+      "seed": 3176311788,
       "r": {
-        "seed": 3837860306,
+        "seed": 3176311788,
         "a": "Widowmaker",
         "b": "Farwarden",
         "winner": "Widowmaker",
-        "hp": 184,
-        "duration": 50.62,
+        "hp": 148,
+        "duration": 56.33,
         "reason": "slain",
         "hits": {
-          "a": 23,
-          "b": 9
+          "a": 20,
+          "b": 12
         },
         "crits": {
           "a": 1,
@@ -2444,596 +3364,550 @@
     {
       "a": "grudgebearer",
       "b": "axiom",
-      "seed": 2197328771,
+      "seed": 1535780253,
       "r": {
-        "seed": 2197328771,
+        "seed": 1535780253,
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Grudgebearer",
-        "hp": 129,
-        "duration": 51.12,
+        "hp": 257,
+        "duration": 34.01,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 18
+          "a": 6,
+          "b": 8
         },
         "crits": {
           "a": 1,
-          "b": 0
+          "b": 1
         },
-        "clanks": 24
+        "clanks": 13
       }
     },
     {
       "a": "thornwake",
       "b": "paradox",
-      "seed": 556797236,
+      "seed": 4190216014,
       "r": {
-        "seed": 556797236,
+        "seed": 4190216014,
         "a": "Thornwake",
         "b": "Paradox",
         "winner": "Paradox",
+        "hp": 90,
+        "duration": 28.29,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 9
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 7
+      }
+    },
+    {
+      "a": "gravemourn",
+      "b": "aureole",
+      "seed": 909152944,
+      "r": {
+        "seed": 909152944,
+        "a": "Gravemourn",
+        "b": "Aureole",
+        "winner": "Aureole",
+        "hp": 291,
+        "duration": 32.84,
+        "reason": "slain",
+        "hits": {
+          "a": 3,
+          "b": 15
+        },
+        "crits": {
+          "a": 0,
+          "b": 2
+        },
+        "clanks": 5
+      }
+    },
+    {
+      "a": "slagheart",
+      "b": "twinshade",
+      "seed": 3563588705,
+      "r": {
+        "seed": 3563588705,
+        "a": "Slagheart",
+        "b": "Twinshade",
+        "winner": "Slagheart",
+        "hp": 31,
+        "duration": 48.83,
+        "reason": "slain",
+        "hits": {
+          "a": 8,
+          "b": 19
+        },
+        "crits": {
+          "a": 2,
+          "b": 3
+        },
+        "clanks": 12
+      }
+    },
+    {
+      "a": "spellbreaker",
+      "b": "thornshear",
+      "seed": 1923057170,
+      "r": {
+        "seed": 1923057170,
+        "a": "Spellbreaker",
+        "b": "Thornshear",
+        "winner": "Thornshear",
+        "hp": 18,
+        "duration": 62.91,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 71
+        },
+        "crits": {
+          "a": 1,
+          "b": 4
+        },
+        "clanks": 23
+      }
+    },
+    {
+      "a": "ironhail",
+      "b": "gravemourn",
+      "seed": 282525635,
+      "r": {
+        "seed": 282525635,
+        "a": "Ironhail",
+        "b": "Gravemourn",
+        "winner": "Gravemourn",
+        "hp": 334,
+        "duration": 18.76,
+        "reason": "slain",
+        "hits": {
+          "a": 3,
+          "b": 7
+        },
+        "crits": {
+          "a": 0,
+          "b": 2
+        },
+        "clanks": 4
+      }
+    },
+    {
+      "a": "lightkeeper",
+      "b": "censer",
+      "seed": 2936961396,
+      "r": {
+        "seed": 2936961396,
+        "a": "Lightkeeper",
+        "b": "Censer",
+        "winner": "Censer",
+        "hp": 215,
+        "duration": 42.61,
+        "reason": "slain",
+        "hits": {
+          "a": 9,
+          "b": 9
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 19
+      }
+    },
+    {
+      "a": "farwarden",
+      "b": "redflail",
+      "seed": 1296429861,
+      "r": {
+        "seed": 1296429861,
+        "a": "Farwarden",
+        "b": "Threshmaw",
+        "winner": "Farwarden",
+        "hp": 91,
+        "duration": 56.49,
+        "reason": "slain",
+        "hits": {
+          "a": 25,
+          "b": 35
+        },
+        "crits": {
+          "a": 0,
+          "b": 3
+        },
+        "clanks": 8
+      }
+    },
+    {
+      "a": "aureole",
+      "b": "vesper",
+      "seed": 3950865622,
+      "r": {
+        "seed": 3950865622,
+        "a": "Aureole",
+        "b": "Vesper",
+        "winner": "Aureole",
         "hp": 254,
-        "duration": 38.85,
+        "duration": 35.63,
+        "reason": "slain",
+        "hits": {
+          "a": 16,
+          "b": 11
+        },
+        "crits": {
+          "a": 3,
+          "b": 0
+        },
+        "clanks": 9
+      }
+    },
+    {
+      "a": "censer",
+      "b": "slagheart",
+      "seed": 2310334087,
+      "r": {
+        "seed": 2310334087,
+        "a": "Censer",
+        "b": "Slagheart",
+        "winner": "Slagheart",
+        "hp": 215,
+        "duration": 26.37,
         "reason": "slain",
         "hits": {
           "a": 4,
+          "b": 10
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 6
+      }
+    },
+    {
+      "a": "oathwound",
+      "b": "foregone",
+      "seed": 3324238313,
+      "r": {
+        "seed": 3324238313,
+        "a": "Goreshard",
+        "b": "Foregone",
+        "winner": "Goreshard",
+        "hp": 19,
+        "duration": 50.18,
+        "reason": "slain",
+        "hits": {
+          "a": 15,
           "b": 9
         },
         "crits": {
           "a": 0,
           "b": 0
         },
-        "clanks": 5
+        "clanks": 25
       }
     },
     {
-      "a": "lastlight",
-      "b": "gravemourn",
-      "seed": 3211232997,
+      "a": "heartwood",
+      "b": "dawnbringer",
+      "seed": 1683706778,
       "r": {
-        "seed": 3211232997,
-        "a": "Lastlight",
-        "b": "Gravemourn",
-        "winner": "Lastlight",
-        "hp": 17,
-        "duration": 36.1,
+        "seed": 1683706778,
+        "a": "Heartwood",
+        "b": "Dawnbringer",
+        "winner": "Heartwood",
+        "hp": 130,
+        "duration": 58.16,
+        "reason": "slain",
+        "hits": {
+          "a": 20,
+          "b": 10
+        },
+        "crits": {
+          "a": 3,
+          "b": 0
+        },
+        "clanks": 33
+      }
+    },
+    {
+      "a": "nightfell",
+      "b": "spellbreaker",
+      "seed": 43175243,
+      "r": {
+        "seed": 43175243,
+        "a": "Nightfell",
+        "b": "Spellbreaker",
+        "winner": "Nightfell",
+        "hp": 171,
+        "duration": 52.87,
+        "reason": "slain",
+        "hits": {
+          "a": 13,
+          "b": 11
+        },
+        "crits": {
+          "a": 3,
+          "b": 0
+        },
+        "clanks": 30
+      }
+    },
+    {
+      "a": "axiom",
+      "b": "oathwound",
+      "seed": 2697611004,
+      "r": {
+        "seed": 2697611004,
+        "a": "Axiom",
+        "b": "Goreshard",
+        "winner": "Axiom",
+        "hp": 38,
+        "duration": 63.37,
+        "reason": "slain",
+        "hits": {
+          "a": 23,
+          "b": 12
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
+        },
+        "clanks": 32
+      }
+    },
+    {
+      "a": "twinshade",
+      "b": "vinesower",
+      "seed": 1057079469,
+      "r": {
+        "seed": 1057079469,
+        "a": "Twinshade",
+        "b": "Vinesower",
+        "winner": "Vinesower",
+        "hp": 185,
+        "duration": 46.02,
+        "reason": "slain",
+        "hits": {
+          "a": 17,
+          "b": 39
+        },
+        "crits": {
+          "a": 0,
+          "b": 5
+        },
+        "clanks": 14
+      }
+    },
+    {
+      "a": "redflail",
+      "b": "widowmaker",
+      "seed": 3711515230,
+      "r": {
+        "seed": 3711515230,
+        "a": "Threshmaw",
+        "b": "Widowmaker",
+        "winner": "Threshmaw",
+        "hp": 207,
+        "duration": 40.14,
+        "reason": "slain",
+        "hits": {
+          "a": 26,
+          "b": 7
+        },
+        "crits": {
+          "a": 4,
+          "b": 0
+        },
+        "clanks": 11
+      }
+    },
+    {
+      "a": "foregone",
+      "b": "ironhail",
+      "seed": 2070983695,
+      "r": {
+        "seed": 2070983695,
+        "a": "Foregone",
+        "b": "Ironhail",
+        "winner": "Ironhail",
+        "hp": 106,
+        "duration": 49.56,
+        "reason": "slain",
+        "hits": {
+          "a": 7,
+          "b": 16
+        },
+        "crits": {
+          "a": 0,
+          "b": 0
+        },
+        "clanks": 10
+      }
+    },
+    {
+      "a": "vinesower",
+      "b": "heartwood",
+      "seed": 430452160,
+      "r": {
+        "seed": 430452160,
+        "a": "Vinesower",
+        "b": "Heartwood",
+        "winner": "Vinesower",
+        "hp": 265,
+        "duration": 51.65,
+        "reason": "slain",
+        "hits": {
+          "a": 41,
+          "b": 7
+        },
+        "crits": {
+          "a": 4,
+          "b": 1
+        },
+        "clanks": 14
+      }
+    },
+    {
+      "a": "marrowdraw",
+      "b": "grudgebearer",
+      "seed": 1444356386,
+      "r": {
+        "seed": 1444356386,
+        "a": "Marrowdraw",
+        "b": "Grudgebearer",
+        "winner": "Grudgebearer",
+        "hp": 162,
+        "duration": 29.09,
+        "reason": "slain",
+        "hits": {
+          "a": 10,
+          "b": 7
+        },
+        "crits": {
+          "a": 0,
+          "b": 1
+        },
+        "clanks": 9
+      }
+    },
+    {
+      "a": "paradox",
+      "b": "lightkeeper",
+      "seed": 4098792147,
+      "r": {
+        "seed": 4098792147,
+        "a": "Paradox",
+        "b": "Lightkeeper",
+        "winner": "Paradox",
+        "hp": 112,
+        "duration": 51.63,
+        "reason": "slain",
+        "hits": {
+          "a": 11,
+          "b": 12
+        },
+        "crits": {
+          "a": 1,
+          "b": 0
+        },
+        "clanks": 20
+      }
+    },
+    {
+      "a": "thornshear",
+      "b": "nightfell",
+      "seed": 2458260612,
+      "r": {
+        "seed": 2458260612,
+        "a": "Thornshear",
+        "b": "Nightfell",
+        "winner": "Nightfell",
+        "hp": 15,
+        "duration": 62.57,
+        "reason": "slain",
+        "hits": {
+          "a": 60,
+          "b": 14
+        },
+        "crits": {
+          "a": 5,
+          "b": 1
+        },
+        "clanks": 24
+      }
+    },
+    {
+      "a": "vesper",
+      "b": "marrowdraw",
+      "seed": 817729077,
+      "r": {
+        "seed": 817729077,
+        "a": "Vesper",
+        "b": "Marrowdraw",
+        "winner": "Marrowdraw",
+        "hp": 176,
+        "duration": 34.34,
+        "reason": "slain",
+        "hits": {
+          "a": 11,
+          "b": 18
+        },
+        "crits": {
+          "a": 1,
+          "b": 1
+        },
+        "clanks": 10
+      }
+    },
+    {
+      "a": "dawnbringer",
+      "b": "thornwake",
+      "seed": 3472164838,
+      "r": {
+        "seed": 3472164838,
+        "a": "Dawnbringer",
+        "b": "Thornwake",
+        "winner": "Dawnbringer",
+        "hp": 128,
+        "duration": 44.22,
         "reason": "slain",
         "hits": {
           "a": 17,
           "b": 7
         },
         "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 8
-      }
-    },
-    {
-      "a": "gravemourn",
-      "b": "censer",
-      "seed": 1570701462,
-      "r": {
-        "seed": 1570701462,
-        "a": "Gravemourn",
-        "b": "Censer",
-        "winner": "Censer",
-        "hp": 2,
-        "duration": 41.87,
-        "reason": "slain",
-        "hits": {
-          "a": 6,
-          "b": 9
-        },
-        "crits": {
           "a": 1,
           "b": 0
-        },
-        "clanks": 12
-      }
-    },
-    {
-      "a": "slagheart",
-      "b": "redflail",
-      "seed": 4225137223,
-      "r": {
-        "seed": 4225137223,
-        "a": "Slagheart",
-        "b": "Threshmaw",
-        "winner": "Threshmaw",
-        "hp": 79,
-        "duration": 36.26,
-        "reason": "slain",
-        "hits": {
-          "a": 5,
-          "b": 25
-        },
-        "crits": {
-          "a": 0,
-          "b": 4
-        },
-        "clanks": 6
-      }
-    },
-    {
-      "a": "spellbreaker",
-      "b": "dawnbringer",
-      "seed": 2584605688,
-      "r": {
-        "seed": 2584605688,
-        "a": "Spellbreaker",
-        "b": "Dawnbringer",
-        "winner": "Spellbreaker",
-        "hp": 100,
-        "duration": 66.02,
-        "reason": "slain",
-        "hits": {
-          "a": 23,
-          "b": 12
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 31
-      }
-    },
-    {
-      "a": "ironhail",
-      "b": "spellbreaker",
-      "seed": 944074153,
-      "r": {
-        "seed": 944074153,
-        "a": "Ironhail",
-        "b": "Spellbreaker",
-        "winner": "Spellbreaker",
-        "hp": 75,
-        "duration": 63.11,
-        "reason": "slain",
-        "hits": {
-          "a": 11,
-          "b": 22
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 23
-      }
-    },
-    {
-      "a": "lightkeeper",
-      "b": "oathwound",
-      "seed": 3598509914,
-      "r": {
-        "seed": 3598509914,
-        "a": "Lightkeeper",
-        "b": "Goreshard",
-        "winner": "Lightkeeper",
-        "hp": 85,
-        "duration": 56.28,
-        "reason": "slain",
-        "hits": {
-          "a": 19,
-          "b": 15
-        },
-        "crits": {
-          "a": 2,
-          "b": 2
-        },
-        "clanks": 30
-      }
-    },
-    {
-      "a": "farwarden",
-      "b": "vinesower",
-      "seed": 1957978379,
-      "r": {
-        "seed": 1957978379,
-        "a": "Farwarden",
-        "b": "Vinesower",
-        "winner": "Farwarden",
-        "hp": 201,
-        "duration": 49.21,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 56
-        },
-        "crits": {
-          "a": 1,
-          "b": 5
-        },
-        "clanks": 7
-      }
-    },
-    {
-      "a": "aureole",
-      "b": "grudgebearer",
-      "seed": 317446844,
-      "r": {
-        "seed": 317446844,
-        "a": "Aureole",
-        "b": "Grudgebearer",
-        "winner": "Grudgebearer",
-        "hp": 44,
-        "duration": 36.4,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 8
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 6
-      }
-    },
-    {
-      "a": "censer",
-      "b": "lightkeeper",
-      "seed": 2971882605,
-      "r": {
-        "seed": 2971882605,
-        "a": "Censer",
-        "b": "Lightkeeper",
-        "winner": "Lightkeeper",
-        "hp": 72,
-        "duration": 58.12,
-        "reason": "slain",
-        "hits": {
-          "a": 9,
-          "b": 19
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 25
-      }
-    },
-    {
-      "a": "emberedge",
-      "b": "nightfell",
-      "seed": 1331351070,
-      "r": {
-        "seed": 1331351070,
-        "a": "Emberedge",
-        "b": "Nightfell",
-        "winner": "Emberedge",
-        "hp": 19,
-        "duration": 56.56,
-        "reason": "slain",
-        "hits": {
-          "a": 15,
-          "b": 12
-        },
-        "crits": {
-          "a": 1,
-          "b": 2
-        },
-        "clanks": 29
-      }
-    },
-    {
-      "a": "oathwound",
-      "b": "marrowdraw",
-      "seed": 3985786831,
-      "r": {
-        "seed": 3985786831,
-        "a": "Goreshard",
-        "b": "Marrowdraw",
-        "winner": "Goreshard",
-        "hp": 158,
-        "duration": 49.78,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 7
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 17
-      }
-    },
-    {
-      "a": "heartwood",
-      "b": "lastlight",
-      "seed": 2345255296,
-      "r": {
-        "seed": 2345255296,
-        "a": "Heartwood",
-        "b": "Lastlight",
-        "winner": "Lastlight",
-        "hp": 177,
-        "duration": 46.45,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 14
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 21
-      }
-    },
-    {
-      "a": "nightfell",
-      "b": "aureole",
-      "seed": 704723761,
-      "r": {
-        "seed": 704723761,
-        "a": "Nightfell",
-        "b": "Aureole",
-        "winner": "Nightfell",
-        "hp": 77,
-        "duration": 53.54,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 9
-        },
-        "crits": {
-          "a": 2,
-          "b": 2
         },
         "clanks": 15
       }
     },
     {
-      "a": "axiom",
-      "b": "twinshade",
-      "seed": 3359159522,
+      "a": "widowmaker",
+      "b": "farwarden",
+      "seed": 1831633303,
       "r": {
-        "seed": 3359159522,
-        "a": "Axiom",
-        "b": "Twinshade",
-        "winner": "Twinshade",
-        "hp": 59,
-        "duration": 70.38,
+        "seed": 1831633303,
+        "a": "Widowmaker",
+        "b": "Farwarden",
+        "winner": "Farwarden",
+        "hp": 54,
+        "duration": 59.62,
         "reason": "slain",
         "hits": {
-          "a": 28,
-          "b": 26
+          "a": 19,
+          "b": 20
         },
         "crits": {
           "a": 2,
-          "b": 5
-        },
-        "clanks": 35
-      }
-    },
-    {
-      "a": "twinshade",
-      "b": "thornshear",
-      "seed": 1718627987,
-      "r": {
-        "seed": 1718627987,
-        "a": "Twinshade",
-        "b": "Thornshear",
-        "winner": "Twinshade",
-        "hp": 71,
-        "duration": 73.88,
-        "reason": "slain",
-        "hits": {
-          "a": 27,
-          "b": 65
-        },
-        "crits": {
-          "a": 1,
-          "b": 5
-        },
-        "clanks": 34
-      }
-    },
-    {
-      "a": "redflail",
-      "b": "slagheart",
-      "seed": 78096452,
-      "r": {
-        "seed": 78096452,
-        "a": "Threshmaw",
-        "b": "Slagheart",
-        "winner": "Threshmaw",
-        "hp": 155,
-        "duration": 28.05,
-        "reason": "slain",
-        "hits": {
-          "a": 35,
-          "b": 9
-        },
-        "crits": {
-          "a": 3,
-          "b": 0
-        },
-        "clanks": 7
-      }
-    },
-    {
-      "a": "foregone",
-      "b": "emberedge",
-      "seed": 2732532213,
-      "r": {
-        "seed": 2732532213,
-        "a": "Foregone",
-        "b": "Emberedge",
-        "winner": "Foregone",
-        "hp": 29,
-        "duration": 49.16,
-        "reason": "slain",
-        "hits": {
-          "a": 12,
-          "b": 10
-        },
-        "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 22
-      }
-    },
-    {
-      "a": "vinesower",
-      "b": "foregone",
-      "seed": 1092000678,
-      "r": {
-        "seed": 1092000678,
-        "a": "Vinesower",
-        "b": "Foregone",
-        "winner": "Vinesower",
-        "hp": 4,
-        "duration": 46.82,
-        "reason": "slain",
-        "hits": {
-          "a": 58,
-          "b": 8
-        },
-        "crits": {
-          "a": 7,
-          "b": 2
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "bulwarden",
-      "b": "widowmaker",
-      "seed": 3746436439,
-      "r": {
-        "seed": 3746436439,
-        "a": "Bulwarden",
-        "b": "Widowmaker",
-        "winner": "Widowmaker",
-        "hp": 56,
-        "duration": 51.09,
-        "reason": "slain",
-        "hits": {
-          "a": 11,
-          "b": 15
-        },
-        "crits": {
-          "a": 1,
-          "b": 2
-        },
-        "clanks": 22
-      }
-    },
-    {
-      "a": "marrowdraw",
-      "b": "ironhail",
-      "seed": 2105904904,
-      "r": {
-        "seed": 2105904904,
-        "a": "Marrowdraw",
-        "b": "Ironhail",
-        "winner": "Ironhail",
-        "hp": 71,
-        "duration": 33.52,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 12
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 5
-      }
-    },
-    {
-      "a": "paradox",
-      "b": "heartwood",
-      "seed": 465373369,
-      "r": {
-        "seed": 465373369,
-        "a": "Paradox",
-        "b": "Heartwood",
-        "winner": "Heartwood",
-        "hp": 84,
-        "duration": 65.07,
-        "reason": "slain",
-        "hits": {
-          "a": 6,
-          "b": 21
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 21
-      }
-    },
-    {
-      "a": "thornshear",
-      "b": "bulwarden",
-      "seed": 3119809130,
-      "r": {
-        "seed": 3119809130,
-        "a": "Thornshear",
-        "b": "Bulwarden",
-        "winner": "Thornshear",
-        "hp": 68,
-        "duration": 64.03,
-        "reason": "slain",
-        "hits": {
-          "a": 79,
-          "b": 8
-        },
-        "crits": {
-          "a": 10,
-          "b": 1
-        },
-        "clanks": 10
-      }
-    },
-    {
-      "a": "dawnbringer",
-      "b": "thornwake",
-      "seed": 1479277595,
-      "r": {
-        "seed": 1479277595,
-        "a": "Dawnbringer",
-        "b": "Thornwake",
-        "winner": "Thornwake",
-        "hp": 138,
-        "duration": 41.05,
-        "reason": "slain",
-        "hits": {
-          "a": 10,
-          "b": 11
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 18
-      }
-    },
-    {
-      "a": "widowmaker",
-      "b": "farwarden",
-      "seed": 4133713356,
-      "r": {
-        "seed": 4133713356,
-        "a": "Widowmaker",
-        "b": "Farwarden",
-        "winner": "Widowmaker",
-        "hp": 18,
-        "duration": 59.77,
-        "reason": "slain",
-        "hits": {
-          "a": 23,
-          "b": 16
-        },
-        "crits": {
-          "a": 1,
           "b": 1
         },
         "clanks": 19
@@ -3042,501 +3916,64 @@
     {
       "a": "grudgebearer",
       "b": "axiom",
-      "seed": 2493181821,
+      "seed": 191101768,
       "r": {
-        "seed": 2493181821,
+        "seed": 191101768,
         "a": "Grudgebearer",
         "b": "Axiom",
         "winner": "Grudgebearer",
-        "hp": 37,
-        "duration": 55.34,
+        "hp": 284,
+        "duration": 39.17,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 22
+          "a": 10,
+          "b": 8
         },
         "crits": {
-          "a": 2,
-          "b": 1
+          "a": 0,
+          "b": 0
         },
-        "clanks": 25
+        "clanks": 17
       }
     },
     {
       "a": "thornwake",
       "b": "paradox",
-      "seed": 852650286,
+      "seed": 2845537529,
       "r": {
-        "seed": 852650286,
+        "seed": 2845537529,
         "a": "Thornwake",
         "b": "Paradox",
-        "winner": "Paradox",
-        "hp": 57,
-        "duration": 46.72,
+        "winner": "Thornwake",
+        "hp": 160,
+        "duration": 46.42,
         "reason": "slain",
         "hits": {
-          "a": 9,
-          "b": 8
+          "a": 10,
+          "b": 5
         },
         "crits": {
-          "a": 0,
-          "b": 1
+          "a": 1,
+          "b": 0
         },
         "clanks": 11
       }
     },
     {
-      "a": "lastlight",
-      "b": "gravemourn",
-      "seed": 3507086047,
-      "r": {
-        "seed": 3507086047,
-        "a": "Lastlight",
-        "b": "Gravemourn",
-        "winner": "Gravemourn",
-        "hp": 113,
-        "duration": 35.38,
-        "reason": "slain",
-        "hits": {
-          "a": 15,
-          "b": 7
-        },
-        "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 6
-      }
-    },
-    {
       "a": "gravemourn",
-      "b": "censer",
-      "seed": 1866554512,
-      "r": {
-        "seed": 1866554512,
-        "a": "Gravemourn",
-        "b": "Censer",
-        "winner": "Censer",
-        "hp": 153,
-        "duration": 33.46,
-        "reason": "slain",
-        "hits": {
-          "a": 5,
-          "b": 9
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 6
-      }
-    },
-    {
-      "a": "slagheart",
-      "b": "redflail",
-      "seed": 226022977,
-      "r": {
-        "seed": 226022977,
-        "a": "Slagheart",
-        "b": "Threshmaw",
-        "winner": "Slagheart",
-        "hp": 30,
-        "duration": 39.47,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 26
-        },
-        "crits": {
-          "a": 0,
-          "b": 4
-        },
-        "clanks": 7
-      }
-    },
-    {
-      "a": "spellbreaker",
-      "b": "dawnbringer",
-      "seed": 2880458738,
-      "r": {
-        "seed": 2880458738,
-        "a": "Spellbreaker",
-        "b": "Dawnbringer",
-        "winner": "Spellbreaker",
-        "hp": 6,
-        "duration": 64.77,
-        "reason": "slain",
-        "hits": {
-          "a": 19,
-          "b": 14
-        },
-        "crits": {
-          "a": 0,
-          "b": 3
-        },
-        "clanks": 31
-      }
-    },
-    {
-      "a": "ironhail",
-      "b": "spellbreaker",
-      "seed": 1239927203,
-      "r": {
-        "seed": 1239927203,
-        "a": "Ironhail",
-        "b": "Spellbreaker",
-        "winner": "Ironhail",
-        "hp": 107,
-        "duration": 50.37,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 18
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 13
-      }
-    },
-    {
-      "a": "lightkeeper",
-      "b": "oathwound",
-      "seed": 3894362964,
-      "r": {
-        "seed": 3894362964,
-        "a": "Lightkeeper",
-        "b": "Goreshard",
-        "winner": "Lightkeeper",
-        "hp": 70,
-        "duration": 58.41,
-        "reason": "slain",
-        "hits": {
-          "a": 19,
-          "b": 18
-        },
-        "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 33
-      }
-    },
-    {
-      "a": "farwarden",
-      "b": "vinesower",
-      "seed": 2253831429,
-      "r": {
-        "seed": 2253831429,
-        "a": "Farwarden",
-        "b": "Vinesower",
-        "winner": "Farwarden",
-        "hp": 102,
-        "duration": 55.5,
-        "reason": "slain",
-        "hits": {
-          "a": 18,
-          "b": 57
-        },
-        "crits": {
-          "a": 2,
-          "b": 3
-        },
-        "clanks": 7
-      }
-    },
-    {
-      "a": "aureole",
-      "b": "grudgebearer",
-      "seed": 613299894,
-      "r": {
-        "seed": 613299894,
-        "a": "Aureole",
-        "b": "Grudgebearer",
-        "winner": "Aureole",
-        "hp": 63,
-        "duration": 37.39,
-        "reason": "slain",
-        "hits": {
-          "a": 12,
-          "b": 6
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "censer",
-      "b": "lightkeeper",
-      "seed": 3267735655,
-      "r": {
-        "seed": 3267735655,
-        "a": "Censer",
-        "b": "Lightkeeper",
-        "winner": "Lightkeeper",
-        "hp": 52,
-        "duration": 54.69,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
-          "b": 22
-        },
-        "crits": {
-          "a": 3,
-          "b": 0
-        },
-        "clanks": 24
-      }
-    },
-    {
-      "a": "emberedge",
-      "b": "nightfell",
-      "seed": 1627204120,
-      "r": {
-        "seed": 1627204120,
-        "a": "Emberedge",
-        "b": "Nightfell",
-        "winner": "Emberedge",
-        "hp": 70,
-        "duration": 53.62,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 13
-        },
-        "crits": {
-          "a": 3,
-          "b": 2
-        },
-        "clanks": 27
-      }
-    },
-    {
-      "a": "oathwound",
-      "b": "marrowdraw",
-      "seed": 4281639881,
-      "r": {
-        "seed": 4281639881,
-        "a": "Goreshard",
-        "b": "Marrowdraw",
-        "winner": "Goreshard",
-        "hp": 280,
-        "duration": 44.47,
-        "reason": "slain",
-        "hits": {
-          "a": 16,
-          "b": 4
-        },
-        "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 12
-      }
-    },
-    {
-      "a": "heartwood",
-      "b": "lastlight",
-      "seed": 2641108346,
-      "r": {
-        "seed": 2641108346,
-        "a": "Heartwood",
-        "b": "Lastlight",
-        "winner": "Lastlight",
-        "hp": 9,
-        "duration": 55.14,
-        "reason": "slain",
-        "hits": {
-          "a": 21,
-          "b": 15
-        },
-        "crits": {
-          "a": 1,
-          "b": 2
-        },
-        "clanks": 25
-      }
-    },
-    {
-      "a": "nightfell",
       "b": "aureole",
-      "seed": 1000576811,
+      "seed": 3859441755,
       "r": {
-        "seed": 1000576811,
-        "a": "Nightfell",
+        "seed": 3859441755,
+        "a": "Gravemourn",
         "b": "Aureole",
-        "winner": "Nightfell",
-        "hp": 52,
-        "duration": 50.13,
+        "winner": "Aureole",
+        "hp": 339,
+        "duration": 28.45,
         "reason": "slain",
         "hits": {
-          "a": 18,
-          "b": 11
-        },
-        "crits": {
-          "a": 3,
-          "b": 1
-        },
-        "clanks": 20
-      }
-    },
-    {
-      "a": "axiom",
-      "b": "twinshade",
-      "seed": 3655012572,
-      "r": {
-        "seed": 3655012572,
-        "a": "Axiom",
-        "b": "Twinshade",
-        "winner": "Twinshade",
-        "hp": 45,
-        "duration": 69.8,
-        "reason": "slain",
-        "hits": {
-          "a": 29,
-          "b": 25
-        },
-        "crits": {
           "a": 2,
-          "b": 4
-        },
-        "clanks": 35
-      }
-    },
-    {
-      "a": "twinshade",
-      "b": "thornshear",
-      "seed": 2014481037,
-      "r": {
-        "seed": 2014481037,
-        "a": "Twinshade",
-        "b": "Thornshear",
-        "winner": "Thornshear",
-        "hp": 45,
-        "duration": 65.35,
-        "reason": "slain",
-        "hits": {
-          "a": 23,
-          "b": 74
-        },
-        "crits": {
-          "a": 1,
-          "b": 9
-        },
-        "clanks": 26
-      }
-    },
-    {
-      "a": "redflail",
-      "b": "slagheart",
-      "seed": 373949502,
-      "r": {
-        "seed": 373949502,
-        "a": "Threshmaw",
-        "b": "Slagheart",
-        "winner": "Threshmaw",
-        "hp": 91,
-        "duration": 31.24,
-        "reason": "slain",
-        "hits": {
-          "a": 20,
-          "b": 6
-        },
-        "crits": {
-          "a": 5,
-          "b": 1
-        },
-        "clanks": 3
-      }
-    },
-    {
-      "a": "foregone",
-      "b": "emberedge",
-      "seed": 3028385263,
-      "r": {
-        "seed": 3028385263,
-        "a": "Foregone",
-        "b": "Emberedge",
-        "winner": "Emberedge",
-        "hp": 46,
-        "duration": 52.42,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 17
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 22
-      }
-    },
-    {
-      "a": "vinesower",
-      "b": "foregone",
-      "seed": 1387853728,
-      "r": {
-        "seed": 1387853728,
-        "a": "Vinesower",
-        "b": "Foregone",
-        "winner": "Vinesower",
-        "hp": 54,
-        "duration": 45.55,
-        "reason": "slain",
-        "hits": {
-          "a": 55,
-          "b": 8
-        },
-        "crits": {
-          "a": 3,
-          "b": 1
-        },
-        "clanks": 8
-      }
-    },
-    {
-      "a": "bulwarden",
-      "b": "widowmaker",
-      "seed": 4042289489,
-      "r": {
-        "seed": 4042289489,
-        "a": "Bulwarden",
-        "b": "Widowmaker",
-        "winner": "Widowmaker",
-        "hp": 25,
-        "duration": 56.59,
-        "reason": "slain",
-        "hits": {
-          "a": 9,
-          "b": 21
-        },
-        "crits": {
-          "a": 0,
-          "b": 3
-        },
-        "clanks": 20
-      }
-    },
-    {
-      "a": "marrowdraw",
-      "b": "ironhail",
-      "seed": 2401757954,
-      "r": {
-        "seed": 2401757954,
-        "a": "Marrowdraw",
-        "b": "Ironhail",
-        "winner": "Marrowdraw",
-        "hp": 72,
-        "duration": 33.99,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 11
+          "b": 15
         },
         "crits": {
           "a": 0,
@@ -3546,1061 +3983,118 @@
       }
     },
     {
-      "a": "paradox",
-      "b": "heartwood",
-      "seed": 761226419,
-      "r": {
-        "seed": 761226419,
-        "a": "Paradox",
-        "b": "Heartwood",
-        "winner": "Paradox",
-        "hp": 206,
-        "duration": 48.88,
-        "reason": "slain",
-        "hits": {
-          "a": 10,
-          "b": 11
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 16
-      }
-    },
-    {
-      "a": "thornshear",
-      "b": "bulwarden",
-      "seed": 3415662180,
-      "r": {
-        "seed": 3415662180,
-        "a": "Thornshear",
-        "b": "Bulwarden",
-        "winner": "Bulwarden",
-        "hp": 93,
-        "duration": 59.4,
-        "reason": "slain",
-        "hits": {
-          "a": 64,
-          "b": 8
-        },
-        "crits": {
-          "a": 3,
-          "b": 1
-        },
-        "clanks": 15
-      }
-    },
-    {
-      "a": "dawnbringer",
-      "b": "thornwake",
-      "seed": 1775130645,
-      "r": {
-        "seed": 1775130645,
-        "a": "Dawnbringer",
-        "b": "Thornwake",
-        "winner": "Dawnbringer",
-        "hp": 152,
-        "duration": 52.02,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 5
-        },
-        "crits": {
-          "a": 3,
-          "b": 0
-        },
-        "clanks": 18
-      }
-    },
-    {
-      "a": "widowmaker",
-      "b": "farwarden",
-      "seed": 134599110,
-      "r": {
-        "seed": 134599110,
-        "a": "Widowmaker",
-        "b": "Farwarden",
-        "winner": "Widowmaker",
-        "hp": 194,
-        "duration": 49.57,
-        "reason": "slain",
-        "hits": {
-          "a": 21,
-          "b": 10
-        },
-        "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 15
-      }
-    },
-    {
-      "a": "grudgebearer",
-      "b": "axiom",
-      "seed": 2789034871,
-      "r": {
-        "seed": 2789034871,
-        "a": "Grudgebearer",
-        "b": "Axiom",
-        "winner": "Axiom",
-        "hp": 204,
-        "duration": 63.27,
-        "reason": "slain",
-        "hits": {
-          "a": 4,
-          "b": 27
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 30
-      }
-    },
-    {
-      "a": "thornwake",
-      "b": "paradox",
-      "seed": 1148503336,
-      "r": {
-        "seed": 1148503336,
-        "a": "Thornwake",
-        "b": "Paradox",
-        "winner": "Paradox",
-        "hp": 60,
-        "duration": 46.81,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
-          "b": 9
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 6
-      }
-    },
-    {
-      "a": "lastlight",
-      "b": "gravemourn",
-      "seed": 3802939097,
-      "r": {
-        "seed": 3802939097,
-        "a": "Lastlight",
-        "b": "Gravemourn",
-        "winner": "Lastlight",
-        "hp": 197,
-        "duration": 48.82,
-        "reason": "slain",
-        "hits": {
-          "a": 19,
-          "b": 4
-        },
-        "crits": {
-          "a": 0,
-          "b": 0
-        },
-        "clanks": 6
-      }
-    },
-    {
-      "a": "gravemourn",
-      "b": "censer",
-      "seed": 2162407562,
-      "r": {
-        "seed": 2162407562,
-        "a": "Gravemourn",
-        "b": "Censer",
-        "winner": "Gravemourn",
-        "hp": 117,
-        "duration": 31.3,
-        "reason": "slain",
-        "hits": {
-          "a": 6,
-          "b": 6
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 5
-      }
-    },
-    {
       "a": "slagheart",
-      "b": "redflail",
-      "seed": 521876027,
+      "b": "twinshade",
+      "seed": 2218910220,
       "r": {
-        "seed": 521876027,
+        "seed": 2218910220,
         "a": "Slagheart",
-        "b": "Threshmaw",
-        "winner": "Threshmaw",
-        "hp": 167,
-        "duration": 27.48,
-        "reason": "slain",
-        "hits": {
-          "a": 4,
-          "b": 23
-        },
-        "crits": {
-          "a": 1,
-          "b": 5
-        },
-        "clanks": 3
-      }
-    },
-    {
-      "a": "spellbreaker",
-      "b": "dawnbringer",
-      "seed": 3176311788,
-      "r": {
-        "seed": 3176311788,
-        "a": "Spellbreaker",
-        "b": "Dawnbringer",
-        "winner": "Spellbreaker",
-        "hp": 21,
-        "duration": 62.55,
-        "reason": "slain",
-        "hits": {
-          "a": 24,
-          "b": 14
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 33
-      }
-    },
-    {
-      "a": "ironhail",
-      "b": "spellbreaker",
-      "seed": 1535780253,
-      "r": {
-        "seed": 1535780253,
-        "a": "Ironhail",
-        "b": "Spellbreaker",
-        "winner": "Ironhail",
-        "hp": 137,
-        "duration": 53.52,
-        "reason": "slain",
-        "hits": {
-          "a": 15,
-          "b": 14
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 14
-      }
-    },
-    {
-      "a": "lightkeeper",
-      "b": "oathwound",
-      "seed": 4190216014,
-      "r": {
-        "seed": 4190216014,
-        "a": "Lightkeeper",
-        "b": "Goreshard",
-        "winner": "Lightkeeper",
-        "hp": 41,
-        "duration": 64.18,
-        "reason": "slain",
-        "hits": {
-          "a": 18,
-          "b": 18
-        },
-        "crits": {
-          "a": 3,
-          "b": 1
-        },
-        "clanks": 33
-      }
-    },
-    {
-      "a": "farwarden",
-      "b": "vinesower",
-      "seed": 2549684479,
-      "r": {
-        "seed": 2549684479,
-        "a": "Farwarden",
-        "b": "Vinesower",
-        "winner": "Farwarden",
-        "hp": 79,
-        "duration": 57.02,
-        "reason": "slain",
-        "hits": {
-          "a": 19,
-          "b": 63
-        },
-        "crits": {
-          "a": 1,
-          "b": 3
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "aureole",
-      "b": "grudgebearer",
-      "seed": 909152944,
-      "r": {
-        "seed": 909152944,
-        "a": "Aureole",
-        "b": "Grudgebearer",
-        "winner": "Grudgebearer",
-        "hp": 139,
-        "duration": 37.65,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 6
-        },
-        "crits": {
-          "a": 0,
-          "b": 3
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "censer",
-      "b": "lightkeeper",
-      "seed": 3563588705,
-      "r": {
-        "seed": 3563588705,
-        "a": "Censer",
-        "b": "Lightkeeper",
-        "winner": "Lightkeeper",
-        "hp": 48,
-        "duration": 54.9,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 17
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 20
-      }
-    },
-    {
-      "a": "emberedge",
-      "b": "nightfell",
-      "seed": 1923057170,
-      "r": {
-        "seed": 1923057170,
-        "a": "Emberedge",
-        "b": "Nightfell",
-        "winner": "Nightfell",
-        "hp": 16,
-        "duration": 54.89,
+        "b": "Twinshade",
+        "winner": "Slagheart",
+        "hp": 200,
+        "duration": 31.84,
         "reason": "slain",
         "hits": {
           "a": 13,
           "b": 13
         },
         "crits": {
-          "a": 0,
+          "a": 1,
           "b": 2
         },
-        "clanks": 29
+        "clanks": 9
       }
     },
     {
-      "a": "oathwound",
-      "b": "marrowdraw",
-      "seed": 282525635,
+      "a": "spellbreaker",
+      "b": "thornshear",
+      "seed": 578378685,
       "r": {
-        "seed": 282525635,
-        "a": "Goreshard",
-        "b": "Marrowdraw",
-        "winner": "Goreshard",
-        "hp": 9,
-        "duration": 38.6,
+        "seed": 578378685,
+        "a": "Spellbreaker",
+        "b": "Thornshear",
+        "winner": "Spellbreaker",
+        "hp": 162,
+        "duration": 57.92,
+        "reason": "slain",
+        "hits": {
+          "a": 19,
+          "b": 47
+        },
+        "crits": {
+          "a": 5,
+          "b": 6
+        },
+        "clanks": 27
+      }
+    },
+    {
+      "a": "ironhail",
+      "b": "gravemourn",
+      "seed": 3232814446,
+      "r": {
+        "seed": 3232814446,
+        "a": "Ironhail",
+        "b": "Gravemourn",
+        "winner": "Ironhail",
+        "hp": 58,
+        "duration": 32.17,
         "reason": "slain",
         "hits": {
           "a": 14,
-          "b": 17
+          "b": 5
         },
         "crits": {
-          "a": 4,
-          "b": 0
+          "a": 2,
+          "b": 1
         },
-        "clanks": 17
+        "clanks": 4
       }
     },
     {
-      "a": "heartwood",
-      "b": "lastlight",
-      "seed": 2936961396,
+      "a": "lightkeeper",
+      "b": "censer",
+      "seed": 1592282911,
       "r": {
-        "seed": 2936961396,
-        "a": "Heartwood",
-        "b": "Lastlight",
-        "winner": "Heartwood",
-        "hp": 3,
-        "duration": 57.22,
+        "seed": 1592282911,
+        "a": "Lightkeeper",
+        "b": "Censer",
+        "winner": "Lightkeeper",
+        "hp": 71,
+        "duration": 65.68,
         "reason": "slain",
         "hits": {
-          "a": 16,
-          "b": 12
+          "a": 22,
+          "b": 7
         },
         "crits": {
-          "a": 3,
-          "b": 2
+          "a": 0,
+          "b": 1
         },
         "clanks": 26
       }
     },
     {
-      "a": "nightfell",
-      "b": "aureole",
-      "seed": 1296429861,
-      "r": {
-        "seed": 1296429861,
-        "a": "Nightfell",
-        "b": "Aureole",
-        "winner": "Aureole",
-        "hp": 103,
-        "duration": 44.39,
-        "reason": "slain",
-        "hits": {
-          "a": 16,
-          "b": 13
-        },
-        "crits": {
-          "a": 1,
-          "b": 3
-        },
-        "clanks": 20
-      }
-    },
-    {
-      "a": "axiom",
-      "b": "twinshade",
-      "seed": 3950865622,
-      "r": {
-        "seed": 3950865622,
-        "a": "Axiom",
-        "b": "Twinshade",
-        "winner": "Twinshade",
-        "hp": 139,
-        "duration": 70.66,
-        "reason": "slain",
-        "hits": {
-          "a": 21,
-          "b": 25
-        },
-        "crits": {
-          "a": 2,
-          "b": 5
-        },
-        "clanks": 37
-      }
-    },
-    {
-      "a": "twinshade",
-      "b": "thornshear",
-      "seed": 2310334087,
-      "r": {
-        "seed": 2310334087,
-        "a": "Twinshade",
-        "b": "Thornshear",
-        "winner": "Thornshear",
-        "hp": 82,
-        "duration": 65.36,
-        "reason": "slain",
-        "hits": {
-          "a": 23,
-          "b": 69
-        },
-        "crits": {
-          "a": 1,
-          "b": 5
-        },
-        "clanks": 25
-      }
-    },
-    {
-      "a": "redflail",
-      "b": "slagheart",
-      "seed": 669802552,
-      "r": {
-        "seed": 669802552,
-        "a": "Threshmaw",
-        "b": "Slagheart",
-        "winner": "Threshmaw",
-        "hp": 42,
-        "duration": 32.62,
-        "reason": "slain",
-        "hits": {
-          "a": 23,
-          "b": 8
-        },
-        "crits": {
-          "a": 2,
-          "b": 2
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "foregone",
-      "b": "emberedge",
-      "seed": 3324238313,
-      "r": {
-        "seed": 3324238313,
-        "a": "Foregone",
-        "b": "Emberedge",
-        "winner": "Foregone",
-        "hp": 53,
-        "duration": 42.05,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 12
-        },
-        "crits": {
-          "a": 0,
-          "b": 3
-        },
-        "clanks": 16
-      }
-    },
-    {
-      "a": "vinesower",
-      "b": "foregone",
-      "seed": 1683706778,
-      "r": {
-        "seed": 1683706778,
-        "a": "Vinesower",
-        "b": "Foregone",
-        "winner": "Foregone",
-        "hp": 102,
-        "duration": 50.31,
-        "reason": "slain",
-        "hits": {
-          "a": 50,
-          "b": 9
-        },
-        "crits": {
-          "a": 2,
-          "b": 0
-        },
-        "clanks": 8
-      }
-    },
-    {
-      "a": "bulwarden",
-      "b": "widowmaker",
-      "seed": 43175243,
-      "r": {
-        "seed": 43175243,
-        "a": "Bulwarden",
-        "b": "Widowmaker",
-        "winner": "Bulwarden",
-        "hp": 231,
-        "duration": 44.07,
-        "reason": "slain",
-        "hits": {
-          "a": 14,
-          "b": 8
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 18
-      }
-    },
-    {
-      "a": "marrowdraw",
-      "b": "ironhail",
-      "seed": 2697611004,
-      "r": {
-        "seed": 2697611004,
-        "a": "Marrowdraw",
-        "b": "Ironhail",
-        "winner": "Marrowdraw",
-        "hp": 121,
-        "duration": 33.69,
-        "reason": "slain",
-        "hits": {
-          "a": 12,
-          "b": 9
-        },
-        "crits": {
-          "a": 4,
-          "b": 2
-        },
-        "clanks": 3
-      }
-    },
-    {
-      "a": "paradox",
-      "b": "heartwood",
-      "seed": 1057079469,
-      "r": {
-        "seed": 1057079469,
-        "a": "Paradox",
-        "b": "Heartwood",
-        "winner": "Heartwood",
-        "hp": 42,
-        "duration": 53.42,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
-          "b": 18
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 19
-      }
-    },
-    {
-      "a": "thornshear",
-      "b": "bulwarden",
-      "seed": 3711515230,
-      "r": {
-        "seed": 3711515230,
-        "a": "Thornshear",
-        "b": "Bulwarden",
-        "winner": "Bulwarden",
-        "hp": 274,
-        "duration": 49.37,
-        "reason": "slain",
-        "hits": {
-          "a": 51,
-          "b": 12
-        },
-        "crits": {
-          "a": 5,
-          "b": 2
-        },
-        "clanks": 19
-      }
-    },
-    {
-      "a": "dawnbringer",
-      "b": "thornwake",
-      "seed": 2070983695,
-      "r": {
-        "seed": 2070983695,
-        "a": "Dawnbringer",
-        "b": "Thornwake",
-        "winner": "Thornwake",
-        "hp": 30,
-        "duration": 55.55,
-        "reason": "slain",
-        "hits": {
-          "a": 13,
-          "b": 8
-        },
-        "crits": {
-          "a": 3,
-          "b": 0
-        },
-        "clanks": 22
-      }
-    },
-    {
-      "a": "widowmaker",
-      "b": "farwarden",
-      "seed": 430452160,
-      "r": {
-        "seed": 430452160,
-        "a": "Widowmaker",
-        "b": "Farwarden",
-        "winner": "Widowmaker",
-        "hp": 77,
-        "duration": 61.47,
-        "reason": "slain",
-        "hits": {
-          "a": 23,
-          "b": 17
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 22
-      }
-    },
-    {
-      "a": "grudgebearer",
-      "b": "axiom",
-      "seed": 3084887921,
-      "r": {
-        "seed": 3084887921,
-        "a": "Grudgebearer",
-        "b": "Axiom",
-        "winner": "Axiom",
-        "hp": 52,
-        "duration": 61.73,
-        "reason": "slain",
-        "hits": {
-          "a": 8,
-          "b": 26
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 25
-      }
-    },
-    {
-      "a": "thornwake",
-      "b": "paradox",
-      "seed": 1444356386,
-      "r": {
-        "seed": 1444356386,
-        "a": "Thornwake",
-        "b": "Paradox",
-        "winner": "Paradox",
-        "hp": 270,
-        "duration": 29.15,
-        "reason": "slain",
-        "hits": {
-          "a": 3,
-          "b": 8
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "lastlight",
-      "b": "gravemourn",
-      "seed": 4098792147,
-      "r": {
-        "seed": 4098792147,
-        "a": "Lastlight",
-        "b": "Gravemourn",
-        "winner": "Lastlight",
-        "hp": 59,
-        "duration": 34.84,
-        "reason": "slain",
-        "hits": {
-          "a": 15,
-          "b": 6
-        },
-        "crits": {
-          "a": 3,
-          "b": 0
-        },
-        "clanks": 4
-      }
-    },
-    {
-      "a": "gravemourn",
-      "b": "censer",
-      "seed": 2458260612,
-      "r": {
-        "seed": 2458260612,
-        "a": "Gravemourn",
-        "b": "Censer",
-        "winner": "Gravemourn",
-        "hp": 61,
-        "duration": 34.8,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
-          "b": 5
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 5
-      }
-    },
-    {
-      "a": "slagheart",
-      "b": "redflail",
-      "seed": 817729077,
-      "r": {
-        "seed": 817729077,
-        "a": "Slagheart",
-        "b": "Threshmaw",
-        "winner": "Threshmaw",
-        "hp": 88,
-        "duration": 42.02,
-        "reason": "slain",
-        "hits": {
-          "a": 5,
-          "b": 42
-        },
-        "crits": {
-          "a": 0,
-          "b": 1
-        },
-        "clanks": 6
-      }
-    },
-    {
-      "a": "spellbreaker",
-      "b": "dawnbringer",
-      "seed": 3472164838,
-      "r": {
-        "seed": 3472164838,
-        "a": "Spellbreaker",
-        "b": "Dawnbringer",
-        "winner": "Dawnbringer",
-        "hp": 68,
-        "duration": 61.15,
-        "reason": "slain",
-        "hits": {
-          "a": 20,
-          "b": 11
-        },
-        "crits": {
-          "a": 0,
-          "b": 2
-        },
-        "clanks": 31
-      }
-    },
-    {
-      "a": "ironhail",
-      "b": "spellbreaker",
-      "seed": 1831633303,
-      "r": {
-        "seed": 1831633303,
-        "a": "Ironhail",
-        "b": "Spellbreaker",
-        "winner": "Ironhail",
-        "hp": 139,
-        "duration": 48.65,
-        "reason": "slain",
-        "hits": {
-          "a": 15,
-          "b": 15
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 14
-      }
-    },
-    {
-      "a": "lightkeeper",
-      "b": "oathwound",
-      "seed": 191101768,
-      "r": {
-        "seed": 191101768,
-        "a": "Lightkeeper",
-        "b": "Goreshard",
-        "winner": "Goreshard",
-        "hp": 6,
-        "duration": 64.07,
-        "reason": "slain",
-        "hits": {
-          "a": 16,
-          "b": 21
-        },
-        "crits": {
-          "a": 2,
-          "b": 1
-        },
-        "clanks": 35
-      }
-    },
-    {
       "a": "farwarden",
-      "b": "vinesower",
-      "seed": 2845537529,
-      "r": {
-        "seed": 2845537529,
-        "a": "Farwarden",
-        "b": "Vinesower",
-        "winner": "Farwarden",
-        "hp": 282,
-        "duration": 44.78,
-        "reason": "slain",
-        "hits": {
-          "a": 18,
-          "b": 30
-        },
-        "crits": {
-          "a": 3,
-          "b": 2
-        },
-        "clanks": 5
-      }
-    },
-    {
-      "a": "aureole",
-      "b": "grudgebearer",
-      "seed": 1205005994,
-      "r": {
-        "seed": 1205005994,
-        "a": "Aureole",
-        "b": "Grudgebearer",
-        "winner": "Aureole",
-        "hp": 184,
-        "duration": 33.47,
-        "reason": "slain",
-        "hits": {
-          "a": 15,
-          "b": 7
-        },
-        "crits": {
-          "a": 1,
-          "b": 0
-        },
-        "clanks": 5
-      }
-    },
-    {
-      "a": "censer",
-      "b": "lightkeeper",
-      "seed": 3859441755,
-      "r": {
-        "seed": 3859441755,
-        "a": "Censer",
-        "b": "Lightkeeper",
-        "winner": "Censer",
-        "hp": 36,
-        "duration": 51.11,
-        "reason": "slain",
-        "hits": {
-          "a": 9,
-          "b": 18
-        },
-        "crits": {
-          "a": 1,
-          "b": 1
-        },
-        "clanks": 19
-      }
-    },
-    {
-      "a": "emberedge",
-      "b": "nightfell",
-      "seed": 2218910220,
-      "r": {
-        "seed": 2218910220,
-        "a": "Emberedge",
-        "b": "Nightfell",
-        "winner": "Nightfell",
-        "hp": 246,
-        "duration": 50.47,
-        "reason": "slain",
-        "hits": {
-          "a": 7,
-          "b": 13
-        },
-        "crits": {
-          "a": 0,
-          "b": 4
-        },
-        "clanks": 25
-      }
-    },
-    {
-      "a": "oathwound",
-      "b": "marrowdraw",
-      "seed": 578378685,
-      "r": {
-        "seed": 578378685,
-        "a": "Goreshard",
-        "b": "Marrowdraw",
-        "winner": "Goreshard",
-        "hp": 132,
-        "duration": 44.74,
-        "reason": "slain",
-        "hits": {
-          "a": 15,
-          "b": 9
-        },
-        "crits": {
-          "a": 3,
-          "b": 1
-        },
-        "clanks": 15
-      }
-    },
-    {
-      "a": "heartwood",
-      "b": "lastlight",
-      "seed": 3232814446,
-      "r": {
-        "seed": 3232814446,
-        "a": "Heartwood",
-        "b": "Lastlight",
-        "winner": "Lastlight",
-        "hp": 14,
-        "duration": 54.37,
-        "reason": "slain",
-        "hits": {
-          "a": 20,
-          "b": 12
-        },
-        "crits": {
-          "a": 2,
-          "b": 2
-        },
-        "clanks": 20
-      }
-    },
-    {
-      "a": "nightfell",
-      "b": "aureole",
-      "seed": 1592282911,
-      "r": {
-        "seed": 1592282911,
-        "a": "Nightfell",
-        "b": "Aureole",
-        "winner": "Nightfell",
-        "hp": 1,
-        "duration": 46.37,
-        "reason": "slain",
-        "hits": {
-          "a": 19,
-          "b": 14
-        },
-        "crits": {
-          "a": 1,
-          "b": 2
-        },
-        "clanks": 13
-      }
-    },
-    {
-      "a": "axiom",
-      "b": "twinshade",
+      "b": "redflail",
       "seed": 4246718672,
       "r": {
         "seed": 4246718672,
-        "a": "Axiom",
-        "b": "Twinshade",
-        "winner": "Twinshade",
-        "hp": 48,
-        "duration": 69.34,
+        "a": "Farwarden",
+        "b": "Threshmaw",
+        "winner": "Farwarden",
+        "hp": 288,
+        "duration": 36.88,
         "reason": "slain",
         "hits": {
-          "a": 27,
-          "b": 28
+          "a": 14,
+          "b": 18
         },
         "crits": {
-          "a": 4,
-          "b": 5
+          "a": 2,
+          "b": 4
         },
-        "clanks": 35
+        "clanks": 5
       }
     }
   ]

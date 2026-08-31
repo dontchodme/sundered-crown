@@ -32,6 +32,15 @@ import argparse, pathlib, re, sys
 
 HERE = pathlib.Path(__file__).parent
 
+# A MARKER MAY NOT SURVIVE ITS OWN BUILDER. Builders template their inserts --
+# `tip:"%TIP%"`, `maxStacks:%MAXSTACKS%` -- and the text substituted at build
+# time is not the text in the source, so a marker chosen from a templated line
+# is guaranteed to be absent from every build and reports as unresolved. The
+# report says so honestly ("the marker is wrong, not the chain"), but an
+# unresolved marker is an insert nobody is watching. Skip those lines and pick
+# the longest line the builder writes VERBATIM.
+TEMPLATED = re.compile(r"%[A-Z_0-9]+%")
+
 def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
     """Pull the anchors a relic builder inserts, straight out of its own source.
 
@@ -54,7 +63,8 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
         cands = [l.strip() for l in body.splitlines()]
         cands = [l for l in cands
                  if len(l) > 18 and not l.startswith(("/*", "*", "//"))
-                 and not l.strip("{}(); ") == ""]
+                 and not l.strip("{}(); ") == ""
+                 and not TEMPLATED.search(l)]
         if cands:
             out.append((name, max(cands, key=len)))
 
@@ -88,12 +98,59 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
             cands = [l.strip() for l in body.splitlines()]
             cands = [l for l in cands
                      if len(l) > 18 and not l.startswith(("/*", "*", "//"))
-                     and not l.strip("{}(); ") == ""]
+                     and not l.strip("{}(); ") == ""
+                     and not TEMPLATED.search(l)]
             if cands:
                 out.append((name, max(cands, key=len)))
         if out:
             print(f"  ({len(out)} insert(s) found by importing {builder.name} "
                   f"-- computed or imported, not source literals)")
+
+    # AND A BUILDER MAY NOT HAVE `*_NEW` CONSTANTS AT ALL. THIRD TIME this
+    # discovery has been too narrow -- the raw-string note was the first, the
+    # computed-insert note the second, and both say so above. `curse_build.py`
+    # keeps its edits in one table of `(label, old, new)` tuples, which is a
+    # perfectly ordinary shape and one this tool answered "nothing to audit"
+    # for. That message is technically true and reads as "clean".
+    #
+    # So the LAST fallback is any module-level sequence of tuples whose final
+    # element is a multi-line string: that is an insert table by any name. The
+    # label comes from the tuple's own first element when it is a string, so
+    # the report still says WHICH edit went missing rather than an index.
+    if not out:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(builder.stem, builder)
+        try:
+            mod = importlib.util.module_from_spec(spec)
+            sys.modules.setdefault(builder.stem, mod)
+            spec.loader.exec_module(mod)
+        except Exception as e:
+            print(f"  (could not import {builder.name} to look for insert "
+                  f"tables: {e})")
+            return out
+        for tname in dir(mod):
+            if tname.startswith("_"):
+                continue
+            table = getattr(mod, tname)
+            if not isinstance(table, (list, tuple)) or not table:
+                continue
+            for i, row in enumerate(table):
+                if not isinstance(row, (list, tuple)) or len(row) < 2:
+                    continue
+                body = row[-1]
+                if not isinstance(body, str) or "\n" not in body:
+                    continue
+                label = row[0] if isinstance(row[0], str) else f"{tname}[{i}]"
+                cands = [l.strip() for l in body.splitlines()]
+                cands = [l for l in cands
+                         if len(l) > 18 and not l.startswith(("/*", "*", "//"))
+                         and not l.strip("{}(); ") == ""
+                         and not TEMPLATED.search(l)]
+                if cands:
+                    out.append((f"{tname}:{label}", max(cands, key=len)))
+        if out:
+            print(f"  ({len(out)} insert(s) found in {builder.name}'s insert "
+                  f"table(s) -- tuples, not *_NEW constants)")
     return out
 
 

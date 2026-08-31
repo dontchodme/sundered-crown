@@ -12,13 +12,19 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-vesper.html          BUILD OF RECORD  27 relics · SENTINEL
+02-chain/sc-curse.html           BUILD OF RECORD  27 relics · CURSE REMEMBERS
                                                    everything below, plus
+                                                   A STATUS THAT REMEMBERS THE
+                                                   BLOWS THAT MADE IT AND PAYS
+                                                   A SHARE OF THEM BACK ON
+                                                   EVERY LATER HIT, FROM ANY
+                                                   SOURCE
+02-chain/sc-vesper.html          the link before it, 27 relics · SENTINEL
                                                    A BEAM THAT PERSISTS,
                                                    TURNS, GROWS AND IS PAID
                                                    FOR WITH THE ARMOUR THE
                                                    CASTER IS WEARING
-02-chain/sc-thornshear.html      the link before it, 26 relics · THE WINNOWING
+02-chain/sc-thornshear.html      26 relics · THE WINNOWING
                                                    + the post chain, bloom ON
                                                    + PARTICLE FIELDS on all 26
                                                    + the LONG-FIGHT pace
@@ -33,6 +39,68 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**CURSE NO LONGER EATS MAXIMUM LIFE — IT REMEMBERS** (`curse_build.py`,
+2026-08-30). Rick's design off Path of Exile's Impale, priced by Cowork across
+`06-docs/v49`–`v52` and built to the brief in `06-docs/v51/umbral-build-brief-v51.md`.
+A stack remembers the damage of the blow that applied it; every later blow
+against that fighter, **from any source**, is enlarged by 8% of everything
+remembered. A new stack displaces the WEAKEST, so the pool converges on the
+wielder's biggest blows. `maxStacks` 8 → 3, `maxHpLoss` **deleted**, and Dirge
+and Eclipse lose the `apply:{curse:3}` that `ult_price` measured at −3.2 and
++7.2 against a field median of +20.4. `06-docs/v53/`.
+
+> **THE STACK COUNT IS DERIVED FROM THE POOL, WHICH THE BRIEF DID NOT ASK FOR.**
+> It asked that `stacks("curse")` and `cursePool.length` agree, and to assert
+> it. A convention that two call sites must both fire is not agreement, it is a
+> promise. So `apply()` reads the count off the pool: **the memory IS the
+> stack**, and a caller that applies curse without handing `pushCurse` a memory
+> refreshes the clock and adds nothing. That is the same sentence v49 measured
+> at +0.0 — a stack with nothing to remember is not a stack.
+
+> **THE ECHO IS FOLDED INTO `dmg` ABOVE THE AEGIS BLOCK**, so a wall eats it, a
+> ward absorbs it, hit-stop scales with it and knockback carries it. It is
+> ROUNDED, because every damage number in this engine is an integer and
+> `float()` prints this one over a ball. Priced ON THE TARGET with no
+> `self === owner` guard, ever: Twinshade's shades are real Fighters carrying
+> `onHit:{curse:1}` and a caster guard makes 9.3 blows a fight invisible.
+
+> **ONE OF THREE BLADES MOVED, AND THAT IS THE MEASUREMENT'S ANSWER RATHER THAN
+> A SHORTCUT.** `umbral_sweep.py`, 7566 fights: gravemourn **44.10 → 39.79**;
+> nightfell answered 15.90 against a shipped 15.83 and twinshade 8.38 against
+> 8.30, **both inside the instrument's own precision and therefore not
+> applied.** Two Nightfell measurements 0.06 apart, both at n=364, differ by
+> 5.7 points of win rate. **A CHANGE SMALLER THAN THE ERROR BAR IS NOT A TUNE,
+> IT IS CHURN THAT LOOKS LIKE ONE.**
+
+> **AND A BLADE CURVE CAN BEND DOWNWARD.** Gravemourn reads 67.3% at dmg 47.2
+> and **60.6% at 52.0** — more blade makes it worse, with mean duration falling
+> 44.2s → 36.7s across the range. Bigger blows throw the quarry out of reach of
+> a weapon that lands 5.6 times a fight; it is v51 §4.3's "knockback eating its
+> own window" showing up on the BLADE rather than on the ultimate. A bisection
+> started from a guessed bracket cannot see this and converges happily inside
+> the wrong one. **Sweep a curve first. Every time.**
+
+> **A CHECK THAT CANNOT TELL CODE FROM THE COMMENT EXPLAINING IT FIRES ON ITS
+> OWN EXPLANATION.** `curse_check`'s "there must never be a `self === owner`
+> guard" found one — inside the paragraph this build wrote saying there must
+> never be one. `curse_build` had refused to write an hour earlier for the same
+> reason, its own comment quoting the field it deletes. Both strip comments
+> before matching now. **This will happen again to anything that greps shipped
+> source, because this codebase explains itself in the file.**
+
+> **AND "maxHp NEVER MOVES" IS NOT "maxHp IS ALWAYS 400".** The first cut of
+> that check asserted the constant and failed on Twinshade: a shade is BORN at
+> `baseHP * u.hp` = 160 and is a real Fighter. The ceiling is now photographed
+> the first frame each body exists and asserted against itself.
+
+> **THE THIRTEENTH `verify` CHECK FAILS ON BOTH BUILDS, ON THE SAME PAIRING, AT
+> THE SAME 77.3s.** Lightkeeper/Farwarden, vigil against vigil, no umbral relic
+> in it. The control was run in the same session on the same runtime, which is
+> the cleanest demonstration of §0's "known and accepted" this project has.
+> **Do not credit this build with it either way.** After the blade the roster
+> spread is **18.0pp**, narrower than the 19.0pp it started from, and all three
+> umbral relics are in band: Gravemourn 51.6, Nightfell 50.8, Twinshade 49.3.
 
 **THE TWENTY-SEVENTH RELIC IS VESPER, AND SENTINEL IS THE FIRST THING IN THIS
 GAME THAT PERSISTS, TURNS, AND IS PAID FOR WITH THE ARMOUR ITS CASTER IS
@@ -419,7 +487,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v48/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v53/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -629,10 +697,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-vesper.html --n 40           # 12/13, see §0
+python verify.py --game ../02-chain/sc-curse.html --n 40            # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-vesper.html             # what's open
+python cell_survey.py --game ../02-chain/sc-curse.html              # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -650,6 +718,8 @@ python vesper_sweep.py --only 1,2,3                                # the blade, 
 python sentinel_hum_lab.py                                         # four sustains as full runs, for a pick
 python sentinel_hum_audition.py                                    # ONE REAL WINDOW off the engine's own call list
 python beam_probe.py --game ../02-chain/sc-vesper.html             # §1 priced by overlay, 14/14
+python curse_check.py --game ../02-chain/sc-curse.html             # the rework, one check per sentence
+python umbral_sweep.py --game ../02-chain/sc-curse.html            # three blades: curve, bisect, wide confirm
 python row_price.py --type scythe --game ...                       # a cell by DELIVERED EFFECT, not by occupancy
 ```
 
@@ -663,7 +733,7 @@ and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-vesper.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-curse.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -672,7 +742,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-vesper.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-curse.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -827,5 +897,28 @@ git push
     half x turn. Section 3's finding — that `range` is no longer a trade —
     changes what both would mean, so they were left rather than run against a
     superseded reading.
-Full detail: `06-docs/v48/` for the tip, `06-docs/v47/` for the relic before it, `06-docs/v46/` for the opening, and
+19. **NOBODY HAS WATCHED THE NEW CURSE ART.** `_stCurse` was re-cut — motes are
+    drawn IN and never leave, one per remembered blow, sized by its share of
+    the pool — and the status tag now prints `CURSE nn`. It is measured to draw
+    without throwing over 2817 frames and to draw the right number of motes on
+    every one. **That is not the same as being legible.** §4.1's whole point,
+    and it is the F1 gate in the build brief. Rick's.
+20. **`row_price` CANNOT PRICE AN OCCUPIED CELL**, so it cannot be the gate the
+    v51 brief asks it to be for curse — umbral × flail is Gravemourn's.
+    `curse_check [8]` is the delivered-effect measurement instead. Whether
+    `row_price` should grow an occupied-cell mode is a real question and open
+    item 8 is next to it.
+21. **SUNDER AND WARD HAVE NEVER BEEN PRICED, AND NOW HAVE BEEN.** `curse_check
+    [8]`: sunder is the biggest damage-rate channel in the game (+13.6%) and
+    costs **−1.4pp** of win rate; ward buys **−0.4%** of damage rate and
+    **+27.8pp** of win rate. Both are coherent readings of what those statuses
+    are. Neither is a defect and neither has been looked at.
+22. **THE RAW-`dealt` A/B IS CONFOUNDED BY FIGHT LENGTH AND INVERTS.** Delete a
+    damaging status and the fight runs longer, so the blade delivers more:
+    smite and hemorrhage both read NEGATIVE on it (−28.1%, −25.1%). Normalise
+    to damage RATE, or measure the channel directly. Named here because the
+    v51 brief's §5.8 specifies the confounded form and anything reusing it will
+    hit the same wall.
+Full detail: `06-docs/v53/` for the tip, `06-docs/v49`-`v52` for the designs behind it,
+`06-docs/v48/` for the relic before it, `06-docs/v47/` for the one before that, `06-docs/v46/` for the opening, and
 `NEXT-SESSION.md` plus `06-docs/v43/` for the relic before it.
