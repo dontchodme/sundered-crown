@@ -46,6 +46,15 @@ textarea{resize:vertical}
 select:focus,input:focus,textarea:focus{outline:none; border-color:var(--acc)}
 .seedrow{display:flex; gap:6px}
 .seedrow input{flex:1}
+/* SCHOOL, THEN FIGHTER. The school menu is the narrower of the two on
+   purpose: it is seven fixed words and it is the filter, while the fighter
+   menu carries the name that is actually being chosen and the longer strings
+   ("Grudgebearer", "Spellbreaker"). `min-width:0` because a flex item's
+   default `min-width:auto` refuses to shrink below its widest OPTION, which
+   in a 300px rail pushes the second select off the edge. */
+.pickrow{display:flex; gap:6px}
+.pickrow select{flex:1; min-width:0}
+.pickrow select:first-child{flex:0 0 42%}
 .btns{display:flex; gap:6px; flex-wrap:wrap; margin-top:10px}
 button{
   flex:1; min-width:78px; cursor:pointer;

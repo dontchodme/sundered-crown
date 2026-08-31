@@ -88,18 +88,75 @@ function toggleCinePanel() {
   $('btnCine').classList.toggle('pri', !showing);
 }
 
+/* SCHOOL, THEN FIGHTER. Rick, 2026-08-30: "one to chose school and then a
+   second one to chose the fighter from within that school."
+
+   EVERY RELIC STAYS IN THE FIGHTER SELECT, ALWAYS, and the school menu only
+   changes which of them are VISIBLE. That is the whole design and it is worth
+   the sentence: `$('selA').value = 'thornshear'` has to keep working from
+   anywhere — Random sets it, the short pipeline reads it, `displayName()`
+   reads it, and the day something else wants to drive the picker it will
+   assign an id too. Rebuilding the list per school would make an assignment
+   silently fail whenever the wrong school happened to be showing, which is a
+   fault with no error and no symptom until a short is rendered on the wrong
+   relic. `hidden` on an <option> hides it from the dropdown and does NOT stop
+   it being selected programmatically, so the value space stays whole. */
+function schoolsInRosterOrder() {
+  const out = [];
+  for (const w of AC.WEAPONS) if (!out.includes(w.aff)) out.push(w.aff);
+  return out;
+}
+
+/* Which relics the fighter menu is showing. Called after anything that could
+   have changed either select. */
+function filterSide(side) {
+  const sel = $('sel' + side), aff = $('school' + side).value;
+  for (const o of sel.options) o.hidden = o.dataset.aff !== aff;
+}
+
+/* THE SCHOOL MENU FOLLOWS THE FIGHTER, not the other way round, whenever the
+   fighter was set by something other than a human clicking this menu. Random
+   picks any of twenty-six; the school box has to end up naming the school of
+   the relic that is actually selected, or it is a label that lies. */
+function syncSchool(side) {
+  const w = AC.WEAPONS.find(x => x.id === $('sel' + side).value);
+  if (w) $('school' + side).value = w.aff;
+  filterSide(side);
+}
+
 function fillRoster() {
-  for (const sel of [$('selA'), $('selB')]) {
+  const schools = schoolsInRosterOrder();
+  for (const side of ['A', 'B']) {
+    const sch = $('school' + side), sel = $('sel' + side);
+    sch.innerHTML = '';
     sel.innerHTML = '';
+    for (const k of schools) {
+      const o = document.createElement('option');
+      o.value = k;
+      o.textContent = AC.AFFINITIES[k].name;
+      sch.appendChild(o);
+    }
     for (const wpn of AC.WEAPONS) {
       const o = document.createElement('option');
       o.value = wpn.id;
       o.textContent = wpn.name;
+      o.dataset.aff = wpn.aff;
       sel.appendChild(o);
     }
+    /* Changing school lands on that school's FIRST relic rather than leaving
+       a hidden one selected — a menu showing four names with none of them
+       chosen is a menu you have to click twice. */
+    sch.onchange = () => {
+      const first = AC.WEAPONS.find(w => w.aff === sch.value);
+      if (first) sel.value = first.id;
+      filterSide(side);
+    };
+    sel.onchange = () => syncSchool(side);
   }
-  $('selA').selectedIndex = 0;
-  $('selB').selectedIndex = Math.min(1, AC.WEAPONS.length - 1);
+  $('selA').value = AC.WEAPONS[0].id;
+  $('selB').value = AC.WEAPONS[Math.min(1, AC.WEAPONS.length - 1)].id;
+  syncSchool('A');
+  syncSchool('B');
 }
 
 /* The seed of the fight on screen, kept live. This is the one number worth
@@ -148,8 +205,15 @@ function wireControls() {
     const n = AC.WEAPONS.length;
     let i = Math.floor(Math.random() * n), j = Math.floor(Math.random() * n);
     if (i === j) j = (j + 1) % n;
-    $('selA').selectedIndex = i;
-    $('selB').selectedIndex = j;
+    /* BY ID, NOT BY INDEX. `selectedIndex` was correct while the fighter menu
+       was the whole roster in roster order; it is not correct now that the
+       menu hides everything outside one school, because index i would land on
+       a relic the user cannot see and the school box would name a different
+       one. */
+    $('selA').value = AC.WEAPONS[i].id;
+    $('selB').value = AC.WEAPONS[j].id;
+    syncSchool('A');
+    syncSchool('B');
     $('seed').value = '';
     startFight(undefined);
   };

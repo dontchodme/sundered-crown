@@ -23,10 +23,23 @@
 
     <div class="card">
       <h2>The fight</h2>
-      <label for="selA">Champion</label>
-      <select id="selA"></select>
-      <label for="selB">Rival</label>
-      <select id="selB"></select>
+      <!-- TWO MENUS, SCHOOL THEN FIGHTER. Rick, 2026-08-30: "one to chose
+           school and then a second one to chose the fighter from within that
+           school." Twenty-six relics in one flat list had stopped being a
+           list you could read — and the roster is already organised by
+           school everywhere else in the project (the grid in cell_survey, the
+           affinity palettes, the status each school owns), so the picker was
+           the last place that pretended it was flat. -->
+      <label for="schoolA">Champion</label>
+      <div class="pickrow">
+        <select id="schoolA" title="school"></select>
+        <select id="selA" title="relic"></select>
+      </div>
+      <label for="schoolB">Rival</label>
+      <div class="pickrow">
+        <select id="schoolB" title="school"></select>
+        <select id="selB" title="relic"></select>
+      </div>
       <label for="seed">Seed <em>the seed is the fight</em></label>
       <div class="seedrow">
         <input id="seed" type="text" inputmode="numeric" placeholder="random">
