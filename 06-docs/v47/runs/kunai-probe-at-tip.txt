@@ -1,0 +1,86 @@
+
+arena 520x800  inset 0  ballR 34  maxLive 64  twinblade reach 62 spin 5.7 mass 1.1
+
+[1] WHAT FORGOING THE BLADES COSTS — a 4s window at t=12s, same seeds, blades live against blades gone
+
+    window          my blows    dealt   clanks  stagger eaten  foe blows    taken
+    blades live        0.188     2.76     20.0         0.139s      0.182     2.77
+    blades gone        0.000     0.00      0.0         0.067s      0.273     4.47
+
+    the bill: 2.76 damage a second, and it buys back 20.0 binds a minute
+    and 0.073s of stagger a second — every one of which this type LOSES (twinblade_survey §3)
+  PASS  taking the blades away costs damage — the ultimate has a bill to beat and this is it  — 2.76 dmg/s over the window, at pinned 14
+  PASS  REFUTED — I expected the avoided binds to be a saving, and they are not: damage TAKEN goes UP when the blades come off  — taken 2.77 -> 4.47 dmg/s, +1.70. A bind this type LOSES still costs the foe a swing, so 20.0 binds a minute were worth more as interruption than they cost as stagger. THE REAL BILL IS 4.46 DMG/S, not 2.76
+
+[2] CAN A SPIN-MODE WEAPON FIRE AT ALL — v39 od 4, asserted
+
+    arm                             mode  shots loosed  per second
+    no w.shot (ships)               spin             0       0.000
+    w.shot grafted on               spin            69       1.874
+  PASS  a twinblade with a `shot` fires, with no other change anywhere — tickFire gates on f.w.shot and not on mode  — 0 loosed bare, 69 with the shot grafted on; v39 open decision 4 has been inert for six sessions and this design is what makes it load-bearing
+  PASS  a FAN is a call, not a build — spawnShot already takes an angle and only falls back to f.theta when none is given  — spawnShot(f, angle), arity 2; tickFire calls it 1x a cadence with no angle. Both directions and any fan width are spawnShot(f, f.theta + off) in a loop — nothing about the projectile system has to change
+  PASS  AND THE FAN'S REAL HAZARD IS THE CEILING: spawnShot SHIFTS THE OLDEST SHOT OUT at maxLive rather than declining to spawn  — maxLive 64 — on a bouncing kunai that is one VANISHING IN MID-AIR, a picture fault of exactly v42/v43's class: no error, no invariant broken, and only a person watching can see it. The Bloodhunt fork branch already refuses to spawn instead, for the neighbouring reason
+
+[3] WHERE A KUNAI ENDS — fan 5 each way, cadence 0.25s, speed 420, life 3s, bounce budget 3, r 10, blades off for the window
+
+    foe mode    loosed   landed  parried    wall  expired  in flight  peak/64  refused
+    ranged        2570    23.5%    14.9%    0.1%    45.3%      16.1%       64     2550
+    swing         2970    20.4%    29.1%    0.0%    28.8%      21.7%       64     2140
+    spin          2860    22.3%    18.9%    0.1%    29.6%      29.2%       64     2150
+    chain         2650    23.8%    12.1%    0.1%    30.8%      33.2%       64     2250
+    ALL          11050    22.4%    19.1%    0.1%    33.3%      25.1%       64     9090
+  PASS  a bouncing kunai does not end the way an arrow does — v40 measured 82% of every arrow in this game spent on a wall  — 0.1% on a wall against a bow's 82%, because a bounce budget of 3 is 3 walls that do not kill it
+  PASS  THE CEILING BITES — a fan this size cannot be loosed at this cadence without spawnShot shifting live kunai out of the air  — 9090 looses refused by this probe against a 64 ceiling, peak 64 in flight. The shipping build must DECLINE like the fork branch, not SHIFT like spawnShot
+
+[4] THE BOUNCE DISTRIBUTION — the sentence that decides whether the growth is a mechanic or decoration
+
+    bounces used, over every kunai that resolved:
+           0       1       2       3       4       5      6+
+       18.0%   24.0%   38.9%   19.1%    0.0%    0.0%    0.0%
+
+    arm                                  landed  hits/cast  mean bounces  landed AFTER a bounce
+    fan 5   bounce 3  life 3.0             2479      19.37          1.59                  69.8%
+    fan 5   bounce 0  life 3.0             1359      10.62          0.00                   0.0%
+    fan 5   bounce 1  life 3.0             2424      18.94          0.83                  55.7%
+    fan 5   bounce 6  life 3.0             2480      19.38          1.59                  69.8%
+    fan 5   bounce 6  life 6.0             2764      21.59          1.39                  73.2%
+    fan 3   bounce 3  life 3.0             2491      19.46          1.55                  67.5%
+    fan 9   bounce 3  life 3.0             2384      18.62          1.63                  73.1%
+    fan 5   bounce 3  speed 260            2378      18.58          1.15                  59.9%
+    fan 5   bounce 3  r 20                 2667      20.84          1.45                  69.0%
+
+    the fan against the cadence — where the coverage actually comes from
+
+    arm                                 loosed  refused  peak  landed  hits/cast  after a bounce
+    fan 1  cadence 0.10  (2/volley)       9462        6    64    2320      18.12           70.3%
+    fan 3  cadence 0.15                  11508     8340    64    2551      19.93           68.9%
+    fan 5  cadence 0.25                  11050     9090    64    2479      19.37           69.8%
+    fan 9  cadence 0.45                  10332    10242    64    2378      18.58           71.7%
+    fan 9  cadence 0.90  (18/volley)      9756     1710    64    2289      17.88           70.4%
+    fan 5  cadence 0.60  spread 1.6       8960        0    61    2257      17.63           72.5%
+  PASS  MORE PROJECTILES IS NOT MORE DAMAGE — every fan lands within a narrow band of every other, because the coverage comes from the weapon's own 6.47 rad/s and not from the fan  — best fan 3  cadence 0.15 at 2551 landed, worst at 2257 — x1.13 across a 9x range of fan width. The knobs that DID move it are the bounce budget (+78%) and the kunai's radius
+  PASS  A KUNAI LIVES TO RICOCHET — the growth is a mechanic and not decoration  — 69.8% of every landed kunai arrives having bounced at least once. v43's comparable sentence measured 0.0 events a minute and had to be replaced
+  PASS  and the bounce is what makes the fan connect at all — the same fan with no bounce budget is the control  — 2479 landed with 3 bounces against 1359 with none, same seeds, same everything else
+
+[5] HIGH KNOCKBACK ON THE SHORTEST REACH IN THE GAME — fired WHERE THE MECHANIC FIRES IT, on every landed kunai, along the kunai's own travel
+
+      knock   landed   dmg/cast  separation in window    peak  blade touches again   never
+          0     2479      291.9                   296     542                1.40s     60%
+        120     2391      282.1                   317     562                2.15s     52%
+        260     2242      268.3                   325     580                2.56s     52%
+        420     2347      273.8                   336     585                2.59s     42%
+        700     2364      275.2                   347     600                2.49s     33%
+  PASS  knockback SHOVES THE QUARRY OUT OF THE KUNAI STREAM — the ultimate's own damage is what pays for it, not the blades  — landed 2479 at no knock against 2364 at 700, separation 296 -> 347 units in a 520x800 hall
+
+    THE SAME QUESTION, ASKED ON A CLOCK — one synthetic shove at t=12s, which is v43 §7's trap and is kept as the control
+
+      knock  separation at  peak separation   time to touch again  never touched
+          0            316              618                 2.97s            33%
+        100            316              602                 2.74s            31%
+        200            316              583                 2.77s            33%
+        300            316              595                 2.91s            23%
+        450            316              593                 2.62s            31%
+  PASS  A SINGLE SHOVE ON A CLOCK MEASURES NOTHING ON THIS TYPE, and that is the instrument and not the mechanic — v43 §7, where a pin read -12% on a clock and +42% on its own condition  — time to the next landed blow 2.97s -> 2.62s across 0 to 450 knock, peak separation 618 -> 593. This weapon cannot reach past 130 units and sits at a mean 316, so it is ALREADY out of reach and one shove cannot take it further out
+
+12/12 checks passed
+EXIT 0

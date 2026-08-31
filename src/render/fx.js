@@ -206,6 +206,15 @@
                  life: [0.80, 1.70], heavy: 0.02, size: [0.6, 1.9],
                  spawn: 0.85, up: 0 },
 
+    /* THE WINNOWING. A FALL, not a burst: the one set-piece in the game whose
+       objects are already doing the throwing, so the field must not compete
+       with seventy kunai for the same read. Leaves come DOWN through the hall
+       behind them -- slow, long-lived, barely any speed of their own, and the
+       widest spawn band of any fall because the whole hall is in play rather
+       than one point in it. */
+    thornshear: { mode: 'fall', n: 1150, sp: [20, 110], grav: 70, drag: 1.1,
+                  life: [0.90, 2.00], heavy: 0.03, size: [0.7, 2.0],
+                  spawn: 0.90, up: 0 },
     /* ---- IMPLOSION: a burst run backwards ---------------------------- */
     /* Dirge is the only pull in the game. Running a ring INWARD is the
        cheapest possible way to say "this is not one of those" -- which is the

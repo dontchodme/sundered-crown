@@ -1,0 +1,12 @@
+=== ENGINE A/B: 25 relics, 6 seeds x 300 pairings ===
+
+  sc-paradox-ignition.html        1800 matches   50.0s
+  sc-thornshear.html              1800 matches   48.4s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 1800
+  PASS  every match identical field for field  — 1800/1800
+  PASS  the sweep is real  — 25/25 distinct winners, 1800 distinct seeds, 21.3-88.9s
+
+ENGINE A/B PASS — ../02-chain/sc-thornshear.html does not move the 25-relic roster.
+EXIT 0

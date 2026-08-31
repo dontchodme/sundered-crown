@@ -1,0 +1,128 @@
+
+[1] THE TWINBLADE ROW — 3 of 7 filled, 4 open
+
+                  bloodsworn     dwarven       runic  sanctified      umbral     verdant       vigil
+    twinblade     Widowmaker           · Spellbreake           ·   Twinshade           ·           ·
+
+    the type's block, and where it sits in the game
+
+    type          reach  width   spin   mass  blades    mode   arc             dmg
+    bow              54      9    2.8    1.6     [0]  ranged     -       12.7-16.2
+    flail            96     22    2.2    3.6     [0]   chain     -       25.0-44.1
+    greatsword      116     14    3.4    3.0     [0]   swing   1.5        7.4-15.8
+    scythe          104     11    3.2    2.4     [0]    spin     -       17.5-31.4
+    twinblade        62      8    5.7    1.1[0, 0.5]    spin     -        8.3-11.9
+    warhammer        76     26    1.6    5.0     [0]    spin     -       20.1-28.8
+
+    CONFIG.combat  hitCd 0.45  knock 165  baseHP 400
+    entangle       maxStacks 4  dur 2.8  spin -0.13  move -0.06  dps None
+  PASS  all three twinblades share one physics block, field for field  — reach=62, width=8, artW=30, spin=5.7, mode=spin, mass=1.1, blades=2
+  PASS  the twinblade is the only type with more than one live segment  — bow:1  flail:1  greatsword:1  scythe:1  twinblade:2  warhammer:1
+  PASS  mass 1.1 is the bottom of the ladder, alone  — ladder 1.1, 1.6, 2.4, 3, 3.6, 5
+  PASS  spin 5.7 is the top of the ladder, alone  — ladder 5.7, 3.4, 3.2, 2.8, 2.2, 1.6
+  PASS  the twinblade's hardest blow is the softest CEILING in the game  — twinblade 11.95, greatsword 15.83, bow 16.23, warhammer 28.77, scythe 31.35, flail 44.1  — the single softest blow is Axiom's 7.42, a greatsword, so the type is low by its ceiling and not by its floor
+
+[2] TWO BLADES — live segment off `bladeSegments`, dmg pinned 14, ultimates suppressed
+
+    type         blades  live blade  total edge  contacts/s     per blade     cooling   rad/s  contacts/rad
+    bow               1        60.9        60.9       0.129           226          8%    3.16        0.0408
+    flail             1        13.2        13.2       0.176           285         11%    2.62        0.0672
+    greatsword        1       127.5       127.5       0.290           591         17%    3.88        0.0746
+    scythe            1       116.0       116.0       0.225           517         14%    3.86        0.0585
+    twinblade         2        69.8       139.6       0.271       266/270       8%/8%    6.45        0.0419
+    warhammer         1        85.4        85.4       0.201           431         12%    1.90        0.1055
+  PASS  the twinblade carries the MOST live edge in the game, and turns it the least efficiently of any melee type  — edge 139.6 against a greatsword's 127.5; twinblade 0.0419, scythe 0.0585, flail 0.0672, greatsword 0.0746, warhammer 0.1055 contacts per radian turned
+  PASS  both blades land — the second is not decoration  — 266 / 270 blows, weaker blade 49.6% of the type's contacts
+
+    the second blade, taken away — same seeds, same foes, nothing else touched
+
+    arm                           contacts/s   dealt/s   taken/s  clanks/min    win
+    twinblade  [0, 0.5]  ships         0.271      5.47      4.11        21.1  85.0%
+    twinblade  [0]       one           0.156      3.63      6.04        14.2  27.5%
+    greatsword [0]       ships         0.290      5.92      4.45        24.7  85.0%
+    greatsword [0, 0.5]  two           0.294      6.01      3.88        25.6  90.0%
+    scythe     [0]       ships         0.225      5.08      5.53        17.7  37.5%
+    scythe     [0, 0.5]  two           0.404      8.15      3.60        25.1  90.0%
+    warhammer  [0]       ships         0.201      5.07      6.12        16.0  27.5%
+    warhammer  [0, 0.5]  two           0.380     10.00      3.00        24.6  97.5%
+
+    a second opposed blade is worth, in contact rate:
+        twinblade    x1.74   (spin mode)
+        scythe       x1.79   (spin mode)
+        warhammer    x1.89   (spin mode)
+        greatsword   x1.02   (swing mode)
+  PASS  every arm gains from a second blade and none of them doubles  — twinblade x1.74, greatsword x1.02, scythe x1.79, warhammer x1.89 — the 0.45s hitCd is per SEGMENT, so a doubling would mean the two blades never share a pass
+  PASS  the second blade is worth more to a SPINNING weapon than to a SWINGING one — so the gain belongs to full rotation, not to the twinblade  — spin arms 1.74, 1.79, 1.89 against swing 1.02: a swing recomputes theta from the AIM every frame, so the opposed blade points away from the quarry for most of the arc
+
+[3] THE LIGHTEST WEAPON IN THE GAME — outcome read off the EFFECT, dmg pinned 14, ultimates suppressed
+    mass^1.7, decisive above a 0.16 share gap — both read out of the shipped resolveClank
+
+    foe           type          mass  margin   thr  clanks/min    won  deadlock   lost  stagger eaten
+    ironhail      bow            1.6  0.3081  0.16        17.5     0%        0%   100%         0.073s
+    lastlight     scythe         2.4  0.5804  0.16        24.0     0%        0%   100%         0.115s
+    emberedge     greatsword     3.0  0.6925  0.16        28.3     0%        0%   100%         0.121s
+    gravemourn    flail          3.6  0.7648  0.16        19.3     0%        0%   100%         0.118s
+    censer        warhammer      5.0  0.8583  0.16        17.3     0%        0%   100%         0.108s
+    spellbreaker  twinblade      1.1  0.0000  0.16        28.3     0%      100%     0%         0.063s
+  PASS  the twinblade wins no bind in the game  — won ironhail 0, lastlight 0, emberedge 0, gravemourn 0, censer 0, spellbreaker 0
+  PASS  the only bind it does not lose is against itself, and that is a deadlock  — 211/211 deadlocks, margin 0.0000 against a 0.16 threshold
+
+[4] WHAT ENTANGLE BUYS, BY THE FOE'S MODE — verdant grafted onto the donor, channel live against channel deleted
+
+    foe           mode      stacks   >=2   cap foe spinMul foe moveMul  foe blows/s   taken/s     win
+    aureole       ranged      2.04   61%   41%       0.847       0.877  0.245/0.267 4.84/5.28  +25.0%
+    vinesower     ranged      1.78   56%   34%       0.911       0.893  0.226/0.255 5.11/5.89  +25.0%
+    farwarden     ranged      2.19   68%   41%       0.837       0.869  0.262/0.290 5.68/6.20  +12.5%
+    marrowdraw    ranged      2.08   62%   42%       0.840       0.875  0.228/0.267 4.51/5.08  +50.0%
+    emberedge     swing       1.75   59%   29%       0.915       0.895  0.191/0.252 5.02/7.80  +75.0%
+    nightfell     swing       1.78   57%   32%       0.909       0.893  0.198/0.290 4.66/6.70  +37.5%
+    heartwood     swing       1.63   52%   29%       0.929       0.902  0.235/0.303 5.29/7.12  +75.0%
+    axiom         swing       1.79   58%   32%       0.903       0.893  0.216/0.285 5.14/7.05  +75.0%
+    lastlight     spin        2.13   63%   43%       0.845       0.872  0.158/0.184 3.68/4.22  +12.5%
+    censer        spin        1.90   57%   38%       0.883       0.886  0.141/0.171 2.98/3.59   +0.0%
+    foregone      spin        1.85   58%   34%       0.914       0.889  0.184/0.174 4.57/4.00  -12.5%
+    bulwarden     spin        1.89   57%   37%       0.902       0.886  0.197/0.169 4.63/4.07  -25.0%
+    gravemourn    chain       1.89   58%   37%       0.873       0.886  0.111/0.117 2.19/2.61   +0.0%
+    slagheart     chain       2.07   61%   43%       0.863       0.876  0.150/0.107 4.27/2.58   +0.0%
+    redflail      chain       1.95   58%   40%       0.868       0.883  0.119/0.115 2.53/2.57  -12.5%
+    paradox       chain       1.99   59%   40%       0.863       0.881  0.146/0.138 3.22/3.31   +0.0%
+
+    rolled up by the foe's MODE — this is the question
+
+    foe mode     n   foe blows/s off->on   change   taken/s off->on   change      win
+    ranged       4        0.270 -> 0.240     -11.0%      5.61 -> 5.03     -10.3%   +28.1%
+    swing        4        0.283 -> 0.210     -25.7%      7.17 -> 5.03     -29.8%   +65.6%
+    spin         4        0.175 -> 0.170      -2.6%      3.97 -> 3.96      -0.2%    -6.2%
+    chain        4        0.119 -> 0.131     +10.2%      2.77 -> 3.05     +10.3%    -3.1%
+
+    THE CEILING — the same ladder HELD AT CAP, which is what an ultimate that pinned it would be buying
+
+    foe mode     n  foe spinMul   foe blows/s  off -> cap   change   taken/s off -> cap   change
+    ranged       4        0.563            0.270 -> 0.261     -3.3%        5.64 -> 5.28      -6.4%
+    swing        4        0.589            0.283 -> 0.181    -36.2%        7.16 -> 4.69     -34.5%
+    spin         4        0.586            0.174 -> 0.138    -21.0%        3.97 -> 3.18     -19.9%
+    chain        4        0.572            0.119 -> 0.111     -6.8%        2.77 -> 2.44     -12.2%
+  PASS  the forced arm actually reaches the weapon — the status term alone, act modifier divided out and desperate frames dropped, lands on what the table predicts at cap  — held 0.480 against 1 + -0.13 x 4 = 0.480; the unentangled control reads 1.000
+  FAIL  entangle cuts a MELEE foe's blows harder than a RANGED foe's  — spin -2.6% against ranged -11.0% — a bow's cadence is tickFire's, and tickFire never reads spin
+
+[5] THE FOUR OPEN CHANNELS ON THIS TYPE — one A/B each, channel live against the same channel deleted, against all 24 other relics
+
+    school      status       per hit   dealt/s   taken/s  foe blows/s      win
+    dwarven     sunder             1      7.89      4.69                76.0%  (+20.3% vs the same weapon with no channel)
+    sanctified  smite              1      5.87      4.86                69.3%  (+13.5% vs the same weapon with no channel)
+    verdant     entangle           2      7.00      4.56                75.5%  (+19.8% vs the same weapon with no channel)
+    vigil       ward          onSelf      6.71                          bank readout only — vigil applies nothing to a foe
+  PASS  the three foe channels on this type are ranked by DELIVERED effect, whatever cell_survey's occupancy column said  — strongest is dwarven — dwarven +20.3%, sanctified +13.5%, verdant +19.8%  (n=192 a arm)
+
+[6] THE TRAPS
+
+  PASS  each blade carries its OWN hit cooldown — hitCd is indexed by segment
+  PASS  a stunned twinblade lands nothing — tickHits skips on self.stun
+  PASS  both segments are rigid functions of f.theta — the twinblade has no lag term to be surprised by
+  PASS  _clankPair CONTINUES past a buried blade rather than returning — one blade being blocked cannot mask the other
+  PASS  tickFire's cadence never reads spin — entangle cannot slow a bow's rate of fire
+  PASS  entangle reaches the weapon through spinMul, and spinMul floors at 0.15
+  PASS  no JS errors or page exceptions
+
+20/21 checks passed  (1 FAILED)
+EXIT 1
