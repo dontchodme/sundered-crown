@@ -126,11 +126,18 @@
     censer: { mode: 'burst', n: 1500, sp: [180, 540], grav: 40, drag: 2.2,
               life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
               spawn: 0.08, up: 20 },
-    /* ECLIPSE, the one nova that should read as dark: slower and longer, and
-       the school's own colours do the rest. */
-    nightfell: { mode: 'burst', n: 1400, sp: [150, 480], grav: 60, drag: 2.3,
-                 life: [0.45, 1.05], heavy: 0.02, size: [0.8, 2.4],
-                 spawn: 0.08, up: 0 },
+    /* DEADFALL DISCHARGES, AND `atSelf` IS A FLAG NO OTHER SPEC CARRIES.
+       A `burst` is drawn at the FOE -- right for the four novas above it,
+       which are cast AT somebody, and wrong for a window that opens on its
+       own caster. Eclipse was a nova and this entry was its dark, slow one;
+       DEADFALL resolves nothing at the cast, so 1400 particles over the
+       quarry would say the ultimate landed on them while nothing landed on
+       anyone. It is now SPARKS COMING OFF THE BALL: fast out, almost no
+       gravity, heavy drag and a short life, so they leave rather than fall,
+       and they are gone before the first figure has finished arming. */
+    nightfell: { mode: 'burst', n: 1100, sp: [200, 700], grav: 40, drag: 3.2,
+                 life: [0.22, 0.60], heavy: 0.0, size: [0.6, 1.8],
+                 spawn: 0.10, up: 0, atSelf: 1 },
     /* DAYBREAK RISES, IT DOES NOT DETONATE, and it stays sparse in the middle
        ON PURPOSE. CLAUDE.md §4.1b is the record of this relic's art blowing
        out over a body already at 0.892 luma -- "the ball was not lit, it was

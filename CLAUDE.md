@@ -12,13 +12,18 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-gravemourn.html      BUILD OF RECORD  27 relics · GRASP
+02-chain/sc-nightfell.html       BUILD OF RECORD  27 relics · DEADFALL
                                                    everything below, plus
+                                                   A WINDOW WHOSE EVERY BLOW
+                                                   STAMPS A PENTAGRAM THAT
+                                                   ARMS, WAITS FOREVER, AND
+                                                   TAKES WHATEVER WALKS IN
+02-chain/sc-gravemourn.html      the link before it, 27 relics · GRASP
                                                    A WINDOW THAT LENGTHENS THE
                                                    CHAIN, AND A SKELETAL HAND
                                                    OFF EVERY BLOW THAT FLIES,
                                                    CLENCHES AND DIVES
-02-chain/sc-curse.html           the link before it, 27 relics · CURSE REMEMBERS
+02-chain/sc-curse.html           27 relics · CURSE REMEMBERS
                                                    A STATUS THAT REMEMBERS THE
                                                    BLOWS THAT MADE IT AND PAYS
                                                    A SHARE OF THEM BACK ON
@@ -44,6 +49,66 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**NIGHTFELL'S ULTIMATE IS DEADFALL, AND IT IS THE FIRST THING IN THIS GAME
+THAT WAITS** (`nightfell_build.py`, 2026-08-31). Stage 3 of the v51/52 brief,
+and the umbral school is finished. A cast opens an 8s window; every blow
+landed inside it stamps ONE PENTAGRAM — five charges on a 60-unit ring, where
+the blow landed — each carrying a fifth of what Curse remembers about the
+quarry AT THAT INSTANT. They crackle for 1.6s, go live, and then wait,
+permanently, for the foe to walk within 70 of one. Each deals its share,
+shoves at 250 and takes its own point off the figure. **FOE ONLY.** Blade
+15.83 -> **12.79**. `06-docs/v54/deadfall-build-v54.md`.
+
+> **`ultFx` IS ONE SLOT, SO A WINDOW ULTIMATE'S ART IS ERASED BY THE
+> OPPONENT'S CAST — AND THAT IS CHAIN-WIDE.** The crackle is §1's first
+> sentence and the only thing on screen saying the window is open. Counting
+> frames in which Nightfell's window was open: **vs Ironhail 0.0%** of them
+> still showed this relic's fx, Bulwarden 20.8%, Twinshade 47.6%, Grudgebearer
+> 57.5%, Axiom 97.9%, Emberedge 99.1%. The opponent casting anything
+> overwrites the single `m.ultFx` field, and that cast's own shorter `life`
+> then nulls it. Fixed here by hanging the crackle off `f.ultDeadfall` and
+> `f.deadfallFade` — **every other window ultimate still has the hole**
+> (open item 25), and most survive it only because what a viewer reads is a
+> SIM OBJECT: kunai, vines, hands, and a beam already drawn off `f.ultBeam`.
+
+> **A `burst` PARTICLE FIELD IS DRAWN AT THE FOE.** `drawUltOver`'s
+> `mode === "burst" ? [u.tx, u.ty] : [u.x, u.y]` is right for the four novas
+> it was written for and put 1400 purple particles over the quarry on a cast
+> that touched nobody. Caught on the first rendered frame and by nothing else.
+> The spec now carries `atSelf`, because "this field belongs to its caster" is
+> a property of the FIELD, not a relic name in the glue.
+
+> **AND THE ARMING STATE WAS NOT DIM, IT WAS INVISIBLE.** §8.4's tenth check —
+> can a viewer tell an ARMED sigil from a crackling one — is the whole mechanic,
+> and the first cut drew arming at alpha 0.16 against a hall that ALREADY HAS A
+> GOLD PENTAGRAM ON ITS FLOOR. It did not read at all, so sigils appeared
+> already live and the arming beat did not exist on screen. The two states are
+> now separated FOUR ways at once (incomplete/complete, flickering/still,
+> loose/bound, thin/lit, plus a snap on the transition) because any one of them
+> can be lost to a phone screen, to the bloom, or to a dark frame. Found by
+> `deadfall_sheet.py` photographing a real match, not by any probe.
+
+> **AT MOST ONE CHARGE FALLS PER FRAME, AND THAT IS A DECISION.** §8.3a asked
+> for a chain that spans frames and pointed at `bomb_lab.py`, which LOOPS. Those
+> are not the same thing: a loop fires a whole figure in one step, every number
+> stays right, and there is no chain to see. Firing the nearest one and
+> returning means the shove has landed before the next test runs. 337
+> detonations over 16 fights, 0 steps took more than one.
+
+> **THE BRIEF PREDICTED "~13" AND IT CAME IN AT 12.79** — the second registered
+> prediction in two stages to land. **AND THIS CURVE DOES NOT BEND**: monotone
+> 16.9% at dmg 8 to 85.9% at 22, where Gravemourn's turns DOWN past 47. A
+> greatsword is reach-poor and contact-rich, so its knockback never gets far
+> enough ahead of its own swing to cost it a blow. **The confirmation is not
+> monotonic** (12.27 -> 50.1%, 12.77 -> 49.7%, 13.27 -> 57.0%, n=1040 each), so
+> 12.79 is the middle of a flat region and the honest precision is the
+> half-point interval.
+
+> **NOBODY HAS WATCHED IT YET.** The art and the sound are FIRST CUTS and both
+> are Rick's under rule 2. `05-reference/v54/deadfall-states-*.png` is the
+> shape question answered; `07-shorts/v54/deadfall.mp4` is the scale one, and
+> it is open.
 
 **GRAVEMOURN'S ULTIMATE IS GRASP, AND THE HANDS ARE THE ULTIMATE — NOT THE
 CHAIN THE DESIGN SAID THEY WERE** (`gravemourn_build.py`, 2026-08-31). Stage 2
@@ -573,7 +638,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v53/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v54/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -783,10 +848,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-gravemourn.html --n 40       # 12/13, see §0
+python verify.py --game ../02-chain/sc-nightfell.html --n 40       # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-gravemourn.html         # what's open
+python cell_survey.py --game ../02-chain/sc-nightfell.html          # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -810,6 +875,9 @@ python gravemourn_relic_probe.py                                   # §1 asserte
 python grasp_price.py --blade 39.79                                # four ways to weaken an ultimate, priced
 python hand_art_lab.py                                             # an ult's art as a spread, before anybody is asked
 python row_price.py --type scythe --game ...                       # a cell by DELIVERED EFFECT, not by occupancy
+python nightfell_relic_probe.py                                    # §8.4 asserted — and the render path CALLED
+python deadfall_sheet.py                                           # ARMING against ARMED, off a real match
+python umbral_sweep.py --relics nightfell --lo 8 --hi 22            # the blade: curve, bisect, wide confirm
 ```
 
 **`frame_probe.py` HAS BEEN CRASHING, AND NOT BECAUSE OF ANYTHING NEW.** It
@@ -822,7 +890,7 @@ and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-gravemourn.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-nightfell.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -831,7 +899,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-gravemourn.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-nightfell.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -986,18 +1054,18 @@ git push
     half x turn. Section 3's finding — that `range` is no longer a trade —
     changes what both would mean, so they were left rather than run against a
     superseded reading.
-19. **STAGE 3 IS NEXT AND IT IS NIGHTFELL.** `06-docs/v52/echoes-v52.md` is the
-    design, `06-docs/v51/umbral-build-brief-v51.md` §8 is the plan, and
-    `06-docs/v53/grasp-build-v53.md` §9 is what stage 2 leaves it. Built on
-    `sc-gravemourn.html`, NOT beside it. **ECLIPSE IS A DEAD ULTIMATE RIGHT
-    NOW** — it lost `apply:{curse:3}` in stage 1 and got nothing back, so
-    Nightfell's 50.6% is temporary by construction.
-20. **A FATAL PAYLOAD MUST FILE A FATAL BEAT, AND NIGHTFELL'S CHARGES WILL HAVE
-    THE SAME HOLE.** Grasp's hands resolve outside `resolveHit` and filed no
-    `fatal` flag; 51.7% of the relic's kills rendered a clip with no killing
-    blow. The sigils detonate outside `resolveHit` too.
-    `nightfell_relic_probe` must check the FATAL case, not just that a beat
-    exists — that is exactly what let this through.
+19. ~~**STAGE 3 IS NEXT AND IT IS NIGHTFELL.**~~ **DONE**, 2026-08-31.
+    DEADFALL is built, the blade is 12.79 and the umbral school is finished.
+    `06-docs/v54/deadfall-build-v54.md`. What is still open off it is items
+    25-27 and the write-up's own open decisions — **the art and the sound are
+    first cuts and nobody has watched them.**
+20. ~~**A FATAL PAYLOAD MUST FILE A FATAL BEAT.**~~ **DONE for the charges** —
+    `tickDeadfall` files the `ult` beat and a second `hit`/`fatal:true` one,
+    and `nightfell_relic_probe [9]` checks the FATAL case rather than that a
+    beat exists. **It is WEAKLY EXERCISED and the probe says so in its own
+    output**: a charge deals about a fifth of a stamped pool, so it lands the
+    killing blow far less often than a hand does — 1 kill in 16 fights against
+    Grasp's 51.7%. Open item 3's general backstop is still the real fix.
 21. **NOBODY HAS WATCHED THE NEW CURSE ART.** `_stCurse` was re-cut — motes are
     drawn IN and never leave, one per remembered blow, sized by its share of
     the pool — and the status tag now prints `CURSE nn`. It is measured to draw
@@ -1020,6 +1088,24 @@ git push
     to damage RATE, or measure the channel directly. Named here because the
     v51 brief's §5.8 specifies the confounded form and anything reusing it will
     hit the same wall.
-Full detail: `06-docs/v53/` for the tip (curse-build then grasp-build), `06-docs/v49`-`v52` for the designs behind it,
-`06-docs/v48/` for the relic before it, `06-docs/v47/` for the one before that, `06-docs/v46/` for the opening, and
-`NEXT-SESSION.md` plus `06-docs/v43/` for the relic before it.
+25. **EVERY OTHER WINDOW ULTIMATE HAS DEADFALL'S `ultFx` HOLE.** §0. Aegis,
+    the Thicket, the ballista, the Stasis Field, the Winnowing, the Sentinel
+    and Grasp all set `ultFx.life` from `ult.dur`, and all seven are erased
+    the moment the opponent casts anything — measured at 0.0% survival against
+    Ironhail. Most read fine anyway because what a viewer watches is a SIM
+    OBJECT, and the Sentinel's beam is already drawn off `f.ultBeam`. **Nobody
+    has looked at what the other six actually lose.** The fix, where one is
+    wanted, is DEADFALL's: hang the art off the fighter's own window state.
+26. **A DEADFALL FIGURE CAN ARM AND FIRE ON THE SAME FRAME** when the foe is
+    standing in it — three times in one filmed seed. Mechanically correct, and
+    it collides the arm-snap with the first detonation. Whether the arming
+    beat should be protected (no fire for N ms after going live) is a design
+    question, it would cost catch rate, and it is Rick's.
+27. **`crowdMul` IS UNSET FOR DEADFALL**, as it is for Grasp and the
+    Winnowing. This one puts up to 25 live contacts on the floor at once.
+    Item 15 is now the same question three times.
+Full detail: `06-docs/v54/` for the tip, `06-docs/v53/` for the two stages
+before it (curse-build then grasp-build), `06-docs/v49`-`v52` for the designs
+behind all three, `06-docs/v48/` for the relic before them, `06-docs/v47/` for
+the one before that, `06-docs/v46/` for the opening, and `NEXT-SESSION.md`
+plus `06-docs/v43/` for the relic before it.
