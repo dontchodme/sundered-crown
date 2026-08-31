@@ -384,11 +384,12 @@ has to watch it**, and the ultimate's job is to be watched.
 
 # Open decisions
 
-1. ~~**THE ART**~~ **— armed against arming is SETTLED**, Rick off the first
-   build: *"i can tell the difference between armed and arming pretty easily."*
-   The explosion is rebuilt to his sentence and **has not been watched yet.**
+1. ~~**THE ART**~~ **— SETTLED, ALL OF IT.** Armed against arming off the
+   first build (*"i can tell the difference between armed and arming pretty
+   easily"*), the single mine off the second (*"mines look good"*), and the
+   rebuilt explosion off the third (*"looks great"*).
    `05-reference/v54/deadfall-states-*.png`,
-   `07-shorts/v54/deadfall-one-mine.mp4`.
+   `07-shorts/v54/deadfall-bigger-boom.mp4`.
 2. ~~**THE SOUND**~~ **— THE DETONATION IS REBUILT**, Rick: *"lets make the
    explosion sound effect bigger."* It was a short bright crack on purpose,
    because five charges could land inside 42ms and five thuds would have been

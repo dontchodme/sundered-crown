@@ -156,7 +156,11 @@ shoves at 250. **FOE ONLY.** Blade 15.83 -> **12.27**.
 > because five charges could land inside 42ms; that reason went with the five
 > charges. Peak 0.4876 -> 0.605, audible 1.15s -> 1.35s, share below 120 Hz
 > 0.224 -> 0.553. No burst over 0.6s (§4.5).
-> `05-reference/v54/deadfall-states-*.png`,
+>
+> **AND THE RELIC IS WATCHED AND APPROVED, ALL THREE ROUNDS OF IT** — armed
+> against arming, the single mine, and the explosion. Three rounds of one
+> rendered clip each, and every one of them moved something no probe had a
+> number for. `05-reference/v54/deadfall-states-*.png`,
 > `07-shorts/v54/deadfall-bigger-boom.mp4`.
 
 **GRAVEMOURN'S ULTIMATE IS GRASP, AND THE HANDS ARE THE ULTIMATE — NOT THE
