@@ -47,7 +47,7 @@ SEEK_JS = r"""([foe, sd, want, secs]) => {
   const m = new AC.Match("nightfell", foe, sd);
   const me = m.a.w.id === "nightfell" ? m.a : m.b;
   window.__m = m;
-  const live = () => m.sigils.reduce((s,g)=>s+g.ch.filter(c=>!c.dead).length,0);
+  const live = () => m.sigils.length;
   let step = 0, prevLive = 0;
   while (!m.over && step < secs / DT){
     const before = live();
@@ -60,12 +60,18 @@ SEEK_JS = r"""([foe, sd, want, secs]) => {
                                 && m.sigils[0].t > 0.5 && m.sigils[0].t < 1.2;
     if (want === "snap")   ok = armed > 0 && m.sigils.some(g =>
                                  g.t >= g.arm && g.t < g.arm + 0.10);
+    /* 1.0s past arming was NEVER REACHED once one figure became one mine at
+       radius 110: 91% of what is planted is walked into, and a live mine now
+       waits a fraction of a second rather than most of a fight. That is the
+       measurement talking, so the panel asks for less. */
     if (want === "armed")  ok = armed > 0 && arming === 0 && after === before
-                                && m.sigils.some(g => g.t > g.arm + 1.0);
+                                && m.sigils.some(g => g.t > g.arm + 0.35);
     if (want === "both")   ok = arming > 0 && armed > 0;
-    if (want === "chain")  ok = after < before && after > 0
-                                && m.sigils.some(g => g.ch.some(c => c.dead)
-                                                   && g.ch.some(c => !c.dead));
+    /* THE BLAST is what Rick could not read, so it gets its own panel: the
+       frame a mine is coming apart, with the figure still expanding. */
+    if (want === "chain")  ok = m.sigilFlash.length > 0
+                                && m.sigilFlash[0].t > 0.06
+                                && m.sigilFlash[0].t < 0.16;
     if (ok){
       AC.__draw(m);
       /* THE PIXELS COME BACK IN THIS SAME JS TURN, and that is not tidiness.
@@ -90,8 +96,8 @@ PANELS = [
     ("armed",  "ARMED — complete, still, and every live charge carries a lamp"
                " at its own trigger radius"),
     ("both",   "BOTH AT ONCE — which is the state the hall is usually in"),
-    ("chain",  "COMING APART — a spent point takes its two lines with it, so"
-               " what is left on the floor is what is left to walk into"),
+    ("chain",  "THE BLAST — the figure leaves by BECOMING the explosion, out"
+               " to the ground it actually covered. ONE mine, one number."),
 ]
 
 

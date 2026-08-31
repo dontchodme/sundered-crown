@@ -129,23 +129,35 @@ RELIC = "nightfell"
 ULT = {
     "dur":       8.0,    # the window. 4s -> 16s is 16.4 points and it trades
                          # against the blade; 8s is what stage 3b prices
-    "points":    5,      # A PENTAGRAM HAS FIVE POINTS, and the count is what
-                         # makes the chain: 5 on a 60u ring fires 5.7 charges
-                         # a trigger, 3 on a 70u ring fires 3.2
-    "ring":      60.0,   # THE FIGURE'S OWN RADIUS, and it wants to be TIGHT.
-                         # 60 beats 90 beats 120 on chain length, on catch
-                         # rate and on damage -- about 120 units across, three
-                         # and a half ball radii
-    "rad":       70.0,   # per charge. On the mine reading this is a PICTURE
-                         # knob: 60 to 240 all land within noise, because the
-                         # foe walks in eventually whatever the size
+    "points":    5,      # A PENTAGRAM HAS FIVE POINTS. THIS IS A DRAWING
+                         # NUMBER AND NOT A COUNT OF BOMBS -- one figure is
+                         # one mine, `drawSigils` strokes the star through
+                         # these, and the single hit test is the centre at
+                         # `rad`. v52 §3b measured the five-point ring as the
+                         # only arrangement that chains WITHIN a figure, and
+                         # Rick took the legible explosion over that chain.
+                         # What is left is figure-to-figure.
+    "ring":      60.0,   # the figure's DRAWN radius -- about 120 units
+                         # across, three and a half ball radii
+    "rad":       110.0,  # THE MINE'S TRIGGER RADIUS, AND THE WHOLE FIGURE IS
+                         # ONE MINE. Rick, off the first build: "my vision was
+                         # the pentagram was 1 large mine not a cluster of
+                         # small ones." It covers the drawn figure -- the
+                         # points sit at `ring` -- and a little beyond, so the
+                         # lit ground and the star agree. On the mine reading
+                         # v52 §2 measured radius 60 to 240 all landing within
+                         # noise on win rate, because the foe walks in
+                         # eventually whatever the size: this is a PICTURE
+                         # knob and it is set to fit the picture.
     "arm":       1.6,    # crackle, then live. The fuse was measured free at
                          # 0.8 / 1.6 / 2.6 -- the foe escapes within the
                          # shortest one tested or not at all -- so this is
                          # chosen for how it looks
-    "stampmul":  0.3,    # THE COPY. Each charge deals `poolSum * M / points`.
-                         # x1.0 is 211 damage a fight into a 400 pool; 0.3 is
-                         # where the field mean sits. BISECT with the blade.
+    "stampmul":  0.3,    # THE COPY. The mine deals `poolSum * M`, ONCE, as
+                         # one number. Under five charges each dealt a fifth
+                         # of this, so a fully-consumed figure delivered the
+                         # same total -- the starting point is unchanged and
+                         # only the shape of the delivery moved. BISECT.
     "push":      250.0,  # RICK'S, on legibility. 0 chains best and cannot be
                          # read; 800 keeps half the chain; 250 keeps 77%
 }
@@ -160,47 +172,47 @@ ULT_NAME = "Deadfall"
 ULT_TIP = "Stamps sigils that arm, then take whatever walks in"   # 51/72
 
 # --- STAGE 3b. THE BLADE, RE-SWEPT WITH DEADFALL IN PLACE -------------------
-# `umbral_sweep.py --relics nightfell --lo 8 --hi 22`, 9750 fights.
+# `umbral_sweep.py --relics nightfell --lo 8 --hi 22`, 9750 fights, RUN TWICE:
+# once on the five-charge build and again after Rick made the figure one mine.
 #
 #   15.83  what it shipped with, under the dead curse AND a dead Eclipse
-#   12.79  HERE, with DEADFALL. It read 68.4% at 16 and would have failed
-#          verify's 30-70% band on the next point up.
+#   12.79  five charges on a ring, each dealing a fifth of the stamp
+#   12.27  HERE. ONE MINE at radius 110 rather than five at 70, which catches
+#          91% of what is planted against 89% and covers more ground for it.
+#          Half a damage point, and the shape of the delivery is the whole
+#          reason the number moved.
 #
-# THE BUILD BRIEF PREDICTED "~13" BEFORE ANY OF THIS EXISTED (v51 §8.2). That
-# is the second registered prediction in two stages to land -- Gravemourn's
-# "~22-23" came in at 24.03 -- and it is worth saying so, because the same
-# brief's OTHER prediction about this relic was struck: §8.2 called `radius` a
-# picture knob and it is, but v52 §3d's own two "settled" knobs turned out to
-# be placeholders nobody had swept.
+# THE BUILD BRIEF PREDICTED "~13" BEFORE ANY OF THIS EXISTED (v51 §8.2), and
+# both cuts landed inside half a point of it. That is the second registered
+# prediction in two stages to come in — Gravemourn's "~22-23" measured 24.03.
 #
 # AND THIS CURVE DOES NOT BEND, WHICH IS NOT WHAT THE SCHOOL DID LAST TIME.
-# Gravemourn reads 67.3% at 47.2 and 60.6% at 52.0 -- more blade, worse relic,
+# Gravemourn reads 67.3% at 47.2 and 60.6% at 52.0 — more blade, worse relic,
 # because a bigger blow throws the quarry out of reach of a weapon that lands
 # 5.6 times a fight. Nightfell is monotone and steep over its whole range:
 #
-#    8.00  16.9%      14.00  61.7%      20.00  84.3%
-#   10.00  30.9%      16.00  68.4%      22.00  85.9%
-#   12.00  46.6%      18.00  79.0%
+#    8.00  14.1%      14.00  61.1%      20.00  84.1%
+#   10.00  33.9%      16.00  71.7%      22.00  89.0%
+#   12.00  48.4%      18.00  76.9%
 #
 # A greatsword is reach-poor and contact-rich, so its knockback never gets far
 # enough ahead of its own swing to cost it a blow. The sweep was still run
-# wide first, because a bisection cannot tell you that.
+# wide first, because a bisection cannot tell you which of those two shapes
+# you are standing on.
 #
-# THE CONFIRMATION IS NOT MONOTONIC AND THE TOOL SAID SO. Pass 3, n=1040 a
-# point: 12.27 -> 50.1%, 12.77 -> 49.7%, 13.27 -> 57.0%. The first two are one
-# reading of the same thing; the third is 7.3pp away over half a damage point.
-# So 12.79 is the middle of a flat region rather than a crossing measured to
-# two decimals, and the honest precision is the half-point interval, not the
-# hundredth. CLAUDE.md §0: nothing below n~700 ranks anything on this roster,
-# and n=1040 is only just above it.
+# THE CONFIRMATION IS MONOTONIC THIS TIME, AND IT WAS NOT BEFORE. Pass 3 at
+# n=1040 a point reads 11.64 -> 44.3%, 12.14 -> 48.9%, 12.64 -> 53.1%, where
+# the five-charge build gave 50.1 / 49.7 / 57.0 and the tool said out loud
+# that it had landed in its own noise. One number a figure is a quieter
+# instrument than five, which is worth knowing beyond this relic.
 #
 # WHAT THE CUT BUYS, and unlike Gravemourn's it does not gut the relic: at
-# 12.79 the echo is 14.7% of everything Nightfell delivers, the pool means 50
-# and peaks at 144, and it is UP 90% of the fight and FULL 69%. 474 of 893
-# blows land on a pool with something in it -- which is the number DEADFALL
+# 12.27 the echo is 14.3% of everything Nightfell delivers, the pool means 48
+# and peaks at 130, and it is UP 90% of the fight and FULL 68%. 477 of 915
+# blows land on a pool with something in it — which is the number DEADFALL
 # actually spends, because a figure stamped on an empty pool is a decoration.
 BLADE_IN = 15.83      # what `sc-gravemourn.html` carries
-TUNED_NF3 = 12.79
+TUNED_NF3 = 12.27
 
 
 EDITS = [
@@ -208,7 +220,7 @@ EDITS = [
 # --------------------------------------------------- 1. the window's home
 ("Fighter.ultDeadfall", '''    this.ultWinnow = null;''',
  '''    this.ultWinnow = null;
-    /* {t, dur, blows, figures, charges, refused, sprung} while DEADFALL's
+    /* {t, dur, blows, figures, refused, sprung} while DEADFALL's
        window is open. null on every other relic and on this one outside its
        own window, which is the whole zero-burden argument: `tickDeadfall`
        returns after a two-iteration loop that does nothing and a length test
@@ -237,7 +249,13 @@ EDITS = [
        (v52 §3d) and, more to the point, ONE SENTENCE: the sigil stays until
        something sets it off. So the hall accumulates, and the floor gets more
        dangerous as the fight goes on, for free. */
-    this.sigils = [];'''),
+    this.sigils = [];
+    /* AND THE BLAST THEY LEAVE. Presentation only, beside `rings` and
+       `floats`. A mine that simply vanished on the frame it fired was
+       the whole of Rick's complaint about the first build, so a figure
+       leaves by BECOMING the explosion. Nothing in the simulation
+       reads it. */
+    this.sigilFlash = [];'''),
 
 # ------------------------------------------------------------- 3. the cast
 ("fireUlt.sigil", '''    if (u.kind === "sling"){''',
@@ -249,7 +267,7 @@ EDITS = [
          NOT `nova`. Eclipse was one -- 11 damage in a 250 ring -- and it is
          gone with the art that drew it: an occulted body over the caster is a
          picture of an eclipse and this relic no longer casts one. */
-      f.ultDeadfall = { t: 0, dur: u.dur, blows: 0, figures: 0, charges: 0,
+      f.ultDeadfall = { t: 0, dur: u.dur, blows: 0, figures: 0,
                         refused: 0, sprung: 0 };
       /* The fx clock runs at 2x sim time -- `decay()` calls
          `tickPresentation` once directly and once through `decayImpactOnly` --
@@ -298,39 +316,46 @@ EDITS = [
         const A2 = CONFIG.arena, ins = this.inset + 10;
         /* THE WHOLE FIGURE IS NUDGED TO FIT IN THE HALL. Blows land on the
            walls constantly, and half a pentagram off the edge of the frame is
-           a picture fault with no number attached to it -- and its outside
-           charges could never be walked into either, so it would be a quarter
-           of the ultimate quietly discarded. The centre moves; the figure
-           stays a figure. (Only at the stamp. The walls close during a fight,
-           so a charge planted early can end up behind one, and that is the
-           hall taking it rather than a bug.) */
+           a picture fault with no number attached to it. The centre moves;
+           the figure stays a figure. (Only at the stamp. The walls close
+           during a fight, so a mine planted early can end up behind one, and
+           that is the hall taking it rather than a bug.) */
         const cx = clamp(hx, ins + U.ring, A2.w - ins - U.ring);
         const cy = clamp(hy, ins + U.ring, A2.h - ins - U.ring);
+        /* THE MINE'S WHOLE PAYLOAD, IN ONE NUMBER. The first build split
+           this `stamp / points` five ways, and five three-damage numbers went
+           up over the ball inside 42 milliseconds. Rick: "what isnt legible
+           is the explosion itself ... my vision was the pentagram was 1 large
+           mine not a cluster of small ones." A figure walked all the way
+           through delivered exactly this much before; it just delivers it at
+           once now, as one blast and one number. */
         const stamp = foe.curseSum() * U.stampMul;
         /* THE FIGURE'S ROTATION IS A PURE FUNCTION OF WHICH FIGURE IT IS. No
            `rng()` draw: a sigil's whole geometry follows from where the blow
            landed and how many have been stamped, which keeps the ultimate
            reproducible without spending from the fight's own stream. */
         const rot = (D.figures % N) * (TAU / (N * N));
-        const ch = [];
+        /* THE POINTS ARE A DRAWING AND NOT A LIST OF BOMBS. `drawSigils`
+           strokes the star through them; nothing is ever tested against them.
+           The one hit test in this relic is the CENTRE at `rad`. */
+        const pts = [];
         for (let i = 0; i < N; i++){
           const a2 = rot - Math.PI / 2 + i * TAU / N;
-          ch.push({ x: cx + Math.cos(a2) * U.ring,
-                    y: cy + Math.sin(a2) * U.ring,
-                    mem: stamp / N, dead: false });
+          pts.push({ x: cx + Math.cos(a2) * U.ring,
+                     y: cy + Math.sin(a2) * U.ring });
         }
         this.sigils.push({ src: self === this.a ? "a" : "b",
                            x: cx, y: cy, t: 0, arm: U.arm,
-                           ring: U.ring, rad: U.rad, stamp,
-                           seed: D.figures + 1, ch });
-        D.figures++; D.charges += N;
+                           ring: U.ring, rad: U.rad, stamp, mem: stamp,
+                           seed: D.figures + 1, pts });
+        D.figures++;
         SFX.play("ult", { w: "nightfell-stamp" });
       }
     }'''),
 
 # ------------------------------------------- 5. the window, and the floor
 ("tickDeadfall", '''  tickSling(dt){''',
- '''  /* THE WINDOW, AND EVERY LIVE CHARGE IN THE HALL.
+ '''  /* THE WINDOW, AND EVERY MINE STANDING ON THE FLOOR.
 
      They are ticked together because a figure outlives the window that
      stamped it -- permanently -- so this function is mostly about objects
@@ -362,57 +387,72 @@ EDITS = [
          not a chord, and the state change is a property of the figure. */
       if (was < g.arm && g.t >= g.arm) SFX.play("ult", { w: "nightfell-arm" });
     }
+    /* THE BLAST, AGED AND SWEPT. Presentation only: `drawSigils` reads it and
+       nothing else does, and it lives on the match so it goes with the fight. */
+    for (let i = this.sigilFlash.length - 1; i >= 0; i--){
+      const b = this.sigilFlash[i];
+      b.t += dt;
+      if (b.t >= b.life) this.sigilFlash.splice(i, 1);
+    }
     if (this.over) return;
 
-    /* ---- AT MOST ONE CHARGE A FRAME, AND IT IS THE NEAREST ONE ----------
+    /* ---- AT MOST ONE MINE A FRAME, AND IT IS THE NEAREST ONE -----------
 
-       §8.3a of the build brief, and it is the one hazard here that every
-       number in `06-docs/v52/echoes-v52.md` is blind to. If this looped over
-       every charge in range, a figure would come apart in a single frame: the
-       damage, the win rate, the chain counters and the beats would all be
-       right, and THERE WOULD BE NO CHAIN TO SEE. v42 shipped a silent
-       ultimate and v43 a hold that stuck to the ball it froze; both were
-       caught by Rick watching, and both produced identical numbers either way.
+       §8.3a of the build brief. The chain that is left after Rick took the
+       single large mine is FIGURE TO FIGURE -- the shove out of one blast
+       carrying the ball into the next mine standing on the floor -- and it
+       is a chain a viewer can actually follow, because every link is a
+       whole explosion rather than a fifth of one.
 
-       Firing one and returning means the shove below has landed before the
-       next test runs, so the ball is genuinely carried from charge to charge
-       -- the chain is the mechanic doing it, not a loop unrolling. At
-       dt = 1/120 a five-charge figure takes 42ms to fall.
+       It only exists if the frames are separate. If this fired every
+       figure in range in one step, the damage, the win rate, the chain
+       counters and the beats would all still be right and THERE WOULD BE
+       NO CHAIN TO SEE. v42 shipped a silent ultimate and v43 a hold that
+       stuck to the ball it froze; both were caught by Rick watching, and
+       both produced identical numbers either way. Firing one and
+       returning means the shove below has landed before the next test
+       runs, so the ball is genuinely carried from mine to mine.
 
        AND THE TEST ONLY EVER READS THE FOE. There is no caster branch to get
        wrong: a figure is planted where a blow landed, which is exactly where
        its own caster is standing, so a caster-triggering charge is not a
        tuning knob but 48% of the ultimate eating itself (v52 §3c) -- and
        these balls cannot steer, so nothing could avoid it. */
-    let hit = null, hitG = null, best = Infinity;
-    for (const g of this.sigils){
-      if (g.t < g.arm) continue;                    // still crackling
-      const foe = g.src === "a" ? this.b : this.a;
-      if (!foe.alive) continue;
-      for (const ch of g.ch){
-        if (ch.dead) continue;
-        const d = Math.hypot(foe.x - ch.x, foe.y - ch.y);
-        if (d <= g.rad && d < best){ best = d; hit = ch; hitG = g; }
-      }
+    let hitG = null, best = Infinity, at = -1;
+    for (let i = 0; i < this.sigils.length; i++){
+      const g2 = this.sigils[i];
+      if (g2.t < g2.arm) continue;                  // still crackling
+      const foe2 = g2.src === "a" ? this.b : this.a;
+      if (!foe2.alive) continue;
+      /* ONE TEST PER FIGURE, AT ITS CENTRE. The five points are a DRAWING --
+         Rick, off the first build: "my vision was the pentagram was 1 large
+         mine not a cluster of small ones." */
+      const d = Math.hypot(foe2.x - g2.x, foe2.y - g2.y);
+      if (d <= g2.rad && d < best){ best = d; hitG = g2; at = i; }
     }
-    if (!hit) return;
+    if (!hitG) return;
 
-    const g = hitG, ch = hit;
+    const g = hitG;
     const own = g.src === "a" ? this.a : this.b;
     const foe = g.src === "a" ? this.b : this.a;
-    ch.dead = true;
+    this.sigils.splice(at, 1);
+    /* AND IT LEAVES BY BECOMING THE EXPLOSION. The figure is handed to the
+       renderer to expand, whiten and burn out; a mine that simply disappeared
+       on the frame it fired is the thing Rick could not read. */
+    this.sigilFlash.push({ x: g.x, y: g.y, ring: g.ring, rad: g.rad,
+                           pts: g.pts, t: 0, life: 0.42 });
     /* IT DEALS ITS SHARE OF WHAT THE FIGURE REMEMBERED, and it deals it as an
        integer, because every damage number in this engine is one and this one
        gets printed over a ball. */
-    const dmg = Math.round(ch.mem * foe.dmgTakenMul());
+    const dmg = Math.round(g.mem * foe.dmgTakenMul());
     if (dmg > 0){
       this.hurt(foe, dmg, own);
       own.dealt += dmg;
-      /* `hits` is deliberately NOT incremented: a charge does not go through
+      /* `hits` is deliberately NOT incremented: a mine does not go through
          `resolveHit`, and verify's "no pairing resolves on fewer than 6 hits"
          floor is about BLOWS LANDED, which this is not. */
       foe.flash = 1; foe.ringFlash = 1;
-      this.float(foe.x, foe.y - 40, dmg, AFFINITIES.umbral.glow, 30 + dmg * 0.5);
+      this.float(foe.x, foe.y - 40, dmg, AFFINITIES.umbral.glow, 34 + dmg * 0.5);
     }
     /* NO CURSE. v52 §3e measured the clause at exactly +0.0% in this
        arrangement: a charge deals about a fifth of a stamped pool, the pool
@@ -425,7 +465,7 @@ EDITS = [
        `CONFIG.arena`'s no-seek comment forbids, because the viewer cannot see
        the force and it reads as the physics lying. It costs 23% of the chain
        and it is what carries the ball into the next charge. */
-    const dx = foe.x - ch.x, dy = foe.y - ch.y, dl = Math.hypot(dx, dy) || 1;
+    const dx = foe.x - g.x, dy = foe.y - g.y, dl = Math.hypot(dx, dy) || 1;
     const P = own.w.ult.push;
     foe.vx += (dx / dl) * P; foe.vy += (dy / dl) * P;
 
@@ -438,20 +478,21 @@ EDITS = [
       this.hitStop = Math.max(this.hitStop, CONFIG.impact.killStop);
       this.finisher = 1.0;
     } else {
-      /* SMALL, and smaller than Grasp's fist. Five of these can land inside
-         42ms; a hit-stop each would freeze the hall for a quarter of a second
-         and the chain would read as a hang. */
-      this.hitStop = Math.max(this.hitStop, 0.02);
+      /* AND IT LANDS LIKE ONE THING, because it is one thing. The first build
+         gave this 0.02 because five could fall inside 42ms and a hit-stop
+         each would have frozen the hall for a quarter of a second. One mine
+         a figure gets a real one. */
+      this.hitStop = Math.max(this.hitStop, 0.05);
     }
-    this.shake = Math.min(38, this.shake + (fatal ? 22 : 6));
-    this.spawnFx(ch.x, ch.y, AFFINITIES.umbral.core, 16, 210, 0.5, 5);
-    this.ring(ch.x, ch.y, AFFINITIES.umbral.glow, 5, g.rad, 0.34, 5);
+    this.shake = Math.min(38, this.shake + (fatal ? 22 : 13));
+    this.spawnFx(g.x, g.y, AFFINITIES.umbral.core, 34, 300, 0.7, 5);
+    this.ring(g.x, g.y, AFFINITIES.umbral.glow, 7, g.rad, 0.42, 6);
     SFX.play("ult", { w: "nightfell-boom" });
     /* RULE 3, EIGHTH RELIC RUNNING. A charge goes off on the floor through
        its own path, so nothing else in the frame knows it happened and
        `cinePlan` would score the best moment of this ultimate as empty air. */
     this.beat({ kind: "ult", side: own === this.a ? 0 : 1,
-                x: ch.x, y: ch.y, w: own.w.id,
+                x: g.x, y: g.y, w: own.w.id,
                 foeHpFrac: foe.hp / foe.maxHp });
     /* AND THE FATAL ONE IS FILED AS A HIT, WHICH IS A SECOND BEAT ON PURPOSE.
        `cinema_clip` finds the killing blow with `plan.find(c => c.fatal)` and
@@ -468,15 +509,6 @@ EDITS = [
                   spd: own.speed, foeSpd: foe.speed,
                   close: Math.hypot(own.vx - foe.vx, own.vy - foe.vy) });
     if (own.ultDeadfall) own.ultDeadfall.sprung++;
-
-    /* A FIGURE IS GONE WHEN THE LAST OF IT IS WALKED INTO, and never before:
-       the count still standing on the floor is the state of the trap. */
-    for (let i = this.sigils.length - 1; i >= 0; i--){
-      const s2 = this.sigils[i];
-      let any = false;
-      for (const c2 of s2.ch) if (!c2.dead){ any = true; break; }
-      if (!any) this.sigils.splice(i, 1);
-    }
   }
 
   tickSling(dt){'''),
@@ -647,12 +679,12 @@ EDITS = [
        in that field would silently shrink the cast's own set-piece.
 
        THE BLADE IS 15.83 -> %DMG% (stage 3b, `umbral_sweep.py`, 9750
-       fights). 15.83 priced a relic whose ultimate was dead; with DEADFALL it
-       read 68.4% at 16. Unlike Gravemourn's, this curve does NOT bend -- it
-       is monotone and steep from 16.9% at dmg 8 to 85.9% at 22 -- and the
-       cut does not gut the relic: the echo is still 14.7% of everything it
-       delivers and the pool is up 90% of the fight. See
-       nightfell_build.TUNED_NF3. */
+       fights, run twice — once on the five-charge figure and again on the
+       single mine). 15.83 priced a relic whose ultimate was dead. Unlike
+       Gravemourn's, this curve does NOT bend: it is monotone and steep from
+       14.1% at dmg 8 to 89.0% at 22. And the cut does not gut the relic —
+       the echo is still 14.3% of everything it delivers and the pool is up
+       90% of the fight. See nightfell_build.TUNED_NF3. */
     ult:{ name:"%ULT%", charge:15, kind:"sigil", dmg:0,
           dur:%DUR%, points:%POINTS%, ring:%RING%, rad:%RAD%,
           arm:%ARM%, stampMul:%STAMPMUL%, push:%PUSH%,
@@ -812,8 +844,8 @@ def main() -> int:
     # test reads `foe` and nothing else; asserted rather than trusted, because
     # a self-triggering figure eats 48% of its own charges while every gate in
     # this repo stays green -- the cost tunes straight out of the blade.
-    scan = body[body.index("let hit = null"):body.index("if (!hit) return;")]
-    for bad in ("own.", "this.a.x", "this.b.x"):
+    scan = body[body.index("let hitG = null"):body.index("if (!hitG) return;")]
+    for bad in ("own.", "me.x", "this.a.x", "this.b.x"):
         if bad in scan:
             raise SystemExit(
                 f"THE DETONATION SCAN READS {bad!r} (§8.3c). It may look at "

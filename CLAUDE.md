@@ -15,9 +15,10 @@ short-form video for TikTok and YouTube Shorts.
 02-chain/sc-nightfell.html       BUILD OF RECORD  27 relics · DEADFALL
                                                    everything below, plus
                                                    A WINDOW WHOSE EVERY BLOW
-                                                   STAMPS A PENTAGRAM THAT
-                                                   ARMS, WAITS FOREVER, AND
-                                                   TAKES WHATEVER WALKS IN
+                                                   STAMPS A PENTAGRAM — ONE
+                                                   MINE — THAT ARMS, WAITS
+                                                   FOREVER, AND TAKES
+                                                   WHATEVER WALKS IN
 02-chain/sc-gravemourn.html      the link before it, 27 relics · GRASP
                                                    A WINDOW THAT LENGTHENS THE
                                                    CHAIN, AND A SKELETAL HAND
@@ -53,12 +54,36 @@ short-form video for TikTok and YouTube Shorts.
 **NIGHTFELL'S ULTIMATE IS DEADFALL, AND IT IS THE FIRST THING IN THIS GAME
 THAT WAITS** (`nightfell_build.py`, 2026-08-31). Stage 3 of the v51/52 brief,
 and the umbral school is finished. A cast opens an 8s window; every blow
-landed inside it stamps ONE PENTAGRAM — five charges on a 60-unit ring, where
-the blow landed — each carrying a fifth of what Curse remembers about the
-quarry AT THAT INSTANT. They crackle for 1.6s, go live, and then wait,
-permanently, for the foe to walk within 70 of one. Each deals its share,
-shoves at 250 and takes its own point off the figure. **FOE ONLY.** Blade
-15.83 -> **12.79**. `06-docs/v54/deadfall-build-v54.md`.
+landed inside it stamps ONE PENTAGRAM where the blow landed, carrying what
+Curse remembers about the quarry AT THAT INSTANT. It crackles for 1.6s, goes
+live, and then waits — permanently — for the foe to walk within 110 of its
+centre. Then it deals the whole of what it remembers, in one number, and
+shoves at 250. **FOE ONLY.** Blade 15.83 -> **12.27**.
+`06-docs/v54/deadfall-build-v54.md`.
+
+> **THE FIGURE IS ONE MINE, AND THAT IS RICK OFF THE FIRST BUILD.** It shipped
+> first as five charges on a ring, because v52 §3b measured that ring as the
+> only arrangement that chains. He watched it: *"i can tell the difference
+> between armed and arming pretty easily. but what isnt legible is the
+> explosion itself. currently each pentagram spawns a bunch of mini bombs ...
+> my vision was the pentagram was 1 large mine not a cluster of small ones."*
+> Five charges at `stamp/5` put five 3-damage numbers over the ball across 42
+> milliseconds. **Every number was right** — damage, win rate, chain counters,
+> beats, sixteen green probe checks — and it read as noise.
+>
+> **IT COST THE CHAIN AND THAT IS MEASURED, NOT ESTIMATED.** Same 16 fights:
+> live at once 18 -> **3**, chained hits 193 -> **4**, longest run 9 -> **2**.
+> v52 §3b predicted exactly this ("at one bomb a blow there is nothing to
+> chain into"). What is left is figure-to-figure and it is rare. **It cost
+> almost no balance**: the blade moved 12.79 -> 12.27, because one mine at
+> radius 110 catches 91% of what is planted against five at 70 catching 89%.
+> The delivered damage barely moved; only its shape did.
+>
+> **AND ONE NUMBER A FIGURE IS A QUIETER INSTRUMENT THAN FIVE.** The
+> five-charge blade sweep's wide confirmation was NOT monotonic and the tool
+> said so; the one-mine sweep's is (11.64 -> 44.3%, 12.14 -> 48.9%,
+> 12.64 -> 53.1%, n=1040 each). An ultimate that pays in many small pieces is
+> harder to measure as well as harder to watch.
 
 > **`ultFx` IS ONE SLOT, SO A WINDOW ULTIMATE'S ART IS ERASED BY THE
 > OPPONENT'S CAST — AND THAT IS CHAIN-WIDE.** The crackle is §1's first
@@ -105,10 +130,13 @@ shoves at 250 and takes its own point off the figure. **FOE ONLY.** Blade
 > 12.79 is the middle of a flat region and the honest precision is the
 > half-point interval.
 
-> **NOBODY HAS WATCHED IT YET.** The art and the sound are FIRST CUTS and both
-> are Rick's under rule 2. `05-reference/v54/deadfall-states-*.png` is the
-> shape question answered; `07-shorts/v54/deadfall.mp4` is the scale one, and
-> it is open.
+> **THE SOUND IS SETTLED FOR NOW AND WAS DELIBERATELY NOT TOUCHED.** Rick:
+> *"sound is ok for now."* The detonation voice was written as a short crack
+> BECAUSE five could land inside 42ms, and that reason is gone — it is one
+> blast a figure now and may want a bigger voice. It is his to ask for.
+> **The rebuilt explosion has not been watched.**
+> `05-reference/v54/deadfall-states-*.png`,
+> `07-shorts/v54/deadfall-one-mine.mp4`.
 
 **GRAVEMOURN'S ULTIMATE IS GRASP, AND THE HANDS ARE THE ULTIMATE — NOT THE
 CHAIN THE DESIGN SAID THEY WERE** (`gravemourn_build.py`, 2026-08-31). Stage 2
@@ -1096,14 +1124,19 @@ git push
     OBJECT, and the Sentinel's beam is already drawn off `f.ultBeam`. **Nobody
     has looked at what the other six actually lose.** The fix, where one is
     wanted, is DEADFALL's: hang the art off the fighter's own window state.
-26. **A DEADFALL FIGURE CAN ARM AND FIRE ON THE SAME FRAME** when the foe is
-    standing in it — three times in one filmed seed. Mechanically correct, and
-    it collides the arm-snap with the first detonation. Whether the arming
-    beat should be protected (no fire for N ms after going live) is a design
-    question, it would cost catch rate, and it is Rick's.
+26. ~~**A DEADFALL FIGURE CAN ARM AND FIRE ON THE SAME FRAME.**~~ **SETTLED**,
+    Rick: *"arming and detonating on the same frame should be how it works."*
+    No protection window. Closed the day it was raised.
 27. **`crowdMul` IS UNSET FOR DEADFALL**, as it is for Grasp and the
-    Winnowing. This one puts up to 25 live contacts on the floor at once.
-    Item 15 is now the same question three times.
+    Winnowing. Much less pressing since the single mine — three live mines at
+    once rather than eighteen live charges — but item 15 is the same question
+    three times.
+28. **THE CHAIN REACTION IS GONE, AND IT WAS TRADED FOR THE EXPLOSION.**
+    §0 has the numbers. Rick chose a legible blast over a chain whose links
+    were a fifth of one each; if the chain is ever wanted back WITHOUT the
+    mini-bombs, the measured routes are a bigger `rad` or more figures per
+    window (shorter `arm`, longer `dur`, cheaper `charge`). Both are sweeps,
+    neither has been run, and both move the blade again.
 Full detail: `06-docs/v54/` for the tip, `06-docs/v53/` for the two stages
 before it (curse-build then grasp-build), `06-docs/v49`-`v52` for the designs
 behind all three, `06-docs/v48/` for the relic before them, `06-docs/v47/` for

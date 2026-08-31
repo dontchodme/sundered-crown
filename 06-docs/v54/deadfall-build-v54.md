@@ -1,4 +1,4 @@
-# v54 — DEADFALL IS BUILT. Stage 3 of three, and the umbral school is finished. The mechanic landed on the numbers the design predicted; **the three things that nearly shipped broken were all pictures, and one of them is chain-wide.**
+# v54 — DEADFALL IS BUILT. Stage 3 of three, and the umbral school is finished. **Four things nearly shipped broken and all four were pictures — one of them chain-wide, and the fourth was found by Rick watching the first build.**
 
 **2026-08-31.** `tools/nightfell_build.py`, `02-chain/sc-gravemourn.html` →
 `02-chain/sc-nightfell.html`. Design: `06-docs/v52/echoes-v52.md`. Plan:
@@ -6,14 +6,27 @@
 `06-docs/v53/grasp-build-v53.md` §9.
 
 ```
-DEADFALL   a window; every blow inside it stamps ONE PENTAGRAM of five
-           charges on a 60-unit ring where the blow landed, each carrying a
-           fifth of what Curse remembers about the quarry at that instant.
-           They crackle for 1.6s, go live, and then WAIT — permanently — for
-           the foe to walk within 70 of one. It deals its share, shoves at
-           250, and takes its point off the figure. FOE ONLY.
-           Blade 15.83 -> 12.79.
+DEADFALL   a window; every blow inside it stamps ONE PENTAGRAM where the blow
+           landed, carrying what Curse remembers about the quarry at that
+           instant. It crackles for 1.6s, goes live, and then WAITS —
+           permanently — for the foe to walk within 110 of its centre. Then it
+           deals the whole of what it remembers, in one number, and shoves at
+           250. FOE ONLY. Blade 15.83 -> 12.27.
 ```
+
+**THE FIGURE IS ONE MINE, AND THAT IS RICK OFF THE FIRST BUILD.** It shipped
+first as five charges on a ring, because v52 §3b measured that ring as the
+only arrangement that chains. He watched it:
+
+> *"i can tell the difference between armed and arming pretty easily. but what
+> isnt legible is the explosion itself. currently each pentagram spawns a
+> bunch of mini bombs. not opposed to this direction but my vision was the
+> pentagram was 1 large mine not a cluster of small ones."*
+
+Five charges at `stamp/5` put five 3-damage numbers over the ball across 42
+milliseconds. **Every number was right** — the damage, the win rate, the chain
+counters, the beats, sixteen green probe checks — and it read as noise. §7
+below is what it cost and what it bought.
 
 ---
 
@@ -24,25 +37,26 @@ DEADFALL   a window; every blow inside it stamps ONE PENTAGRAM of five
 | `kind` | `"sigil"` — new. NOT `nova`; Eclipse is gone, art included |
 | `dmg` at the cast | **0**. Nothing resolves; the cast opens a window |
 | `dur` | 8.0s |
-| `points` / `ring` | 5 on a 60-unit ring — one figure per blow |
-| `rad` | 70 per charge |
+| `points` / `ring` | 5 points on a 60-unit ring — **a drawing.** One figure per blow, one mine per figure |
+| `rad` | **110**, on the figure's centre. The whole pentagram is the hit box |
 | `arm` | 1.6s of crackle, then live |
-| `stampMul` | 0.3 of the pool sum at the blow, split five ways |
+| `stampMul` | 0.3 of the pool sum at the blow, **undivided** — one blast, one number |
 | `push` | 250, radially outward |
 | `apply` | **gone, and it stays gone** — v52 §3e, +0.0% |
-| blade | 15.83 → **12.79** (stage 3b) |
+| blade | 15.83 → **12.27** (stage 3b, re-swept after the mine changed) |
 
-Fifteen probe checks pass (`tools/nightfell_relic_probe.py`), `engine_ab` is
+Sixteen probe checks pass (`tools/nightfell_relic_probe.py`), `engine_ab` is
 bit-identical over the other 26 relics at 2600 matches, and every number in
 §4 below is off the built relic rather than off the lab.
 
 ---
 
-# 2. THE THREE THINGS THAT NEARLY SHIPPED, AND ALL THREE ARE PICTURES
+# 2. THE FOUR THINGS THAT NEARLY SHIPPED, AND ALL FOUR ARE PICTURES
 
-None of them moves a win rate. None of them fails a probe. All three are
-CLAUDE.md §4.1's defect class, and the first one is not this relic's problem
-alone.
+None of them moves a win rate. None of them fails a probe. All four are
+CLAUDE.md §4.1's defect class; the first is not this relic's problem alone,
+and the fourth needed a person, because three of these were caught by
+rendering and the fourth only by watching.
 
 ## 2a. `ultFx` IS ONE SLOT, SO A WINDOW ULTIMATE'S ART IS ERASED BY THE OPPONENT'S CAST
 
@@ -126,7 +140,7 @@ ARMING   incomplete   the ring and the star are DRAWN IN over `arm` seconds
 ARMED    complete     the figure closes, and it closes with a SNAP
          still        the jitter stops dead. Stillness is the tell.
          bound        solid star lines
-         lit          a lamp per live charge, at its own trigger radius
+         lit          ONE core at the centre, and the ground it covers
 ```
 
 **Darkness was doing none of that work and was hiding one of the states.** The
@@ -134,51 +148,76 @@ figure is also now drawn in `A.core` rather than `A.glow`: #DDB8FF over a
 bright ball reads as WHITE, and v52 §4 says these must not read like
 Foregone's Converse, which is the other floor-marking ultimate in the game.
 
+Rick, off that build: *"i can tell the difference between armed and arming
+pretty easily."* **Settled, and nothing in the rework below is allowed to
+weaken it.**
+
+## 2d. AND THE EXPLOSION WAS FIVE THINGS, WHICH IS NO THING
+
+The one a rendered frame could not catch, because every frame of it was
+correct. Five charges each dealt `stamp/5` — about three damage — and a figure
+came apart across 42 milliseconds as five small numbers. The mechanic was
+right, the chain counters were right, sixteen probe checks were green, and
+what a viewer saw was noise.
+
+**One figure is one mine now.** The drawn pentagram is the hit box: one
+trigger at its centre, out to `rad` 110; one blast; one number. The five
+points are a drawing. §7 is what that cost.
+
 ---
 
 # 3. THE ONE MECHANISM DECISION THIS BUILD MADE ON ITS OWN
 
-**AT MOST ONE CHARGE FALLS PER FRAME, and it is the nearest one.** §8.3a asked
+**AT MOST ONE MINE FALLS PER FRAME, and it is the nearest one.** §8.3a asked
 for the chain to span frames and pointed at `bomb_lab.py`, which loops over
-every charge in range each step. Those two are not the same thing: a loop
-fires a whole figure in one frame, every number stays right, and **there is no
-chain to see.**
+everything in range each step. Those two are not the same thing: a loop fires
+every mine at once, every number stays right, and **there is no chain to
+see.**
 
-So `tickDeadfall` scans, fires the nearest triggering charge, and returns. The
+So `tickDeadfall` scans, fires the nearest triggering mine, and returns. The
 shove has therefore landed before the next test runs, which means the ball is
-genuinely carried from charge to charge rather than a loop being unrolled. At
-dt = 1/120 a five-charge figure takes 42ms to come apart. Asserted:
-**337 detonations, 0 steps took more than one.**
+genuinely carried from mine to mine rather than a loop being unrolled.
+Asserted: **84 detonations, 0 steps took more than one.**
 
 ---
 
 # 4. WHAT IT DOES, MEASURED ON THE BUILD
 
-16 fights, four opponents, blade 15.83 (pre-tune):
+16 fights, four opponents:
 
 ```
-38 casts   76 figures   380 charges planted   337 walked into   43 standing
-most live at once 18       chained 193       longest run 9
+40 casts   92 mines planted   84 walked into   8 still standing
+most live at once 3       chained 4       longest run 2
 ```
 
 `planted = walked-into + still-standing` exactly, which is check [4]: nothing
 expires and nothing is lost. **Every blow inside a window stamped exactly one
-figure** — 76 blows, 76 figures, 0 refused at the ceiling.
+figure and every figure is exactly one mine** — 92 blows, 92 figures, 0
+refused at the ceiling, 0 with a payload anywhere but the centre.
 
-Stage 3b telemetry at the shipped blade: **the echo is 14.7% of everything
-Nightfell delivers**, the pool means 50 and peaks at 144, and it is up 90% of
-the fight and full 69%. 474 of 893 blows land on a pool with something in it —
+**A mine is walked into 91% of the time.** That is the landmine reading paying
+off exactly as v52 §2 said it would: the timer needed a blast covering half
+the hall to catch 59%, and this catches nine in ten with a figure 220 units
+across. It is also why a live mine now waits a fraction of a second rather
+than most of a fight — `deadfall_sheet.py`'s "armed" panel could not find a
+figure that had been live for a whole second anywhere in a 120-second match,
+and had to ask for 0.35s instead.
+
+Stage 3b telemetry at the shipped blade: **the echo is 14.3% of everything
+Nightfell delivers**, the pool means 48 and peaks at 130, and it is up 90% of
+the fight and full 68%. 477 of 915 blows land on a pool with something in it —
 which is the number DEADFALL actually spends, because a figure stamped on an
 empty pool is a decoration.
 
 ## 4b. THE BLADE, AND THIS CURVE DOES NOT BEND
 
-`umbral_sweep.py --relics nightfell --lo 8 --hi 22`, 9750 fights:
+`umbral_sweep.py --relics nightfell --lo 8 --hi 22`, 9750 fights, **run twice
+— once on the five-charge figure and again on the single mine.** On the mine:
 
 ```
- 8.00  16.9%      14.00  61.7%      20.00  84.3%
-10.00  30.9%      16.00  68.4%      22.00  85.9%
-12.00  46.6%      18.00  79.0%
+ 8.00  14.1%      14.00  61.1%      20.00  84.1%
+10.00  33.9%      16.00  71.7%      22.00  89.0%
+12.00  48.4%      18.00  76.9%
 ```
 
 Monotone and steep over the whole range. **Gravemourn's bends downward** —
@@ -186,29 +225,33 @@ Monotone and steep over the whole range. **Gravemourn's bends downward** —
 of reach of a weapon that lands 5.6 times a fight. A greatsword is reach-poor
 and contact-rich, so its knockback never gets far enough ahead of its own
 swing to cost it a blow. The sweep was run wide first anyway, because a
-bisection cannot tell you which of those two shapes you are on.
+bisection cannot tell you which of those two shapes you are standing on.
 
-> **THE BRIEF PREDICTED "~13" BEFORE ANY OF THIS EXISTED** (v51 §8.2).
-> Measured 12.79. That is the second registered prediction in two stages to
-> land — Gravemourn's "~22-23" came in at 24.03.
+```
+15.83   what it shipped with, under the dead curse and a dead Eclipse
+12.79   five charges on a ring, each dealing a fifth of the stamp
+12.27   ONE MINE at radius 110 rather than five at 70
+```
 
-> **AND THE CONFIRMATION IS NOT MONOTONIC, WHICH THE TOOL SAID OUT LOUD.**
-> Pass 3 at n=1040 a point: 12.27 → 50.1%, 12.77 → 49.7%, 13.27 → **57.0%**.
-> The first two are one reading of the same thing; the third is 7.3pp away
-> over half a damage point. **12.79 is the middle of a flat region, not a
-> crossing measured to two decimals** — the honest precision is the
-> half-point interval. CLAUDE.md §0's "nothing below n≈700 ranks anything"
-> is a floor, not a comfort: n=1040 is only just above it.
+> **THE BRIEF PREDICTED "~13" BEFORE ANY OF THIS EXISTED** (v51 §8.2), and
+> both cuts landed inside half a point of it. Second registered prediction in
+> two stages to come in — Gravemourn's "~22-23" measured 24.03.
 
----
+> **AND THE ONE-MINE CONFIRMATION IS MONOTONIC WHERE THE FIVE-CHARGE ONE WAS
+> NOT.** Pass 3, n=1040 a point: the mine reads 11.64 → 44.3%, 12.14 → 48.9%,
+> 12.64 → 53.1%; the five-charge build read 50.1 / 49.7 / 57.0 and the tool
+> said out loud that it had landed in its own sampling noise. **One number a
+> figure is a quieter instrument than five**, and that is worth knowing beyond
+> this relic: an ultimate that pays in many small pieces is harder to measure
+> as well as harder to watch.
 
 # 5. WHAT THE PROBE ASSERTS
 
-`tools/nightfell_relic_probe.py`, 15 checks. The two that exist for this
+`tools/nightfell_relic_probe.py`, 16 checks. The two that exist for this
 relic in particular:
 
-- **[3] NO CHARGE EVER FIRES ON THE CASTER**, measured with the caster
-  *standing inside its own armed figures* for 11,789 frames — which it does
+- **[3] NO MINE EVER FIRES ON THE CASTER**, measured with the caster
+  *standing inside its own armed figures* for 3,654 frames — which it does
   constantly, because they are planted where its own blows land. A
   self-triggering figure eats 48% of its own charges (v52 §3c) and **the cost
   tunes straight out of the blade**, so no sweep and no `verify` could ever
@@ -230,11 +273,20 @@ And two the last stage taught it:
   than a hand does (1 in 16 fights here against Grasp's 51.7%), and the probe
   now says so in its own output rather than reporting a green it has not
   earned.
+- **and a static check fired on its own new feature.** `noExpiry` was a regex
+  for `/life|expire/` over `tickDeadfall`, and the blast added `sigilFlash`,
+  which is presentation and is *supposed* to have a lifetime. It reported a
+  defect that was not there — the fourth time in two stages that a check
+  encoding its own model of a rule has failed on a legitimate change to it.
+  The claim is about the MINE, so it is now asserted on the mine, at runtime,
+  where it can only mean one thing.
 
-`[10]` is not in the probe and saying so is the point: it is a filmstrip
-question, and the sheet in `05-reference/v54/` is the first half of the answer.
-The second half — whether the difference survives motion at phone size, with
-two balls moving over it — is the video's and Rick's.
+`[10]` was never in the probe and **Rick answered both halves of it off the
+first build**: *"i can tell the difference between armed and arming pretty
+easily"* — so the four separations stay exactly as they are — and *"what isnt
+legible is the explosion itself"*, which is §7. Neither half was ever
+checkable here. `deadfall_sheet.py` is the instrument and a person is the
+gate.
 
 ---
 
@@ -255,29 +307,61 @@ two balls moving over it — is the video's and Rick's.
 
 ---
 
+# 7. WHAT THE SINGLE MINE COST, AND IT IS THE CHAIN
+
+This is the one place where what Rick asked for and what the design measured
+pull against each other, so the number goes here rather than in a footnote.
+
+```
+                              live at once   chained   longest run
+five charges on a 60u ring            18        193             9
+ONE mine per figure                    3          4             2
+```
+
+Same 16 fights. **The chain is gone.** v52 §3b predicted exactly this — *"at
+one bomb a blow there is nothing to chain into; 1.55 live at once, 0.25 chain
+hits, longest run 1.23, which is not a chain at all"* — and the build agrees
+with it to within the difference the bigger radius makes.
+
+What is left is figure-to-figure: a shove out of one blast carrying the ball
+into another mine standing on the floor, which happens about four times in
+sixteen fights. It is real and it is rare.
+
+**That is the trade, stated plainly.** The five-point ring bought a chain
+reaction that could not be read as one, because each link was a fifth of an
+explosion. One mine buys an explosion that can, and pays for it with the
+chain. Rick has the picture; the numbers had the chain; **he is the one who
+has to watch it**, and the ultimate's job is to be watched.
+
+> **AND IT DID NOT COST BALANCE.** The blade moved 12.79 → 12.27 — half a
+> damage point — because one mine at radius 110 catches 91% of what is planted
+> against the five-charge figure's 89%. The delivered damage is nearly
+> identical; only its shape moved.
+
+---
+
 # Open decisions
 
-1. **THE ART IS A FIRST CUT AND IT IS RICK'S** (rule 2). The sheet is
-   `05-reference/v54/deadfall-states-{arming,snap,armed,both,chain}.png` and
-   the clip is `07-shorts/v53/deadfall-first-cut.mp4` (rendered against the
-   pre-tune build; a fresh one is 6 minutes). The specific questions:
-   **is ARMING distinguishable from ARMED at phone size and in motion**, and
-   **does a purple pentagram on a floor that already carries a gold one
-   read as a second thing or as part of the first?**
-2. **THE SOUND IS A FIRST CUT AND IT IS RICK'S.** Four voices — the cast
-   (a rising electrical whine), the stamp (short, low, under the blow), the
-   ARM (a bright upward snap, one per figure), and the detonation (a crack,
-   not a thud, because five can land inside 42ms). All four render audible in
-   an `OfflineAudioContext`. A spread was NOT offered before building, which
-   is rule 2's letter; v43's lesson says the register is what costs, so if any
-   of these is wrong it wants a spread rather than a guess.
-3. **A FIGURE ARMS AND FIRES ON THE SAME FRAME when the foe is standing in
-   it** — three times in the seed filmed. Mechanically correct, and it means
-   the arm-snap and the first detonation collide. Whether the arming beat
-   should be protected (a charge cannot fire for N ms after going live) is a
-   design question and Rick's; it would cost catch rate.
+1. ~~**THE ART**~~ **— armed against arming is SETTLED**, Rick off the first
+   build: *"i can tell the difference between armed and arming pretty easily."*
+   The explosion is rebuilt to his sentence and **has not been watched yet.**
+   `05-reference/v54/deadfall-states-*.png`,
+   `07-shorts/v54/deadfall-one-mine.mp4`.
+2. ~~**THE SOUND**~~ **— SETTLED FOR NOW**, Rick: *"sound is ok for now."*
+   Left exactly as it was, deliberately: the detonation voice was written as a
+   short crack *because five could land inside 42ms*, and that reason is gone.
+   It is now one blast a figure and may want a bigger voice. Not changed
+   without him asking, because he answered the question that was put.
+3. ~~**A FIGURE ARMING AND FIRING ON THE SAME FRAME**~~ **— SETTLED: that is
+   how it works.** Rick. No protection window, no cost to catch rate.
 4. **`crowdMul` IS UNSET FOR THIS ULTIMATE**, as it was for Grasp and the
-   Winnowing. DEADFALL puts up to 18 live contacts on the floor at once; open
-   item 15 already flags the same question twice over.
-5. **THE OTHER SIX WINDOW ULTIMATES HAVE 2a's HOLE** and nobody has looked at
-   what they lose when their fx is taken. It is now an open item.
+   Winnowing. Much less pressing now — three live mines at once rather than
+   eighteen live charges — but open item 15 is the same question three times.
+5. **THE OTHER SIX WINDOW ULTIMATES HAVE §2a's HOLE** and nobody has looked at
+   what they lose when their fx is taken. Open item 25.
+6. **THE CHAIN IS GONE AND THAT WAS A TRADE, NOT AN ACCIDENT** (§7). If it is
+   wanted back without the mini-bombs, the measured routes are a bigger `rad`
+   (a mine that covers more floor is a mine the shove is more likely to throw
+   you into) or more figures per window (a shorter `arm`, a longer `dur`, or a
+   cheaper `charge`). Both are sweeps, neither has been run, and both would
+   move the blade again.

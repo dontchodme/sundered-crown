@@ -6,35 +6,49 @@
 Layer 2 of the v51/52 build brief (§8.4). Ten checks, and the tenth is not
 here because no tool in this repo can run it.
 
-  [1]  ONE FIGURE PER BLOW inside the window, `points` charges, on a ring of
-       the stated radius -- measured off POSITIONS, not recomputed from config
-  [2]  a charge does not exist before its arming time, and the foe can stand
-       on a crackling one without setting it off
-  [3]  NO CHARGE EVER FIRES ON THE CASTER, in any match, at any separation --
+  [1]  ONE FIGURE PER BLOW inside the window, drawn as `points` points on a
+       ring of the stated radius -- measured off POSITIONS, not recomputed
+  [2]  a mine does not exist before its arming time, and the foe can stand on
+       a crackling one without setting it off
+  [3]  NO MINE EVER FIRES ON THE CASTER, in any match, at any separation --
        and the caster is measured standing inside its own figures while it
        does not happen
   [4]  NOTHING EXPIRES. planted = walked-into + still-standing, with nothing
        lost between them
   [5]  the curse pool is UNCHANGED by the whole ultimate
-  [6]  the stamp is the pool sum AT THE BLOW, not at the detonation
-  [7]  THE CHAIN SPANS FRAMES -- no two charges ever fall in the same step
+  [6]  the stamp is the pool sum AT THE BLOW, not at the detonation, and the
+       WHOLE of it is one mine's payload
+  [7]  THE CHAIN SPANS FRAMES -- no two mines ever fall in the same step
   [8]  every voice renders to something audible in an OfflineAudioContext
-  [9]  the ult files a BEAT, and a charge that KILLS files a FATAL one
+  [9]  the ult files a BEAT, and a mine that KILLS files a FATAL one
   [P]  the render path is CALLED against a real 2D context
+
+## ONE FIGURE IS ONE MINE, AND THAT IS RICK OFF THE FIRST BUILD
+
+The first cut made each pentagram five charges on a ring, because v52 3b
+measured that ring as the only arrangement that chains. Rick watched it:
+
+    "i can tell the difference between armed and arming pretty easily. but
+     what isnt legible is the explosion itself. currently each pentagram
+     spawns a bunch of mini bombs. not opposed to this direction but my
+     vision was the pentagram was 1 large mine not a cluster of small ones."
+
+So the drawn figure is the hit box, and every check below counts FIGURES.
 
 ## [7] IS THE ONE THIS PROBE EXISTS FOR
 
-If the detonation handler looped over every charge in range, a figure would
-come apart in a single frame and **every number in `06-docs/v52/echoes-v52.md`
-would still be right**. The damage, the win rate, the chain counters and the
-beats are all identical either way, and there would be no chain to see. That
-is CLAUDE.md §4.1's defect class -- v42's silent ultimate, v43's sticking hold
--- and it is the reason this check counts charges lost PER STEP rather than
-per second.
+The chain that survives the single mine is FIGURE TO FIGURE -- a shove out of
+one blast carrying the ball into the next mine on the floor. If the detonation
+handler fired every figure in range in one step, **every number in
+`06-docs/v52/echoes-v52.md` would still be right**: the damage, the win rate,
+the chain counters and the beats are identical either way, and there would be
+no chain to see. That is CLAUDE.md 4.1's defect class -- v42's silent
+ultimate, v43's sticking hold -- and it is why this check counts mines lost
+PER STEP rather than per second.
 
 ## [3] IS THE ONE THAT WOULD TUNE STRAIGHT OUT
 
-A self-triggering figure eats 48% of its own charges (v52 §3c) and the cost
+A self-triggering figure eats 48% of its own charges (v52 3c) and the cost
 disappears into the blade: blade 15.83 with self-triggering lands on exactly
 the same win rate as blade 13 without it. So no sweep, no `verify` and no
 win-rate check anywhere in this repo can see it. [3] measures the caster
@@ -91,8 +105,9 @@ META_JS = r"""([rid]) => {
       noApply: !w.ult.apply,
       /* per-match state, not `w` and not `shots` (whose maxLive SHIFTS) */
       ownList: /this\.sigils/.test(rh) && /this\.sigils/.test(td),
-      /* nothing expires: no lifetime, no splice on a clock */
-      noExpiry: !/life|expire/i.test(td),
+      /* nothing expires -- asserted on the FIGURE at runtime instead, in
+         `oneMine` below. A regex here fired on `sigilFlash`'s own lifetime,
+         which is presentation and is supposed to have one. */
       /* and a charge files a beat */
       filesBeat: /this\.beat\(/.test(td),
       fatalBeat: /fatal: true/.test(td),
@@ -110,14 +125,14 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
   const W = AC.WEAPONS.find(x => x.id === rid), U = W.ult;
   const A = { fights: 0, blows: 0, engBlows: 0, figures: 0, engFigures: 0,
               refused: 0, countBad: 0, ringBad: 0, spaceBad: 0,
-              planted: 0, sprung: 0, standing: 0,
+              planted: 0, sprung: 0, standing: 0, oneMine: 0,
               preArmFired: 0, preArmFrames: 0,
               selfHurt: 0, casterInside: 0,
               poolMoved: 0, poolFrames: 0,
               stampBad: 0, stampFrozen: 0,
               multiFrame: 0, chained: 0, longest: 0,
               ultBeats: 0, chargeKills: 0, fatalBeats: 0,
-              dmgBad: 0, maxLive: 0, casts: 0, bombDmg: 0 };
+              dmgBad: 0, maxLive: 0, casts: 0, bombDmg: 0, flashLeak: 0 };
   for (const foeId of foes){
     for (const sd of seeds){
       const m = new AC.Match(rid, foeId, sd);
@@ -180,19 +195,30 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
         if (n1 > n0){
           const g = m.sigils[n1 - 1];
           A.figures++;
-          A.planted += g.ch.length;
+          A.planted++;
+          /* ONE FIGURE IS ONE MINE. `pts` is a drawing and carries no payload
+             of its own; a build that put `mem` back on the points would have
+             recreated the five-mini-bombs read Rick rejected, and every number
+             in this file would still be right. */
+          if (g.pts.some(q => q.mem !== undefined || q.dead !== undefined))
+            A.oneMine++;
+          if (g.ch !== undefined) A.oneMine++;
+          /* AND NOTHING EXPIRES: no lifetime on the figure, ever. Asserted on
+             the object rather than by grepping `tickDeadfall`, which now ages
+             the BLAST and is supposed to. */
+          if (g.life !== undefined || g.expire !== undefined) A.oneMine++;
           /* [1]. MEASURED OFF POSITIONS. `points` and `ring` are read from
              `w.ult`, never typed in -- a probe that hardcodes a number fails
              on every legitimate change to it. */
-          if (g.ch.length !== U.points) A.countBad++;
+          if (g.pts.length !== U.points) A.countBad++;
           const angs = [];
-          for (const c of g.ch){
+          for (const c of g.pts){
             if (Math.abs(Math.hypot(c.x - g.x, c.y - g.y) - U.ring) > 1e-6)
               A.ringBad++;
             angs.push(Math.atan2(c.y - g.y, c.x - g.x));
           }
           angs.sort((p, q) => p - q);
-          const want = 2 * Math.PI / g.ch.length;
+          const want = 2 * Math.PI / g.pts.length;
           for (let i = 1; i < angs.length; i++)
             if (Math.abs((angs[i] - angs[i - 1]) - want) > 1e-6) A.spaceBad++;
           /* [6]. The stamp is what Curse remembers AT THIS INSTANT -- which
@@ -200,8 +226,8 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
              after the `onHit` loop on purpose. */
           if (Math.abs(g.stamp - foe2.curseSum() * U.stampMul) > 1e-6)
             A.stampBad++;
-          for (const c of g.ch)
-            if (Math.abs(c.mem - g.stamp / g.ch.length) > 1e-9) A.stampBad++;
+          /* AND THE WHOLE STAMP IS THE MINE'S PAYLOAD, undivided. */
+          if (Math.abs(g.mem - g.stamp) > 1e-9) A.stampBad++;
         }
         return r;
       };
@@ -209,37 +235,33 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
       let step = 0, lastBoom = -99, run_ = 0;
       while (!m.over && step < secs / DT){
         /* the whole floor, photographed before and after the step */
-        const pre = m.sigils.map(g => ({ g, live: g.ch.filter(c => !c.dead),
-                                         t: g.t }));
-        const preLive = pre.reduce((s, p) => s + p.live.length, 0);
-        if (preLive > A.maxLive) A.maxLive = preLive;
+        const pre = m.sigils.slice();
+        if (pre.length > A.maxLive) A.maxLive = pre.length;
         const hpPre = th.hp;
         /* [2] and [3] are only worth anything if they were EXERCISED. Count
            the frames in which the thing that must not happen was available. */
-        for (const p of pre){
-          const armed = p.t >= p.g.arm;
-          for (const c of p.live){
-            const dth = Math.hypot(th.x - c.x, th.y - c.y);
-            const dme = Math.hypot(me.x - c.x, me.y - c.y);
-            if (!armed && dth <= p.g.rad) A.preArmFrames++;
-            if (armed && dme <= p.g.rad) A.casterInside++;
-          }
+        const ages = pre.map(g => g.t);
+        for (const g of pre){
+          const armed = g.t >= g.arm;
+          const dth = Math.hypot(th.x - g.x, th.y - g.y);
+          const dme = Math.hypot(me.x - g.x, me.y - g.y);
+          if (!armed && dth <= g.rad) A.preArmFrames++;
+          if (armed && dme <= g.rad) A.casterInside++;
         }
-        const nf0 = m.sigils.length;
         const alivePre = th.alive;
         m.step(DT); step++;
-        if (m.sigils.length > nf0) A.figures += 0;   // counted in resolveHit
 
-        /* what fell this step, and whether it was allowed to */
+        /* what fell this step, and whether it was allowed to. A figure is
+           GONE from `m.sigils` the instant it fires, so "fell" is a set
+           difference rather than a flag. */
         let fell = 0;
-        for (const p of pre){
-          for (const c of p.live) if (c.dead){
-            fell++;
-            /* [2]. `p.t` is the age BEFORE the step: a charge that fell while
-               its own figure had not finished arming is a live mine wearing a
-               crackle. */
-            if (p.t + DT < p.g.arm) A.preArmFired++;
-          }
+        for (let k = 0; k < pre.length; k++){
+          if (m.sigils.indexOf(pre[k]) >= 0) continue;
+          fell++;
+          /* [2]. `ages[k]` is the age BEFORE the step: a mine that fired while
+             its own figure had not finished arming is a live trap wearing a
+             crackle. */
+          if (ages[k] + DT < pre[k].arm) A.preArmFired++;
         }
         if (fell > 1) A.multiFrame++;
         if (fell > 0){
@@ -259,13 +281,13 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
       }
       A.casts += me.ultsFired;
       /* [4]. planted = walked-into + still-standing, and nothing in between. */
-      for (const g of m.sigils)
-        for (const c of g.ch) if (!c.dead) A.standing++;
+      A.standing += m.sigils.length;
       /* the engine's OWN counters, for [1]'s second opinion. The last window
          is still open if the fight ended inside it. */
       if (me.ultDeadfall){ A.engBlows += me.ultDeadfall.blows;
                            A.engFigures += me.ultDeadfall.figures;
                            A.refused += me.ultDeadfall.refused; }
+      if (m.sigilFlash.length > 8) A.flashLeak++;
     }
   }
   return A;
@@ -282,18 +304,19 @@ DRAW_JS = r"""([rid, foes, seeds, secs]) => {
   const DT = AC.CONFIG.physics.dt;
   const R = AC.renderer;
   if (!R || !R.ctx) return { skip: "no renderer/context" };
-  const out = { arming: 0, armed: 0, crackle: 0, under: 0, over: 0,
-                threw: null };
+  const out = { arming: 0, armed: 0, blast: 0, crackle: 0, under: 0,
+                over: 0, threw: null };
   for (const foeId of foes){
     for (const sd of seeds){
       const m = new AC.Match(rid, foeId, sd);
       let step = 0;
       while (!m.over && step < secs / DT){
         m.step(DT); step++;
-        if (m.sigils.length){
+        if (m.sigils.length || m.sigilFlash.length){
           let anyArming = false, anyArmed = false;
           for (const g of m.sigils) (g.t >= g.arm ? anyArmed = true
                                                   : anyArming = true);
+          if (m.sigilFlash.length) out.blast++;
           try { R.ctx.save(); R.drawSigils(m); R.ctx.restore();
                 if (anyArming) out.arming++; if (anyArmed) out.armed++; }
           catch (e){ out.threw = "drawSigils: " + String(e); return out; }
@@ -364,49 +387,53 @@ def main() -> int:
               S["readOnly"] and S["noApply"],
               "no pushCurse / apply(\"curse\") / cursePool in tickDeadfall, "
               "and ult.apply is gone")
-        check("the charges are per-match state with no lifetime — not on `w`, "
+        check("the mines are per-match state — not on `w`, "
               "not in `shots` (whose maxLive SHIFTS a live one out)",
-              S["ownList"] and S["noExpiry"])
+              S["ownList"])
 
         print()
         R = page.evaluate(RUN_JS, [RID, foes, seeds, A.secs])
         print(f"    {R['fights']} fights   {R['casts']} casts   "
-              f"{R['figures']} figures   {R['planted']} charges planted   "
+              f"{R['figures']} mines planted   "
               f"{R['sprung']} walked into   {R['standing']} still standing")
         print(f"    most live at once {R['maxLive']}   chained {R['chained']}"
               f"   longest run {R['longest']}   "
               f"{R['bombDmg']} damage off the floor")
+        print(f"    (a CHAIN is a mine going off within 0.45s of the last one "
+              f"— figure to figure, which is what the single mine leaves)")
 
         # [1]
         blows, figs = R["blows"], R["figures"]
-        check("ONE FIGURE PER BLOW landed inside the window, and it is "
-              "`points` charges evenly spaced on a ring of `ring` — measured "
-              "off the positions the proximity test actually reads, not "
-              "recomputed from the config",
+        check("ONE FIGURE PER BLOW landed inside the window, ONE MINE PER "
+              "FIGURE, and it is drawn as `points` points evenly spaced on a "
+              "ring of `ring` — measured off positions, not recomputed from "
+              "the config",
               blows == figs + R["refused"] and not R["countBad"]
-              and not R["ringBad"] and not R["spaceBad"],
+              and not R["ringBad"] and not R["spaceBad"]
+              and not R["oneMine"],
               f"{blows} blows -> {figs} figures + {R['refused']} refused; "
-              f"count/ring/spacing bad: {R['countBad']}/{R['ringBad']}/"
-              f"{R['spaceBad']}   (the engine's own counters say "
+              f"count/ring/spacing/payload bad: {R['countBad']}/"
+              f"{R['ringBad']}/{R['spaceBad']}/{R['oneMine']}   "
+              f"(the engine's own counters say "
               f"{R['engBlows']} blows / {R['engFigures']} figures on the "
               f"windows still open at the end)")
 
         # [2]
-        check("A CHARGE DOES NOT EXIST BEFORE ITS ARMING TIME — the foe stands "
+        check("A MINE DOES NOT EXIST BEFORE ITS ARMING TIME — the foe stands "
               "inside crackling figures and nothing happens",
               R["preArmFired"] == 0 and R["preArmFrames"] > 0,
-              f"{R['preArmFrames']} frames spent inside an un-armed charge, "
+              f"{R['preArmFrames']} frames spent inside an un-armed mine, "
               f"{R['preArmFired']} of them fired"
               if R["preArmFrames"] else "NEVER EXERCISED — no frame put the "
-              "foe inside a crackling charge, so this check proved nothing")
+              "foe inside a crackling mine, so this check proved nothing")
 
         # [3]
-        check("NO CHARGE EVER FIRES ON THE CASTER (§8.3c) — and the caster is "
+        check("NO MINE EVER FIRES ON THE CASTER (§8.3c) — and the caster is "
               "measured standing inside its own armed figures while it does "
               "not, because they are planted where its own blows land",
               R["selfHurt"] == 0 and R["casterInside"] > 0,
               f"{R['casterInside']} frames with the caster inside its own "
-              f"armed charge, {R['selfHurt']} of them hurt it"
+              f"armed mine, {R['selfHurt']} of them hurt it"
               if R["casterInside"] else "NEVER EXERCISED")
 
         # [4]
@@ -424,31 +451,34 @@ def main() -> int:
 
         # [6]
         check("THE STAMP IS THE POOL SUM AT THE BLOW, not at the detonation, "
-              "and each charge carries an equal share of it",
+              "and the WHOLE of it is the mine's payload — one blast, one "
+              "number, which is what Rick could not read as five",
               R["stampBad"] == 0,
               f"{R['figures']} figures, {R['stampBad']} mis-stamped")
 
         # [7]
-        check("THE CHAIN SPANS FRAMES (§8.3a) — no two charges ever fall in "
+        check("THE CHAIN SPANS FRAMES (§8.3a) — no two mines ever fall in "
               "the same step, so the shove that carries the ball into the "
               "next one has landed before the next test runs",
               R["multiFrame"] == 0 and R["sprung"] > 0,
               f"{R['sprung']} detonations, {R['multiFrame']} steps took more "
               f"than one")
+        check("the blast is swept — `sigilFlash` is presentation only and "
+              "never accumulates",
+              R["flashLeak"] == 0,
+              f"{R['flashLeak']} fights ended with more than 8 held")
 
         # [9]
-        check("a charge files a BEAT, and a charge that KILLS files a FATAL "
+        check("a mine files a BEAT, and a mine that KILLS files a FATAL "
               "one — `cinema_clip` finds the killing blow with "
               "`plan.find(c => c.fatal)` and an `ult` beat carries no such flag",
               R["ultBeats"] >= R["sprung"] and R["fatalBeats"] >= R["chargeKills"]
               and S["filesBeat"] and S["fatalBeat"],
               f"{R['sprung']} detonations -> {R['ultBeats']} ult beats; "
-              f"{R['chargeKills']} kills by a charge -> {R['fatalBeats']} "
+              f"{R['chargeKills']} kills by a mine -> {R['fatalBeats']} "
               f"fatal beats"
-              + ("   (WEAKLY EXERCISED: a charge deals about a fifth of a "
-                 "stamped pool, so it lands the killing blow far less often "
-                 "than Grasp's hand does — run more fights before reading "
-                 "this as proof)" if R["chargeKills"] < 4 else ""))
+              + ("   (WEAKLY EXERCISED: run more fights before reading this "
+                 "as proof)" if R["chargeKills"] < 4 else ""))
 
         # [P]
         print()
@@ -457,7 +487,8 @@ def main() -> int:
             check("THE RENDER PATH IS CALLED", False, D["skip"])
         else:
             print(f"    the render path, CALLED   drawSigils "
-                  f"{D['arming']} arming / {D['armed']} armed   "
+                  f"{D['arming']} arming / {D['armed']} armed / "
+                  f"{D['blast']} blast   "
                   f"drawCrackle {D['crackle']}   "
                   f"drawUltUnder {D['under']}   drawUltOver {D['over']}")
             check("`drawSigils`, `drawCrackle`, `drawUltUnder` and "
@@ -467,7 +498,8 @@ def main() -> int:
                   "reference, which is how two picture faults shipped through "
                   "27 green checks in v48",
                   not D["threw"] and D["arming"] > 0 and D["armed"] > 0
-                  and D["crackle"] > 0 and D["under"] > 0 and D["over"] > 0,
+                  and D["blast"] > 0 and D["crackle"] > 0
+                  and D["under"] > 0 and D["over"] > 0,
                   D["threw"] or "nothing threw")
 
         # [8]
@@ -530,15 +562,12 @@ def main() -> int:
     print(f"\n  {len(PASS) - len(bad)}/{len(PASS)} checks pass")
     # [10] IS NOT HERE, AND SAYING SO IS THE POINT.
     print("""
-  [10] ARMED READS DIFFERENTLY FROM ARMING — NOT CHECKED, AND NOT CHECKABLE
-       HERE. §8.4's tenth check is a filmstrip question and nothing in
-       `tools/` can answer it: with a fuse the crackle was a COUNTDOWN and the
-       tension was time; with a mine it is an ARMING animation and the tension
-       is space, and a viewer who cannot tell a live sigil from a crackling
-       one cannot see the mechanic at all. The art makes them differ in four
-       ways at once (incomplete/complete, flickering/still, dim/lit,
-       loose/bound, plus a snap on the transition) and whether any of that
-       survives a phone screen is Rick's, off a rendered clip.""")
+  [10] ARMED READS DIFFERENTLY FROM ARMING — ANSWERED BY RICK, NOT BY THIS.
+       "i can tell the difference between armed and arming pretty easily."
+       What he could NOT read was the explosion, which is why one figure is
+       now one mine. Neither half was checkable here and neither ever will
+       be: it is a filmstrip question. `deadfall_sheet.py` is the instrument.
+""")
     if bad:
         print("  FAILED: " + "; ".join(bad[:4]))
     return 1 if bad else 0

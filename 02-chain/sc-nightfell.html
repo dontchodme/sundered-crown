@@ -1001,7 +1001,7 @@ const WEAPONS = [
     blurb:"Not forged — grown, and still growing. Puts down roots where it lands." },
 
   { id:"nightfell", name:"Nightfell", aff:"umbral", shape:"greatsword",
-    blades:[0], reach:116, width:14, artW:40, spin:3.4, mode:"swing", arc:1.5, mass:3.0, dmg:12.79,
+    blades:[0], reach:116, width:14, artW:40, spin:3.4, mode:"swing", arc:1.5, mass:3.0, dmg:12.27,
     onHit:{ curse:1 },
     /* DEADFALL. The window is the ultimate and the FLOOR is the payload:
        every blow landed inside `dur` stamps one pentagram of `points` charges
@@ -1027,15 +1027,15 @@ const WEAPONS = [
        70-unit per-charge trigger is neither of those things, and putting it
        in that field would silently shrink the cast's own set-piece.
 
-       THE BLADE IS 15.83 -> 12.79 (stage 3b, `umbral_sweep.py`, 9750
-       fights). 15.83 priced a relic whose ultimate was dead; with DEADFALL it
-       read 68.4% at 16. Unlike Gravemourn's, this curve does NOT bend -- it
-       is monotone and steep from 16.9% at dmg 8 to 85.9% at 22 -- and the
-       cut does not gut the relic: the echo is still 14.7% of everything it
-       delivers and the pool is up 90% of the fight. See
-       nightfell_build.TUNED_NF3. */
+       THE BLADE IS 15.83 -> 12.27 (stage 3b, `umbral_sweep.py`, 9750
+       fights, run twice — once on the five-charge figure and again on the
+       single mine). 15.83 priced a relic whose ultimate was dead. Unlike
+       Gravemourn's, this curve does NOT bend: it is monotone and steep from
+       14.1% at dmg 8 to 89.0% at 22. And the cut does not gut the relic —
+       the echo is still 14.3% of everything it delivers and the pool is up
+       90% of the fight. See nightfell_build.TUNED_NF3. */
     ult:{ name:"Deadfall", charge:15, kind:"sigil", dmg:0,
-          dur:8, points:5, ring:60, rad:70,
+          dur:8, points:5, ring:60, rad:110,
           arm:1.6, stampMul:0.3, push:250,
           tip:"Stamps sigils that arm, then take whatever walks in" },
     blurb:"A reaper's blade. What it takes off a life never grows back." },
@@ -5933,7 +5933,7 @@ class Fighter {
        line is a comparison against null, and the two branches in `tickShots`
        are `if (s.kunai)` on a field no other projectile carries. */
     this.ultWinnow = null;
-    /* {t, dur, blows, figures, charges, refused, sprung} while DEADFALL's
+    /* {t, dur, blows, figures, refused, sprung} while DEADFALL's
        window is open. null on every other relic and on this one outside its
        own window, which is the whole zero-burden argument: `tickDeadfall`
        returns after a two-iteration loop that does nothing and a length test
@@ -6141,6 +6141,12 @@ class Match {
        something sets it off. So the hall accumulates, and the floor gets more
        dangerous as the fight goes on, for free. */
     this.sigils = [];
+    /* AND THE BLAST THEY LEAVE. Presentation only, beside `rings` and
+       `floats`. A mine that simply vanished on the frame it fired was
+       the whole of Rick's complaint about the first build, so a figure
+       leaves by BECOMING the explosion. Nothing in the simulation
+       reads it. */
+    this.sigilFlash = [];
     /* THE SHADES — live copies, and THE WHOLE BIT-IDENTITY ARGUMENT.
 
        Empty in every match that does not contain this relic, and empty in one
@@ -8259,7 +8265,7 @@ class Match {
      viewer watched it go, and deleting it because a clock ran out would take
      away a hit already earned. The ballista's bolts, the Thicket's seeds and
      the Winnowing's kunai all outlive their windows for the same reason. */
-  /* THE WINDOW, AND EVERY LIVE CHARGE IN THE HALL.
+  /* THE WINDOW, AND EVERY MINE STANDING ON THE FLOOR.
 
      They are ticked together because a figure outlives the window that
      stamped it -- permanently -- so this function is mostly about objects
@@ -8291,57 +8297,72 @@ class Match {
          not a chord, and the state change is a property of the figure. */
       if (was < g.arm && g.t >= g.arm) SFX.play("ult", { w: "nightfell-arm" });
     }
+    /* THE BLAST, AGED AND SWEPT. Presentation only: `drawSigils` reads it and
+       nothing else does, and it lives on the match so it goes with the fight. */
+    for (let i = this.sigilFlash.length - 1; i >= 0; i--){
+      const b = this.sigilFlash[i];
+      b.t += dt;
+      if (b.t >= b.life) this.sigilFlash.splice(i, 1);
+    }
     if (this.over) return;
 
-    /* ---- AT MOST ONE CHARGE A FRAME, AND IT IS THE NEAREST ONE ----------
+    /* ---- AT MOST ONE MINE A FRAME, AND IT IS THE NEAREST ONE -----------
 
-       §8.3a of the build brief, and it is the one hazard here that every
-       number in `06-docs/v52/echoes-v52.md` is blind to. If this looped over
-       every charge in range, a figure would come apart in a single frame: the
-       damage, the win rate, the chain counters and the beats would all be
-       right, and THERE WOULD BE NO CHAIN TO SEE. v42 shipped a silent
-       ultimate and v43 a hold that stuck to the ball it froze; both were
-       caught by Rick watching, and both produced identical numbers either way.
+       §8.3a of the build brief. The chain that is left after Rick took the
+       single large mine is FIGURE TO FIGURE -- the shove out of one blast
+       carrying the ball into the next mine standing on the floor -- and it
+       is a chain a viewer can actually follow, because every link is a
+       whole explosion rather than a fifth of one.
 
-       Firing one and returning means the shove below has landed before the
-       next test runs, so the ball is genuinely carried from charge to charge
-       -- the chain is the mechanic doing it, not a loop unrolling. At
-       dt = 1/120 a five-charge figure takes 42ms to fall.
+       It only exists if the frames are separate. If this fired every
+       figure in range in one step, the damage, the win rate, the chain
+       counters and the beats would all still be right and THERE WOULD BE
+       NO CHAIN TO SEE. v42 shipped a silent ultimate and v43 a hold that
+       stuck to the ball it froze; both were caught by Rick watching, and
+       both produced identical numbers either way. Firing one and
+       returning means the shove below has landed before the next test
+       runs, so the ball is genuinely carried from mine to mine.
 
        AND THE TEST ONLY EVER READS THE FOE. There is no caster branch to get
        wrong: a figure is planted where a blow landed, which is exactly where
        its own caster is standing, so a caster-triggering charge is not a
        tuning knob but 48% of the ultimate eating itself (v52 §3c) -- and
        these balls cannot steer, so nothing could avoid it. */
-    let hit = null, hitG = null, best = Infinity;
-    for (const g of this.sigils){
-      if (g.t < g.arm) continue;                    // still crackling
-      const foe = g.src === "a" ? this.b : this.a;
-      if (!foe.alive) continue;
-      for (const ch of g.ch){
-        if (ch.dead) continue;
-        const d = Math.hypot(foe.x - ch.x, foe.y - ch.y);
-        if (d <= g.rad && d < best){ best = d; hit = ch; hitG = g; }
-      }
+    let hitG = null, best = Infinity, at = -1;
+    for (let i = 0; i < this.sigils.length; i++){
+      const g2 = this.sigils[i];
+      if (g2.t < g2.arm) continue;                  // still crackling
+      const foe2 = g2.src === "a" ? this.b : this.a;
+      if (!foe2.alive) continue;
+      /* ONE TEST PER FIGURE, AT ITS CENTRE. The five points are a DRAWING --
+         Rick, off the first build: "my vision was the pentagram was 1 large
+         mine not a cluster of small ones." */
+      const d = Math.hypot(foe2.x - g2.x, foe2.y - g2.y);
+      if (d <= g2.rad && d < best){ best = d; hitG = g2; at = i; }
     }
-    if (!hit) return;
+    if (!hitG) return;
 
-    const g = hitG, ch = hit;
+    const g = hitG;
     const own = g.src === "a" ? this.a : this.b;
     const foe = g.src === "a" ? this.b : this.a;
-    ch.dead = true;
+    this.sigils.splice(at, 1);
+    /* AND IT LEAVES BY BECOMING THE EXPLOSION. The figure is handed to the
+       renderer to expand, whiten and burn out; a mine that simply disappeared
+       on the frame it fired is the thing Rick could not read. */
+    this.sigilFlash.push({ x: g.x, y: g.y, ring: g.ring, rad: g.rad,
+                           pts: g.pts, t: 0, life: 0.42 });
     /* IT DEALS ITS SHARE OF WHAT THE FIGURE REMEMBERED, and it deals it as an
        integer, because every damage number in this engine is one and this one
        gets printed over a ball. */
-    const dmg = Math.round(ch.mem * foe.dmgTakenMul());
+    const dmg = Math.round(g.mem * foe.dmgTakenMul());
     if (dmg > 0){
       this.hurt(foe, dmg, own);
       own.dealt += dmg;
-      /* `hits` is deliberately NOT incremented: a charge does not go through
+      /* `hits` is deliberately NOT incremented: a mine does not go through
          `resolveHit`, and verify's "no pairing resolves on fewer than 6 hits"
          floor is about BLOWS LANDED, which this is not. */
       foe.flash = 1; foe.ringFlash = 1;
-      this.float(foe.x, foe.y - 40, dmg, AFFINITIES.umbral.glow, 30 + dmg * 0.5);
+      this.float(foe.x, foe.y - 40, dmg, AFFINITIES.umbral.glow, 34 + dmg * 0.5);
     }
     /* NO CURSE. v52 §3e measured the clause at exactly +0.0% in this
        arrangement: a charge deals about a fifth of a stamped pool, the pool
@@ -8354,7 +8375,7 @@ class Match {
        `CONFIG.arena`'s no-seek comment forbids, because the viewer cannot see
        the force and it reads as the physics lying. It costs 23% of the chain
        and it is what carries the ball into the next charge. */
-    const dx = foe.x - ch.x, dy = foe.y - ch.y, dl = Math.hypot(dx, dy) || 1;
+    const dx = foe.x - g.x, dy = foe.y - g.y, dl = Math.hypot(dx, dy) || 1;
     const P = own.w.ult.push;
     foe.vx += (dx / dl) * P; foe.vy += (dy / dl) * P;
 
@@ -8367,20 +8388,21 @@ class Match {
       this.hitStop = Math.max(this.hitStop, CONFIG.impact.killStop);
       this.finisher = 1.0;
     } else {
-      /* SMALL, and smaller than Grasp's fist. Five of these can land inside
-         42ms; a hit-stop each would freeze the hall for a quarter of a second
-         and the chain would read as a hang. */
-      this.hitStop = Math.max(this.hitStop, 0.02);
+      /* AND IT LANDS LIKE ONE THING, because it is one thing. The first build
+         gave this 0.02 because five could fall inside 42ms and a hit-stop
+         each would have frozen the hall for a quarter of a second. One mine
+         a figure gets a real one. */
+      this.hitStop = Math.max(this.hitStop, 0.05);
     }
-    this.shake = Math.min(38, this.shake + (fatal ? 22 : 6));
-    this.spawnFx(ch.x, ch.y, AFFINITIES.umbral.core, 16, 210, 0.5, 5);
-    this.ring(ch.x, ch.y, AFFINITIES.umbral.glow, 5, g.rad, 0.34, 5);
+    this.shake = Math.min(38, this.shake + (fatal ? 22 : 13));
+    this.spawnFx(g.x, g.y, AFFINITIES.umbral.core, 34, 300, 0.7, 5);
+    this.ring(g.x, g.y, AFFINITIES.umbral.glow, 7, g.rad, 0.42, 6);
     SFX.play("ult", { w: "nightfell-boom" });
     /* RULE 3, EIGHTH RELIC RUNNING. A charge goes off on the floor through
        its own path, so nothing else in the frame knows it happened and
        `cinePlan` would score the best moment of this ultimate as empty air. */
     this.beat({ kind: "ult", side: own === this.a ? 0 : 1,
-                x: ch.x, y: ch.y, w: own.w.id,
+                x: g.x, y: g.y, w: own.w.id,
                 foeHpFrac: foe.hp / foe.maxHp });
     /* AND THE FATAL ONE IS FILED AS A HIT, WHICH IS A SECOND BEAT ON PURPOSE.
        `cinema_clip` finds the killing blow with `plan.find(c => c.fatal)` and
@@ -8397,15 +8419,6 @@ class Match {
                   spd: own.speed, foeSpd: foe.speed,
                   close: Math.hypot(own.vx - foe.vx, own.vy - foe.vy) });
     if (own.ultDeadfall) own.ultDeadfall.sprung++;
-
-    /* A FIGURE IS GONE WHEN THE LAST OF IT IS WALKED INTO, and never before:
-       the count still standing on the floor is the state of the trap. */
-    for (let i = this.sigils.length - 1; i >= 0; i--){
-      const s2 = this.sigils[i];
-      let any = false;
-      for (const c2 of s2.ch) if (!c2.dead){ any = true; break; }
-      if (!any) this.sigils.splice(i, 1);
-    }
   }
 
   tickSling(dt){
@@ -9302,32 +9315,39 @@ class Match {
         const A2 = CONFIG.arena, ins = this.inset + 10;
         /* THE WHOLE FIGURE IS NUDGED TO FIT IN THE HALL. Blows land on the
            walls constantly, and half a pentagram off the edge of the frame is
-           a picture fault with no number attached to it -- and its outside
-           charges could never be walked into either, so it would be a quarter
-           of the ultimate quietly discarded. The centre moves; the figure
-           stays a figure. (Only at the stamp. The walls close during a fight,
-           so a charge planted early can end up behind one, and that is the
-           hall taking it rather than a bug.) */
+           a picture fault with no number attached to it. The centre moves;
+           the figure stays a figure. (Only at the stamp. The walls close
+           during a fight, so a mine planted early can end up behind one, and
+           that is the hall taking it rather than a bug.) */
         const cx = clamp(hx, ins + U.ring, A2.w - ins - U.ring);
         const cy = clamp(hy, ins + U.ring, A2.h - ins - U.ring);
+        /* THE MINE'S WHOLE PAYLOAD, IN ONE NUMBER. The first build split
+           this `stamp / points` five ways, and five three-damage numbers went
+           up over the ball inside 42 milliseconds. Rick: "what isnt legible
+           is the explosion itself ... my vision was the pentagram was 1 large
+           mine not a cluster of small ones." A figure walked all the way
+           through delivered exactly this much before; it just delivers it at
+           once now, as one blast and one number. */
         const stamp = foe.curseSum() * U.stampMul;
         /* THE FIGURE'S ROTATION IS A PURE FUNCTION OF WHICH FIGURE IT IS. No
            `rng()` draw: a sigil's whole geometry follows from where the blow
            landed and how many have been stamped, which keeps the ultimate
            reproducible without spending from the fight's own stream. */
         const rot = (D.figures % N) * (TAU / (N * N));
-        const ch = [];
+        /* THE POINTS ARE A DRAWING AND NOT A LIST OF BOMBS. `drawSigils`
+           strokes the star through them; nothing is ever tested against them.
+           The one hit test in this relic is the CENTRE at `rad`. */
+        const pts = [];
         for (let i = 0; i < N; i++){
           const a2 = rot - Math.PI / 2 + i * TAU / N;
-          ch.push({ x: cx + Math.cos(a2) * U.ring,
-                    y: cy + Math.sin(a2) * U.ring,
-                    mem: stamp / N, dead: false });
+          pts.push({ x: cx + Math.cos(a2) * U.ring,
+                     y: cy + Math.sin(a2) * U.ring });
         }
         this.sigils.push({ src: self === this.a ? "a" : "b",
                            x: cx, y: cy, t: 0, arm: U.arm,
-                           ring: U.ring, rad: U.rad, stamp,
-                           seed: D.figures + 1, ch });
-        D.figures++; D.charges += N;
+                           ring: U.ring, rad: U.rad, stamp, mem: stamp,
+                           seed: D.figures + 1, pts });
+        D.figures++;
         SFX.play("ult", { w: "nightfell-stamp" });
       }
     }
@@ -11068,7 +11088,7 @@ class Match {
          NOT `nova`. Eclipse was one -- 11 damage in a 250 ring -- and it is
          gone with the art that drew it: an occulted body over the caster is a
          picture of an eclipse and this relic no longer casts one. */
-      f.ultDeadfall = { t: 0, dur: u.dur, blows: 0, figures: 0, charges: 0,
+      f.ultDeadfall = { t: 0, dur: u.dur, blows: 0, figures: 0,
                         refused: 0, sprung: 0 };
       /* The fx clock runs at 2x sim time -- `decay()` calls
          `tickPresentation` once directly and once through `decayImpactOnly` --
@@ -17662,80 +17682,147 @@ class Renderer {
      imprinted on the battlefield) the echos slowly begin to crackle with the
      same purple electricity."
 
+     ── ONE FIGURE IS ONE MINE, AND THAT IS RICK OFF THE FIRST BUILD ────────
+
+     The first cut made the pentagram five charges on a ring, because v52 §3b
+     measured the ring as the only arrangement that produces a chain: five
+     points 60 units apart set off 5.7 of each other, where one bomb a blow
+     chains 0.25 times a fight and is not a chain at all.
+
+     He watched it and said the thing the numbers could not:
+
+         "i can tell the difference between armed and arming pretty easily.
+          but what isnt legible is the explosion itself. currently each
+          pentagram spawns a bunch of mini bombs. not opposed to this
+          direction but my vision was the pentagram was 1 large mine not a
+          cluster of small ones."
+
+     Five charges at `stamp/5` put five 3-damage numbers over the ball across
+     42 milliseconds. That reads as noise, and no probe could tell you so: the
+     damage, the win rate, the chain counters and the beats were all correct.
+
+     **So the drawn figure IS the hit box now.** Five points because a
+     pentagram has five points, one trigger, one blast, one number. The chain
+     that survives is FIGURE TO FIGURE — a shove out of one mine into the next
+     one standing on the floor — which is a chain a viewer can actually follow,
+     because each link is a whole explosion.
+
      ── THE ONE THING THIS PICTURE HAS TO DO ────────────────────────────────
 
      ARMED MUST NOT LOOK LIKE ARMING. v52 §3c: with a fuse the crackle was a
      COUNTDOWN and the tension was time; with a mine it is an ARMING animation
-     and the tension is space. A viewer who cannot tell a live sigil from a
-     crackling one cannot see the mechanic at all — the hall just has purple
-     marks on it — and every number in `06-docs/v52/echoes-v52.md` is then
-     measuring something nobody can watch. It is the F3 gate and it is the
-     only check in this stage no tool can run.
-
-     So the two states are made different in FOUR ways at once, because any
-     one of them can be lost to a small phone screen, to the bloom, or to a
-     dark frame:
+     and the tension is space. Rick confirmed off the first build that this
+     reads, so the four separations below are KEPT AS THEY ARE and nothing in
+     this rework is allowed to weaken them:
 
        ARMING   incomplete   the ring and the star are DRAWN IN over `arm`
                              seconds, so the figure is visibly unfinished
                 flickering   every stroke jitters off `shellHash` per frame
-                dim          no node lamps, thin lines, low alpha
                 loose        crackle arcs jump BETWEEN the points, unattached
+                thin         no core, no lit ground
 
-       ARMED    complete     the figure closes, and it closes with a SNAP —
-                             a one-off flare at the instant it goes live
+       ARMED    complete     the figure closes, and it closes with a SNAP
                 steady       the jitter stops dead. Stillness is the tell.
-                lit          each live charge carries a lamp at its own radius
-                bound        the star lines are solid and the ring is filled
-
-     THE SNAP IS THE MOST IMPORTANT FRAME. A state change a viewer misses is
-     a state change that did not happen, and the sigil is on the floor behind
-     two moving balls; it will not be looked at unless something makes it
-     worth looking at.
+                bound        solid star lines
+                lit          ONE core at the centre — the mine itself — and
+                             the ground it covers, out to `rad`
 
      ── AND IT MUST NOT READ AS CONVERSE ────────────────────────────────────
 
-     v52 §4. Foregone already puts sigils on this floor and blooms them, so
-     the two floor-marking ultimates in the game have to be told apart at a
-     glance: Converse is runic BLUE, drawn as a route the caster walked, and
-     it detonates in a sweep. This is umbral PURPLE, drawn as discrete closed
-     figures stamped where blood was drawn, and it waits.
+     v52 §4. Foregone already puts sigils on this floor and blooms them, so the
+     two floor-marking ultimates have to be told apart at a glance: Converse is
+     runic BLUE, drawn as a route the caster walked, detonated in a sweep. This
+     is umbral PURPLE, discrete closed figures stamped where blood was drawn,
+     and it waits. The figure is stroked in `A.core` and never in `A.glow`:
+     #DDB8FF over a bright ball reads as WHITE, which is the one thing these
+     must not do.
 
      ── THE POSITIONS ARE THE SIMULATION'S ──────────────────────────────────
 
-     Nothing here recomputes where a charge is. `g.ch[i].x/y` is what the
-     proximity test in `tickDeadfall` reads, so the drawn node and the live
-     trigger are the same number — the class of bug CLAUDE.md §4.1 exists for
-     is not available to this block. */
+     Nothing here recomputes where anything is. `g.x/g.y` is what the proximity
+     test in `tickDeadfall` reads and `g.rad` is the radius it reads it at, so
+     the lit ground and the live trigger are the same number. The class of bug
+     CLAUDE.md §4.1 exists for is not available to this block. */
   drawSigils(m){
+    const c = this.ctx, A = AFFINITIES.umbral;
+
+    /* ---- THE BLAST, FIRST, so a live figure draws over it ---------------
+       A mine that simply vanished on the frame it fired was the whole of
+       Rick's complaint: the explosion has to be the loudest thing the
+       ultimate does, and the figure is what explodes. So the pentagram
+       leaves by BECOMING the blast — it expands, thickens, whitens and goes.
+       Presentation only, aged on `m.sigilFlash` beside `rings` and `floats`,
+       and nothing in the simulation reads it. */
+    const F = m.sigilFlash;
+    if (F && F.length){
+      for (const b of F){
+        const u = clamp(b.t / b.life, 0, 1);
+        const k = 1 - u;
+        const sc = 1 + u * 1.35;
+        c.save();
+        c.globalCompositeOperation = "lighter";
+        /* the shock out to the trigger radius — the ground it actually
+           covered, drawn once, so the size of the mine is stated at the one
+           moment a viewer is looking straight at it */
+        c.globalAlpha = k * k * 0.55;
+        c.strokeStyle = A.glow;
+        c.lineWidth = 3 + k * 7;
+        c.beginPath();
+        c.arc(b.x, b.y, b.rad * (0.35 + u * 0.85), 0, TAU);
+        c.stroke();
+        /* and the figure itself, thrown outward */
+        c.globalAlpha = k * 0.95;
+        c.strokeStyle = u < 0.45 ? "#FFFFFF" : A.glow;
+        c.lineWidth = 2 + k * 3.5;
+        c.shadowColor = A.core; c.shadowBlur = 24 * k;
+        const N = b.pts.length;
+        c.beginPath();
+        for (let i = 0; i < N; i++){
+          const p = b.pts[(i * 2) % N];
+          const x = b.x + (p.x - b.x) * sc, y = b.y + (p.y - b.y) * sc;
+          i ? c.lineTo(x, y) : c.moveTo(x, y);
+        }
+        c.closePath(); c.stroke();
+        c.beginPath();
+        c.arc(b.x, b.y, b.ring * sc, 0, TAU);
+        c.stroke();
+        c.shadowBlur = 0;
+        c.restore();
+      }
+    }
+
     const S = m.sigils;
     if (!S || !S.length) return;
-    const c = this.ctx, A = AFFINITIES.umbral;
     for (const g of S){
       const armed = g.t >= g.arm;
       const frac  = armed ? 1 : clamp(g.t / g.arm, 0, 1);
-      /* THE SNAP: 0.32s of flare on the frame the figure goes live, and it is
-         the only thing in this block that is loud. */
+      /* THE SNAP: 0.32s of flare on the frame the figure goes live. */
       const snap  = armed ? clamp(1 - (g.t - g.arm) / 0.32, 0, 1) : 0;
-      const live  = [];
-      for (const ch of g.ch) if (!ch.dead) live.push(ch);
-      if (!live.length) continue;
-      /* the flicker is a per-FRAME hash on a arming figure and is frozen the
+      /* the flicker is a per-FRAME hash on an arming figure and is frozen the
          instant it arms. Stillness is what says "this is now a thing that
          happens to you". */
       const fl = armed ? 0 : (shellHash(g.seed + 7, (g.t * 34) | 0) - 0.5) * 2;
+      const P = g.pts, N = P.length;
 
       c.save();
       c.globalCompositeOperation = "lighter";
 
-      /* ---- the ring the charges sit on -------------------------------- */
-      /* ARMING WAS 0.16 AND THAT WAS NOT DIM, IT WAS INVISIBLE. Photographed
-         off a real match at 19.8s (`deadfall_sheet.py`), the crackling figure
-         did not read at all against the arena's own gold motif -- so the
-         viewer saw sigils APPEAR already live, and the arming beat, which is
-         the whole tension of a mine, did not exist on screen. The two states
-         are separated by SHAPE, MOTION and COLOUR here; darkness was doing
-         none of that work and was hiding one of them. */
+      /* ---- THE GROUND THE MINE COVERS, out to its own trigger radius.
+              ARMED ONLY, and faint. Nothing else in this game draws its own
+              hit box; this one has to, because the hit box IS the mechanic
+              and a viewer has to know which floor not to be standing on. */
+      if (armed){
+        const pulse = 0.5 + 0.5 * Math.sin(g.t * 2.6);
+        c.globalAlpha = 0.09 + 0.05 * pulse + snap * 0.20;
+        const gr = c.createRadialGradient(g.x, g.y, 1, g.x, g.y, g.rad);
+        gr.addColorStop(0, A.core + "BB");
+        gr.addColorStop(0.6, A.core + "3A");
+        gr.addColorStop(1, A.core + "00");
+        c.fillStyle = gr;
+        c.beginPath(); c.arc(g.x, g.y, g.rad, 0, TAU); c.fill();
+      }
+
+      /* ---- the ring the figure is drawn on ---------------------------- */
       c.globalAlpha = armed ? 0.34 + 0.10 * Math.sin(g.t * 2.4) + snap * 0.5
                             : (0.34 + 0.22 * frac) * (0.75 + fl * 0.25);
       c.strokeStyle = A.core;
@@ -17745,23 +17832,12 @@ class Renderer {
       c.stroke();
 
       /* ---- the star: point i to point i+2, which is what makes it a
-              pentagram rather than a pentagon ------------------------------ */
-      const N = g.ch.length;
+              pentagram rather than a pentagon ---------------------------- */
       for (let i = 0; i < N; i++){
-        const a = g.ch[i], b = g.ch[(i + 2) % N];
-        /* A SPENT NODE TAKES ITS LINES WITH IT. The figure comes apart as it
-           is walked through, so what is left on the floor is a count of what
-           is left to walk into — the state of the trap, drawn as the trap. */
-        if (a.dead || b.dead) continue;
+        const a = P[i], b = P[(i + 2) % N];
         const seg = clamp((frac - i / (N * 1.6)) * 2.2, 0, 1);
         if (seg <= 0) continue;
         c.globalAlpha = armed ? 0.55 + snap * 0.45 : 0.30 + 0.28 * frac;
-        /* AND THE FIGURE IS UMBRAL PURPLE, NOT WHITE. `A.glow` is #DDB8FF and
-           over a bright ball it reads as white -- which is the one thing v52
-           §4 says these must not do, because Foregone's Converse already puts
-           lines on this floor and the two floor-marking ultimates have to be
-           told apart at a glance. The core colour carries the figure; the
-           near-white is spent only on the lamps. */
         c.strokeStyle = A.core;
         c.lineWidth = armed ? 2.4 + snap * 1.8 : 1.5;
         if (armed){
@@ -17773,44 +17849,37 @@ class Renderer {
         }
       }
 
-      /* ---- the charges themselves ------------------------------------- */
-      for (let i = 0; i < N; i++){
-        const ch = g.ch[i];
-        if (ch.dead) continue;
-        if (armed){
-          /* THE LAMP IS DRAWN AT THE CHARGE'S OWN TRIGGER RADIUS, faintly, so
-             the ground a viewer must not walk on is the ground that is lit.
-             Nothing else in this game draws its own hit box; this one has to,
-             because the hit box IS the mechanic. */
-          const pulse = 0.5 + 0.5 * Math.sin(g.t * 3.1 + i * 1.26);
-          c.globalAlpha = 0.10 + 0.05 * pulse + snap * 0.22;
-          const gr = c.createRadialGradient(ch.x, ch.y, 1, ch.x, ch.y, g.rad);
-          gr.addColorStop(0, A.core + "AA");
-          gr.addColorStop(0.55, A.core + "44");
-          gr.addColorStop(1, A.core + "00");
-          c.fillStyle = gr;
-          c.beginPath(); c.arc(ch.x, ch.y, g.rad, 0, TAU); c.fill();
-
-          c.globalAlpha = 0.85 + snap * 0.15;
-          c.fillStyle = A.glow;
-          c.shadowColor = A.core; c.shadowBlur = 12 + snap * 22;
-          c.beginPath();
-          c.arc(ch.x, ch.y, 3.4 + pulse * 1.1 + snap * 3.0, 0, TAU);
-          c.fill();
-          c.shadowBlur = 0;
-        } else {
-          /* arming: a spark being coaxed into existence, and the crackle is
-             UNATTACHED — it jumps between the points that are not there yet */
+      /* ---- THE MINE. One core at the centre, and it is the whole of the
+              difference from the first build: five lamps on a ring said five
+              bombs, because that is what it was. */
+      if (armed){
+        const pulse = 0.5 + 0.5 * Math.sin(g.t * 3.1);
+        c.globalAlpha = 0.9;
+        c.fillStyle = "#FFFFFF";
+        c.shadowColor = A.core; c.shadowBlur = 16 + pulse * 10 + snap * 26;
+        c.beginPath();
+        c.arc(g.x, g.y, 4.6 + pulse * 1.6 + snap * 4.0, 0, TAU);
+        c.fill();
+        c.shadowBlur = 0;
+        c.globalAlpha = 0.5 + 0.3 * pulse;
+        c.strokeStyle = A.glow; c.lineWidth = 1.6;
+        c.beginPath();
+        c.arc(g.x, g.y, 10 + pulse * 3.5 + snap * 8, 0, TAU);
+        c.stroke();
+      } else {
+        /* arming: the points are sparks being coaxed into existence, and the
+           crackle between them is UNATTACHED */
+        for (let i = 0; i < N; i++){
           c.globalAlpha = (0.45 + 0.3 * frac) * (0.6 + 0.4 * Math.abs(fl));
           c.fillStyle = A.core;
           c.beginPath();
-          c.arc(ch.x, ch.y, 1.6 + frac * 1.6, 0, TAU);
+          c.arc(P[i].x, P[i].y, 1.6 + frac * 1.6, 0, TAU);
           c.fill();
           if (i % 2 === 0 && frac > 0.15){
-            const nb = g.ch[(i + 1) % N];
+            const nb = P[(i + 1) % N];
             c.globalAlpha = (0.20 + 0.30 * frac) * Math.abs(fl);
             c.strokeStyle = A.glow; c.lineWidth = 1.0;
-            this._jag(c, ch.x, ch.y, nb.x, nb.y, 6, 9,
+            this._jag(c, P[i].x, P[i].y, nb.x, nb.y, 6, 9,
                       g.seed * 29 + i + ((g.t * 22) | 0), 1);
           }
         }

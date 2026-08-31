@@ -4,80 +4,147 @@
      imprinted on the battlefield) the echos slowly begin to crackle with the
      same purple electricity."
 
+     ── ONE FIGURE IS ONE MINE, AND THAT IS RICK OFF THE FIRST BUILD ────────
+
+     The first cut made the pentagram five charges on a ring, because v52 §3b
+     measured the ring as the only arrangement that produces a chain: five
+     points 60 units apart set off 5.7 of each other, where one bomb a blow
+     chains 0.25 times a fight and is not a chain at all.
+
+     He watched it and said the thing the numbers could not:
+
+         "i can tell the difference between armed and arming pretty easily.
+          but what isnt legible is the explosion itself. currently each
+          pentagram spawns a bunch of mini bombs. not opposed to this
+          direction but my vision was the pentagram was 1 large mine not a
+          cluster of small ones."
+
+     Five charges at `stamp/5` put five 3-damage numbers over the ball across
+     42 milliseconds. That reads as noise, and no probe could tell you so: the
+     damage, the win rate, the chain counters and the beats were all correct.
+
+     **So the drawn figure IS the hit box now.** Five points because a
+     pentagram has five points, one trigger, one blast, one number. The chain
+     that survives is FIGURE TO FIGURE — a shove out of one mine into the next
+     one standing on the floor — which is a chain a viewer can actually follow,
+     because each link is a whole explosion.
+
      ── THE ONE THING THIS PICTURE HAS TO DO ────────────────────────────────
 
      ARMED MUST NOT LOOK LIKE ARMING. v52 §3c: with a fuse the crackle was a
      COUNTDOWN and the tension was time; with a mine it is an ARMING animation
-     and the tension is space. A viewer who cannot tell a live sigil from a
-     crackling one cannot see the mechanic at all — the hall just has purple
-     marks on it — and every number in `06-docs/v52/echoes-v52.md` is then
-     measuring something nobody can watch. It is the F3 gate and it is the
-     only check in this stage no tool can run.
-
-     So the two states are made different in FOUR ways at once, because any
-     one of them can be lost to a small phone screen, to the bloom, or to a
-     dark frame:
+     and the tension is space. Rick confirmed off the first build that this
+     reads, so the four separations below are KEPT AS THEY ARE and nothing in
+     this rework is allowed to weaken them:
 
        ARMING   incomplete   the ring and the star are DRAWN IN over `arm`
                              seconds, so the figure is visibly unfinished
                 flickering   every stroke jitters off `shellHash` per frame
-                dim          no node lamps, thin lines, low alpha
                 loose        crackle arcs jump BETWEEN the points, unattached
+                thin         no core, no lit ground
 
-       ARMED    complete     the figure closes, and it closes with a SNAP —
-                             a one-off flare at the instant it goes live
+       ARMED    complete     the figure closes, and it closes with a SNAP
                 steady       the jitter stops dead. Stillness is the tell.
-                lit          each live charge carries a lamp at its own radius
-                bound        the star lines are solid and the ring is filled
-
-     THE SNAP IS THE MOST IMPORTANT FRAME. A state change a viewer misses is
-     a state change that did not happen, and the sigil is on the floor behind
-     two moving balls; it will not be looked at unless something makes it
-     worth looking at.
+                bound        solid star lines
+                lit          ONE core at the centre — the mine itself — and
+                             the ground it covers, out to `rad`
 
      ── AND IT MUST NOT READ AS CONVERSE ────────────────────────────────────
 
-     v52 §4. Foregone already puts sigils on this floor and blooms them, so
-     the two floor-marking ultimates in the game have to be told apart at a
-     glance: Converse is runic BLUE, drawn as a route the caster walked, and
-     it detonates in a sweep. This is umbral PURPLE, drawn as discrete closed
-     figures stamped where blood was drawn, and it waits.
+     v52 §4. Foregone already puts sigils on this floor and blooms them, so the
+     two floor-marking ultimates have to be told apart at a glance: Converse is
+     runic BLUE, drawn as a route the caster walked, detonated in a sweep. This
+     is umbral PURPLE, discrete closed figures stamped where blood was drawn,
+     and it waits. The figure is stroked in `A.core` and never in `A.glow`:
+     #DDB8FF over a bright ball reads as WHITE, which is the one thing these
+     must not do.
 
      ── THE POSITIONS ARE THE SIMULATION'S ──────────────────────────────────
 
-     Nothing here recomputes where a charge is. `g.ch[i].x/y` is what the
-     proximity test in `tickDeadfall` reads, so the drawn node and the live
-     trigger are the same number — the class of bug CLAUDE.md §4.1 exists for
-     is not available to this block. */
+     Nothing here recomputes where anything is. `g.x/g.y` is what the proximity
+     test in `tickDeadfall` reads and `g.rad` is the radius it reads it at, so
+     the lit ground and the live trigger are the same number. The class of bug
+     CLAUDE.md §4.1 exists for is not available to this block. */
   drawSigils(m){
+    const c = this.ctx, A = AFFINITIES.umbral;
+
+    /* ---- THE BLAST, FIRST, so a live figure draws over it ---------------
+       A mine that simply vanished on the frame it fired was the whole of
+       Rick's complaint: the explosion has to be the loudest thing the
+       ultimate does, and the figure is what explodes. So the pentagram
+       leaves by BECOMING the blast — it expands, thickens, whitens and goes.
+       Presentation only, aged on `m.sigilFlash` beside `rings` and `floats`,
+       and nothing in the simulation reads it. */
+    const F = m.sigilFlash;
+    if (F && F.length){
+      for (const b of F){
+        const u = clamp(b.t / b.life, 0, 1);
+        const k = 1 - u;
+        const sc = 1 + u * 1.35;
+        c.save();
+        c.globalCompositeOperation = "lighter";
+        /* the shock out to the trigger radius — the ground it actually
+           covered, drawn once, so the size of the mine is stated at the one
+           moment a viewer is looking straight at it */
+        c.globalAlpha = k * k * 0.55;
+        c.strokeStyle = A.glow;
+        c.lineWidth = 3 + k * 7;
+        c.beginPath();
+        c.arc(b.x, b.y, b.rad * (0.35 + u * 0.85), 0, TAU);
+        c.stroke();
+        /* and the figure itself, thrown outward */
+        c.globalAlpha = k * 0.95;
+        c.strokeStyle = u < 0.45 ? "#FFFFFF" : A.glow;
+        c.lineWidth = 2 + k * 3.5;
+        c.shadowColor = A.core; c.shadowBlur = 24 * k;
+        const N = b.pts.length;
+        c.beginPath();
+        for (let i = 0; i < N; i++){
+          const p = b.pts[(i * 2) % N];
+          const x = b.x + (p.x - b.x) * sc, y = b.y + (p.y - b.y) * sc;
+          i ? c.lineTo(x, y) : c.moveTo(x, y);
+        }
+        c.closePath(); c.stroke();
+        c.beginPath();
+        c.arc(b.x, b.y, b.ring * sc, 0, TAU);
+        c.stroke();
+        c.shadowBlur = 0;
+        c.restore();
+      }
+    }
+
     const S = m.sigils;
     if (!S || !S.length) return;
-    const c = this.ctx, A = AFFINITIES.umbral;
     for (const g of S){
       const armed = g.t >= g.arm;
       const frac  = armed ? 1 : clamp(g.t / g.arm, 0, 1);
-      /* THE SNAP: 0.32s of flare on the frame the figure goes live, and it is
-         the only thing in this block that is loud. */
+      /* THE SNAP: 0.32s of flare on the frame the figure goes live. */
       const snap  = armed ? clamp(1 - (g.t - g.arm) / 0.32, 0, 1) : 0;
-      const live  = [];
-      for (const ch of g.ch) if (!ch.dead) live.push(ch);
-      if (!live.length) continue;
-      /* the flicker is a per-FRAME hash on a arming figure and is frozen the
+      /* the flicker is a per-FRAME hash on an arming figure and is frozen the
          instant it arms. Stillness is what says "this is now a thing that
          happens to you". */
       const fl = armed ? 0 : (shellHash(g.seed + 7, (g.t * 34) | 0) - 0.5) * 2;
+      const P = g.pts, N = P.length;
 
       c.save();
       c.globalCompositeOperation = "lighter";
 
-      /* ---- the ring the charges sit on -------------------------------- */
-      /* ARMING WAS 0.16 AND THAT WAS NOT DIM, IT WAS INVISIBLE. Photographed
-         off a real match at 19.8s (`deadfall_sheet.py`), the crackling figure
-         did not read at all against the arena's own gold motif -- so the
-         viewer saw sigils APPEAR already live, and the arming beat, which is
-         the whole tension of a mine, did not exist on screen. The two states
-         are separated by SHAPE, MOTION and COLOUR here; darkness was doing
-         none of that work and was hiding one of them. */
+      /* ---- THE GROUND THE MINE COVERS, out to its own trigger radius.
+              ARMED ONLY, and faint. Nothing else in this game draws its own
+              hit box; this one has to, because the hit box IS the mechanic
+              and a viewer has to know which floor not to be standing on. */
+      if (armed){
+        const pulse = 0.5 + 0.5 * Math.sin(g.t * 2.6);
+        c.globalAlpha = 0.09 + 0.05 * pulse + snap * 0.20;
+        const gr = c.createRadialGradient(g.x, g.y, 1, g.x, g.y, g.rad);
+        gr.addColorStop(0, A.core + "BB");
+        gr.addColorStop(0.6, A.core + "3A");
+        gr.addColorStop(1, A.core + "00");
+        c.fillStyle = gr;
+        c.beginPath(); c.arc(g.x, g.y, g.rad, 0, TAU); c.fill();
+      }
+
+      /* ---- the ring the figure is drawn on ---------------------------- */
       c.globalAlpha = armed ? 0.34 + 0.10 * Math.sin(g.t * 2.4) + snap * 0.5
                             : (0.34 + 0.22 * frac) * (0.75 + fl * 0.25);
       c.strokeStyle = A.core;
@@ -87,23 +154,12 @@
       c.stroke();
 
       /* ---- the star: point i to point i+2, which is what makes it a
-              pentagram rather than a pentagon ------------------------------ */
-      const N = g.ch.length;
+              pentagram rather than a pentagon ---------------------------- */
       for (let i = 0; i < N; i++){
-        const a = g.ch[i], b = g.ch[(i + 2) % N];
-        /* A SPENT NODE TAKES ITS LINES WITH IT. The figure comes apart as it
-           is walked through, so what is left on the floor is a count of what
-           is left to walk into — the state of the trap, drawn as the trap. */
-        if (a.dead || b.dead) continue;
+        const a = P[i], b = P[(i + 2) % N];
         const seg = clamp((frac - i / (N * 1.6)) * 2.2, 0, 1);
         if (seg <= 0) continue;
         c.globalAlpha = armed ? 0.55 + snap * 0.45 : 0.30 + 0.28 * frac;
-        /* AND THE FIGURE IS UMBRAL PURPLE, NOT WHITE. `A.glow` is #DDB8FF and
-           over a bright ball it reads as white -- which is the one thing v52
-           §4 says these must not do, because Foregone's Converse already puts
-           lines on this floor and the two floor-marking ultimates have to be
-           told apart at a glance. The core colour carries the figure; the
-           near-white is spent only on the lamps. */
         c.strokeStyle = A.core;
         c.lineWidth = armed ? 2.4 + snap * 1.8 : 1.5;
         if (armed){
@@ -115,44 +171,37 @@
         }
       }
 
-      /* ---- the charges themselves ------------------------------------- */
-      for (let i = 0; i < N; i++){
-        const ch = g.ch[i];
-        if (ch.dead) continue;
-        if (armed){
-          /* THE LAMP IS DRAWN AT THE CHARGE'S OWN TRIGGER RADIUS, faintly, so
-             the ground a viewer must not walk on is the ground that is lit.
-             Nothing else in this game draws its own hit box; this one has to,
-             because the hit box IS the mechanic. */
-          const pulse = 0.5 + 0.5 * Math.sin(g.t * 3.1 + i * 1.26);
-          c.globalAlpha = 0.10 + 0.05 * pulse + snap * 0.22;
-          const gr = c.createRadialGradient(ch.x, ch.y, 1, ch.x, ch.y, g.rad);
-          gr.addColorStop(0, A.core + "AA");
-          gr.addColorStop(0.55, A.core + "44");
-          gr.addColorStop(1, A.core + "00");
-          c.fillStyle = gr;
-          c.beginPath(); c.arc(ch.x, ch.y, g.rad, 0, TAU); c.fill();
-
-          c.globalAlpha = 0.85 + snap * 0.15;
-          c.fillStyle = A.glow;
-          c.shadowColor = A.core; c.shadowBlur = 12 + snap * 22;
-          c.beginPath();
-          c.arc(ch.x, ch.y, 3.4 + pulse * 1.1 + snap * 3.0, 0, TAU);
-          c.fill();
-          c.shadowBlur = 0;
-        } else {
-          /* arming: a spark being coaxed into existence, and the crackle is
-             UNATTACHED — it jumps between the points that are not there yet */
+      /* ---- THE MINE. One core at the centre, and it is the whole of the
+              difference from the first build: five lamps on a ring said five
+              bombs, because that is what it was. */
+      if (armed){
+        const pulse = 0.5 + 0.5 * Math.sin(g.t * 3.1);
+        c.globalAlpha = 0.9;
+        c.fillStyle = "#FFFFFF";
+        c.shadowColor = A.core; c.shadowBlur = 16 + pulse * 10 + snap * 26;
+        c.beginPath();
+        c.arc(g.x, g.y, 4.6 + pulse * 1.6 + snap * 4.0, 0, TAU);
+        c.fill();
+        c.shadowBlur = 0;
+        c.globalAlpha = 0.5 + 0.3 * pulse;
+        c.strokeStyle = A.glow; c.lineWidth = 1.6;
+        c.beginPath();
+        c.arc(g.x, g.y, 10 + pulse * 3.5 + snap * 8, 0, TAU);
+        c.stroke();
+      } else {
+        /* arming: the points are sparks being coaxed into existence, and the
+           crackle between them is UNATTACHED */
+        for (let i = 0; i < N; i++){
           c.globalAlpha = (0.45 + 0.3 * frac) * (0.6 + 0.4 * Math.abs(fl));
           c.fillStyle = A.core;
           c.beginPath();
-          c.arc(ch.x, ch.y, 1.6 + frac * 1.6, 0, TAU);
+          c.arc(P[i].x, P[i].y, 1.6 + frac * 1.6, 0, TAU);
           c.fill();
           if (i % 2 === 0 && frac > 0.15){
-            const nb = g.ch[(i + 1) % N];
+            const nb = P[(i + 1) % N];
             c.globalAlpha = (0.20 + 0.30 * frac) * Math.abs(fl);
             c.strokeStyle = A.glow; c.lineWidth = 1.0;
-            this._jag(c, ch.x, ch.y, nb.x, nb.y, 6, 9,
+            this._jag(c, P[i].x, P[i].y, nb.x, nb.y, 6, 9,
                       g.seed * 29 + i + ((g.t * 22) | 0), 1);
           }
         }
