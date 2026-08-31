@@ -130,13 +130,34 @@ shoves at 250. **FOE ONLY.** Blade 15.83 -> **12.27**.
 > 12.79 is the middle of a flat region and the honest precision is the
 > half-point interval.
 
-> **THE SOUND IS SETTLED FOR NOW AND WAS DELIBERATELY NOT TOUCHED.** Rick:
-> *"sound is ok for now."* The detonation voice was written as a short crack
-> BECAUSE five could land inside 42ms, and that reason is gone — it is one
-> blast a figure now and may want a bigger voice. It is his to ask for.
-> **The rebuilt explosion has not been watched.**
+> **THE BLAST FROZE ON THE FLOOR, 96.2% OF THE TIME, AND THE ENGINE HAD
+> ALREADY WRITTEN THE WARNING THREE LINES AWAY.** Rick: *"ive also seen some
+> mines explode and then disappear and some explode and stick around."*
+> Measured over 36 fights: **178 of 185 detonations left a figure frozen
+> mid-expansion, worst 31.67 SECONDS against a 0.42s life.** The ageing loop
+> was on the normal step path, and a detonation is an IMPACT — it sets
+> `hitStop`, and `step()` returns through `decayImpactOnly` for as long as
+> that runs. `tickPresentation` says this already, about status tags: *"every
+> hit begins with a hit stop that runs decayImpactOnly. Tick it on the normal
+> path only and the tag freezes for exactly the frames the viewer is staring
+> hardest at."* Same sentence, one object along. **ANYTHING PRESENTATION THAT
+> IS SPAWNED BY AN IMPACT BELONGS IN `tickPresentation`, NOT IN A TICK.**
+>
+> **AND THE CHECK THAT WAS WRITTEN TO CATCH IT GOT IT WRONG TWICE.** The
+> original asked whether more than EIGHT flashes were held at the end of a
+> fight — a hoarding check, and this was one object standing still. Its
+> replacement used a held-time threshold and reported 128 defects that were
+> ordinary hit stops, because the clock runs at 2x on a normal step and 1x
+> through a freeze. **The invariant is rate-free: the clock must strictly
+> increase on every step the object is alive for.**
+
+> **AND THE DETONATION IS THE BIGGEST THING THIS RELIC DOES**, on Rick's
+> *"lets make the explosion sound effect bigger."* It was a short crack
+> because five charges could land inside 42ms; that reason went with the five
+> charges. Peak 0.4876 -> 0.605, audible 1.15s -> 1.35s, share below 120 Hz
+> 0.224 -> 0.553. No burst over 0.6s (§4.5).
 > `05-reference/v54/deadfall-states-*.png`,
-> `07-shorts/v54/deadfall-one-mine.mp4`.
+> `07-shorts/v54/deadfall-bigger-boom.mp4`.
 
 **GRAVEMOURN'S ULTIMATE IS GRASP, AND THE HANDS ARE THE ULTIMATE — NOT THE
 CHAIN THE DESIGN SAID THEY WERE** (`gravemourn_build.py`, 2026-08-31). Stage 2

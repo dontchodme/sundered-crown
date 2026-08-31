@@ -1,4 +1,4 @@
-# v54 — DEADFALL IS BUILT. Stage 3 of three, and the umbral school is finished. **Four things nearly shipped broken and all four were pictures — one of them chain-wide, and the fourth was found by Rick watching the first build.**
+# v54 — DEADFALL IS BUILT. Stage 3 of three, and the umbral school is finished. **Five things nearly shipped broken and all five were pictures. Three were caught by rendering, and the two that were not were caught by Rick watching — including one the engine had already written a warning about, for a different object, three lines from where it went wrong.**
 
 **2026-08-31.** `tools/nightfell_build.py`, `02-chain/sc-gravemourn.html` →
 `02-chain/sc-nightfell.html`. Design: `06-docs/v52/echoes-v52.md`. Plan:
@@ -46,17 +46,20 @@ below is what it cost and what it bought.
 | blade | 15.83 → **12.27** (stage 3b, re-swept after the mine changed) |
 
 Sixteen probe checks pass (`tools/nightfell_relic_probe.py`), `engine_ab` is
-bit-identical over the other 26 relics at 2600 matches, and every number in
-§4 below is off the built relic rather than off the lab.
+bit-identical over the other 26 relics at 2600 matches, `verify --n 40` is
+12/13 on the known Lightkeeper/Farwarden 77.3s and nothing else, and every
+number in §4 below is off the built relic rather than off the lab.
+
+**The umbral three, off `verify`'s 14,040 fights: Gravemourn 56.0, Nightfell
+49.8, Twinshade 49.0**, in a roster spanning Goreshard 40.5 to Slagheart 58.7.
 
 ---
 
-# 2. THE FOUR THINGS THAT NEARLY SHIPPED, AND ALL FOUR ARE PICTURES
+# 2. THE FIVE THINGS THAT NEARLY SHIPPED, AND ALL FIVE ARE PICTURES
 
-None of them moves a win rate. None of them fails a probe. All four are
+None of them moves a win rate. None of them fails a probe. All five are
 CLAUDE.md §4.1's defect class; the first is not this relic's problem alone,
-and the fourth needed a person, because three of these were caught by
-rendering and the fourth only by watching.
+and the last two needed a person.
 
 ## 2a. `ultFx` IS ONE SLOT, SO A WINDOW ULTIMATE'S ART IS ERASED BY THE OPPONENT'S CAST
 
@@ -163,6 +166,45 @@ what a viewer saw was noise.
 **One figure is one mine now.** The drawn pentagram is the hit box: one
 trigger at its centre, out to `rad` 110; one blast; one number. The five
 points are a drawing. §7 is what that cost.
+
+## 2e. AND THE BLAST FROZE ON THE FLOOR — 96.2% OF THEM
+
+Rick, on the one-mine build: *"ive also seen some mines explode and then
+disappear and some explode and stick around."*
+
+**Measured before it was touched, 36 fights: 178 of 185 detonations left a
+figure frozen mid-expansion, and the worst stood for 31.67 SECONDS against a
+0.42s life.**
+
+Two causes, one on top of the other. The ageing loop sat below
+`if (!this.sigils.length) return;`, and a mine is spliced out of `sigils` the
+instant it fires — so when it was the last one on the floor, which it very
+nearly always is, the next frame returned before reaching it. Moving it above
+that guard took the worst case from 31.67s to 1.72s and **left 128 of 132
+still frozen**, because the real home was somewhere else: a detonation is an
+IMPACT, it sets `hitStop`, and `step()` returns through `decayImpactOnly` for
+as long as that runs.
+
+> **THE ENGINE HAD ALREADY WRITTEN THE WARNING, THREE LINES FROM WHERE THE
+> BUG WENT.** `tickPresentation`, about status tags: *"a status tag is spawned
+> by a hit, and every hit begins with a hit stop that runs decayImpactOnly.
+> Tick it on the normal path only and the tag freezes for exactly the frames
+> the viewer is staring hardest at."* Same sentence, one object along. The
+> blast now lives in that function, with `life` in half-seconds like every
+> other `life` in the engine, because that clock runs at 2x.
+
+**Nothing here could see it.** The simulation is untouched, `engine_ab` is
+bit-identical, no win rate moves by a thousandth — and the relic probe's own
+flash check asked whether more than EIGHT were held at the end of a fight. One
+frozen figure sails through a hoarding check.
+
+> **AND THE CHECK THAT REPLACED IT GOT IT WRONG THE FIRST TIME TOO.** A
+> held-time threshold fired on 128 detonations that were fine, because the
+> blast runs at 2x on a normal step and 1x through a hit stop, so no duration
+> bound is both loose enough to survive an ordinary hit stop and tight enough
+> to catch a freeze. The invariant is exact and rate-free: **`b.t` must
+> strictly increase on every step the blast is alive for.** 132 detonations,
+> 0 frozen frames.
 
 ---
 
@@ -347,11 +389,17 @@ has to watch it**, and the ultimate's job is to be watched.
    The explosion is rebuilt to his sentence and **has not been watched yet.**
    `05-reference/v54/deadfall-states-*.png`,
    `07-shorts/v54/deadfall-one-mine.mp4`.
-2. ~~**THE SOUND**~~ **— SETTLED FOR NOW**, Rick: *"sound is ok for now."*
-   Left exactly as it was, deliberately: the detonation voice was written as a
-   short crack *because five could land inside 42ms*, and that reason is gone.
-   It is now one blast a figure and may want a bigger voice. Not changed
-   without him asking, because he answered the question that was put.
+2. ~~**THE SOUND**~~ **— THE DETONATION IS REBUILT**, Rick: *"lets make the
+   explosion sound effect bigger."* It was a short bright crack on purpose,
+   because five charges could land inside 42ms and five thuds would have been
+   mud; that reason went with the five charges. Now a real blast in four
+   parts — a sub that drops away under everything, a body of low noise, a
+   crack on top so it cuts through the hit-stop, and three short debris hits
+   under the tail. Rendered in an `OfflineAudioContext`: peak 0.4876 → 0.605,
+   audible 1.15s → 1.35s, and the share below 120 Hz 0.224 → 0.553. **No
+   burst is longer than 0.6s** — CLAUDE.md §4.5, `_burst` does not loop its
+   noise buffer, and this is exactly the voice that would have wanted one.
+   The other three voices are unchanged.
 3. ~~**A FIGURE ARMING AND FIRING ON THE SAME FRAME**~~ **— SETTLED: that is
    how it works.** Rick. No protection window, no cost to catch rate.
 4. **`crowdMul` IS UNSET FOR THIS ULTIMATE**, as it was for Grasp and the

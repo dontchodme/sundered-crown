@@ -132,7 +132,8 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
               stampBad: 0, stampFrozen: 0,
               multiFrame: 0, chained: 0, longest: 0,
               ultBeats: 0, chargeKills: 0, fatalBeats: 0,
-              dmgBad: 0, maxLive: 0, casts: 0, bombDmg: 0, flashLeak: 0 };
+              dmgBad: 0, maxLive: 0, casts: 0, bombDmg: 0, flashLeak: 0,
+              flashFrozen: 0, flashStuck: 0 };
   for (const foeId of foes){
     for (const sd of seeds){
       const m = new AC.Match(rid, foeId, sd);
@@ -142,6 +143,7 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
 
       /* ---- the hooks. All three forward with `arguments`. ---- */
       let inTick = false;
+      const frozen = new Set();
       const oTick = m.tickDeadfall.bind(m);
       m.tickDeadfall = function(){
         inTick = true;
@@ -240,6 +242,7 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
         const hpPre = th.hp;
         /* [2] and [3] are only worth anything if they were EXERCISED. Count
            the frames in which the thing that must not happen was available. */
+        const flashPre = m.sigilFlash.map(b => [b, b.t]);
         const ages = pre.map(g => g.t);
         for (const g of pre){
           const armed = g.t >= g.arm;
@@ -250,6 +253,30 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
         }
         const alivePre = th.alive;
         m.step(DT); step++;
+
+        /* [F]. EVERY BLAST MUST BE ADVANCING, and the check is that it
+           ADVANCED rather than that it did not last too long. Rick: "ive also
+           seen some mines explode and then disappear and some explode and
+           stick around."
+
+           A held-time threshold is the wrong instrument here. The blast runs
+           on the PRESENTATION clock, which ticks twice on a normal step and
+           once through a hit stop, so any duration bound is either loose
+           enough to miss a freeze or tight enough to fire on an ordinary hit
+           stop -- the first cut of this check did the second and reported 128
+           defects that were one. `b.t` strictly increasing every step the
+           blast is alive is exact, rate-free, and is the thing he actually
+           saw fail.
+
+           The probe before it asked whether more than EIGHT flashes were
+           held at the end of a fight. One frozen figure sails through a
+           hoarding check, and 96.2% of detonations were leaving one. */
+        for (const [b, t0] of flashPre){
+          if (m.sigilFlash.indexOf(b) < 0) continue;    // it went, correctly
+          if (b.t > t0) continue;
+          A.flashFrozen++;
+          if (!frozen.has(b)){ frozen.add(b); A.flashStuck++; }
+        }
 
         /* what fell this step, and whether it was allowed to. A figure is
            GONE from `m.sigils` the instant it fires, so "fell" is a set
@@ -463,10 +490,17 @@ def main() -> int:
               R["multiFrame"] == 0 and R["sprung"] > 0,
               f"{R['sprung']} detonations, {R['multiFrame']} steps took more "
               f"than one")
-        check("the blast is swept — `sigilFlash` is presentation only and "
-              "never accumulates",
-              R["flashLeak"] == 0,
-              f"{R['flashLeak']} fights ended with more than 8 held")
+        check("EVERY BLAST ADVANCES ON EVERY STEP IT IS ALIVE FOR — not one "
+              "figure left standing still mid-expansion. Rick: \"ive also "
+              "seen some mines explode and then disappear and some explode "
+              "and stick around\". It was aged on the normal step path, and "
+              "a detonation sets `hitStop`, so it froze for exactly the "
+              "frames a viewer stares hardest at — 96.2% of detonations, "
+              "worst 31.67s against a 0.42s life",
+              R["flashFrozen"] == 0 and R["flashLeak"] == 0,
+              f"{R['sprung']} detonations, {R['flashStuck']} left a figure "
+              f"that stopped advancing ({R['flashFrozen']} frozen frames), "
+              f"{R['flashLeak']} fights hoarded")
 
         # [9]
         check("a mine files a BEAT, and a mine that KILLS files a FATAL "

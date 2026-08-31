@@ -5667,12 +5667,30 @@ class Sfx {
           this._tone (t, { freq: 900, to: 1900, gain: 0.13, dur: 0.14, type:"square" });
           this._burst(t + 0.01, { freq: 4200, q: 1.6, gain: 0.11, dur: 0.07, type:"bandpass" });
         } else if (w === "nightfell-boom"){     // something walked in
-          /* A CRACK, NOT A THUD. Five of these can land inside 42ms, so it
-             has to stack into a roll rather than into mud: the low end is
-             short and the bright end is where the energy is. */
-          this._burst(t, { freq: 5200, q: 1.0, gain: 0.20, dur: 0.06, type:"highpass" });
-          this._tone (t, { freq: 420, to: 90, gain: 0.22, dur: 0.20, type:"sawtooth" });
-          this._burst(t + 0.02, { freq: 260, q: 0.6, gain: 0.16, dur: 0.14, type:"lowpass" });
+          /* THE BIGGEST THING THIS RELIC DOES, and it took two cuts to get
+             here. The first was a short bright CRACK on purpose: five charges
+             could land inside 42 milliseconds and five thuds would have been
+             mud. Rick took the single large mine and then asked for this --
+             "lets make the explosion sound effect bigger" -- and the reason
+             the crack existed went with the five charges.
+
+             Built as a real blast in four parts: a SUB that drops away under
+             everything, a BODY of low noise, a CRACK on top so it cuts
+             through the hit-stop, and DEBRIS -- three short bandpassed hits
+             under the tail, which is the pentagram coming apart.
+
+             NO BURST IS LONGER THAN 0.6s. CLAUDE.md §4.5: `_burst` does not
+             loop its 0.6s noise buffer, so anything longer plays silence for
+             its tail, and this is exactly the voice that would want one. */
+          this._tone (t, { freq: 190, to: 30, gain: 0.40, dur: 0.62, type:"sine" });
+          this._burst(t, { freq: 150, q: 0.5, gain: 0.42, dur: 0.55, type:"lowpass" });
+          this._burst(t, { freq: 5200, q: 0.9, gain: 0.26, dur: 0.09, type:"highpass" });
+          this._tone (t + 0.01, { freq: 520, to: 70, gain: 0.26, dur: 0.34, type:"sawtooth" });
+          [0.07, 0.15, 0.26].forEach((d, i) =>
+            this._burst(t + d, { freq: 2600 - i * 700, q: 1.3,
+                                 gain: 0.13 - i * 0.03, dur: 0.10,
+                                 type:"bandpass" }));
+          this._burst(t + 0.10, { freq: 320, q: 0.4, gain: 0.18, dur: 0.55, type:"lowpass" });
         } else {                                        // rune-crack
           this._burst(t, { freq: 6000, q: 0.8, gain: 0.34, dur: 0.10, type:"highpass" });
           this._tone (t, { freq: 1800, to: 300, gain: 0.22, dur: 0.30, type:"square" });
@@ -6665,6 +6683,21 @@ class Match {
     if (this.wallCrack){
       this.wallCrack.t += dt;
       if (this.wallCrack.t > this.wallCrack.life) this.wallCrack = null;
+    }
+    /* THE DEADFALL'S BLAST, HERE FOR EXACTLY THE REASON THE PARAGRAPH BELOW
+       ALREADY GIVES FOR STATUS TAGS: it is spawned by an impact, and every
+       impact begins with a hit stop that runs `decayImpactOnly`. Ticked on
+       the normal path only, it freezes for the frames the viewer is staring
+       hardest at — which is what Rick saw ("some explode and stick around")
+       and what 96.2% of detonations were doing.
+
+       `life` IS IN HALF-SECONDS, like every other `life` in this engine: this
+       clock is called once directly and once through `decayImpactOnly`, so it
+       runs at 2x sim time. */
+    for (let i = this.sigilFlash.length - 1; i >= 0; i--){
+      const b = this.sigilFlash[i];
+      b.t += dt;
+      if (b.t >= b.life) this.sigilFlash.splice(i, 1);
     }
     /* Here and not in decay(), for the same reason the ultimate clock is here:
        a status tag is spawned by a hit, and every hit begins with a hit stop
@@ -8288,6 +8321,9 @@ class Match {
       f.deadfallFade = f.ultDeadfall ? 1
                      : Math.max(0, f.deadfallFade - dt / 0.45);
 
+    /* THE BLAST IS NOT AGED HERE. It is presentation and it is spawned by
+       an impact, so it belongs on the presentation clock -- `tickPresentation`
+       carries it, and the reason is written out there. */
     if (!this.sigils.length) return;
     for (const g of this.sigils){
       const was = g.t;
@@ -8296,13 +8332,6 @@ class Match {
          per charge: five simultaneous copies of the same voice is a click,
          not a chord, and the state change is a property of the figure. */
       if (was < g.arm && g.t >= g.arm) SFX.play("ult", { w: "nightfell-arm" });
-    }
-    /* THE BLAST, AGED AND SWEPT. Presentation only: `drawSigils` reads it and
-       nothing else does, and it lives on the match so it goes with the fight. */
-    for (let i = this.sigilFlash.length - 1; i >= 0; i--){
-      const b = this.sigilFlash[i];
-      b.t += dt;
-      if (b.t >= b.life) this.sigilFlash.splice(i, 1);
     }
     if (this.over) return;
 
@@ -8350,7 +8379,7 @@ class Match {
        renderer to expand, whiten and burn out; a mine that simply disappeared
        on the frame it fired is the thing Rick could not read. */
     this.sigilFlash.push({ x: g.x, y: g.y, ring: g.ring, rad: g.rad,
-                           pts: g.pts, t: 0, life: 0.42 });
+                           pts: g.pts, t: 0, life: 0.84 });   // 0.42s at 2x
     /* IT DEALS ITS SHARE OF WHAT THE FIGURE REMEMBERED, and it deals it as an
        integer, because every damage number in this engine is one and this one
        gets printed over a ball. */
