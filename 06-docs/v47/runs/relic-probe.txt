@@ -1,0 +1,95 @@
+
+THORNSHEAR / THE WINNOWING — §1 asserted against sc-thornshear.html
+  6 foes x 6 seeds, 110s cap
+
+[0] THE BLOCK, AND WHAT THE BUILD ACTUALLY WROTE
+
+    Thornshear  verdant twinblade  reach 62 width 8 spin 5.7 mass 1.1 blades [0, 0.5]  dmg 11.83
+    charge 16  dur 4  cadence 0.6  fan 5  spread 1.6  speed 420  r 10  dmgMul 0.15  life 3  bounce 3  knock 260  growR 1.25  growDmg 1.25  growKnock 1.3  parryArm 0.06  crowdMul 10
+  PASS  the type's block is the type's, byte for byte  — against widowmaker: reach 62 width 8 spin 5.7 mass 1.1 mode spin
+  PASS  the engine's shared ranged path is untouched — this relic has no `shot`  — `tickFire` gates on `f.w.shot` and would otherwise fire this weapon all fight; `spawnKunai` is `spawnSpike`'s precedent
+  PASS  the ult tip states no number the weapon does not have  — 63/72 — 'Fires a fan of kunai that ricochet. Ricochets deal bonus damage'; 0 numbers in it, all of them fields
+
+[1] THE BLADES REALLY ARE GONE — §1's first sentence, and its bill is 4.46 dmg/s
+
+    81 casts, 45844 steps inside a window, 94731 steps outside one after the first cast
+  PASS  `bladeSegments` returns NOTHING for every step of the window  — 0 of 45844 steps had a live segment
+  PASS  and therefore the blades land nothing and bind nothing  — 0 melee blows and 0 binds inside 81 windows — one mutation reaches tickHits, _clankPair, tickShots' parry and the tip history
+  PASS  the swing-arc ribbons do not hang in the hall  — 0 tip samples recorded during a window; `f.tips` is fed from bladeSegments and is cleared at the cast
+  PASS  and they come back the frame the window ends  — 94731 of 94731 steps outside the window had live segments
+
+[2] THE FAN LOOSES FROM BOTH BEARINGS — and the bearings are the weapon's own
+
+  PASS  a volley is `fan` x the number of blade offsets  — 2140 loosed over 214 volleys = 10.0 each, against fan 5 x 2 bearings = 10
+  PASS  BOTH lobes are loosed, and neither is a copy of the other  — {0: 2645, 1: 2645} — the two bearings are w.blades [0, 0.5], read in the loop rather than written as 0 and pi
+
+[3] THE CEILING — declined, never shifted, and never reached in normal play
+
+    peak 56 objects in flight against a ceiling of 64 (shared with the foe's own shots)
+    predicted steady state 50 = fan 5 x 2 bearings x life 3 / cadence 0.6
+  PASS  NOTHING VANISHES. Every kunai that left `m.shots` resolved  — 0 left the list with a bounce budget and no ending — `spawnShot`'s shift is what this would look like
+  PASS  the shipping fan never saturates, so the cadence is the design's and not CONFIG's  — 0 volleys refused over 81 casts, peak 56/64 — at fan 5 / cadence 0.25 kunai_probe refused 9090 of 11050
+
+[4][6] A RUNG ADVANCES ON A WALL AND ON A PARRY, AND ON NOTHING ELSE
+
+    wall     rung 1  r 12.50  dmgMul 0.188  knock 338  budget 2  snap True  inside True
+    parry    rung 1  r 12.50  dmgMul 0.188  knock 338  budget 2  snap True  arm 0.060  alive True
+    control  rung 0  r 10.00  dmgMul 0.150   (30 steps, nothing to come off)
+  PASS  a wall advances a rung  — rung 1 after one wall contact
+  PASS  A PARRIED KUNAI SURVIVES, AND ITS RUNG WENT UP — Rick's fork, from three priced options  — rung 1, still in flight True. "deflect AND empower": the only counterplay to this ultimate feeds it
+  PASS  and nothing else advances one  — a stationary kunai 379 units from both balls read rung 0 after 20 steps
+  PASS  a parry is a MIRROR IN THE BLADE, not a reversal  — the axis it was mirrored in sits 0.00° off the blade, against the 2.65° the weapon turns inside the step the parry happens in; speed 420 -> 370 at the wall's own 0.88
+  PASS  the budget is shared, so a blade still kills a kunai that has spent it  — the counterplay is delayed by three, not removed
+
+    over 81 real casts: 11891 rung-ups, 9888 on a wall and 2003 on a blade — 17% of the growth is the foe's own defence
+  PASS  both reflection paths are reached in real fights  — the parry path is Rick's fork and it is the one nothing else in this game does
+
+[5] THE GROWTH REACHES THE NUMBERS — measured off LANDED hits, not off the config
+
+     rung  landed       r  want r   dmgMul    want   knock    want  mean dmg
+        0     321   10.00   10.00    0.150   0.150     260     260      2.70
+        1     441   12.50   12.50    0.188   0.188     338     338      3.38
+        2     454   15.62   15.62    0.234   0.234     439     439      4.34
+        3     286   19.53   19.53    0.293   0.293     571     571      5.50
+  PASS  radius, damage and knockback are the schedule at every rung  — 0 kunai grew by the wrong step; 4 rungs seen in 1502 landed hits
+  PASS  and a fully grown kunai HITS HARDER, in dealt damage  — 2.70 fresh against 5.50 at rung 3 — x2.04 against a schedule of x1.95
+
+[7] `s.snap` IS SET ON EVERY REFLECTION — AND IT IS CURRENTLY INERT
+
+  PASS  every rung-up sets `s.snap`  — 0 reflections left it unset; one assignment in kunaiRung serves both paths
+  PASS  ...and NOTHING READS IT, which is worth knowing rather than discovering  — LERP_FIELDS.shot is ["x","y"] and snapObj copies only numbers, so a boolean is invisible to the interpolator. What actually saves the picture is that both reflections change VELOCITY and leave POSITION on the legal side of the surface
+
+[8] A LETHAL KUNAI DOES NOT KEEP BOUNCING
+
+  PASS  a kunai that lands is spent, killing or not  — 1502 landed hits against 1502 kunai that ended 'hit' — tickShots sets `dead` after resolveHit either way
+  PASS  and nothing grows after the match is over  — 0 rung-ups filed past `m.over` over 8 killing blows
+
+[9] A COPY IS NOT A WALL — v43 §11, one frame in six thousand
+
+  PASS  a shade has no blades to parry with, so a copy cannot advance a rung  — tickShots reads segsA and segsB and nothing else over 7144 steps with copies on the floor; 0 kunai landed ON a copy and none of them grew anything
+
+[10] THE SOUND IS RENDERED AND MEASURED, NOT PLAYED
+
+     `SFX.play` returns on its first line headless and wraps its body in
+     try/catch, so a silent ultimate is invisible to every other tool in this
+     repo — v42 shipped one through five green passes and a rendered clip.
+
+                           threw    peak  audible  late rms
+     the cast                  —   0.388     2.20s    0.0177
+     the rung                  —   0.094     1.10s    0.0045
+     the volley                —   0.079     1.10s    0.0028
+     CONTROL bow loose         —   0.014     1.05s    0.0004
+     CONTROL Stasis            —   0.542     2.45s    0.0479
+  PASS  the cast makes a sound at all  — peak 0.388 over 2.20s
+  PASS  and it HANDS OVER rather than ending — the window is four seconds long  — late rms 0.0177 against the Stasis Field's 0.0479, which is the only other voice in the game that has to still be saying something a second in
+  PASS  the rung is audible and QUIET — it fires ten times a cast  — peak 0.094 against the cast's 0.388
+  PASS  a volley of leaves is not a bowstring  — leaf 0.079 against the bow's 0.014
+
+[11] THE ULTIMATE DECLARES ITSELF TO THE DIRECTOR — rule 3, sixth relic running
+
+  PASS  the rung-up files a beat, rate limited so it cannot evict the fight's own  — 525 ult beats over 81 casts (6.5 each); `m.beats` is capped at 600 and SHIFTS, and this window puts ~24 landed hits on the floor besides
+  PASS  and the window declares its DENSITY, which is the other half of the same rule  — `beat()` tags every beat with crowd/crowdMul 10 while the window is open — the spike storm's 15.53x preference is what that number exists to stop
+  PASS  no JS errors or page exceptions
+
+31/31 checks passed
+EXIT 0

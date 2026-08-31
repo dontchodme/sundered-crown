@@ -14,9 +14,16 @@ tools/thornshear_sweep.py        the bisection, and the share
 tools/kunai_art_lab.py           four kunai, rendered before he was asked
 ```
 
-**IT IS NOT THE BUILD OF RECORD YET.** `app/main.js` and CLAUDE.md §0 still
-point at `sc-paradox-ignition.html`, and they should until the growth schedule
-is settled and `verify` has run at the tuned number. Everything else is done.
+**THE NUMBERS ARE TUNED AND `verify` HAS RUN.** `dmg 11.83`, bisected against
+all 25 opponents; `growDmg 1.25`, Rick's, from four arms priced as a share
+table rather than as a win rate. `verify --n 40` is **12/13 — the known
+thirteenth**, and the pairing that fails it is `farwarden/axiom` at 74.8s,
+which is two relics this build did not touch.
+
+**IT IS NOT THE BUILD OF RECORD YET, and one thing is why.** The ult's SOUND
+is the last of Rick's seven still open: four cast voices and three rung voices
+are rendered and waiting in `05-reference/v47/`. `app/main.js` and CLAUDE.md §0
+move when he has picked.
 
 ---
 
@@ -51,7 +58,7 @@ Verdant is second by half a point, which at n=192 is a tie with dwarven — not
 the weakest of three. **The conclusion it was used to support is weaker than
 the doc states**: the ultimate does not have to carry the whole relic. It is
 still true that the ultimate is what makes this cell interesting, and §5 below
-prices it at 4.5 points of blade.
+prices it at 2.6 points of blade.
 
 **WHAT MOVED, TWO: THE LIVE ENTANGLE LADDER IS UNSTABLE AT n=4 PER MODE.** The
 survey's own check *"entangle cuts a melee foe's blows harder than a ranged
@@ -68,9 +75,9 @@ spin              -16.0%              -21.0%
 chain              -9.9%               -6.8%
 ```
 
-Swing worst, ranged least, by a factor of ten. **The concentration argument
-stands and the registered prediction stays registered.** Four foes a mode is
-too thin for the uncapped ladder; do not read that row from either run.
+Swing worst, ranged least, by a factor of ten. Four foes a mode is too thin
+for the uncapped ladder; do not read that row from either run. **The
+concentration argument stands — and §5.4 measures how far it goes.**
 
 ---
 
@@ -304,36 +311,62 @@ the answer is the point. The sample now rises geometrically with the step.
 last step is a 300-fight sample where the flat version's was 150.
 
 ```
-                       dmg at 50% against all 25
-the blade alone (charge 1e9)        14.45
-the blade, shipping ultimate         9.95
+                                          dmg at 50% against all 25
+the blade alone (charge 1e9)                       14.45
+the blade, the ultimate at growDmg 1.5              9.95
+the blade, THE SHIPPING ULTIMATE (growDmg 1.25)    11.83
 ```
 
-> **THE WINNOWING IS WORTH 4.5 POINTS OF BLADE — 31% of the weapon.** The
-> Stasis Field was worth about nine points of a flail's 35. This is a smaller
-> relic paying a larger share.
+**AND `verify --n 40` READS 47.0% AT 11.83, over 13000 fights.** That is one
+sigma from the bisection's target — its last step is a 300-fight sample, where
+sigma is 2.9pp — and it sits mid-table in a roster spanning Axiom's 41.5% to
+Grudgebearer's 57.9%. Chasing the last three points would cost another
+thousand fights to move a number by less than the roster's own spread.
+
+> **THE WINNOWING IS WORTH 2.6 POINTS OF BLADE AS IT SHIPS — 18% of the
+> weapon**, and 4.5 points (31%) at the steepest growth arm that was offered.
+> The Stasis Field was worth about nine points of a flail's 35, which is 26%.
+> This relic pays a comparable share out of a much smaller blade.
 
 ## 5.2 THE COLUMN THAT IS ACTUALLY BEING CHOSEN
 
 The bisection compensates, so no arm is stronger than another. What the arms
 choose is **what share of a cast is carried by kunai that have grown**:
 
+**IT WAS PUT TO HIM AS FOUR ARMS AND A TABLE, AND HE TOOK THE SECOND:**
+
 ```
-at dmg 9.95:  53.6s mean, 2.4 casts, 59% of all damage from kunai (85 a cast)
+growDmg   blade    ult share of the fight   rungs 0/1/2/3    grown share of the ult
+  1.0     14.17            35%              20/30/30/20              80%
+  1.25    11.83            45%              14/25/33/28              86%   <- SHIPS
+  1.5      9.95            54%               9/21/36/33              91%
+  1.85     7.98            66%               5/19/35/40              95%
+```
+
+**None of those arms is stronger than another** — `dmg` is re-bisected in every
+one of them, 1050 fights each. What they choose is what the relic IS. At 1.85
+the blade falls to 7.98, below Spellbreaker's 8.81 and the softest blow in the
+game: between casts it would barely be a weapon. At 1.0 a ricochet never hits
+harder, which contradicts the card Rick wrote in the same hour. **At 1.25 the
+relic still fights with its blades and the growth reads as the ultimate's own
+arc**, and that is his call.
+
+```
+at dmg 11.83, growDmg 1.25:  54.0s mean, 2.4 casts, 53% of all damage from
+                             kunai (78 a cast)
 
   rung    hits   damage   of the ult   of the fight
-     0     9.1     19.2           9%             6%
-     1    13.9     43.9          21%            13%
-     2    14.8     75.4          36%            22%
-     3     8.7     68.9          33%            20%
+     0     9.8     26.8          14%             8%
+     1    14.5     46.6          25%            13%
+     2    14.7     61.8          33%            17%
+     3     9.3     52.9          28%            15%
 
-  GROWN KUNAI CARRY 91% OF THE ULTIMATE AND 54% OF THE FIGHT.
+  GROWN KUNAI CARRY 86% OF THE ULTIMATE AND 45% OF THE FIGHT.
 ```
 
-**That is the number to put to Rick, and it is not a win rate.** Nine percent
-of this ultimate is the thing that was fired; ninety-one percent is what the
-hall did to it afterwards. §1's fourth sentence is not decoration on the
-ultimate — it is very nearly all of it.
+Fourteen percent of this ultimate is the thing that was fired; eighty-six
+percent is what the hall did to it afterwards. **§1's fourth sentence is not
+decoration on the ultimate — it is most of it.**
 
 ## 5.3 THE CEILING, IN A REAL FIGHT
 
@@ -349,6 +382,74 @@ a faster cadence than Ironhail's would eat into it. If the growth sweep raises
 `life`, the cadence must move with it — the builder enforces that arithmetic
 and will refuse to write the combination.
 
+## 5.4 THE REGISTERED PREDICTION: HALF CONFIRMED AT FORTY-THREE POINTS, HALF STRUCK
+
+The design doc §9 registered this, to be falsified at build time:
+
+> *this relic's win-rate spread across the roster will be the widest of any
+> relic in the game, strongest against the seven greatswords and weakest
+> against the five bows.*
+
+The full 26 x 25 matrix, n=14 a pairing, at the shipping numbers:
+
+```
+thornshear by the foe's type
+
+  greatsword    62.2%   (7 relics,  98 fights)
+  twinblade     57.1%   (3 relics,  42 fights)
+  scythe        50.0%   (3 relics,  42 fights)
+  flail         42.9%   (4 relics,  56 fights)
+  warhammer     35.7%   (3 relics,  42 fights)
+  bow           18.6%   (5 relics,  70 fights)
+```
+
+**THE DIRECTION IS CONFIRMED AND THEN SOME.** 62.2% against the seven
+greatswords against 18.6% against the five bows — a forty-three point gap, and
+the ladder is monotone in exactly the predicted order. Both halves of the relic
+point the same way: entangle is worth −36.2% against a swinging foe and −3.3%
+against a bow, and the ULTIMATE is worst exactly where the channel is
+worthless, because forgoing the blades against a foe that hits from anywhere is
+the most expensive version of the bill.
+
+**THE SUPERLATIVE IS REFUTED. Rank 3 of 26**, behind Heartwood's 46pp and
+Axiom's 45pp — and both of those are greatswords, which is to say they are wide
+for a related reason rather than an unrelated one.
+
+```
+relic           type spread    mean
+heartwood              46pp   39.4%
+axiom                  45pp   43.1%
+thornshear             44pp   45.1%   <--
+lightkeeper            41pp   44.9%
+vinesower              41pp   46.9%
+```
+
+> **"the widest of any relic in the game" IS STRUCK.** The doc asks for that
+> outright rather than for an explanation, and this is it. The rest of §9
+> stands, and the effect it was reaching for is real and large.
+
+**AND THE FIRST CUT OF THIS TEST WAS WRONG IN A WAY WORTH KEEPING.** It ranked
+on the min-max of the per-foe rates, and at n=8 a per-foe rate can only take
+nine values: across 26 relics x 25 pairings, a 0/8 and an 8/8 turn up
+constantly on pairings that are really even. It reported Censer and Aureole at
+a hundred-point spread — which is not concentration, it is a coin landing the
+same way eight times, and it put this relic at rank 7 for no reason at all.
+
+> **min-max OF A NOISY QUANTITY MEASURES THE NOISE, AND IT SATURATES.** The
+> claim is about a channel worth −36.2% against one mode and −3.3% against
+> another, so the quantity it predicts is a difference between TYPES. Six type
+> means pool three to seven foes each. That is what is ranked; the raw min-max
+> column is printed beside it and explicitly not ranked on.
+
+## 5.5 EIGHTEEN PERCENT AGAINST BOWS IS A REAL HOLE, AND IT PASSES EVERY GATE
+
+`verify` reads Thornshear at **47.0%** overall and the per-relic band check
+passes — because the greatswords pay for the bows. **A type this relic loses
+four fights in five against is invisible to every check in this repo**, and it
+is written down here so that it is a decision rather than a discovery. It is
+also not obviously wrong: the roster already contains Grudgebearer at 80% into
+Axiom, and rock-paper-scissors between types is a thing a viewer can learn.
+
 ---
 
 # 6. THE GATES
@@ -360,8 +461,16 @@ engine_ab (all 25)      1800/1800 identical, field for field
 chain_audit             17/17 inserts survive  --builder thornshear_build.py
 kunai_probe (tip)        12/12
 twinblade_survey (tip)   20/21   §0 above
-verify --n 40            NOT YET RUN at the tuned dmg — see §8
+verify --n 40            12/13, 13000 fights — THE KNOWN THIRTEENTH
 ```
+
+**AND THE THIRTEENTH IS NOT THIS RELIC'S.** The pairing-duration band fails on
+`farwarden/axiom` at 74.8s, two relics this build does not touch; CLAUDE.md §0
+already records the same check failing at the tip on `lightkeeper/farwarden` at
+74.6s. Everything else is green: 0/13000 timeouts, overall mean 49.2s, every
+relic inside 30–70% (Axiom 41.5% .. Grudgebearer 57.9%, spread 16.4pp against
+14.9pp before this relic existed). **Do not credit this relic with the
+thirteenth, and do not credit it with fixing it.**
 
 **THE CHAIN TABLE IN THE BRIEF ASSUMES A CARRY THAT DOES NOT EXIST.** It names
 `sc-thornshear-frame.html` as a separate tip, the way `sc-vinesower.html` and
@@ -384,8 +493,8 @@ the ult name        SETTLED   THE WINNOWING, from four
 the fighter name    SETTLED   THORNSHEAR, from four
 the scrunch card    SETTLED   2026-08-30, his own wording, off the first-look clip
 the ult animations  PART      the kunai is his pick from four rendered candidates
-the ult sound       OPEN      written, rendered and measured — but not yet chosen
-                              from a spread
+the ult sound       OFFERED   four cast voices and three rung voices rendered
+                              and sent; his pick is the last thing outstanding
 ```
 
 **THE CARD IS HIS OWN WORDING**, unprompted, off the first-look clip:
@@ -420,34 +529,26 @@ cannot see that. Both are in `05-reference/v47/`.
 
 # 8. WHAT IS LEFT
 
-1. **THE GROWTH SCHEDULE IS UNMEASURED.** `growR 1.25 / growDmg 1.5 /
-   growKnock 1.3` are the only numbers in the block nothing has measured —
-   `kunai_probe` flew CONSTANT kunai, so every census number in the design doc
-   is this schedule at 1.0/1.0/1.0. `thornshear_sweep.py [3]` sweeps `growDmg`
-   against `life` with the blade re-bisected per cell and reports the share
-   table from §5.2 for each. **That table is the thing to put to Rick.**
-2. **`bounce` x `life`, AND IT IS A PICTURE DECISION.** Above 3 is inert at
-   life 3.0 — bounce 6 and bounce 3 return identical numbers, digit for digit.
-   A fourth rung means `life` goes up and kunai visibly stay in the hall
-   longer. Both arms are in the sweep and both want a rendered clip, not a
-   number.
-3. **THE SOUND HAS NOT BEEN OFFERED AS A SPREAD.** The cast, the volley and the
-   rung are written, rendered in an `OfflineAudioContext` and measured (peak
-   0.72 / 0.08 / 0.10, and the cast hands over rather than ending — late rms
-   0.027 against the Stasis Field's 0.048). v43's rule is that a spread lands
-   the voice in one round trip where four serial guesses did not. Three casts
-   and three rungs, rendered, is the next ask.
-4. **`crowdMul: 10` IS THE SPIKE STORM'S NUMBER, NOT THIS RELIC'S.** §1.5.
-5. **THEN: `verify --n 40` AT THE TUNED NUMBER, AND THE FLIP.** `app/main.js`
-   and CLAUDE.md §0 point at `sc-paradox-ignition.html` and should move only
-   after that. Expect 12/13 — the duration-band check is KNOWN to fail at the
-   tip and this relic must not be credited with it either way.
-6. **THE REGISTERED PREDICTION IS STILL OPEN.** The design doc §9 predicts this
-   relic's win-rate spread across the roster will be the widest in the game,
-   strongest against the seven greatswords and weakest against the five bows.
-   The bisection's per-foe column has the data; nobody has read it out yet. If
-   the spread is inside the existing band, **say so and strike the
-   concentration argument** rather than explaining it away.
+1. **RICK'S PICK ON THE SOUND**, and then the flip. Four cast voices and three
+   rung voices are rendered (`tools/winnow_lab.py`,
+   `05-reference/v47/winnow-cast.wav` and `winnow-rung.wav`) and sent. When he
+   has picked, the chosen branch goes into `SFX_NEW`, the probe's [10] re-runs
+   in an `OfflineAudioContext`, and `app/main.js` and CLAUDE.md §0 move to
+   `sc-thornshear.html`.
+2. **`bounce` x `life` IS STILL A PICTURE DECISION NOBODY HAS SEEN.** Above 3
+   is inert at life 3.0 — bounce 6 and bounce 3 return identical numbers, digit
+   for digit. A fourth rung means `life` goes up, kunai stay in the hall
+   visibly longer, and the cadence has to move with it to stay under the
+   ceiling. `thornshear_sweep --only 4` has the arms; the choice wants a clip,
+   not a number.
+3. **`crowdMul: 10` IS THE SPIKE STORM'S NUMBER, NOT THIS RELIC'S.** §1.5. It
+   wants the storm's own measurement: cut preference inside the window against
+   outside, `beat_dist.py`.
+4. **THE FAN AND THE SPREAD ARE LOOK KNOBS AND HE HAS NOT SEEN THEM.** fan 5 /
+   cadence 0.6 / spread 1.6 ships because it is the one arm that refused
+   nothing. He is free anywhere on `fan / cadence ~= 8.3` — fan 3 at 0.36, fan
+   9 at 1.10 — and the difference is entirely how the volley reads.
+5. **18.6% AGAINST BOWS.** §5.5.
 
 ---
 
@@ -472,3 +573,12 @@ cannot see that. Both are in `05-reference/v47/`.
    column.** The design doc's +7.6% for verdant did not reproduce (§0). Two
    different tools have now mispriced this cell in two different directions
    within one session.
+6. **THORNSHEAR LOSES FOUR FIGHTS IN FIVE TO EVERY BOW, AND EVERY GATE IS
+   GREEN.** §5.5. 18.6% against the five bows, 62.2% against the seven
+   greatswords, and 47.0% overall — so `verify`'s per-relic band never sees it.
+   Either that is the relic (rock-paper-scissors a viewer can learn) or the
+   band check is the wrong instrument for a concentrated relic. Rick's, and it
+   is the first time the question has come up in a form this sharp.
+7. **A `--noult` PASS, still.** v38 od 5 through v47. This build's own
+   baseline suppressed the ultimate with `charge: 1e9`, which is the same
+   workaround the last five sessions used.

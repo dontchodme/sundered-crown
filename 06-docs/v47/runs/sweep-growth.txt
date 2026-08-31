@@ -1,0 +1,71 @@
+
+THE WINNOWING — the sweep, against sc-thornshear.html
+  shipping placeholders: dmg 10  charge 16  dur 4  cadence 0.6  fan 5  spread 1.6  speed 420  r 10  dmgMul 0.15  life 3  bounce 3  knock 260  growR 1.25  growDmg 1.5  growKnock 1.3  parryArm 0.06  crowdMul 10
+
+[3] THE GROWTH SCHEDULE — and this is the arm that is actually being chosen
+
+    growDmg 1    bisect -> dmg 14.17   1050 fights, 78s
+        10.00   30.0%  n=50    mean 56.9s
+        13.00   38.7%  n=75    mean 52.9s
+        14.50   50.0%  n=100   mean 54.7s
+        13.75   43.2%  n=125   mean 53.9s
+        14.12   49.7%  n=175   mean 53.7s
+        14.31   50.2%  n=225   mean 53.7s
+        14.22   51.3%  n=300   mean 53.9s
+    growDmg 1, dmg 14.17:  53.8s, 2.4 casts, 43% of damage from kunai (63 a cast)
+        rung    hits   damage  of the ult  of the fight
+           0     9.8     30.3         20%            8%
+           1    14.3     46.0         30%           13%
+           2    14.8     46.4         30%           13%
+           3     9.0     30.9         20%            9%
+      GROWN KUNAI CARRY 80% OF THE ULTIMATE and 35% of the fight
+    growDmg 1.25 bisect -> dmg 11.83   1050 fights, 73s
+        10.00   30.0%  n=50    mean 56.4s
+        13.00   60.0%  n=75    mean 52.3s
+        11.50   36.0%  n=100   mean 54.2s
+        12.25   56.8%  n=125   mean 53.6s
+        11.88   54.3%  n=175   mean 54.7s
+        11.69   40.4%  n=225   mean 54.2s
+        11.78   45.7%  n=300   mean 53.8s
+    growDmg 1.25, dmg 11.83:  54.0s, 2.4 casts, 53% of damage from kunai (78 a cast)
+        rung    hits   damage  of the ult  of the fight
+           0     9.8     26.8         14%            8%
+           1    14.5     46.6         25%           13%
+           2    14.7     61.8         33%           17%
+           3     9.3     52.9         28%           15%
+      GROWN KUNAI CARRY 86% OF THE ULTIMATE and 45% of the fight
+    growDmg 1.5  bisect -> dmg 9.95   1050 fights, 73s
+        10.00   56.0%  n=50    mean 53.3s
+         7.00   12.0%  n=75    mean 56.4s
+         8.50   32.0%  n=100   mean 55.0s
+         9.25   33.6%  n=125   mean 54.5s
+         9.62   49.7%  n=175   mean 55.0s
+         9.81   45.8%  n=225   mean 54.6s
+         9.91   45.3%  n=300   mean 53.2s
+    growDmg 1.5, dmg 9.95:  53.6s, 2.4 casts, 59% of damage from kunai (85 a cast)
+        rung    hits   damage  of the ult  of the fight
+           0     9.1     19.2          9%            6%
+           1    13.9     43.9         21%           13%
+           2    14.8     75.4         36%           22%
+           3     8.7     68.9         33%           20%
+      GROWN KUNAI CARRY 91% OF THE ULTIMATE and 54% of the fight
+    growDmg 1.85 bisect -> dmg 7.98   1050 fights, 80s
+        10.00   62.0%  n=50    mean 49.7s
+         7.00   41.3%  n=75    mean 55.0s
+         8.50   54.0%  n=100   mean 51.7s
+         7.75   49.6%  n=125   mean 54.1s
+         8.12   56.6%  n=175   mean 53.9s
+         7.94   49.3%  n=225   mean 53.5s
+         8.03   53.3%  n=300   mean 53.5s
+    growDmg 1.85, dmg 7.98:  51.5s, 2.3 casts, 69% of damage from kunai (104 a cast)
+        rung    hits   damage  of the ult  of the fight
+           0     8.4     12.9          5%            4%
+           1    14.2     44.8         19%           13%
+           2    13.8     83.7         35%           24%
+           3     8.4     95.8         40%           28%
+      GROWN KUNAI CARRY 95% OF THE ULTIMATE and 66% of the fight
+
+4200 fights in the bisections, plus the telemetry passes.
+The chosen numbers go into thornshear_build.py's ULT dict BY HAND. A tuned
+number written into the HTML is lost on the next rebuild (CLAUDE.md §4.9).
+EXIT 0

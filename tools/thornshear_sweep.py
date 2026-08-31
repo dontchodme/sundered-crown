@@ -139,6 +139,40 @@ TEL_JS = r"""([id, dmg, ult, foes, seeds, secs]) => {
 }"""
 
 
+# THE REGISTERED PREDICTION, and the whole roster is the only way to test it.
+# The design doc §9 predicts "this relic's win-rate spread across the roster
+# will be the widest of any relic in the game" -- which is a claim about EVERY
+# relic's per-foe spread, not about this one's. So the matrix is 26 x 25, and
+# the comparison IS the test: a number with nothing to be wider than is not a
+# falsification of anything.
+MATRIX_JS = r"""([id, dmg, n, seed0]) => {
+  const w = AC.WEAPONS.find(x => x.id === id);
+  const d0 = w.dmg;
+  if (dmg > 0) w.dmg = dmg;
+  const ids = AC.WEAPONS.map(x => x.id);
+  const shape = {}, name = {};
+  for (const x of AC.WEAPONS){ shape[x.id] = x.shape; name[x.id] = x.name; }
+  const out = {};
+  let s = seed0 >>> 0;
+  for (const a of ids){
+    const row = {};
+    for (const b of ids){
+      if (a === b) continue;
+      let win = 0;
+      for (let k = 0; k < n; k++){
+        s = (Math.imul(s, 1103515245) + 12345) >>> 0;
+        const r = AC.simulate(a, b, s);
+        if (r.winner === name[a]) win++;
+      }
+      row[b] = win / n;
+    }
+    out[a] = row;
+  }
+  w.dmg = d0;
+  return { out: out, shape: shape };
+}"""
+
+
 def mean(xs, d=0.0):
     xs = list(xs)
     return statistics.mean(xs) if xs else d
@@ -182,7 +216,10 @@ def main() -> int:
     ap.add_argument("--top", type=int, default=12)
     ap.add_argument("--seeds", type=int, default=8)
     ap.add_argument("--secs", type=float, default=130.0)
-    ap.add_argument("--only", default="", help="1,2,3,4 — which sections")
+    ap.add_argument("--mn", type=int, default=8, help="[5] seeds per pairing")
+    ap.add_argument("--dmg", type=float, default=0.0,
+                    help="[5] pin this relic's dmg (0 = whatever ships)")
+    ap.add_argument("--only", default="", help="1,2,3,4,5 — which sections")
     A = ap.parse_args()
     want = set(A.only.split(",")) if A.only else {"1", "2", "3", "4"}
     path = resolve_game(A.game)
@@ -263,6 +300,88 @@ def main() -> int:
                       f"refused, peak {max(x['peak'] for x in rows)} in flight "
                       f"— fan x 2 x life / cadence = "
                       f"{u0['fan'] * 2 * lf / u0['cadence']:.0f}")
+
+        # ------------------------------------------------------------ [5] --
+        if "5" in want:
+            print("\n[5] THE REGISTERED PREDICTION — the whole 26 x 25 "
+                  "matrix, because the claim\n    is comparative\n")
+            print("    design doc §9: this relic's win-rate spread across the "
+                  "roster will be the\n    widest of any relic in the game, "
+                  "strongest against the seven greatswords\n    and weakest "
+                  "against the five bows — because entangle is worth -36.2% "
+                  "against\n    a swinging foe and -3.3% against a bow, and "
+                  "now a parry empowers as well.\n")
+            M = page.evaluate(MATRIX_JS, [RID, A.dmg, A.mn, 31337])
+            mat, shape = M["out"], M["shape"]
+            types = sorted(set(shape.values()))
+
+            # THE RANKING IS ON THE SPREAD OF TYPE MEANS, NOT ON min-max OF
+            # PER-FOE RATES, AND THE FIRST CUT OF THIS CHECK GOT IT WRONG.
+            #
+            # A per-foe rate at n=8 can only take nine values, and across 26
+            # relics x 25 pairings a 0/8 and an 8/8 turn up constantly on
+            # pairings that are really 50/50: the first run reported Censer
+            # and Aureole at a 100-point spread, which is not concentration,
+            # it is a coin landing the same way eight times. min-max of a
+            # noisy quantity measures the NOISE, and it saturates, so it
+            # cannot rank anything.
+            #
+            # The design doc's claim is about a CHANNEL that is worth -36.2%
+            # against a swinging foe and -3.3% against a bow, so the quantity
+            # it predicts is a difference between TYPES. Six type means pool
+            # 3 to 7 foes each, which is 3x to 7x the sample per number, and
+            # the spread of those six is what the sentence is actually about.
+            def tmeans(row):
+                out = {}
+                for t in types:
+                    vs = [v for k, v in row.items() if shape[k] == t]
+                    if vs: out[t] = sum(vs) / len(vs)
+                return out
+
+            spreads = []
+            for rid, row in mat.items():
+                tm = tmeans(row)
+                vs = sorted(tm.values())
+                raw = sorted(row.values())
+                spreads.append((vs[-1] - vs[0], rid, sum(row.values()) / len(row),
+                                raw[-1] - raw[0]))
+            spreads.sort(reverse=True)
+            rank = [r for _, r, _, _ in spreads].index(RID) + 1
+            print(f"    {'relic':<14}{'type spread':>13}{'mean':>8}"
+                  f"{'raw min-max':>13}     (the widest six, and this one)")
+            for i, (sp, rid, mn, raw) in enumerate(spreads):
+                if i < 6 or rid == RID:
+                    print(f"    {rid:<14}{sp * 100:>11.0f}pp{mn * 100:>7.1f}%"
+                          f"{raw * 100:>11.0f}pp"
+                          + ("     <-- THIS RELIC" if rid == RID else ""))
+            print(f"\n    the raw min-max column is printed and NOT ranked "
+                  f"on: at n={A.mn} it saturates\n    on sampling noise — see "
+                  f"the note in the source.")
+            print(f"\n    {RID} by the foe's type:")
+            tm = tmeans(mat[RID])
+            for t in sorted(tm, key=lambda k: -tm[k]):
+                n_t = sum(1 for k in mat[RID] if shape[k] == t)
+                print(f"      {t:<12}{100 * tm[t]:>6.1f}%   ({n_t} relics, "
+                      f"{n_t * A.mn} fights)")
+            row = mat[RID]
+            gs = [v for k, v in row.items() if shape[k] == "greatsword"]
+            bw = [v for k, v in row.items() if shape[k] == "bow"]
+            rest = [v for k, v in row.items()
+                    if shape[k] not in ("greatsword", "bow")]
+            print(f"\n    against the {len(gs)} greatswords "
+                  f"{100 * mean(gs):.1f}%     against the {len(bw)} bows "
+                  f"{100 * mean(bw):.1f}%     everything else "
+                  f"{100 * mean(rest):.1f}%")
+            print(f"    spread rank {rank} of {len(spreads)}, "
+                  f"n={A.mn} a pairing")
+            if rank == 1:
+                print("\n    THE PREDICTION HOLDS.")
+            else:
+                print(f"\n    THE PREDICTION IS REFUTED. The spread is rank "
+                      f"{rank}, not the widest, so the\n    concentration "
+                      f"argument in the design doc should be STRUCK rather "
+                      f"than\n    explained away — which is what the doc "
+                      f"itself asks for.")
 
         if errors:
             print("\n  ! page errors:", errors[:3])

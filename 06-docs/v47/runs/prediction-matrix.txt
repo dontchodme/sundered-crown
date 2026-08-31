@@ -1,0 +1,42 @@
+
+THE WINNOWING — the sweep, against sc-thornshear.html
+  shipping placeholders: dmg 11.83  charge 16  dur 4  cadence 0.6  fan 5  spread 1.6  speed 420  r 10  dmgMul 0.15  life 3  bounce 3  knock 260  growR 1.25  growDmg 1.25  growKnock 1.3  parryArm 0.06  crowdMul 10
+
+[5] THE REGISTERED PREDICTION — the whole 26 x 25 matrix, because the claim
+    is comparative
+
+    design doc §9: this relic's win-rate spread across the roster will be the
+    widest of any relic in the game, strongest against the seven greatswords
+    and weakest against the five bows — because entangle is worth -36.2% against
+    a swinging foe and -3.3% against a bow, and now a parry empowers as well.
+
+    relic           type spread    mean  raw min-max     (the widest six, and this one)
+    heartwood              46pp   39.4%         71pp
+    axiom                  45pp   43.1%         93pp
+    thornshear             44pp   45.1%         64pp     <-- THIS RELIC
+    lightkeeper            41pp   44.9%         71pp
+    vinesower              41pp   46.9%         86pp
+    slagheart              39pp   59.1%         79pp
+
+    the raw min-max column is printed and NOT ranked on: at n=14 it saturates
+    on sampling noise — see the note in the source.
+
+    thornshear by the foe's type:
+      greatsword    62.2%   (7 relics, 98 fights)
+      twinblade     57.1%   (3 relics, 42 fights)
+      scythe        50.0%   (3 relics, 42 fights)
+      flail         42.9%   (4 relics, 56 fights)
+      warhammer     35.7%   (3 relics, 42 fights)
+      bow           18.6%   (5 relics, 70 fights)
+
+    against the 7 greatswords 62.2%     against the 5 bows 18.6%     everything else 46.2%
+    spread rank 3 of 26, n=14 a pairing
+
+    THE PREDICTION IS REFUTED. The spread is rank 3, not the widest, so the
+    concentration argument in the design doc should be STRUCK rather than
+    explained away — which is what the doc itself asks for.
+
+0 fights in the bisections, plus the telemetry passes.
+The chosen numbers go into thornshear_build.py's ULT dict BY HAND. A tuned
+number written into the HTML is lost on the next rebuild (CLAUDE.md §4.9).
+EXIT 0

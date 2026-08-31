@@ -1268,7 +1268,7 @@ const WEAPONS = [
 
      `dmg` is a PLACEHOLDER (thornshear_build.TUNED_TS) and MUST be bisected. */
   { id:"thornshear", name:"Thornshear", aff:"verdant", shape:"twinblade",
-    blades:[0,0.5], reach:62, width:8, artW:30, dmg:10, spin:5.7, mode:"spin", mass:1.1,
+    blades:[0,0.5], reach:62, width:8, artW:30, dmg:11.83, spin:5.7, mode:"spin", mass:1.1,
     onHit:{ entangle:2 },
     ult:{ name:"The Winnowing", charge:16, kind:"winnow",
           dur:4, cadence:0.6, fan:5, spread:1.6,
@@ -1280,7 +1280,7 @@ const WEAPONS = [
              constant, and Bloodhunt's forks get WEAKER (forkDmg 0.5). The
              only precedent for a projectile changing after it resolves once
              is one that decays. UNMEASURED -- see the builder. */
-          growR:1.25, growDmg:1.5, growKnock:1.3,
+          growR:1.25, growDmg:1.25, growKnock:1.3,
           parryArm:0.06,
           /* THE DIRECTOR'S DENSITY, not a balance number. See `beat()`. */
           crowdMul:10,

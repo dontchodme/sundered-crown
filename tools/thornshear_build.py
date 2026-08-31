@@ -149,7 +149,12 @@ ULT_TIP = "Fires a fan of kunai that ricochet. Ricochets deal bonus damage"
 # v41 open decision 2 is why "the whole field" is in this comment: Bulwarden's
 # dmg was bisected on a five-foe subset that read 50% and the full 23-opponent
 # field read 55.2% on the same number.
-TUNED_TS = 10.0
+# BISECTED, not guessed. `thornshear_sweep [3]` at growDmg 1.25, against all
+# 25 opponents, with an escalating sample: 1050 fights ending on a 300-fight
+# step. The type ships 8.81 (Spellbreaker) .. 11.95 (Widowmaker), so this lands
+# just inside the top of its own row -- and the expectation written here before
+# the sweep ran was "near the middle", which the sweep refuted.
+TUNED_TS = 11.83
 
 # EVERY ONE OF THESE IS A PLACEHOLDER.
 ULT = {
@@ -203,7 +208,20 @@ ULT = {
     # measured mean of 1.59 bounces a landed kunai carries x1.5^1.59 = x1.9 of
     # its fresh damage, and at the top rung x3.4.
     "growr":       1.25,
-    "growdmg":     1.50,
+    # RICK'S, from four arms rendered as a table rather than as a win rate --
+    # the bisection compensates, so what the arms choose is WHAT SHARE OF THE
+    # FIGHT IS THE ULTIMATE. He took the second of four:
+    #
+    #   growDmg   blade    ult share of the fight   rungs 0/1/2/3
+    #     1.0     14.17            35%              20/30/30/20   no growth
+    #     1.25    11.83            45%              14/25/33/28   <- his
+    #     1.5      9.95            54%               9/21/36/33
+    #     1.85     7.98            66%               5/19/35/40   blade below
+    #                                                             the type's floor
+    #
+    # At 1.25 the relic still fights with its blades between casts and the
+    # growth reads as the ultimate's own arc rather than as the whole relic.
+    "growdmg":     1.25,
     "growknock":   1.30,
     # HOW LONG A KUNAI CANNOT BE PARRIED AGAIN FOR after a blade bats it.
     # Not a design knob: without it a kunai sits inside the parry radius of the
