@@ -109,6 +109,16 @@ a blunt point, and drinking the ward plate continuously to stay lit. `dmg`
 > so **the number of swells in a window is the number of times the relic was
 > paid.** A spread cannot answer a timing question; only the call list can.
 
+> **ADDING A RELIC MEANS MOVING `app/main.js`'s `GAME` LINE, AND NOTHING
+> CHECKS IT.** v48 was committed with every gate green and that line still
+> naming the twenty-sixth relic — so the app would have shown Thornshear while
+> the video rendered Vesper, which is the exact drift `docs/ARCHITECTURE.md`
+> §1 exists to prevent. **No tool can see it**: `shell_identity` compares the
+> app against headless on whatever `GAME` already says, so it passes happily
+> on a stale pointer, and `chain_audit` never looks outside `02-chain`. It was
+> caught by grepping before telling Rick to go and watch it in the app.
+> **THE CARRY IS NOT DONE WHEN THE CHAIN IS.**
+
 > **A BISECTION CONVERGES ON NOISE IN ITS TAIL — CONFIRM IT.** The escalating
 > bisection (v43 §14.1, claimed here for the first time) returned 16.04 with
 > its last three steps reading 42.9 / 45.3 / 44.6% across half a damage point

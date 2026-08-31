@@ -17,8 +17,19 @@ const url = require('node:url');
 const REPO = path.resolve(__dirname, '..');
 
 /* THE BUILD THE APP SHOWS. One place, so it cannot drift from what the video
- * pipeline renders. Keep it pointed at the build of record. */
-const GAME = process.env.SWB_GAME || '02-chain/sc-thornshear.html';
+ * pipeline renders. Keep it pointed at the build of record.
+ *
+ * AND IT IS ONE PLACE THAT STILL HAS TO BE MOVED BY HAND, WHICH IS THE WHOLE
+ * FAILURE MODE. v48 shipped Vesper -- new build of record, twenty-seven
+ * relics -- with every gate green and this line still naming the twenty-sixth,
+ * so the app would have shown the PREVIOUS relic while the video rendered the
+ * new one. Nothing catches it: `shell_identity` compares the app against
+ * headless on whatever GAME says, so it passes on a stale pointer, and
+ * `chain_audit` never looks outside 02-chain. It was caught because somebody
+ * grepped before saying "go and watch it in the app".
+ *
+ * IF YOU ADD A RELIC, THIS LINE IS PART OF THE CARRY. */
+const GAME = process.env.SWB_GAME || '02-chain/sc-vesper.html';
 
 /* `npm run identity` has advertised this flag since the shell was written and
  * nothing read it, so the script started the app normally and the gate could
