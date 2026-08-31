@@ -12,9 +12,9 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-paradox-ignition.html BUILD OF RECORD  25 relics · Stasis
+02-chain/sc-thornshear.html      BUILD OF RECORD  26 relics · THE WINNOWING
                                                    + the post chain, bloom ON
-                                                   + PARTICLE FIELDS on all 25
+                                                   + PARTICLE FIELDS on all 26
                                                    + the LONG-FIGHT pace
                                                    + the Stasis hold released
                                                      correctly
@@ -22,21 +22,64 @@ short-form video for TikTok and YouTube Shorts.
                                                    + A TRUE STUN TURNS THE
                                                      CRUCIBLE'S BLACK HOLE OFF
                                                    + THE IGNITION OPEN
-02-chain/sc-paradox-crucible.html    the link before it
+02-chain/sc-paradox-ignition.html    the link before it, 25 relics
+02-chain/sc-paradox-crucible.html    and the one before that
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE TWENTY-SIXTH RELIC IS THORNSHEAR, AND THE WINNOWING IS THE FIRST THING
+IN THIS GAME THAT GETS STRONGER FOR STAYING IN THE AIR**
+(`thornshear_build.py`, 2026-08-30). The verdant twinblade forgoes its blades
+for four seconds — `bladeSegments` returns nothing, which is one mutation
+reaching `tickHits`, `_clankPair`, the parry and the tip history — and looses a
+fan of leaf kunai out of both bearings. Every wall and every parrying blade
+makes what comes off it bigger, harder and heavier. Cowork surveyed the type
+and priced all four sentences of §1 before a builder was opened; Rick chose the
+cell, both names, both forks, the card wording, the kunai and the growth
+schedule. `06-docs/v47/`.
+
+> **86% OF THE ULTIMATE IS WHAT THE HALL DID TO IT, NOT WHAT WAS FIRED.** 53%
+> of the relic's damage is kunai, and only 14% of that is a kunai on its first
+> flight. It ships at `dmg 11.83` (bisected against all 25, escalating sample)
+> and `growDmg 1.25` — Rick's, from four arms priced as a share table rather
+> than as a win rate, because the bisection compensates and what the arms
+> choose is what the relic IS.
+
+> **A PROJECTILE THAT GROWS INVALIDATES EVERY CLAMP COMPUTED FROM ITS OLD
+> SIZE.** `tickShots` clamps a bouncing shot to the wall with `s.r` and then
+> asks `s.x < n + s.r` four blocks later; the rung-up between them multiplies
+> `s.r`, so a kunai that grew on the wall it had just bounced off was one pixel
+> outside itself and died on the same frame. 89% of every kunai, at a median
+> age of 0.33s. Two lines in `kunaiRung`. This is §4.2 with the tense reversed
+> and it will happen again to the next relic that resizes a live object.
+
+> **AND IT LOSES FOUR FIGHTS IN FIVE TO EVERY BOW.** 18.6% against the five
+> bows, 62.2% against the seven greatswords, 47.0% overall — so `verify`'s
+> per-relic band never sees it. The type ladder is monotone in exactly the
+> order v47's design doc predicted, and the doc's other half — that the spread
+> would be the widest in the game — is STRUCK: it is rank 3 of 26, behind two
+> greatswords. Whether the hole is the relic or a problem is Rick's, and it is
+> open decision 12.
 
 **The build of record carries a WebGL post chain** (`src/render/post.js`,
 inserted by `post_build.py`). Bloom ships; trails and grade are in the build
 and default OFF. See `docs/BUILD-CHAIN.md`.
 
 **And as of 2026-08-29 it carries PARTICLE FIELDS** (`src/render/fx.js`,
-inserted by `fx_build.py`): every one of the twenty-five ultimates now emits a
-deterministic field — six emitter modes, twenty-five specs, one
+inserted by `fx_build.py`): every one of the twenty-six ultimates now emits a
+deterministic field — six emitter modes, twenty-six specs, one
 implementation. Approved off played clips four times: particles at all, the
 vocabulary across four shapes, the density, and finally a real fight out of the
 build itself.
+
+> **THE TWENTY-SIXTH SPEC WENT INTO `src/render/fx.js` AND INTO THE INLINED
+> COPY**, and `thornshear_build.py` refuses to write unless the two are
+> byte-identical, then re-stamps the sha the page carries. A spec added only to
+> the page is a spec the next `fx_build` run silently drops — and an ultimate
+> with no field among twenty-five that have one is a picture fault with no
+> number attached to it. `ULTFX.sync` returns on a missing spec; it is not an
+> error, which is exactly why it would ship.
 
 **AND AS OF 2026-08-29 IT CARRIES THE LONG-FIGHT PACE** (`fx_build.py` ->
 `pace_build.py`): `baseHP` 300 -> 400, the Second Seal 15s -> 21s with the hall
@@ -46,16 +89,19 @@ ultimates a fight instead of 3.7 — ult charge is pure wall time, so a longer
 fight buys set-pieces for free.
 
 > **IT SHIPS AT 12/13, AND THE THIRTEENTH IS KNOWN.** `verify`'s "every pairing
-> mean duration in 18-70s" fails: six to eight of 300 pairings run over, worst
-> Lightkeeper/Farwarden at **74.6s** (76.9s before the Crucible change),
-> clustered on Lightkeeper, Axiom, Farwarden and Spellbreaker. It is a PAIRING
-> ceiling, not the average — the overall mean is inside its band (48.8s) and
-> every relic is inside the 30-70% winrate band (Heartwood 42.5 .. Farwarden
-> 57.4, **spread 14.9pp**, against 16.4 at the pace change and 14.5 before any
-> of this). Accepted rather than fixed because a short films ~45s of a fight, so a
-> 74s average pairing still yields usable clips. **Do not read this as a green
-> verify.** Clearing it means either backing the pace to baseHP 370 / seals
-> 19-44 (45.4s mean, the floor of the ask) or tuning those four relics.
+> mean duration in 18-70s" fails: a handful of 325 pairings run over, worst
+> **Farwarden/Axiom at 74.8s** at the current tip (Lightkeeper/Farwarden 74.6s
+> before Thornshear, 76.9s before the Crucible change), clustered on
+> Lightkeeper, Axiom, Farwarden and Spellbreaker. **The relic that failed it is
+> not the relic that was added** — none of the over-long pairings is a
+> Thornshear pairing. It is a PAIRING ceiling, not the average: the overall
+> mean is inside its band (49.2s) and every relic is inside the 30-70% winrate
+> band (Axiom 41.5 .. Grudgebearer 57.9, **spread 16.4pp**, against 14.9 before
+> Thornshear and 14.5 before any of this). Accepted rather than fixed because a
+> short films ~45s of a fight, so a 74s average pairing still yields usable
+> clips. **Do not read this as a green verify.** Clearing it means either
+> backing the pace to baseHP 370 / seals 19-44 (45.4s mean, the floor of the
+> ask) or tuning those four relics.
 
 **A FIGHT NOW STARTS AS A SHOT** (`src/render/open.js`, inserted by
 `ignition_build.py`). The first **2.83s** of every match: fighter A at 2.25x,
@@ -273,7 +319,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v46/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v47/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -483,10 +529,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-paradox-ignition.html --n 40     # 12/13, see §0
+python verify.py --game ../02-chain/sc-thornshear.html --n 40       # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-paradox-ignition.html      # what's open
+python cell_survey.py --game ../02-chain/sc-thornshear.html         # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -495,14 +541,23 @@ python ignition_probe.py                                           # the opening
 python stakes_probe.py                                             # the stakes band, in pixels
 python vo_sync_probe.py                                            # the announcer lands on the flares
 python ignition_lab.py --scan --a <a> --b <b> --n 40                # a seed whose first clank lands in the opening's window
+python thornshear_relic_probe.py                                   # §1, asserted against the build
+python thornshear_sweep.py --only 5                                # the 26x25 matrix, by the foe's TYPE
+python kunai_art_lab.py                                            # a projectile's silhouette, alone and in a crowd
+python winnow_lab.py [--rung]                                      # a voice as a spread, before anybody is asked
 ```
+
+**`frame_probe.py` HAS BEEN CRASHING, AND NOT BECAUSE OF ANYTHING NEW.** It
+dies on `new["foot"] - None` at line 166 on the current tip AND on
+`sc-paradox-ignition.html`, identically. It is named as a gate in every build
+brief and it has not run in some time. Fix it or stop naming it.
 
 A SHORT, which since 2026-08-30 is **the full fight from zero** — Rick's call,
 and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-paradox-ignition.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v46/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-thornshear.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -511,7 +566,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-paradox-ignition.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v46/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-thornshear.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -629,5 +684,23 @@ git push
     file. (The other half of this item, the opening's sound, was answered on
     2026-08-29: it is the announcer.)
 
-Full detail: `06-docs/v46/` for the tip, `NEXT-SESSION.md` and
-`06-docs/v43/` for the relic before it.
+12. **THORNSHEAR LOSES FOUR FIGHTS IN FIVE TO EVERY BOW.** §0. 18.6% against
+    the five bows against 62.2% against the seven greatswords, and 47.0%
+    overall — so no check in this repo can see it. Either that is the relic
+    (rock-paper-scissors a viewer can learn, and Grudgebearer is already 80%
+    into Axiom) or the per-relic band is the wrong instrument for a
+    concentrated relic. New, and Rick's.
+13. **`s.snap` IS A DEAD FLAG.** Three writes in the engine, zero reads:
+    `LERP_FIELDS.shot` is `["x","y"]` and `snapObj` copies only numbers, so a
+    boolean is invisible to the interpolator. Every build brief since v40 has
+    asked for it to be set on new reflection paths. Either something should
+    read it or it should go — a defensive flag that defends nothing is how the
+    next person believes they are protected.
+14. **`frame_probe.py` CRASHES ON EVERY BUILD**, old tip included. §5.
+15. **`crowdMul: 10` ON THE WINNOWING IS THE SPIKE STORM'S NUMBER.** It wants
+    the storm's own measurement — cut preference inside the window against
+    outside, `beat_dist.py` — and this window puts more landed hits on the
+    floor than the storm does.
+
+Full detail: `06-docs/v47/` for the tip, `06-docs/v46/` for the opening, and
+`NEXT-SESSION.md` plus `06-docs/v43/` for the relic before it.

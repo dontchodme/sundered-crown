@@ -1,0 +1,8 @@
+[post] 0.2.0-bloom  428x761  0 effect passes
+[post] ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+
+PASS  325,708 px identical, max delta 0.
+      The chain is invisible with nothing switched on, which is
+      what makes the A/B toggle a control rather than a second
+      unknown.
+EXIT 0

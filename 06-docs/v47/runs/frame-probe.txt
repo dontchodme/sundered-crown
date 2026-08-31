@@ -1,0 +1,26 @@
+
+  build                   foot     pad      aw      ah   scale    top  bottom
+  ref (no FRAME)          None    12.0  1056.0  1624.6   2.031    176  1800.6
+  sc-thornshear.html      None    12.0  1056.0  1624.6   2.031    176  1800.6
+
+[1] THE IDENTITY AT foot = 0
+
+    ref  pad 12.0 aw 1056.0 ah 1624.6 scale 2.0308
+    foot0 pad 12.0 aw 1056.0 ah 1624.6 scale 2.0308
+    pixel difference bbox: None
+  PASS  foot=0 renders the same four numbers as the build with no FRAME  — pad/aw/ah/scale all identical
+  PASS  ...and the same PIXELS — the old layout is a value of the new code  — 0 differing pixels of 1080x1920
+    SCRUNCHED frame difference bbox: None
+  PASS  ...on the SCRUNCHED frame too — the second layout, which is the one that broke  — 0 differing pixels
+
+[2] THE ARENA IS INSIDE THE SAFE BOX
+
+Traceback (most recent call last):
+  File "C:\dev\sundered-crown\tools\frame_probe.py", line 235, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\dev\sundered-crown\tools\frame_probe.py", line 166, in main
+    safe = new["H"] - foot
+           ~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for -: 'int' and 'NoneType'
+EXIT 1

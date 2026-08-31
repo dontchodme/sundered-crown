@@ -20,10 +20,20 @@ table rather than as a win rate. `verify --n 40` is **12/13 — the known
 thirteenth**, and the pairing that fails it is `farwarden/axiom` at 74.8s,
 which is two relics this build did not touch.
 
-**IT IS NOT THE BUILD OF RECORD YET, and one thing is why.** The ult's SOUND
-is the last of Rick's seven still open: four cast voices and three rung voices
-are rendered and waiting in `05-reference/v47/`. `app/main.js` and CLAUDE.md §0
-move when he has picked.
+**IT IS THE BUILD OF RECORD.** Rick picked the sound off the spread on
+2026-08-30 — cast **1 SHEAR**, rung **a CHIME** — and both were already the
+shipping voices, so the spread CONFIRMED the build rather than replacing it.
+That is worth writing down: three of the four cast candidates and two of the
+three rung candidates existed only to make the pick meaningful, and a spread
+whose answer is "the one you had" is a spread that did its job. `app/main.js`
+and CLAUDE.md §0 now point at `sc-thornshear.html`.
+
+```
+post_identity      325,708 px identical, max delta 0 — the chain is invisible
+npm run identity   200 fights, Chromium 152.0.7977.54
+shell_identity     200/200 identical against headless Chromium 151.0.7922.34
+frame_probe        CRASHES, and on the previous tip too — see §8
+```
 
 ---
 
@@ -529,12 +539,11 @@ cannot see that. Both are in `05-reference/v47/`.
 
 # 8. WHAT IS LEFT
 
-1. **RICK'S PICK ON THE SOUND**, and then the flip. Four cast voices and three
-   rung voices are rendered (`tools/winnow_lab.py`,
-   `05-reference/v47/winnow-cast.wav` and `winnow-rung.wav`) and sent. When he
-   has picked, the chosen branch goes into `SFX_NEW`, the probe's [10] re-runs
-   in an `OfflineAudioContext`, and `app/main.js` and CLAUDE.md §0 move to
-   `sc-thornshear.html`.
+1. **`frame_probe.py` CRASHES ON EVERY BUILD.** `new["foot"]` is None and line
+   166 does `new["H"] - foot`. It dies identically on `sc-thornshear.html` and
+   on `sc-paradox-ignition.html`, so it is not this relic — but it is named as
+   a gate in every build brief and it has not run in some time. Fix it or stop
+   naming it.
 2. **`bounce` x `life` IS STILL A PICTURE DECISION NOBODY HAS SEEN.** Above 3
    is inert at life 3.0 — bounce 6 and bounce 3 return identical numbers, digit
    for digit. A fourth rung means `life` goes up, kunai stay in the hall
