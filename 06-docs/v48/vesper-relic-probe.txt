@@ -1,0 +1,103 @@
+
+Vesper / Sentinel — vigil scythe   dmg 17.25   ballR 34   hitCd 0.45
+  beam  wind 0.85s  dur 4s  cap 9s  turn 1.6 rad/s  range 300  half 28 (beam 56 wide against a 68-wide artifact)
+  pays  passDmg 9  tipMul 1.8  tipFrom 0.75   drinks 6/s at 0.12s a point
+
+[0] THE BLOCK — the type's and the school's, byte for byte
+    thornwake    reach 104 width 11 artW 46 spin 3.2 mass 2.4 spin
+    lastlight    reach 104 width 11 artW 46 spin 3.2 mass 2.4 spin
+    foregone     reach 104 width 11 artW 46 spin 3.2 mass 2.4 spin
+    vesper       reach 104 width 11 artW 46 spin 3.2 mass 2.4 spin
+  PASS  all four scythes share one physics block, field for field  — reach=104 width=11 spin=3.2 mass=2.4 mode=spin
+  PASS  and it carries the school's own channel at the melee value  — onSelf {'ward': 1} against lightkeeper {'ward': 1}, bulwarden {'ward': 1}  (farwarden is 2.5 and is the ranged exception)
+
+[1] THE BEAM IS ONE OBJECT — 32 matches, 63 casts, 57 windows
+    the simulation reaches beamTip / inBeam  True / True
+    the renderer asks the MATCH for the origin  True
+    the origin is the BALL, not the blade       True
+    the growth is in the GEOMETRY (inBeam)      True / True
+    and draws u.half / u.tipFrom             True / True
+    widest perpendicular offset on a contact 61.98 of a tested 62
+  PASS  the drawn beam and the tested volume are the same object  — one `beamTip` and one `inBeam`, reached by the simulation and by `_drawBeam`; the renderer draws `u.half` and `u.tipFrom` rather than constants, and BOTH read the same growing `beamLen` — v43's hexagon rule, with the growth inside it rather than painted over it
+    the render path, CALLED   _drawBeam 268w/1603b   drawUltUnder 1871   drawUltOver 1871
+  PASS  and the render path RESOLVES — called, not regexed  — `_drawBeam`, `drawUltUnder` and `drawUltOver` all ran against a real 2D context — 268 wind-up and 1603 standing-beam frames — without throwing. THIS BUILD SHIPPED TWO FAULTS THAT ONLY A RENDERED FRAME COULD SEE: `this.beamTip` reached for a MATCH method from the RENDERER, and `u.range` read a weapon field off the `ultFx` RECORD and handed NaN to createRadialGradient. Both were green across 27 probe checks, a 280-match engine A/B and post_identity
+  PASS  and no contact is ever recorded outside that volume  — 10306 in-volume frames, none further than 34 + 28 from the axis, none off the segment, and the origin equalled the caster's own centre on every one of them
+  PASS  §1's THICKNESS FLOOR is met by the shipped number  — beam 56 wide against an artifact 68 wide — §1 asks for at least half of one, which is 34
+
+[2] A PASS IS COUNTED ONCE — 248 passes over 10306 frames of contact
+    passes (edge detector)  248
+    base hits paid          248
+    frames inside the beam  10306   (41.6 a pass)
+    mean pass               0.35s   longest 2.07s
+    passes a window         4.4
+  PASS  a pass pays exactly once, however many frames it lasts  — 248 payments against 248 entries across 10306 frames of contact — a pass is 42 frames long and pays on one of them, and 0 payments arrived on a frame the latch was already down
+  PASS  and the engine's own count agrees with an independent edge detector  — `B.passes`, read off the state object at every window's end, came back 248 against 248 counted by a second detector running inside the engine's own `inBeam` call
+  PASS  entering, leaving and re-entering is TWO passes  — 248 passes over 57 windows — the beam breaks 3.4 times a window and picks the quarry up again. THE HALL SWEEPS THE BEAM as much as the beam sweeps the hall
+
+[3] THE TIP FIRES ON THE PASS'S FURTHEST REACH
+    passes reaching 0.75 of the length  182 of 248 (73%)
+    tip bonuses paid                   180
+    mean ENTRY point along the beam    0.76
+    mean FURTHEST reach of a pass      0.84
+    of those, killed by the base hit      2  (the beam ends, so the bonus never comes)
+  PASS  the bonus fires once per pass that reached the far quarter, and never below the line  — 180 bonuses against 182 passes that got past 0.75, less 2 that killed the quarry with the base hit and ended the beam; 0 fired below the line and 0 fired twice on one pass. Passes ENTER at a mean 0.76 and REACH a mean 0.84, so a bonus read off the entry or off the last frame would be a different set
+
+[4] THE ORIGIN IS THE BALL, THE SHAFT GROWS, and the bearing is rate limited
+    frames with the shaft still opening or closing  4076 of 41207
+    shortest length a contact was tested against    40.0 of 300
+  PASS  the beam is fired from the caster's own centre  — `beamOrigin` returns the fighter's live position and reaches for no blade — 0 of 10306 contact frames disagreed. Rick's call, and it is also the arm `beam_probe [2]` measured BETTER: 28.3% on target from the centre against 23.4% from the tip
+  PASS  and the growth is in the HIT VOLUME, not only in the picture  — `inBeam` measures against `beamLen`, so a shaft that is 40 units long has a 40-unit hit volume — 4076 of 41207 standing frames are mid-open or mid-close, and a contact was tested against a length that short. A growth drawn over a full-length volume is v43's hexagon with a clock on it
+  PASS  and the bearing may not move faster than `turn` in a step  — 1.6 rad/s is 0.76° a step at dt 1/120 — a quarry that out-turns it gets round the outside, which is the whole counterplay
+
+[5] THE WARD IS DRUNK WHILE THE BEAM STANDS, and the loop closes
+    ward drunk over all windows      663.2
+    ward banked DURING those windows 1069.2  (3.11 a second, against beam_probe's 2.0)
+    base duration                    4s
+    mean window                      5.00s   longest 9.00s   cap 9s
+    (and 22153 steps of hit stop, which the beam is frozen through with the rest of the world)
+  PASS  the drink is the ward's own fourth ending and not one of the other three  — `drinkWard` reaches neither `shatter` nor `spendWard`, bursts nothing and flings nobody — a plate the relic drank is not a plate anybody broke (scythe_survey §4.2)
+  PASS  and the blade's own blows feed the beam while it is running  — 1069.2 points banked inside 343s of standing beam — the caster is refilling the thing it is burning
+    STARVED (the plate emptied inside the drink)  n=60  mean 3.728s  max 4.008s  drunk 0.00
+    FED     (the shipped path)                    n=57  mean 5.002s  max 9.000s  drunk 663.2
+  PASS  A BEAM GIVEN NOTHING RUNS THE BASE DURATION AND NOT ONE FRAME MORE  — every one of 60 starved windows ran 4.008s against a base of 4s, and the fed arm reaches 9.00s on the same seeds
+  PASS  and nothing runs past the cap  — longest window 9.00s against durCap 9s;  2 of 57 windows reached the cap
+
+[6] A TWINSHADE COPY IS NOT A QUARRY
+    shade positions inside the beam volume  1315
+  PASS  a pass on a COPY resolves nothing and files nothing  — `!foe.shade` is written into `tickSentinel` and `this.shades` is never walked there — 1315 shade positions fell inside the volume across the run and none of them paid
+
+[7] A LETHAL PASS ENDS THE BEAM, AND SO DOES ANY OTHER KILLING BLOW
+    windows cut short with time still on the clock  14 of 57
+  PASS  the beam does not sweep a corpse for a second step  — 0 steps of standing beam over a quarry that was ALREADY dead when the step began, across 343s of window. The step the killing blow lands on is not counted — `tickHits` runs below `tickSentinel`, so the beam cannot know yet
+  PASS  and it does not outlive the match  — 0 of 32 matches ended with `ultBeam` still set — `step()` returns from the `over` branch above `tickSentinel`, so a beam left standing would be a shaft laid frozen across the verdict panel for 2.4s. `decay()` clears it, the way it already clears the shades, the spike storm and the Converse
+
+[8] THE WIND-UP IS BROKEN BY A TRUE STUN — and by nothing else
+    against the four hex appliers    27 of 42 casts lost (64.3%)   axiom, spellbreaker, foregone, paradox
+    against a control of four        0 of 28 casts lost (0.0%)   emberedge, ironhail, censer, gravemourn
+  PASS  the charge-up is lost to a TRUE stun and to nothing weaker  — 27/42 lost against the four relics that can apply one, 0/28 against four that cannot — hitstun does not reach this hook
+  PASS  and a STANDING beam is not interruptible  — `breakSpin`'s clause is gated on `phase === "wind"` — a true stun arriving inside the window finds nothing to take, which is what makes a four-second set-piece worth building
+    >> DESIGN od 1, ANSWERED: this wind-up is FAR more fragile than the Crucible's.
+       64.3% against those four, against v44's 14.77% for the Crucible — a 0.85s charge-up on a
+       16s bar. Whether that is the price of the window is RICK'S, not this probe's.
+
+[9] THE SOUND IS RENDERED AND MEASURED
+    vesper         the cast, routed       peak 0.852  audible 1.50s  survives a small speaker 0.74
+    vesper-wind    the charge-up          peak 0.265  audible 1.50s  survives a small speaker 0.70
+    vesper-open    the beam standing up   peak 0.368  audible 1.40s  survives a small speaker 0.70
+    vesper-pass    a pass                 peak 0.160  audible 1.10s  survives a small speaker 0.82
+    vesper-tip     the far end            peak 0.272  audible 1.20s  survives a small speaker 0.93
+  PASS  all four voices make a sound, through the shipping chain  — 5 rendered in an OfflineAudioContext, peak 0.160..0.852 — v42 shipped a silent ultimate through every green check in this repo
+  PASS  THE CHARGE-UP LASTS THE CHARGE-UP  — 1.50s of audible against a 0.85s wind-up — a telegraph that ends early is a telegraph for a shorter window than the one being run, and this one is the only thing standing between the cast and losing it 64% of the time
+  PASS  and the tip is louder than the pass, because the viewer has to be able to tell them apart  — tip peak 0.272 against pass 0.160 — the one thing to learn from this ultimate is which of the two just happened
+
+[10] THE PASS FILES A BEAT — rule 3, seventh relic running
+    beats filed by the cast itself   63
+    beats filed by a pass or a tip   428
+    passes + tips paid               428
+  PASS  every pass and every tip bonus reaches the director  — 428 beats against 248 passes and 180 tips — a pass is a unit nothing else in the frame knows about, and `cinePlan` would score the best moment of this ultimate as empty air
+
+[11] NOTHING SHARED WAS TOUCHED
+  PASS  the hit loop, the shot path and bladeSegments are unchanged  — `ultBeam` appears in none of `tickHits`, `tickShots` or `bladeSegments` — the blades stay live through the window, which is what the ward income in [5] is made of
+  PASS  no JS errors or page exceptions
+
+28/28 checks passed

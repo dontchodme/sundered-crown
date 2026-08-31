@@ -1,0 +1,95 @@
+
+THE SENTINEL — the sweep, against sc-vesper.html
+  ships dmg 22   charge 16  wind 0.85  dur 4  durCap 9  turn 1.6  range 300  half 22  tipFrom 0.75  passDmg 9  tipMul 1.8  drink 6  durPer 0.12
+
+[3] range x tipMul — THE MAIN AXIS, and what it chooses is the SHARE OF THE CAST PAID AT THE FAR END
+     range  tipMul     dmg  pass/win  tip rate  TIP SHARE  ult share   window
+    r180 t1.4  bisect -> dmg 18.79   1092 fights, 36s
+        23.00   69.2%  n=52    mean 46.5s
+        17.50   43.6%  n=78    mean 49.0s
+        20.25   51.9%  n=104   mean 47.0s
+        18.88   57.7%  n=130   mean 47.9s
+        18.19   49.5%  n=182   mean 49.1s
+        18.53   49.6%  n=234   mean 47.9s
+        18.70   49.4%  n=312   mean 49.1s
+       180     1.4   18.79       4.2       72%        23%        35%    4.87s
+    r180 t1.8  bisect -> dmg 16.73   1092 fights, 45s
+        23.00   69.2%  n=52    mean 44.4s
+        17.50   52.6%  n=78    mean 47.8s
+        14.75   43.3%  n=104   mean 49.5s
+        16.12   43.8%  n=130   mean 48.0s
+        16.81   54.4%  n=182   mean 48.9s
+        16.47   48.7%  n=234   mean 48.6s
+        16.64   47.1%  n=312   mean 48.6s
+       180     1.8   16.73       3.8       66%        36%        38%    4.78s
+    r180 t2.6  bisect -> dmg 16.21   1092 fights, 41s
+        23.00   82.7%  n=52    mean 42.2s
+        17.50   57.7%  n=78    mean 46.4s
+        14.75   39.4%  n=104   mean 48.0s
+        16.12   49.2%  n=130   mean 45.8s
+        16.81   63.2%  n=182   mean 46.3s
+        16.47   59.0%  n=234   mean 46.7s
+        16.30   52.2%  n=312   mean 46.2s
+       180     2.6   16.21       3.7       70%        53%        48%    4.53s
+    r300 t1.4  bisect -> dmg 17.41   1092 fights, 35s
+        23.00   75.0%  n=52    mean 45.3s
+        17.50   53.8%  n=78    mean 47.1s
+        14.75   30.8%  n=104   mean 50.4s
+        16.12   42.3%  n=130   mean 48.7s
+        16.81   46.2%  n=182   mean 49.4s
+        17.16   47.4%  n=234   mean 47.7s
+        17.33   46.5%  n=312   mean 48.1s
+       300     1.4   17.41       5.1       61%        20%        40%    4.82s
+    r300 t1.8  bisect -> dmg 16.55   1092 fights, 32s
+        23.00   71.2%  n=52    mean 44.0s
+        17.50   56.4%  n=78    mean 46.5s
+        14.75   46.2%  n=104   mean 48.9s
+        16.12   46.2%  n=130   mean 47.9s
+        16.81   50.5%  n=182   mean 48.1s
+        16.47   48.7%  n=234   mean 47.2s
+        16.64   50.3%  n=312   mean 47.8s
+       300     1.8   16.55       5.0       63%        34%        46%    4.80s
+    r300 t2.6  bisect -> dmg 14.49   1092 fights, 25s
+        23.00   76.9%  n=52    mean 41.5s
+        17.50   64.1%  n=78    mean 44.3s
+        14.75   51.9%  n=104   mean 46.5s
+        13.38   49.2%  n=130   mean 47.4s
+        14.06   42.9%  n=182   mean 46.5s
+        14.41   45.7%  n=234   mean 46.4s
+        14.58   50.0%  n=312   mean 46.6s
+       300     2.6   14.49       5.0       58%        48%        57%    4.66s
+    r420 t1.4  bisect -> dmg 18.45   1092 fights, 26s
+        23.00   75.0%  n=52    mean 45.6s
+        17.50   46.2%  n=78    mean 48.4s
+        20.25   53.8%  n=104   mean 47.0s
+        18.88   58.5%  n=130   mean 48.2s
+        18.19   49.5%  n=182   mean 47.7s
+        18.53   53.0%  n=234   mean 47.1s
+        18.36   47.1%  n=312   mean 48.0s
+       420     1.4   18.45       5.4       40%        15%        39%    4.85s
+    r420 t1.8  bisect -> dmg 17.24   1092 fights, 26s
+        23.00   67.3%  n=52    mean 44.4s
+        17.50   52.6%  n=78    mean 47.4s
+        14.75   34.6%  n=104   mean 49.4s
+        16.12   46.9%  n=130   mean 48.4s
+        16.81   49.5%  n=182   mean 48.5s
+        17.16   46.6%  n=234   mean 47.5s
+        17.33   54.2%  n=312   mean 47.4s
+       420     1.8   17.24       5.0       44%        27%        42%    4.65s
+    r420 t2.6  bisect -> dmg 15.01   1092 fights, 26s
+        23.00   78.8%  n=52    mean 42.4s
+        17.50   64.1%  n=78    mean 45.5s
+        14.75   39.4%  n=104   mean 48.2s
+        16.12   56.9%  n=130   mean 47.0s
+        15.44   52.7%  n=182   mean 47.1s
+        15.09   52.6%  n=234   mean 46.7s
+        14.92   44.9%  n=312   mean 47.8s
+       420     2.6   15.01       4.8       44%        41%        51%    4.48s
+
+    THE QUESTION FOR RICK IS THE 'TIP SHARE' COLUMN, not
+    a win rate: the bisection compensates, so every row above wins
+    the same. A SHORT BEAM THAT MOSTLY PAYS AT THE FAR END against
+    A LONG ONE THAT MOSTLY PAYS IN THE MIDDLE.
+
+  9828 fights spent.
+  The chosen numbers go into vesper_build.py's ULT dict BY HAND — CLAUDE.md §4.9.

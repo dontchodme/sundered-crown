@@ -1,0 +1,31 @@
+
+THE SENTINEL — the sweep, against sc-vesper.html
+  ships dmg 22   charge 16  wind 0.85  dur 4  durCap 9  turn 1.6  range 300  half 22  tipFrom 0.75  passDmg 9  tipMul 1.8  drink 6  durPer 0.12
+
+[1] THE BASELINE — the relic with no window at all
+    no ult  bisect -> dmg 23.95   1092 fights, 53s
+        23.00   48.1%  n=52    mean 52.4s
+        28.50   57.7%  n=78    mean 49.2s
+        25.75   52.9%  n=104   mean 50.2s
+        24.38   50.8%  n=130   mean 52.0s
+        23.69   46.7%  n=182   mean 51.4s
+        24.03   56.4%  n=234   mean 52.3s
+        23.86   45.5%  n=312   mean 51.9s
+    blade alone: 19175 damage over 64 fights, 0 casts
+    SO THE BLADE ALONE IS WORTH dmg 23.95 at a 50% field win rate; everything below is what the window buys on top of that.
+
+[2] THE BLADE, at the shipped ultimate — all 26 opponents, escalating sample
+    shipped bisect -> dmg 16.04   1092 fights, 65s
+        23.00   75.0%  n=52    mean 44.1s
+        17.50   61.5%  n=78    mean 47.8s
+        14.75   39.4%  n=104   mean 48.5s
+        16.12   57.7%  n=130   mean 47.6s
+        15.44   42.9%  n=182   mean 48.9s
+        15.78   45.3%  n=234   mean 47.8s
+        15.95   44.6%  n=312   mean 48.0s
+    at dmg 16.04: 46.2% over 312 fights, mean 48.1s, 0 timeouts
+    worst matchup lastlight 8%   best lightkeeper 75%
+    THE TYPE SHIPS 17.50 (Lastlight) .. 31.35 (Thornwake); this lands at 16.04.
+
+  2496 fights spent.
+  The chosen numbers go into vesper_build.py's ULT dict BY HAND — CLAUDE.md §4.9.

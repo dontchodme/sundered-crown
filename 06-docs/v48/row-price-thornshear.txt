@@ -1,0 +1,49 @@
+
+[1] THE SCYTHE ROW — donor thornwake, 4 of 7 cells open
+
+                  bloodsworn     dwarven       runic  sanctified      umbral     verdant       vigil
+    scythe                 ·           ·    Foregone   Lastlight           ·   Thornwake           ·
+
+    open: bloodsworn x scythe, dwarven x scythe, umbral x scythe, vigil x scythe
+
+[2] OCCUPANCY — cell_survey's own column, imported
+
+    cell                    status        hits/s   mean    >=2    cap   appl   refr
+    bloodsworn x scythe     hemorrhage     0.185   1.42    49%    22%    9.6    48%
+    dwarven x scythe        sunder         0.192   1.56    36%     8%   10.1    64%
+    umbral x scythe         curse          0.190   3.73    72%    20%   10.1    90%
+    vigil x scythe          — no onHit channel —
+
+[3] DELIVERED EFFECT — channel live against channel deleted, against all 25 other relics, 250 fights an arm
+
+    cell                    slot    status        dealt/s  taken/s  foe blows/s     win    lift
+    bloodsworn x scythe     onHit   hemorrhage       4.19     6.38        0.286   30.0%   +8.0%
+    dwarven x scythe        onHit   sunder           5.38     6.30        0.286   28.0%   +6.0%
+    umbral x scythe         onHit   curse            4.66     6.29        0.281   20.8%   -1.2%
+    vigil x scythe          onSelf  ward             4.90     7.32        0.306   37.2%  +15.2%
+
+    what each channel put INTO the foe over a whole fight
+
+    cell                      blade damage  no-channel blade  channel delta  max hp removed
+    bloodsworn x scythe                222               262            -40            0 of 400
+    dwarven x scythe                   291               262            +29            0 of 400
+    umbral x scythe                    263               262             +0          149 of 400
+    vigil x scythe                     301               262            +38            0 of 400
+
+    the lift, split by the FOE'S MODE — v47's finding was that a channel's worth is decided here
+
+    cell                        ranged     swing      spin     chain
+    bloodsworn x scythe          +4.0%     +4.3%    +10.0%    +15.0%
+    dwarven x scythe             +6.0%     +0.0%    +13.3%     +0.0%
+    umbral x scythe              +4.0%     +1.4%     -2.2%    -10.0%
+    vigil x scythe              +34.0%     +2.9%    +13.3%    +17.5%
+
+[4] DO THE TWO COLUMNS AGREE?
+
+    by occupancy (>=2 stacks):  umbral 72% > bloodsworn 49% > dwarven 36%
+    by delivered effect:        bloodsworn +8.0% > dwarven +6.0% > umbral -1.2%
+  FAIL  the two columns pick the same top cell on this row  — occupancy says umbral, delivered effect says bloodsworn — a FOURTH row where the occupancy column does not rank what it is read as ranking
+  PASS  a school with no foe channel is priced on the same axis as the others rather than printed as a dash  — vigil — cell_survey prints '— vigil has no onHit channel —' and ranks it nowhere
+  PASS  no JS errors or page exceptions
+
+2/3 checks passed  (1 FAILED)

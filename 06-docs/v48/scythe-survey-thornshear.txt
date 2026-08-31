@@ -1,0 +1,96 @@
+
+[1] THE SCYTHE ROW — 3 of 7 filled
+
+                bloodsworn     dwarven       runic  sanctified      umbral     verdant       vigil
+    scythe               ·           ·    Foregone   Lastlight           ·   Thornwake           ·
+
+    type          reach  width   spin   mass  blades    mode             dmg
+    bow              54      9    2.8    1.6       1  ranged       12.7-16.2
+    flail            96     22    2.2    3.6       1   chain       25.0-44.1
+    greatsword      116     14    3.4    3.0       1   swing        7.4-15.8
+    scythe          104     11    3.2    2.4       1    spin       17.5-31.4
+    twinblade        62      8    5.7    1.1       2    spin        8.3-11.9
+    warhammer        76     26    1.6    5.0       1    spin       20.1-28.8
+
+    ward   name Ward  maxStacks 1  dur 5  bank 0.55  cap 90  shatter 0.4  knock 210
+  PASS  all three scythes share one physics block, field for field  — reach=104, width=11, spin=3.2, mode=spin, mass=2.4, blades=1
+  PASS  the scythe sits in the MIDDLE of the mass ladder — the only type that is decisive against some binds and not others  — ladder 1.1, 1.6, 2.4, 3, 3.6, 5, scythe at 2.4
+  PASS  and it carries the widest damage spread of any three-relic type  — 17.50 to 31.35 = x1.79 — Lastlight pays for the Harrowing, Thornwake does not
+
+[2] THE BLADE — live segment off `bladeSegments`, dmg pinned 24, ultimates suppressed
+
+    type          live blade  contacts/s   mean gap   rad/s  contacts/rad
+    bow                 59.8       0.117      8.51s    3.10        0.0379
+    flail               13.2       0.146      6.85s    2.53        0.0576
+    greatsword         125.5       0.252      3.97s    3.82        0.0661
+    scythe             113.6       0.188      5.31s    3.66        0.0515
+    twinblade           68.9       0.222      4.50s    6.37        0.0349
+    warhammer           83.8       0.181      5.54s    1.84        0.0981
+  PASS  THE WARD'S 5s CLOCK IS THE SAME ORDER AS THIS TYPE'S CONTACT INTERVAL  — scythe lands a blow every 5.31s against a 5s ward; the types inside 1.5s of the clock are greatsword, scythe, twinblade, warhammer
+
+[3] THE CLANK LADDER AT MASS 2.4
+
+    foe           type          mass  clanks/min    won  deadlock   lost  stagger eaten
+    ironhail      bow            1.6        14.8   100%        0%     0%         0.033s
+    widowmaker    twinblade      1.1        18.9   100%        0%     0%         0.024s
+    lastlight     scythe         2.4        18.7     0%      100%     0%         0.059s
+    emberedge     greatsword     3.0        22.9     0%        0%   100%         0.079s
+    gravemourn    flail          3.6        16.6     0%        0%   100%         0.075s
+    censer        warhammer      5.0        17.0     0%        0%   100%         0.090s
+  PASS  the scythe both WINS and LOSES binds — unlike the twinblade, which loses every one, and the flail, which loses only to the warhammer  — 170 won, 345 lost across six types
+
+[4] THE WARD ON THIS TYPE — and what the 5s clock throws away
+
+    type            gap  plate up  mean pool   peak  raises/min  EXPIRIES/min  shatters/min
+    bow           3.21s       56%       34.6     90         6.7           1.4           4.2
+    flail         6.49s       32%       20.3     82         5.5           0.7           4.5
+    greatsword    3.82s       55%       30.8     90         7.2           1.3           4.8
+    scythe        5.65s       43%       24.8     90         6.4           0.9           4.8
+    twinblade     4.15s       58%       31.9     90         6.4           1.7           3.9
+    warhammer     6.18s       38%       26.2     90         5.8           1.0           4.4
+
+    WHERE THE BANK GOES — nothing in this repo has ever counted the third column
+
+    type            banked   ABSORBED   THROWN AWAY ON EXPIRY    kept
+    bow               7791       4899                    1306     79%
+    flail             3292       2636                     344     88%
+    greatsword        7876       5154                     941     85%
+    scythe            6392       4954                     583     89%
+    twinblade         7364       4674                    1347     78%
+    warhammer         5523       4230                     663     86%
+  PASS  THE PLATE THROWS AWAY A REAL SHARE OF WHAT IT BANKS, and the 5s clock is why  — the scythe absorbs 4954 and loses 583 unspent — 89% kept — at 0.9 expiries a minute
+  PASS  CONSERVATION — absorbed plus thrown away cannot exceed what was banked  — worst type flail at 0.91x  bow 0.80, flail 0.91, greatsword 0.77, scythe 0.87, twinblade 0.82, warhammer 0.89
+
+    THE SWEEP — vigil od 4, open since Vigil and restated in v41, v42, v43 and v47
+
+      bank   cap   dur  plate up  mean pool  absorbed  thrown away   kept     win
+      0.55    90   5.0       41%       24.4     25143         3052    89%   41.5%  <- ships
+      0.55    90   7.0       44%       24.4     26854         1250    96%   43.5%
+      0.55    90   9.0       45%       24.8     26954          455    98%   43.0%
+      0.55   140   5.0       41%       24.6     25327         3167    89%   41.5%
+      0.85    90   5.0       45%       37.0     34757         6992    83%   46.5%
+      0.85    90   7.0       50%       37.6     39205         3006    93%   53.5%
+      0.85   140   5.0       46%       39.4     36355         7808    82%   47.0%
+      0.85   140   7.0       51%       40.3     40950         3575    92%   52.5%
+      0.35    90   5.0       39%       15.9     16468         1684    91%   33.0%
+  PASS  `cap 90` IS NOT THE CONSTRAINT — raising it alone does almost nothing, which is half of vigil od 4 answered  — cap 90 -> 140 moves the win rate 41.5% -> 41.5% and the mean pool 24.4 -> 24.6
+  FAIL  AND `thrown away` IS NOT WASTE — the arm that throws away least is the WORST arm in the sweep  — dur 9.0 keeps 98% against dur 5.0's 89% and wins 43.0% against 41.5%. A plate that expires unspent is a plate nobody had to break — v42 §3c from the other side: ask what the worst thing that scores well on a metric looks like
+  PASS  `bank` IS THE LIVE KNOB, and it is the one nobody has touched  — 0.35 -> 33.0%, 0.55 -> 41.5%, 0.85 -> 46.5%
+
+    the interaction, read off the 2x2 at cap 140
+
+        0.55/140/5.0      41.5%     24.6 mean pool
+        0.85/140/5.0      47.0%     39.4 mean pool
+        0.55/90/7.0       43.5%     24.4 mean pool
+        0.85/140/7.0      52.5%     40.3 mean pool
+
+[5] THE TRAPS
+
+  PASS  an expiring ward ZEROES the pool — it is the only status in the game whose effect can be thrown away unspent
+  PASS  the plate eats damage first and the OVERFLOW carries through, so a large hit is not wasted on a thin plate
+  PASS  every landed blow re-clocks the ward — so the plate's life is the type's contact interval, not its own duration
+  PASS  the bank runs AFTER hurt in resolveHit, so a blow never banks against itself
+  PASS  the blade is a rigid function of f.theta — no lag term
+  PASS  no JS errors or page exceptions
+
+15/16 checks passed  (1 FAILED)

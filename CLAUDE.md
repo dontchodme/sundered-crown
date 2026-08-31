@@ -12,7 +12,13 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-thornshear.html      BUILD OF RECORD  26 relics · THE WINNOWING
+02-chain/sc-vesper.html          BUILD OF RECORD  27 relics · SENTINEL
+                                                   everything below, plus
+                                                   A BEAM THAT PERSISTS,
+                                                   TURNS, GROWS AND IS PAID
+                                                   FOR WITH THE ARMOUR THE
+                                                   CASTER IS WEARING
+02-chain/sc-thornshear.html      the link before it, 26 relics · THE WINNOWING
                                                    + the post chain, bloom ON
                                                    + PARTICLE FIELDS on all 26
                                                    + the LONG-FIGHT pace
@@ -22,11 +28,95 @@ short-form video for TikTok and YouTube Shorts.
                                                    + A TRUE STUN TURNS THE
                                                      CRUCIBLE'S BLACK HOLE OFF
                                                    + THE IGNITION OPEN
-02-chain/sc-paradox-ignition.html    the link before it, 25 relics
+02-chain/sc-paradox-ignition.html    25 relics
 02-chain/sc-paradox-crucible.html    and the one before that
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE TWENTY-SEVENTH RELIC IS VESPER, AND SENTINEL IS THE FIRST THING IN THIS
+GAME THAT PERSISTS, TURNS, AND IS PAID FOR WITH THE ARMOUR ITS CASTER IS
+WEARING** (`vesper_build.py`, 2026-08-30). The vigil scythe winds up for 0.85s
+and then stands a slow beam out of its own centre — 300 long, 56 wide, growing
+out over 0.30s and retracting back over 0.22s, turning at 1.6 rad/s, coming to
+a blunt point, and drinking the ward plate continuously to stay lit. `dmg`
+17.25. `06-docs/v48/`.
+
+> **THE UNIT IS A PASS, NOT A FRAME, AND THAT IS RICK'S CALL WITH THE NUMBERS
+> IN FRONT OF HIM.** At the tracking rate §1 asks for, the beam holds its
+> quarry a mean 0.25s and breaks ~4 times a window — so "while it persists it
+> does rapid ticks" describes a thing that does not persist. Offered fast
+> tracking, slow tracking with the damage redesigned, or a lock-on, he took
+> the second. A pass begins on entry, ends on exit, pays ONCE, and pays again
+> the instant it first reaches the far quarter — at any point during the pass,
+> not where it happened to be on the last frame.
+
+> **THE POOL AT THE CAST IS A MEDIAN OF ZERO, so the beam DRINKS CONTINUOUSLY.**
+> 59% of casts find an empty shell: charge is pure wall time and the ward is up
+> 42% of the fight, and the two are uncorrelated by construction. Aegis's
+> "feed the wall while it stands" is the precedent, pointed the other way.
+> `drinkWard` is the ward's FOURTH ending and is deliberately neither
+> `spendWard` nor `shatter` — nobody broke the plate, the relic drank it.
+
+> **TWO PICTURE FAULTS SHIPPED THROUGH EVERY HEADLESS CHECK IN THIS REPO AND
+> DIED ON THE FIRST RENDERED FRAME.** `_drawBeam` reached for `this.beamTip`
+> — a MATCH method, from the RENDERER — and `drawUltUnder` read `u.range` off
+> the `ultFx` RECORD and handed NaN to `createRadialGradient`. Both were green
+> across 27 probe checks, a 280-match `engine_ab`, `chain_audit` and
+> `post_identity`. **The probe's own check passed on the first one because it
+> was REGEXING `_drawBeam`'s SOURCE for `beamTip(`, and a string does not
+> resolve a reference.** `vesper_relic_probe [1]` now CALLS `_drawBeam`,
+> `drawUltUnder` and `drawUltOver` against a real 2D context. §4.0 is not
+> advice; it is the only thing that found these.
+
+> **RICK MOVED THE ORIGIN OFF THE BLADE AND IT MOVED THE MECHANIC WITH IT.**
+> *"first lets have it center from the ball, not the scythe."* `beam_probe`
+> had priced the centre as the BETTER arm (28.3% on target against the tip's
+> 23.4%) — and it turned out weaker in the build, because that sweep held
+> `range` fixed and so priced where the shaft STARTS while saying nothing
+> about how far it now REACHES. It also moved the tip rate 64% → 77%, because
+> from the centre the quarry can only ever enter further out.
+> **A KNOB'S TRADE CAN BE A PROPERTY OF SOMETHING ELSE'S SETTING.**
+
+> **AND IT TOOK HALF OF THE DESIGN'S MAIN AXIS WITH IT.** The build brief
+> called `range` "the sweep's main axis" and "nothing else in the design has a
+> trade this clean" — pass COUNT against tip RATE. On the built, ball-centred
+> relic the tip rate still falls (73% → 53% over range 300 → 480) but the pass
+> count no longer rises (4.3 → 4.6 → 4.6 → 4.4, flat inside noise), and every
+> win rate across that range sits within ±1.2pp. **Length buys nothing and
+> spends the bonus.** So the answer to "can we fix the strength by making it
+> longer" is no, and the compensation is `dmg`.
+
+> **A TRUE STUN DESTROYS SENTINEL'S CAST, AND THAT IS SETTLED, NOT OPEN.**
+> The charge-up loses **40.2%** of its casts to Axiom, Spellbreaker, Foregone
+> and Paradox and **0.0%** to four relics that cannot apply one. Rick shortened
+> `wind` 0.85 → 0.32 first, and the measurement said speed cannot fix it: a
+> six-fold cut buys a halving, because `stunEvery` is advanced by
+> `dt * stacks` and at five stacks a stun is APPLIED every 0.23s, so a window
+> of any length lands inside that comb. Offered pause-instead-of-cancel,
+> pause-with-a-cap, or leave it, **he took leave it**. So Sentinel is the only
+> relic whose cast a true stun destroys outright, where the Crucible — offered
+> the same three in v44 — was given the mildest. **The asymmetry is
+> deliberate. Do not read it as an oversight and do not "fix" it.**
+
+> **THE HUM IS THE DAMAGE CUE, AND THE FIRST CUT OF IT WAS REFUTED BY AN
+> AUDITION.** Rick picked DYNAMO off a spread of four rendered as full runs
+> (`sentinel_hum_lab.py`, one round trip), then asked the sound to say whether
+> the beam is connecting. Built contact-driven first; `sentinel_hum_audition.py`
+> renders one REAL window off the engine's own `SFX.play` call list and showed
+> 12 loaded strikes — 2.4s of dynamo — for TWO payments, because the beam pays
+> ONCE PER PASS ON ENTRY. The load is now raised in `beamHit` and nowhere else,
+> so **the number of swells in a window is the number of times the relic was
+> paid.** A spread cannot answer a timing question; only the call list can.
+
+> **A BISECTION CONVERGES ON NOISE IN ITS TAIL — CONFIRM IT.** The escalating
+> bisection (v43 §14.1, claimed here for the first time) returned 16.04 with
+> its last three steps reading 42.9 / 45.3 / 44.6% across half a damage point
+> at n=312: an ordering that is sampling error, not signal. A direct
+> measurement at n=1040 a point put the crossing 0.76 higher. **Size the
+> bisection's top to the interval it ends on, or confirm the answer with one
+> wide direct measurement** — the confirmation cost 4160 fights against the
+> bisection's own 1092.
 
 **THE TWENTY-SIXTH RELIC IS THORNSHEAR, AND THE WINNOWING IS THE FIRST THING
 IN THIS GAME THAT GETS STRONGER FOR STAYING IN THE AIR**
@@ -319,7 +409,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v47/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v48/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -529,10 +619,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-thornshear.html --n 40       # 12/13, see §0
+python verify.py --game ../02-chain/sc-vesper.html --n 40           # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-thornshear.html         # what's open
+python cell_survey.py --game ../02-chain/sc-vesper.html             # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -545,6 +635,12 @@ python thornshear_relic_probe.py                                   # §1, assert
 python thornshear_sweep.py --only 5                                # the 26x25 matrix, by the foe's TYPE
 python kunai_art_lab.py                                            # a projectile's silhouette, alone and in a crowd
 python winnow_lab.py [--rung]                                      # a voice as a spread, before anybody is asked
+python vesper_relic_probe.py                                       # §1, asserted against the build — AND the render path CALLED
+python vesper_sweep.py --only 1,2,3                                # the blade, then what share of the cast is the point
+python sentinel_hum_lab.py                                         # four sustains as full runs, for a pick
+python sentinel_hum_audition.py                                    # ONE REAL WINDOW off the engine's own call list
+python beam_probe.py --game ../02-chain/sc-vesper.html             # §1 priced by overlay, 14/14
+python row_price.py --type scythe --game ...                       # a cell by DELIVERED EFFECT, not by occupancy
 ```
 
 **`frame_probe.py` HAS BEEN CRASHING, AND NOT BECAUSE OF ANYTHING NEW.** It
@@ -557,7 +653,7 @@ and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-thornshear.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-vesper.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -566,7 +662,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-thornshear.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-vesper.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -702,5 +798,24 @@ git push
     outside, `beat_dist.py` — and this window puts more landed hits on the
     floor than the storm does.
 
-Full detail: `06-docs/v47/` for the tip, `06-docs/v46/` for the opening, and
+16. **HOW MUCH OF SENTINEL IS THE POINT HAS NOT BEEN CHOSEN.** `tipMul` is the
+    dominant lever on it — 1.4 pays about a fifth of the cast at the far end,
+    1.8 a third, 2.6 about half — and the bisection compensates, so none of
+    those is stronger than another. It is the v43 framing ("how much of
+    Paradox IS the field") on a new relic and it is Rick's. The measured table
+    in `06-docs/v48/` is on the SUPERSEDED tip-mounted geometry; a re-run at
+    the shipped one is about four minutes.
+17. **SENTINEL'S BEAM HAS NOT BEEN MEASURED AGAINST THE BLOOM.** It is a large
+    white-cored light source on the school that has blown the chain out twice
+    (§4.1b Daybreak, §4.1c the Harrowing), and §4.1b's rule is to measure the
+    art and the post chain SEPARATELY before touching either. `ult_bloom_probe`
+    and `harrow_bloom_probe` both read
+    `05-reference/post/ultfx-library.json`, which has no `vesper` entry — so
+    this wants an `ult_fx_capture.py` run first. NOT a claim that it is too
+    bright; a claim that nobody has looked.
+18. **`vesper_sweep` SECTIONS 4 AND 5 HAVE NOT BEEN RUN.** drink x dur and
+    half x turn. Section 3's finding — that `range` is no longer a trade —
+    changes what both would mean, so they were left rather than run against a
+    superseded reading.
+Full detail: `06-docs/v48/` for the tip, `06-docs/v47/` for the relic before it, `06-docs/v46/` for the opening, and
 `NEXT-SESSION.md` plus `06-docs/v43/` for the relic before it.

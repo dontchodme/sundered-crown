@@ -1,0 +1,66 @@
+
+vigil core #F06BB8 (pink)   ballR 34   scythe reach 104 spin 3.2   blade tip 138 from centre   arena 520x800   hitCd 0.45
+
+[0] WHAT ALREADY EXISTS
+
+  PASS  THERE IS NO BEAM IN THIS GAME — `kind: "beam"` is a set-piece label with no branch in fireUlt  — carried by Aureole / Benediction; Goreshard / Bloodprice — both instantaneous. Nothing here persists, tracks or pushes, so every geometric sentence of §1 is new
+  PASS  a cast is a METRONOME — charge is pure wall time, so the ward pool a cast finds is a blind sample and not something the relic can aim
+  PASS  the two hooks §1 needs already exist: `breakSpin` for the wind-up and `spendWard` for the pool
+
+[1] THE POOL AT THE CAST — the sentence most likely to break
+
+    relic                       casts  MEDIAN   mean   empty   >= 45  at cap
+    Bulwarden (v41's control)     257     0.0   11.3     56%      5%      1%
+    a vigil scythe                290     0.0   11.9     59%      8%      1%
+  PASS  v41's published number reproduces — the pool at a Bulwarden cast is a MEDIAN OF ZERO  — median 0.0 over 257 casts against v41's 'median of zero over 88 casts'
+  PASS  AND THE SCYTHE IS NO BETTER — a beam whose duration is read off the pool at the instant of the cast is a beam of zero length most of the time  — 59% of casts find an EMPTY shell, median 0.0, mean 11.9 of a 90 cap. The ward is up 42% of the fight (scythe_survey §4) and a cast is a metronome, so the two are simply uncorrelated
+
+[2] TIME ON TARGET — a slow beam on a tip that orbits at 3.2 rad/s
+
+    arm                                 on target  mean run  longest  breaks  near the tip
+    turn 1.6  range 300  tip                23.4%     0.28s    1.54s     3.5         36.2%
+    turn 0.8  range 300  tip                16.2%     0.24s    1.22s     3.0         30.5%
+    turn 3.2  range 300  tip                42.3%     0.43s    2.05s     4.2         45.7%
+    turn 6.0  range 300  tip                59.5%     0.62s    2.82s     4.2         48.4%
+    turn 1.6  range 180  tip                14.9%     0.23s    0.97s     2.8         45.8%
+    turn 1.6  range 520  tip                34.3%     0.39s    1.54s     3.8         20.6%
+    turn 1.6  range 300  TIP FROZEN         26.2%     0.29s    1.34s     3.9         44.2%
+    turn 3.2  range 300  TIP FROZEN         42.9%     0.44s    2.69s     4.3         49.9%
+    turn 1.6  range 300  CENTRE             28.3%     0.34s    2.08s     3.6         41.0%
+    turn 3.2  range 520  CENTRE             73.8%     1.14s    3.78s     3.5         18.4%
+  PASS  THE ORBITING TIP COSTS SOMETHING, AND IT IS SMALL — mounting the beam on a blade that goes round at 3.2 rad/s is a tax, not the design  — tip 23.4% on target, tip with the weapon's spin STOPPED 26.2%, caster's centre 28.3% — same turn rate, same range, same fights. So §1 can keep `points at the tip` for free; the sentence that costs is the next one
+  PASS  TURN RATE IS THE DOMINANT KNOB, and it runs the wrong way for the word `slowly`  — turn 0.8 / 1.6 / 3.2 / 6.0 -> 16.2% / 23.4% / 42.3% / 59.5%; the orbit costs +4.9% beside that, so the tip mounting is a minor tax and the tracking rate is the design
+  PASS  AND A SLOW BEAM DOES NOT PERSIST ON ANYTHING — it flickers across the quarry rather than holding it  — at turn 1.6 the mean unbroken contact is 0.28s and the beam breaks 3.5 times in a 4s window. `while it persists it does rapid ticks` and `slowly rotates` are in tension and the sweep is where that gets settled
+
+[3] THE PUSH TOWARD THE TIP — the one arm that is not an overlay, because a force changes the fight
+
+    push (u/s^2)      on target  mean run   position along the beam  near the tip  separation
+    0                     23.4%     0.28s                     0.56         36.2%         272
+    150                   24.7%     0.30s                     0.57         36.3%         273
+    400                   27.2%     0.31s                     0.58         38.0%         275
+    900                   27.4%     0.31s                     0.59         38.2%         272
+  PASS  THE PUSH IS NEARLY INERT AT THESE CONTACT DURATIONS — six times the force moves the quarry two points further down the beam  — share of contact past 0.75 of the length: 0 -> 36%, 150 -> 36%, 400 -> 38%, 900 -> 38%; mean position along the beam 0.56 -> 0.59
+  PASS  and the reason is [2]: you cannot push a thing along a line for 0.3 seconds  — mean unbroken contact 0.28s. THE PUSH AND THE TRACKING RATE ARE ONE DECISION, not two — the push only has somewhere to act if the beam holds, and the beam only holds if it turns fast
+
+[4] THE LIGHTHOUSE — Rick took the slow beam, so the unit is the PASS and not the frame
+
+    arm                             passes  per second  mean pass  longest  passes that reach the tip  ward banked
+    turn 0.0  range 300   STATIC       2.2        0.56      0.21s    0.79s                        40%          8.1
+    turn 0.4  range 300                2.7        0.67      0.21s    1.02s                        46%          8.1
+    turn 0.8  range 300                3.0        0.74      0.24s    1.22s                        49%          8.1
+    turn 1.6  range 300                3.5        0.88      0.28s    1.54s                        60%          8.1
+    turn 1.6  range 180                2.8        0.69      0.23s    0.97s                        73%          8.1
+    turn 1.6  range 420                3.8        0.94      0.35s    1.54s                        45%          8.1
+    turn 0.8  range 180                2.3        0.59      0.20s    0.96s                        62%          8.1
+    turn 1.6  range 300  thick 26      3.7        0.92      0.30s    1.56s                        62%          8.1
+  PASS  THE TRACKING IS NOT WHAT MAKES THE PASSES — a beam that does not turn at all still gets crossed, because the BALL is what moves  — a static beam takes 2.2 passes in 4s against 3.5 at turn 1.6. `slowly rotates to track` is doing less of the work than the sentence implies, and the honest version of the mechanic is that the HALL sweeps the beam as much as the beam sweeps the hall
+  PASS  thickness buys contact where the turn rate must not  — half-width 17 -> 26 (a beam 52 wide against a 68-wide relic) moves the mean pass 0.28s -> 0.30s and passes 3.5 -> 3.7
+  PASS  A SHORT BEAM IS A TIP BONUS THAT ACTUALLY FIRES — the far end is where the ball is, instead of somewhere past it  — range 180 -> 73% of passes reach the tip zone, 300 -> 60%, 420 -> 45%. "limited range" is not a restriction on this design, it is the thing that makes its bonus reachable
+
+    THE WARD, DRUNK CONTINUOUSLY — what a 4s beam banks while it runs
+
+        8.1 points of ward banked during the window, against a pool of 12.3 at the cast and a 90 cap.
+        So a beam that drinks continuously is fed roughly 2.0 points a second by the blade that is casting it.
+  PASS  no JS errors or page exceptions
+
+14/14 checks passed

@@ -1,0 +1,11 @@
+=== ENGINE A/B: 8 relics, 10 seeds x 28 pairings ===
+
+  sc-thornshear.html               280 matches    8.2s
+  sc-vesper.html                   280 matches    8.9s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 280
+  PASS  every match identical field for field  — 280/280
+  PASS  the sweep is real  — 8/8 distinct winners, 280 distinct seeds, 20.7-65.4s
+
+ENGINE A/B PASS — ../02-chain/sc-vesper.html does not move the 8-relic roster.

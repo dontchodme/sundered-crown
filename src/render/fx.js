@@ -215,6 +215,19 @@
     thornshear: { mode: 'fall', n: 1150, sp: [20, 110], grav: 70, drag: 1.1,
                   life: [0.90, 2.00], heavy: 0.03, size: [0.7, 2.0],
                   spawn: 0.90, up: 0 },
+    /* THE SENTINEL. A SWIRL and not a beam, and the choice is the mechanic:
+       `mode: 'beam'` spawns along the cast-time axis and FREEZES there, which
+       is right for the seven instantaneous shafts that carry it and wrong for
+       the one beam in the game that turns -- the motes would sit on a bearing
+       the beam left two seconds ago. A swirl holds them at a radius instead,
+       tangential rather than launched, which is what a turning thing looks
+       like and is the honest picture of the design's §6.1: the light is not
+       thrown, the room is being swept. Slow, long-lived and sparse, because
+       the shaft is already the brightest object in the frame and this must
+       not compete with it (§4.1b, twice, on this school). */
+    vesper: { mode: 'swirl', n: 1050, sp: [40, 150], grav: -14, drag: 0.7,
+              life: [0.90, 2.10], heavy: 0.0, size: [0.6, 1.9],
+              spawn: 0.85, up: 0 },
     /* ---- IMPLOSION: a burst run backwards ---------------------------- */
     /* Dirge is the only pull in the game. Running a ring INWARD is the
        cheapest possible way to say "this is not one of those" -- which is the
