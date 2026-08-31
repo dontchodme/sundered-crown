@@ -106,11 +106,23 @@ charge still waiting -- worth +6.4 points over a 2s life and, more to the
 point, one sentence instead of a number and a fade. The hall accumulates: an
 earlier cast's figures are still live when the next lands.
 
-## WHAT IS A PLACEHOLDER
+## NOTHING HERE IS A PLACEHOLDER ANY MORE
 
-The art and the sound are FIRST CUTS. Both are Rick's under rule 2 and both
-want a spread; §8.4 check 10 -- can a viewer tell an ARMED sigil from an
-ARMING one -- is a filmstrip question no tool in this repo can answer.
+The art and the sound are Rick's, over three rounds of one rendered clip
+each, and every round moved something no probe in this repo had a number for:
+
+    round 1   "i can tell the difference between armed and arming pretty
+               easily" -- so the four separations stay exactly as they are
+    round 2   "my vision was the pentagram was 1 large mine not a cluster of
+               small ones" -- the mechanic, and it cost the chain
+    round 3   "lets make the explosion sound effect bigger", and "ive also
+               seen some mines explode and then disappear and some explode
+               and stick around" -- the blast, which was frozen on the floor
+               96.2% of the time behind sixteen green checks
+
+§8.4's check 10 -- can a viewer tell an ARMED sigil from an ARMING one -- was
+never answerable here and never will be. It is a filmstrip question and a
+person is the gate.
 """
 from __future__ import annotations
 
@@ -239,13 +251,13 @@ EDITS = [
     /* THE SIGILS, AND THEY ARE PER-MATCH STATE ON THE MATCH. Not on `w`,
        which outlives the fight -- that is CLAUDE.md §4.1's hazard and the
        brief names it again at §8.3d -- and not in `shots`, whose `maxLive`
-       ceiling makes `spawnShot` SHIFT THE OLDEST LIVE ONE OUT. A charge that
+       ceiling makes `spawnShot` SHIFT THE OLDEST LIVE ONE OUT. A mine that
        vanishes off the floor with no error, no invariant broken and no win
        rate moved is this project's own defect class for the fourth time.
        This list declines at its ceiling and counts the refusal.
 
-       NOTHING IN IT EVER EXPIRES. A charge that is not walked into is not a
-       miss, it is a charge still waiting -- worth +6.4 points over a 2s life
+       NOTHING IN IT EVER EXPIRES. A mine that is not walked into is not a
+       miss, it is a mine still waiting -- worth +6.4 points over a 2s life
        (v52 §3d) and, more to the point, ONE SENTENCE: the sigil stays until
        something sets it off. So the hall accumulates, and the floor gets more
        dangerous as the fight goes on, for free. */
@@ -293,9 +305,9 @@ EDITS = [
        battlefield."
 
        IT IS STAMPED WITH WHAT CURSE REMEMBERS AT THIS INSTANT, and that is
-       the whole of why the ultimate is worth anything: a charge dealing a
-       share of a 60-point pool is a charge worth walking round, and a charge
-       dealing a flat 10 is not (v52 §3, +0.0% for the flat version).
+       the whole of why the ultimate is worth anything: a mine carrying a
+       share of a 60-point pool is a mine worth walking round, and one dealing
+       a flat 10 is not (v52 §3, +0.0% for the flat version).
 
        THIS SITS AFTER THE `onHit` LOOP ON PURPOSE, so the blow that stamps
        the figure is one of the blows the figure remembers -- the same reading
@@ -303,7 +315,7 @@ EDITS = [
 
        AND IT IS READ-ONLY ON THE POOL. `curseSum()` and nothing else: no
        push, no spend, no `apply`. Gravemourn MOVES a memory; this COPIES one.
-       A build that re-applies curse from a charge recreates the +0.0 clause
+       A build that re-applies curse from a mine recreates the dead clause
        v52 §3e deleted, and it would also hand this relic Gravemourn's verb. */
     if (mul === undefined && self.ultDeadfall && foe.alive && !foe.shade
         && !this.over && (self === this.a || self === this.b)){
@@ -431,8 +443,10 @@ EDITS = [
       const was = g.t;
       g.t += dt;
       /* THE SNAP. One sound per FIGURE at the instant it goes live, not one
-         per charge: five simultaneous copies of the same voice is a click,
-         not a chord, and the state change is a property of the figure. */
+         per mine — which is the same thing now that a figure is one mine,
+         and was not when it was five: five simultaneous copies of one voice
+         is a click, not a chord. The state change is a property of the
+         figure, so the sound is too. */
       if (was < g.arm && g.t >= g.arm) SFX.play("ult", { w: "nightfell-arm" });
     }
     if (this.over) return;
@@ -456,7 +470,7 @@ EDITS = [
 
        AND THE TEST ONLY EVER READS THE FOE. There is no caster branch to get
        wrong: a figure is planted where a blow landed, which is exactly where
-       its own caster is standing, so a caster-triggering charge is not a
+       its own caster is standing, so a caster-triggering mine is not a
        tuning knob but 48% of the ultimate eating itself (v52 §3c) -- and
        these balls cannot steer, so nothing could avoid it. */
     let hitG = null, best = Infinity, at = -1;
@@ -495,24 +509,25 @@ EDITS = [
       foe.flash = 1; foe.ringFlash = 1;
       this.float(foe.x, foe.y - 40, dmg, AFFINITIES.umbral.glow, 34 + dmg * 0.5);
     }
-    /* NO CURSE. v52 §3e measured the clause at exactly +0.0% in this
-       arrangement: a charge deals about a fifth of a stamped pool, the pool
-       holds the blade's three biggest blows, and curse's own top-K rule
-       displaces the memory the instant it is parked. The figure READS the
-       pool and never writes to it. */
+    /* NO CURSE. v52 §3e's "1 charge, stamp x0.3" row is this configuration
+       exactly — one payment a figure at a third of the pool — and it measured
+       the clause at +0.4%, one standard error from nothing. The pool holds
+       the blade's three biggest blows and curse's own top-K rule displaces
+       anything smaller the instant it is parked. The figure READS the pool
+       and never writes to it. */
 
-    /* THE SHOVE, RADIALLY OUTWARD FROM THE CHARGE. Rick took push over pull
+    /* THE SHOVE, RADIALLY OUTWARD FROM THE MINE. Rick took push over pull
        on legibility -- a blast that SUCKS is the class of thing
        `CONFIG.arena`'s no-seek comment forbids, because the viewer cannot see
        the force and it reads as the physics lying. It costs 23% of the chain
-       and it is what carries the ball into the next charge. */
+       and it is what carries the ball into the next mine. */
     const dx = foe.x - g.x, dy = foe.y - g.y, dl = Math.hypot(dx, dy) || 1;
     const P = own.w.ult.push;
     foe.vx += (dx / dl) * P; foe.vy += (dy / dl) * P;
 
     const fatal = !foe.alive;
     if (fatal){
-      /* A CHARGE THAT ENDS THE FIGHT CARRIES THE FIGHT'S OWN WEIGHT.
+      /* A MINE THAT ENDS THE FIGHT CARRIES THE FIGHT'S OWN WEIGHT.
          `resolveHit` swaps its hit-stop for `killStop` and arms `finisher` on
          a fatal blow; anything landing outside that function has to do it
          itself or this ultimate's killing blow is lighter than a swing. */
@@ -529,7 +544,7 @@ EDITS = [
     this.spawnFx(g.x, g.y, AFFINITIES.umbral.core, 34, 300, 0.7, 5);
     this.ring(g.x, g.y, AFFINITIES.umbral.glow, 7, g.rad, 0.42, 6);
     SFX.play("ult", { w: "nightfell-boom" });
-    /* RULE 3, EIGHTH RELIC RUNNING. A charge goes off on the floor through
+    /* RULE 3, EIGHTH RELIC RUNNING. A mine goes off on the floor through
        its own path, so nothing else in the frame knows it happened and
        `cinePlan` would score the best moment of this ultimate as empty air. */
     this.beat({ kind: "ult", side: own === this.a ? 0 : 1,
@@ -540,7 +555,7 @@ EDITS = [
        NOTHING on an `ult` beat carries that flag. Measured on Gravemourn
        before the same line existed there: 30 of 58 kills were landed by a
        hand and ALL THIRTY rendered a clip with no killing blow. The brief
-       registered this for these charges in advance (§8.3, open item 20) --
+       registered this for these mines in advance (§8.3, open item 20) --
        they detonate outside `resolveHit` exactly as the hands do. */
     if (fatal)
       this.beat({ kind: "hit", side: own === this.a ? 0 : 1,
@@ -714,11 +729,21 @@ EDITS = [
     ult:{ name:"Eclipse", charge:15, kind:"nova", radius:250, dmg:11,
           knock:150, tip:"Nova: deals 11 damage — knocks back" },''',
  '''    /* DEADFALL. The window is the ultimate and the FLOOR is the payload:
-       every blow landed inside `dur` stamps one pentagram of `points` charges
-       on a `ring`-radius circle, each stamped with a share of what Curse
-       remembers about the quarry AT THAT INSTANT. They crackle for `arm`
-       seconds, go live, and then wait — permanently — for the foe to walk
-       within `rad` of one.
+       every blow landed inside `dur` stamps ONE PENTAGRAM where the blow
+       landed, carrying what Curse remembers about the quarry AT THAT INSTANT.
+       It crackles for `arm` seconds, goes live, and then waits — permanently
+       — for the foe to walk within `rad` of its CENTRE. Then it deals the
+       whole of what it remembers, in one number.
+
+       ONE FIGURE IS ONE MINE. `points` and `ring` are a DRAWING: five points
+       because a pentagram has five, strokes through them in `drawSigils`, and
+       nothing is ever tested against them. It shipped first as five separate
+       charges on that ring — v52 §3b measured the ring as the only
+       arrangement that chains — and Rick watched it: "what isnt legible is
+       the explosion itself ... my vision was the pentagram was 1 large mine
+       not a cluster of small ones." Five payments of `stamp/5` put five
+       three-damage numbers over the ball inside 42ms, and every number in the
+       build was right while it read as noise.
 
        IT IS A BET ON WHERE THE FIGHT WILL BE, and that is measured: the same
        bomb HOMING is worth 12.5 to 19.0 points more (v52 §1). That gap is
@@ -727,15 +752,19 @@ EDITS = [
        `dmg` 0 and `kind` "sigil", NOT "nova": nothing resolves at the cast.
        Eclipse was a 250-radius nova for 11 and it is gone, art included.
 
-       `apply` STAYS GONE. v52 §3e measured a re-application at exactly +0.0%
-       in this arrangement — a charge deals about a fifth of a stamped pool
-       and curse's top-K rule displaces the memory as it lands. The figure
+       `apply` STAYS GONE, and the row it rests on is v52 §3e's "1 charge,
+       stamp x0.3" — +0.4%, one standard error from nothing. That is now
+       LITERALLY this configuration rather than an argument by analogy: one
+       payment a figure at a third of the pool. (The five-charge build rested
+       on the "5 charges, stamp x0.3" row, +0.0%. Both say the same thing for
+       the same reason — curse's top-K rule displaces the memory as it lands
+       — and the mine is the one the design actually measured.) The figure
        reads the pool and never writes to it.
 
        `rad` IS NOT NAMED `radius` ON PURPOSE. `fireUlt` reads `u.radius` for
-       its in-range test and the particle field reads it for its extent; a
-       70-unit per-charge trigger is neither of those things, and putting it
-       in that field would silently shrink the cast's own set-piece.
+       its in-range test and the particle field reads it for its extent; the
+       mine's own trigger is neither of those, and putting it in that field
+       would silently shrink the cast's own set-piece.
 
        THE BLADE IS 15.83 -> %DMG% (stage 3b, `umbral_sweep.py`, 9750
        fights, run twice — once on the five-charge figure and again on the
