@@ -1,0 +1,118 @@
+{
+ "run": {
+  "fights": 174,
+  "casts": 334,
+  "catches": 328,
+  "connects": 306,
+  "expired": 22,
+  "heldFrames": 78276,
+  "heldSecs": 652.2999999995711,
+  "windowSecs": 949.8166666659672,
+  "outsideRadius": 0,
+  "wireNoWindow": 0,
+  "radiusSeen": 110,
+  "reachMoved": 0,
+  "dmgMoved": 0,
+  "hitCdMoved": 0,
+  "spinBad": 0,
+  "spinN": 0,
+  "ultSpinSet": 0,
+  "stunWhileHeld": 13477,
+  "heldChecks": 78276,
+  "weaponTurned": 59075,
+  "weaponFrozen": 19201,
+  "blowsWhileHeld": 399,
+  "heldFreeFrames": 58012,
+  "freeTurned": 58012,
+  "freeFrozen": 0,
+  "snagAddedStun": 0,
+  "hitsOnHeld": 306,
+  "meleeOnHeld": 306,
+  "heldFrozenHall": 11491,
+  "recaught": 0,
+  "ringAfterConnect": 0,
+  "connectNotMelee": 0,
+  "dirtyAfter": 0,
+  "releaseChecks": 328,
+  "moved": 294,
+  "notMoved": 0,
+  "dispSum": 6257.499830608918,
+  "disp2Sum": 0,
+  "dispMin": 2.4230877868971583,
+  "selfSnag": 0,
+  "foreignPin": 0,
+  "shadeSnag": 0,
+  "corpseCatch": 0,
+  "overCatch": 0,
+  "frozenCatch": 0,
+  "frozenChecks": 104040,
+  "castBeats": 334,
+  "catchBeats": 331,
+  "connectBeats": 307,
+  "connectFatalBeats": 12,
+  "connectKills": 11,
+  "dmgSum": 9128.675,
+  "foeBlows": 2555,
+  "myBlows": 1552
+ },
+ "draw": {
+  "ring": 1084,
+  "held": 981,
+  "fade": 1205,
+  "under": 526,
+  "over": 526,
+  "fighter": 1205,
+  "threw": null
+ },
+ "foreign": {
+  "holds": 4004,
+  "freeFlagged": 0,
+  "unlocked": 0,
+  "pairs": 8
+ },
+ "hex": {
+  "found": true,
+  "cond": "if (f.pin > 0 && !f.pinFree)",
+  "guarded": true
+ },
+ "sfx": {
+  "ravelbone": {
+   "peak": 0.4123,
+   "audible": 1.9,
+   "low120": 0.776,
+   "hp300": 0.4
+  },
+  "ravelbone-snag": {
+   "peak": 0.4998,
+   "audible": 1.1,
+   "low120": 0.503,
+   "hp300": 0.627
+  },
+  "ravelbone-wire": {
+   "peak": 0.1226,
+   "audible": 1.3,
+   "low120": 0.645,
+   "hp300": 0.533
+  },
+  "ravelbone-burst": {
+   "peak": 0.4221,
+   "audible": 1.35,
+   "low120": 0.621,
+   "hp300": 0.486
+  }
+ },
+ "connectsPerCast": 0.9161676646706587,
+ "ult": {
+  "name": "Garrote",
+  "charge": 16,
+  "kind": "wire",
+  "dur": 8,
+  "radius": 110,
+  "spinMul": 6,
+  "connectKnock": 1,
+  "kick": 800,
+  "launch": 1.2,
+  "consume": 8,
+  "tip": "Wire ring holds the foe where it stands; the hammer comes around"
+ }
+}

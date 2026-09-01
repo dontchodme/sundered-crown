@@ -12,7 +12,25 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-breach.html          BUILD OF RECORD  29 relics · CINDERCLEAVE
+02-chain/sc-garrote.html         BUILD OF RECORD  30 relics · RAVELBONE AND
+                                                   GARROTE
+                                                   everything below, plus A
+                                                   BARBED WIRE RING AT THE
+                                                   HAMMER'S OWN HIT RANGE THAT
+                                                   HOLDS THE BALL AND LEAVES THE
+                                                   WEAPON FREE — until the head
+                                                   comes around, hits, throws it
+                                                   over the speed ceiling and
+                                                   eats its Hemorrhage -- and
+                                                   the RING expires while the
+                                                   window runs on
+                                                   BLADE NOT YET BISECTED
+02-chain/sc-wire.html            the link before it, 30 relics · THE RING —
+                                                   snag, hold, connect, throw,
+                                                   and NO consume yet
+02-chain/sc-ravelbone.html       the link before it, 30 relics, ULT STUBBED
+                                                   engine_ab 3248/3248
+02-chain/sc-breach.html          the link before it, 29 relics · CINDERCLEAVE
                                                    AND BREACH
                                                    everything below, plus A
                                                    DWARVEN SCYTHE LICENSED TO
@@ -96,6 +114,104 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE THIRTIETH RELIC IS RAVELBONE, AND GARROTE IS THE FIRST HOLD IN THIS GAME
+THAT LEAVES THE WEAPON FREE** (`ravelbone_build.py`, 2026-09-01). Bloodsworn ×
+warhammer, the warhammer row leader, built to `06-docs/v60/`'s brief in three
+staged links. A cast winds the head to 6x and stands a ring of barbed wire at
+the hammer's own hit range; the quarry's BALL is held and its WEAPON is not —
+it cannot leave and it can still fight back. The hold has no duration: it lasts
+until the head comes around, hits, throws it under `launch`, and blows the ring
+apart consuming the quarry's Hemorrhage at 8 a stack. Blade **23.5, NOT YET
+BISECTED**. `06-docs/v60/ravelbone-build-v60.md`.
+
+> **THERE WERE TWO v60 DESIGNS FOR THIS CELL AND RICK CHOSE BETWEEN THEM.**
+> Two sessions designed bloodsworn × warhammer in parallel and could not see
+> each other; `06-docs/v60/CONFLICT-READ-FIRST-v60.md` has both and his ruling.
+> He took **RAVELBONE ALONE with the red hammer's kick folded into the
+> connect**. `redhammer-design-v60-SUPERSEDED.md` is kept, not deleted, because
+> its §3 REFUTES Garrote's own headline effect and its §4.1 contains the fix.
+
+> **THE BRIEF'S CENTRAL INSTRUCTION IS NOT SUFFICIENT ON THIS ENGINE, AND
+> OBEYING IT EXACTLY WOULD HAVE DELETED THE RELIC.** Brief §3, in bold: *"Write
+> `f.pin`. Do NOT write `f.stun`."* `tickWire` does not write `f.stun` — **it
+> does not have to.** `tickStasis`'s decrement loop runs for BOTH fighters on
+> EVERY frame, outside any `ultField` guard, and carries
+> `f.stun = Math.max(f.stun, f.pin)`. **Any relic that writes `pin` is handed a
+> weapon lock by Paradox's bookkeeping**, from a file nowhere near its own code
+> — and a probe asserting "tickWire never writes f.stun" passes, because it
+> does not. THE WRITE IS SOMEWHERE ELSE. `f.pinFree` says what KIND of hold
+> this is; it is 0 on both existing writers and `engine_ab` is the proof.
+
+> **AND THE SECOND READER OF `pin` IS A PICTURE FAULT WITH EVERY NUMBER
+> CORRECT.** `_drawField`'s held-ball block hardcodes `AFFINITIES.runic`, so
+> unguarded, a bloodsworn wire snag draws PARADOX'S HEXAGON around the ball it
+> caught. **Shroudmaul has that fault live today** — Grasp's squeeze writes
+> `pin` and sets no flag, so a runic hexagon is drawn on the quarry three times
+> a window in an umbral set-piece. Open item 41, and `pinFree` makes it one
+> line.
+
+> **THE RING WAS NEVER ON SCREEN AND A PHOTOGRAPH FOUND IT.** `drawWire`'s
+> `strand()` built the path and returned without stroking it, so the only thing
+> drawn was 34 disconnected barb spurs — which read as a DASHED CIRCLE and
+> therefore as a range indicator, the one thing brief §9 says the object must
+> not be. Nothing threw; `garrote_relic_probe [P]` called `drawWire` on 989
+> frames and passed. §4.1's defect class, and it took `garrote_sheet.py`
+> photographing a real match to see it. `05-reference/v60/garrote-states-*.png`.
+
+> **AND THE PROBE REPORTED FIVE DEFECTS THAT WERE ALL THE PROBE.** 294 connects
+> that "did not move the ball" (twice — the connect sets `hitStop` 0.14s, and
+> `step()` tests the freeze at the TOP and returns through the path that
+> DECREMENTS it, so the first frame reading "not frozen" is still a frame whose
+> `move()` never ran); 0 cast beats against 111 casts; 2 catches that
+> "lengthened the weapon lock"; and 6470 "frozen" weapons while held, of which
+> 1983 were hit stops, 4637 ordinary hitstun, and 222 a stun expiring INSIDE a
+> step. **A CHECK THAT COUNTS FRAMES IN WHICH AN EVENT IS POSSIBLE IS NOT
+> COUNTING THE EVENT** — five times in one file, which makes it the default
+> failure mode of a probe on an engine whose every impact opens with a freeze.
+> **The build was settled by a TRACE**: connects depart at up to 1836 px/s
+> against a `speedMax` of 1300.
+
+> **THE CONNECT ENDS THE RING AND NOT THE WINDOW, AND THAT WAS FOUND BY A
+> DECOMPOSITION AFTER THE STAGE-2 GATE MISSED.** The ring was registered at +24
+> over the relic's own floor and the built one measured +16.2. Rebuilding the
+> design's own arm table on the BUILT relic found why: **the WIND-UP ALONE is
+> +24.3 — the registered number to the decimal — and adding the ring COSTS 8.1
+> points**, because the connect expired the window and the ring and the window
+> were one field. A full window is 16.0s of ultimate a fight; the relic was
+> getting 5.6s. **The design's causal story is inverted**: §1.2 calls the spin
+> "a picture and the clock that sets the hold — not damage", and it is the
+> whole payload, because a hammer at 6x is a bigger, faster obstacle and this
+> ultimate is paid in blows the opponent does not land.
+>
+> **AND `expire:"ring"` REPRODUCES THE DESIGN WHERE `expire:"window"` MISSES BY
+> 3.2 SIGMA** — +32.9 and +18.2 against a registered +29.9. So the lab was
+> measuring a window that outlived its ring, which is also what makes its
+> experimental design coherent. **The registered prediction was never refuted;
+> it was never tested, because the thing built was not the thing priced.**
+> Rick's, from a measured pair, and it is the shipped arm.
+
+> **THE CONSUME EATS 1.81 STACKS AND THE DESIGN ASSUMED FOUR.** Design §3 rests
+> on *"the bar is full before the ultimate casts"*; measured over 308 connects
+> the quarry carries **1.81**, because `hemorrhage` has `dur: 3.2` and this
+> hammer lands 8.6 blows a fight. Mean burst **14.5** against ~32, mean connect
+> **42.6** against the design's ~56. The inertness finding is not wrong — it
+> was measured on APPLYING stacks, where the cap bites; the consume READS the
+> pool, where the clock does. **Do not carry "~56 on the connect" into the
+> bisection.**
+
+> **AND THE QUARRY ENDS A CONNECT CARRYING TWO STACKS, WHICH IS RICK'S OWN
+> SENTENCE BUILT WITHOUT ANYBODY AIMING AT IT.** The consume empties the pool
+> and the hammer's own `onHit` lands further down `resolveHit`. §1: *"causes
+> the barbed wire ring to explode and expire, applying bleed again."*
+
+> **AND `ballCollision` DOES GATE ON `pin`, WHICH TWO COMMENTS DENY.** The
+> `Fighter.pin` declaration says it is *"deliberately NOT gated — a held ball
+> can still be shouldered"* and brief §3 quotes it. The code says **"A HELD
+> BALL IS AN IMMOVABLE OBJECT"** and takes the whole impulse into the other
+> ball at 2x. The declaration is STALE. It matters here — a Ravelbone
+> shouldering its own catch is pushed off the thing it is holding — and it is
+> unmeasured. Open item 42.
 
 **THE TWENTY-NINTH RELIC IS CINDERCLEAVE, AND BREACH IS THE FIRST ULTIMATE IN
 THIS GAME THAT HANDS THE HALL A WEAPON** (`cindercleave_build.py`, 2026-08-31).
@@ -1292,7 +1408,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v59/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v60/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -1508,10 +1624,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-breach.html --n 40          # 12/13, see §0
+python verify.py --game ../02-chain/sc-garrote.html --n 40         # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-breach.html             # what's open
+python cell_survey.py --game ../02-chain/sc-garrote.html            # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -1557,6 +1673,17 @@ python pass_probe.py --game ../02-chain/sc-thepass.html            # THE STAGE G
 python breach_relic_probe.py --game ../02-chain/sc-breach.html     # §5b asserted, and the render path CALLED
 python breach_sheet.py                                             # THE CUT / THE TEAR / THE HOLE / THE JET, off a real match
 python cindercleave_sweep.py --only 0,1,2                          # the floor, the curve, THE WIDE DIRECT MEASUREMENT
+python ravelbone_build.py --stage 1                                # the 30th relic, ultimate stubbed
+python ravelbone_build.py --stage 2                                # THE RING -- snag, hold, connect, throw. No consume
+python ravelbone_build.py --stage 3                                # GARROTE: the explosion consumes Hemorrhage
+python garrote_relic_probe.py --game ../02-chain/sc-garrote.html   # §6 asserted, and the render path CALLED
+python garrote_sheet.py                                            # THE RING / THE VERGE / THE CATCH / THE HOLD / THE THROW
+                                        # AND `hold` IS THE PANEL THE DESIGN RESTS ON.
+                                        # Use a `mode:"spin"` foe -- a greatsword
+                                        # recomputes theta from the AIM every frame
+                                        # (open item 10) so its blade cannot come round
+python wire_channel.py --game ../02-chain/sc-wire.html --sn 26      # WHY THE STAGE-2 GATE MISSED BY TEN POINTS
+python _wire_pick.py --game ../02-chain/sc-garrote.html            # a fight with the ult in it, to FILM
 ```
 
 **`frame_probe.py` HAS BEEN CRASHING, AND NOT BECAUSE OF ANYTHING NEW.** It
@@ -1897,8 +2024,84 @@ git push
     across six types. A chosen state, not drift — and `night-plan.md` §1.4
     wanted umbral "genuinely dark" in August and it never got done.
 
-Full detail: `06-docs/v59/` for the tip and `06-docs/v57/` for the design and
-pricing behind it, `06-docs/v58/` for the umbral hammer, `06-docs/v56/` for the
+41. **SHROUDMAUL DRAWS PARADOX'S HEXAGON ON THE BALL IT SQUEEZES.** §0.
+    `_drawField`'s held-ball block hardcodes `AFFINITIES.runic` and fires on
+    `f.pin > 0`; Grasp's squeeze writes `pin` for 0.30s, three pulses a window,
+    so a RUNIC hexagon is drawn on the quarry inside an UMBRAL set-piece for
+    13% of the window. Not this build's — v56 added the squeeze — and v60 has
+    already built the fix it needs: set `pinFree` on the squeeze and the block
+    skips it, which is one line. **Whether Grasp then wants a hold picture of
+    its own is a design question and Rick's.** Nobody has watched Shroudmaul
+    (open item 33), which is why this has stood.
+
+42. **`ballCollision` DOES GATE ON `pin`, AND TWO COMMENTS SAY IT DOES NOT.**
+    §0. The `Fighter.pin` declaration says *"`ballCollision` is deliberately NOT
+    gated -- a held ball can still be shouldered out of the way, which is what
+    the probe measured"*, and the v60 brief §3 quotes it as fact. The code says
+    **"A HELD BALL IS AN IMMOVABLE OBJECT"** and sends the whole impulse into
+    the other ball at 2x. The declaration is STALE — it predates a change whose
+    own comment records Rick finding the bug in a clip. **The comment should be
+    corrected**, and the consequence for Ravelbone is unmeasured: a hammer that
+    shoulders its own catch is pushed OFF the thing it is holding, which could
+    cost the connect the ring was opened for.
+
+43. **THE BLADE IS OWED AND RAVELBONE IS THE STRONGEST RELIC IN THE GAME.**
+    §0. `verify` reads it at **62.8%**, top of thirty, and the roster spread is
+    **26.0pp** — the widest this project has carried, against 18.5pp when the
+    umbral package shipped. It PASSES the 30-70% band, which is why nothing
+    stops it. `dmg` is 23.5, the warhammer's own value and a bisection START,
+    `TUNED_RB` is `None`, and `ravelbone_build.py --stage 4` refuses to run
+    with the reason printed. **This is the design's own prediction arriving on
+    the right build**: v60 §2 said the blade would have to pay by more than
+    Shroudmaul's did, and on the rejected `expire:"window"` arm the relic sat
+    at 49.6% with nothing to give back. What settles a blade on this roster is
+    a wide direct measurement at n >= 1000 a point, on both sides, repeated on
+    a second block — never a bisection.
+
+43a. **AND THE STAGE-2 GATE IS WHAT FOUND ALL OF IT.** §0
+    and `06-docs/v60/ravelbone-build-v60.md` §5a. The ring was registered at
+    **+24 ± 3** over Ravelbone's own no-ultimate floor and measured **+14.3**,
+    while every contact number came in at or above the lab's. `verify` is
+    12/13 and the relic sits at 47.0%, comfortably in band, and the roster
+    spread NARROWED to 20.7pp — so every instrument in this repo is green about
+    a relic ten points off its own design's prediction. Only the registered
+    number could see it. **`wire_channel.py` tests the leading hypothesis** —
+    that `wire_lab`'s Grudgebearer stand-in carried `onHit:{sunder:1}` where
+    this relic carries `{hemorrhage:2}`, which are opposite-signed channels.
+    **DO NOT BISECT THE BLADE UNTIL THIS IS SETTLED**; `TUNED_RB` is `None` and
+    the blade is untouched at the type's own 23.5.
+
+45. **NOTHING ON SCREEN SAYS GARROTE'S WINDOW IS STILL OPEN AFTER THE RING
+    BLOWS APART, AND THAT IS THE PICTURE COST RICK KNOWINGLY TOOK.** §0.
+    `expire:"ring"` is worth +14.7 points over ending the window on the
+    connect, and it buys them with about **9.7 seconds a cast** in which the
+    payoff has visibly happened, the ring is gone, and the hammer is still
+    turning at 6x. Photographed: `05-reference/v60/garrote-states-tail.png` is
+    that frame and there is **no tell in the arena at all** — a viewer sees a
+    fast hammer, not an ultimate. The ult name is in the HUD and nowhere else.
+    **It is cheap to fix and nobody has drawn it**: the window is still
+    `f.ultWire`, `wireFade` is still driven off it, and `W.spent` is exactly
+    the flag a tell would read. A ghost of the ring, or the caster's shell
+    carrying the wind-up, are the obvious two. Rule 2 — the ult animations are
+    Rick's — and he has the frame.
+
+44. **NOBODY HAS WATCHED RAVELBONE.** The ring, the cinch, the wire to the
+    caught ball and four voices are first cuts. **The held ball with a moving
+    weapon is a picture this game has never drawn** — every other hold in the
+    roster locks the weapon too — and brief §9 says that if it reads as a
+    frozen fighter the design is not on screen. One picture bug has already
+    been found and fixed by photographing it (the ring's strand was never
+    stroked); `garrote_sheet.py` and `05-reference/v60/garrote-states-*.png`.
+    **Two things in those frames are worth Rick's eye and were left alone**:
+    the CINCH on a caught ball reads as a red scribble rather than as wire
+    wrapped round a shell, and the ultimate's own banner is drawn over the
+    ring. Rule 2 and §4.0.
+
+Full detail: `06-docs/v60/` for the tip — and read
+`06-docs/v60/CONFLICT-READ-FIRST-v60.md` FIRST, because two designs were
+written for that cell in parallel and Rick's ruling is at the bottom of it.
+`06-docs/v59/` for the relic before it and `06-docs/v57/` for the design and
+pricing behind that one, `06-docs/v58/` for the umbral hammer, `06-docs/v56/` for the
 relic before that, `06-docs/v54/` for the relic
 before it, `06-docs/v53/` for the two stages before that (curse-build then
 the hand-build now called Revenant), `06-docs/v49`-`v52` for the designs

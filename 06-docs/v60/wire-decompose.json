@@ -1,0 +1,61 @@
+{
+ "arms": [
+  {
+   "label": "the floor, no ultimate",
+   "win": 31.432360742705573,
+   "se": 1.6906839340933295,
+   "wins": 237,
+   "n": 754,
+   "casts": 0,
+   "spun": 0,
+   "blows": 6002,
+   "foeBlows": 12378
+  },
+  {
+   "label": "the WIND-UP alone",
+   "win": 55.702917771883286,
+   "se": 1.809009550984525,
+   "wins": 420,
+   "n": 754,
+   "casts": 1497,
+   "spun": 12054.0083332,
+   "blows": 6927,
+   "foeBlows": 11182
+  },
+  {
+   "label": "the ring, spin x1",
+   "win": 36.737400530503976,
+   "se": 1.7556666327486874,
+   "wins": 277,
+   "n": 754,
+   "casts": 1518,
+   "spun": 6200.38333328518,
+   "blows": 6011,
+   "foeBlows": 12180
+  },
+  {
+   "label": "EVERYTHING, as shipped",
+   "win": 47.61273209549072,
+   "se": 1.818815946766559,
+   "wins": 359,
+   "n": 754,
+   "casts": 1498,
+   "spun": 4278.424999979815,
+   "blows": 6526,
+   "foeBlows": 11556
+  }
+ ],
+ "ult": {
+  "name": "Garrote",
+  "charge": 16,
+  "kind": "wire",
+  "dur": 8,
+  "radius": 110,
+  "spinMul": 6,
+  "connectKnock": 1,
+  "kick": 800,
+  "launch": 1.2,
+  "consume": 8,
+  "tip": "Wire ring holds the foe where it stands; the hammer comes around"
+ }
+}
