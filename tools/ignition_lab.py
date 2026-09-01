@@ -247,7 +247,7 @@ HARNESS = r"""
 window.__clip = {
   m: null, events: [], curve: [], wall: 0, acc: 0, on: true,
 
-  init(idA, idB, seed, on) {
+  init(idA, idB, seed, on, startAt) {
     const AC = window.AC;
     this.on = on; this.events = []; this.curve = []; this.wall = 0; this.acc = 0;
     window.__frozen = true;
@@ -257,6 +257,11 @@ window.__clip = {
     const m = new AC.Match(idA, idB, seed);
     m.introT = 0;
     this.m = m; window.__match = m; AC.__inject && AC.__inject(m);
+    /* silent fast-forward to startAt seconds of MATCH time — cinema_clip's
+       own technique: same sim, just not photographed */
+    const dt0 = AC.CONFIG.physics.dt;
+    let g = 0;
+    while (!m.over && m.t < (startAt || 0) && g++ < 200000) m.step(dt0);
     const self = this;
     AC.SFX.play = function (kind, p) {
       self.events.push({ t: self.wall, kind, p: p || {} });

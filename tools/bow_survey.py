@@ -695,13 +695,21 @@ ARC_JS = r"""([shooter, foes, seeds, secs, pin, pinIds, binW]) => {
 }"""
 
 
-# ------------------------------------- [5b] the pin that breaks one column --
+# ------------------------------ [5b] the pin that USED to break one column --
 # Every comparable number in this project pins damage so a harder-hitting
-# relic cannot buy stacks by ending the fight sooner. Curse is the one status
-# for which the pin IS the variable: `apply` subtracts `maxHpLoss` per
-# APPLICATION, and hp only follows when maxHp is driven below it, so what
-# curse delivers is decided by 13-per-hit against the weapon's own damage per
-# hit. Pin the damage and you have pinned the answer.
+# relic cannot buy stacks by ending the fight sooner. v40 found curse was the
+# one status for which the pin IS the variable: `apply` subtracted `maxHpLoss`
+# per APPLICATION, hp only followed when maxHp was driven below it, so what
+# curse delivered was 13-per-hit against the weapon's own damage per hit.
+#
+# THAT STATUS WAS DELETED IN v53 AND THIS SECTION MEASURED A GHOST FOR TWO
+# VERSIONS. The pool now remembers the damage of the blows that filled it and
+# every later hit is enlarged by `echo` of the sum -- so the pool is very
+# nearly maxStacks x the weapon's own blow at ANY weight, the echo is a fixed
+# SHARE of that blow, and the pin is the one thing this column no longer cares
+# about. The table below is the same experiment reporting the live mechanic:
+# it is kept, rather than deleted, because the reversal is the finding.
+
 
 CURSEPIN_JS = r"""([shooter, foes, seeds, secs, pins, pinIds]) => {
   const DT = AC.CONFIG.physics.dt;
@@ -724,6 +732,11 @@ CURSEPIN_JS = r"""([shooter, foes, seeds, secs, pins, pinIds]) => {
       w.aff = "umbral"; delete w.onHit; delete w.onSelf;
       if (live) w.onHit = { curse: 1 };
       let ttk = [], eaten = [], hp20 = [], hits = 0, dur = 0, n = 0;
+      /* THE POOL AND THE ECHO, TIME-WEIGHTED WHILE THE QUARRY IS ALIVE. There
+         is no counter on the echo -- `resolveHit` folds it into `dmg` inline
+         -- so what is available is the echo a blow WOULD carry at each step.
+         That is the honest readout and it is labelled as one. */
+      let echoAcc = 0, poolAcc = 0, tAcc = 0;
       for (const f of foes) for (const sd of seeds){
         const m = new AC.Match(shooter, f, sd);
         const me = m.a.w.id === shooter ? m.a : m.b;
@@ -732,6 +745,11 @@ CURSEPIN_JS = r"""([shooter, foes, seeds, secs, pins, pinIds]) => {
         let st = 0, k20 = -1;
         while (!m.over && st < secs / DT){
           m.step(DT); st++;
+          if (th.alive){
+            poolAcc += (th.curseSum ? th.curseSum() : 0) * DT;
+            echoAcc += (th.curseEcho ? th.curseEcho() : 0) * DT;
+            tAcc += DT;
+          }
           if (k20 < 0 && st * DT >= 20) k20 = hp0 - th.hp;
         }
         if (!th.alive) ttk.push(st * DT);
@@ -744,6 +762,8 @@ CURSEPIN_JS = r"""([shooter, foes, seeds, secs, pins, pinIds]) => {
                  killed: ttk.length / n,
                  eaten: eaten.reduce((a, b) => a + b, 0) / eaten.length,
                  hp20: hp20.length ? hp20.reduce((a, b) => a + b, 0) / hp20.length : null,
+                 pool: tAcc > 0 ? poolAcc / tAcc : 0,
+                 echo: tAcc > 0 ? echoAcc / tAcc : 0,
                  hps: hits / dur });
     }
   }
