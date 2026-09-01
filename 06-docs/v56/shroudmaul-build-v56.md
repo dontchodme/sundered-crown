@@ -694,6 +694,52 @@ the same length, it starts 0.30s later.**
 > has stayed on the field through every one, which is the held-seconds law
 > doing exactly what it promised.
 
+## 6a-7. AND IT WAS TWICE THE SIZE OF THE THING THAT GREW IT, WITH A SPIDER'S FINGERS
+
+Rick: *"can we try making the hand smaller than the artifact? and with shorter
+fingers in better proportion to an actual hand?"*
+
+**Both complaints measure.** The artifact is 68px across:
+
+```
+                        bounding box       x the artifact
+GRASP, open, at 2.8      140.5 x 63.9         2.07
+GRASP, shut, at 2.8       72.3 x 58.2         1.06
+```
+
+And the proportion, straight out of `_boneParts`: the metacarpals span **0.82R**
+and the three phalanges plus their gaps run **1.52R** — a hand of
+**1 : 1.85**. On a real hand the middle finger and the palm are close to the
+same length.
+
+```
+GRIP_SCALE   2.8  -> 1.55        GRIP_FINGER   (new)  0.55   =>  1 : 1.02
+
+GRASP, open      59.7 x 32.5      0.88x the artifact
+GRASP, shut      34.6 x 28.0      0.51x
+GRASP, crushing  42.2 x 34.2      0.62x
+Revenant's       27.7 x 15.7      0.41x     for scale, and Rick called that
+                                            legible AS A HAND
+```
+
+**The widths are deliberately not scaled with the lengths.** A shorter finger at
+the same thickness is a THICKER finger, and thick short fingers are most of what
+separates a hand from a claw.
+
+> **THE ARITHMETIC THAT PICKED THE FIRST ANSWER MEASURED THE WRONG THING.** 1.8
+> was chosen off the skeleton's centreline extent and came in at **1.02x** —
+> right on the line and not under it. The drawn hand carries a stroke width on
+> every bone and the thumb spreads past the palm, and that is 18% of it.
+> **Measure the bounding box of the parts, not the skeleton's extent.**
+
+> **AND REVENANT'S HANDS DID NOT MOVE, WHICH IS ASSERTED AND NOT ASSUMED.**
+> `_boneParts` gained a third parameter and `finger === undefined` is 1;
+> `drawHands` calls it with two arguments. `_boneParts(R, shut)` and
+> `_boneParts(R, shut, 1)` are compared element for element and are identical.
+> Those hands are Rick's own over three rounds and a reference video, and the
+> bones stay SHARED — a skeleton drawn twice by two functions is a skeleton
+> that drifts.
+
 ## 6b. THE HAND WAS 40px AND READ AS A SCRIBBLE
 
 `GRIP_SCALE` shipped at 1.35, which put the hand at ~40px on a 540 frame.

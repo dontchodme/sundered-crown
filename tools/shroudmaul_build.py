@@ -1109,7 +1109,7 @@ S3 = [
          `_boneParts` from the CARPALS on: the forearm it opens with is the
          tether's job here, and drawing it twice would put a second elbow in
          the middle of the limb. */
-      const parts = this._boneParts(HR, shut).slice(2);
+      const parts = this._boneParts(HR, shut, GRIP_FINGER).slice(2);
       c.save();
       c.globalAlpha = fade;
       c.translate(hx, hy);
@@ -1147,6 +1147,46 @@ S3 = [
 
   drawShots(m){'''),
 
+# ---------------------------------- 8b. THE FINGERS GET THEIR OWN LENGTH
+# Rick: "with shorter fingers in better proportion to an actual hand?"
+#
+# MEASURED, HE IS DESCRIBING A 1 : 1.85 HAND. `_boneParts`' metacarpals span
+# 0.82R and its three phalanges plus their gaps run 1.52R, so the fingers are
+# nearly twice the palm. On a real hand the middle finger and the palm are
+# close to the same length -- 1 : 1. At 0.55 the fingers come to 0.84R against
+# the palm's 0.82R, which is that.
+#
+# THE PARAMETER DEFAULTS TO 1 AND REVENANT NEVER PASSES IT. Its hands are
+# Rick's own, over three rounds and a reference video, and `drawHands` calls
+# this with two arguments -- so it returns exactly what it returned before,
+# element for element. The builder asserts that below rather than trusting it.
+# The bones stay SHARED, which is the rule: a skeleton drawn twice by two
+# functions is a skeleton that drifts.
+("_boneParts.finger", '''  _boneParts(R, shut){
+    const p = [], s = shut;''',
+ '''  _boneParts(R, shut, finger){
+    const p = [], s = shut;
+    /* HOW LONG THE FINGERS ARE, as a share of the length Revenant uses.
+       Undefined is 1, so `drawHands`' two-argument call is untouched. GRASP
+       passes GRIP_FINGER — see the constant for the proportion it fixes. */
+    const F = finger === undefined ? 1 : finger;'''),
+
+("_boneParts.phalanx", '''        const L = R * (0.54 - seg * 0.085) * taper * (1 - 0.20 * s);''',
+ '''        const L = R * (0.54 - seg * 0.085) * taper * (1 - 0.20 * s) * F;'''),
+
+("_boneParts.gap", '''        x = nx + Math.cos(a) * R * 0.075;
+        yy = ny + Math.sin(a) * R * 0.075;''',
+ '''        x = nx + Math.cos(a) * R * 0.075 * F;
+        yy = ny + Math.sin(a) * R * 0.075 * F;'''),
+
+("_boneParts.thumb", '''      const L = R * (0.40 - seg * 0.07);''',
+ '''      const L = R * (0.40 - seg * 0.07) * F;'''),
+
+("_boneParts.thumbgap", '''      tx = nx + Math.cos(ta) * R * 0.05;
+      ty = ny + Math.sin(ta) * R * 0.05;''',
+ '''      tx = nx + Math.cos(ta) * R * 0.05 * F;
+      ty = ny + Math.sin(ta) * R * 0.05 * F;'''),
+
 # ------------------------------------------------------------ 9. the scale
 ("GRIP_SCALE", '''const WEAPON_BY_ID = Object.fromEntries(WEAPONS.map(w => [w.id, w]));''',
  '''/* GRASP'S HAND IS THE LARGEST OBJECT THIS GAME DRAWS, AND THAT IS THE POINT.
@@ -1156,6 +1196,20 @@ S3 = [
    THREE in flight at once ("the hands are a bit large. they look a little
    comical"). This is ONE hand, it is attached to the fighter that grew it, and
    it has to carry an ultimate that puts no number on the screen at all.
+
+   AND 2.8 WAS TOO BIG, WHICH IS RICK AGAIN: "can we try making the hand
+   smaller than the artifact?" MEASURED, IT WAS TWICE THE ARTIFACT. The ball is
+   68px across; the open hand's bounding box at 2.8 is **140px**, or 2.07x it.
+   1.8 was the first answer and it came in at **1.02x** — right on the line and
+   not under it. The arithmetic that picked it measured bone CENTRELINES; the
+   drawn hand carries a stroke width on every bone and the thumb spreads past
+   the palm, and that is 18% of it. **Measure the bounding box of the parts,
+   not the skeleton's extent.**
+
+   1.55 puts the open hand at 60px — **0.88x** — the closed one at 0.51x and
+   the crush at 0.62x, so the hand is smaller than the thing that grew it in
+   every state. For scale, Revenant's is 0.41x and Rick called that legible as
+   a hand, so there is room below this and not much above it.
 
    1.35 WAS THE FIRST CUT AND IT WAS REFUTED BY THE FIRST SHEET. Photographed
    off a real match (`grasp_sheet.py`) the hand came out ~40px on a 540 frame
@@ -1173,7 +1227,21 @@ S3 = [
    question cannot be answered off a sheet: the sheet shows the object still,
    and every size complaint in this project's history has been about an object
    in motion among others. FILM IT. */
-const GRIP_SCALE = 2.8;
+const GRIP_SCALE = 1.55;
+
+/* AND THE FINGERS ARE SHORTENED TO A REAL HAND'S PROPORTION. Rick: "with
+   shorter fingers in better proportion to an actual hand?"
+
+   `_boneParts` is drawn at 1 : 1.85 — metacarpals 0.82R against phalanges and
+   gaps of 1.52R — which is a spider's hand, and at Revenant's small airborne
+   scale nobody noticed. On a real hand the middle finger and the palm are
+   close to the same length. 0.55 puts the fingers at 0.84R against the palm's
+   0.82R, which is 1 : 1.02.
+
+   THE WIDTHS ARE NOT SCALED WITH THEM, deliberately: a shorter finger at the
+   same thickness is a THICKER finger, and thick short fingers are most of what
+   separates a hand from a claw. */
+const GRIP_FINGER = 0.55;
 
 const WEAPON_BY_ID = Object.fromEntries(WEAPONS.map(w => [w.id, w]));'''),
 

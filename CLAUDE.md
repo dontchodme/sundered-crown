@@ -196,6 +196,27 @@ applies nothing, and locks the weapon for 1.0s.** The THIRD grab is a true stun 
 > along, because the crush sets `hitStop` and a clock on the normal path
 > freezes for exactly the frames the viewer is staring hardest at.
 
+> **AND THE HAND WAS TWICE THE SIZE OF THE THING THAT GREW IT, WITH A SPIDER'S
+> FINGERS.** Rick: *"can we try making the hand smaller than the artifact? and
+> with shorter fingers in better proportion to an actual hand?"* **Both
+> measure.** The artifact is 68px across and the open hand's bounding box was
+> **140px — 2.07x it**; `_boneParts` draws metacarpals of 0.82R against
+> phalanges and gaps of 1.52R, which is **1 : 1.85** where a real hand is about
+> 1 : 1. `GRIP_SCALE` 2.8 -> **1.55** and a new `GRIP_FINGER` **0.55** put it at
+> 0.88x open, 0.51x shut, 0.62x crushing, and 1 : 1.02. **The widths are not
+> scaled with the lengths** — a shorter finger at the same thickness is a
+> THICKER one, and that is most of what separates a hand from a claw.
+>
+> **AND THE ARITHMETIC THAT PICKED THE FIRST ANSWER MEASURED THE WRONG THING.**
+> 1.8 came off the skeleton's centreline extent and landed at 1.02x — on the
+> line, not under it — because the drawn hand carries a stroke width on every
+> bone and the thumb spreads past the palm, which is 18% of it. **Measure the
+> bounding box of the parts, not the skeleton's extent.**
+>
+> **REVENANT'S HANDS DID NOT MOVE AND THAT IS ASSERTED.** `_boneParts` gained a
+> third parameter defaulting to 1, `drawHands` passes two, and the two calls are
+> compared element for element. The bones stay SHARED.
+
 > **AND THE ARM IS GONE, WHICH WAS THE DESIGN'S OWN STRONGEST ARGUMENT.**
 > Rick: *"can we drop the arm and just have the hand float out and grab?"*
 > `grab-v56.md` §7b picked the tether out of four separations from Revenant's
