@@ -61,8 +61,14 @@ SEEK_JS = r"""([rid, foe, sd, want, secs]) => {
     /* THE SQUEEZE. `G.grip` is the fist and it is 0.18s — a quarter of the
        0.5s stun the grab wrote. Rick, off the first build: "it should reach
        out. squeeze. cause massive hitstun. let go." */
+    /* AN ORDINARY SQUEEZE IS ANY BUT THE LAST, and the predicate says that
+       rather than naming a number. The first cut asked for `grabs >= 2 &&
+       grabs <= n - 2`, which is unsatisfiable the moment `n` drops to 3 --
+       a probe that writes down its own model of a rule fails on every
+       legitimate change to it, which is `gravemourn_relic_probe`'s lesson
+       three times in one session and this makes four. */
     if (want === "squeeze") ok = !!G && G.grip > 0 && !C
-                                 && G.grabs >= 2 && G.grabs <= u.n - 2;
+                                 && G.grabs >= 1 && G.grabs < u.n;
     /* LETTING GO — the fist opening and the limb withdrawing, which is the
        beat the first build did not have at all. */
     if (want === "letgo")  ok = !!G && G.grip <= 0 && !C && G.grabs > 0
@@ -72,7 +78,7 @@ SEEK_JS = r"""([rid, foe, sd, want, secs]) => {
        stretch -- the WIND-UP, which is the only warning a grab is coming. */
     if (want === "reach")  ok = !!G && G.grip <= 0 && G.cd < u.cadence * 0.14
                                 && d > u.radius * 0.55;
-    /* THE FOURTH, AND IT IS §7b'S QUESTION. n-1 rungs are burning and the next
+    /* ONE GRAB FROM THE CRUSH, AND IT IS §7b'S QUESTION. n-1 rungs burn and the next
        grab is the crush. If a viewer cannot see this frame differently from
        the one above, the payoff arrives without having been promised. */
     if (want === "fourth") ok = !!G && G.grip > 0 && !C && G.grabs === u.n - 1;
@@ -105,7 +111,7 @@ PANELS = [
                 " whole of Rick's correction"),
     ("letgo",   "LETTING GO — the fist opens and the limb withdraws. The"
                 " quarry is still locked; the hand is already leaving"),
-    ("fourth", "THE FOURTH — four pips burning, one grab from the crush."
+    ("fourth", "ONE GRAB FROM THE CRUSH — every rung but the last is burning."
                " §7b: can a viewer see it coming?"),
     ("crush",  "THE CRUSH — the fifth. Bigger, harder shut, and it outlives the"
                " window it ended"),

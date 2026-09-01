@@ -1527,10 +1527,10 @@ const WEAPONS = [
        the pool behind it that Nightfell's does). GRASP reads the pool not at
        all. The hold scales with nothing that accumulates, so a longer charge
        here is only a cost. */
-    ult:{ name:"Grasp", charge:15, kind:"grip", dmg:0, squeeze:0.18,
-          dur:8, radius:200, cadence:0.6,
-          grabStun:0.5, n:5, trueStun:2,
-          tip:"Grabs repeatedly; the fifth grab is a true stun, then it fades" },
+    ult:{ name:"Grasp", charge:15, kind:"grip", dmg:0, squeeze:0.3,
+          dur:8, radius:200, cadence:2,
+          grabStun:1, n:3, trueStun:2.2,
+          tip:"Grabs repeatedly; the third grab is a true stun, then it fades" },
     blurb:"Bone under the iron, and it did not start there. What it takes hold of does not get to swing back." },
 
 ];
@@ -8828,7 +8828,7 @@ class Match {
       this.shake = Math.min(38, this.shake + 20);
       this.ring(foe.x, foe.y, AFFINITIES.umbral.glow, 7, 130, 0.45, 6);
       SFX.play("ult", { w: "shroudmaul-crush" });
-      this.note(`${f.w.name} — the fifth grab`);
+      this.note(`${f.w.name} — the last grab`);
       /* RULE 3, NINTH RELIC RUNNING, AND THIS ONE IS THE WORST PLACED YET.
          `cinePlan` scores an ultimate off the beats filed for it, and a
          zero-damage ultimate can file NOTHING through `resolveHit` — there
@@ -10550,17 +10550,17 @@ class Match {
          hex          STATUS.hex.stunFor      Spellbreaker, Axiom
          ult freeze   u.freeze                Thornwake, Rootfast
          the Harrowing's burst  u.stunBase    Lastlight
-         GRASP'S FIFTH GRAB     u.trueStun    Shroudmaul
+         GRASP'S LAST GRAB      u.trueStun    Shroudmaul
 
      Six relics of twenty-eight, and the counter is therefore NAMEABLE -- a
      viewer can learn who shuts this down, which a stun budget could never have
      offered.
 
-     AND ONLY THE FIFTH GRAB IS ON THAT LIST. Shroudmaul closes its hand up to
-     five times a window and the first four DELAY a wind-up exactly as ordinary
-     hitstun does. The escalation is therefore legible in the one place a
-     viewer can read it: four grabs that hold, and a fifth that takes the cast
-     away. Adding the whole window to this list would have made every grab a
+     AND ONLY THE LAST GRAB IS ON THAT LIST. Shroudmaul closes its hand up to
+     `n` times a window and every grab but the last DELAYS a wind-up exactly as
+     ordinary hitstun does. The escalation is therefore legible in the one
+     place a viewer can read it: grabs that hold, and a final one that takes
+     the cast away. Adding the whole window to this list would have made every grab a
      cancellation and quietly turned a rhythm into a lockout. Ordinary hitstun and the clank stun are deliberately NOT in that
      list: they still zero the chain drive, so being beaten on DELAYS the
      wind-up, and enough of it runs out `windCap`. Delay is not cancellation.
@@ -18691,8 +18691,8 @@ class Renderer {
       c.restore();
 
       /* ---- THE COUNT, ON THE TETHER -------------------------------------
-         `u.n` marks, `G.grabs` of them lit. Before the fifth grab four are
-         burning, so the crush is PROMISED rather than merely delivered.
+         `u.n` marks, `G.grabs` of them lit. Before the last grab all but one
+         are burning, so the crush is PROMISED rather than merely delivered.
 
          RUNGS ACROSS THE ARM, NOT BEADS ALONG IT, AND THE FIRST SHEET IS WHY.
          The first cut drew lit dots in `pal.glow` -- the same colour the bone

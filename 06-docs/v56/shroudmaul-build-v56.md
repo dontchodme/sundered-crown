@@ -125,15 +125,15 @@ predictions and it lands dead on.
 name        Grasp        charge 15      kind "grip"      dmg 0
 dur         8.0s         the window
 radius      200          THE MEASURED OPTIMUM AND THE ONE NUMBER THAT IS NOT FREE
-cadence     0.6s         free — 0.3 to 1.3 all inside noise
-grabStun    0.5s         writes `f.stun` DIRECTLY. FOUR TIMES the squeeze
-squeeze     0.18s        how long the FIST is shut — presentation only, and it
+cadence     2.0s         THE COOLDOWN. Rick's, off the second clip — §6a-3
+grabStun    1.0s         writes `f.stun` DIRECTLY. THREE TIMES the squeeze
+squeeze     0.30s        how long the FIST is shut — presentation only, and it
                          is NOT the stun. §6a-2
-n           5            grabs to the crush. The whole balance decision
-trueStun    2.0s         AND IT IS A REGISTERED TRUE-STUN SITE — the fourth
+n           3            grabs to the crush. It paid for the cooldown — §6a-3
+trueStun    2.2s         AND IT IS A REGISTERED TRUE-STUN SITE — the fourth
 endOnTrue   the window ends on the crush. Rick's clause, worth -10.8 points
 apply       NONE         no damage, no curse, no pin, ever
-tip         "Grabs repeatedly; the fifth grab is a true stun, then it fades"  62/72
+tip         "Grabs repeatedly; the third grab is a true stun, then it fades"  62/72
 blade       23.5 -> 21.0    (stage 3b)
 ```
 
@@ -465,6 +465,102 @@ fifth grab while the quarry is held for 2.0.
 > After: **reaching 2437, squeezing 634** — 17%. That ratio is the difference
 > between a hand that grabs and a hand that has grabbed.
 
+## 6a-3. AND THEN THE RHYTHM, WHICH IS THE FIRST TIME THIS DESIGN'S FREE TRADE HAS BEEN SPENT
+
+Rick, on the corrected gesture: *"its still pretty confusing what the ult is
+actually doing by just watching it. can we add a cooldown for how often it can
+grab but make the stun longer?"*
+
+**Measured, the shipped rhythm was worse than it looked.** `grasp_rhythm_lab.py`:
+
+```
+cadence 0.6, grabStun 0.5, n 5, window 8.0
+
+the whole ultimate resolved in 4.79s — 61% of its own window
+five grabs a mean 1.13s apart
+the quarry locked 51% of that, in half-second pieces
+```
+
+Five near-identical half-second events inside five seconds, and a dead back
+third. Nothing was on screen long enough to be read as a cause.
+
+**AND THIS IS THE ONE TRADE THE DESIGN GIVES AWAY FOR FREE.** `grab_lab` fitted
+`lift = +3.1 + 2.62 x held` with residuals SMALLER than the measurement error,
+so cadence, grab hold, true-stun length, window and grab count are five ways of
+writing one number: **any arrangement delivering the same held seconds is worth
+the same.** No other ultimate in this game has that property, and until now
+nothing had spent it.
+
+Two rounds, 162 fights an arm, `held` a fight is the balance and the four
+columns to its right are the legibility:
+
+```
+arm                                held  grabs   gap   fill   lock  crush
+as shipped                         9.53   4.84  1.13s   61%    51%    91%
+A  cad 1.2, stun 0.8              11.49   4.46  1.79s   89%    54%    69%
+B  cad 1.5, stun 1.0              12.61   4.18  2.03s   99%    59%    53%
+D  cad 1.8, stun 1.2, n 4         12.97   3.59  2.37s   92%    60%    74%
+F  cad 2.2, stun 1.5, n 3, true 3.5  15.23  2.78  2.87s   76%   63%    85%
+```
+
+> **ROUND 1 IS ENTIRELY ABOVE THE LINE, AND THE REASON IS A REAL PROPERTY OF
+> THE MECHANIC: A LONGER COOLDOWN DOES NOT COST GRABS.** The cadence timer sits
+> EXPIRED between grabs and closes the instant the quarry is in reach — it is a
+> hand that is WAITING, not a hand on a metronome (`grab_lab`'s own arm, and
+> the reason `tickGrasp` does not reset the timer on a miss). So slowing it
+> SPACES the grabs without losing many, and the longer stun then multiplies.
+> **The whole overshoot has to come out of `n`.**
+
+Round 2, with `n` paying for it:
+
+```
+arm                                held  grabs   gap   fill   lock  crush
+as shipped                         9.53   4.84  1.13s   61%    51%    91%
+H  cad 1.8, stun 0.9, n 3          9.05   2.85  2.41s   65%    47%    90%
+I  cad 2.0, stun 1.0, n 3, true 2.2  10.06  2.83  2.62s  70%   49%    87%   <- built
+J  cad 1.5, stun 0.8, n 4         10.10   3.69  2.09s   82%    49%    80%
+K  cad 2.2, stun 1.2, n 2, true 2.5   8.97  1.93  2.88s  42%   49%    93%
+L  cad 2.5, stun 1.4, n 2, true 2.8  10.09  1.92  3.28s  47%   52%    92%
+N  cad 1.6, stun 0.8, n 3, true 2.4   9.51  2.84  2.19s  60%   46%    89%
+```
+
+**Arm I ships.** Three beats about two and a half seconds apart, each locking
+the quarry for a full second, and the third is the crush:
+
+```
+cadence   0.6 -> 2.0      grabs a cast   4.84 -> 2.83
+grabStun  0.5 -> 1.0      gap            1.13s -> 2.62s
+n         5   -> 3        window used    61% -> 70%
+trueStun  2.0 -> 2.2      squeeze        0.18s -> 0.30s
+```
+
+`lock` is deliberately not maximised. **It is a ceiling, not a maximum**: at
+100% the quarry never moves between grabs and the ultimate reads as one long
+freeze, which is the Crucible's verb and the one thing this relic may not be.
+K and L reach the longest gaps and fill under half the window — the ultimate
+finishes and the window sits empty, which is the shipped build's fault pointed
+the other way.
+
+> **AND THE BLADE DOES NOT MOVE, WHICH IS THE HELD-SECONDS LAW CONFIRMED ON THE
+> BUILT RELIC.** Two independent seed blocks, both sides, n=1080 each, at the
+> shipped `dmg` 21.0: **49.1% and 50.9%.** A completely different arrangement
+> at the same held seconds is worth the same, exactly as `grab_lab` predicted —
+> and this is the first time the claim has been tested by changing the shape
+> rather than by fitting a line through it.
+
+> **THE BUILDER PRINTED THE NEW NUMBERS AND SHIPPED THE OLD ONES.** `dur`,
+> `radius`, `cadence`, `grabStun`, `n`, `trueStun` and the tip are written by
+> the STAGE-2 insert and baked into `sc-shroudmaul.html`; stage 3 rewrites only
+> the line carrying `charge` and `squeeze`. So `--stage 3` logged
+> `cadence 2 grabStun 1 n 3` and produced a relic still reading
+> `cadence:0.6, grabStun:0.5, n:5`, and every gate downstream measured the old
+> rhythm while the log claimed the new one. **Caught only because the probe
+> printed `n=5` two minutes later.** That is CLAUDE.md §4.9's twelve lost values
+> in a different costume. The split is right — stage 2 owns the relic's data,
+> stage 3 owns its mechanism — so the fix is an assertion: `ult_matches()`
+> refuses to write unless the shipped `ult` block carries every number the run
+> just printed, and it names the rebuild.
+
 ## 6b. THE HAND WAS 40px AND READ AS A SCRIBBLE
 
 `GRIP_SCALE` shipped at 1.35, which put the hand at ~40px on a 540 frame.
@@ -646,37 +742,44 @@ failure mode it was written for.
    caring about. Named because the numbers in `grab-v56.md` are all measured on
    the other branch.
 
-3. **THE GESTURE, ROUND 2.** §6a-2 rebuilt it on Rick's note — reach, squeeze,
+3. **THE RHYTHM, AND THERE ARE SIX MORE ARMS ON THE SHELF.** §6a-3 ships arm
+   I. Every arm in round 2 is balance-neutral, so swapping is a one-line change
+   to `ULT` and a rebuild of both stages — **N** is the same shape a little
+   tighter (gap 2.19s, held 9.51), **J** keeps four grabs and fills 82% of the
+   window, **L** is two grabs 3.3s apart and the clearest of all of them at the
+   cost of half the window standing empty. Nothing measures which reads best.
+
+4. **THE GESTURE, ROUND 2.** §6a-2 rebuilt it on Rick's note — reach, squeeze,
    let go — and it has been photographed but not watched in motion. The one
    number in it that is a guess is `ult.squeeze` 0.18s against a 0.6s cadence:
    long enough to read as a squeeze, short enough that the hand is visibly
    leaving before the next reach. Free on the held-seconds line, so it is a
    picture decision entirely.
 
-4. **THE HAND'S SIZE.** `GRIP_SCALE` 2.8 — ~110px on a 540 frame, the largest
+5. **THE HAND'S SIZE.** `GRIP_SCALE` 2.8 — ~110px on a 540 frame, the largest
    object this game draws. Refuted at 1.35 by the first sheet; not confirmed at
    2.8 by anything. v53 spent three rounds on this question for Revenant and a
    sheet answered none of them.
 
-5. **THE FOUR-VERSUS-FIVE TELL.** Rungs across the tether, `u.n` of them, lit as
+6. **THE ONE-TO-GO TELL.** Rungs across the tether, `u.n` of them, lit as
    the grabs land. §7b's question — can a viewer see the crush coming before it
    lands — has no measured cost and a real effect on whether the escalation
    reads as earned.
 
-6. **THE THREE VOICES.** First cuts. Measured to be audible and to separate;
+7. **THE THREE VOICES.** First cuts. Measured to be audible and to separate;
    not auditioned. Rule 2 says the ult sound is Rick's, and v43 landed it in one
    round trip by offering a spread — `sentinel_hum_lab.py` is the pattern and it
    has not been run for this relic.
 
-7. **THE TYPE LADDER.** §5b. 67.0% into greatswords and 26.9% into bows, a
+8. **THE TYPE LADDER.** §5b. 67.0% into greatswords and 26.9% into bows, a
    40.1pp spread that no per-relic band in this repo can see. Open item 12
    asked this once about Thornshear; this is the second time and the same
    question. Either it is the relic or the band is the wrong instrument.
 
-8. **THE KILLING BLOW'S CUT.** §8. Chain-wide, three to four times worse than
+9. **THE KILLING BLOW'S CUT.** §8. Chain-wide, three to four times worse than
    the figure CLAUDE.md records, and one line to change. Not this relic's.
 
-9. **THE BLURB HAS NOT BEEN PUT TO RICK.** *"Bone under the iron, and it did not
+10. **THE BLURB HAS NOT BEEN PUT TO RICK.** *"Bone under the iron, and it did not
    start there. What it takes hold of does not get to swing back."* Rule 2 names
    the fighter name and the scrunch wording; the blurb has never been on that
    list and probably should be.

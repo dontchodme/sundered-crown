@@ -17,8 +17,8 @@ short-form video for TikTok and YouTube Shorts.
                                                    SHROUDMAUL, AND A WINDOW
                                                    THAT GROWS ONE LARGE
                                                    SKELETAL HAND ON A TETHER
-                                                   THAT REACHES, CLOSES ON THE
-                                                   FOE'S WEAPON EVERY 0.6s,
+                                                   THAT REACHES, SQUEEZES THE
+                                                   FOE'S WEAPON EVERY 2.0s,
                                                    DEALS NOTHING — AND WHOSE
                                                    FIFTH GRAB IS A TRUE STUN
                                                    THAT ENDS THE WINDOW
@@ -76,9 +76,9 @@ THIS GAME THAT DEALS NOTHING AND HAS TO EARN ITS PAYOFF INSIDE ITS OWN WINDOW**
 (`revenant_rename.py`, `shroudmaul_build.py`, 2026-08-31). The umbral warhammer
 — the cell where the grid's two thinnest lines crossed, and filling it puts
 umbral on 4 of 6 types and the warhammer on 4 of 7 schools. A cast opens an 8s
-window and grows ONE LARGE SKELETAL HAND, tethered to the artifact, that closes
-on the foe every 0.6s inside 200 units. **A grab deals nothing, applies
-nothing, and locks the weapon for 0.5s.** The FIFTH grab is a true stun of 2.0s
+window and grows ONE LARGE SKELETAL HAND, tethered to the artifact, that reaches
+out, squeezes and lets go every 2.0s inside 200 units. **A grab deals nothing,
+applies nothing, and locks the weapon for 1.0s.** The THIRD grab is a true stun of 2.2s
 — and the hand dissipates on it. Blade 23.5 -> **21.0**. `06-docs/v56/`.
 
 > **STAGE 1 GAVE GRAVEMOURN BACK REVENANT, AND IT IS THE ONLY STAGE IN THIS
@@ -129,6 +129,35 @@ nothing, and locks the weapon for 0.5s.** The FIFTH grab is a true stun of 2.0s
 > in **`tickPresentation` and not in `tickGrasp`** — v54's lesson one relic
 > along, because the crush sets `hitStop` and a clock on the normal path
 > freezes for exactly the frames the viewer is staring hardest at.
+
+> **AND THEN THE RHYTHM, WHICH IS THE FIRST TIME THIS DESIGN'S FREE TRADE HAS
+> BEEN SPENT.** Rick: *"its still pretty confusing what the ult is actually
+> doing by just watching it. can we add a cooldown for how often it can grab
+> but make the stun longer?"* Measured, the shipped rhythm resolved the whole
+> ultimate in **4.79s of its own 8s window** — five half-second events 1.13s
+> apart, then a dead back third. `held` is the ONLY thing the balance reads, so
+> cadence 0.6 -> **2.0**, grabStun 0.5 -> **1.0**, n 5 -> **3**, trueStun 2.2:
+> grabs a cast **4.84 -> 2.83**, the gap **1.13s -> 2.62s**, the window used
+> **61% -> 70%** — **and the blade does not move**, 49.1% and 50.9% at dmg 21.0
+> on two blocks. *Any arrangement delivering the same held seconds is worth the
+> same*, tested by changing the shape rather than by fitting a line through it.
+> `grasp_rhythm_lab.py` holds six more balance-neutral arms.
+
+> **AND A LONGER COOLDOWN DOES NOT COST GRABS, WHICH IS WHY `n` HAD TO PAY.**
+> The cadence timer sits EXPIRED between grabs and closes the instant the
+> quarry is in reach — a hand that is WAITING, not a hand on a metronome — so
+> slowing it spaces the grabs without losing many and the longer stun then
+> multiplies. Every arm in the lab's first round came back 20-60% above the
+> shipped `held` for that reason alone.
+
+> **AND THE BUILDER PRINTED THE NEW NUMBERS AND SHIPPED THE OLD ONES.** `dur`,
+> `radius`, `cadence`, `grabStun`, `n`, `trueStun` and the tip are written by
+> the STAGE-2 insert; stage 3 rewrites only the line carrying `charge`. So
+> `--stage 3 --cadence 2.0` logged the new rhythm and produced the old one, and
+> every gate downstream measured a relic the log was not describing. **Caught
+> only because the probe printed `n=5` two minutes later** — §4.9's twelve lost
+> values in a different costume. `ult_matches()` now refuses to write unless
+> the shipped `ult` block carries every number the run printed.
 
 > **AND THE GESTURE WAS WRONG, WHICH RICK CAUGHT BY WATCHING THE FIXED
 > CRUSH.** *"the hand currently reaches out and latches on and stretches with

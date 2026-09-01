@@ -225,16 +225,57 @@ ULT = {
                        # This one IS the ultimate's reach: the field should be
                        # that wide and the cast's own `hit` flag should mean
                        # what it says.
-    "cadence":  0.6,   # FREE. 0.3 to 1.3 all inside noise
-    "grabStun": 0.5,   # per grab. Writes `f.stun` DIRECTLY -- never
+    "cadence":  2.0,   # THE COOLDOWN, AND IT IS RICK'S OFF THE SECOND CLIP:
+                       # "its still pretty confusing what the ult is actually
+                       # doing by just watching it. can we add a cooldown for
+                       # how often it can grab but make the stun longer?"
+                       #
+                       # IT SHIPPED AT 0.6 AND THE WHOLE ULTIMATE RESOLVED IN
+                       # 4.8 SECONDS OF ITS OWN EIGHT-SECOND WINDOW. Five
+                       # near-identical half-second events a mean 1.13s apart,
+                       # and then a dead back third. Nothing was on screen long
+                       # enough to be read as a cause.
+                       #
+                       # AND THIS IS THE TRADE THE DESIGN GIVES AWAY FOR FREE.
+                       # `grab_lab` fitted lift = +3.1 + 2.62 x held with
+                       # residuals SMALLER than the measurement error, so
+                       # cadence, grab hold, true-stun length, window and grab
+                       # count are five ways of writing one number: any
+                       # arrangement delivering the same held seconds is worth
+                       # the same. No other ultimate in this game has that
+                       # property and nothing had ever spent it.
+                       #
+                       # A LONGER COOLDOWN DOES NOT COST GRABS, WHICH IS WHY
+                       # `n` HAD TO COME DOWN WITH IT. The timer sits expired
+                       # between grabs and closes the instant the quarry is in
+                       # reach, so slowing it SPACES the grabs without losing
+                       # many -- and the longer stun then multiplies. Every arm
+                       # in `grasp_rhythm_lab.py`'s first round came back
+                       # 20-60% above the shipped `held` for exactly that
+                       # reason.
+    "grabStun": 1.0,   # per grab. Writes `f.stun` DIRECTLY -- never
                        # `takeHitstun`, whose ceiling is 0.26s and whose
                        # `stunDR` would eat the second grab onward
-    "n":        5,     # GRABS TO THE TRUE STUN, and the whole balance decision.
-                       # +24.9% against n=4's +20.4%, and the two are inside one
-                       # SE at n=702, so 3b settles it on evidence the lab could
-                       # not produce. Monotonic 2..6: +14.5 / +18.4 / +20.4 /
-                       # +24.9 / +26.2.
-    "squeeze":  0.18,  # HOW LONG THE FIST IS SHUT, AND IT IS NOT HOW LONG THE
+    "n":        3,     # GRABS TO THE TRUE STUN. It shipped at 5 and came
+                       # down with the cooldown, because at cadence 2.0 five
+                       # grabs deliver half again the held seconds the balance
+                       # is priced on -- and the point of the change is that
+                       # `held` must NOT move.
+                       #
+                       # WHAT IT BUYS IS THE WHOLE COMPLAINT: grabs a cast
+                       # 4.84 -> 2.83, the gap between them 1.13s -> 2.62s, and
+                       # the ultimate now occupies 70% of its window against
+                       # 61%. Three beats two and a half seconds apart, each
+                       # locking the quarry for a full second, and the third
+                       # one is the crush.
+                       #
+                       # AND IT IS STILL RICK'S 2-TO-6. `grab_lab` priced the
+                       # count monotone across that range at ONE cadence; this
+                       # is the same total hold arranged differently, which the
+                       # held-seconds law says is worth the same. Measured:
+                       # held a fight 9.53 -> 10.06, half a second, which is
+                       # 1.4 points of win rate against a per-arm SE of 5.3.
+    "squeeze":  0.30,  # HOW LONG THE FIST IS SHUT, AND IT IS NOT HOW LONG THE
                        # FOE IS STUNNED. Rick, watching the first build: "the
                        # hand currently reaches out and latches on and
                        # stretches with the balls movement. it should reach
@@ -254,7 +295,7 @@ ULT = {
                        # the whole 0.5s. PRESENTATION ONLY. Nothing in the
                        # simulation reads it, `engine_ab` is identical across
                        # this change, and the `held` column does not move.
-    "trueStun": 2.0,   # AND IT IS A REGISTERED TRUE-STUN SITE. Worth nothing
+    "trueStun": 2.2,   # AND IT IS A REGISTERED TRUE-STUN SITE. Worth nothing
                        # BEYOND its seconds -- "grabs only, no true stun at
                        # all" is +22.9% at 6.2s held and n=6 is +26.2% at 7.0s,
                        # both on the line. The escalation earns its place as a
@@ -268,7 +309,7 @@ ULT = {
 END_ON_TRUE = True
 
 ULT_NAME = "Grasp"
-ULT_TIP = "Grabs repeatedly; the fifth grab is a true stun, then it fades"  # 62/72
+ULT_TIP = "Grabs repeatedly; the third grab is a true stun, then it fades"  # 62/72
 BLURB = ("Bone under the iron, and it did not start there. What it takes hold "
          "of does not get to swing back.")
 
@@ -588,7 +629,7 @@ S3 = [
       this.shake = Math.min(38, this.shake + 20);
       this.ring(foe.x, foe.y, AFFINITIES.umbral.glow, 7, 130, 0.45, 6);
       SFX.play("ult", { w: "shroudmaul-crush" });
-      this.note(`${f.w.name} — the fifth grab`);
+      this.note(`${f.w.name} — the last grab`);
       /* RULE 3, NINTH RELIC RUNNING, AND THIS ONE IS THE WORST PLACED YET.
          `cinePlan` scores an ultimate off the beats filed for it, and a
          zero-damage ultimate can file NOTHING through `resolveHit` — there
@@ -631,17 +672,17 @@ S3 = [
          hex          STATUS.hex.stunFor      Spellbreaker, Axiom
          ult freeze   u.freeze                Thornwake, Rootfast
          the Harrowing's burst  u.stunBase    Lastlight
-         GRASP'S FIFTH GRAB     u.trueStun    Shroudmaul
+         GRASP'S LAST GRAB      u.trueStun    Shroudmaul
 
      Six relics of twenty-eight, and the counter is therefore NAMEABLE -- a
      viewer can learn who shuts this down, which a stun budget could never have
      offered.
 
-     AND ONLY THE FIFTH GRAB IS ON THAT LIST. Shroudmaul closes its hand up to
-     five times a window and the first four DELAY a wind-up exactly as ordinary
-     hitstun does. The escalation is therefore legible in the one place a
-     viewer can read it: four grabs that hold, and a fifth that takes the cast
-     away. Adding the whole window to this list would have made every grab a
+     AND ONLY THE LAST GRAB IS ON THAT LIST. Shroudmaul closes its hand up to
+     `n` times a window and every grab but the last DELAYS a wind-up exactly as
+     ordinary hitstun does. The escalation is therefore legible in the one
+     place a viewer can read it: grabs that hold, and a final one that takes
+     the cast away. Adding the whole window to this list would have made every grab a
      cancellation and quietly turned a rhythm into a lockout.''')
 ,
 
@@ -965,8 +1006,8 @@ S3 = [
       c.restore();
 
       /* ---- THE COUNT, ON THE TETHER -------------------------------------
-         `u.n` marks, `G.grabs` of them lit. Before the fifth grab four are
-         burning, so the crush is PROMISED rather than merely delivered.
+         `u.n` marks, `G.grabs` of them lit. Before the last grab all but one
+         are burning, so the crush is PROMISED rather than merely delivered.
 
          RUNGS ACROSS THE ARM, NOT BEADS ALONG IT, AND THE FIRST SHEET IS WHY.
          The first cut drew lit dots in `pal.glow` -- the same colour the bone
@@ -1139,6 +1180,52 @@ def strip_comments(js: str) -> str:
     return re.sub(r"//[^\n]*", "", js)
 
 
+def ult_matches(s: str, A) -> None:
+    """The shipped `ult` block must carry the numbers this run just printed.
+
+    THE STAGE-3 BUILDER CANNOT RETUNE MOST OF THEM, AND IT REPORTED THAT IT
+    HAD. `dur`, `radius`, `cadence`, `grabStun`, `n`, `trueStun` and the tip
+    are written by the STAGE-2 insert and are baked into
+    `sc-shroudmaul.html`; stage 3 rewrites only the line carrying `charge` and
+    `squeeze`. So a stage-3 run with `--cadence 2.0` printed
+
+        ult Grasp  charge 15  dur 8  radius 200  cadence 2  grabStun 1  n 3
+
+    and shipped a relic still reading `cadence:0.6, grabStun:0.5, n:5`. Every
+    gate downstream was measuring the OLD rhythm while the log said the new
+    one, which is CLAUDE.md §4.9's lost-twelve-values in a different costume --
+    and the only reason it was caught is that the probe printed `n=5` two
+    minutes later.
+
+    THE FIX IS TO REBUILD STAGE 2, NOT TO WIDEN STAGE 3. Stage 2 owns the
+    relic's data and stage 3 owns its mechanism, which is the right split; what
+    was missing is this assertion, so the split cannot be forgotten silently.
+    """
+    i = s.index('id:"%s"' % RELIC)
+    j = s.index("blurb:", i)
+    block = s[i:j]
+    bad = []
+    for k, v in (("dur", A.dur), ("radius", A.radius), ("cadence", A.cadence),
+                 ("grabStun", A.grabstun), ("trueStun", A.truestun),
+                 ("squeeze", A.squeeze), ("charge", A.charge)):
+        if f"{k}:{v:g}" not in block:
+            bad.append(f"{k} {v:g}")
+    if f"n:{int(A.n):d}" not in block:
+        bad.append(f"n {int(A.n):d}")
+    if f'tip:"{A.tip}"' not in block:
+        bad.append("the tip")
+    if bad:
+        raise SystemExit(
+            "THE SHIPPED `ult` BLOCK DOES NOT CARRY: " + ", ".join(bad) + ".\n"
+            "  Those fields are written by the STAGE-2 insert, not by this\n"
+            "  stage, so the source you built from still has the old values\n"
+            "  and this run would have SHIPPED THEM while printing the new\n"
+            "  ones. Rebuild stage 2 first:\n"
+            "    python shroudmaul_build.py --stage 2\n"
+            "    python shroudmaul_build.py --stage 3")
+    print("  rule  the shipped ult block carries every number this run printed")
+
+
 def refuse(s: str) -> None:
     """The four things §8 of the brief says not to do, asserted on the text.
 
@@ -1191,13 +1278,13 @@ def refuse(s: str) -> None:
             "`if` to get wrong.\n  If that rule is being CHANGED, it is a "
             "decision and it belongs in the\n  comment as well as in the code.")
 
-    # §4.2. AND ONLY THE FIFTH GRAB IS A REGISTERED TRUE STUN. `breakSpin` is
+    # §4.2. AND ONLY THE LAST GRAB IS A REGISTERED TRUE STUN. `breakSpin` is
     # the hook every true stun calls; calling it once per grab would turn a
     # rhythm into a lockout and would be invisible in the `held` column.
     if body.count("breakSpin") != 1:
         raise SystemExit(
             f"`tickGrasp` calls `breakSpin` {body.count('breakSpin')} times "
-            f"(brief §4.2). Exactly one:\n  the crush. The four ordinary grabs "
+            f"(brief §4.2). Exactly one:\n  the crush. The ordinary grabs "
             f"DELAY a wind-up and must not cancel it,\n  which is Rick's own "
             f"rule and the reason the true-stun register is nameable.")
     print("  rule  no takeHitstun, no pin, no damage, no curse, foe only, "
@@ -1280,11 +1367,19 @@ def main() -> int:
     ap.add_argument("--ult", default=ULT_NAME)
     ap.add_argument("--tip", default=ULT_TIP)
     ap.add_argument("--charge", type=float, default=15.0)
-    ap.add_argument("--dmg", type=float, default=TUNED_SM,
-                    help="stage 3b: the blade, with GRASP in place")
+    # THE BLADE BELONGS TO WHICHEVER STAGE IS RUNNING. Stage 2 ships the relic
+    # at Grudgebearer's 23.5, which is what its own floor gate is measured
+    # against; stage 3b is where it is bisected. Defaulting both to the tuned
+    # value made stage 2 write 21.0 and stage 3 then fail looking for 23.5 to
+    # replace -- a loud failure, but only because the retune asserts.
+    ap.add_argument("--dmg", type=float, default=None,
+                    help="stage 2: the starting blade (default 23.5). "
+                         "stage 3b: the tuned one (default %.2f)" % TUNED_SM)
     for k, v in ULT.items():
         ap.add_argument(f"--{k.lower()}", type=float, default=v)
     A = ap.parse_args()
+    if A.dmg is None:
+        A.dmg = BLADE_IN if A.stage == 2 else TUNED_SM
 
     src = A.src or ("../02-chain/sc-revenant.html" if A.stage == 2
                     else "../02-chain/sc-shroudmaul.html")
@@ -1370,6 +1465,7 @@ def main() -> int:
             s = s[:j] + f"dmg:{A.dmg:g}," + s[j + len(f'dmg:{BLADE_IN:g},'):]
             print(f"  blade dmg {BLADE_IN:g} -> {A.dmg:g}  (stage 3b)")
         refuse(s)
+        ult_matches(s, A)
         s = sync_fx(s)
 
     for k in subs:
