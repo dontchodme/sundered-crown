@@ -263,13 +263,13 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
              `move()` has run, not before the step. */
           if (A.callD > U.radius + 1e-6) A.outOfReach++;
           if (G1.grabs >= U.n){ A.crushes++; A.crushAtN++; }
-          A.held += G1.holdMax;
+          A.held += G1.stunFor;
         }
         /* the crush ENDS the window, so the counter is read on the way out */
         if (G0 && !G1 && G0.grabs >= U.n && G0.crush){
           A.crushes++;
           A.crushAtN += (G0.grabs === U.n) ? 1 : 0;
-          A.held += G0.holdMax;
+          A.held += G0.stunFor;
         }
         if (G1) live = 1;
       }
@@ -357,7 +357,7 @@ DRAW_JS = r"""([rid, seed]) => {
   cv.width = 520; cv.height = 800;
   const ctx = cv.getContext("2d");
   const R = AC.renderer, saved = R.ctx;
-  const seen = { reach: 0, hold: 0, crush: 0, fade: 0 };
+  const seen = { reach: 0, squeeze: 0, crush: 0, fade: 0 };
   let threw = null, frames = 0;
   try {
     for (const foe of ["emberedge", "axiom"]){
@@ -377,7 +377,12 @@ DRAW_JS = r"""([rid, seed]) => {
         const G = me.ultGrasp, C = me.graspCrush;
         if (C) seen.crush++;
         else if (!G) seen.fade++;
-        else if (G.hold > 0) seen.hold++;
+        /* THE SQUEEZE, NOT A HOLD. Rick's correction: the hand reaches out,
+           squeezes, and LETS GO — `G.grip` is the fist and it is a quarter of
+           the stun the grab wrote. A build that drew the stun instead held the
+           hand on the quarry for 83% of the cadence and stretched with the
+           ball, which says the BALL is held and it is not. */
+        else if (G.grip > 0) seen.squeeze++;
         else seen.reach++;
         R.ctx = ctx;
         R.drawGrip(m, false);
@@ -568,10 +573,10 @@ def main() -> int:
         check("[P] the render path is CALLED against a real 2D context, "
               "in every state",
               D["threw"] is None and D["frames"] > 0
-              and s["reach"] > 0 and s["hold"] > 0 and s["crush"] > 0
+              and s["reach"] > 0 and s["squeeze"] > 0 and s["crush"] > 0
               and s["fade"] > 0,
-              f"{D['frames']} frames — reaching {s['reach']}, holding "
-              f"{s['hold']}, crush {s['crush']}, fading {s['fade']}"
+              f"{D['frames']} frames — reaching {s['reach']}, squeezing "
+              f"{s['squeeze']}, crush {s['crush']}, fading {s['fade']}"
               + (f"   THREW {D['threw']}" if D["threw"] else ""))
 
         # --------------------------------------------------------- [12] ----

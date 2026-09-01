@@ -126,7 +126,9 @@ name        Grasp        charge 15      kind "grip"      dmg 0
 dur         8.0s         the window
 radius      200          THE MEASURED OPTIMUM AND THE ONE NUMBER THAT IS NOT FREE
 cadence     0.6s         free — 0.3 to 1.3 all inside noise
-grabStun    0.5s         writes `f.stun` DIRECTLY
+grabStun    0.5s         writes `f.stun` DIRECTLY. FOUR TIMES the squeeze
+squeeze     0.18s        how long the FIST is shut — presentation only, and it
+                         is NOT the stun. §6a-2
 n           5            grabs to the crush. The whole balance decision
 trueStun    2.0s         AND IT IS A REGISTERED TRUE-STUN SITE — the fourth
 endOnTrue   the window ends on the crush. Rick's clause, worth -10.8 points
@@ -421,6 +423,48 @@ through `decayImpactOnly` for as long as that runs. Deadfall's blast froze on
 the floor 96.2% of the time for exactly this reason. `graspFade` moved with it.
 Now: **reaching 1718, holding 1674, crush 1269, fading 218.**
 
+## 6a-2. AND THE GESTURE ITSELF WAS WRONG — RICK, WATCHING THE FIXED CRUSH
+
+> *"the hand currently reaches out and latches on and stretches with the balls
+> movement. it should reach out. squeeze. cause massive hitstun. let go."*
+
+**THE FIRST BUILD DREW THE STUN INSTEAD OF THE GRIP.** It put the hand on the
+quarry for `grabStun` — **0.5s of a 0.6s cadence, so the limb was attached 83%
+of the time** — and the hand tracked the ball for all of it. The sheet had
+already found the consequence and reported it as a curiosity: the "drawn back"
+panel could not be photographed at all, because the predicate asks for an open
+hand two thirds of the way through a cadence and those cannot both be true.
+
+**A LATCH SAYS THE BALL IS BEING HELD, AND THE BALL IS NOT.** `f.pin` is
+refused on measurement — −3.3 points at identical held seconds — and the whole
+design note says the hand grips the **weapon**. The picture was contradicting
+the one thing the mechanic is most careful about, and it did it for 83% of
+every window.
+
+The gesture is now a PUMP on the cadence, with the hitstun outliving it:
+
+```
+SQUEEZE   `ult.squeeze` 0.18s — the fist shut, at the quarry, tether taut
+LET GO    it opens and withdraws over squeeze x 0.9
+REACH     it extends again as the cadence timer runs down
+```
+
+The stun the grab writes is unchanged at 0.5s — **four times the squeeze** —
+so the quarry stays locked with its weapon stopped while the hand is already
+leaving. The crush squeezes twice as long and lets go the same way, and
+`graspCrush` no longer lasts `trueStun`: the hand is gone about 0.7s after the
+fifth grab while the quarry is held for 2.0.
+
+> **AND IT IS PRESENTATION-ONLY, PROVEN RATHER THAN ASSERTED.** `engine_ab`
+> against the previous build **210/210 identical field for field, with
+> Shroudmaul itself in the roster** — the one comparison that could have caught
+> a stray write. `held` a cast is 3.71s before and after.
+
+> **THE PROBE'S STATE COUNTER IS THE MEASUREMENT OF THE CHANGE.** Before:
+> reaching 1596, *holding* 1475 — the hand shut for 48% of its own frames.
+> After: **reaching 2437, squeezing 634** — 17%. That ratio is the difference
+> between a hand that grabs and a hand that has grabbed.
+
 ## 6b. THE HAND WAS 40px AND READ AS A SCRIBBLE
 
 `GRIP_SCALE` shipped at 1.35, which put the hand at ~40px on a 540 frame.
@@ -453,15 +497,16 @@ beside them is drawn in — laid on the same curve. **A bright dot on a bright
 line reads as a thicker line.** They are RUNGS across the limb now, hot white
 against its purple, and an unlit one is a dark bar rather than an absence.
 
-## 6e. AND "REACHING" IS TWO PICTURES, ONE OF WHICH LASTS 0.1s
+## 6e. AND THE SHEET HAD ALREADY FOUND THE LATCH WITHOUT KNOWING IT
 
 The sheet's first predicate for a drawn-back hand **never matched**, and the
-reason is a real property of the shipped numbers: `grabStun` 0.5 against
-`cadence` 0.6 means that **once the quarry is inside `radius` the hand is
-CLOSED 83% of the time.** The gap between one hold ending and the next grab is
-a tenth of a second. So "reaching" is really the hand casting about while the
-quarry is OUT of reach — which is most of a spread-out fight and reads fine —
-plus a flinch nobody will ever see.
+reason turned out to be §6a-2 rather than a quirk of the predicate: `grabStun`
+0.5 against `cadence` 0.6 meant the hand was CLOSED 83% of the time, so "an
+open hand two thirds of the way through a cadence" could not exist. It was
+written up as a curiosity about the numbers. Rick watched the clip and named it
+as the defect it was. **A predicate that cannot be satisfied is evidence about
+the thing, not about the predicate** — and that is worth more than the panel
+would have been.
 
 ---
 
@@ -601,30 +646,37 @@ failure mode it was written for.
    caring about. Named because the numbers in `grab-v56.md` are all measured on
    the other branch.
 
-3. **THE HAND'S SIZE.** `GRIP_SCALE` 2.8 — ~110px on a 540 frame, the largest
+3. **THE GESTURE, ROUND 2.** §6a-2 rebuilt it on Rick's note — reach, squeeze,
+   let go — and it has been photographed but not watched in motion. The one
+   number in it that is a guess is `ult.squeeze` 0.18s against a 0.6s cadence:
+   long enough to read as a squeeze, short enough that the hand is visibly
+   leaving before the next reach. Free on the held-seconds line, so it is a
+   picture decision entirely.
+
+4. **THE HAND'S SIZE.** `GRIP_SCALE` 2.8 — ~110px on a 540 frame, the largest
    object this game draws. Refuted at 1.35 by the first sheet; not confirmed at
    2.8 by anything. v53 spent three rounds on this question for Revenant and a
    sheet answered none of them.
 
-4. **THE FOUR-VERSUS-FIVE TELL.** Rungs across the tether, `u.n` of them, lit as
+5. **THE FOUR-VERSUS-FIVE TELL.** Rungs across the tether, `u.n` of them, lit as
    the grabs land. §7b's question — can a viewer see the crush coming before it
    lands — has no measured cost and a real effect on whether the escalation
    reads as earned.
 
-5. **THE THREE VOICES.** First cuts. Measured to be audible and to separate;
+6. **THE THREE VOICES.** First cuts. Measured to be audible and to separate;
    not auditioned. Rule 2 says the ult sound is Rick's, and v43 landed it in one
    round trip by offering a spread — `sentinel_hum_lab.py` is the pattern and it
    has not been run for this relic.
 
-6. **THE TYPE LADDER.** §5b. 67.0% into greatswords and 26.9% into bows, a
+7. **THE TYPE LADDER.** §5b. 67.0% into greatswords and 26.9% into bows, a
    40.1pp spread that no per-relic band in this repo can see. Open item 12
    asked this once about Thornshear; this is the second time and the same
    question. Either it is the relic or the band is the wrong instrument.
 
-7. **THE KILLING BLOW'S CUT.** §8. Chain-wide, three to four times worse than
+8. **THE KILLING BLOW'S CUT.** §8. Chain-wide, three to four times worse than
    the figure CLAUDE.md records, and one line to change. Not this relic's.
 
-8. **THE BLURB HAS NOT BEEN PUT TO RICK.** *"Bone under the iron, and it did not
+9. **THE BLURB HAS NOT BEEN PUT TO RICK.** *"Bone under the iron, and it did not
    start there. What it takes hold of does not get to swing back."* Rule 2 names
    the fighter name and the scrunch wording; the blurb has never been on that
    list and probably should be.

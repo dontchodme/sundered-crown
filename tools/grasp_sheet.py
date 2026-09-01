@@ -58,37 +58,24 @@ SEEK_JS = r"""([rid, foe, sd, want, secs]) => {
     const G = me.ultGrasp, C = me.graspCrush, u = me.w.ult;
     const d = Math.hypot(th.x - me.x, th.y - me.y);
     let ok = false;
-    /* REACHING, DRAWN BACK -- AND IT IS A 0.1s STATE, WHICH IS A FINDING.
-       `grabStun` is 0.5 and `cadence` is 0.6, so once the quarry is inside
-       `radius` the hand is HOLDING for 83% of the time and the gap between
-       one hold ending and the next grab is a tenth of a second. The first cut
-       of this predicate asked for a drawn-back hand two thirds of the way
-       through the cadence and NEVER FOUND ONE: it is asking for `hold <= 0`
-       and `cd > 0.43` at the same time, and those cannot both be true.
-
-       So "reaching" is really two different pictures -- the hand casting
-       about while the quarry is OUT of reach (the `reach` panel), and this
-       one-tenth-of-a-second flinch between grabs. Both are drawn; only one of
-       them is on screen long enough to read. */
-    if (want === "drawn")  ok = !!G && G.hold <= 0 && G.grabs > 0
-                                && d <= u.radius;
+    /* THE SQUEEZE. `G.grip` is the fist and it is 0.18s — a quarter of the
+       0.5s stun the grab wrote. Rick, off the first build: "it should reach
+       out. squeeze. cause massive hitstun. let go." */
+    if (want === "squeeze") ok = !!G && G.grip > 0 && !C
+                                 && G.grabs >= 2 && G.grabs <= u.n - 2;
+    /* LETTING GO — the fist opening and the limb withdrawing, which is the
+       beat the first build did not have at all. */
+    if (want === "letgo")  ok = !!G && G.grip <= 0 && !C && G.grabs > 0
+                                && (u.cadence - G.cd) > u.squeeze
+                                && (u.cadence - G.cd) < u.squeeze * 1.9;
     /* REACHING, EXTENDED. The cadence is nearly up and the hand is at full
        stretch -- the WIND-UP, which is the only warning a grab is coming. */
-    if (want === "reach")  ok = !!G && G.hold <= 0 && G.cd < u.cadence * 0.18
+    if (want === "reach")  ok = !!G && G.grip <= 0 && G.cd < u.cadence * 0.14
                                 && d > u.radius * 0.55;
-    /* HOLDING. An ordinary grab, mid-hold, with the tether taut. */
-    if (want === "hold")   ok = !!G && G.hold > 0 && !C
-                                && G.grabs >= 2 && G.grabs <= u.n - 2
-                                && G.hold < u.grabStun * 0.72;
-    /* THE FOURTH, AND IT IS §7b'S QUESTION. n-1 pips are burning and the next
+    /* THE FOURTH, AND IT IS §7b'S QUESTION. n-1 rungs are burning and the next
        grab is the crush. If a viewer cannot see this frame differently from
        the one above, the payoff arrives without having been promised. */
-    if (want === "fourth") ok = !!G && G.hold > 0 && !C && G.grabs === u.n - 1;
-    /* THE CRUSH. The window is already gone -- `ultGrasp` is nulled on the
-       frame the fifth grab lands, which is "then dissipates" -- so this state
-       lives entirely on `graspCrush`, the presentation clock. A build drawn
-       off `ultGrasp` alone has NO FRAME HERE AT ALL, which is exactly what
-       `grasp_relic_probe [P]` found on the first cut. */
+    if (want === "fourth") ok = !!G && G.grip > 0 && !C && G.grabs === u.n - 1;
     if (want === "crush")  ok = !!C && C.t > 0.5 && C.t < C.life * 0.6;
     /* AND THE LET-GO. */
     if (want === "fade")   ok = !G && !C && me.graspFade > 0.25
@@ -111,14 +98,13 @@ SEEK_JS = r"""([rid, foe, sd, want, secs]) => {
 }"""
 
 PANELS = [
-    ("drawn",  "THE FLINCH — the 0.1s between one hold ending and the next"
-               " grab. grabStun 0.5 against cadence 0.6 means the hand is"
-               " CLOSED 83% of the time once the quarry is in reach"),
-    ("reach",  "REACHING, EXTENDED — the cadence is nearly up. This is the only"
-               " warning a grab is coming"),
-    ("hold",   "HOLDING — closed on the WEAPON, tether taut, ball still"
-               " drifting. That is `f.stun` and not `f.pin`, and it is what"
-               " the frame has to say"),
+    ("reach",   "REACHING — the cadence is nearly up and the hand is at full"
+                " stretch. The only warning a grab is coming"),
+    ("squeeze", "THE SQUEEZE — 0.18s, closed on the WEAPON, tether taut. The"
+                " hitstun it causes is 0.5s and OUTLIVES it, which is the"
+                " whole of Rick's correction"),
+    ("letgo",   "LETTING GO — the fist opens and the limb withdraws. The"
+                " quarry is still locked; the hand is already leaving"),
     ("fourth", "THE FOURTH — four pips burning, one grab from the crush."
                " §7b: can a viewer see it coming?"),
     ("crush",  "THE CRUSH — the fifth. Bigger, harder shut, and it outlives the"

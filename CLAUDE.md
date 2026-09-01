@@ -130,6 +130,27 @@ nothing, and locks the weapon for 0.5s.** The FIFTH grab is a true stun of 2.0s
 > along, because the crush sets `hitStop` and a clock on the normal path
 > freezes for exactly the frames the viewer is staring hardest at.
 
+> **AND THE GESTURE WAS WRONG, WHICH RICK CAUGHT BY WATCHING THE FIXED
+> CRUSH.** *"the hand currently reaches out and latches on and stretches with
+> the balls movement. it should reach out. squeeze. cause massive hitstun. let
+> go."* The first build DREW THE STUN INSTEAD OF THE GRIP: it held the hand on
+> the quarry for `grabStun`, which is 0.5s of a 0.6s cadence, so **the limb was
+> attached 83% of the time and tracked the ball**. A latch says the BALL is
+> being held — and the ball is not, deliberately, because `f.pin` is refused on
+> measurement and the hand grips the WEAPON. **The picture was contradicting
+> the one thing the mechanic is most careful about.** It is a pump now:
+> squeeze 0.18s, let go, reach, squeeze — with the 0.5s stun outliving the fist
+> four times over. Presentation-only and PROVEN so: `engine_ab` **210/210
+> identical with Shroudmaul itself in the roster**. The probe's own state
+> counter is the measurement — shut for 48% of its frames before, **17%**
+> after.
+
+> **AND THE SHEET HAD ALREADY FOUND IT WITHOUT KNOWING.** Its predicate for a
+> drawn-back hand could not be satisfied — "open" and "two thirds through the
+> cadence" were mutually exclusive at `grabStun` 0.5 against `cadence` 0.6 —
+> and that was written up as a curiosity about the numbers. **A predicate that
+> cannot be satisfied is evidence about the THING, not about the predicate.**
+
 > **AND THREE MORE PICTURE FAULTS DIED ON THE FIRST SHEET.** The hand shipped
 > at ~40px and read as a white scribble (a phalanx is 2px against a 1.4px gap,
 > so the two passes that MAKE a skeleton legible merge) — `GRIP_SCALE` 1.35 ->

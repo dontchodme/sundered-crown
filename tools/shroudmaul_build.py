@@ -234,6 +234,26 @@ ULT = {
                        # SE at n=702, so 3b settles it on evidence the lab could
                        # not produce. Monotonic 2..6: +14.5 / +18.4 / +20.4 /
                        # +24.9 / +26.2.
+    "squeeze":  0.18,  # HOW LONG THE FIST IS SHUT, AND IT IS NOT HOW LONG THE
+                       # FOE IS STUNNED. Rick, watching the first build: "the
+                       # hand currently reaches out and latches on and
+                       # stretches with the balls movement. it should reach
+                       # out. squeeze. cause massive hitstun. let go."
+                       #
+                       # THE FIRST BUILD DREW THE STUN. It held the hand ON the
+                       # quarry for `grabStun` — 0.5s of the 0.6s cadence — so
+                       # the limb was attached 83% of the time and stretched
+                       # with whatever the ball did. That is a LATCH, and a
+                       # latch says the ball is being held, which is the one
+                       # thing this ultimate deliberately does not do (`f.pin`
+                       # is refused, §4.5). The hand grips the WEAPON.
+                       #
+                       # So the squeeze is a MOMENT and the hitstun OUTLIVES
+                       # it: reach, close, let go, draw back, reach again — a
+                       # pump on the cadence — while the foe stays locked for
+                       # the whole 0.5s. PRESENTATION ONLY. Nothing in the
+                       # simulation reads it, `engine_ab` is identical across
+                       # this change, and the `held` column does not move.
     "trueStun": 2.0,   # AND IT IS A REGISTERED TRUE-STUN SITE. Worth nothing
                        # BEYOND its seconds -- "grabs only, no true stun at
                        # all" is +22.9% at 6.2s held and n=6 is +26.2% at 7.0s,
@@ -320,8 +340,10 @@ S3 = [
 # ------------------------------------------------------- 1. the hand's home
 ("Fighter.ultGrasp", '''    this.deadfallFade = 0;''',
  '''    this.deadfallFade = 0;
-    /* {t, dur, grabs, cd, hold, holdMax, crush, held} while GRASP's window is
-       open. null on every other relic and on this one outside its own window,
+    /* {t, dur, grabs, cd, grip, stunFor, crush, held} while GRASP's window is
+       open. `grip` is how long the FIST is still shut and `stunFor` is what
+       the last grab wrote to `foe.stun`; they are different numbers and the
+       first build conflated them into one — see `ult.grip`. null on every other relic and on this one outside its own window,
        which is the whole zero-burden argument: `tickGrasp` returns after a
        two-iteration loop that does nothing, `drawGrip` returns on its first
        line, and nothing anywhere else in the engine reads this field.
@@ -384,7 +406,7 @@ S3 = [
          opens if the quarry is already in reach. That is `grab_lab`'s own
          arm and every number in `06-docs/v56/grab-v56.md` is measured on it. */
       f.ultGrasp = { t: 0, dur: u.dur, grabs: 0, cd: 0,
-                     hold: 0, holdMax: 0, crush: false, held: 0 };
+                     grip: 0, stunFor: 0, crush: false, held: 0 };
       return;
     }
 
@@ -476,12 +498,12 @@ S3 = [
       const u = f.w.ult;
       const foe = f === this.a ? this.b : this.a;
       G.t += dt;
-      /* the clench, counted down for the picture. `hold` is what the hand is
-         still closed for; the STUN it wrote is the foe's and is ticked by
-         `tickStatus` like every other stun in the game. Two clocks for one
-         event is a drift hazard, so this one is deliberately presentation:
-         nothing reads it but `drawGrip`. */
-      G.hold = Math.max(0, G.hold - dt);
+      /* THE FIST, counted down for the picture, and it is NOT the stun. The
+         stun is the foe's and is ticked by `tickStatus` like every other stun
+         in the game; this is how long the hand is still shut, which is a
+         quarter of it. Two clocks for one event is a drift hazard, so this
+         one is deliberately presentation: nothing reads it but `drawGrip`. */
+      G.grip = Math.max(0, G.grip - dt);
 
       /* THREE WAYS OUT AND ALL THREE ARE HERE: the clock, the corpse and the
          end of the match. Nothing is restored, because the window writes
@@ -514,7 +536,12 @@ S3 = [
          the pool is measured to be unmoved by the whole ultimate (+1.2 blows
          and +5.4% of pool). */
       foe.stun = Math.max(foe.stun, hold);
-      G.hold = hold; G.holdMax = hold; G.crush = crush;
+      /* THE SQUEEZE IS A MOMENT AND THE HITSTUN OUTLIVES IT. `grip` is the
+         fist; `stunFor` is what was written to the quarry, and it is four
+         times longer. The crush squeezes twice as long and lets go the same
+         way — Rick's "reach out. squeeze. cause massive hitstun. let go." */
+      G.grip = crush ? u.squeeze * 2 : u.squeeze;
+      G.stunFor = hold; G.crush = crush;
       G.held += hold;
       this.spawnFx(foe.x, foe.y, AFFINITIES.umbral.core,
                    crush ? 26 : 9, crush ? 260 : 150, crush ? 0.6 : 0.3, 4);
@@ -547,9 +574,16 @@ S3 = [
       /* AND THE PICTURE OF IT OUTLIVES THE WINDOW. `ultGrasp` is nulled four
          lines down — that is "then dissipates" and it is the balance clause —
          so without this the hand would VANISH on the frame it closed and the
-         two seconds the quarry spends held would have nothing on screen.
-         Presentation only, on the presentation clock, in half-seconds. */
-      f.graspCrush = { t: 0, life: u.trueStun * 2 };
+         squeeze that ended the window would have no frames at all.
+
+         IT DOES NOT LAST `trueStun`, AND THAT IS RICK'S CORRECTION. The first
+         build held the hand on the quarry for the whole 2.0s, which drew the
+         STUN rather than the grip. This is the squeeze and the letting go —
+         `squeeze * 2` shut, then `squeeze * 1.8` opening — and the quarry stays
+         locked for the remaining second and a half with nothing on it but its
+         own stopped weapon. Presentation only, in half-seconds. */
+      f.graspCrush = { t: 0, grip: u.squeeze * 2 * 2,
+                       life: (u.squeeze * 2 + u.squeeze * 1.8) * 2 };
       this.hitStop = Math.max(this.hitStop, 0.09);
       this.shake = Math.min(38, this.shake + 20);
       this.ring(foe.x, foe.y, AFFINITIES.umbral.glow, 7, 130, 0.45, 6);
@@ -804,20 +838,64 @@ S3 = [
          viewer is told a grab is coming before it lands. */
       const C = f.graspCrush;
       const crush = !!C;
-      const held  = crush || !!(G && G.hold > 0);
-      const wind  = G ? 1 - clamp(G.cd / u.cadence, 0, 1) : 1;
       const dx = foe.x - f.x, dy = foe.y - f.y;
       const dist = Math.hypot(dx, dy) || 1;
       const ang = Math.atan2(dy, dx);
-      const out = held ? dist
-                       : Math.min(dist, u.radius) * (0.26 + 0.52 * wind);
+
+      /* ---- REACH, SQUEEZE, LET GO --------------------------------------
+         Rick, watching the first build: "the hand currently reaches out and
+         latches on and stretches with the balls movement. it should reach
+         out. squeeze. cause massive hitstun. let go."
+
+         THE FIRST BUILD DREW THE STUN INSTEAD OF THE GRIP. It put the hand on
+         the quarry for `grabStun` — 0.5s of a 0.6s cadence — so the limb was
+         attached 83% of the time and stretched with whatever the ball did.
+         **A latch says the ball is being held**, and the ball is not: `f.pin`
+         is refused on measurement (§4.5) and the hand grips the WEAPON. The
+         picture was contradicting the one thing the mechanic is careful about.
+
+         So the gesture is a PUMP on the cadence, and the hitstun outlives it:
+
+           SQUEEZE   `G.grip` — the fist is shut, at the quarry, tether taut
+           LET GO    it opens and withdraws over `squeeze * 0.9`
+           REACH     it extends again as the cadence timer runs down
+
+         `ext` is how far out along the line the hand is, 0 at the shell and 1
+         at the quarry. `shut` is the clench — `_boneParts` curls the phalanges
+         off that one number, so the fist is the same geometry as the open hand
+         and cannot drift from it. */
+      const sqT = u.squeeze, relT = u.squeeze * 0.9;
+      let ext, shut;
+      if (crush){
+        /* THE CRUSH SQUEEZES TWICE AS LONG AND LETS GO THE SAME WAY. `C.t` is
+           on the presentation clock, so `C.grip` and `C.life` are in
+           half-seconds like every other `life` in this engine. */
+        const k = C.t <= C.grip ? 0
+                : clamp((C.t - C.grip) / Math.max(1e-6, C.life - C.grip), 0, 1);
+        ext  = 1 - 0.70 * k;
+        shut = 1 - 0.80 * k;
+      } else if (G && G.grip > 0){
+        ext = 1; shut = 1;
+      } else {
+        const since = G ? u.cadence - G.cd : 99;
+        if (G && G.grabs > 0 && since >= sqT && since < sqT + relT){
+          const k = (since - sqT) / relT;             // opening and pulling back
+          ext  = 1 - 0.70 * k;
+          shut = 1 - 0.82 * k;
+        } else {
+          /* REACHING. It extends as the next grab approaches, so the viewer is
+             told a grab is coming before it lands — and out of range the
+             cadence timer sits expired, which leaves the hand at full stretch
+             casting about, which is exactly what it is doing. */
+          const w = G ? 1 - clamp(G.cd / u.cadence, 0, 1) : 1;
+          ext  = 0.30 + 0.62 * w;
+          shut = 0.08 + 0.16 * w;
+        }
+      }
+      const held = ext > 0.92;                    // the tether is taut
+      const out = Math.min(dist, u.radius * 1.05) * ext;
       const hx = f.x + Math.cos(ang) * out;
       const hy = f.y + Math.sin(ang) * out;
-      /* THE CLENCH. Open while it reaches, shut while it holds, and SHUT HARD
-         on the crush — `_boneParts` curls the phalanges off this one number,
-         so the fist is the same geometry as the open hand and cannot drift
-         from it. */
-      const shut = crush ? 1 : held ? 0.86 : 0.10 + 0.20 * wind;
       const HR = (13 + 5 * (1 - shut)) * GRIP_SCALE * (crush ? 1.22 : 1);
       /* AND THE FOURTH SEPARATION IS COLOUR, WHICH THE FIRST SHEET SAID WAS
          MISSING. The comment above claimed four ways of telling the crush from
@@ -860,7 +938,7 @@ S3 = [
          four separations between HOLDING and REACHING. */
       const wx = hx - Math.cos(ang) * HR * 0.95;
       const wy = hy - Math.sin(ang) * HR * 0.95;
-      const sag = held ? 0 : (1 - wind) * 26 + 8;
+      const sag = held ? 0 : (1 - ext) * 30 + 6;
       const mx = (f.x + wx) / 2 - Math.sin(ang) * sag;
       const my = (f.y + wy) / 2 + Math.cos(ang) * sag;
       const SEG = 9, bone = [];
@@ -989,7 +1067,7 @@ const WEAPON_BY_ID = Object.fromEntries(WEAPONS.map(w => [w.id, w]));'''),
        the pool behind it that Nightfell's does). GRASP reads the pool not at
        all. The hold scales with nothing that accumulates, so a longer charge
        here is only a cost. */
-    ult:{ name:"%ULT%", charge:%CHARGE%, kind:"grip", dmg:0,'''),
+    ult:{ name:"%ULT%", charge:%CHARGE%, kind:"grip", dmg:0, squeeze:%SQUEEZE%,'''),
 ]
 
 
@@ -1139,6 +1217,23 @@ def sync_fx(s: str) -> str:
     fx_js = HERE.parent / "src" / "render" / "fx.js"
     mod = fx_js.read_text(encoding="utf-8")
 
+    # A STAGE-3 REBUILD AFTER THE SPEC HAS BEEN COMMITTED IS THE NORMAL CASE,
+    # AND THE FIRST CUT OF THIS COULD NOT DO IT. Once the spec is in
+    # `src/render/fx.js` on disk, that file no longer matches the copy inlined
+    # in stage 2's output -- which is correct and expected, because stage 2
+    # predates the spec -- and the divergence check fired on it. Rebuilding
+    # stage 3 to change one line of ART then required hand-editing a tracked
+    # file first, which is exactly the kind of manual carry step this repo
+    # keeps getting wrong (CLAUDE.md, `app/main.js`'s GAME line).
+    #
+    # So this builder's own spec is REMOVED first if it is already there, and
+    # the identity check below then compares the two PRE-SPEC modules, which is
+    # the thing it was always trying to assert.
+    if FX_NEW in mod:
+        mod = mod.replace(FX_NEW, FX_ANCHOR, 1)
+        print("  fx    stripping this builder's own spec from src/render/fx.js "
+              "first — a rebuild, not a first build")
+
     head = re.search(r"/\* ---- src/render/fx\.js, inlined by fx_build\.py\. "
                      r"sha256:([0-9a-f]{64}) ---- \*/\n", s)
     if not head:
@@ -1154,8 +1249,6 @@ def sync_fx(s: str) -> str:
 
     if FX_ANCHOR not in mod or FX_ANCHOR not in s:
         raise SystemExit("the fx spec anchor is not in both copies")
-    if "shroudmaul:" in mod:
-        raise SystemExit("src/render/fx.js already carries a shroudmaul spec")
 
     mod2 = mod.replace(FX_ANCHOR, FX_NEW, 1)
     s = s.replace(FX_ANCHOR, FX_NEW, 1)
@@ -1232,7 +1325,8 @@ def main() -> int:
             "%DMG%": f"{A.dmg:g}", "%CHARGE%": f"{A.charge:g}",
             "%DUR%": f"{A.dur:g}", "%RADIUS%": f"{A.radius:g}",
             "%CADENCE%": f"{A.cadence:g}", "%GRABSTUN%": f"{A.grabstun:g}",
-            "%N%": f"{int(A.n):d}", "%TRUESTUN%": f"{A.truestun:g}"}
+            "%N%": f"{int(A.n):d}", "%TRUESTUN%": f"{A.truestun:g}",
+            "%SQUEEZE%": f"{A.squeeze:g}"}
 
     if A.stage == 2:
         if f'id:"{RELIC}"' in s0:
