@@ -10,7 +10,9 @@
   [3]  NOT `f.ultSpin`. That field is Twinshade's and it also changes clanks
   [4]  THE SNAG WRITES `f.pin` AND NEVER `f.stun`, AND THIS IS THE RELIC — the
        caught fighter's weapon still turns and still lands blows while held
-  [5]  ONE CATCH PER WINDOW. The connect expires the ring
+  [5]  THE RING NEVER GETS A FREE SECOND BITE — a catch after the first must
+       be paid for by a SLIP, and none is possible after a connect
+  [16] THE HOLD EXPIRES if the hammer does not arrive (Rick, 2026-09-01)
   [6]  THE CONNECT IS AN ORDINARY MELEE BLOW, found by the engine's own hit
        loop — never a timer, never a projectile
   [7]  THE HOLD ENDS WHEN THE WINDOW DOES, and `pin`, `pinMax`, `pinV` and
@@ -112,6 +114,7 @@ RUN_JS = r"""([rid, foes, seeds, secs, hasConsume]) => {
     /* [11]*/ castBeats: 0, catchBeats: 0, connectBeats: 0,
               connectFatalBeats: 0, connectKills: 0,
     dmgSum: 0, foeBlows: 0, myBlows: 0,
+    /* [16] */ holdChecks: 0, holdOver: 0, holdTMax: 0, slips: 0,
     /* [12/13] */ consumeChecks: 0, consumeLeft: 0, consumeTookMine: 0,
                   consumeWrong: 0, hemSum: 0, burstSum: 0, leftSum: 0,
   };
@@ -279,6 +282,7 @@ RUN_JS = r"""([rid, foes, seeds, secs, hasConsume]) => {
       };
 
       let step = 0, prevWire = null, prevCatches = 0, prevTheta = null;
+      let prevSlips = 0;
       let prevFoeHits = 0, prevMyHits = 0;
       const reach0 = me.w.reach, dmg0 = me.w.dmg, hitCd0 = AC.CONFIG.combat.hitCd;
 
@@ -337,6 +341,20 @@ RUN_JS = r"""([rid, foes, seeds, secs, hasConsume]) => {
            source: `tickStasis`'s own decrement loop is the real writer of
            `stun` for every hold in the game, so the only honest test is the
            observable one. */
+        /* [16] NO HOLD EVER OUTLIVES `holdMax`. Rick: "the hold needs to
+           expire if the hammer doesn't hit in time." Read off the window's OWN
+           clock rather than off sim seconds, because `tickWire` sits below
+           `step()`'s freeze return -- `holdT` counts RUNNING frames, so a hold
+           spanning hit stops is longer in sim time than `holdMax` and is not a
+           defect. Same class as everything else this probe got wrong today,
+           asserted here rather than discovered later. */
+        if (wire){
+          A.holdChecks++;
+          if (U.holdMax && wire.holdT > U.holdMax + 1e-6) A.holdOver++;
+          if (wire.holdT > A.holdTMax) A.holdTMax = wire.holdT;
+          if (wire.slips > prevSlips) A.slips += wire.slips - prevSlips;
+          prevSlips = wire.slips;
+        } else prevSlips = 0;
         if (heldNow){
           A.heldChecks++; A.heldFrames++; A.heldSecs += DT;
           if (m.b.stun > 0) A.stunWhileHeld++;
@@ -419,8 +437,17 @@ RUN_JS = r"""([rid, foes, seeds, secs, hasConsume]) => {
         }
 
         if (!prevWire && wire) A.casts++;
-        /* [5] ONE CATCH PER WINDOW */
-        if (wire && wire.catches > 1) A.recaught++;
+        /* [5] AND THE RULE IS NOT "ONE CATCH PER WINDOW" ANY MORE. The hold
+           cap lets the wire SLIP and re-arm, so a second catch is legitimate
+           -- but only after a slip. The first cut of this check still asserted
+           the old rule and reported 5197 window frames as defects on a build
+           doing exactly what it was asked to.
+
+           WHAT SURVIVES IS THE CLAUSE THE DESIGN'S RESTRAINT RESTS ON: every
+           catch after the first must be paid for by a slip, so the ring can
+           never get a free second bite, and it can never catch at all after a
+           CONNECT (asserted separately below). */
+        if (wire && wire.catches > wire.slips + 1) A.recaught++;
         prevWire = wire;
         prevCatches = cAfter;
       }
@@ -567,6 +594,7 @@ CASES = [
     ("the wind-up",     "ult", {"w": "ravelbone"},        2.4),
     ("the wire closes", "ult", {"w": "ravelbone-snag"},   1.8),
     ("and it holds",    "ult", {"w": "ravelbone-wire"},   1.9),
+    ("the wire slips",  "ult", {"w": "ravelbone-slip"},   1.8),
     ("and it lets go",  "ult", {"w": "ravelbone-burst"},  2.2),
 ]
 
@@ -740,6 +768,22 @@ def main() -> int:
           f" — the whole difference between"
           f"\n        expire:'ring' and expire:'window', and the reason the"
           f" shipped arm is +32.9 and not +18.2")
+    print("\n[16] THE HOLD EXPIRES IF THE HAMMER DOES NOT ARRIVE")
+    if U.get("holdMax"):
+        check(f"no hold ever outlives holdMax {U['holdMax']:g}s",
+              A["holdOver"] == 0,
+              f"{A['holdOver']} of {A['holdChecks']} window frames over it; "
+              f"longest hold {A['holdTMax']:.2f}s"
+              f"\n        {A['slips']} slips over {A['casts']} casts — the wire"
+              f" letting go because the head never"
+              f"\n        arrived, then re-arming after "
+              f"{U.get('reArm', 0):g}s. `holdT` counts RUNNING frames, so a"
+              f"\n        hold spanning hit stops is longer in sim seconds than"
+              f" the cap and is not a defect")
+    else:
+        print("       NO CAP IN THIS BUILD. A catch is released only by the "
+              "connect or by\n       the window running out, so a quarry the "
+              "head never reaches is held\n       for the rest of the window.")
     print("\n[15] THE VOICES")
     for label, kind, pp, secs in CASES:
         g = sfx[pp["w"]]

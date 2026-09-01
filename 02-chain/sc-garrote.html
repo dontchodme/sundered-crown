@@ -1661,6 +1661,7 @@ const WEAPONS = [
     ult:{ name:"Garrote", charge:16, kind:"wire",
           dur:8, radius:110, spinMul:6,
           connectKnock:1, kick:800, launch:1.2,
+          holdMax:2.5, reArm:1,
           consume:8, expire:"window",
           tip:"Holds the foe where it stands, then throws it and consumes Hemorrhage" },
     blurb:"Wire off a pit fence, wound round a head that was already heavy. What it catches does not get to walk away from the swing." },
@@ -6042,6 +6043,15 @@ class Sfx {
              wash rather than a tension. */
           this._tone (t, { freq: 96, to: 88, gain: 0.075, dur: 0.42, type:"sawtooth" });
           this._burst(t + 0.02, { freq: 3100, q: 3.4, gain: 0.045, dur: 0.10, type:"bandpass" });
+        } else if (w === "ravelbone-slip"){     // and sometimes it lets go
+          /* THE FAILURE, AND IT HAS TO SOUND LIKE ONE. The head never arrived
+             and the wire opens on its own -- so this is the snag played
+             backwards in shape: a scrape that FALLS instead of a band that
+             snaps shut, and quieter than the catch was, because nothing has
+             happened. If it sounded like an event a viewer would look for the
+             payoff that is not coming. */
+          this._tone (t, { freq: 260, to: 90, gain: 0.11, dur: 0.26, type:"sawtooth" });
+          this._burst(t + 0.01, { freq: 900, q: 1.8, gain: 0.075, dur: 0.14, type:"bandpass" });
         } else if (w === "ravelbone-burst"){    // and the ring comes apart
           /* THE LOUDEST THING THIS RELIC DOES, because the connect is the
              payoff for an eight-second window and it ends it. A low body for
@@ -10321,13 +10331,50 @@ class Match {
         /* THE QUARRY DIED OR STOPPED BEING A LEGAL TARGET WHILE HELD. */
         if (!foe.alive || this.over){ this.releaseWire(f, foe); continue; }
         W.held += dt;
-        /* THE HOLD, REFRESHED. There is no duration field for this and that
-           is the design: the wire holds until the head comes around. The
-           refresh is comfortably longer than a frame so the hold does not
-           flicker, and it is torn down explicitly at the connect and at the
-           window's end rather than being allowed to run out on its own -- a
-           residual hold after the payoff would be the wire still gripping
-           something the hammer has already thrown. */
+        W.holdT += dt;
+        /* AND THE WIRE LETS GO IF THE HEAD NEVER ARRIVES. Rick, on the shipped
+           clip: "the hold needs to expire if the hammer doesn't hit in time."
+
+           THE DISTRIBUTION MAKES THE NUMBER CHOOSABLE RATHER THAN GUESSABLE,
+           and it is startlingly bimodal (`hold_lab.py`, 453 catches). A catch
+           that CONNECTS holds a median 1.03s and a p90 of 3.82s; a catch that
+           NEVER connects holds a median 7.33s and a p90 of 8.52s -- it runs
+           the whole window. The head comes round every 0.65s at `spin` 1.6 x
+           `spinMul` 6, so a hold past a couple of seconds means the hammer has
+           swung through four times and MISSED, which happens because the
+           quarry is pinned at up to 144 units between centres while the head
+           reaches about 110 and the wielder has to drift in. When it does not
+           drift in, the wire used to just hold, for the rest of the eight
+           seconds. 45 catches of 453 did that, for 260 seconds of dead hold.
+
+           SO IT LETS GO AND RE-ARMS, RATHER THAN LETTING GO AND BEING SPENT,
+           and that is the one part of this Rick's sentence did not settle. A
+           spent ring would leave the rest of the window as a fast hammer with
+           a dead ring at its reach -- which is the tail he had just rejected
+           on `expire:"ring"`, arriving by another road. A ring that can try
+           again keeps the window meaning something.
+
+           `reArm` IS NOT DECORATION EITHER. The quarry was caught on the frame
+           it ENTERED the ring, so its stored velocity points inward; released
+           without a delay it is still inside and is re-caught on the very next
+           frame, which is the same infinite hold with a stutter drawn over it. */
+        if (u.holdMax && W.holdT >= u.holdMax){
+          if (foe.pinFree){
+            foe.pin = 0; foe.pinMax = 0; foe.pinV = null; foe.pinFree = 0;
+          }
+          W.caught = false; W.holdT = 0; W.cd = u.reArm || 0; W.slips++;
+          SFX.play("ult", { w: "ravelbone-slip" });
+          this.note(`${f.w.name} — the wire slips`);
+          continue;
+        }
+        /* THE HOLD, REFRESHED. There is no duration field for how long a
+           SUCCESSFUL hold runs and that is the design: the wire holds until
+           the head comes around, and `holdMax` above is a guard rail behind
+           that rather than the clock itself. The refresh is comfortably longer
+           than a frame so the hold does not flicker, and it is torn down
+           explicitly at the connect and at the window's end rather than being
+           allowed to run out on its own -- a residual hold after the payoff
+           would be the wire still gripping something the hammer has thrown. */
         foe.pin = Math.max(foe.pin, 0.20);
         foe.pinFree = 1;
         /* THE WIRE UNDER TENSION. `_tone` ends on an exponential ramp over
@@ -10365,11 +10412,15 @@ class Match {
          design measured. Under the default `expire:"window"` the window is
          already null here and `spent` is never set. */
       if (W.spent) continue;
+      /* AND THE RE-ARM AFTER A SLIP. See the note in the caught branch: a
+         quarry released inside the ring is still inside it, so without this
+         the catch fires again on the next frame. */
+      if (W.cd > 0){ W.cd = Math.max(0, W.cd - dt); continue; }
       if (!foe.alive || foe.shade || foe.pin > 0 || this.over) continue;
       const dx = foe.x - f.x, dy = foe.y - f.y;
       if (Math.hypot(dx, dy) > u.radius + R) continue;
 
-      W.caught = true; W.catches++;
+      W.caught = true; W.catches++; W.holdT = 0;
       foe.pin = 0.20;
       foe.pinMax = 0.20;
       foe.pinV = [foe.vx, foe.vy];    // what it resumes with, exactly
@@ -12948,7 +12999,8 @@ class Match {
          the window opens. The ring is a place it is unsafe to be, not a
          metronome. */
       f.ultWire = { t: 0, dur: u.dur, caught: false, catches: 0,
-                    connects: 0, held: 0, hum: 0, spent: false };
+                    connects: 0, held: 0, hum: 0, spent: false,
+                    holdT: 0, cd: 0, slips: 0 };
       return;
     }
 

@@ -190,6 +190,26 @@ BISECTED**. `06-docs/v60/ravelbone-build-v60.md`.
 > experimental design coherent. **The registered prediction was never refuted;
 > it was never tested, because the thing built was not the thing priced.**
 
+> **AND THE HOLD NOW EXPIRES, WHICH HE ALSO CAUGHT BY WATCHING.** *"the hold
+> needs to expire if the hammer doesn't hit in time."* As built there was no
+> cap and a quarry the head never reached was held for the rest of the window.
+> **The distribution made the number choosable rather than guessable and it is
+> startlingly bimodal** (`hold_lab.py`, 453 catches): a catch that CONNECTS
+> holds a median 1.03s, and one that NEVER connects holds a median 7.33s — the
+> whole window. The head comes round every 0.65s, so the two populations barely
+> overlap. `holdMax` **2.5s** is four revolutions. **The fix is free** (+19.6
+> against +18.2, inside one SE) and it brought the last failing check into band:
+> `garrote_relic_probe` is **29/29** for the first time, connects per cast 0.90
+> against a registered 0.8-0.9.
+>
+> **THE SUB-DECISION HIS SENTENCE DID NOT SETTLE IS WHAT HAPPENS AFTER.** A
+> spent ring would leave the rest of the window as a fast hammer with a dead
+> ring — the tail he had just rejected, by another road — so the wire LETS GO
+> AND RE-ARMS, with `reArm` 1.0s because a quarry released inside the ring is
+> re-caught on the next frame otherwise. What it trades is shape: the wire now
+> fails more often in smaller pieces, so aggregate dead hold went UP, 260s ->
+> 404s. **Nobody has watched the fail-retry rhythm.**
+
 > **AND THEN RICK WATCHED IT AND OVERRULED THE TABLE, WHICH IS §4.1 WORKING.**
 > Shown the pair as numbers he took `expire:"ring"`. Shown it as a rendered
 > fight: *"the extra wind up speed should stop after it lands a hit."* That is
@@ -1690,7 +1710,8 @@ python ravelbone_build.py --stage 1                                # the 30th re
 python ravelbone_build.py --stage 2                                # THE RING -- snag, hold, connect, throw. No consume
 python ravelbone_build.py --stage 3                                # GARROTE: the explosion consumes Hemorrhage
 python garrote_relic_probe.py --game ../02-chain/sc-garrote.html   # §6 asserted, and the render path CALLED
-python garrote_sheet.py                                            # THE RING / THE VERGE / THE CATCH / THE HOLD / THE THROW
+python garrote_sheet.py                                            # THE RING / THE VERGE / THE CATCH / THE HOLD / THE TAIL / THE THROW
+python hold_lab.py --game ../02-chain/sc-garrote.html              # how long the wire holds, and what a cap costs -- every candidate off ONE run
                                         # AND `hold` IS THE PANEL THE DESIGN RESTS ON.
                                         # Use a `mode:"spin"` foe -- a greatsword
                                         # recomputes theta from the AIM every frame

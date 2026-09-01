@@ -559,6 +559,84 @@ window used a cast         7.63s of 8s        2.87s of 8s
 
 ---
 
+# 5g. AND THEN THE HOLD, WHICH HE ALSO CAUGHT BY WATCHING
+
+> *"the hold needs to expire if the hammer doesn't hit in time."*
+
+As built there was no cap: a catch was released by the connect or by the window
+running out, so a quarry the head never reached was held for the rest of the
+eight seconds.
+
+**THE DISTRIBUTION MADE THE NUMBER CHOOSABLE RATHER THAN GUESSABLE, AND IT IS
+STARTLINGLY BIMODAL.** `hold_lab.py`, 453 catches over 232 fights:
+
+```
+                        n      median     p90      max
+catches that CONNECT   408      1.03s     3.82s    8.62s
+that NEVER connect      45      7.33s     8.52s    8.77s
+```
+
+The head comes round every **0.65s** at `spin` 1.6 × `spinMul` 6. So a connect
+lands inside two revolutions, and a failure runs the WHOLE WINDOW — the two
+populations barely overlap. The failures are pure dead weight: 45 catches
+holding a quarry the head never reaches, **260 seconds of it across the run**.
+
+The mechanism is geometric and it is in §5c already: the quarry is pinned at up
+to 144 units between centres while the head reaches about 110, so the wielder
+has to drift in. When it does not, the wire just holds.
+
+**`holdMax` 2.5s** is about four revolutions — a hold that reaches it has had
+four chances and taken none.
+
+## 5g.1 THE SUB-DECISION HIS SENTENCE DID NOT SETTLE
+
+What happens after the wire lets go?
+
+- **Let go and be SPENT** would leave the rest of the window as a fast hammer
+  with a dead ring at its reach — **which is the tail he had just rejected on
+  `expire:"ring"`, arriving by another road.**
+- **Let go and RE-ARM** keeps the window meaning something.
+
+Re-arm was built, and `reArm` 1.0s is not decoration: the quarry is caught on
+the frame it ENTERS the ring, so its stored velocity points inward and a
+release with no delay is re-caught on the very next frame — the same infinite
+hold with a stutter drawn over it.
+
+```
+                          no cap    holdMax 2.5s + reArm 1.0s
+longest single hold        8.77s        4.38s   (2.50s of RUNNING time)
+failures: median hold      7.33s        2.77s
+failures: count               45          157
+TOTAL dead hold             260s         404s
+lift over its own floor    +18.2        +19.6  +/- 2.5
+connects per cast           0.91         0.90   <- the registered band, MET
+```
+
+> **NO SINGLE GRAB IS INTERMINABLE ANY MORE AND THE FIX IS FREE**, +19.6
+> against +18.2 being inside one SE. What it does trade is shape: the wire now
+> fails more often in smaller pieces, so the AGGREGATE dead hold went UP,
+> 260s -> 404s. Whether a fail-retry rhythm reads better than one long grab is
+> a picture question and nobody has watched it.
+
+> **AND IT BROUGHT THE LAST FAILING CHECK INTO BAND.** `garrote_relic_probe` is
+> **29/29** for the first time: connects per cast 0.90 against the registered
+> 0.8-0.9, where every build before this read 0.91.
+
+> **`holdMax` COUNTS RUNNING FRAMES, NOT SIM SECONDS**, because `tickWire` sits
+> below `step()`'s freeze return. A hold spanning hit stops reads longer in sim
+> time than the cap — 4.38s against 2.50s — and that is consistent with every
+> other clock in this ultimate. Asserted in [16] against the window's own
+> counter rather than against wall time, which is the same distinction that
+> cost this probe five false defects earlier in the day.
+
+> **AND CHECK [5] HAD TO BE NARROWED, BECAUSE THE RE-ARM MAKES A SECOND CATCH
+> LEGITIMATE.** "One catch per window" reported 5197 window frames as defects
+> on a build doing exactly what it was asked to. What survives is the clause
+> the design's restraint actually rests on: **every catch after the first must
+> be paid for by a slip, and none is possible after a connect.**
+
+---
+
 # 6. WHAT SHIPPED
 
 ```

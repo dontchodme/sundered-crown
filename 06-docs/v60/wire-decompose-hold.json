@@ -1,0 +1,64 @@
+{
+ "arms": [
+  {
+   "label": "the floor, no ultimate",
+   "win": 31.432360742705573,
+   "se": 1.6906839340933295,
+   "wins": 237,
+   "n": 754,
+   "casts": 0,
+   "spun": 0,
+   "blows": 6002,
+   "foeBlows": 12378
+  },
+  {
+   "label": "the WIND-UP alone",
+   "win": 55.702917771883286,
+   "se": 1.809009550984525,
+   "wins": 420,
+   "n": 754,
+   "casts": 1497,
+   "spun": 12054.0083332,
+   "blows": 6927,
+   "foeBlows": 11182
+  },
+  {
+   "label": "the ring, spin x1",
+   "win": 41.777188328912466,
+   "se": 1.7961000221086991,
+   "wins": 315,
+   "n": 754,
+   "casts": 1484,
+   "spun": 6748.874999943865,
+   "blows": 5940,
+   "foeBlows": 11995
+  },
+  {
+   "label": "EVERYTHING, as shipped",
+   "win": 51.06100795755968,
+   "se": 1.8204825861032103,
+   "wins": 385,
+   "n": 754,
+   "casts": 1471,
+   "spun": 4417.158333311129,
+   "blows": 6287,
+   "foeBlows": 11320
+  }
+ ],
+ "ult": {
+  "name": "Garrote",
+  "charge": 16,
+  "kind": "wire",
+  "dur": 8,
+  "radius": 110,
+  "spinMul": 6,
+  "connectKnock": 1,
+  "kick": 800,
+  "launch": 1.2,
+  "holdMax": 2.5,
+  "reArm": 1,
+  "consume": 8,
+  "expire": "window",
+  "tip": "Holds the foe where it stands, then throws it and consumes Hemorrhage"
+ }
+}
