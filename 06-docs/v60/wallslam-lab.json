@@ -1,0 +1,84 @@
+{
+ "game": "C:\\dev\\sundered-crown\\02-chain\\sc-breach.html",
+ "cfg": {
+  "relics": [
+   "grudgebearer",
+   "censer",
+   "bulwarden",
+   "shroudmaul"
+  ],
+  "foes": [
+   "oathwound",
+   "redflail",
+   "widowmaker",
+   "marrowdraw",
+   "emberedge",
+   "thornshear"
+  ],
+  "steps": 14400,
+  "window": 1.5,
+  "kick": 0.0,
+  "launchT": 1.2
+ },
+ "seeds": [
+  1000,
+  8919,
+  16838,
+  24757,
+  32676,
+  40595,
+  48514,
+  56433,
+  64352,
+  72271,
+  80190,
+  88109
+ ],
+ "fights": 288,
+ "blows": 9119,
+ "arrival": {
+  "warhammer": {
+   "n": 2196,
+   "p10": 439.5,
+   "median": 849.9,
+   "p90": 1300,
+   "sd": 453.3
+  },
+  "other": {
+   "n": 4314,
+   "p10": 456.7,
+   "median": 833.4,
+   "p90": 1220.1,
+   "sd": 273.2
+  }
+ },
+ "impulse": {
+  "1": 165,
+  "2.3": 379.5
+ },
+ "contact": {
+  "warhammer": [
+   2196,
+   2414
+  ],
+  "other": [
+   4314,
+   6705
+  ]
+ },
+ "walls": {
+  "S": 870,
+  "W": 632,
+  "E": 619,
+  "N": 75
+ },
+ "gates": {
+  "[1] both arms exist - the run can test P2 at all": true,
+  "[2] one blow is one arrival - no blow claimed twice": true,
+  "[2b] the instrument sees the impulse - |dv| == knock x knockMul": true,
+  "[3] P1 THE SPREAD IS REAL - top decile >= 1.6x bottom decile": true,
+  "[4] P2 THE HAMMER IS THE CAUSE - >= 25% over everything else": false,
+  "[5] P3 THE ARRIVAL IS NOT MOSTLY THE FLOOR - under 70%": true,
+  "[6] no JS errors or page exceptions": true
+ }
+}

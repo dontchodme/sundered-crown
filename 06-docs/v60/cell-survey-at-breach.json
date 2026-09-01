@@ -1,0 +1,199 @@
+{
+ "grid": {
+  "bloodswornxbow": "Marrowdraw",
+  "bloodswornxflail": "Threshmaw",
+  "bloodswornxgreatsword": "Goreshard",
+  "bloodswornxscythe": null,
+  "bloodswornxtwinblade": "Widowmaker",
+  "bloodswornxwarhammer": null,
+  "dwarvenxbow": "Ironhail",
+  "dwarvenxflail": "Slagheart",
+  "dwarvenxgreatsword": "Emberedge",
+  "dwarvenxscythe": "Cindercleave",
+  "dwarvenxtwinblade": null,
+  "dwarvenxwarhammer": "Grudgebearer",
+  "runicxbow": null,
+  "runicxflail": "Paradox",
+  "runicxgreatsword": "Axiom",
+  "runicxscythe": "Foregone",
+  "runicxtwinblade": "Spellbreaker",
+  "runicxwarhammer": null,
+  "sanctifiedxbow": "Aureole",
+  "sanctifiedxflail": null,
+  "sanctifiedxgreatsword": "Dawnbringer",
+  "sanctifiedxscythe": "Lastlight",
+  "sanctifiedxtwinblade": null,
+  "sanctifiedxwarhammer": "Censer",
+  "umbralxbow": null,
+  "umbralxflail": "Gravemourn",
+  "umbralxgreatsword": "Nightfell",
+  "umbralxscythe": null,
+  "umbralxtwinblade": "Twinshade",
+  "umbralxwarhammer": "Shroudmaul",
+  "verdantxbow": "Vinesower",
+  "verdantxflail": null,
+  "verdantxgreatsword": "Heartwood",
+  "verdantxscythe": "Thornwake",
+  "verdantxtwinblade": "Thornshear",
+  "verdantxwarhammer": null,
+  "vigilxbow": "Farwarden",
+  "vigilxflail": null,
+  "vigilxgreatsword": "Lightkeeper",
+  "vigilxscythe": "Vesper",
+  "vigilxtwinblade": null,
+  "vigilxwarhammer": "Bulwarden"
+ },
+ "open": [
+  "bloodswornxscythe",
+  "bloodswornxwarhammer",
+  "dwarvenxtwinblade",
+  "runicxbow",
+  "runicxwarhammer",
+  "sanctifiedxflail",
+  "sanctifiedxtwinblade",
+  "umbralxbow",
+  "umbralxscythe",
+  "verdantxflail",
+  "verdantxwarhammer",
+  "vigilxflail",
+  "vigilxtwinblade"
+ ],
+ "channels": {
+  "bloodsworn": {
+   "onHit": [
+    [
+     "hemorrhage",
+     2
+    ]
+   ],
+   "onSelf": [],
+   "n": 4
+  },
+  "dwarven": {
+   "onHit": [
+    [
+     "sunder",
+     1
+    ],
+    [
+     "sunder",
+     2
+    ]
+   ],
+   "onSelf": [],
+   "n": 5
+  },
+  "runic": {
+   "onHit": [
+    [
+     "hex",
+     1
+    ]
+   ],
+   "onSelf": [],
+   "n": 4
+  },
+  "sanctified": {
+   "onHit": [
+    [
+     "smite",
+     1
+    ]
+   ],
+   "onSelf": [],
+   "n": 4
+  },
+  "umbral": {
+   "onHit": [
+    [
+     "curse",
+     1
+    ]
+   ],
+   "onSelf": [],
+   "n": 4
+  },
+  "verdant": {
+   "onHit": [
+    [
+     "entangle",
+     2
+    ]
+   ],
+   "onSelf": [],
+   "n": 4
+  },
+  "vigil": {
+   "onHit": [],
+   "onSelf": [
+    [
+     "ward",
+     1
+    ],
+    [
+     "ward",
+     2.5
+    ]
+   ],
+   "n": 4
+  }
+ },
+ "status": {
+  "smite": {
+   "maxStacks": 4,
+   "dur": 3.2,
+   "tip": "Deals 1.5 damage per second per stack"
+  },
+  "hemorrhage": {
+   "maxStacks": 4,
+   "dur": 3.2,
+   "tip": "Deals 1.5 damage per second per stack"
+  },
+  "entangle": {
+   "maxStacks": 4,
+   "dur": 2.8,
+   "tip": "Slows swing 13%, move 6%, per stack"
+  },
+  "hex": {
+   "maxStacks": 5,
+   "dur": 2.6,
+   "tip": "0.2s weapon stun, more often per stack"
+  },
+  "curse": {
+   "maxStacks": 3,
+   "dur": 99,
+   "tip": "Hits reflect 8% of the damage that cursed"
+  },
+  "sunder": {
+   "maxStacks": 6,
+   "dur": 5,
+   "tip": "Increases damage taken by 11% per stack"
+  },
+  "blessing": {
+   "maxStacks": 5,
+   "dur": 6,
+   "tip": "Heals 1.2 hp per second per stack"
+  },
+  "ward": {
+   "maxStacks": 1,
+   "dur": 5,
+   "tip": "Hits bank a shield; 40% blast on a break"
+  }
+ },
+ "artDiff": {
+  "runicxbow": 0.4139667825415218,
+  "umbralxbow": 0.5452949338770424,
+  "sanctifiedxflail": 0.6486130924076716,
+  "verdantxflail": 0.49091271555304516,
+  "vigilxflail": 0.7129712080736124,
+  "bloodswornxscythe": 0.5904812736763998,
+  "umbralxscythe": 0.6556763520727381,
+  "dwarvenxtwinblade": 0.3265029788770536,
+  "sanctifiedxtwinblade": 0.3255038820484668,
+  "vigilxtwinblade": 0.7318938371569951,
+  "bloodswornxwarhammer": 0.5077093395948468,
+  "runicxwarhammer": 0.980259332480521,
+  "verdantxwarhammer": 0.9945045753383408
+ },
+ "clock": {}
+}

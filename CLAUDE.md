@@ -1835,16 +1835,24 @@ git push
     2.8 is refuted-at-1.35 and confirmed by nothing. §7 of the build brief and
     rule 2 both make this Rick's. `07-shorts/v56/grasp-first-cut.mp4`.
 
-34. **THREE CELLS NOW BUILD THEIR GRAMMAR THE WAY RICK REJECTED.** §0.
-    Bloodsworn's six hooks and dwarven's four bolt bosses are separate stroked
-    shapes on top of `_whBase`, and **`_scBuilt` — the dwarven scythe this
-    build just shipped — is a square bracket plate and four bolts stroked on
-    top of `_scBase`.** All three are the construction that made the umbral
-    spikes read as *"triangles layered behind the hammer"*. Nobody has
-    complained and nothing is measured; the difference now is that one of them
-    is in the build of record's newest relic. The rule that fixed the umbral
-    hammer is reusable: **a grammar that adds a limb to a type must add it to
-    the type's OUTLINE, not behind it.**
+34. **THREE CELLS NOW BUILD THEIR GRAMMAR THE WAY RICK REJECTED — AND ONE OF
+    THE THREE IS NOW A CHOSEN STATE.** §0. Bloodsworn's six hooks and dwarven's
+    four bolt bosses are separate stroked shapes on top of `_whBase`, and
+    **`_scBuilt` — the dwarven scythe — is a square bracket plate and four
+    bolts stroked on top of `_scBase`.** All three are the construction that
+    made the umbral spikes read as *"triangles layered behind the hammer"*.
+    The rule that fixed the umbral hammer is reusable: **a grammar that adds a
+    limb to a type must add it to the type's OUTLINE, not behind it.**
+
+    **`_whBarbed` IS RICK'S, KEPT ON THE MEASUREMENT RATHER THAN IN IGNORANCE
+    OF IT**, 2026-09-01. Asked at the top of the red hammer build, with
+    `cell_survey`'s number in front of him — nearest sibling dwarven, 50.8%
+    ink diff, inkIoU 0.762, **the closest pair of 21 on the warhammer type** —
+    he took *"leave it, it's fine"* over a redraw. So the bloodsworn warhammer
+    is a decision and not drift, and the cell being built into it inherits
+    that silhouette deliberately. **Do not re-raise it and do not quote 50.8%
+    as an open defect.** Dwarven's bolt bosses and `_scBuilt` are untouched by
+    this and are still the old construction, unasked.
 35. **THE TWO SILHOUETTE INSTRUMENTS HAVE NEVER BEEN RUN AGAINST THE SAME
     BUILD.** §0. `cell_survey`'s ink mask and `silhouette_probe`'s IoU
     disagree by more than the difference between "distinct" and "identical",
