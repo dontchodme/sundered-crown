@@ -300,6 +300,88 @@ to move a number whose own interval already contains both answers.
 
 ---
 
+# 5a. THE STRAND'S ART, AND RICK'S ONE-LINE REJECTION OF THE STAGE-3 CLIP
+
+Shown the stage-3 fight, Rick: *"theres no electricity connecting the arrow
+tips. this isnt the ult"* — and he is right in the strongest sense. Every number
+in section 1 was green and what was on screen was a bow firing three arrows.
+The brief put the art in stage 4 and the mechanic in stage 3, and a clip taken
+between those two shows a relic that does not exist.
+
+`drawStrands` runs UNDER `drawShots`, so the arrows read on top of the thing
+that connects them, and it uses `tickNet`'s pairing rule EXACTLY: adjacent in
+the fan, both alive, a dead arrow breaks its links. If the two ever disagree a
+viewer sees lightning that cannot shove, or a shove with no lightning.
+
+**IT IS DRAWN TIP TO TIP AND TESTED CENTRE TO CENTRE**, and that is declared in
+the code rather than hidden. The two differ by about `s.r` at each end — 24
+units — against a strand that connects at `R + strandW` = 124. Breach's rule is
+that a beam drawn WIDER than it tests is a lie; this is drawn SHORTER than it
+tests, by a fifth of its own reach, which is the safe direction of that error.
+
+**FOUR REGISTERS, BECAUSE RULE 2 ASKS FOR A SPREAD.** `strandArt` selects:
+`bolt` crackles, `chain` is the same bolt with beads at its vertices,
+`filament` is three continuous arcs under tension, and `bar` is a clean
+two-stroke beam and the control for the other three. **A spent strand goes dim
+rather than dark** — `strandSpent` is already the latch that says this bar has
+had its one shove, so which bars are still live is countable for free, which is
+Breach's five-chip idea arriving without being asked for.
+
+**AND IT IS PRESENTATION-ONLY ON THE STRONGEST CONTROL THE PROJECT HAS**: an
+`engine_ab` including Gloamwire itself, which no earlier stage could run because
+every earlier stage changed the simulation. **2790/2790 identical across all 31
+ids.**
+
+Three house rules it would have broken if it had been careless, all named in the
+code: no `this.rng()` (the flicker is `shellHash` on quantised sim time —
+derived, not accumulated, so it does not strobe against the frame interpolator
+and does not re-invalidate the blade); no `createRadialGradient` per segment per
+frame; and no `shadowBlur`. Those last two are precisely what took
+Cindercleave's capture to 0.19 frames a second.
+
+---
+
+# 5b. EXTRA PROJECTILE SPEED, AND IT IS A COST
+
+Rick, after the art landed: *"lets also give the arrows extra projectile
+speed."* Built as a RESCALE of the vector `spawnShot` already computed rather
+than a fresh one — Marrowdraw's construction, so direction stays the type's
+business and only magnitude is the window's.
+
+900 fights an arm, side A, at the shipped blade:
+
+```
+   mul   px/s     win  parried  landed   wall  shoves  blows
+  1.00    380   49.9%     8.6%    7.7%  83.8%    23.0   20.3
+  1.35    513   42.2%     7.5%    6.9%  85.7%    22.1   19.9
+  1.70    646   40.9%     6.7%    6.5%  86.8%    22.1   19.8
+  2.10    798   38.9%     6.3%    6.2%  87.4%    22.4   19.4
+```
+
+**Monotone DOWN, and the mechanism is the wall.** The parry falls exactly as
+predicted — a faster arrow crosses a spinning blade's swept area in fewer frames
+— and it does not matter, because `wall` climbs 83.8% -> 87.4% at the same time.
+An arrow that spends less time in the air gives the quarry fewer frames to
+wander into it and reaches the stone sooner. **Landed falls 7.7% -> 6.9%.**
+
+That is v40 open decision 2 arriving from a direction nobody expected: *anything
+that moves the landed rate is worth roughly ten times anything that moves what
+an arrow does when it lands* — and extra speed moves the landed rate DOWN.
+
+**Rick took 1.35 with the table in front of him**, which is a picture bought
+with points, like Cindercleave's shove at −2.3 and Garrote's window at −14.7.
+
+> **AND THE TWO INSTRUMENTS DISAGREE ABOUT HOW MUCH IT COST.** The speed sweep
+> says −7.7pp at dmg 9.0 (n=900 an arm); the re-run blade curve reads dmg 9.20
+> at **49.6%** under `speedMul` 1.35 (n=240 a point) where the same blade read
+> 50.0% at `speedMul` 1.0. If the cost were 7.7 points, 9.2 should read about
+> 44%. Five points apart, and CLAUDE.md records two readings of one arm 6.6
+> points apart above the n≈700 floor. **The wide pass adjudicates it without
+> either**: the crossing was 9.01 at `speedMul` 1.0, so a real 7.7-point cost
+> puts it near 9.7 and a negligible one leaves it near 9.2.
+
+---
+
 # 6. FIVE OF THIS SESSION'S FINDINGS WERE THE INSTRUMENT, AND THREE WERE THE SAME MISTAKE
 
 Recorded because v60's open decision 5 is that a session's own error rate is the

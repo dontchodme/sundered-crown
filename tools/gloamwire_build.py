@@ -146,6 +146,10 @@ ULT = {
                            # parallel and over two narrower fans.
     "cadmul":       0.5,   # design 5. Below 1 is FASTER; Marrowdraw uses 4 to
                            # go drastically slower.
+    "speedmul":     1.5,   # STAGE 6, and a PLACEHOLDER like the blade was.
+                           # Rick asked for "extra projectile speed" and not
+                           # for a number; `gloamwire_sweep.py --only 2` prices
+                           # it. 1.5 is 380 -> 570 and is a starting value.
     "dmgmul":       1.4,   # design 6, the +40% arm. Rick took all four
                            # strength clauses and the blade pays.
     "strandw":     90.0,   # design 4.2. Above the crossover at shot.r = 24, so
@@ -160,7 +164,12 @@ ULT_NAME = "Crossweave"
 # 48 characters against verify's 72. See the header: the 40 in both documents
 # is the status-tip figure. `tip_audit` is still the gate that matters.
 ULT_TIP = "24 volleys of 3 strung arrows; the strand shoves"
-ULT_TIP1 = "—"          # stage 1, stubbed. verify only asks that it is non-empty.
+ULT_TIP1 = "—"     # stage 1, stubbed. verify only asks that it is non-empty.
+
+# STAGE 5, AND IT IS RICK'S TO CHANGE. Four registers, and the default is the
+# one his own words point at -- "a string of purple lightning" is a discharge
+# and not a beam. `strand_art_lab.py` renders all four off one real frame.
+STRAND_ART = "bolt"
 
 # NOT RICK'S, AND OFFERED RATHER THAN CHOSEN. The design doc's open decision 2
 # says the blurb is unwritten. Every other relic's is in his register; this is a
@@ -573,6 +582,264 @@ S3 = [
 ]
 
 
+# ---------------------------------------------------------------- stage five --
+# THE STRAND'S ART. Rick, on the stage-3 clip: *"theres no electricity
+# connecting the arrow tips. this isnt the ult"* -- and he is right. The
+# mechanic was built and measured and the thing on screen was a bow firing
+# three arrows.
+#
+# NUMBERED 5 BECAUSE 4 WAS ALREADY SPENT. The brief's stage 4 is art, sound and
+# the director's beat; this builder used stage 4 for the BLADE (gate 3 item 6)
+# before the art was asked for. This is the brief's stage 4a. The sound and the
+# beat are still unwritten and still Rick's.
+#
+# PRESENTATION ONLY, AND IT MUST PROVE IT. Nothing here is read by the
+# simulation: `engine_ab` must come back identical on every relic INCLUDING
+# Gloamwire, which is a stronger control than the earlier stages could run
+# because the strand's geometry is unchanged.
+#
+# FOUR STYLES, BECAUSE RULE 2 SAYS OFFER A SPREAD AND BEING WRONG ABOUT THE
+# REGISTER IS WHAT COSTS. `strandArt` selects; the balance cannot see it.
+#
+# AND THE HOUSE RULES THIS BREAKS IF IT IS CARELESS:
+#   * NO `this.rng()`. A relic that is not in the match must not perturb the
+#     draw order of one that is, and a field drawn from the sim's RNG would
+#     re-invalidate the blade. The flicker is `shellHash` keyed on the volley
+#     and on QUANTISED SIM TIME, which is derived rather than accumulated --
+#     the same construction rule the splinter's tumble and the kunai's flutter
+#     use, and for the same reason: an accumulated angle strobes against the
+#     frame interpolator.
+#   * NO `createRadialGradient` PER SEGMENT PER FRAME. That is the exact cost
+#     that took Cindercleave's capture to 0.19 frames a second -- nine gradient
+#     objects a frame became seventy-two inside a lobe loop. Flat strokes under
+#     `lighter` do the same job, which is what the fix was.
+#   * NO `shadowBlur`. The other half of that same 14x.
+#   * AREA, NOT ALPHA, IS WHAT THE BLOOM READS (CLAUDE.md 4.1c/1d). The halo is
+#     kept narrow on purpose; 48 strand segments inside four seconds is a
+#     full-frame candidate and `ult_bloom_probe` has not been run on it.
+
+S5 = [
+
+("drawstrands", '''  drawShots(m){
+    if (!m.shots.length) return;''',
+ '''  /* THE STRAND. Rick's section 1: "each arrow connected by a string of purple
+     lightning."
+
+     IT IS DRAWN TIP TO TIP AND TESTED CENTRE TO CENTRE, and that is declared
+     rather than hidden. `tickNet` measures point-to-segment from the quarry to
+     the segment joining the two arrows' CENTRES; this draws from one arrow's
+     leading point to the other's, which is where a viewer sees the lightning
+     anchored. The two differ by about `s.r` at each end -- 24 units -- against
+     a strand that connects at `R + strandW` = 124. Breach's rule is that a beam
+     drawn WIDER than it tests is a lie; this is drawn SHORTER than it tests, in
+     a mechanic whose reach is five times the discrepancy, and the direction of
+     the error is the safe one.
+
+     THE PAIRING RULE IS `tickNet`'s, EXACTLY: adjacent in the fan, both alive,
+     and a dead arrow breaks its links rather than handing them on. If these two
+     ever disagree the viewer sees lightning that cannot shove, or a shove with
+     no lightning, and that is the whole of what this relic is.
+
+     UNDER `drawShots` so the arrows read ON TOP of what connects them: the
+     arrows are the objects and the strand is the thing between them. */
+  drawStrands(m){
+    if (!m.shots.length) return;
+    const byVolley = new Map();
+    for (const s of m.shots){
+      if (!s.net) continue;
+      let g = byVolley.get(s.volley);
+      if (!g) byVolley.set(s.volley, g = []);
+      g.push(s);
+    }
+    if (!byVolley.size) return;
+
+    const c = this.ctx;
+    c.save();
+    c.globalCompositeOperation = "lighter";
+    c.lineCap = "round";
+    c.lineJoin = "round";
+
+    /* 30Hz, DERIVED from sim time and never accumulated. A strand redrawn from
+       a running counter would strobe against the frame interpolator; this steps
+       with the sim and is identical on a replay. */
+    const q = Math.floor(m.t * 30);
+
+    for (const g of byVolley.values()){
+      if (g.length < 2) continue;
+      g.sort((p, r) => p.idx - r.idx);
+      const own = g[0].own === "a" ? m.a : m.b;
+      const aff = own.aff, U = own.w.ult || {};
+      const style = U.strandArt || "%STRANDART%";
+      for (let i = 0; i + 1 < g.length; i++){
+        const p = g[i], r = g[i + 1];
+        if (r.idx !== p.idx + 1) continue;
+        const sp0 = Math.hypot(p.vx, p.vy) || 1, sp1 = Math.hypot(r.vx, r.vy) || 1;
+        const ax = p.x + p.vx / sp0 * p.r * 1.05;
+        const ay = p.y + p.vy / sp0 * p.r * 1.05;
+        const bx = r.x + r.vx / sp1 * r.r * 1.05;
+        const by = r.y + r.vy / sp1 * r.r * 1.05;
+        const dx = bx - ax, dy = by - ay;
+        const len = Math.hypot(dx, dy) || 1;
+        const nx = -dy / len, ny = dx / len;
+        /* SPENT STRANDS GO DIM RATHER THAN DARK. `strandSpent` is the latch
+           that says this one has already shoved, so a viewer can see which
+           bars are still live -- the same countable-state idea as Breach's
+           five chips, for free. */
+        const live = p.strandSpent ? 0.45 : 1;
+        const key = (p.volley | 0) * 7 + i;
+
+        if (style === "bar"){
+          /* A CLEAN BAR. The most legible and the least characterful: two
+             strokes, a wide dim halo in the school's core and a thin hot line
+             on top of it. This is the control for the other three. */
+          c.globalAlpha = 0.26 * live; c.strokeStyle = aff.core;
+          c.lineWidth = 9;
+          c.beginPath(); c.moveTo(ax, ay); c.lineTo(bx, by); c.stroke();
+          c.globalAlpha = 0.95 * live; c.strokeStyle = aff.glow;
+          c.lineWidth = 2.4;
+          c.beginPath(); c.moveTo(ax, ay); c.lineTo(bx, by); c.stroke();
+
+        } else if (style === "filament"){
+          /* THREE ARCS THAT BOW BY DIFFERENT AMOUNTS. A plasma bundle rather
+             than a bolt -- continuous, no jitter, and it reads as tension
+             between the two arrows rather than as a discharge. */
+          for (let k = 0; k < 3; k++){
+            const bow = (k - 1) * len * 0.13
+                      + (shellHash(key, k) - 0.5) * len * 0.05;
+            const mx = (ax + bx) / 2 + nx * bow, my = (ay + by) / 2 + ny * bow;
+            c.globalAlpha = (k === 1 ? 0.95 : 0.55) * live;
+            c.strokeStyle = k === 1 ? aff.glow : aff.core;
+            c.lineWidth = k === 1 ? 2.2 : 1.4;
+            c.beginPath();
+            c.moveTo(ax, ay); c.quadraticCurveTo(mx, my, bx, by); c.stroke();
+          }
+
+        } else {
+          /* A BOLT: a jagged polyline whose lateral offsets are hashed on the
+             volley, the segment and quantised time, so it CRACKLES without any
+             stored state and without a single call to the sim's RNG.
+
+             The offset is scaled by `sin(pi t)` so the path is pinned at both
+             ends -- lightning that wandered away from the arrow tip it is
+             supposed to be anchored to is the one thing this picture cannot
+             do, because the anchor IS the mechanic. */
+          const SEG = 7, amp = Math.min(26, len * 0.17);
+          const px = [], py = [];
+          for (let k = 0; k <= SEG; k++){
+            const t = k / SEG;
+            const w = (k === 0 || k === SEG)
+                    ? 0
+                    : (shellHash(key * 31 + k, q) - 0.5) * 2 * amp
+                      * Math.sin(Math.PI * t);
+            px.push(ax + dx * t + nx * w);
+            py.push(ay + dy * t + ny * w);
+          }
+          const path = () => {
+            c.beginPath(); c.moveTo(px[0], py[0]);
+            for (let k = 1; k <= SEG; k++) c.lineTo(px[k], py[k]);
+            c.stroke();
+          };
+          c.globalAlpha = 0.22 * live; c.strokeStyle = aff.core;
+          c.lineWidth = 8; path();
+          c.globalAlpha = 0.90 * live; c.strokeStyle = aff.glow;
+          c.lineWidth = 2.0; path();
+          if (style === "chain"){
+            /* NODES. The bolt with a bright bead at every vertex, which is the
+               one variant that reads as DISCRETE -- a chain of links rather
+               than a continuous arc. */
+            c.globalAlpha = 0.95 * live; c.fillStyle = aff.glow;
+            for (let k = 1; k < SEG; k++){
+              c.beginPath(); c.arc(px[k], py[k], 2.1, 0, TAU); c.fill();
+            }
+          }
+        }
+      }
+    }
+    c.globalAlpha = 1;
+    c.restore();
+  }
+
+  drawShots(m){
+    if (!m.shots.length) return;'''),
+
+("draw-order", '''    this.drawDrains(m);
+    this.drawShots(m);''',
+ '''    this.drawDrains(m);
+    /* UNDER the arrows: they are the objects and this is what runs between
+       them. Over the fighters, because a strand crosses the room. */
+    this.drawStrands(m);
+    this.drawShots(m);'''),
+
+("ult-strandart", '''          dmgMul:%DMGMUL%, strandW:%STRANDW%, strandKnock:%STRANDKNOCK%,
+          tip:"%TIP%" },''',
+ '''          dmgMul:%DMGMUL%, strandW:%STRANDW%, strandKnock:%STRANDKNOCK%,
+          /* PURE LOOK, and the balance cannot see it -- `drawStrands` is the
+             only reader and `engine_ab` is identical on all 31 relics with it
+             set to any value. Four registers were offered as a spread because
+             rule 2 asks for one and because being wrong about the REGISTER is
+             what costs: "bolt" crackles, "chain" is the same bolt with beads
+             at its vertices, "filament" is three continuous arcs under
+             tension, and "bar" is a clean two-stroke beam and the control for
+             the other three. */
+          strandArt:"%STRANDART%",
+          tip:"%TIP%" },'''),
+
+]
+
+
+# ----------------------------------------------------------------- stage six --
+# EXTRA PROJECTILE SPEED. Rick, 2026-09-01, on the stage-5 clip: *"lets also
+# give the arrows extra projectile speed"* -- a fifth strength clause on an
+# ultimate that already had four, and it is his to add.
+#
+# A RESCALE OF THE VELOCITY THE TYPE ALREADY SET, never a fresh vector. This is
+# Marrowdraw's own construction, and its comment says why: everything the TYPE
+# owns -- where the shot leaves from, that it inherits none of the ball's
+# velocity, that it points along the facing -- has to stay decided by one piece
+# of code for all six bows. A bolt built from a new vector can end up travelling
+# somewhere the arrow would not have.
+#
+# AND IT IS NOT FREE, WHICH IS THE PART WORTH MEASURING RATHER THAN ASSUMING:
+#   * a faster arrow crosses a spinning blade's swept area in fewer frames, so
+#     the PARRY should fall -- and the parry is a property of the foe's
+#     geometry, spread 4.6% to 14.4% across the types;
+#   * it spends less time in the air, so fewer are alive at once and `maxLive`
+#     gets even further away;
+#   * the fan's GAP is a function of range and not of speed, so the strand
+#     geometry at a given separation is unchanged -- but the volley reaches
+#     that separation sooner, which is not the same thing as reaching further.
+#
+# **IT VOIDS THE BLADE.** `dmg` 9.0 was measured at speed 380 over 12,240
+# fights. Anything that moves the contact rate moves the crossing, and
+# `gloamwire_sweep.py` has to run again.
+
+S6 = [
+
+("speedmul", '''        /* A MULTIPLIER OF WHAT THE TYPE ALREADY SET, never an assignment, so
+           the shot block stays the one thing that decides what an arrow is. */
+        s.dmgMul = s.dmgMul * u.dmgMul;''',
+ '''        /* A MULTIPLIER OF WHAT THE TYPE ALREADY SET, never an assignment, so
+           the shot block stays the one thing that decides what an arrow is. */
+        s.dmgMul = s.dmgMul * u.dmgMul;
+        /* AND THE SAME RULE FOR THE SPEED. Rick: "lets also give the arrows
+           extra projectile speed." Applied as a RESCALE of the velocity
+           `spawnShot` already computed rather than as a fresh vector, which is
+           Marrowdraw's construction and for its stated reason: the direction
+           stays the type's business and only the magnitude is this window's.
+
+           `=== undefined` and not `|| 1` (CLAUDE.md 4.3): a sweep must be able
+           to set this to 0 and must be able to say "no change" with 1. */
+        if (u.speedMul !== undefined && u.speedMul !== 1){
+          s.vx *= u.speedMul; s.vy *= u.speedMul;
+        }'''),
+
+("ult-speedmul", '''          dmgMul:%DMGMUL%, strandW:%STRANDW%, strandKnock:%STRANDKNOCK%,''',
+ '''          dmgMul:%DMGMUL%, speedMul:%SPEEDMUL%,
+          strandW:%STRANDW%, strandKnock:%STRANDKNOCK%,'''),
+
+]
+
+
 # ------------------------------------------------------------------ helpers --
 
 def one(src: str, old: str, new: str, label: str) -> str:
@@ -678,6 +945,8 @@ def ult_matches(s: str, A, stage: int) -> None:
             want[{"cadmul": "cadMul", "dmgmul": "dmgMul",
                   "strandw": "strandW", "strandknock": "strandKnock"
                   }.get(key, key)] = f"{getattr(A, key):g}"
+        if stage >= 6:
+            want["speedMul"] = f"{A.speedmul:g}"
     missing = []
     for key, val in want.items():
         if not re.search(rf"\b{re.escape(key)}\s*:\s*{re.escape(val)}\s*[,}}]", blk):
@@ -692,11 +961,15 @@ def ult_matches(s: str, A, stage: int) -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", type=int, required=True, choices=(1, 2, 3, 4))
+    ap.add_argument("--stage", type=int, required=True,
+                    choices=(1, 2, 3, 4, 5, 6))
     ap.add_argument("--src", default="")
     ap.add_argument("--out", default="")
     ap.add_argument("--ult", default=ULT_NAME)
     ap.add_argument("--tip", default=ULT_TIP)
+    ap.add_argument("--strandart", default=STRAND_ART,
+                    choices=("bolt", "chain", "filament", "bar"),
+                    help="stage 5. PURE LOOK -- the balance cannot see it.")
     ap.add_argument("--dmg", type=float, default=None,
                     help="stages 1-3: the starting blade (default %.2f). "
                          "stage 4: the swept one, and it has no default"
@@ -729,7 +1002,9 @@ def main() -> int:
              2: "THE VOLLEY -- a triple shot and the fan. No strand",
              3: "CROSSWEAVE -- the strand, the shove, the magazine",
              4: "THE BLADE -- gate 3 item 6, and NOT the brief's stage 4, "
-                "which is art"
+                "which is art",
+             5: "THE STRAND'S ART -- the brief's stage 4a. Presentation only",
+             6: "EXTRA PROJECTILE SPEED -- Rick's, and it VOIDS THE BLADE"
              }[A.stage])
     print(f"  src {src_p.name}  {hashlib.sha256(s0.encode()).hexdigest()[:16]}")
 
@@ -780,7 +1055,9 @@ def main() -> int:
             "%CHARGE%": f"{A.charge:g}", "%VOLLEYS%": f"{A.volleys:g}",
             "%N%": f"{A.n:g}", "%SPREAD%": f"{A.spread:g}",
             "%CADMUL%": f"{A.cadmul:g}", "%DMGMUL%": f"{A.dmgmul:g}",
-            "%STRANDW%": f"{A.strandw:g}", "%STRANDKNOCK%": f"{A.strandknock:g}"}
+            "%STRANDW%": f"{A.strandw:g}", "%STRANDKNOCK%": f"{A.strandknock:g}",
+            "%STRANDART%": A.strandart,
+            "%SPEEDMUL%": f"{A.speedmul:g}"}
 
     if A.stage == 1:
         if f'id:"{RELIC}"' in s0:
@@ -814,6 +1091,29 @@ def main() -> int:
               f"NO damage and NO status")
         print("  NOTHING IS DRAWN AND NOTHING SOUNDS -- that is stage 4, and "
               "it is Rick's")
+    elif A.stage == 6:
+        if "drawStrands" not in s0:
+            raise SystemExit("this source has no strand art -- stage 5 first")
+        retune = "speedMul" in s0
+        edits = [] if retune else S6
+        if retune:
+            print("  RETUNE -- speedMul is already in this build, so only the")
+            print("  number moves. The insert is not applied twice.")
+        S = 380.0
+        print(f"  speedMul {A.speedmul:g}   {S:g} -> {S * A.speedmul:g} px/s")
+        print("  a RESCALE of the type's own vector, never a fresh one")
+        print("  ** THIS VOIDS THE BLADE. dmg 9.0 was measured at speed 380;")
+        print("     re-run gloamwire_sweep.py --only 0 then --only 1. **")
+    elif A.stage == 5:
+        if "strandSpent" not in s0:
+            raise SystemExit("this source has no strand -- stage 3 first")
+        if "drawStrands" in s0:
+            raise SystemExit("this source already draws the strand -- built")
+        edits = S5
+        print(f"  strandArt {A.strandart!r}   PRESENTATION ONLY")
+        print("  the pairing rule is tickNet's exactly: adjacent in the fan,")
+        print("  both alive, and a dead arrow breaks its links.")
+        print("  NO this.rng(), NO gradients per segment, NO shadowBlur.")
     elif A.stage == 4:
         if "strandSpent" not in s0:
             raise SystemExit("this source has no strand -- stage 3 first")
@@ -842,6 +1142,23 @@ def main() -> int:
             old = old.replace(k, v)
             new = new.replace(k, v)
         s = one(s, old, new, label)
+
+    if A.stage == 6 and "speedMul" in s0:
+        # Walk forward from this relic's own id, never a global replace.
+        # THE ENTRY, BY BRACE MATCHING, and not a fixed window. The first cut
+        # searched 3000 characters forward from the id and missed: this relic's
+        # own `ult` comment is longer than that, which is a good reason for the
+        # comment and a bad reason for a magic number.
+        e = entry(s, RELIC)
+        m = re.search(r"speedMul:\s*([0-9.]+)", e)
+        if not m:
+            raise SystemExit("cannot retune: speedMul is not in Gloamwire's entry")
+        old = m.group(0)
+        j = s.index(e) + m.start()
+        s = s[:j] + f"speedMul:{A.speedmul:g}" + s[j + len(old):]
+        print(f"  speedMul {m.group(1)} -> {A.speedmul:g}"
+              f"   ({380 * float(m.group(1)):g} -> {380 * A.speedmul:g} px/s)")
+        print("  ** THE BLADE IS VOID AGAIN. Re-run gloamwire_sweep --only 0,1 **")
 
     if A.stage == 4:
         # THE SIX BOWS SHARE A STAT LINE, so the blade is found by walking

@@ -83,6 +83,72 @@ def run(page, foes, seeds, secs, dmg, side):
     return page.evaluate(SWEEP_JS, [RELIC, foes, seeds, secs, dmg, side])
 
 
+# -------------------------------------------------- [2] the projectile speed --
+# Rick, 2026-09-01: "lets also give the arrows extra projectile speed." A fifth
+# strength clause, and the one thing worth knowing before a number is chosen is
+# what it costs the PARRY -- a faster arrow crosses a spinning blade's swept
+# area in fewer frames, and the parry is the only counterplay a bow has.
+SPEED_JS = r"""([rid, foes, seeds, secs, mul]) => {
+  const DT = AC.CONFIG.physics.dt;
+  const w = AC.WEAPONS.find(x => x.id === rid);
+  const keep = w.ult.speedMul;
+  w.ult.speedMul = mul;
+  let wins = 0, n = 0, dur = 0, shoves = 0, hits = 0, fired = 0;
+  let parried = 0, walled = 0, landed = 0;
+  const A = AC.CONFIG.arena;
+  for (const f of foes){
+    for (const sd of seeds){
+      const m = new AC.Match(rid, f, sd);
+      const me = m.a.w.id === rid ? m.a : m.b;
+      const own = me === m.a ? "a" : "b";
+
+      /* the parry tag, exactly bow_survey's: an fx signature collected only
+         while inside tickShots, so it cannot be borrowed by another system
+         without this probe seeing an unmatched event. */
+      let inShots = false; const P = [];
+      const origFx = AC.Match.prototype.spawnFx;
+      m.spawnFx = function(x, y, col, nn, spd){
+        if (inShots && col === "#FFF4D0" && nn === 9 && spd === 240) P.push(x + "," + y);
+        return origFx.apply(m, arguments);
+      };
+      const origHit = AC.Match.prototype.resolveHit;
+      m.resolveHit = function(self, foe2){
+        const s = m._cineShot;
+        if (s && s.net && self === me) s._pHit = true;
+        return origHit.apply(m, arguments);
+      };
+      const origTick = AC.Match.prototype.tickShots;
+      m.tickShots = function(dt){
+        const pre = m.shots.slice(); P.length = 0; inShots = true;
+        const r = origTick.apply(m, arguments); inShots = false;
+        const live = new Set(m.shots), nn = m.inset, PS = new Set(P);
+        for (const s of pre){
+          if (live.has(s) || !s.net || s.own !== own) continue;
+          if (PS.has(s.x + "," + s.y)){ parried++; continue; }
+          if (s._pHit){ landed++; continue; }
+          if (s.x < nn + s.r || s.x > A.w - nn - s.r
+              || s.y < nn + s.r || s.y > A.h - nn - s.r) walled++;
+        }
+        return r;
+      };
+
+      let step = 0;
+      while (!m.over && step < secs / DT){ m.step(DT); step++; }
+      n++; dur += step * DT;
+      if (m.winner === me) wins++;
+      shoves += me.netShoves || 0;
+      hits += me.hits;
+      fired += me.shotsFired;
+    }
+  }
+  w.ult.speedMul = keep;
+  const tot = parried + landed + walled || 1;
+  return { wins, n, dur: dur / n, shoves: shoves / n, hits: hits / n,
+           fired: fired / n, parried: parried / tot, landed: landed / tot,
+           walled: walled / tot, retired: tot };
+}"""
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--game", default="../02-chain/sc-crossweave.html")
@@ -95,6 +161,9 @@ def main():
                     help="[1] three blades around the region -- from [0]")
     ap.add_argument("--wide-sn", type=int, default=34,
                     help="seeds a foe a side; 34 x 30 foes = 1020 a point a side")
+    ap.add_argument("--speeds", default="1.0,1.35,1.7,2.1",
+                    help="[2] the speedMul arms")
+    ap.add_argument("--speed-sn", type=int, default=10)
     ap.add_argument("--json", default="")
     a = ap.parse_args()
 
@@ -219,6 +288,39 @@ def main():
             if cross is None:
                 print("\n    50% IS NOT INSIDE THESE POINTS -- widen and re-run.")
             out["cross"] = cross
+
+        # ------------------------------------------------------------ [2] --
+        if "2" in only:
+            seeds = [8101 + 19 * i for i in range(a.speed_sn)]
+            nn = len(foes) * len(seeds)
+            print(f"[2] THE PROJECTILE SPEED -- {nn} fights an arm, side A.")
+            print("    Rick's fifth strength clause. The column that matters is")
+            print("    PARRIED: a faster arrow crosses a spinning blade in fewer")
+            print("    frames, and the parry is the only counterplay a bow has.")
+            print("")
+            print(f"    {'mul':>6}{'px/s':>7}{'win':>8}{'parried':>9}{'landed':>8}"
+                  f"{'wall':>7}{'shoves':>8}{'blows':>7}{'dur':>7}")
+            rows = []
+            for mul in [float(x) for x in a.speeds.split(",")]:
+                r = page.evaluate(SPEED_JS, [RELIC, foes, seeds, a.secs, mul])
+                assert not errors, errors[:4]
+                w = r["wins"] / r["n"]
+                rows.append({"mul": mul, "win": w, **r})
+                print(f"    {mul:>6.2f}{380 * mul:>7.0f}{w:>8.1%}"
+                      f"{r['parried']:>9.1%}{r['landed']:>8.1%}{r['walled']:>7.1%}"
+                      f"{r['shoves']:>8.1f}{r['hits']:>7.1f}{r['dur']:>7.1f}")
+            out["speed"] = rows
+            base = rows[0]
+            print("")
+            print("    against speedMul 1.0:")
+            for r in rows[1:]:
+                print(f"    {r['mul']:>6.2f}   win {r['win'] - base['win']:+.1%}   "
+                      f"parry {r['parried'] - base['parried']:+.1%}   "
+                      f"landed {r['landed'] - base['landed']:+.1%}   "
+                      f"shoves {r['shoves'] - base['shoves']:+.1f}")
+            print("")
+            print("    ** WHATEVER IS CHOSEN, THE BLADE IS VOID AND --only 0,1")
+            print("       MUST RUN AGAIN. dmg 9.0 was measured at speedMul 1. **")
 
     if a.json:
         pathlib.Path(a.json).write_text(json.dumps(out, indent=1))

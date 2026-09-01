@@ -1749,17 +1749,7 @@ const WEAPONS = [
        first. Do not tune it up. */
     ult:{ name:"Crossweave", charge:15, kind:"net",
           volleys:24, n:3, spread:0.9, cadMul:0.5,
-          dmgMul:1.4, speedMul:1.35,
-          strandW:90, strandKnock:260,
-          /* PURE LOOK, and the balance cannot see it -- `drawStrands` is the
-             only reader and `engine_ab` is identical on all 31 relics with it
-             set to any value. Four registers were offered as a spread because
-             rule 2 asks for one and because being wrong about the REGISTER is
-             what costs: "bolt" crackles, "chain" is the same bolt with beads
-             at its vertices, "filament" is three continuous arcs under
-             tension, and "bar" is a clean two-stroke beam and the control for
-             the other three. */
-          strandArt:"bolt",
+          dmgMul:1.4, strandW:90, strandKnock:260,
           tip:"24 volleys of 3 strung arrows; the strand shoves" },
     blurb:"Three shafts and the dark strung between them. What the arrows miss, the lightning still moves." },
 
@@ -8130,17 +8120,6 @@ class Match {
         /* A MULTIPLIER OF WHAT THE TYPE ALREADY SET, never an assignment, so
            the shot block stays the one thing that decides what an arrow is. */
         s.dmgMul = s.dmgMul * u.dmgMul;
-        /* AND THE SAME RULE FOR THE SPEED. Rick: "lets also give the arrows
-           extra projectile speed." Applied as a RESCALE of the velocity
-           `spawnShot` already computed rather than as a fresh vector, which is
-           Marrowdraw's construction and for its stated reason: the direction
-           stays the type's business and only the magnitude is this window's.
-
-           `=== undefined` and not `|| 1` (CLAUDE.md 4.3): a sweep must be able
-           to set this to 0 and must be able to say "no change" with 1. */
-        if (u.speedMul !== undefined && u.speedMul !== 1){
-          s.vx *= u.speedMul; s.vy *= u.speedMul;
-        }
         /* The two fields stage 3 strings the lightning between. `idx` is the
            position in the FAN and never an index into `this.shots`, which
            changes every time anything dies. */
@@ -15532,9 +15511,6 @@ class Renderer {
     if (__emit){
     /* over the fighters: the last thing a mote does is go INTO a shell */
     this.drawDrains(m);
-    /* UNDER the arrows: they are the objects and this is what runs between
-       them. Over the fighters, because a strand crosses the room. */
-    this.drawStrands(m);
     this.drawShots(m);
     this.drawHands(m);
     this.drawStuck(m);
@@ -20659,143 +20635,6 @@ class Renderer {
       }
       c.restore();
     }
-  }
-
-  /* THE STRAND. Rick's section 1: "each arrow connected by a string of purple
-     lightning."
-
-     IT IS DRAWN TIP TO TIP AND TESTED CENTRE TO CENTRE, and that is declared
-     rather than hidden. `tickNet` measures point-to-segment from the quarry to
-     the segment joining the two arrows' CENTRES; this draws from one arrow's
-     leading point to the other's, which is where a viewer sees the lightning
-     anchored. The two differ by about `s.r` at each end -- 24 units -- against
-     a strand that connects at `R + strandW` = 124. Breach's rule is that a beam
-     drawn WIDER than it tests is a lie; this is drawn SHORTER than it tests, in
-     a mechanic whose reach is five times the discrepancy, and the direction of
-     the error is the safe one.
-
-     THE PAIRING RULE IS `tickNet`'s, EXACTLY: adjacent in the fan, both alive,
-     and a dead arrow breaks its links rather than handing them on. If these two
-     ever disagree the viewer sees lightning that cannot shove, or a shove with
-     no lightning, and that is the whole of what this relic is.
-
-     UNDER `drawShots` so the arrows read ON TOP of what connects them: the
-     arrows are the objects and the strand is the thing between them. */
-  drawStrands(m){
-    if (!m.shots.length) return;
-    const byVolley = new Map();
-    for (const s of m.shots){
-      if (!s.net) continue;
-      let g = byVolley.get(s.volley);
-      if (!g) byVolley.set(s.volley, g = []);
-      g.push(s);
-    }
-    if (!byVolley.size) return;
-
-    const c = this.ctx;
-    c.save();
-    c.globalCompositeOperation = "lighter";
-    c.lineCap = "round";
-    c.lineJoin = "round";
-
-    /* 30Hz, DERIVED from sim time and never accumulated. A strand redrawn from
-       a running counter would strobe against the frame interpolator; this steps
-       with the sim and is identical on a replay. */
-    const q = Math.floor(m.t * 30);
-
-    for (const g of byVolley.values()){
-      if (g.length < 2) continue;
-      g.sort((p, r) => p.idx - r.idx);
-      const own = g[0].own === "a" ? m.a : m.b;
-      const aff = own.aff, U = own.w.ult || {};
-      const style = U.strandArt || "bolt";
-      for (let i = 0; i + 1 < g.length; i++){
-        const p = g[i], r = g[i + 1];
-        if (r.idx !== p.idx + 1) continue;
-        const sp0 = Math.hypot(p.vx, p.vy) || 1, sp1 = Math.hypot(r.vx, r.vy) || 1;
-        const ax = p.x + p.vx / sp0 * p.r * 1.05;
-        const ay = p.y + p.vy / sp0 * p.r * 1.05;
-        const bx = r.x + r.vx / sp1 * r.r * 1.05;
-        const by = r.y + r.vy / sp1 * r.r * 1.05;
-        const dx = bx - ax, dy = by - ay;
-        const len = Math.hypot(dx, dy) || 1;
-        const nx = -dy / len, ny = dx / len;
-        /* SPENT STRANDS GO DIM RATHER THAN DARK. `strandSpent` is the latch
-           that says this one has already shoved, so a viewer can see which
-           bars are still live -- the same countable-state idea as Breach's
-           five chips, for free. */
-        const live = p.strandSpent ? 0.45 : 1;
-        const key = (p.volley | 0) * 7 + i;
-
-        if (style === "bar"){
-          /* A CLEAN BAR. The most legible and the least characterful: two
-             strokes, a wide dim halo in the school's core and a thin hot line
-             on top of it. This is the control for the other three. */
-          c.globalAlpha = 0.26 * live; c.strokeStyle = aff.core;
-          c.lineWidth = 9;
-          c.beginPath(); c.moveTo(ax, ay); c.lineTo(bx, by); c.stroke();
-          c.globalAlpha = 0.95 * live; c.strokeStyle = aff.glow;
-          c.lineWidth = 2.4;
-          c.beginPath(); c.moveTo(ax, ay); c.lineTo(bx, by); c.stroke();
-
-        } else if (style === "filament"){
-          /* THREE ARCS THAT BOW BY DIFFERENT AMOUNTS. A plasma bundle rather
-             than a bolt -- continuous, no jitter, and it reads as tension
-             between the two arrows rather than as a discharge. */
-          for (let k = 0; k < 3; k++){
-            const bow = (k - 1) * len * 0.13
-                      + (shellHash(key, k) - 0.5) * len * 0.05;
-            const mx = (ax + bx) / 2 + nx * bow, my = (ay + by) / 2 + ny * bow;
-            c.globalAlpha = (k === 1 ? 0.95 : 0.55) * live;
-            c.strokeStyle = k === 1 ? aff.glow : aff.core;
-            c.lineWidth = k === 1 ? 2.2 : 1.4;
-            c.beginPath();
-            c.moveTo(ax, ay); c.quadraticCurveTo(mx, my, bx, by); c.stroke();
-          }
-
-        } else {
-          /* A BOLT: a jagged polyline whose lateral offsets are hashed on the
-             volley, the segment and quantised time, so it CRACKLES without any
-             stored state and without a single call to the sim's RNG.
-
-             The offset is scaled by `sin(pi t)` so the path is pinned at both
-             ends -- lightning that wandered away from the arrow tip it is
-             supposed to be anchored to is the one thing this picture cannot
-             do, because the anchor IS the mechanic. */
-          const SEG = 7, amp = Math.min(26, len * 0.17);
-          const px = [], py = [];
-          for (let k = 0; k <= SEG; k++){
-            const t = k / SEG;
-            const w = (k === 0 || k === SEG)
-                    ? 0
-                    : (shellHash(key * 31 + k, q) - 0.5) * 2 * amp
-                      * Math.sin(Math.PI * t);
-            px.push(ax + dx * t + nx * w);
-            py.push(ay + dy * t + ny * w);
-          }
-          const path = () => {
-            c.beginPath(); c.moveTo(px[0], py[0]);
-            for (let k = 1; k <= SEG; k++) c.lineTo(px[k], py[k]);
-            c.stroke();
-          };
-          c.globalAlpha = 0.22 * live; c.strokeStyle = aff.core;
-          c.lineWidth = 8; path();
-          c.globalAlpha = 0.90 * live; c.strokeStyle = aff.glow;
-          c.lineWidth = 2.0; path();
-          if (style === "chain"){
-            /* NODES. The bolt with a bright bead at every vertex, which is the
-               one variant that reads as DISCRETE -- a chain of links rather
-               than a continuous arc. */
-            c.globalAlpha = 0.95 * live; c.fillStyle = aff.glow;
-            for (let k = 1; k < SEG; k++){
-              c.beginPath(); c.arc(px[k], py[k], 2.1, 0, TAU); c.fill();
-            }
-          }
-        }
-      }
-    }
-    c.globalAlpha = 1;
-    c.restore();
   }
 
   drawShots(m){

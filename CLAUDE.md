@@ -19,11 +19,18 @@ short-form video for TikTok and YouTube Shorts.
                                                    the cadence, each strung with
                                                    two bars of lightning that
                                                    SHOVE and never damage.
-                                                   Stages 1-3 of 4. NO ART, NO
-                                                   SOUND, NO BEAT — stage 4 is
-                                                   Rick's. Blade SWEPT 9.2 ->
-                                                   9.0 on 12,240 fights, both
-                                                   sides, two blocks.
+                                                   THE STRAND IS DRAWN (`bolt`,
+                                                   3 more registers a flag
+                                                   away) and the arrows carry
+                                                   `speedMul` 1.35 — Rick's,
+                                                   and MEASURED AT -7.7pp
+                                                   because a faster arrow
+                                                   reaches the WALL sooner.
+                                                   ** THE BLADE IS VOID **
+                                                   9.0 was measured at speed
+                                                   380; the wide re-run is in
+                                                   flight. NO SOUND, NO BEAT.
+                                                   art A/B 2790/2790 on all 31
                                                    verify 12/13 (the known one)
                                                    engine_ab 3480/3480 · probe
                                                    9/9 · net_lab gate 1 6/6
