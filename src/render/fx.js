@@ -257,7 +257,21 @@
        drawn object, not a particle field. */
     shroudmaul: { mode: 'burst', n: 820, sp: [40, 260], grav: 210, drag: 2.6,
                   life: [0.35, 1.05], heavy: 0.10, size: [0.6, 2.2],
-                  spawn: 0.14, up: 0, atSelf: 1 }
+                  spawn: 0.14, up: 0, atSelf: 1 },
+    /* BREACH IGNITES A BLADE, AND `atSelf` IS WHY IT IGNITES THE RIGHT ONE.
+       The third spec in the game to carry the flag: a `burst` is drawn at
+       `[u.tx, u.ty]` — at the QUARRY — which is right for the four novas the
+       mode was written for and wrong for anything that resolves on its caster.
+       Deadfall's field caught this on the first rendered frame and by nothing
+       else, and this ultimate touches nobody on the frame it is cast.
+
+       IT RISES. `grav` is negative and `up` is set, because what a viewer
+       should read is heat coming OFF a weapon rather than a shell shedding
+       material — and it is short, because the fourteen seconds after it are
+       five drawn holes and a jet, not a particle field. */
+    cindercleave: { mode: 'burst', n: 900, sp: [70, 330], grav: -240,
+                    drag: 2.2, life: [0.30, 0.95], heavy: 0.06,
+                    size: [0.5, 2.0], spawn: 0.12, up: 40, atSelf: 1 }
   };
 
   function Field() {

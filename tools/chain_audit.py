@@ -117,7 +117,17 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
     # element is a multi-line string: that is an insert table by any name. The
     # label comes from the tuple's own first element when it is a string, so
     # the report still says WHICH edit went missing rather than an index.
-    if not out:
+    #
+    # AND IT IS NOT A FALLBACK ANY MORE, WHICH IS THE FOURTH TIME THIS
+    # DISCOVERY HAS BEEN TOO NARROW. It used to run only `if not out`, so a
+    # builder carrying BOTH shapes -- one `*_NEW` constant for its fx spec and
+    # eighteen edits in `(label, old, new)` tables -- had the constant found,
+    # `out` come back non-empty, and the eighteen never looked at.
+    # `cindercleave_build.py` is exactly that shape and this tool reported
+    # "ALL 1 INSERTS SURVIVE", which is open item 31 in a better costume: a
+    # GREEN chain_audit that audited nothing is the failure mode this tool was
+    # written for. Both passes run now and the results are merged.
+    if True:
         import importlib.util
         spec = importlib.util.spec_from_file_location(builder.stem, builder)
         try:
@@ -128,6 +138,8 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
             print(f"  (could not import {builder.name} to look for insert "
                   f"tables: {e})")
             return out
+        n0 = len(out)
+        seen = {line for _, line in out}
         for tname in dir(mod):
             if tname.startswith("_"):
                 continue
@@ -147,10 +159,12 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
                          and not l.strip("{}(); ") == ""
                          and not TEMPLATED.search(l)]
                 if cands:
-                    out.append((f"{tname}:{label}", max(cands, key=len)))
-        if out:
-            print(f"  ({len(out)} insert(s) found in {builder.name}'s insert "
-                  f"table(s) -- tuples, not *_NEW constants)")
+                    row2 = (f"{tname}:{label}", max(cands, key=len))
+                    if row2[1] not in seen:
+                        seen.add(row2[1]); out.append(row2)
+        if len(out) > n0:
+            print(f"  ({len(out) - n0} insert(s) found in {builder.name}'s "
+                  f"insert table(s) -- tuples, not *_NEW constants)")
     return out
 
 

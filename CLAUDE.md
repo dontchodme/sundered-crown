@@ -12,7 +12,23 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-gnawed.html          BUILD OF RECORD  28 relics · THE UMBRAL
+02-chain/sc-breach.html          BUILD OF RECORD  29 relics · CINDERCLEAVE
+                                                   AND BREACH
+                                                   everything below, plus A
+                                                   DWARVEN SCYTHE LICENSED TO
+                                                   CUT THE WALLS — FIVE CUTS,
+                                                   FIVE HOLES SIZED BY HOW DEEP
+                                                   THE BLADE WENT, AND EACH ONE
+                                                   FIRES A TRAVELLING JET INTO
+                                                   THE ROOM EVERY 1.1s FOR NINE
+                                                   SECONDS
+                                                   engine_ab 3024/3024
+02-chain/sc-thepass.html         the link before it, 29 relics · THE PASS AND
+                                                   THE TEAR — the holes open,
+                                                   they are sized, and they do
+                                                   not fire yet
+02-chain/sc-cindercleave.html    the link before it, 29 relics, ULT STUBBED
+02-chain/sc-gnawed.html          the link before it, 28 relics · THE UMBRAL
                                                    WARHAMMER REDRAWN
                                                    everything below, with
                                                    `_whEaten` DELETED and
@@ -80,6 +96,134 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE TWENTY-NINTH RELIC IS CINDERCLEAVE, AND BREACH IS THE FIRST ULTIMATE IN
+THIS GAME THAT HANDS THE HALL A WEAPON** (`cindercleave_build.py`, 2026-08-31).
+Dwarven × scythe, built to `06-docs/v57/`'s brief in three staged links. A cast
+opens a LICENCE and not a clock: for up to 14s the scythe tears the walls it is
+already standing inside, and **the FIFTH cut ends it**. Each cut opens a hole
+sized by how deep the blade went; a hole fires a travelling jet into the room
+every 1.1s for 9s, dealing 9 and applying **1 Sunder, foe only**. Blade
+**19.75**. `06-docs/v59/`.
+
+> **THE DESIGN'S ONE FALSIFIABLE PREDICTION WAS PUBLISHED BEFORE THE BUILD
+> EXISTED AND IT REPRODUCES.** v57 §3.2 measured how deep a scythe's blade goes
+> into a wall, pass by pass, in a LAB — and Rick's size mechanic (*"a graze to
+> the wall makes a small one but a full slash makes a larger one"*) rests
+> entirely on that spread being real. Built, over 6,649 passes: median
+> **0.646** against 0.63, sd **0.327** against 0.32, **29.2%** burying the
+> blade past 0.9 against 27.4%. Two instruments written a repository apart
+> describing the same physics. `pass_probe.py` 11/11 — and the brief's
+> instruction had it failed was to STOP at stage 2, because what would have
+> been refuted is the MECHANIC and not the tuning.
+
+> **THE BLADE IS ALREADY THROUGH THE WALL, WHICH IS WHY THERE IS NO NEW
+> COLLISION IN THIS RELIC.** `bladeSegments` runs from `R - 4` to `R + reach`
+> and `move()` clamps the ball's centre at `n + R`, so a scythe against a wall
+> has up to 104 units of blade INSIDE the stone on most of every rotation. §1
+> is a test nobody was running plus a rule about how often it may fire — and
+> the rule is that **a tear resolves at the END of a pass, never at the start**.
+> Tearing on the first crossing frame samples the shallowest moment of the cut
+> and leaves the size mechanic with no range at all. **ONE PASS IS ONE VENT**:
+> 6,686 opened, 6,649 torn, 37 still in the blade when the fight ended, 0
+> unaccounted for. The weapon's own rotation is the spacing rule and there is
+> no cooldown anywhere in this design.
+
+> **AND THE ULTIMATE IS THE SUNDER, NOT THE LAVA.** The same beams carrying no
+> Sunder land MORE hits and are ten points worse (61.9% against 71.9%).
+> `sunder_survey` split the six types at the status's own 5.0s duration —
+> `gap / dur` reads 0.66, 0.67, 0.69 and then 1.02, 1.05, 1.26, with nothing
+> between — and **the scythe misses that line by 0.24 seconds**, sitting at
+> 1.23 stacks when it lands a blow. Measured on the built relic the quarry sits
+> at **3.72** while holes are open. Breach is a SECOND CONTACT RATE running
+> under a slow weapon: **7.76 jet hits a fight against the blade's own 7.47
+> blows**, out of 68 jets fired — and 74% of what the relic delivers is still
+> the blade.
+
+> **THE CHEAP PASS THAT CHOSE THE BRACKET WAS WRONG BY FIVE POINTS, AND
+> `verify` WAS RIGHT ALL ALONG.** The curve read **47.6%** at blade 21 on n=168
+> a point; three wide blocks read **52.5%** and `verify --n 40` read **51.6%**
+> independently. The first reading of that gap blamed side asymmetry —
+> `verify` pairs `i < j`, so an appended relic is side B in all its pairings —
+> and that was WRONG: the wide side-A blocks read 53.4% and 52.0% at the same
+> blade, so the real asymmetry is about **−1.3pp**. It was sample size.
+> **THE n≈700 FLOOR APPLIES TO THE PASS THAT CHOOSES THE BRACKET AS MUCH AS TO
+> THE ONE THAT READS THE ANSWER** — a wrong bracket sends a wide measurement to
+> the wrong place, and here that cost 15,120 fights.
+>
+> What ships is a MEASURED row and not a fitted number: 19.75 reads
+> 49.9 / 50.3 / 49.3% on three independent blocks against an interpolated
+> crossing of 19.81, and 21.00 reproduced its earlier run to the decimal on all
+> three. **All three registered predictions hold**, the 48-53% band included —
+> the relic met it at blade 21 and the blade then came down to reach 50%.
+
+> **AND ITS TYPE SPREAD IS 16.9pp, WHICH IS EVIDENCE ABOUT OPEN ITEMS 12 AND 32
+> RATHER THAN A THIRD INSTANCE OF THEM.** twinblade 63.5% down to bow 46.7%,
+> nothing under 46%, against **Thornshear's 43.6pp** and **Shroudmaul's
+> 40.1pp**. `verify`'s per-relic band is a perfectly good instrument for this
+> relic, which is an argument that the concentration those two have is a
+> property of THEM and not of the band.
+
+> **THE REGISTERED PREDICTION THAT LOOKED REFUTED WAS THE CHECK.** The 14s cap
+> appeared to end 12% of windows against a registered 1-in-50 — and of 108
+> windows, **6 ended because the CASTER DIED and 7 because the MATCH did**.
+> Neither is a guard rail failing. Separated, the cap ends **0 of 108**. The
+> brief's instruction on failure was *"the DESIGN changes, not the number"*, so
+> a check that could not tell three endings apart was one step from redesigning
+> a mechanic that works. `gravemourn_relic_probe`'s lesson for the fourth time,
+> and the second instance in this build alone.
+
+> **THE JETS READ AT `k` 1.5 THE FIRST TIME AND WERE A SMEAR AT `k` 0.8** —
+> and the constraint on every fix is that **`half` IS THE HIT BOX**:
+> `tickBreach` and `drawVents` call the same `halfAt` expression, so a beam
+> drawn wider than it tests is a jet that looks like it connected and did not.
+> So the HOLE was enlarged (it is picture and nothing else, and at k 0.8 it was
+> a 12 × 6 pixel ellipse), the small jets were given LIGHT rather than width,
+> and the body was re-anchored to the wall while the front is inside the hall.
+> Then the alphas came DOWN, because two jets crossing under `lighter`
+> saturated toward white — which is §7a's *"a white-hot body walks back the
+> value separation that put dwarven 21.19 from sanctified"*.
+> `05-reference/v59/breach-states-*.png`.
+
+> **AND THE COUNT READS, WHICH IS GRASP'S FOUR-KNUCKLES PROBLEM ANSWERED
+> RATHER THAN DEFERRED.** Five chips ride the caster's shell and go dark one
+> per tear, so the fifth is visible before it lands.
+> `05-reference/v59/breach-count-tell.png` is the same shell at 5, 4, 3, 2 and
+> 1. Rick's to accept or replace — and a spent chip is nearly invisible, so
+> "1 left" reads as one rather than as one of five.
+
+> **THE DWARVEN SCYTHE IS BUILT THE WAY THE UMBRAL WARHAMMER WAS, AND IT WAS
+> LOOKED AT BEFORE STAGE 1 BECAUSE THE BRIEF SAID TO.** `_scBuilt` is a grey
+> crescent with a square bracket plate and four bolts STROKED ON TOP of
+> `_scBase` — the *"blocks attached to it"* construction Rick rejected on
+> `_whEaten` two builds ago — and its blade is `p.steel`, dwarven's `#6A6E74`
+> grey, so a forge school ships a grey blade on a brown stick. It is distinct,
+> and distinctness was never the question. **Open item 34 now has a third
+> instance.** `05-reference/v59/scythe-dwarven-zoom.png`.
+
+> **A JET DOES NOT CATCH A SHADE, AND THAT IS THE OTHER ANSWER FROM THE DESIGN
+> DOC'S PLACEHOLDER.** The roster precedent is quarry-only — the Deadfall's
+> mines have never been set off by a copy — and `spent` is ONE payment per
+> firing, so sweeping three bodies is either a shield or a damage multiplier
+> and nobody priced either. `breach_relic_probe [6]` counts the frames on which
+> a copy was geometrically INSIDE a jet's swept path: **3,075 opportunities, 0
+> caught**. A check that never had the chance to fail would have been worth
+> nothing.
+
+> **AND THE JET'S VOICE RENDERED AT PEAK 0.000 THE FIRST TIME, WHICH WAS THE
+> PROBE AND NOT THE SOUND.** `SFX_JS` schedules at `currentTime = 1.0` inside a
+> `secs`-long buffer, so the window actually rendered is `secs - 1.0` — and the
+> case list asked for 1.0 seconds, which renders NOTHING. That is
+> indistinguishable from the silent ultimate v42 shipped, and it is why the
+> check earns its place even on the occasions when it is the probe that is
+> wrong.
+
+> **AND `chain_audit` REPORTED "ALL 1 INSERTS SURVIVE" AGAINST A BUILDER WITH
+> NINETEEN.** Open item 31, one costume along: the tuple-table discovery ran
+> only `if not out`, so a builder carrying BOTH shapes — one `*_NEW` constant
+> for its fx spec and eighteen edits in `(label, old, new)` tables — had the
+> constant found and the eighteen never looked at. Both passes run and merge
+> now; **19/19**. Fourth time that discovery has been too narrow.
 
 **THE UMBRAL WARHAMMER IS REDRAWN, AND THE SILHOUETTE THAT v56 CALLED FREE WAS
 THE THING RICK REJECTED** (`gnawed_build.py`, 2026-08-31). `06-docs/v58/`.
@@ -1067,7 +1211,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v58/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v59/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -1283,10 +1427,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-gnawed.html --n 40          # 12/13, see §0
+python verify.py --game ../02-chain/sc-breach.html --n 40          # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-gnawed.html             # what's open
+python cell_survey.py --game ../02-chain/sc-breach.html             # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -1325,6 +1469,13 @@ python umbral_sweep.py --relics shroudmaul --lo 12 --hi 26         # the blade, 
 python grasp_rhythm_lab.py                                         # the rhythm, priced at CONSTANT BALANCE
 python gnawed_build.py                                             # the umbral warhammer, redrawn
 python silhouette_probe.py --types warhammer --footprint --sheet <o>.png   # AND --footprint IS NOT OPTIONAL HERE
+python cindercleave_build.py --stage 1                             # the 29th relic, ultimate stubbed
+python cindercleave_build.py --stage 2                             # THE PASS AND THE TEAR -- holes, and they do not fire
+python cindercleave_build.py --stage 3                             # BREACH: the jets, the front, the count of five
+python pass_probe.py --game ../02-chain/sc-thepass.html            # THE STAGE GATE -- a distribution published before the build
+python breach_relic_probe.py --game ../02-chain/sc-breach.html     # §5b asserted, and the render path CALLED
+python breach_sheet.py                                             # THE CUT / THE TEAR / THE HOLE / THE JET, off a real match
+python cindercleave_sweep.py --only 0,1,2                          # the floor, the curve, THE WIDE DIRECT MEASUREMENT
 ```
 
 **`frame_probe.py` HAS BEEN CRASHING, AND NOT BECAUSE OF ANYTHING NEW.** It
@@ -1337,7 +1488,7 @@ and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-gnawed.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-breach.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -1346,7 +1497,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-gnawed.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-breach.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -1581,13 +1732,15 @@ git push
     defect either way**, and more casts is more set-pieces per fight, which
     v55b §5 argues is worth caring about. Named because every absolute number
     in `06-docs/v56/grab-v56.md` is measured on the other branch.
-31. **`chain_audit.py` COULD NOT AUDIT v56 AND SAID SO.** It reads inserts from
-    module-level string constants in a builder; `shroudmaul_build.py` keeps its
-    edits in `S2`/`S3` lists and the tool found one marker out of fourteen.
-    Nothing downstream of stage 3 exists to clobber an insert and the stage-2
-    block was verified present by hand — but **a green `chain_audit` that
-    audited nothing is exactly the failure mode it was written for**, and the
-    next builder in this shape gets the same free pass.
+31. ~~**`chain_audit.py` COULD NOT AUDIT v56 AND SAID SO.**~~ **FIXED**,
+    2026-08-31, by the next builder in that shape hitting it — and the real
+    bug was one step past the reported one. The tuple-table discovery existed
+    but ran only `if not out`, so `cindercleave_build.py`, which carries BOTH
+    a `*_NEW` constant for its fx spec AND eighteen `(label, old, new)` edits,
+    had the constant found and the eighteen never looked at: **"ALL 1 INSERTS
+    SURVIVE"** against a builder with nineteen. Both passes run and merge now
+    (19/19). Fourth time that discovery has been too narrow, and every time
+    the symptom has been a GREEN report.
 32. **SHROUDMAUL LOSES TO BOWS AND EATS GREATSWORDS, AND IT IS ITEM 12 TWICE.**
     §0. bow 26.9% against greatsword 67.0% at an overall 45.2%, a **40.1pp**
     type spread against Thornshear's 43.6pp — and `verify`'s per-relic band
@@ -1601,22 +1754,59 @@ git push
     2.8 is refuted-at-1.35 and confirmed by nothing. §7 of the build brief and
     rule 2 both make this Rick's. `07-shorts/v56/grasp-first-cut.mp4`.
 
-34. **BLOODSWORN AND DWARVEN BUILD THEIR WARHAMMER GRAMMARS THE WAY RICK JUST
-    REJECTED.** §0. Their hooks and bolt bosses are separate stroked shapes on
-    top of `_whBase`, which is exactly the construction that made the umbral
+34. **THREE CELLS NOW BUILD THEIR GRAMMAR THE WAY RICK REJECTED.** §0.
+    Bloodsworn's six hooks and dwarven's four bolt bosses are separate stroked
+    shapes on top of `_whBase`, and **`_scBuilt` — the dwarven scythe this
+    build just shipped — is a square bracket plate and four bolts stroked on
+    top of `_scBase`.** All three are the construction that made the umbral
     spikes read as *"triangles layered behind the hammer"*. Nobody has
-    complained about them and nothing is measured. Worth a look the next time
-    anything brings somebody back to that file.
+    complained and nothing is measured; the difference now is that one of them
+    is in the build of record's newest relic. The rule that fixed the umbral
+    hammer is reusable: **a grammar that adds a limb to a type must add it to
+    the type's OUTLINE, not behind it.**
 35. **THE TWO SILHOUETTE INSTRUMENTS HAVE NEVER BEEN RUN AGAINST THE SAME
     BUILD.** §0. `cell_survey`'s ink mask and `silhouette_probe`'s IoU
     disagree by more than the difference between "distinct" and "identical",
     and both were quoted in the v56 brief as if they were one number.
-36. **THE OTHER FIVE UMBRAL CELLS ARE STILL THE PALE `steel`.** Rick kept the
+36. **NOBODY HAS WATCHED CINDERCLEAVE.** The art and the four voices are
+    first cuts. Three picture faults died on the first sheet and a fourth on
+    the second, all of them invisible to every probe in the repo — and a sheet
+    cannot answer a SIZE question, which is what the `k` 0.5 jet is. Rule 2,
+    §5d of the design doc, and the one clip that exists is
+    `07-shorts/v59/breach-first-cut.mp4` (cindercleave vs axiom, seed 61010).
+
+37. **THE NORTH WALL TAKES 3.9% OF THE TEARS.** Measured over 6,649 passes:
+    W 2165, E 2153, S 2071 — and **N 260**, because gravity is real and a ball
+    spends very little of a fight against the roof. The consequence is on
+    Rick's aim rule: (0, 1), straight DOWN into the room, is only ever
+    available from the north wall, so it is drawn **81 times in 6,649**, 1.2%.
+    *"All eight compass bearings present in the game"* is true and one of them
+    is very nearly absent. Not a defect, and not free to change — weighting the
+    walls would mean inventing where a scythe cuts.
+
+38. **THE CHIP THAT HAS BEEN SPENT IS NEARLY INVISIBLE.** §0. Five chips ride
+    Cindercleave's shell and go dark one per tear; a dark one is alpha 0.30 on
+    `#5A3A1C`, so "1 left" reads as ONE rather than as one of five. Deliberate
+    — fewer marks is closer to the end — but "1 of 5" carries more and it is a
+    one-line change. Open decision 1 of the v57 brief, answered rather than
+    deferred, and Rick's to accept or replace.
+
+39. **A JET DOES NOT CATCH A SHADE, AND THE DESIGN DOC'S PLACEHOLDER SAID IT
+    SHOULD.** §0. Taken quarry-only on the roster precedent (no Deadfall mine
+    has ever been set off by a copy) and because `spent` is one payment per
+    firing, so sweeping three bodies is either a shield or a multiplier and
+    nobody priced either. `breach_relic_probe [6]` asserts whatever the code
+    does over 3,075 measured opportunities, so reversing it is one line and the
+    check moves with it. Rick's.
+
+40. **THE OTHER FIVE UMBRAL CELLS ARE STILL THE PALE `steel`.** Rick kept the
     near-black head to this hammer *for now*, so umbral means two materials
     across six types. A chosen state, not drift — and `night-plan.md` §1.4
     wanted umbral "genuinely dark" in August and it never got done.
 
-Full detail: `06-docs/v58/` for the tip, `06-docs/v56/` for the relic in it, `06-docs/v54/` for the relic
+Full detail: `06-docs/v59/` for the tip and `06-docs/v57/` for the design and
+pricing behind it, `06-docs/v58/` for the umbral hammer, `06-docs/v56/` for the
+relic before that, `06-docs/v54/` for the relic
 before it, `06-docs/v53/` for the two stages before that (curse-build then
 the hand-build now called Revenant), `06-docs/v49`-`v52` for the designs
 behind all three, `06-docs/v48/` for the relic before them, `06-docs/v47/` for
