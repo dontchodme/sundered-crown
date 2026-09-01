@@ -14,23 +14,26 @@ every gate below was run on the file it names.
 
 ```
 pass_probe              11/11    280 fights, 6,649 passes. THE STAGE GATE, and it is green
-breach_relic_probe      25/25    at the SHIPPED blade — 168 fights, a constructed pair,
-                                   four voices, and the render path CALLED
+breach_relic_probe      25/25    at the SHIPPED blade and WITH the shove — 168 fights,
+                                   a constructed pair, four voices, and the render
+                                   path CALLED
 engine_ab           3024/3024    identical on the 28 others, every field, every seed,
                                    on the final file
 chain_audit             19/19    every insert survives — after the tool was fixed
 post_identity            PASS    325,708 px identical, max delta 0
-verify --n 40           12/13    29 relics, 16,240 fights, Cindercleave 47.9%, roster
-                                   spread 19.0pp. The thirteenth is the KNOWN
+verify --n 40           12/13    29 relics, 16,240 fights, Cindercleave 48.7%, roster
+                                   spread 19.4pp. The thirteenth is the KNOWN
                                    duration-band failure — Farwarden/Axiom 75.1s, the same
                                    pairing at the same time as on the previous tip, and no
                                    Cindercleave pairing is in it. Do not credit this build
                                    with it either way
-cindercleave_sweep         —     the floor 18.8%, a monotonic curve, and the blade
-                                   settled at 19.75 by a WIDE DIRECT measurement
+cindercleave_sweep         —     the floor 18.8%, a monotonic curve, the shove priced
+                                   across five arms, and the blade settled at 20.25 by
+                                   a WIDE DIRECT measurement — twice, because the shove
+                                   moved it
 ```
 
-**THE BLADE IS 19.75** and it is a measured row rather than a fitted number.
+**THE BLADE IS 20.25.**
 The app's `GAME` pointer moves with the build of record — v48's carry that
 nothing in `tools/` can check.
 
@@ -181,6 +184,152 @@ And the alphas came DOWN after that, not up: two jets crossing under `lighter`
 saturated toward white in the middle, which is the exact thing §7a says can be
 got wrong permanently.
 
+## 3.0b THE BREACHES READ AS BUTTONS, AND THE SCYTHE WAS NOT CUTTING ANYTHING
+
+Rick, watching the first build: *"they read as buttons and not as tears in the
+arena itself. the scythe should also have an animation showing it tear open the
+arena not just placing the breaches on the wall."*
+
+Both halves are right and the second one is the more serious.
+
+**THE BUTTON.** The first cut drew a filled ELLIPSE with a radial gradient in
+it, laid on top of the arena's own border. Every property of that shape says
+button — a smooth closed curve, a symmetric highlight, and an outline that does
+not disturb the line it is sitting on. What says TEAR is the opposite of all
+three, and the fix is four things rather than one:
+
+```
+A JAGGED MOUTH         no two vents the same, and the roughness lives on the
+                       EDGE rather than in the fill
+THE WALL LINE BREAKS   the gash is painted in the hall's own background OVER
+                       the border stroke, so the boundary is visibly
+                       interrupted. A hole that does not break the line it is
+                       in is a decal
+IT RUNS ALONG THE CUT  the length is the stretch of wall the blade actually
+                       swept, not a radius
+CRACKS                 the stone fails past both ends, which is what separates
+                       "torn" from "cut out". They do not glow — a crack is an
+                       absence
+
+and the heat runs ACROSS THE DEPTH rather than out from a centre, so it reads
+as fire a long way down a break instead of a wash over a shape.
+```
+
+> **TWO BUGS DIED ON THE WAY AND ONE OF THEM WAS INVISIBLE UNTIL IT WAS
+> DRAWN.** `rotate(atan2(ty, tx))` already puts local +y INTO the stone on all
+> four walls — `tx = -ny` and `ty = nx`, so local (0,1) maps to `-n` — and the
+> handedness term written on top of it evaluates to a CONSTANT −1. Every tear
+> was flipped inside out, bulging into the room. And `span` can legitimately be
+> a third of a wall: drawn at full rate that is a missing wall SECTION, which
+> is what the first attempt rendered. The swept extent still lengthens the
+> gash, at a fifth of its true rate and against a ceiling.
+
+**AND THE CUT, WHICH IS THE HALF THAT WAS SIMPLY ABSENT.** A tear resolves at
+the END of a pass and that is not negotiable — tearing on the first crossing
+frame samples the shallowest moment and leaves Rick's size mechanic with no
+range. But NOTHING WAS DRAWN for the up-to-1.2 seconds a pass runs, so what a
+viewer saw was a hole appearing on a wall while a scythe happened to be near
+it. **The hall was placing the holes and the weapon was not.**
+
+So the wall now carries a molten SCAR over exactly the stretch the blade has
+swept, hottest where the blade is and cooling back along the sweep, with the
+contact point and the stone coming off it — and the tear opens along that same
+measurement, because `v.span` is the same number. The cut and the hole are one
+event with two frames of it drawn instead of one.
+`05-reference/v59/breach-cut-strip.png` is nine consecutive frames through one.
+
+> **THE SPARKS ARE DRAWN AND NOT SPAWNED.** `spawnFx` draws from `this.rng()`,
+> so a per-frame debris field would have moved every Cindercleave fight and
+> re-invalidated the blade. They are derived from `m.t` and `shellHash`
+> instead — which also makes them identical on every replay and on every
+> machine, the same property `drawVines` gets by deriving everything from
+> `v.t`.
+
+> **AND THE SCAR'S FIRST CUT WAS AN EVEN BAR OF AMBER**, which reads as lava
+> that is already there. It is two gradients meeting at the contact point now:
+> the stone the blade left half a second ago has had half a second to cool, and
+> saying so is the difference between "this weapon is cutting" and "this wall
+> is lit". It is also what points at the contact, because a viewer's eye goes
+> to the bright end.
+
+## 3.0c AND THE JETS WERE REBUILT OFF TWO REFERENCE VIDEOS, IN SIX CUTS
+
+Rick, on the first flame pass: *"showing the inspiration for the beams again.
+id like them to read more like the refrence."* Then, on the third:
+*"i dont see any difference here."* Then, on the fourth: *"this is worse. it
+looks like a dick. please take from the photo."*
+
+**HE WAS RIGHT TO KEEP SAYING IT AND THE METHOD WAS THE PROBLEM.** Cuts one to
+four invented shapes and asked whether they matched; only cut five read
+proportions off the photograph. What the reference actually has, in units of
+the body's widest half-width:
+
+```
+0.00 - 0.45   a THREAD, near-constant, about a sixth of the head's width
+0.45 - 0.88   the flare, and it is a SPEARHEAD
+0.88 - 1.00   back to a POINT — a shaft ending in a rounded bulb is the read
+              Rick named, and it is what cut four drew
+the ARC       ~2.4x the head half-width, struck from the head, ~205 degrees,
+              opening BACKWARD, arms ending level with the core
+inside it     DIM ORANGE and not black — a rim on a body of flame
+```
+
+**AND THEN THE VIDEOS SAID THINGS NO STILL COULD.** The first is eight seconds
+of a jet playing on a stone wall: most of what a viewer reads as fire is not
+the ribbon at all, it is the SPARK CLOUD spraying off it. The second is a jet
+erupting FROM a hole in stone — our own case rather than an analogy — and its
+head is not an arc but a ring of six to nine ROUNDED LOBES overlapping like the
+frill of a mushroom.
+
+```
+THE SPARKS      52 an firing, and every one is DERIVED. A spark is born where
+                the FRONT passed, so its age is `(head - birth) / speed`: no
+                stored state, no integration, nothing in `m.fx`, and above all
+                no `this.rng()` — which would have moved the simulation and
+                re-invalidated the blade for the third time in one session.
+                They FALL, which is the only thing in this drawing that knows
+                which way is down and is what stops the spray reading as a
+                starburst
+THE BILLOW      nine overlapping filled lobes on a JITTERED arc, smaller
+                toward the tips. Five cuts drew a stroked arc of one width or
+                another and every one read as a lens flare, because a stroked
+                arc has no inside. `lighter` gives the frill its seams for free
+                where two lobes overlap
+THE SHAFT       a modest cone after all — the second reference leaves a wall
+                and widens steadily. What stops that being cut four again is
+                that the billow is three times the shaft
+```
+
+> **AND THE PALETTE CAME BACK TOWARD AMBER.** Three cuts had drifted whiter
+> than §7a allows. The reference is gold almost throughout with white only in
+> the very hottest part of the head — which is the design doc's own rule,
+> arrived at from the other direction.
+
+## 3.0d THE ART COST 14x THE RENDER TIME, AND THE CAUSE HAS ITS OWN COMMENT IN THIS ENGINE
+
+The capture fell from ~4 frames a second to **0.19**. Two causes, and the first
+one is a trap this codebase has already been bitten by. `GRAIN_CACHE`'s comment:
+
+> *"It was nine `createRadialGradient` calls per relic per frame — eighteen
+> live gradient objects a frame, sixty times a second — and it was the single
+> cause of the stutter Rick reported."*
+
+The billow put a fresh `createRadialGradient` inside its lobe loop: **nine
+lobes across up to eight live vents is seventy-two gradient objects a frame.**
+Under `lighter`, three concentric flat discs build the same falloff for none of
+the cost. The second cause was `shadowBlur` on every spark — the most
+expensive thing a 2D context does, sixty-four per vent, for a halo invisible on
+a two-pixel ember at arena scale.
+
+**2.6 frames a second afterwards, and the picture is unchanged.** The clip that
+would have taken about four hours took 26 minutes.
+
+> **THIS IS NOT THE APP-FPS ITEM.** CLAUDE.md §0 says not to worry about
+> framerate in the app and that is still right — the video captures offline and
+> a dropped frame there costs wall-clock and nothing else. What made this worth
+> fixing is that it was costing WALL-CLOCK ON EVERY CAPTURE, which is the
+> deliverable's own pipeline, and that the fix was free.
+
 ## 3.1 The count reads, which is open decision 1 answered rather than deferred
 
 Design §5c: *a viewer should be able to tell the fourth tear from the fifth
@@ -272,7 +421,7 @@ rewrote only the line carrying `charge`.
 
 ---
 
-# 6. THE BLADE IS 19.75, AND THE CHEAP PASS THAT BRACKETED IT WAS WRONG BY FIVE POINTS
+# 6. THE BLADE IS 20.25, AND IT WAS MEASURED THREE TIMES BECAUSE TWO CHEAP PASSES WERE WRONG
 
 ## 6.1 The floor, and the ultimate is worth what the lab said
 
@@ -309,7 +458,7 @@ and on BOTH sides:
    blade   A blk1  A blk2  B blk1   pooled
    18.50    47.8%   48.7%   43.5%    46.7%
    19.12    46.8%   48.2%   45.6%    46.9%
-   19.75    49.9%   50.3%   49.3%    49.8%   <- SHIPS HERE
+   19.75    49.9%   50.3%   49.3%    49.8%   <- the answer BEFORE the shove
    20.38    53.7%   52.1%   49.2%    51.7%
    21.00    53.4%   52.0%   52.1%    52.5%
    24.00    63.1%   57.3%   58.4%    59.6%
@@ -336,15 +485,16 @@ inside one point of each other (49.9 / 50.3 / 49.3), the honest precision on
 this roster is half a damage point, and 21.00 reproduced its earlier run to the
 decimal on all three blocks — which is the reproducibility control.
 
-> **AND `verify` READS THE SHIPPED RELIC AT 47.9%, WHICH IS A FOURTH BLOCK AND
-> NOT A CONTRADICTION.** It is one seed set, side B only, n=1120 — and the wide
-> table's own side-B block read 49.3% at the same blade. Pooling all four
-> readings at 19.75 gives **49.3%**, which is 0.7pp under 50 against a slope of
-> 2.4pp per damage point: **a third of a damage point, inside the precision
-> this roster can express.** The blade is NOT re-tuned on it. Re-tuning on a
-> single n=1120 block is the exact mistake that put Shroudmaul's blade a whole
-> point wrong, and the instrument designated to settle this — two blocks, both
-> sides, n≥1000 — has already answered.
+> **AND `verify` READ THE SHIPPED RELIC AT 47.9%, WHICH WAS A FOURTH BLOCK AND
+> NOT A CONTRADICTION.** One seed set, side B only, n=1120 — and the wide
+> table's own side-B block read 49.3% at the same blade. Pooled, 49.3%, which
+> is a third of a damage point off 50 and inside the precision this roster can
+> express. The blade was NOT re-tuned on it: re-tuning on a single n=1120 block
+> is the exact mistake that put Shroudmaul's blade a whole point wrong.
+>
+> **19.75 IS NOT WHAT SHIPPED, AND THE REASON IS §6.6.** The shove arrived
+> after this measurement and cost 2.3 points, so the whole table was re-run
+> with it in.
 
 **REGISTERED PREDICTION (1) IS STRUCK.** *"At blade 21, n 5, period 1.1, life
 9.0, dmg 9, half 14 and front 1100, the built relic lands 48-53%."* It lands
@@ -365,7 +515,65 @@ relic. Open items 12 and 32 argue that the band is the wrong instrument for a
 CONCENTRATED relic; this is a third data point saying the concentration is a
 property of those two relics rather than of the band.
 
-## 6.5 And the second contact rate is the same size as the first
+## 6.5 The shove, and it is NOT free — the ladder that priced it could not see the cost
+
+Rick, after the first build: *"lets give the beams some knockback."* It is
+applied along the JET'S OWN BEARING — off the wall and into the room — which
+is the Thicket's rule rather than a choice: `resolveHit`'s built-in knock fires
+away from the CASTER, and this hazard is not the caster, so a borrowed shove
+would push the quarry along a line nothing on screen is drawn on.
+
+`cindercleave_sweep --only 5`, at the shipped blade, n=672 a point:
+
+```
+  knock     win   jet hits   blade blows    dealt
+      0   47.2%       7.76          7.47    377.4
+    130   48.4%       8.10          7.26    379.9
+    260   47.5%       7.63          7.25    378.3
+    420   46.4%       7.47          7.10    360.1
+    600   46.7%       8.17          7.31    382.9
+```
+
+Every arm inside one SE of every other, so this table says **the shove is free
+and the value is a look decision.** It is wrong, and the way it is wrong is the
+third instance in this one build of the same lesson.
+
+> **THE WIDE MEASUREMENT PUT THE COST AT 2.3 POINTS.** Blade 19.75, same
+> seeds, n=3024 each: **49.8% with no shove and 47.5% with it.** A knob that
+> measures free at n=672 and costs a fifth of a damage point at n=3024 is
+> CLAUDE.md's n≈700 floor again — after the curve that chose the wrong bracket
+> and the per-relic reading that disagreed with `verify`. **The floor applies
+> to the number being DECIDED and not only to the number being READ**, and
+> those keep being treated as different rules.
+
+**WHAT THE SHOVE BUYS BACK IS WHY IT ONLY COSTS 2.3.** Measured on the built
+relic at the shipped numbers: jet hits a fight **7.41 -> 8.04**, mean Sunder on
+the quarry **3.87 -> 4.02**, jet damage **92.2 -> 102.5**. Five holes fire
+along five different bearings, so a quarry thrown off one wall is as likely to
+be pushed INTO another jet as out of one. What it spends is the BLADE: 7.47
+blows a fight down to about 7.25, which is v51 §4.3's "knockback eating its own
+window" showing up small.
+
+**260 IS THE THICKET'S OWN `whipKnock`**, and the arrangement being nearly
+flat across 0-600 means the number is still chosen for the picture — it is the
+LEVEL that had to be paid for, not the choice within it.
+
+## 6.6 So the blade was measured twice, and 20.25 is the one with the shove in
+
+```
+   blade   A blk1  A blk2  B blk1   pooled     (jetKnock 260)
+   19.00    47.4%   46.0%   45.8%    46.4%
+   19.38    47.9%   44.8%   48.8%    47.2%
+   19.75    47.5%   47.0%   48.0%    47.5%     <- 49.8% before the shove
+   20.12    48.8%   49.2%   50.6%    49.5%
+   20.50    49.8%   53.0%   51.1%    51.3%
+```
+
+Monotonic pooled, crossing interpolated at **20.22**, and 20.25 is the round
+quarter-point inside the half-damage band the honest precision allows — v56's
+own call, which shipped a round 21.0 against a bisected 19.92.
+
+## 6.7 And the second contact rate is the same size as the first
 
 ```
   blade blows       7.47 a fight     <- the scythe's own slow rate
@@ -478,6 +686,14 @@ written for*, and this is the fourth time its discovery has been too narrow.
    questions go to a sheet; SCALE questions need the video. The sheet says it
    reads; a phone screen is Rick's call.
 
-6. **NOBODY HAS WATCHED IT.** `07-shorts/v59/breach-first-cut.mp4`. Rule 2,
-   and every relic in this chain has had at least one thing moved by a person
-   watching that no probe had a number for.
+6. **THE SECOND ROUND OF ART HAS NOT BEEN WATCHED.** The tear, the cut and
+   the shove all went in off Rick's note on the first clip and all three are
+   first cuts of their own. `07-shorts/v59/breach-tears-and-shove.mp4`
+   (cindercleave vs axiom, seed 33581) is the one clip that has them in it, and
+   `05-reference/v59/breach-cut-strip.png` is the cut frame by frame. Rule 2 —
+   and the first round moved three things no probe had a number for.
+
+7. **THE SCAR MAY BE TOO BRIGHT AND THE `k` 0.5 JET MAY BE TOO SMALL.** Both
+   are scale questions and a sheet cannot answer either. The scar is drawn on
+   the wall the whole time a pass runs, which is up to 1.2 seconds and often
+   several times a cast, so it is the thing most at risk of being ON TOO MUCH.

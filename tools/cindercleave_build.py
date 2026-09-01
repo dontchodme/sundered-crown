@@ -127,31 +127,44 @@ BLADE_IN = 21.0      # THE BISECTION START, not a shipped number. Design §3.6:
                      # 20 reads 48.5% and 22 reads 53.1%, so the answer is
                      # expected in 20-22 -- and the curve is steep below 22 and
                      # flat-to-noisy above it, which is its own finding.
-TUNED_CC = 19.75     # STAGE 3b, AND IT IS A MEASURED POINT RATHER THAN AN
-                     # INTERPOLATION. `cindercleave_sweep --only 2`, n=1008 a
-                     # point on each of TWO seed blocks and on BOTH sides:
+TUNED_CC = 20.25     # STAGE 3b, RE-MEASURED WITH THE SHOVE IN. Blade and
+                     # knockback are not separable: `cindercleave_sweep
+                     # --only 2`, n=1008 a point on TWO seed blocks and BOTH
+                     # sides, at `jetKnock` 260:
                      #
                      #     blade   A blk1  A blk2  B blk1   pooled
-                     #     18.50    47.8%   48.7%   43.5%    46.7%
-                     #     19.12    46.8%   48.2%   45.6%    46.9%
-                     #     19.75    49.9%   50.3%   49.3%    49.8%   <- here
-                     #     20.38    53.7%   52.1%   49.2%    51.7%
-                     #     21.00    53.4%   52.0%   52.1%    52.5%
+                     #     19.00    47.4%   46.0%   45.8%    46.4%
+                     #     19.38    47.9%   44.8%   48.8%    47.2%
+                     #     19.75    47.5%   47.0%   48.0%    47.5%
+                     #     20.12    48.8%   49.2%   50.6%    49.5%
+                     #     20.50    49.8%   53.0%   51.1%    51.3%
                      #
-                     # Monotonic pooled, and 19.75 is the only row whose three
-                     # independent readings all sit inside one point of each
-                     # other. The interpolated crossing is 19.81 and the honest
-                     # precision on this roster is half a damage point (v56),
-                     # so what ships is the MEASURED row and not the fitted
-                     # number.
+                     # Monotonic pooled, crossing interpolated at 20.22, and
+                     # 20.25 is the round quarter-point inside the half-damage
+                     # band the honest precision allows (v56's own call, which
+                     # shipped "a round 21.0" against a bisected 19.92).
                      #
-                     # AND THE CHEAP CURVE WAS WRONG BY FIVE POINTS, WHICH IS
-                     # THE THIRD TIME. Pass 1 read 47.6% at blade 21 on n=168 a
-                     # point; three wide blocks read 52.5% and `verify --n 40`
-                     # read 51.6% independently. The curve is still worth
-                     # running -- it is the only thing that can show a response
-                     # BENDING, and this one does not -- but nothing under
-                     # n~700 sites a blade on this roster.
+                     # AND THE SHOVE COSTS 2.3 POINTS, WHICH THE LADDER THAT
+                     # PRICED IT COULD NOT SEE. `--only 5` swept `jetKnock`
+                     # across 0 / 130 / 260 / 420 / 600 at n=672 a point and
+                     # every arm landed inside one SE of every other -- read as
+                     # "the shove is free, so choose it for the picture". The
+                     # wide measurement then put blade 19.75 at 49.8% with no
+                     # shove and 47.5% with it: **-2.3pp, on the same seeds, at
+                     # n=3024 each.** A knob that measures free at n=672 and
+                     # costs a fifth of a damage point at n=3024 is the third
+                     # instance in this one build of CLAUDE.md's n~700 floor,
+                     # after the curve that chose the wrong bracket and the
+                     # per-relic reading that disagreed with `verify`.
+                     #
+                     # WHAT THE SHOVE BUYS BACK is contact, and it is why the
+                     # cost is only 2.3 and not more: jet hits a fight rise
+                     # 7.41 -> 8.04 and the mean Sunder on the quarry 3.87 ->
+                     # 4.02, because five holes fire along five different
+                     # bearings and a quarry thrown off one wall is as likely
+                     # to be pushed INTO another jet as out of it. What it
+                     # spends is the BLADE: 7.47 blows a fight -> ~7.25.
+                     # v51 §4.3's "knockback eating its own window", small.
 
 ULT = {
     "n":        5,     # HOLES TO A CAST, AND THE WINDOW ENDS ON THE FIFTH.
@@ -202,6 +215,23 @@ ULT = {
                        # hall's diagonal, from 0.25 of `half` at the wall
     "sunderN":  1,     # per hit, FOE ONLY. NOT A KNOB -- 2 stacks a hit is
                        # worth +1.1pp over 1
+    "jetKnock": 260.,  # RICK'S, off the first cut: "lets give the beams some
+                       # knockback." It is applied ALONG THE JET'S OWN BEARING,
+                       # which is off the wall and into the room -- the
+                       # Thicket's `whipKnock` is the precedent and its comment
+                       # gives the reason: `resolveHit`'s built-in knock fires
+                       # away from the CASTER, and a hazard that is not the
+                       # caster needs its own direction or the shove reads as
+                       # coming from the wrong place.
+                       #
+                       # AND IT IS THE ONE THING IN THIS DESIGN THAT CAN EAT
+                       # ITSELF. v51 §4.3, and Gravemourn's blade curve BENDING
+                       # DOWNWARD is the measured instance: a shove that throws
+                       # the quarry out of the caster's reach costs the blade
+                       # more than the jet gains. Five holes firing along five
+                       # different bearings can also shove the quarry OUT of
+                       # another jet's path or INTO it, so this number is swept
+                       # rather than chosen -- `cindercleave_sweep --only 5`.
 }
 
 ULT_NAME = "Breach"
@@ -276,6 +306,7 @@ S1 = [
           kMin:%KMIN%, kMax:%KMAX%, maxVents:%MAXVENTS%,
           warm:%WARM%, period:%PERIOD%, life:%LIFE%, half:%HALF%,
           jetDmg:%JETDMG%, speed:%SPEED%, taperTo:%TAPERTO%, sunderN:%SUNDERN%,
+          jetKnock:%JETKNOCK%,
           tip:"%TIP%" },
     blurb:"%BLURB%" },
 
@@ -436,10 +467,25 @@ S2 = [
       if (wall){
         if (!V.pass || V.pass.wall !== wall){
           if (V.pass) this.tearVent(f, V.pass);
-          V.pass = { wall, maxPen: 0, dwell: 0, hx, hy };
+          /* `lo`/`hi` ARE THE SWEPT EXTENT and `cx`/`cy` are where the blade is
+             RIGHT NOW, and both exist for the picture rather than for the
+             mechanic. Rick, off the first cut: "the scythe should also have an
+             animation showing it tear open the arena not just placing the
+             breaches on the wall." A cut that is invisible until it resolves
+             leaves the hall placing holes by itself, which is the opposite of
+             what §1 says is happening — so `drawVents` draws the SCAR the
+             blade is opening, and the tear then opens along exactly the stretch
+             of wall the viewer just watched it cross. Nothing in the simulation
+             reads any of the four. */
+          V.pass = { wall, maxPen: 0, dwell: 0, hx, hy,
+                     lo: Infinity, hi: -Infinity, cx: hx, cy: hy };
         }
         const P = V.pass;
         P.dwell += dt;
+        P.cx = hx; P.cy = hy;
+        const along = (wall === "N" || wall === "S") ? hx : hy;
+        if (along < P.lo) P.lo = along;
+        if (along > P.hi) P.hi = along;
         if (pen > P.maxPen){ P.maxPen = pen; P.hx = hx; P.hy = hy; }
         if (P.dwell >= (f.w.ult.passMax || 1.2)){
           this.tearVent(f, P); V.pass = null;
@@ -551,6 +597,15 @@ S2 = [
          : clamp((P.hy - n) / Math.max(1, A.h - 2 * n), 0.02, 0.98),
       x: P.hx, y: P.hy, nx, ny, ax: d[0], ay: d[1],
       k, half: (u.half || 14) * k, life: (u.life || 9) * k,
+      /* HOW LONG THE GASH IS, AS A FRACTION OF THE WALL, and it is stored the
+         same way the position is and for the same reason: the inset walks
+         0 -> 140, so a length in pixels stops describing the same stretch of
+         wall by the end of the fight. Capped at a third of a wall — a blade
+         that swept most of one is a pinned ball, not a cut. Presentation only:
+         `drawVents` reads it and nothing else does. */
+      span: clamp((P.hi - P.lo) / ((P.wall === "N" || P.wall === "S")
+                                   ? Math.max(1, A.w - 2 * n)
+                                   : Math.max(1, A.h - 2 * n)), 0, 0.34),
       t: 0, next: u.warm === undefined ? 0.35 : u.warm,
       fired: 0, front: null, spent: false, seq: idx,
     });
@@ -720,6 +775,105 @@ function shellHash(a, b){'''),
     c.save();
     c.lineCap = "round"; c.lineJoin = "round";
 
+    /* ---- THE CUT, WHICH IS THE THING THE FIRST BUILD DID NOT HAVE.
+
+       Rick: "the scythe should also have an animation showing it tear open the
+       arena not just placing the breaches on the wall."
+
+       He is right about what was on screen and about why it was wrong. A tear
+       resolves at the END of a pass — that is the mechanic and it is not
+       negotiable, because tearing on the first crossing frame samples the
+       shallowest moment of the cut and leaves Rick's own size mechanic with no
+       range. But nothing was DRAWN for the up-to-1.2 seconds a pass runs, so
+       what a viewer saw was a hole appearing on a wall while a scythe happened
+       to be near it. **The hall was placing the holes and the weapon was not.**
+
+       So while a pass is open the wall carries a molten SCAR over exactly the
+       stretch the blade has swept, brightening with how deep it has gone — and
+       the tear then opens along that same stretch, because `v.span` is the
+       same measurement. The cut and the hole are one event with two frames of
+       it drawn instead of one.
+
+       ON THE WALL AND THEREFORE UNDER BOTH BALLS, like the tear it becomes.
+       Everything is derived from `P` and `m.t` and NOTHING is accumulated, so
+       it steps with the 120Hz sim and does not strobe against the frame
+       interpolator — and the sparks are drawn rather than spawned, because
+       `spawnFx` draws from `this.rng()` and a picture must not move the
+       simulation. */
+    if (!over) for (const f of [m.a, m.b]){
+      const V = f.ultBreach;
+      if (!V || !V.pass) continue;
+      const P = V.pass;
+      if (!(P.hi > P.lo)) continue;
+      const u2 = f.w.ult;
+      const nx2 = P.wall === "W" ? 1 : P.wall === "E" ? -1 : 0;
+      const ny2 = P.wall === "N" ? 1 : P.wall === "S" ? -1 : 0;
+      const horiz = (P.wall === "N" || P.wall === "S");
+      const wy = P.wall === "N" ? m.inset
+               : P.wall === "S" ? A.h - m.inset : 0;
+      const wx = P.wall === "W" ? m.inset
+               : P.wall === "E" ? A.w - m.inset : 0;
+      const ax2 = horiz ? P.lo : wx, ay2 = horiz ? wy : P.lo;
+      const bx2 = horiz ? P.hi : wx, by2 = horiz ? wy : P.hi;
+      /* HOW HOT THE SCAR IS, and it is the SAME scalar the tear will be sized
+         by — so what the viewer watches getting brighter is what they then
+         watch open. */
+      const deep = clamp(P.maxPen / Math.max(1, f.w.reach * f.reachMul), 0, 1);
+      const wid = 1.6 + 6.0 * deep;
+      /* HOTTEST WHERE THE BLADE IS, COOLING BACK ALONG THE SWEEP. Drawn as two
+         gradients meeting at the contact point rather than as one even bar —
+         which is what the first cut was, and an even bar of amber laid on a
+         wall reads as lava that is already there. The stone the blade left
+         half a second ago has had half a second to cool, and saying so is the
+         difference between "this weapon is cutting" and "this wall is lit".
+         It is also what points at the contact: a viewer's eye goes to the
+         bright end. */
+      c.globalCompositeOperation = "lighter";
+      c.shadowColor = "#FF6A1A"; c.shadowBlur = 9 * deep;
+      for (const [ex, ey] of [[ax2, ay2], [bx2, by2]]){
+        const gs = c.createLinearGradient(ex, ey, P.cx, P.cy);
+        gs.addColorStop(0.00, "#FF6A1A00");
+        gs.addColorStop(1.00, "#FF6A1A");
+        c.globalAlpha = 0.24 + 0.42 * deep;
+        c.strokeStyle = gs; c.lineWidth = wid;
+        c.beginPath(); c.moveTo(ex, ey); c.lineTo(P.cx, P.cy); c.stroke();
+        const gh = c.createLinearGradient(ex, ey, P.cx, P.cy);
+        gh.addColorStop(0.00, "#FFB34700");
+        gh.addColorStop(0.72, "#FFB34700");
+        gh.addColorStop(1.00, "#FFB347");
+        c.globalAlpha = 0.45 + 0.35 * deep;
+        c.strokeStyle = gh; c.lineWidth = Math.max(1, wid * 0.40);
+        c.beginPath(); c.moveTo(ex, ey); c.lineTo(P.cx, P.cy); c.stroke();
+      }
+      c.shadowBlur = 0;
+      /* THE CONTACT POINT, where the blade is in the stone right now — the
+         brightest thing in the cut, and the only white in it. */
+      c.globalAlpha = 0.85;
+      c.fillStyle = "#FFEFC9";
+      c.beginPath();
+      c.arc(P.cx + nx2 * 2, P.cy + ny2 * 2, 2.5 + 4.5 * deep, 0, TAU);
+      c.fill();
+      /* AND THE STONE COMING OFF IT. Drawn, not spawned: eight sparks whose
+         phase is hashed and whose age is read off `m.t`, so they cost the
+         simulation nothing and are identical on every replay. */
+      for (let k3 = 0; k3 < 8; k3++){
+        const ph = shellHash(6151, k3 + ((P.lo * 8) | 0));
+        const age = (m.t * 2.4 + ph) % 1;
+        const sp = 90 + 150 * shellHash(6163, k3);
+        const spread = (shellHash(6173, k3) - 0.5) * 1.7;
+        const dx2 = nx2 * Math.cos(spread) - ny2 * Math.sin(spread);
+        const dy2 = nx2 * Math.sin(spread) + ny2 * Math.cos(spread);
+        const r2 = age * sp * 0.30;
+        c.globalAlpha = (1 - age) * 0.75 * (0.35 + 0.65 * deep);
+        c.fillStyle = age < 0.4 ? "#FFEFC9" : "#FF8A2A";
+        c.beginPath();
+        c.arc(P.cx + dx2 * r2, P.cy + dy2 * r2 + age * age * 26,
+              (1 - age) * 2.2 + 0.5, 0, TAU);
+        c.fill();
+      }
+      c.globalAlpha = 1;
+    }
+
     if (m.vents) for (const v of m.vents){
       const own = m[v.own];
       const per = Math.max(0.01, (own.w.ult.period || 1.1));
@@ -727,55 +881,188 @@ function shellHash(a, b){'''),
       const age  = clamp(v.t / Math.max(0.01, v.life), 0, 1);
       const cool = clamp((age - 0.78) / 0.22, 0, 1);
       const tx = -v.ny, ty = v.nx;                     // along the wall
-      /* THE HOLE IS DRAWN LARGER THAN THE BEAM'S HALF-WIDTH, and the first cut
-         was not. At `k` 0.8 a hole drawn at 0.66 of `half` is a 12 x 6 pixel
-         ellipse on a 540-wide frame — measured on a real frame, it did not
-         read as a hole in a wall, it read as a smudge. The BEAM's width is a
-         hit box and has to stay exactly what the test uses; the HOLE is
-         nothing but picture, and it is what says the wall was opened. */
-      const wl = v.half * 1.15 * born * (1 - 0.42 * cool);
-      const dp = v.half * 0.52 * born * (1 - 0.30 * cool);
       /* THE CHARGE. `next` runs down to the firing, so this runs UP to it. */
       const due = clamp(1 - v.next / per, 0, 1);
 
       if (!over){
-        /* ---- THE HOLE, IN THE WALL ----------------------------------- */
+        /* ---- THE TEAR, AND IT IS A BREAK IN THE WALL RATHER THAN A LAMP ON
+           IT. Rick, off the first build: "they read as buttons and not as
+           tears in the arena itself."
+
+           He is describing what the first cut was: a filled ELLIPSE with a
+           radial gradient in it, laid on top of the arena's own border. Every
+           property of that shape says button — a smooth closed curve, a
+           symmetric highlight, and an outline that does not disturb the line
+           it is sitting on. What says TEAR is the opposite of all three:
+
+             A JAGGED MOUTH        no two vents the same, and the roughness
+                                   lives on the edge rather than in the fill
+             THE WALL LINE BREAKS  the gash is painted in the hall's own
+                                   background over the border stroke, so the
+                                   boundary is visibly INTERRUPTED. A hole that
+                                   does not break the line it is in is a decal
+             IT RUNS ALONG THE CUT the length is the stretch of wall the blade
+                                   actually swept (`v.span`), not a radius —
+                                   so a long drag opens a long gash
+             CRACKS                the stone fails past the ends of the tear,
+                                   which is what makes it read as broken rather
+                                   than as cut out
+
+           Every jitter is `shellHash` off the vent's own sequence number, so a
+           given tear is the same tear on every replay and on every machine —
+           the house rule since Ironbloom's splinters, and the reason a probe
+           that pins a seed gets the same hall twice. */
+        const wlen = (v.wall === "N" || v.wall === "S")
+                   ? Math.max(1, A.w - 2 * m.inset)
+                   : Math.max(1, A.h - 2 * m.inset);
+        /* THE LENGTH IS THE CUT, COMPRESSED. A scythe dragging along a wall
+           can genuinely sweep a third of it, and a gash that long is not a
+           tear — it is a missing wall section, which is what the first cut
+           drew. So the swept extent still LENGTHENS the gash, and does so at a
+           fifth of its true rate and against a hard ceiling: a long drag reads
+           as a long tear without eating the hall. */
+        const spanPx = (v.span || 0) * wlen;
+        const hw = Math.min(v.half * 3.0, v.half * 0.90 + spanPx * 0.18)
+                 * born * (1 - 0.26 * cool);
+        const dpp = v.half * 0.66 * born * (1 - 0.30 * cool);
         c.save();
-        c.translate(v.x + v.nx * dp * 0.55, v.y + v.ny * dp * 0.55);
+        c.translate(v.x, v.y);
+        /* +x RUNS ALONG THE WALL AND +y RUNS INTO THE STONE, on all four
+           walls and with no per-wall case: `tx = -ny` and `ty = nx`, so a
+           rotation by `atan2(ty, tx)` maps local (0, 1) to (-ty, tx), which is
+           exactly `-n`. The first cut multiplied a handedness term on top of
+           that — and the term is CONSTANT at -1, so every tear was flipped
+           inside out and the mouth bulged into the room. */
         c.rotate(Math.atan2(ty, tx));
+
+        const NJ = 10;
+        const room = [], deep = [];
+        for (let i = 0; i <= NJ; i++){
+          const q = i / NJ, xx = -hw + 2 * hw * q;
+          /* THE MOUTH CLOSES TO A POINT AT BOTH ENDS. A gash with square ends
+             is a slot; the taper is most of what makes it read as torn. */
+          const e = Math.sin(Math.PI * q);
+          const j1 = shellHash(4441, v.seq * 37 + i) - 0.5;
+          const j2 = shellHash(4451, v.seq * 37 + i) - 0.5;
+          room.push([xx, -dpp * (0.30 + 0.70 * e) * (1 + j1 * 1.1)]);
+          deep.push([xx,  dpp * (0.55 + 1.00 * e) * (1 + j2 * 1.1)]);
+        }
+        const mouth = () => {
+          c.beginPath();
+          c.moveTo(room[0][0], room[0][1]);
+          for (let i = 1; i <= NJ; i++) c.lineTo(room[i][0], room[i][1]);
+          for (let i = NJ; i >= 0; i--) c.lineTo(deep[i][0], deep[i][1]);
+          c.closePath();
+        };
+
+        /* 1. THE LINE BREAKS. The hall's own background, painted over the
+              border stroke, so the boundary has a bite out of it. */
         c.globalCompositeOperation = "source-over";
-        c.globalAlpha = 0.94;
-        c.fillStyle = "#150B04";
-        c.beginPath(); c.ellipse(0, 0, wl, dp, 0, 0, TAU); c.fill();
-        /* the lip: broken stone, brightest where the blade came out */
-        c.globalAlpha = 0.55 * (1 - cool);
-        c.strokeStyle = SHAPES._shade(AFFINITIES.dwarven.dark, 1.5, 0.10);
-        c.lineWidth = 2.2;
-        c.beginPath(); c.ellipse(0, 0, wl, dp, 0, 0, TAU); c.stroke();
-        /* the heat in it */
-        c.globalCompositeOperation = "lighter";
-        const g = c.createRadialGradient(0, 0, 0, 0, 0, Math.max(3, wl));
-        g.addColorStop(0.00, "#FFEFC9");
-        g.addColorStop(0.30, "#FFB347");
-        g.addColorStop(0.70, "#FF6A1A");
-        g.addColorStop(1.00, "#FF6A1A00");
-        c.globalAlpha = (0.42 + 0.46 * due * due) * (1 - cool) * born;
-        c.fillStyle = g;
+        c.globalAlpha = 1;
+        c.fillStyle = "#0E0A08";
+        mouth(); c.fill();
+
+        /* 2. THE BROKEN LIP, in stone rather than in light: a hard rim on the
+              room side only, because that is the edge the viewer is looking
+              at across the hall. */
+        c.globalAlpha = 0.85 * (1 - 0.4 * cool);
+        c.strokeStyle = SHAPES._shade(AFFINITIES.dwarven.dark, 1.7, 0.06);
+        c.lineWidth = 2.0; c.lineJoin = "miter";
         c.beginPath();
-        c.ellipse(0, 0, wl * 0.94, dp * 0.94 + 2, 0, 0, TAU);
-        c.fill();
-        c.restore();
-        /* AND WHICH WAY IT IS POINTED, which is the only thing about a dormant
-           hole a viewer can act on. A short stub of heat along the bearing,
-           growing as the firing comes due. */
+        c.moveTo(room[0][0], room[0][1]);
+        for (let i = 1; i <= NJ; i++) c.lineTo(room[i][0], room[i][1]);
+        c.stroke();
+        c.lineJoin = "round";
+
+        /* 3. THE HEAT INSIDE IT, CLIPPED TO THE MOUTH so the glow cannot spill
+              past the break and turn the tear back into a lamp. It sits DEEP —
+              the light is coming from inside the mountain, not off the face. */
+        c.save();
+        mouth(); c.clip();
         c.globalCompositeOperation = "lighter";
-        c.globalAlpha = (0.16 + 0.34 * due * due) * (1 - cool) * born;
+        /* ACROSS THE DEPTH AND NOT OUT FROM A CENTRE. A radial of radius `hw`
+           over a mouth three times as long as it is deep fills the whole thing
+           with amber, and under `lighter` that buries the dark cavity the heat
+           is supposed to be glowing INSIDE. The gradient runs from the room
+           lip (nothing) to the deep edge (hot), so what the viewer sees is a
+           break in the stone with fire a long way down it. */
+        const g = c.createLinearGradient(0, -dpp * 0.9, 0, dpp * 1.5);
+        g.addColorStop(0.00, "#FF6A1A00");
+        g.addColorStop(0.42, "#FF6A1A");
+        g.addColorStop(0.78, "#FFB347");
+        g.addColorStop(1.00, "#FFEFC9");
+        c.globalAlpha = (0.62 + 0.34 * due * due) * (1 - cool);
+        c.fillStyle = g;
+        c.fillRect(-hw * 1.2, -dpp * 2.2, hw * 2.4, dpp * 4.4);
+        /* AND A SEAM ALONG THE DEEPEST LINE, so a long gash has a thread of
+           molten rock running its length rather than an even wash. */
+        c.globalAlpha = (0.72 + 0.28 * due) * (1 - cool);
+        c.strokeStyle = "#FFB347";
+        c.shadowColor = "#FF6A1A"; c.shadowBlur = 10;
+        c.lineWidth = Math.max(1.4, dpp * 0.34);
+        c.beginPath();
+        for (let i = 0; i <= NJ; i++){
+          const q = i / NJ, e = Math.sin(Math.PI * q);
+          const yy = dpp * (0.30 + 0.60 * e)
+                   * (1 + (shellHash(4457, v.seq * 41 + i) - 0.5) * 0.5);
+          if (i === 0) c.moveTo(room[i][0], yy); else c.lineTo(room[i][0], yy);
+        }
+        c.stroke();
+        c.shadowBlur = 0;
+        c.restore();
+
+        /* AND IT LIGHTS THE ROOM IT OPENED INTO. A soft wash just inside the
+           mouth, unclipped and deliberately small: a break with fire behind it
+           throws light, and a tear that is dark on the room side reads as
+           damage rather than as a vent. It is the one thing here drawn OUTSIDE
+           the clip, so it is kept low — the point is that the wall around the
+           gash is warm, not that the gash is a lamp again. */
+        c.globalCompositeOperation = "lighter";
+        const gw = c.createRadialGradient(0, 0, 0, 0, 0, Math.max(6, hw * 0.9));
+        gw.addColorStop(0.00, "#FF6A1A");
+        gw.addColorStop(1.00, "#FF6A1A00");
+        c.globalAlpha = (0.20 + 0.22 * due) * (1 - cool) * born;
+        c.fillStyle = gw;
+        c.beginPath();
+        c.ellipse(0, -dpp * 0.15, hw * 0.95, dpp * 1.5, 0, 0, TAU);
+        c.fill();
+
+        /* 4. THE STONE FAILS PAST BOTH ENDS. Short jagged cracks running along
+              the wall, dim, and they are what separate "torn" from "cut out".
+              They do not glow: a crack is an absence. */
+        c.globalCompositeOperation = "source-over";
+        c.globalAlpha = 0.55 * born * (1 - 0.5 * cool);
+        c.strokeStyle = "#0E0A08";
+        c.lineWidth = 1.6;
+        for (let sgn = -1; sgn <= 1; sgn += 2){
+          for (let k2 = 0; k2 < 3; k2++){
+            const h1 = shellHash(4463, v.seq * 53 + sgn * 7 + k2);
+            const h2 = shellHash(4481, v.seq * 53 + sgn * 7 + k2);
+            const len = hw * (0.35 + 0.75 * h1);
+            c.beginPath();
+            c.moveTo(sgn * hw * 0.92, (h2 - 0.5) * dpp * 0.5);
+            c.lineTo(sgn * (hw * 0.92 + len * 0.55),
+                     (h1 - 0.5) * dpp * 1.1);
+            c.lineTo(sgn * (hw * 0.92 + len), (h2 - 0.5) * dpp * 1.6);
+            c.stroke();
+          }
+        }
+        c.restore();
+
+        /* 5. AND WHICH WAY IT IS POINTED, which is the only thing about a
+              dormant hole a viewer can act on. A stub of heat along the
+              bearing, growing as the firing comes due, so the jet is PROMISED
+              before it arrives rather than appearing. */
+        c.globalCompositeOperation = "lighter";
+        c.globalAlpha = (0.14 + 0.36 * due * due) * (1 - cool) * born;
         c.strokeStyle = "#FF6A1A";
-        c.lineWidth = Math.max(1.5, v.half * 0.30);
+        c.lineWidth = Math.max(1.5, v.half * 0.34);
+        c.shadowColor = "#FF6A1A"; c.shadowBlur = 10 * due;
         c.beginPath();
         c.moveTo(v.x, v.y);
-        c.lineTo(v.x + v.ax * (10 + 24 * due), v.y + v.ay * (10 + 24 * due));
+        c.lineTo(v.x + v.ax * (10 + 26 * due), v.y + v.ay * (10 + 26 * due));
         c.stroke();
+        c.shadowBlur = 0;
         continue;
       }
 
@@ -802,74 +1089,296 @@ function shellHash(a, b){'''),
       const tail = Math.max(0, v.front - L);
       if (head <= tail) continue;
       const px = -v.ay, py = v.ax;
-      const halfAt = (s) => v.half
-                          * (0.25 + 0.75 * clamp(s / (L * (own.w.ult.taperTo || 0.55)), 0, 1));
-      const N = 14;
+      /* THE HIT BOX. `tickBreach` calls this same expression. */
+      const halfAt = (s2) => v.half
+                          * (0.25 + 0.75 * clamp(s2 / (L * (own.w.ult.taperTo || 0.55)), 0, 1));
+
+      /* ---- THE JET, MEASURED OFF RICK'S REFERENCE FRAME RATHER THAN GUESSED
+         AT. Four cuts were spent inventing shapes and being told they were
+         wrong, so this one is proportions taken off the photograph. In units
+         of the body's half-width where it is widest, and running tail to head:
+
+           0.00 - 0.45   a THREAD. Near-constant, about a sixth of the head's
+                         width, and it barely grows. "It stays thin until the
+                         end" is the whole first half of the picture
+           0.45 - 0.88   the flare, and it is a SPEARHEAD: the sides open out
+                         steadily and the white spine brightens inside them
+           0.88 - 1.00   it comes back to a POINT. This is the part four cuts
+                         got wrong — a shaft that ends in a rounded bulb is not
+                         what the reference has and is not what anyone wants
+                         on screen
+           the ARC       radius about 2.4 of the head half-width, struck from
+                         the head itself, spanning ~205 degrees and opening
+                         BACKWARD. Its arms end roughly level with the white
+                         core; they do not wrap round behind it
+           inside it     DIM ORANGE and not black. The arc is a rim on a body
+                         of flame, not a hoop in empty space
+
+         THE TRAIL BEING THIN IS HONEST, which is the fact that makes the
+         profile free. `half` is the hit box and everywhere else in this relic
+         the drawing may not exceed it — but the resolution condition is
+         `proj >= prev && proj <= front`, so THE ONLY WIDTH EVER TESTED IS THE
+         ONE AT THE HEAD. A quarry behind the front has already been swept or
+         already been missed. The head is drawn at the tested width; the trail
+         behind it is decoration.
+
+         THE LICKS ARE HASHED OFF `v.front`, so they crawl as the jet travels
+         with no renderer-side clock — identical on every replay and every
+         machine, the property `drawVines` gets from deriving off `v.t`. */
+      const N = 26;
+      const bucket = Math.floor(v.front / 24);
+      const lick = (i2) => (shellHash(7727, v.seq * 131 + i2 * 17 + bucket)
+                            - 0.5);
       const pt = [];
-      for (let i = 0; i <= N; i++){
-        const s = tail + (head - tail) * (i / N);
-        pt.push([v.x + v.ax * s, v.y + v.ay * s, halfAt(s), i / N]);
+      for (let i2 = 0; i2 <= N; i2++){
+        const q = i2 / N;
+        const s2 = tail + (head - tail) * q;
+        /* A MODEST CONE, WHICH IS WHAT THE SECOND REFERENCE HAS. Its jet
+           leaves a hole in stone -- our own case, where the first reference
+           was a flamethrower crossing frame -- and the shaft widens steadily
+           from the wall to the head rather than running as a thread. What
+           stops that reading as a shaft with a bulb on the end is that the
+           HEAD is three times the shaft, and lobed. */
+        let w = 0.20 + 0.80 * Math.pow(q, 1.5);
+        /* and eased back over the last tenth so the billow is not sitting on
+           a squared-off stump */
+        w *= 1 - 0.30 * Math.pow(clamp((q - 0.90) / 0.10, 0, 1), 1.5);
+        /* AND IT REACHES INTO THE BILLOW. The frill is struck from the head,
+           so a shaft that stops at the head leaves a dark socket in the middle
+           of it — which is what the first lobed cut drew. The reference has
+           the shaft's fire meeting the frill from inside. */
+        pt.push([v.x + v.ax * s2, v.y + v.ay * s2, halfAt(s2), q, w,
+                 lick(i2)]);
       }
-      c.globalCompositeOperation = "lighter";
-      const body = (wmul, col, al) => {
-        c.globalAlpha = 1;
+
+      const ribbon = (wf, col, al, blur) => {
         c.beginPath();
-        for (let i = 0; i <= N; i++){
-          const q = pt[i];
-          const w2 = q[2] * wmul;
-          if (i === 0) c.moveTo(q[0] + px * w2, q[1] + py * w2);
+        for (let i2 = 0; i2 <= N; i2++){
+          const q = pt[i2], w2 = wf(q, false);
+          if (i2 === 0) c.moveTo(q[0] + px * w2, q[1] + py * w2);
           else c.lineTo(q[0] + px * w2, q[1] + py * w2);
         }
-        for (let i = N; i >= 0; i--){
-          const q = pt[i], w2 = q[2] * wmul;
+        for (let i2 = N; i2 >= 0; i2--){
+          const q = pt[i2], w2 = wf(q, true);
           c.lineTo(q[0] - px * w2, q[1] - py * w2);
         }
         c.closePath();
         const gg = c.createLinearGradient(pt[0][0], pt[0][1],
                                           pt[N][0], pt[N][1]);
         gg.addColorStop(0.00, col + "00");
-        gg.addColorStop(0.40, col + "AA");
+        gg.addColorStop(0.30, col + "66");
         gg.addColorStop(1.00, col);
         c.globalAlpha = al;
+        c.shadowColor = col; c.shadowBlur = blur;
         c.fillStyle = gg;
         c.fill();
+        c.shadowBlur = 0;
       };
-      /* THE GLOW CARRIES THE SMALL ONES AND THE GEOMETRY IS LEFT ALONE. `half`
-         IS the hit box — `tickBreach` reads the same `halfAt` expression — so
-         a beam drawn wider than it tests would be a jet that looks like it
-         connected and did not, which is the one thing this ultimate must never
-         do. At `k` 0.5 the body is 7px across and photographed off a real
-         frame it read as a smear rather than as a jet, so what is added is
-         LIGHT and not width. §7a rules out carrying it in white: dwarven and
-         sanctified are separated on VALUE, so the halo is the Crucible's own
-         `#FF6A1A`. */
-      c.shadowColor = "#FF6A1A"; c.shadowBlur = 14;
-      body(1.00, "#FF6A1A", 0.62);
-      c.shadowBlur = 9;
-      body(0.58, "#FFB347", 0.52);
-      c.shadowBlur = 0;
-      /* THE CRESCENT AT THE HEAD, and it is the only white on this relic —
-         which is the one thing in this palette that can be got wrong
-         permanently. Dwarven and sanctified were the closest pair in the game
-         at CIEDE2000 8.05 and were separated on VALUE to reach 21.19; a
-         white-hot BODY walks that straight back, so the hot core is a thin
-         crescent and the length is amber.
 
-         IT IS AN ARC AND NOT A CAP, so the front reads as a bow wave rather
-         than as the end of a bar — and it carries a FLOOR on its size, because
-         at `k` 0.5 the head is 5px across and a 2px arc on a phone is nothing
-         at all. */
-      const hx2 = pt[N][0], hy2 = pt[N][1], hw = pt[N][2];
-      const hr = Math.max(9, hw * 1.20);
-      c.globalAlpha = 0.95;
-      c.strokeStyle = "#FFEFC9";
-      c.lineWidth = Math.max(3, hw * 0.52);
-      c.shadowColor = "#FFB347"; c.shadowBlur = 18;
+      const hx2 = pt[N][0], hy2 = pt[N][1];
+      /* THE HEAD'S WIDTH IS TAKEN WHERE THE BODY IS WIDEST, not at the tip —
+         the tip is a point, and sizing the arc off a point makes it vanish. */
+      const hw = halfAt(tail + (head - tail) * 0.90);
+      const ang = Math.atan2(v.ay, v.ax);
+      const hr = Math.max(19, hw * 3.20);
+
+      c.globalCompositeOperation = "lighter";
+
+      /* 1. THE DIM INTERIOR, first and underneath everything: the arc is a rim
+            on a body of flame and not a hoop in empty space. */
+      c.save();
+      c.translate(hx2 - v.ax * hr * 0.12, hy2 - v.ay * hr * 0.12);
+      const gi = c.createRadialGradient(0, 0, 0, 0, 0, hr);
+      gi.addColorStop(0.00, "#FF6A1A");
+      gi.addColorStop(0.55, "#FF6A1A55");
+      gi.addColorStop(1.00, "#FF6A1A00");
+      c.globalAlpha = 0.30;
+      c.fillStyle = gi;
+      c.beginPath(); c.arc(0, 0, hr, 0, TAU); c.fill();
+      c.restore();
+
+      /* 2. THE ENVELOPE — soft, ragged, the one layer allowed outside the hit
+            box because it is flame fringe with no hard edge in it. */
+      ribbon((q, b) => q[2] * q[4] * 1.30 * (1 + (b ? -q[5] : q[5]) * 0.50)
+                     + (b ? -q[5] : q[5]) * 2.0,
+             "#FF6A1A", 0.44, 15);
+      /* 3. THE BODY. */
+      ribbon((q, b) => q[2] * q[4] * 0.80 * (1 + (b ? -q[5] : q[5]) * 0.28)
+                     + (b ? -q[5] : q[5]) * 1.2,
+             "#FFB347", 0.60, 8);
+      /* 4. THE SPINE, and it is LONG and THIN rather than a blob at the nose —
+            the reference runs white from about the halfway point forward. §7a
+            holds: the white is the front, and the length is amber. */
+      ribbon((q, b) => q[2] * q[4] * 0.36
+                     * clamp((q[3] - 0.34) / 0.66, 0, 1)
+                     * (1 + (b ? -q[5] : q[5]) * 0.22),
+             "#FFE3B4", 0.62, 7);
+
+      /* 5. THE FILAMENTS. Fire is fibrous and a filled ribbon is not; six
+            streaks trailing back off the head at hashed offsets are most of
+            what separates flame from an airbrush. */
+      c.strokeStyle = "#FFB347";
+      c.lineCap = "round";
+      for (let f2 = 0; f2 < 6; f2++){
+        const off = (shellHash(7741, v.seq * 53 + f2 + bucket * 3) - 0.5) * 2;
+        const a0 = 0.50 + 0.30 * shellHash(7753, v.seq * 53 + f2);
+        c.globalAlpha = 0.40 * (0.4 + 0.6 * Math.abs(off));
+        c.lineWidth = Math.max(0.8, hw * 0.13);
+        c.beginPath();
+        for (let i2 = Math.floor(N * a0); i2 <= N; i2++){
+          const q = pt[i2];
+          const o2 = off * q[2] * q[4] * 0.95;
+          const xx = q[0] + px * o2, yy = q[1] + py * o2;
+          if (i2 === Math.floor(N * a0)) c.moveTo(xx, yy); else c.lineTo(xx, yy);
+        }
+        c.stroke();
+      }
+
+      /* 6. THE BILLOW, AND IT IS SCALLOPED RATHER THAN SMOOTH.
+
+         Rick's second reference is the one that settles this: a jet erupting
+         from a hole in a stone wall, which is our own case rather than an
+         analogy. Its head is not an arc — it is a ring of ROUNDED LOBES, six
+         to nine of them, overlapping like the frill of a mushroom, and that
+         internal structure is the entire difference between fire that is
+         ROLLING and a bright curve that is sitting still. Five previous cuts
+         drew a stroked arc of one width or another and every one of them read
+         as a lens flare, because a stroked arc has no inside.
+
+         So the crescent is built as overlapping filled lobes on an arc, each
+         one a soft radial that falls off to nothing, smaller toward the tips.
+         `lighter` does the rest: where two lobes overlap they brighten, which
+         is what gives the frill its seams for free.
+
+         AND THE PALETTE COMES BACK TOWARD AMBER. The reference is gold almost
+         throughout with white only in the very hottest part of the head — §7a
+         was right and the last three cuts had drifted whiter than it. */
+      const LOB = 9;
+      const SPAN = 3.30;
+      c.save();
+      c.translate(hx2 - v.ax * hr * 0.10, hy2 - v.ay * hr * 0.10);
+      c.rotate(ang);
+      for (let i2 = 0; i2 < LOB; i2++){
+        const q2 = LOB === 1 ? 0.5 : i2 / (LOB - 1);
+        const a2 = -SPAN / 2 + SPAN * q2;
+        const hsh = shellHash(7789, v.seq * 97 + i2 + bucket);
+        /* the lobes sit on the arc, and the ones at the tips are smaller —
+           the frill thins into its own ends */
+        const hs2 = shellHash(7793, v.seq * 97 + i2 * 3 + bucket);
+        /* THE SPACING JITTERS TOO. Lobes on even angular centres at one radius
+           are a croissant; the reference's frill is uneven in both. */
+        const aj = a2 + (hs2 - 0.5) * (SPAN / LOB) * 0.55;
+        const ring = hr * (0.70 + 0.20 * hsh)
+                   * (0.62 + 0.38 * Math.sin(Math.PI * q2));
+        const lx = Math.cos(aj) * ring, ly = Math.sin(aj) * ring;
+        const lr = hr * (0.26 + 0.24 * hs2)
+                 * (0.55 + 0.45 * Math.sin(Math.PI * q2));
+        /* THREE FLAT DISCS AND NOT A GRADIENT. `createRadialGradient` is
+           the one performance trap this file has already been bitten by, and
+           the engine's own grain cache carries the note: nine of them per
+           relic per frame "was the single cause of the stutter Rick
+           reported". Nine lobes across up to eight live vents is SEVENTY-TWO
+           gradient objects a frame. Under `lighter` three concentric solid
+           discs build the same falloff for none of the cost. */
+        c.globalAlpha = 0.22;
+        c.fillStyle = "#FF6A1A";
+        c.beginPath(); c.arc(lx, ly, lr, 0, TAU); c.fill();
+        c.globalAlpha = 0.26;
+        c.fillStyle = "#FFB347";
+        c.beginPath(); c.arc(lx, ly, lr * 0.70, 0, TAU); c.fill();
+        c.globalAlpha = 0.30;
+        c.fillStyle = "#FFD79A";
+        c.beginPath(); c.arc(lx, ly, lr * 0.38, 0, TAU); c.fill();
+      }
+      /* AND A RIM ON THE OUTSIDE OF THE FRILL, thin, so the billow has an edge
+         the eye can follow round. It scallops with the lobes because it is
+         struck on the same radii. */
+      c.globalAlpha = 0.30;
+      c.strokeStyle = "#FFC978";
+      c.shadowColor = "#FFB347"; c.shadowBlur = 8;
+      c.lineCap = "round";
+      c.lineWidth = Math.max(0.8, hw * 0.15);
+      const M2 = 40;
       c.beginPath();
-      c.arc(hx2 - v.ax * hr * 0.5, hy2 - v.ay * hr * 0.5,
-            hr, Math.atan2(v.ay, v.ax) - 1.05,
-            Math.atan2(v.ay, v.ax) + 1.05);
+      for (let i2 = 0; i2 <= M2; i2++){
+        const q2 = i2 / M2;
+        const a2 = -SPAN / 2 + SPAN * q2;
+        const lobe = q2 * (LOB - 1);
+        const hsh = shellHash(7789, v.seq * 97 + Math.round(lobe) + bucket);
+        const rr = hr * (0.74 + 0.10 * hsh)
+                 * (0.62 + 0.38 * Math.sin(Math.PI * q2))
+                 + hr * (0.30 + 0.14 * hsh)
+                 * (0.55 + 0.45 * Math.sin(Math.PI * q2)) * 0.72;
+        const xx = Math.cos(a2) * rr, yy = Math.sin(a2) * rr;
+        if (i2 === 0) c.moveTo(xx, yy); else c.lineTo(xx, yy);
+      }
       c.stroke();
+      c.shadowBlur = 0;
+      c.restore();
+
+      /* 7. THE SPARKS, AND THEY ARE THE THING THE STILL COULD NOT SHOW.
+
+         Rick's second reference is eight seconds of a jet playing on a stone
+         wall, and what the photograph leaves out is that most of what a viewer
+         reads as FIRE is not the ribbon — it is the cloud of point sparks
+         spraying off it, arcing out and falling. The ribbon on its own is a
+         lit shape; the sparks are what make it burn.
+
+         EVERY ONE IS DERIVED AND NONE IS SPAWNED. A spark is born where the
+         FRONT passed, so its age is `(head - birth) / speed` — no stored
+         state, no per-frame integration, nothing in `m.fx`, and above all no
+         `this.rng()`, which would move the simulation and re-invalidate the
+         blade for the third time. Hashed off the vent's own sequence number,
+         so a given jet throws the same sparks on every replay and on every
+         machine.
+
+         THEY FALL. `+ 300 * age * age` is the only place in this drawing that
+         knows which way is down, and it is what stops the spray reading as a
+         starburst. */
+      const spd2 = Math.max(1, own.w.ult.speed || 1100);
+      for (let k3 = 0; k3 < 52; k3++){
+        const h1 = shellHash(7757, v.seq * 211 + k3);
+        const h2 = shellHash(7761, v.seq * 211 + k3);
+        const h3 = shellHash(7769, v.seq * 211 + k3);
+        /* born along the part the front has already crossed, biased hard
+           toward the head — which is where the reference throws most of them */
+        const bs = head * (0.30 + 0.70 * Math.pow(h1, 0.55));
+        const age = (head - bs) / spd2 + h3 * 0.05;
+        if (age > 0.55) continue;
+        /* FORWARD-BIASED. The first cut had the lateral term four times the
+           forward one, so every spark left the jet at ninety degrees and the
+           spray read as tally marks down the shaft. The reference throws them
+           ahead and out. */
+        const lat = (h2 - 0.5) * 300;
+        const fwd = 150 + 420 * h3;
+        const ex = v.x + v.ax * (bs + fwd * age) + px * lat * age;
+        const ey = v.y + v.ay * (bs + fwd * age) + py * lat * age
+                 + 300 * age * age;
+        const fade = 1 - age / 0.55;
+        /* a STREAK and not a dot: a spark moving at a few hundred units a
+           second is a line at 60fps, and drawing it as a point is the same
+           mistake as drawing a jet with no duration */
+        const sx2 = v.ax * fwd + px * lat;
+        const sy2 = v.ay * fwd + py * lat + 600 * age;
+        const sl = Math.hypot(sx2, sy2) || 1;
+        /* AN EMBER AND NOT A TALLY MARK. Uniform white dashes read as
+           hatching; the reference's sparks are warm, uneven, and each one
+           carries a little of its own light. Length varies with the spark's
+           own hash so the spray is not a comb. */
+        const len2 = (1.2 + 6 * fade * (0.45 + 0.9 * h2)) * v.k;
+        c.globalAlpha = fade * 0.9;
+        c.strokeStyle = fade > 0.68 ? "#FFF0CC"
+                      : fade > 0.34 ? "#FFB347" : "#FF7A18";
+        c.lineWidth = Math.max(0.6, 1.3 * fade * v.k);
+        /* NO SHADOW ON A SPARK. `shadowBlur` is the most expensive thing a 2D
+           context does and there are up to sixty-four of these per vent; at
+           arena scale a two-pixel ember's halo is invisible and the capture
+           was paying eight times over for it. */
+        c.beginPath();
+        c.moveTo(ex, ey);
+        c.lineTo(ex - (sx2 / sl) * len2, ey - (sy2 / sl) * len2);
+        c.stroke();
+      }
       c.shadowBlur = 0;
     }
 
@@ -1071,6 +1580,21 @@ S3 = [
     if (firstTeach) this.taught.sunder = true;
     foe.apply("sunder", u.sunderN || 1);
     this.statusTag(foe.x, foe.y, "sunder", firstTeach);
+
+    /* THE SHOVE, ALONG THE JET'S OWN BEARING — off the wall and into the
+       room. Rick's, and the direction is the Thicket's rule rather than a
+       choice: `resolveHit`'s built-in knock fires away from the CASTER, and
+       this hazard is not the caster, so a shove borrowed from that function
+       would push the quarry along a line nothing on screen is drawn on.
+
+       AFTER the damage and BEFORE the fatal test, so a killing jet still
+       throws the corpse — `killFlight` is what carries a slain ball into the
+       wall it shatters against, and a kill that landed with no push would end
+       the fight on a ball standing still. */
+    if (foe.alive && (u.jetKnock || 0) > 0){
+      foe.vx += v.ax * u.jetKnock;
+      foe.vy += v.ay * u.jetKnock;
+    }
 
     const fatal = !foe.alive;
     if (fatal){
@@ -1455,8 +1979,15 @@ def main() -> int:
     for k, v in ULT.items():
         ap.add_argument(f"--{k.lower()}", type=float, default=v)
     A = ap.parse_args()
+    # THE BLADE BELONGS TO WHICHEVER STAGE IS RUNNING, and this line is the
+    # one v56 got wrong. Stages 1 and 2 ship the STARTING blade, which is what
+    # the floor gate and the distribution gate are measured against; stage 3b
+    # is the only place the tuned value lands. Defaulting every stage to
+    # TUNED_CC made stage 1 write 19.75 and stage 3 then refuse, looking for
+    # the 21 it was supposed to replace -- a loud failure, and only because
+    # the retune asserts.
     if A.dmg is None:
-        A.dmg = BLADE_IN if TUNED_CC is None else TUNED_CC
+        A.dmg = TUNED_CC if (A.stage == 3 and TUNED_CC is not None) else BLADE_IN
 
     src = A.src or {1: "../02-chain/sc-gnawed.html",
                     2: "../02-chain/sc-cindercleave.html",
@@ -1509,7 +2040,8 @@ def main() -> int:
             "%WARM%": f"{A.warm:g}", "%PERIOD%": f"{A.period:g}",
             "%LIFE%": f"{A.life:g}", "%HALF%": f"{A.half:g}",
             "%JETDMG%": f"{A.jetdmg:g}", "%SPEED%": f"{A.speed:g}",
-            "%TAPERTO%": f"{A.taperto:g}", "%SUNDERN%": f"{int(A.sundern):d}"}
+            "%TAPERTO%": f"{A.taperto:g}", "%SUNDERN%": f"{int(A.sundern):d}",
+            "%JETKNOCK%": f"{A.jetknock:g}"}
 
     if A.stage == 1:
         if f'id:"{RELIC}"' in s0:
@@ -1541,7 +2073,7 @@ def main() -> int:
         print(f"  ult {A.ult}  "
               + "  ".join(f"{k} {getattr(A, k.lower()):g}"
                           for k in ("warm", "period", "life", "half", "jetDmg",
-                                    "speed", "taperTo", "sunderN")))
+                                    "speed", "taperTo", "sunderN", "jetKnock")))
         print(f"  pred  registered: 48-53% against the field at these numbers,"
               f"\n        and the cap ends fewer than 1 window in 50")
 

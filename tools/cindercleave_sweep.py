@@ -17,6 +17,15 @@
       instrument that can see it where `verify`'s per-relic band cannot.
   [4] THE TWO SCALARS at the answer, because Breach is hits-landed AND
       what-a-hit-is-worth and one number will not tune it.
+  [5] THE SHOVE. Rick's, off the first build — and it is the one knob in this
+      design that can eat itself, so it is swept rather than chosen. A jet
+      that throws the quarry off the wall also throws it out of the CASTER'S
+      reach, and v51 §4.3 has the measured instance: Gravemourn's blade curve
+      BENDS DOWNWARD past 47.2 because a bigger blow costs a slow weapon its
+      next contact. Five holes firing along five bearings can also shove the
+      quarry out of another jet's path, or into one. So this pass reports the
+      win rate AND both contact columns, because a shove that buys jet hits by
+      spending blade blows is not free even when the win rate does not move.
 
 ## WHY THERE IS NO BISECTION IN THIS FILE
 
@@ -66,10 +75,11 @@ RID = "cindercleave"
 # `side` IS AN ARGUMENT AND NOT AN ASSUMPTION. `AC.simulate(a, b, seed)` is not
 # symmetric -- the two fighters start in different corners -- and every sweep
 # in this repo has silently run the relic as side A.
-WIN_JS = r"""([id, dmg, n, seed0, side, off]) => {
+WIN_JS = r"""([id, dmg, n, seed0, side, off, knock]) => {
   const w = AC.WEAPONS.find(x => x.id === id);
-  const d0 = w.dmg, c0 = w.ult.charge;
+  const d0 = w.dmg, c0 = w.ult.charge, k0 = w.ult.jetKnock;
   w.dmg = dmg;
+  if (knock !== null && knock !== undefined) w.ult.jetKnock = knock;
   if (off) w.ult.charge = 1e9;          // [0] the floor: the clock never lands
   const ids = AC.WEAPONS.map(x => x.id).filter(x => x !== id);
   let s = seed0 >>> 0, win = 0, games = 0, dur = 0, timeouts = 0;
@@ -89,7 +99,7 @@ WIN_JS = r"""([id, dmg, n, seed0, side, off]) => {
       byType[ft] = byType[ft] || [0, 0];
       byType[ft][0] += fw; byType[ft][1] += n;
     }
-  } finally { w.dmg = d0; w.ult.charge = c0; }
+  } finally { w.dmg = d0; w.ult.charge = c0; w.ult.jetKnock = k0; }
   const types = {};
   for (const k of Object.keys(byType)) types[k] = byType[k][0] / byType[k][1];
   return { win, games, rate: win / games, dur: dur / games, timeouts,
@@ -100,12 +110,14 @@ WIN_JS = r"""([id, dmg, n, seed0, side, off]) => {
 # THE SHAPE AT THE ANSWER. A blade that reaches 50% by being a bigger blade is
 # not the same relic as one that reaches it by opening more holes, and the win
 # column cannot tell them apart.
-TEL_JS = r"""([id, dmg, foes, seeds, secs]) => {
+TEL_JS = r"""([id, dmg, foes, seeds, secs, knock]) => {
   const DT = AC.CONFIG.physics.dt, P = AC.Match.prototype;
   const w = AC.WEAPONS.find(x => x.id === id);
   const d0 = w.dmg; w.dmg = dmg;
   const A = { fights: 0, casts: 0, tears: 0, fired: 0, hits: 0,
               jetDmg: 0, dealt: 0, stackSum: 0, stackN: 0, blows: 0 };
+  const k0 = w.ult.jetKnock;
+  if (knock !== null && knock !== undefined) w.ult.jetKnock = knock;
   const origTear = P.tearVent, origJet = P.jetHit;
   try {
     for (const foeId of foes){
@@ -134,19 +146,20 @@ TEL_JS = r"""([id, dmg, foes, seeds, secs]) => {
         A.casts += me.ultsFired; A.dealt += me.dealt; A.blows += me.hits;
       }
     }
-  } finally { w.dmg = d0; P.tearVent = origTear; P.jetHit = origJet; }
+  } finally { w.dmg = d0; w.ult.jetKnock = k0;
+              P.tearVent = origTear; P.jetHit = origJet; }
   return A;
 }"""
 
 
-def run(page, dmg, n, seed0, side="a", off=False):
-    return page.evaluate(WIN_JS, [RID, dmg, n, seed0, side, off])
+def run(page, dmg, n, seed0, side="a", off=False, knock=None):
+    return page.evaluate(WIN_JS, [RID, dmg, n, seed0, side, off, knock])
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--game", default="../02-chain/sc-breach.html")
-    ap.add_argument("--only", default="0,1,2,3,4")
+    ap.add_argument("--only", default="0,1,2,3,4,5")
     ap.add_argument("--lo", type=float, default=10.0)
     ap.add_argument("--hi", type=float, default=32.0)
     ap.add_argument("--pts", type=int, default=8)
@@ -282,7 +295,7 @@ def main() -> int:
             print(f"\n[4] THE TWO SCALARS at the shipped blade")
             foes = [i for i in ids if i != RID]
             seeds = [4242 + 37 * i for i in range(4)]
-            T = page.evaluate(TEL_JS, [RID, d0, foes, seeds, a.secs])
+            T = page.evaluate(TEL_JS, [RID, d0, foes, seeds, a.secs, None])
             n_f = max(1, T["fights"])
             print(f"      casts a fight     {T['casts']/n_f:>7.2f}")
             print(f"      holes a cast      {T['tears']/max(1,T['casts']):>7.2f}")
@@ -295,6 +308,37 @@ def main() -> int:
                   f"delivered")
             print(f"      blade blows       {T['blows']/n_f:>7.2f} a fight")
             out["telemetry"] = T
+
+        if 5 in only:
+            print(f"\n[5] THE SHOVE — priced at the shipped blade, and the "
+                  f"contact columns are the point")
+            k_now = page.evaluate("(r) => AC.WEAPONS.find(w=>w.id===r)"
+                                  ".ult.jetKnock", RID)
+            print(f"      {'knock':>7}{'win':>8}{'jet hits':>10}"
+                  f"{'blade blows':>13}{'dealt':>9}")
+            arms = []
+            foes = [i for i in ids if i != RID]
+            seeds = [4242 + 37 * i for i in range(4)]
+            for K in (0.0, 130.0, 260.0, 420.0, 600.0):
+                r = run(page, d0, a.sn * 3, 550021, "a", False, K)
+                fights += r["games"]
+                T = page.evaluate(TEL_JS, [RID, d0, foes, seeds, a.secs, K])
+                nf = max(1, T["fights"])
+                arms.append((K, r["rate"], T["hits"] / nf, T["blows"] / nf,
+                             T["dealt"] / nf))
+                print(f"      {K:>7.0f}{r['rate']*100:>7.1f}%"
+                      f"{T['hits']/nf:>10.2f}{T['blows']/nf:>13.2f}"
+                      f"{T['dealt']/nf:>9.1f}"
+                      + ("   <- shipped" if abs(K - k_now) < 1e-9 else ""))
+            base = [x for x in arms if x[0] == 0][0]
+            print(f"\n      against no shove at all: "
+                  + "   ".join(f"{K:.0f} {(w-base[1])*100:+.1f}pp"
+                               for K, w, _, _, _ in arms if K > 0))
+            print(f"      IF THE BLADE COLUMN FALLS AS THE JET COLUMN RISES, "
+                  f"the shove is buying\n      contact from itself — v51 §4.3, "
+                  f"and it is why this is a table and not a\n      single "
+                  f"number.")
+            out["knock"] = arms
 
         assert not errors, errors
 

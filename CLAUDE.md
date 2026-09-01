@@ -103,8 +103,8 @@ Dwarven × scythe, built to `06-docs/v57/`'s brief in three staged links. A cast
 opens a LICENCE and not a clock: for up to 14s the scythe tears the walls it is
 already standing inside, and **the FIFTH cut ends it**. Each cut opens a hole
 sized by how deep the blade went; a hole fires a travelling jet into the room
-every 1.1s for 9s, dealing 9 and applying **1 Sunder, foe only**. Blade
-**19.75**. `06-docs/v59/`.
+every 1.1s for 9s, dealing 9, shoving at 260 along its own bearing, and
+applying **1 Sunder, foe only**. Blade **20.25**. `06-docs/v59/`.
 
 > **THE DESIGN'S ONE FALSIFIABLE PREDICTION WAS PUBLISHED BEFORE THE BUILD
 > EXISTED AND IT REPRODUCES.** v57 §3.2 measured how deep a scythe's blade goes
@@ -151,11 +151,29 @@ every 1.1s for 9s, dealing 9 and applying **1 Sunder, foe only**. Blade
 > THE ONE THAT READS THE ANSWER** — a wrong bracket sends a wide measurement to
 > the wrong place, and here that cost 15,120 fights.
 >
-> What ships is a MEASURED row and not a fitted number: 19.75 reads
-> 49.9 / 50.3 / 49.3% on three independent blocks against an interpolated
-> crossing of 19.81, and 21.00 reproduced its earlier run to the decimal on all
-> three. **All three registered predictions hold**, the 48-53% band included —
-> the relic met it at blade 21 and the blade then came down to reach 50%.
+> What ships is a MEASURED row and not a fitted number, and 21.00 reproduced
+> its earlier run to the decimal on all three blocks. **All three registered
+> predictions hold**, the 48-53% band included — the relic met it at blade 21
+> and the blade then came down to reach 50%.
+
+> **AND THE SHOVE IS NOT FREE, WHICH IS THE SAME LESSON A THIRD TIME IN ONE
+> BUILD.** Rick, off the first clip: *"lets give the beams some knockback."*
+> Swept across 0 / 130 / 260 / 420 / 600 at n=672 a point, every arm landed
+> inside one SE of every other — which reads as "free, so choose it for the
+> picture". The wide measurement then put blade 19.75 at **49.8% with no shove
+> and 47.5% with it**: −2.3pp, same seeds, n=3024 each, and the blade moved to
+> **20.25**. **THE n≈700 FLOOR APPLIES TO THE NUMBER BEING DECIDED AND NOT ONLY
+> TO THE NUMBER BEING READ**, and this build treated those as different rules
+> three separate times.
+>
+> What the shove buys back is why it costs only 2.3: jet hits a fight **7.41 ->
+> 8.04** and mean Sunder **3.87 -> 4.02**, because five holes fire along five
+> bearings and a quarry thrown off one wall is as likely to be pushed INTO
+> another jet as out of one. What it SPENDS is the blade — 7.47 blows a fight
+> to about 7.25, which is v51 §4.3 showing up small. The direction is the
+> Thicket's rule rather than a choice: `resolveHit`'s knock fires away from the
+> CASTER, and a hazard that is not the caster needs its own bearing or the
+> shove reads as coming from the wrong place.
 
 > **AND ITS TYPE SPREAD IS 16.9pp, WHICH IS EVIDENCE ABOUT OPEN ITEMS 12 AND 32
 > RATHER THAN A THIRD INSTANCE OF THEM.** twinblade 63.5% down to bow 46.7%,
@@ -172,6 +190,69 @@ every 1.1s for 9s, dealing 9 and applying **1 Sunder, foe only**. Blade
 > a check that could not tell three endings apart was one step from redesigning
 > a mechanic that works. `gravemourn_relic_probe`'s lesson for the fourth time,
 > and the second instance in this build alone.
+
+> **THE BREACHES READ AS BUTTONS, AND THE SCYTHE WAS NOT CUTTING ANYTHING.**
+> Rick, on the first clip: *"they read as buttons and not as tears in the arena
+> itself. the scythe should also have an animation showing it tear open the
+> arena not just placing the breaches on the wall."*
+>
+> The first cut drew a filled ELLIPSE with a radial gradient, laid on top of
+> the arena's own border — a smooth closed curve, a symmetric highlight, and an
+> outline that does not disturb the line it sits on, which is three ways of
+> saying button. It is a jagged mouth painted in the hall's own background
+> **over** the border stroke now, so the boundary is visibly INTERRUPTED; a
+> broken lip in stone rather than in light; heat running ACROSS the depth so it
+> glows from inside the break instead of washing the shape; cracks past both
+> ends, because a crack is an absence and it is what separates torn from cut
+> out; and its length is the stretch of wall the blade actually swept.
+>
+> **AND THE CUT WAS SIMPLY ABSENT, WHICH IS THE SERIOUS HALF.** A tear resolves
+> at the END of a pass and that cannot change — tearing on the first crossing
+> frame samples the shallowest moment and leaves the size mechanic with no
+> range. But nothing was drawn for the up-to-1.2s a pass runs, so **the hall
+> was placing the holes and the weapon was not.** The wall carries a molten
+> scar over exactly the stretch swept, hottest where the blade is and cooling
+> back along it, and the tear then opens along that same measurement.
+> **The sparks are DRAWN and not spawned**: `spawnFx` draws from `this.rng()`,
+> so a debris field would have moved every Cindercleave fight and
+> re-invalidated the blade.
+>
+> **TWO BUGS DIED ON THE WAY.** `rotate(atan2(ty, tx))` already puts local +y
+> INTO the stone on all four walls — `tx = -ny` and `ty = nx`, so local (0,1)
+> maps to `-n` — and the handedness term written on top of it evaluates to a
+> CONSTANT −1, so every tear was inside out and bulging into the room. And
+> `span` can legitimately be a third of a wall, which drawn at full rate is a
+> missing wall SECTION rather than a tear.
+> `05-reference/v59/breach-cut-strip.png` is nine frames through one cut.
+
+> **AND THE JETS WERE REBUILT OFF TWO REFERENCE VIDEOS IN SIX CUTS, WHICH IS
+> FIVE MORE THAN IT SHOULD HAVE TAKEN.** Rick: *"id like them to read more
+> like the refrence"*, then *"i dont see any difference here"*, then *"this is
+> worse. it looks like a dick. please take from the photo."* **THE METHOD WAS
+> THE PROBLEM**: cuts one to four invented shapes and asked whether they
+> matched; only cut five read proportions off the image. A thread for the first
+> 45%, a spearhead flare, back to a POINT, and an arc at 2.4x the head's
+> half-width opening backward with a DIM ORANGE inside rather than a black one.
+>
+> **AND THE VIDEOS SAID TWO THINGS NO STILL COULD.** Most of what reads as fire
+> is the SPARK CLOUD and not the ribbon — 52 a firing here, every one derived
+> from `(head - birth) / speed` so there is no stored state and **no
+> `this.rng()`**, which would have moved the sim and re-invalidated the blade a
+> third time. And the head is not an arc at all: it is a ring of nine
+> overlapping LOBES, because a stroked arc has no inside and five cuts of one
+> read as a lens flare.
+
+> **AND THE ART COST 14x THE RENDER TIME UNTIL A COMMENT ALREADY IN THIS ENGINE
+> EXPLAINED WHY.** The capture fell to **0.19 frames a second**. `GRAIN_CACHE`:
+> *"nine `createRadialGradient` calls per relic per frame ... was the single
+> cause of the stutter Rick reported"* — and the billow put one inside its lobe
+> loop, which is **seventy-two gradient objects a frame** across eight vents.
+> Three flat discs under `lighter` do the same job. The other half was
+> `shadowBlur` on every spark, 64 a vent, for a halo invisible at arena scale.
+> **2.6 frames a second after, picture unchanged**: a four-hour capture became
+> 26 minutes. NOT the app-fps item in §0 — that one is still right and still
+> closed. This was wall-clock on the deliverable's own pipeline, and the fix
+> was free.
 
 > **THE JETS READ AT `k` 1.5 THE FIRST TIME AND WERE A SMEAR AT `k` 0.8** —
 > and the constraint on every fix is that **`half` IS THE HIT BOX**:
@@ -1768,12 +1849,16 @@ git push
     BUILD.** §0. `cell_survey`'s ink mask and `silhouette_probe`'s IoU
     disagree by more than the difference between "distinct" and "identical",
     and both were quoted in the v56 brief as if they were one number.
-36. **NOBODY HAS WATCHED CINDERCLEAVE.** The art and the four voices are
-    first cuts. Three picture faults died on the first sheet and a fourth on
-    the second, all of them invisible to every probe in the repo — and a sheet
-    cannot answer a SIZE question, which is what the `k` 0.5 jet is. Rule 2,
-    §5d of the design doc, and the one clip that exists is
-    `07-shorts/v59/breach-first-cut.mp4` (cindercleave vs axiom, seed 61010).
+36. **THE SECOND ROUND OF CINDERCLEAVE'S ART HAS NOT BEEN WATCHED.** The
+    tear, the cut and the shove all went in off Rick's note on the first clip
+    and all three are first cuts of their own.
+    `07-shorts/v59/breach-tears-and-shove.mp4` (cindercleave vs axiom, seed
+    33581) is the only clip with them in it, and
+    `05-reference/v59/breach-cut-strip.png` is the cut frame by frame. **The
+    SCAR is the thing most at risk**: it is drawn for the whole up-to-1.2s a
+    pass runs, several times a cast, so it is the element most likely to be on
+    too much — and that is a scale question, which a sheet cannot answer. Rule
+    2, and the first round moved three things no probe had a number for.
 
 37. **THE NORTH WALL TAKES 3.9% OF THE TEARS.** Measured over 6,649 passes:
     W 2165, E 2153, S 2071 — and **N 260**, because gravity is real and a ball
