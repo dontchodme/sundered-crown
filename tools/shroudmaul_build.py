@@ -577,6 +577,54 @@ S3 = [
          the pool is measured to be unmoved by the whole ultimate (+1.2 blows
          and +5.4% of pool). */
       foe.stun = Math.max(foe.stun, hold);
+      /* ---- AND THE SQUEEZE STOPS THE BALL DEAD -------------------------
+
+         Rick, watching the third build: "im not seeing the hand apply any
+         hitstun at all?" and then "hitstun should freeze the enemy ball
+         correct?"
+
+         IT DOES NOT, AND THAT IS WHY HE COULD NOT SEE IT. `f.stun` locks the
+         WEAPON -- `tickHits` skips, the head stops turning, the swing does not
+         advance -- and the ball keeps moving: `moveMul` floors at 0.45 and
+         `speedMin` is 250. Measured on the shipped relic, the quarry was
+         stunned 54% of the open window and its ball was travelling **674 px/s
+         while stunned against 599 free**, which is 12% FASTER. The most
+         visually distinctive thing in the fight was landing on a target that
+         then sailed away at speed.
+
+         THE DESIGN PREDICTED THIS COMPLAINT AND BET AGAINST IT. `grab-v56.md`
+         §5, in its own words: "a skeletal hand closing around a ball that then
+         keeps drifting is not obviously legible. The answer is that the hand
+         grips the WEAPON, not the ball." That was an argument, and a person
+         watching refuted it.
+
+         SO THE PIN IS THE SQUEEZE'S LENGTH AND NOT THE STUN'S, WHICH IS THE
+         WHOLE OF THE COMPROMISE. `grab_lab` priced a FULL pin -- the ball held
+         for the entire `grabStun` -- at **-3.3 points against stun alone at
+         identical held seconds**, because a pinned ball cannot be knocked
+         toward the wielder and this relic needs the quarry to arrive. It also
+         held the ball for 39% of the window, which is the Stasis Field's verb
+         and the thing the engine's own comment forbids a second relic from
+         having ("a second hold would make two of the sixteen the same relic").
+
+         `u.squeeze` is 0.30s and holds the ball for **13% of the window**, in
+         three pulses. It is the frames the fist is actually shut and not one
+         more: the hand closes, the ball stops, the hand opens, the ball goes
+         on with its weapon still locked for the rest of the second. That is
+         Rick's own sentence -- "reach out. squeeze. cause massive hitstun. let
+         go." -- with the squeeze finally doing something a viewer can see.
+
+         THE RESUME IS PARADOX'S, CHARACTER FOR CHARACTER. `move()` returns on
+         `pin`, `pinV` is what it resumes with, and `pinrelease_build.py
+         --mode clamp` then refuses to release a ball UPWARD, because a stored
+         upward velocity goes stale the instant the hold starts. At 0.30s that
+         clamp is a small distortion rather than Paradox's 2.3s one, but it is
+         a REAL one and not just a picture: a ball caught rising comes out at
+         rest. Named because it is the only part of this that is not
+         presentation. */
+      foe.pin = Math.max(foe.pin, u.squeeze);
+      foe.pinMax = Math.max(foe.pinMax, u.squeeze);
+      if (!(foe.pin > u.squeeze)) foe.pinV = [foe.vx, foe.vy];
       /* THE SQUEEZE IS A MOMENT AND THE HITSTUN OUTLIVES IT. `grip` is the
          fist; `stunFor` is what was written to the quarry, and it is four
          times longer. The crush squeezes twice as long and lets go the same
@@ -1247,16 +1295,35 @@ def refuse(s: str) -> None:
             "only symptom is a `held` column that\n  does not move when the "
             "knobs do. Write `f.stun` directly, as `u.freeze` does.")
 
-    # §4.5. MEASURED AT -3.3 POINTS AT IDENTICAL HELD SECONDS, and `f.pin` is
-    # written by exactly one relic in the game.
-    for bad in (".pin", "pinV", "pinMax"):
-        if bad in body:
+    # §4.5 IS NOW A NARROWER RULE RATHER THAN A BAN, and the reason is Rick
+    # watching: "hitstun should freeze the enemy ball correct?" It does not --
+    # `f.stun` locks the weapon and the ball sails on at 674 px/s -- so the
+    # squeeze pins, and ONLY for as long as the fist is shut.
+    #
+    # WHAT IS STILL FORBIDDEN IS THE FULL PIN. `grab_lab` measured the ball
+    # held for the whole `grabStun` at -3.3 points at identical held seconds,
+    # and at 39% of the window it is the Stasis Field's verb on a second relic.
+    # So the assertion is not "never write pin", it is "write it for the
+    # squeeze and for nothing longer" -- which a `grabStun` or `trueStun` in
+    # any of the three pin lines would break silently, because a longer hold
+    # looks FINE in every win rate and tunes straight out of the blade.
+    pinls = [ln for ln in body.splitlines()
+             if ".pin" in ln or "pinV" in ln or "pinMax" in ln]
+    if len(pinls) != 3:
+        raise SystemExit(
+            f"`tickGrasp` has {len(pinls)} pin lines and there must be exactly "
+            f"three:\n  `pin`, `pinMax` and `pinV`. §4.5 was relaxed to let the "
+            f"SQUEEZE stop the\n  ball; it was not relaxed to let this relic "
+            f"become a second Stasis Field.")
+    for ln in pinls:
+        if "grabStun" in ln or "trueStun" in ln or "hold" in ln:
             raise SystemExit(
-                f"`tickGrasp` touches {bad!r} (brief §4.5). Holding the BALL as "
-                f"well as the\n  weapon measured -3.3 points AT IDENTICAL HELD "
-                f"SECONDS -- a pinned ball\n  cannot be knocked toward the "
-                f"wielder and this relic needs the quarry to\n  arrive. `f.pin` "
-                f"is the Stasis Field's only exclusive verb in the game.")
+                f"A pin in `tickGrasp` is written from the STUN and not from "
+                f"`u.squeeze`:\n    {ln.strip()}\n  The ball is held for the "
+                f"frames the fist is shut and NOT ONE MORE. A full pin\n  "
+                f"measured -3.3 points at identical held seconds and holds the "
+                f"ball for 39%\n  of the window, which is the Stasis Field's "
+                f"only exclusive verb.")
 
     # §8. NO DAMAGE AND NO APPLICATION, ever. Both were considered and Rick
     # ruled them out, and the pool is measured unmoved by the whole ultimate.
@@ -1287,8 +1354,10 @@ def refuse(s: str) -> None:
             f"(brief §4.2). Exactly one:\n  the crush. The ordinary grabs "
             f"DELAY a wind-up and must not cancel it,\n  which is Rick's own "
             f"rule and the reason the true-stun register is nameable.")
-    print("  rule  no takeHitstun, no pin, no damage, no curse, foe only, "
-          "one true-stun site")
+    print("  rule  no takeHitstun, no damage, no curse, foe only, one "
+          "true-stun site, and the
+        pin is the squeeze's length and "
+          "never the stun's")
 
 
 def sync_fx(s: str) -> str:

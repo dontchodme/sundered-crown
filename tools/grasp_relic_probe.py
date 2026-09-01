@@ -99,8 +99,12 @@ META_JS = r"""([rid]) => {
       noApply: !w.ult.apply,
       /* §4.1: the single easiest way to build this wrong */
       noHitstun: !/takeHitstun/.test(tg),
-      /* §4.5: `f.pin` is the Stasis Field's only exclusive verb */
-      noPin: !/\.pin\b|pinV|pinMax/.test(tg),
+      /* §4.5, NARROWED. The squeeze pins and nothing longer does — Rick:
+         "hitstun should freeze the enemy ball correct?" It does not, and that
+         is why he could not see it. What must never come back is the FULL
+         pin, measured at -3.3 points at identical held seconds. */
+      pinIsSqueeze: /pin = Math\.max\(foe\.pin, u\.squeeze\)/.test(tg)
+                    && !/pin = Math\.max\([^)]*(grabStun|trueStun|hold)\)/.test(tg),
       /* §8: no damage, no curse */
       noDamage: !/this\.hurt|pushCurse|apply\("curse"/.test(tg),
       /* §4.2: exactly ONE true-stun application site in this function */
@@ -424,7 +428,8 @@ def main() -> int:
               S["castIsEmpty"] and S["kindIsGrip"] and S["noApply"])
         check("[3a] `tickGrasp` never mentions takeHitstun  (§4.1)",
               S["noHitstun"])
-        check("[9a] `tickGrasp` never mentions f.pin  (§4.5)", S["noPin"])
+        check("[9a] the pin is the SQUEEZE's length and never the stun's  (§4.5)",
+              S["pinIsSqueeze"])
         check("[5a] `tickGrasp` never hurts and never touches the pool  (§8)",
               S["noDamage"])
         check("[2a] exactly one true-stun application site in the window  (§4.2)",
@@ -494,9 +499,13 @@ def main() -> int:
               f"{A['outOfReach']} outside radius {U['radius']:g}")
 
         # ---------------------------------------------------------- [9] ----
-        check("[9] `f.pin` is never written by this relic, in any match",
-              A["pinMoved"] == 0,
-              f"{A['pinMoved']} pin moves across {A['tickFrames']} ticks")
+        # [9] IS A BAND NOW, NOT A ZERO. The squeeze stops the ball and the
+        # stun does not, so `pin` moves on exactly the frames a grab lands --
+        # once per grab and never on a frame without one.
+        check("[9] the ball is pinned once per grab and on no other frame",
+              A["pinMoved"] == A["grabs"] + A["crushes"],
+              f"{A['pinMoved']} pin moves against {A['grabs'] + A['crushes']} "
+              f"grabs across {A['tickFrames']} ticks")
 
         # --------------------------------------------------------- [10] ----
         # THE CAST'S BEAT IS `fireUlt`'S OWN, which every relic in the game

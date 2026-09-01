@@ -8776,6 +8776,54 @@ class Match {
          the pool is measured to be unmoved by the whole ultimate (+1.2 blows
          and +5.4% of pool). */
       foe.stun = Math.max(foe.stun, hold);
+      /* ---- AND THE SQUEEZE STOPS THE BALL DEAD -------------------------
+
+         Rick, watching the third build: "im not seeing the hand apply any
+         hitstun at all?" and then "hitstun should freeze the enemy ball
+         correct?"
+
+         IT DOES NOT, AND THAT IS WHY HE COULD NOT SEE IT. `f.stun` locks the
+         WEAPON -- `tickHits` skips, the head stops turning, the swing does not
+         advance -- and the ball keeps moving: `moveMul` floors at 0.45 and
+         `speedMin` is 250. Measured on the shipped relic, the quarry was
+         stunned 54% of the open window and its ball was travelling **674 px/s
+         while stunned against 599 free**, which is 12% FASTER. The most
+         visually distinctive thing in the fight was landing on a target that
+         then sailed away at speed.
+
+         THE DESIGN PREDICTED THIS COMPLAINT AND BET AGAINST IT. `grab-v56.md`
+         §5, in its own words: "a skeletal hand closing around a ball that then
+         keeps drifting is not obviously legible. The answer is that the hand
+         grips the WEAPON, not the ball." That was an argument, and a person
+         watching refuted it.
+
+         SO THE PIN IS THE SQUEEZE'S LENGTH AND NOT THE STUN'S, WHICH IS THE
+         WHOLE OF THE COMPROMISE. `grab_lab` priced a FULL pin -- the ball held
+         for the entire `grabStun` -- at **-3.3 points against stun alone at
+         identical held seconds**, because a pinned ball cannot be knocked
+         toward the wielder and this relic needs the quarry to arrive. It also
+         held the ball for 39% of the window, which is the Stasis Field's verb
+         and the thing the engine's own comment forbids a second relic from
+         having ("a second hold would make two of the sixteen the same relic").
+
+         `u.squeeze` is 0.30s and holds the ball for **13% of the window**, in
+         three pulses. It is the frames the fist is actually shut and not one
+         more: the hand closes, the ball stops, the hand opens, the ball goes
+         on with its weapon still locked for the rest of the second. That is
+         Rick's own sentence -- "reach out. squeeze. cause massive hitstun. let
+         go." -- with the squeeze finally doing something a viewer can see.
+
+         THE RESUME IS PARADOX'S, CHARACTER FOR CHARACTER. `move()` returns on
+         `pin`, `pinV` is what it resumes with, and `pinrelease_build.py
+         --mode clamp` then refuses to release a ball UPWARD, because a stored
+         upward velocity goes stale the instant the hold starts. At 0.30s that
+         clamp is a small distortion rather than Paradox's 2.3s one, but it is
+         a REAL one and not just a picture: a ball caught rising comes out at
+         rest. Named because it is the only part of this that is not
+         presentation. */
+      foe.pin = Math.max(foe.pin, u.squeeze);
+      foe.pinMax = Math.max(foe.pinMax, u.squeeze);
+      if (!(foe.pin > u.squeeze)) foe.pinV = [foe.vx, foe.vy];
       /* THE SQUEEZE IS A MOMENT AND THE HITSTUN OUTLIVES IT. `grip` is the
          fist; `stunFor` is what was written to the quarry, and it is four
          times longer. The crush squeezes twice as long and lets go the same

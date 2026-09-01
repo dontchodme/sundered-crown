@@ -132,7 +132,8 @@ squeeze     0.30s        how long the FIST is shut — presentation only, and it
 n           3            grabs to the crush. It paid for the cooldown — §6a-3
 trueStun    2.2s         AND IT IS A REGISTERED TRUE-STUN SITE — the fourth
 endOnTrue   the window ends on the crush. Rick's clause, worth -10.8 points
-apply       NONE         no damage, no curse, no pin, ever
+apply       NONE         no damage and no curse, ever. The SQUEEZE pins for
+                         its own 0.30s and nothing longer does — §6a-4
 tip         "Grabs repeatedly; the third grab is a true stun, then it fades"  62/72
 blade       23.5 -> 21.0    (stage 3b)
 ```
@@ -560,6 +561,72 @@ the other way.
 > stage 3 owns its mechanism — so the fix is an assertion: `ult_matches()`
 > refuses to write unless the shipped `ult` block carries every number the run
 > just printed, and it names the rebuild.
+
+## 6a-4. AND THE HITSTUN WAS INVISIBLE, BECAUSE IT DOES NOT DO WHAT A VIEWER EXPECTS
+
+Rick: *"im not seeing the hand apply any hitstun at all?"* and then the
+question that settles it: *"hitstun should freeze the enemy ball correct?"*
+
+**It does not, and that is exactly why he could not see it.** `f.stun` locks
+the WEAPON — `tickHits` skips, the head stops turning, the swing does not
+advance — and the ball keeps moving: `moveMul` floors at 0.45 and `speedMin` is
+250. Measured on the shipped relic:
+
+```
+the quarry is stunned 54% of the open window, peak 1.00s
+BALL SPEED   stunned 674 px/s   free 599 px/s   —  12% FASTER
+```
+
+The most visually distinctive thing in the fight was landing on a target that
+then sailed away at speed. There IS a stun visual — three cream arcs at
+`min(0.85, stun * 4)`, above 0.4 alpha for 89% of stunned frames — and it is
+not enough against a ball that never stops.
+
+> **THE DESIGN PREDICTED THIS COMPLAINT AND BET AGAINST IT.** `grab-v56.md` §5,
+> in its own words: *"a skeletal hand closing around a ball that then keeps
+> drifting is not obviously legible. The answer is that the hand grips the
+> WEAPON, not the ball."* That was an argument. A person watching refuted it,
+> which is CLAUDE.md §4.1 for the fourth time on this relic.
+
+**THE PIN IS THE SQUEEZE'S LENGTH AND NOT THE STUN'S, AND THAT IS THE WHOLE
+COMPROMISE.** Three arms, 144 fights each:
+
+```
+as built — stun only, ball free        ball held  0% of the window
+pin for the SQUEEZE only (0.30s)                 13%          <- built
+pin for the whole stun (1.0s)                    39%
+```
+
+A FULL pin was measured by `grab_lab` at **−3.3 points against stun alone at
+identical held seconds** — a pinned ball cannot be knocked toward the wielder
+and this relic needs the quarry to arrive — and at 39% of the window it is the
+Stasis Field's verb on a second relic, which the engine's own comment forbids
+(*"a second hold would make two of the sixteen the same relic"*).
+
+`u.squeeze` is 0.30s and holds the ball for **13% of the window in three
+pulses**: the frames the fist is actually shut and not one more. The hand
+closes, **the ball stops dead**, the hand opens, the ball goes on with its
+weapon still locked for the rest of the second. Measured, while pinned it moves
+**zero pixels on 97.6% of those frames** — the other 2.4% is `ballCollision`
+shouldering it, which is deliberately not gated on `pin`.
+
+> **AND IT COSTS ABOUT A POINT.** Both sides, two seed blocks, n=1080 each, at
+> the shipped `dmg` 21.0: **50.8% and 47.2%, pooled 49.0%** against 50.0%
+> without the pin — a third of a full pin's hold for about a third of its cost,
+> and inside the instrument either way. **The blade does not move.**
+
+> **THE ONE PART OF THIS THAT IS NOT PRESENTATION.** `pinrelease_build.py
+> --mode clamp` refuses to release a ball UPWARD, because a stored upward
+> velocity goes stale the instant the hold starts. At 0.30s that is a small
+> distortion rather than Paradox's 2.3s one, but it is a real one: a ball
+> caught rising comes out at rest, about three times a cast.
+
+**AND §4.5 IS A NARROWER RULE NOW, NOT A BAN.** The builder used to refuse any
+mention of `pin` in `tickGrasp`. It now requires exactly three pin lines and
+refuses if any of them is written from `grabStun`, `trueStun` or `hold` — so
+the squeeze may stop the ball and nothing longer may, which a one-word edit
+would otherwise break silently. `grasp_relic_probe [9]` is a band rather than a
+zero: the ball is pinned once per grab and on no other frame (760/760).
 
 ## 6b. THE HAND WAS 40px AND READ AS A SCRIBBLE
 

@@ -130,6 +130,27 @@ applies nothing, and locks the weapon for 1.0s.** The THIRD grab is a true stun 
 > along, because the crush sets `hitStop` and a clock on the normal path
 > freezes for exactly the frames the viewer is staring hardest at.
 
+> **AND THE HITSTUN WAS INVISIBLE, BECAUSE `f.stun` DOES NOT DO WHAT A VIEWER
+> EXPECTS.** Rick: *"im not seeing the hand apply any hitstun at all?"* and
+> then *"hitstun should freeze the enemy ball correct?"* **It does not.**
+> `f.stun` locks the WEAPON and the ball keeps moving — `moveMul` floors at
+> 0.45, `speedMin` is 250 — and measured, the quarry's ball ran **674 px/s
+> while stunned against 599 free, 12% FASTER.** The most distinctive thing in
+> the fight landed on a target that then sailed away.
+>
+> **THE DESIGN PREDICTED THIS AND BET AGAINST IT**: `grab-v56.md` §5 says in as
+> many words that a hand closing on a ball that keeps drifting "is not
+> obviously legible" and answers it with an argument. A person watching refuted
+> the argument. §4.1, fourth time on this relic.
+>
+> **SO THE SQUEEZE PINS AND NOTHING LONGER DOES.** `u.squeeze` 0.30s holds the
+> ball for **13% of the window in three pulses** — zero pixels moved on 97.6%
+> of pinned frames — against a FULL pin's 39%, which is measured at **-3.3
+> points** and is the Stasis Field's verb on a second relic. It costs about a
+> point (pooled 49.0% against 50.0%, n=2160) and **the blade does not move**.
+> `f.pin` is no longer banned in `tickGrasp`; it is required to be exactly
+> three lines and refused if any is written from the STUN.
+
 > **AND THEN THE RHYTHM, WHICH IS THE FIRST TIME THIS DESIGN'S FREE TRADE HAS
 > BEEN SPENT.** Rick: *"its still pretty confusing what the ult is actually
 > doing by just watching it. can we add a cooldown for how often it can grab
