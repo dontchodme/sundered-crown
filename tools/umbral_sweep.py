@@ -52,7 +52,7 @@ import time
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from scpage import game, resolve_game  # noqa: E402
 
-UMBRAL = ["gravemourn", "nightfell", "twinshade"]
+UMBRAL = ["gravemourn", "nightfell", "twinshade", "shroudmaul"]
 
 # The bracket to sweep, per relic. Wide on purpose -- the point of pass 1 is
 # to SEE the curve, and a range that only just contains the answer cannot show
@@ -61,6 +61,21 @@ RANGE = {
     "gravemourn": (28.0, 52.0),
     "nightfell":  (9.0, 21.0),
     "twinshade":  (4.5, 12.0),
+    # SHROUDMAUL, AND ITS SURFACE IS THE SIMPLE ONE. The warning at the top of
+    # this file -- that `dmg` moves three channels at once and the response is
+    # superlinear -- applies to the other three and NOT to this one. GRASP
+    # carries no damage and reads nothing: it is a hold, and a hold is worth
+    # the same whatever the blade is. So `dmg` here moves the blade and the
+    # pool and stops, which is one channel fewer than any umbral relic tuned
+    # so far.
+    #
+    # AND IT MAY NOT NEED TO MOVE AT ALL, which has not happened in this
+    # chain before. `grab_lab` put the relic at 52.0% against a field of 50.0%
+    # with the §1's placeholder numbers, so the bracket is deliberately
+    # NARROWER than the other three -- but it is still a bracket and not a
+    # point, because v53 measured Gravemourn's curve BENDING DOWNWARD past
+    # 47.2 and a bisection cannot see the shape it is standing on.
+    "shroudmaul": (16.0, 32.0),
 }
 
 

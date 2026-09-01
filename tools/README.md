@@ -1,4 +1,4 @@
-# tools/ — 217 files, grouped by what they answer
+# tools/ — 222 files, grouped by what they answer
 
 Flat on disk on purpose: every tool resolves the game beside itself and
 imports `scpage.py` the same way, so subfolders would break all of them.
@@ -36,6 +36,19 @@ Not stamped at the tip, but chain-adjacent:
 - `lastlight_build.py` — LASTLIGHT, the sanctified scythe + the Harrowing. TUNED_LL and every ult number
 - `share_build.py` — the share/phone shell around any engine
 - `bench_build.py` — the measurement page: QUICK, kill switches, paired baselines
+
+## v56 — SHROUDMAUL AND GRASP
+
+**The four sections below this one were last touched on 2026-08-30 and do not
+list the curse rework, Gravemourn's stage, Nightfell's stage or the fight
+card's removal.** They are behind; this block is not a claim that they are not.
+
+- `revenant_rename.py` — STAGE 1. Gravemourn's ultimate is REVENANT again, freeing the grabbing word for the relic that grabs. One string and five comments, and the only chain link that can be PROVEN inert — `engine_ab` 2808/2808. Refuses to write if the old name survives anywhere in the output
+- `shroudmaul_build.py` — STAGES 2 AND 3. The 28th relic (umbral × warhammer, `_whEaten` already existed), then GRASP: one large tethered skeletal hand that closes on the foe's WEAPON every 0.6s for 0.5s, deals nothing, and whose fifth grab is a true stun that ends the window. Refuses to write on `takeHitstun`, on `f.pin`, on damage, on curse, on a shade, or on more than one true-stun site
+- `grasp_relic_probe.py` — §5 asserted, 21 checks, and the render path CALLED against a real 2D context in all four states. [P] found a crush with ZERO rendered frames; [11] reports held seconds A CAST as well as a fight, which is what separated the mechanic from the cast rate
+- `grasp_sheet.py` — REACHING vs HOLDING vs THE CRUSH, off a real match, `deadfall_sheet.py`'s pattern. Found three picture faults no probe could
+- `shroudmaul_sweep.py` — the floor, the grab count, the held-seconds law re-fitted on the built relic, reach, and the type ladder. `--only 2,3,4` has not been run
+- `umbral_sweep.py` — EXTENDED to four relics. The blade still goes through here: wide curve, escalating bisection, wide confirmation
 
 ## BUILD — earlier chain and one-shot patches
 

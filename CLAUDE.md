@@ -12,7 +12,22 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-nocard.html          BUILD OF RECORD  27 relics · NO FIGHT CARD
+02-chain/sc-grasp.html           BUILD OF RECORD  28 relics · GRASP
+                                                   everything below, plus
+                                                   SHROUDMAUL, AND A WINDOW
+                                                   THAT GROWS ONE LARGE
+                                                   SKELETAL HAND ON A TETHER
+                                                   THAT REACHES, CLOSES ON THE
+                                                   FOE'S WEAPON EVERY 0.6s,
+                                                   DEALS NOTHING — AND WHOSE
+                                                   FIFTH GRAB IS A TRUE STUN
+                                                   THAT ENDS THE WINDOW
+02-chain/sc-shroudmaul.html      the link before it, 28 relics, ULT STUBBED
+02-chain/sc-revenant.html        the link before it, 27 relics · GRAVEMOURN'S
+                                                   ULTIMATE IS REVENANT AGAIN
+                                                   ONE STRING AND FIVE COMMENTS
+                                                   engine_ab 2808/2808
+02-chain/sc-nocard.html          the link before it, 27 relics · NO FIGHT CARD
                                                    everything below, minus
                                                    THE 4s TITLE CARD, ITS 545
                                                    LINES OF RENDERER AND EVERY
@@ -24,7 +39,7 @@ short-form video for TikTok and YouTube Shorts.
                                                    MINE — THAT ARMS, WAITS
                                                    FOREVER, AND TAKES
                                                    WHATEVER WALKS IN
-02-chain/sc-gravemourn.html      the link before it, 27 relics · GRASP
+02-chain/sc-gravemourn.html      the link before it, 27 relics · REVENANT
                                                    A WINDOW THAT LENGTHENS THE
                                                    CHAIN, AND A SKELETAL HAND
                                                    OFF EVERY BLOW THAT FLIES,
@@ -55,6 +70,140 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE TWENTY-EIGHTH RELIC IS SHROUDMAUL, AND GRASP IS THE FIRST ULTIMATE IN
+THIS GAME THAT DEALS NOTHING AND HAS TO EARN ITS PAYOFF INSIDE ITS OWN WINDOW**
+(`revenant_rename.py`, `shroudmaul_build.py`, 2026-08-31). The umbral warhammer
+— the cell where the grid's two thinnest lines crossed, and filling it puts
+umbral on 4 of 6 types and the warhammer on 4 of 7 schools. A cast opens an 8s
+window and grows ONE LARGE SKELETAL HAND, tethered to the artifact, that closes
+on the foe every 0.6s inside 200 units. **A grab deals nothing, applies
+nothing, and locks the weapon for 0.5s.** The FIFTH grab is a true stun of 2.0s
+— and the hand dissipates on it. Blade 23.5 -> **21.0**. `06-docs/v56/`.
+
+> **STAGE 1 GAVE GRAVEMOURN BACK REVENANT, AND IT IS THE ONLY STAGE IN THIS
+> CHAIN'S HISTORY THAT COULD BE PROVEN INERT.** Rick took "Grasp" at build time
+> over the v51 brief's REVENANT; this relic's whole §1 is grasping, the
+> collision is on the VERB, and it is inside the same school. One string, five
+> comments, `engine_ab` **2808/2808 identical across all 27**. The comments
+> moved because five paragraphs elsewhere defined themselves BY REFERENCE to
+> the old name and stage 3 puts a DIFFERENT ultimate called GRASP in the same
+> file — a comment naming a thing that exists and is something else is worse
+> than one naming a thing that is gone.
+
+> **THE WHOLE ULTIMATE IS ONE SCALAR AND THAT IS THE MOST USEFUL THING KNOWN
+> ABOUT IT.** `grab_lab.py`, fourteen arms at 702 fights each:
+> `lift = +3.1 + 2.62 x held seconds`, r2 0.79, **residual sd 2.7pp against a
+> per-arm SE of 5.3pp**. The residuals are smaller than the measurement error,
+> so window length, cadence, grab hold, true-stun length, grab count and
+> whether the window survives its own payoff are six ways of writing one
+> number. **TUNE ON `held`, NOT ON WIN RATE** — 30x cheaper and it is what the
+> win rate is made of. And **the arrangement is FREE**: any shape delivering
+> the same held seconds is worth the same, so every remaining choice is made
+> for the picture. No other ultimate here has had that property.
+
+> **THE ONE KNOB THAT IS NOT FREE IS REACH.** 140 costs 2.7 points and 300
+> costs 4.0 AT THE SAME HELD SECONDS. **A hold is only worth what the hammer
+> can reach** — at 300 the hand catches the quarry out at the far wall and
+> holds it somewhere the wielder then has to walk to. 200 is ~2.6x the
+> warhammer's own reach of 76.
+
+> **`grab_lab` HELD ITS CHARGE CLOCK WHILE ITS WINDOW RAN AND THE ENGINE DOES
+> NOT, AND THAT ONE LINE REFUTES TWO OF THE BRIEF'S THREE PREDICTIONS.**
+> Registered: 6.5-7.0 held seconds a fight and a blade in 21-23.5. Measured:
+> **9.66s** and **19.92**. The mechanic is exact — held A CAST is **3.74s
+> against the lab's 3.70** — and the relic simply **casts 2.58 times a fight
+> against the lab's 1.84**, because `f.charge += dt` runs every step and only
+> three relics in the game gate the rebuild (the Crucible, Ironbloom, the bow
+> window). Eight seconds of free charge a cast the lab never gave it. **Every
+> absolute number in `06-docs/v56/grab-v56.md` is on the other branch; every
+> relative one survives.** The third prediction — the no-ultimate floor at
+> 27.1% — came in at **27.5%** and lands dead on.
+
+> **THE CRUSH HAD NO FRAMES AT ALL, AND ONLY A RENDER COULD SAY SO.** The fifth
+> grab ENDS the window on the frame it lands — that is "then dissipates" and it
+> is the balance clause, worth -10.8 points — so `f.ultGrasp` is null from that
+> instant and the payoff of an eight-second window was a hand VANISHING at the
+> moment it closed. **2692 rendered frames: 1225 reaching, 1201 holding, ZERO
+> crush.** Every number was right. The fix is `f.graspCrush`, and it is ticked
+> in **`tickPresentation` and not in `tickGrasp`** — v54's lesson one relic
+> along, because the crush sets `hitStop` and a clock on the normal path
+> freezes for exactly the frames the viewer is staring hardest at.
+
+> **AND THREE MORE PICTURE FAULTS DIED ON THE FIRST SHEET.** The hand shipped
+> at ~40px and read as a white scribble (a phalanx is 2px against a 1.4px gap,
+> so the two passes that MAKE a skeleton legible merge) — `GRIP_SCALE` 1.35 ->
+> 2.8. `drawGrip`'s own comment claimed FOUR separations between the crush and
+> an ordinary hold and only three were built; the fourth is now colour. And the
+> grab count on the tether was drawn as lit dots in the same colour as the bone
+> beside them — **a bright dot on a bright line reads as a thicker line** — so
+> they are rungs ACROSS the limb now. `grasp_sheet.py`,
+> `05-reference/v56/grasp-states-*.png`. **NOBODY HAS WATCHED ANY OF IT.**
+
+> **THE TRUE-STUN REGISTER IS FOUR NOW, AND ONLY THE FIFTH GRAB IS ON IT.** The
+> four ordinary grabs DELAY a wind-up and do not cancel it, which is what keeps
+> the escalation legible; adding the whole window would have turned a rhythm
+> into a lockout. 17 wind-ups caught over 162 fights — 5 forges, 11 spike
+> storms, 1 winding Sentinel — and all 17 taken. **AND THE BRIEF'S OWN LIST OF
+> WIND-UPS IS WRONG**: `breakSpin` does not touch Reprisal's draw and never
+> has, so a probe that had asserted the brief would have reported a defect that
+> is not there.
+
+> **AND `stunDR` IS THE EASIEST WAY TO BUILD THIS WRONG.** `takeHitstun` caps
+> at 0.26s and divides each application by `1 + 0.55 x stunDR`, so routing the
+> grabs through it turns five grabs into one grab and a rumour — with every
+> invariant intact, no probe failing, and the only symptom a `held` column that
+> does not move when the knobs do. 0 calls in 907,001 ticks, asserted on the
+> text by the builder and at runtime by the probe. `f.pin` is refused the same
+> way: **-3.3 points at IDENTICAL held seconds**, because a pinned ball cannot
+> be knocked toward the wielder and this relic needs the quarry to arrive.
+
+> **THE BLADE'S CURVE DOES NOT BEND** — 9.3% at dmg 12 to 66.0% at 26 — and the
+> surface here is the SIMPLE one, which has not been true in this school
+> before: `dmg` moves the blade and the pool and stops, because the ultimate
+> carries no damage and reads nothing. v51 §4.5 does not apply.
+
+> **BUT THE BISECTION'S ANSWER WAS A WHOLE DAMAGE POINT WRONG, AND ITS
+> CONFIRMATION WAS MONOTONIC WHILE BEING WRONG.** `umbral_sweep` returned
+> **19.92** off a three-point pass at n=702 reading 50.0 / 50.4 / 52.1%. Three
+> other measurements of the same build disagreed — the type ladder 45.2%, an
+> independent block 45.7%, and **`verify` 45.4%**. Re-measured DIRECTLY, wide,
+> **both sides, n=1080 a point, on two seed blocks**: 19.92 -> 45.4%, 21.00 ->
+> 49.1%, 22.00 -> 54.1% / 20.68 -> 47.9%, 21.18 -> 52.0%. Both cross at **21.0**.
+>
+> **v48's lesson for the second time, and now it has a prescription.** A
+> bisection converges on the noise in its tail; **a three-point confirmation is
+> only as good as the ONE seed block it is drawn on**, and two n=702 readings
+> of this number differed by 4.3 points. WHAT SETTLES A BLADE ON THIS ROSTER IS
+> A WIDE DIRECT MEASUREMENT AT n >= 1000 A POINT, ON BOTH SIDES, REPEATED ON A
+> SECOND BLOCK.
+
+> **AND `verify --n 40` READS THE SHIPPED RELIC AT 50.2%**, against 45.4% at
+> the bisection's 19.92 — the correction confirmed by the instrument that did
+> not tune it. 12/13, the one FAIL being the KNOWN thirteenth check
+> (Lightkeeper/Farwarden 75.7s, and no Shroudmaul pairing is over the band).
+> **The roster spread is 18.5pp** — Axiom 39.3 to Farwarden 57.8 — which is
+> NARROWER than the 19.0pp the umbral package started from.
+
+> **AND `verify` RUNS A NEWLY APPENDED RELIC AS SIDE B IN ALL 27 OF ITS
+> PAIRINGS**, because it pairs `i < j` over `WEAPONS` — while every sweep in
+> `tools/` runs it as side A. The asymmetry itself is small (shroudmaul -1.9pp,
+> grudgebearer +2.6pp, nightfell -0.3pp) so it explains nothing here, but it is
+> a systematic difference between the instrument that tunes a relic and the
+> instrument that passes it, and nobody had written it down.
+
+> **AND IT LOSES TO BOWS AND EATS GREATSWORDS — A 40.1pp TYPE SPREAD, SECOND
+> ONLY TO THORNSHEAR'S.** greatsword 67.0%, flail 45.2%, twinblade 41.3%,
+> warhammer 41.0%, scythe 36.5%, **bow 26.9%**, at an overall 45.2% (n=702).
+> The mechanism is `radius` 200: a bow spends the fight outside it, and a
+> greatsword is contact-rich and reach-poor so it comes to the hammer, gets
+> held, and is hit while it is held. **This is open item 12 for the second
+> time**, which is an argument that the per-relic band is the wrong instrument
+> for a concentrated relic. Rick's.
+
+> **AND TWO MEASUREMENTS OF THE SAME ARM CAME BACK 6.6 POINTS APART AT n=378
+> AND 4.3 POINTS APART AT n=702.** Fourth time in four sessions, and the second
+> figure is new. **n≈700 is a floor and not a guarantee.**
 
 **THE FIGHT CARD IS OUT OF THE BUILD** (`cardstrip_build.py`, 2026-08-31).
 Rick: *"if we can afford to remove the fight card then do it. theres no sense
@@ -730,7 +879,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v54/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v56/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -946,10 +1095,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-nocard.html --n 40          # 12/13, see §0
+python verify.py --game ../02-chain/sc-grasp.html --n 40           # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-nocard.html             # what's open
+python cell_survey.py --game ../02-chain/sc-grasp.html              # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -978,6 +1127,13 @@ python cardstrip_build.py                                          # the fight c
 python render_ab.py --a <prev> --b <this> --pairs a:b:seed          # the PICTURE did not move
 python deadfall_sheet.py                                           # ARMING against ARMED, off a real match
 python umbral_sweep.py --relics nightfell --lo 8 --hi 22            # the blade: curve, bisect, wide confirm
+python revenant_rename.py                                          # stage 1: one string, provably inert
+python shroudmaul_build.py --stage 2                               # the 28th relic, ultimate stubbed
+python shroudmaul_build.py --stage 3                               # GRASP: the hand, the grabs, the crush
+python grasp_relic_probe.py --game ../02-chain/sc-grasp.html       # §5 asserted, and the render path CALLED
+python grasp_sheet.py                                              # REACHING vs HOLDING vs THE CRUSH, off a real match
+python shroudmaul_sweep.py --only 0,1                              # the floor, then the grab count
+python umbral_sweep.py --relics shroudmaul --lo 12 --hi 26         # the blade, now a FOUR-relic tool
 ```
 
 **`frame_probe.py` HAS BEEN CRASHING, AND NOT BECAUSE OF ANYTHING NEW.** It
@@ -990,7 +1146,7 @@ and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-nocard.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-grasp.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -999,7 +1155,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-nocard.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-grasp.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -1212,8 +1368,51 @@ git push
     mini-bombs, the measured routes are a bigger `rad` or more figures per
     window (shorter `arm`, longer `dur`, cheaper `charge`). Both are sweeps,
     neither has been run, and both move the blade again.
-Full detail: `06-docs/v54/` for the tip, `06-docs/v53/` for the two stages
-before it (curse-build then grasp-build), `06-docs/v49`-`v52` for the designs
+29. **THE KILLING BLOW USUALLY DOES NOT GET A CUT, AND IT IS CHAIN-WIDE.**
+    Found by reading `cinema_clip`'s own log: *"no killing blow on this seed"*
+    on a fight that ended `hp=[20, 0]` with a correct `fatal: true` beat filed
+    by an ordinary blow through `resolveHit`. **The beat is filed; it never
+    becomes a CUT.** `CINE.floor` is 1.9 and the median killing blow scores
+    **1.24**, so a kill is scored like any other beat and mostly does not clear
+    the bar. Measured over ~78 kills a relic on the current tip: shroudmaul
+    93.6% blind, nightfell 85.5%, gravemourn 79.5%, **grudgebearer 77.5% —
+    untouched by v56 and 27 relics old**. So it is not this build's. What IS
+    new is the LEVEL: item 3 records Dawnbringer at 22.1% as the current worst
+    and every relic measured here is three to four times that. Either the
+    director drifted under the long-fight pace or the two figures are not the
+    same quantity. The one-line answer — *a kill is always a cut* — is
+    chain-wide and therefore Rick's.
+30. **DOES SHROUDMAUL'S CHARGE REBUILD DURING ITS OWN WINDOW?** §0. As built it
+    does, like 25 of 28 relics — which is why it casts 2.58 times a fight
+    against `grab_lab`'s 1.84 and why the blade paid 3.6 points for it. Gating
+    the rebuild (the Crucible's, Ironbloom's and the bow window's behaviour)
+    would reproduce the lab exactly and put the blade back near 23.5. **Not a
+    defect either way**, and more casts is more set-pieces per fight, which
+    v55b §5 argues is worth caring about. Named because every absolute number
+    in `06-docs/v56/grab-v56.md` is measured on the other branch.
+31. **`chain_audit.py` COULD NOT AUDIT v56 AND SAID SO.** It reads inserts from
+    module-level string constants in a builder; `shroudmaul_build.py` keeps its
+    edits in `S2`/`S3` lists and the tool found one marker out of fourteen.
+    Nothing downstream of stage 3 exists to clobber an insert and the stage-2
+    block was verified present by hand — but **a green `chain_audit` that
+    audited nothing is exactly the failure mode it was written for**, and the
+    next builder in this shape gets the same free pass.
+32. **SHROUDMAUL LOSES TO BOWS AND EATS GREATSWORDS, AND IT IS ITEM 12 TWICE.**
+    §0. bow 26.9% against greatsword 67.0% at an overall 45.2%, a **40.1pp**
+    type spread against Thornshear's 43.6pp — and `verify`'s per-relic band
+    cannot see either of them. Two instances is an argument about the
+    INSTRUMENT and not about one relic. Rick's, and it is the same call item 12
+    is still waiting on. (`shroudmaul_sweep --only 2,3` — the held-seconds law
+    re-fitted and the reach curve — is still unrun.)
+33. **NOBODY HAS WATCHED SHROUDMAUL.** The art and the three voices are first
+    cuts. Three of the picture faults the sheet found were invisible to every
+    probe in the repo, and a sheet cannot answer a SIZE question — `GRIP_SCALE`
+    2.8 is refuted-at-1.35 and confirmed by nothing. §7 of the build brief and
+    rule 2 both make this Rick's. `07-shorts/v56/grasp-first-cut.mp4`.
+
+Full detail: `06-docs/v56/` for the tip, `06-docs/v54/` for the relic
+before it, `06-docs/v53/` for the two stages before that (curse-build then
+the hand-build now called Revenant), `06-docs/v49`-`v52` for the designs
 behind all three, `06-docs/v48/` for the relic before them, `06-docs/v47/` for
 the one before that, `06-docs/v46/` for the opening, and `NEXT-SESSION.md`
 plus `06-docs/v43/` for the relic before it.

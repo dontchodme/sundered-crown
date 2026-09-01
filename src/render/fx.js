@@ -241,7 +241,23 @@
        trick Slagburst's own fuse art already uses. */
     gravemourn: { mode: 'implode', n: 1250, sp: [140, 420], grav: 0,
                   drag: 0.55, life: [0.40, 1.00], heavy: 0.03,
-                  size: [0.7, 2.0], spawn: 0.55, up: 0 }
+                  size: [0.7, 2.0], spawn: 0.55, up: 0 },
+    /* GRASP GROWS AN ARM, AND `atSelf` IS WHY IT GROWS OUT OF THE RIGHT BALL.
+       The second spec in the game to carry the flag: a `burst` is drawn at
+       `[u.tx, u.ty]` — at the QUARRY — which is correct for the four novas the
+       mode was written for and wrong for anything that resolves on its caster.
+       Deadfall's field caught this on the first rendered frame and by nothing
+       else.
+
+       LOW AND HEAVY, and it is not Deadfall's discharge. `grav` is positive
+       and `sp` is short, so the field falls back toward the shell instead of
+       flying off it: what a viewer should read is material GATHERING into a
+       limb, not a relic shedding. `n` is the lowest in the umbral school
+       because this one is only the growth — the eight seconds after it are a
+       drawn object, not a particle field. */
+    shroudmaul: { mode: 'burst', n: 820, sp: [40, 260], grav: 210, drag: 2.6,
+                  life: [0.35, 1.05], heavy: 0.10, size: [0.6, 2.2],
+                  spawn: 0.14, up: 0, atSelf: 1 }
   };
 
   function Field() {
