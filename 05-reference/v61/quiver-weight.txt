@@ -1,0 +1,30 @@
+
+QUIVER LAB -- sc-garrote.html, shooter ironhail, 25 foes x 6 seeds, ults suppressed
+
+
+[2] THE RELEASE -- 25 foes x 6 seeds an arm, window 8s, charge 15s, dmgMul 1
+    The body is ironhail carrying CURSE -- the cell as `row_price` priced it -- and every
+    ultimate in the roster is off, its own included, so the release is the only one in the hall.
+
+    arm         win%  casts  banked  /cast   rel strand   hits  HIT RATE  parried  quill dmg   dealt
+    none       55.3%    400       0    0.0     0      0      0      0.0%     0.0%          0     374
+    back@0.30  68.0%    365    4892   13.4  4450    442    944     21.2%    22.3%      12689     396
+    back@0.50  83.3%    342    4567   13.4  4175    392    846     20.3%    20.9%      15403     406
+    back@0.70  77.3%    326    4476   13.7  4085    391    797     19.5%    20.7%      18632     409
+    back@1.00  90.0%    308    4230   13.7  3888    342    738     19.0%    19.6%      22916     418
+
+    THE COLLAPSE, measured rather than argued: a released quill is pushed a mean    21.4 units back inside the wall line, and 15477 of 16598 had to move more than 6.
+
+    THE FLOOR is the `none` arm: the same body, the same window opening and closing,
+    and nothing coming out of it. Every lift below is against 55.3%.
+
+    back@0.30 +12.7%   quill damage 85 a fight, 2.6 quill hits a cast
+    back@0.50 +28.0%   quill damage 103 a fight, 2.5 quill hits a cast
+    back@0.70 +22.0%   quill damage 124 a fight, 2.4 quill hits a cast
+    back@1.00 +34.7%   quill damage 153 a fight, 2.4 quill hits a cast
+  PASS  the floor arm is inert -- the instrument banks and releases nothing when the mechanic is off  -- banked 0, released 0, hits 0
+  PASS  every banked arrow is accounted for -- released, or stranded in a window the fight ended inside  -- back@0.30 4892 = 4450+442; back@0.50 4567 = 4175+392; back@0.70 4476 = 4085+391; back@1.00 4230 = 3888+342
+  PASS  a quill hits far harder than the arrow that banked it -- otherwise this ultimate is a re-roll of a 8% shot  -- back@0.30 21.2%; back@0.50 20.3%; back@0.70 19.5%; back@1.00 19.0%
+
+3/3 checks passed
+wrote ../05-reference/v61/quiver-weight.json

@@ -1,0 +1,57 @@
+{
+ "window": 8.0,
+ "counts": [],
+ "sides": {},
+ "spreads": [],
+ "seps": [],
+ "arms": {
+  "none": {
+   "n": 150,
+   "win": 0.5533333333333333,
+   "casts": 400,
+   "banked": 0,
+   "released": 0,
+   "clamped": 0,
+   "hits": 0,
+   "parried": 0,
+   "qDmg": 0,
+   "dealt": 374.26
+  },
+  "back": {
+   "n": 150,
+   "win": 0.9,
+   "casts": 308,
+   "banked": 4230,
+   "released": 3888,
+   "clamped": 3888,
+   "hits": 738,
+   "parried": 761,
+   "qDmg": 22916,
+   "dealt": 417.87333333333333
+  },
+  "normal": {
+   "n": 150,
+   "win": 0.8866666666666667,
+   "casts": 307,
+   "banked": 4120,
+   "released": 3646,
+   "clamped": 3646,
+   "hits": 682,
+   "parried": 787,
+   "qDmg": 21055,
+   "dealt": 421.54
+  },
+  "aimed": {
+   "n": 150,
+   "win": 0.9,
+   "casts": 286,
+   "banked": 3909,
+   "released": 3586,
+   "clamped": 3586,
+   "hits": 838,
+   "parried": 991,
+   "qDmg": 25680,
+   "dealt": 421.47333333333336
+  }
+ }
+}

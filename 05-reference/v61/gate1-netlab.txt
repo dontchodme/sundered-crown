@@ -1,0 +1,25 @@
+
+sc-gloamwire.html   31 relics   patch: installed
+curse K=3 echo=8% dur=99   ballR=34  maxLive=64  arena 520x800 (diagonal 954)
+donor ironhail   30 foes x 6 seeds = 180 fights an arm   (binomial SE ~3.7pp)
+
+[0] ASSERTIONS, before any number is read
+    [ok ] curse is the reworked pool mechanic  K=3 echo=0.08
+    [ok ] every bow shares one shot block byte for byte  6 relics, 1 distinct block
+    [ok ] an arrow and a swing deal the same base damage  shot.dmgMul=1
+    [ok ] an arrow connects at R + shot.r = 58  34 + 24 = 58
+
+[1] THE POOL ACROSS THE SCHOOL  *** BUILD BRIEF GATE 1 ***
+    donor ults suppressed, foes' ults on, pool sampled every 0.25s
+    body          shape           dmg  blows   pool   peak    1st    3rd  at cap
+    gravemourn    flail         24.03    6.7   61.4  126.9   7.9s  22.2s     47%
+    nightfell     greatsword    12.27   14.2   43.7   87.2   4.9s  15.2s     70%
+    twinshade     twinblade      8.30   15.9   31.6   65.4   5.3s  15.0s     72%
+    shroudmaul    warhammer     21.00    8.4   60.0  117.1   8.2s  19.3s     56%
+    gloamwire     bow            9.20   14.1   33.5   60.1   5.0s  12.0s     74%
+    GLOAMWIRE     bow           16.23   12.6   54.5   95.8   5.0s  12.9s     71%
+    [ok ] GATE 1a — the bow's pool is within 6 of the design's 54.2  54.5
+    [ok ] GATE 1b — three memories deep within 2s of the design's 13.1s  12.9s
+
+--- checks ---------------------------------------------------
+    6/6 passed

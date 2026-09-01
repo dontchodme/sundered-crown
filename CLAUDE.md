@@ -12,6 +12,24 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
+02-chain/sc-crossweave.html      IN FLIGHT, NOT THE BUILD OF RECORD
+                                                   31 relics · GLOAMWIRE AND
+                                                   CROSSWEAVE — a magazine of 24
+                                                   triple-shot volleys at twice
+                                                   the cadence, each strung with
+                                                   two bars of lightning that
+                                                   SHOVE and never damage.
+                                                   Stages 1-3 of 4. NO ART, NO
+                                                   SOUND, NO BEAT — stage 4 is
+                                                   Rick's. BLADE NOT SWEPT: 9.2
+                                                   is the design's placeholder.
+                                                   engine_ab 3480/3480 · probe
+                                                   10/10 · net_lab gate 1 6/6
+02-chain/sc-volley.html          the link before it, 31 relics · THE VOLLEY —
+                                                   the fan and the magazine, and
+                                                   NO strand
+02-chain/sc-gloamwire.html       the link before it, 31 relics, ULT STUBBED
+                                                   engine_ab 3480/3480
 02-chain/sc-garrote.html         BUILD OF RECORD  30 relics · RAVELBONE AND
                                                    GARROTE
                                                    everything below, plus A
@@ -114,6 +132,24 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**IN FLIGHT: GLOAMWIRE AND CROSSWEAVE, THE UMBRAL BOW — AND IT COLLIDED WITH A
+SECOND DESIGN FOR ITS OWN CELL ON THE DAY IT WAS WRITTEN.** Two v61 designs
+exist: `06-docs/v61/gloamwire-design-v61.md` (Cowork, 09:45 UTC — a magazine of
+24 triple-shot volleys at twice the cadence, each strung with two bars of
+lightning that shove and never damage) and `quiver-design-v61-SUPERSEDED.md`
+(Claude Code, 19:30 UTC — the misses come back). **Rick chose GLOAMWIRE**:
+*"find the one build by cowork in the repo and build that one."* Read
+`06-docs/v61/CONFLICT-READ-FIRST-v61.md`, then `GLOAMWIRE-BUILD-BRIEF.md`.
+
+> **THIS IS THE SECOND COLLISION IN TWO RELICS AND IT IS WHY §3 NOW OPENS WITH
+> A RULE 0.** v60 was Cowork against Claude Code on `bloodsworn × warhammer`;
+> v61 was two sessions on `umbral × bow`, and Rick answered a full set of design
+> questions in both. **Claude Code does not design ultimates** — it builds them
+> from `06-docs/`, and if the design is not there it stops and says so. The
+> superseded document is kept rather than deleted (v60's rule): its §2 bank
+> ledger is 10,804 arrows with zero unclassified and is the best description of
+> what a bow does with its misses that anyone has written.
 
 **THE THIRTIETH RELIC IS RAVELBONE, AND GARROTE IS THE FIRST HOLD IN THIS GAME
 THAT LEAVES THE WEAPON FREE** (`ravelbone_build.py`, 2026-09-01). Bloodsworn ×
@@ -1441,7 +1477,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v60/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v61/` is current. **`06-docs/CLAIMS.md` is who is designing what RIGHT NOW — read it before designing, write to it before asking Rick anything (§7).** |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -1460,7 +1496,48 @@ import fails only when you run it. The grouping lives in `tools/README.md`.
 
 ---
 
-## 3. THE THREE RULES, AND THEY ARE RICK'S
+## 3. THE RULES, AND THEY ARE RICK'S
+
+0. **CLAUDE CODE DOES NOT DESIGN ULTIMATES. EVER. THIS IS THE STOP AND IT COMES
+   BEFORE EVERY OTHER RULE IN THIS FILE.** Rick, 2026-09-01, after the second
+   design collision in two relics: *"you do not design ults ever. cowork and i
+   handle that and you build them from the repo. if you cant find them you need
+   to stop and say so."*
+
+   **Rick and Cowork design. This session BUILDS, from a design that is already
+   in `06-docs/`.** Every relic in this project has a `<name>-design-vNN.md` and
+   most have a `<name>-BUILD-BRIEF.md` beside it. That pair is the input. There
+   is no other input.
+
+   **A SPREAD OF ULT MECHANICS IS DESIGNING, AND OFFERING ONE IS HOW v61
+   HAPPENED.** Rule 2 below says to ASK when Rick has not offered — that is
+   about the NAME, the CARD, the ANIMATION and the SOUND of a mechanic that
+   already exists on paper. It is not licence to invent three candidate
+   mechanics and have him pick one. On 2026-09-01 he answered a full set of
+   design questions about the umbral bow in two conversations six hours apart
+   and had to throw half of them away.
+
+   **AND "I COULD NOT FIND IT" IS A CLAIM THAT HAS TO BE EARNED.** v61's search
+   read v40, v57 and v60 — the places a design would be *cited* — and concluded
+   from silence that none existed. `gloamwire-design-v61.md` was in the tree
+   before that conclusion was reported. **The check is not a grep for the cell
+   name, because a design doc is titled after the RELIC and the relic's name is
+   the thing you do not have.** It is:
+
+   ```bash
+   find 06-docs -name "*.md" | sort | xargs -I{} sh -c 'printf "%-52s %s\n" {} "$(head -1 {})"'
+   ```
+
+   Read every title. Re-run it immediately before writing anything, because
+   another session may be working the same cell right now. **If the cell has no
+   design doc: say so and STOP.** Do not survey, do not price, do not offer
+   options, do not ask a design question. Waiting costs nothing; a second
+   `CONFLICT-READ-FIRST` costs Rick a day.
+
+   **CLAIM THE CELL BEFORE TOUCHING IT** — `06-docs/CLAIMS.md`, one line, and
+   read the file first. `CONFLICT-READ-FIRST-v61.md` §4 proposed it after the
+   second collision, on the grounds that a note which only observes will produce
+   a third.
 
 1. ~~**THE FIGHT CARD IS DEAD.**~~ **IT IS GONE**, 2026-08-31
    (`cardstrip_build.py`). Rick: *"theres no sense in keeping it as i dont
@@ -1477,6 +1554,12 @@ import fails only when you run it. The grouping lives in `tools/README.md`.
    ult sound. **If he has not offered, ASK** — with real options, the trade
    named, and priced from measurement first wherever a measurement can price
    it.
+
+   **THE CELL AND THE ULT MECHANICS ARE NOT THIS SESSION'S TO ASK ABOUT.** Rule
+   0. They are settled in a design doc before a builder is opened, and a builder
+   that cannot find that doc stops. The five that ARE this session's to ask are
+   the two names, the card, the animation and the sound — and only once the
+   mechanic they describe is already written down by somebody else.
 
    **OFFER A SPREAD, NOT A GUESS.** v42 spread after four serial failures.
    v43 spread first and the sound landed in one round trip: six casts and four
@@ -1659,7 +1742,12 @@ python shell_identity.py                                           # app == head
 python post_identity.py                                            # the chain is invisible
 python verify.py --game ../02-chain/sc-garrote.html --n 40         # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
-python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
+python chain_audit.py --relic <link>.html --tip <tip>.html --builder <b>.py
+                                        # inserts survive. BOTH ARE BUILD PATHS --
+                                        # `--relic` is the LINK the inserts were made
+                                        # in and `--tip` the build of record, not a
+                                        # relic id and a tip STRING. Read as names it
+                                        # crashes on `read_text` with a bare traceback.
 python cell_survey.py --game ../02-chain/sc-garrote.html            # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
@@ -1821,6 +1909,33 @@ git push
 - **Version write-ups still go in `06-docs/vNN/`.** Git history is not a
   substitute for the reasoning — the docs say *why*, the diff says *what*.
 - **Update this file when it goes stale.** Especially §0.
+
+### THE CLAIM LEDGER — `06-docs/CLAIMS.md`
+
+§3 rule 0 is the STOP: Code does not design, and a missing brief means stop and
+say so. **This is the other half — the thing that makes a brief FINDABLE while
+it is still being written**, because in both collisions the design genuinely was
+not in the tree yet at the moment the second session looked.
+
+1. **CLAIM THE CELL THE MOMENT IT IS CHOSEN.** One line in `06-docs/CLAIMS.md`,
+   committed on its own — **before the first survey**, and long before the first
+   spread of names. Read the file first.
+2. **NAME THE DOC PATH IN THE CLAIM, AND PUT A TWENTY-WORD STUB THERE.** The
+   claim is not the point; the stub is. A path with a stub at it says *somebody
+   is on this and has not finished*. An empty path says *nobody is on this* —
+   and that inference is what both collisions were made of. §3 rule 0's search
+   command finds a stub exactly as well as it finds a finished document.
+3. **WRITE THE DOC AS YOU GO, NOT AT THE CLOSE.** A session that designs for two
+   hours and writes once at the end is invisible for those two hours, and that
+   window is where both collisions started. `gloamwire-design-v61.md` was
+   designed 07:33-09:45 and did not reach the tree until 19:36, because the
+   device bridge dropped on the write and the work sat in a chat transcript for
+   ten hours. **A deliverable that lives in a chat message does not exist.**
+
+**AND THE STANDING EXAMPLE IS BLOODMIRROR.** Bloodsworn × scythe — named,
+composed, its bleed-ceiling rule ruled on, knockback chosen — has **no document
+anywhere in this repo**. It is in no link and no `06-docs/` folder. The next
+session to look at that cell will correctly conclude it is open.
 
 ---
 

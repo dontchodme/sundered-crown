@@ -1,0 +1,323 @@
+{
+ "openBow": [
+  "runic",
+  "umbral"
+ ],
+ "ranged": {
+  "ironhail": {
+   "n": 150,
+   "dur": 6694.633333333333,
+   "fired": 15289,
+   "hit": 1307,
+   "parried": 1386,
+   "walled": 12537,
+   "expired": 0,
+   "evicted": 0,
+   "unknown": 0,
+   "ambig": 15,
+   "live": 59,
+   "hShot": 1307,
+   "hMelee": 753,
+   "dShot": 36817,
+   "dMelee": 21754,
+   "hps": 0.3077091600734917,
+   "meanLive": 0.9500672824574955,
+   "sep": 195.92129979277712,
+   "flight": 241.52447729472655,
+   "hstop": 0.09683099784214398,
+   "win": 0.6333333333333333,
+   "over": 1.0
+  },
+  "farwarden": {
+   "n": 150,
+   "dur": 9024.533333333333,
+   "fired": 20113,
+   "hit": 1720,
+   "parried": 1756,
+   "walled": 16604,
+   "expired": 0,
+   "evicted": 0,
+   "unknown": 0,
+   "ambig": 36,
+   "live": 33,
+   "hShot": 1720,
+   "hMelee": 1136,
+   "dShot": 31757,
+   "dMelee": 22497,
+   "hps": 0.31647065776254363,
+   "meanLive": 0.792299073040275,
+   "sep": 181.5447597993754,
+   "flight": 233.02480865176622,
+   "hstop": 0.10317355861100944,
+   "win": 0.7027027027027027,
+   "over": 0.9866666666666667
+  },
+  "aureole": {
+   "n": 150,
+   "dur": 6744.833333333333,
+   "fired": 15474,
+   "hit": 1337,
+   "parried": 1316,
+   "walled": 12762,
+   "expired": 0,
+   "evicted": 0,
+   "unknown": 0,
+   "ambig": 14,
+   "live": 59,
+   "hShot": 1337,
+   "hMelee": 755,
+   "dShot": 28464,
+   "dMelee": 17356,
+   "hps": 0.31016333489831727,
+   "meanLive": 0.931444958895141,
+   "sep": 194.37468037039807,
+   "flight": 240.09448816273203,
+   "hstop": 0.09428550825047471,
+   "win": 0.6266666666666667,
+   "over": 1.0
+  },
+  "vinesower": {
+   "n": 150,
+   "dur": 7824.591666666666,
+   "fired": 17883,
+   "hit": 1500,
+   "parried": 1474,
+   "walled": 14868,
+   "expired": 0,
+   "evicted": 0,
+   "unknown": 0,
+   "ambig": 22,
+   "live": 41,
+   "hShot": 1500,
+   "hMelee": 923,
+   "dShot": 33010,
+   "dMelee": 22075,
+   "hps": 0.3096647215882405,
+   "meanLive": 0.8744231386069767,
+   "sep": 187.46337270140236,
+   "flight": 236.05799236806217,
+   "hstop": 0.09544801655926745,
+   "win": 0.4266666666666667,
+   "over": 1.0
+  },
+  "marrowdraw": {
+   "n": 150,
+   "dur": 6722.958333333333,
+   "fired": 15394,
+   "hit": 1270,
+   "parried": 1407,
+   "walled": 12657,
+   "expired": 0,
+   "evicted": 0,
+   "unknown": 0,
+   "ambig": 7,
+   "live": 60,
+   "hShot": 1270,
+   "hMelee": 746,
+   "dShot": 25827,
+   "dMelee": 16023,
+   "hps": 0.29986798966228906,
+   "meanLive": 0.9423291259700233,
+   "sep": 194.11162234026065,
+   "flight": 239.54419789856826,
+   "hstop": 0.09414247365665548,
+   "win": 0.62,
+   "over": 1.0
+  }
+ },
+ "parry": {
+  "dawnbringer": {
+   "parry": 0.1443850267379679,
+   "hit": 0.05614973262032086,
+   "fired": 374,
+   "sweep": 5521.599999999999,
+   "shape": "greatsword"
+  },
+  "lightkeeper": {
+   "parry": 0.1443850267379679,
+   "hit": 0.05614973262032086,
+   "fired": 374,
+   "sweep": 5521.599999999999,
+   "shape": "greatsword"
+  },
+  "emberedge": {
+   "parry": 0.1443850267379679,
+   "hit": 0.05614973262032086,
+   "fired": 374,
+   "sweep": 5521.599999999999,
+   "shape": "greatsword"
+  },
+  "oathwound": {
+   "parry": 0.1443850267379679,
+   "hit": 0.05614973262032086,
+   "fired": 374,
+   "sweep": 5521.599999999999,
+   "shape": "greatsword"
+  },
+  "heartwood": {
+   "parry": 0.1443850267379679,
+   "hit": 0.05614973262032086,
+   "fired": 374,
+   "sweep": 5521.599999999999,
+   "shape": "greatsword"
+  },
+  "nightfell": {
+   "parry": 0.1443850267379679,
+   "hit": 0.05614973262032086,
+   "fired": 374,
+   "sweep": 5521.599999999999,
+   "shape": "greatsword"
+  },
+  "axiom": {
+   "parry": 0.1443850267379679,
+   "hit": 0.05614973262032086,
+   "fired": 374,
+   "sweep": 5521.599999999999,
+   "shape": "greatsword"
+  },
+  "widowmaker": {
+   "parry": 0.12,
+   "hit": 0.07733333333333334,
+   "fired": 375,
+   "sweep": 5654.400000000001,
+   "shape": "twinblade"
+  },
+  "spellbreaker": {
+   "parry": 0.12,
+   "hit": 0.07733333333333334,
+   "fired": 375,
+   "sweep": 5654.400000000001,
+   "shape": "twinblade"
+  },
+  "twinshade": {
+   "parry": 0.12,
+   "hit": 0.07733333333333334,
+   "fired": 375,
+   "sweep": 5654.400000000001,
+   "shape": "twinblade"
+  },
+  "thornshear": {
+   "parry": 0.12,
+   "hit": 0.07733333333333334,
+   "fired": 375,
+   "sweep": 5654.400000000001,
+   "shape": "twinblade"
+  },
+  "thornwake": {
+   "parry": 0.09041095890410959,
+   "hit": 0.11506849315068493,
+   "fired": 365,
+   "sweep": 3660.8,
+   "shape": "scythe"
+  },
+  "lastlight": {
+   "parry": 0.09041095890410959,
+   "hit": 0.11506849315068493,
+   "fired": 365,
+   "sweep": 3660.8,
+   "shape": "scythe"
+  },
+  "foregone": {
+   "parry": 0.09041095890410959,
+   "hit": 0.11506849315068493,
+   "fired": 365,
+   "sweep": 3660.8,
+   "shape": "scythe"
+  },
+  "vesper": {
+   "parry": 0.09041095890410959,
+   "hit": 0.11506849315068493,
+   "fired": 365,
+   "sweep": 3660.8,
+   "shape": "scythe"
+  },
+  "cindercleave": {
+   "parry": 0.09041095890410959,
+   "hit": 0.11506849315068493,
+   "fired": 365,
+   "sweep": 3660.8,
+   "shape": "scythe"
+  },
+  "grudgebearer": {
+   "parry": 0.07635467980295567,
+   "hit": 0.0960591133004926,
+   "fired": 406,
+   "sweep": 3161.6000000000004,
+   "shape": "warhammer"
+  },
+  "censer": {
+   "parry": 0.07635467980295567,
+   "hit": 0.0960591133004926,
+   "fired": 406,
+   "sweep": 3161.6000000000004,
+   "shape": "warhammer"
+  },
+  "bulwarden": {
+   "parry": 0.07635467980295567,
+   "hit": 0.0960591133004926,
+   "fired": 406,
+   "sweep": 3161.6000000000004,
+   "shape": "warhammer"
+  },
+  "shroudmaul": {
+   "parry": 0.07635467980295567,
+   "hit": 0.0960591133004926,
+   "fired": 406,
+   "sweep": 3161.6000000000004,
+   "shape": "warhammer"
+  },
+  "ravelbone": {
+   "parry": 0.07635467980295567,
+   "hit": 0.0960591133004926,
+   "fired": 406,
+   "sweep": 3161.6000000000004,
+   "shape": "warhammer"
+  },
+  "gravemourn": {
+   "parry": 0.04556962025316456,
+   "hit": 0.10379746835443038,
+   "fired": 395,
+   "sweep": 4646.400000000001,
+   "shape": "flail"
+  },
+  "slagheart": {
+   "parry": 0.04556962025316456,
+   "hit": 0.10379746835443038,
+   "fired": 395,
+   "sweep": 4646.400000000001,
+   "shape": "flail"
+  },
+  "redflail": {
+   "parry": 0.04556962025316456,
+   "hit": 0.10379746835443038,
+   "fired": 395,
+   "sweep": 4646.400000000001,
+   "shape": "flail"
+  },
+  "paradox": {
+   "parry": 0.04556962025316456,
+   "hit": 0.10379746835443038,
+   "fired": 395,
+   "sweep": 4646.400000000001,
+   "shape": "flail"
+  }
+ },
+ "art": {
+  "cells": {
+   "runic": {
+    "near": "dwarven",
+    "diff": 0.4164033478736686,
+    "iou": 0.7235538018095782,
+    "rank": 4
+   },
+   "umbral": {
+    "near": "dwarven",
+    "diff": 0.5452949338770424,
+    "iou": 0.5374649562484071,
+    "rank": 10
+   }
+  }
+ },
+ "clock": {},
+ "loop": {}
+}

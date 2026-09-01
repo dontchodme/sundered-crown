@@ -1,0 +1,29 @@
+
+QUIVER LAB -- sc-garrote.html, shooter ironhail, 25 foes x 8 seeds, ults suppressed
+
+
+[2] THE RELEASE -- 25 foes x 8 seeds an arm, window 8s, charge 15s, dmgMul 1
+    The body is ironhail carrying CURSE -- the cell as `row_price` priced it, and
+    ONLY ITS OWN ultimate is off -- the field keeps theirs, so the release is priced in ult_price's world.
+
+    arm         win%  casts  banked  /cast   rel strand   hits  HIT RATE  parried  quill dmg   dealt
+    none       34.5%    509       0    0.0     0      0      0      0.0%     0.0%          0     336
+    back@0.55  55.5%    460    5619   12.2  4949    670   1018     20.6%    22.7%      19781     375
+    back@1.00  76.0%    419    5262   12.6  4793    469    910     19.0%    21.2%      28394     403
+
+    THE COLLAPSE, and it is NOT the release margin. The wall arrives a mean
+    9.4 units between an arrow sticking and its quiver loosing, worst 32 -- and 762 of 9742 quills (7.8%) were swallowed
+    outright -- the hall closed by more than an arrow radius on top of them. The release
+    margin moves every quill 20 units on average and that number is the PROBE, not the hall.
+
+    THE FLOOR is the `none` arm: the same body, the same window opening and closing,
+    and nothing coming out of it. Every lift below is against 34.5%.
+
+    back@0.55 +21.0%   quill damage 99 a fight, 2.2 quill hits a cast
+    back@1.00 +41.5%   quill damage 142 a fight, 2.2 quill hits a cast
+  PASS  the floor arm is inert -- the instrument banks and releases nothing when the mechanic is off  -- banked 0, released 0, hits 0
+  PASS  every banked arrow is accounted for -- released, or stranded in a window the fight ended inside  -- back@0.55 5619 = 4949+670; back@1.00 5262 = 4793+469
+  PASS  a quill hits far harder than the arrow that banked it -- otherwise this ultimate is a re-roll of a 8% shot  -- back@0.55 20.6%; back@1.00 19.0%
+
+3/3 checks passed
+wrote ../05-reference/v61/quiver-fieldults.json

@@ -1,0 +1,79 @@
+{
+ "window": 8.0,
+ "counts": [],
+ "sides": {},
+ "spreads": [],
+ "seps": [],
+ "arms": {
+  "none": {
+   "n": 150,
+   "win": 0.5533333333333333,
+   "casts": 400,
+   "banked": 0,
+   "released": 0,
+   "stranded": 0,
+   "push": 0.0,
+   "pushBig": 0,
+   "hits": 0,
+   "parried": 0,
+   "qDmg": 0,
+   "dealt": 374.26
+  },
+  "back@0.30": {
+   "n": 150,
+   "win": 0.68,
+   "casts": 365,
+   "banked": 4892,
+   "released": 4450,
+   "stranded": 442,
+   "push": 22.29777233930305,
+   "pushBig": 4148,
+   "hits": 944,
+   "parried": 991,
+   "qDmg": 12689,
+   "dealt": 396.44666666666666
+  },
+  "back@0.50": {
+   "n": 150,
+   "win": 0.8333333333333334,
+   "casts": 342,
+   "banked": 4567,
+   "released": 4175,
+   "stranded": 392,
+   "push": 21.55793864436132,
+   "pushBig": 3894,
+   "hits": 846,
+   "parried": 871,
+   "qDmg": 15403,
+   "dealt": 405.8466666666667
+  },
+  "back@0.70": {
+   "n": 150,
+   "win": 0.7733333333333333,
+   "casts": 326,
+   "banked": 4476,
+   "released": 4085,
+   "stranded": 391,
+   "push": 20.906653589674587,
+   "pushBig": 3810,
+   "hits": 797,
+   "parried": 846,
+   "qDmg": 18632,
+   "dealt": 408.52666666666664
+  },
+  "back@1.00": {
+   "n": 150,
+   "win": 0.9,
+   "casts": 308,
+   "banked": 4230,
+   "released": 3888,
+   "stranded": 342,
+   "push": 20.836522933672676,
+   "pushBig": 3625,
+   "hits": 738,
+   "parried": 761,
+   "qDmg": 22916,
+   "dealt": 417.87333333333333
+  }
+ }
+}

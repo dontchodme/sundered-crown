@@ -1,0 +1,25 @@
+
+GLOAMWIRE RELIC PROBE -- sc-volley.html   30 foes x 4 seeds
+
+    magazine 24 x 3   fan 0.9 rad   cadMul 0.5   dmgMul 1.4
+    strandW 90 (reach 124 against the arrow's 58)   knock 260
+
+  PASS  [5a] the strand touches nothing but position -- no damage path in tickNet's own code  -- clean
+[1] THE MAGAZINE -- 120 fights
+
+    casts a fight        2.04
+    volleys a fight      0.0        (design 6.1: 36.6 at cadMul 0.5)
+    arrows a fight       0.0
+    arrows a volley      0.00        (must be exactly 3)
+    window open a fight  11.29s
+  FAIL  [1a] a volley is one magazine round -- exactly n arrows a volley  -- 0.0000 against 3
+  FAIL  [1b] the magazine empties -- volleys a cast is the magazine size  -- 0.0 a cast against a magazine of 24
+
+[2] THE CAP -- maxLive 64, and spawnShot SHIFTS at it
+
+    evictions            0        over 0 arrows
+  PASS  [2a] the cap never fires -- no shot this build thinks it bought was deleted  -- 0 evictions
+
+  [3]-[6] SKIPPED -- this build has no strand (stage 2).
+
+2/4 checks passed   (2 FAILED: [1a] a volley is one magazine round -- exactly n arrows a volley; [1b] the magazine empties -- volleys a cast is the magazine size)

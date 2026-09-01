@@ -1,0 +1,17 @@
+  (7 insert(s) found in gloamwire_build.py's insert table(s) -- tuples, not *_NEW constants)
+Traceback (most recent call last):
+  File "C:\dev\sundered-crown\tools\chain_audit.py", line 228, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\dev\sundered-crown\tools\chain_audit.py", line 188, in main
+    R = relic.read_text(encoding="utf-8")
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cathy\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\dev\\sundered-crown\\tools\\gloamwire'

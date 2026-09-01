@@ -1,0 +1,37 @@
+
+QUIVER LAB -- sc-garrote.html, shooter ironhail, 25 foes x 4 seeds, ults suppressed
+
+[1] THE BANK -- 100 fights, 4769s of fighting, 10804 arrows loosed
+
+    landed   7.3%   parried   9.0%   WALL  83.4%   unclassified 0
+  PASS  the ledger reproduces bow_survey -- the wall takes ~82%  -- 83.4% on the wall, 0 unclassified
+
+    A 8s WINDOW, over 15929 window positions at 0.25s resolution:
+
+       min   p10   p25  median   p75   p90   max    mean
+         0    11    13      16    18    19    24    15.2
+
+    a window that banks NOTHING: 0.1% of positions
+
+    WHICH WALL -- arena 520x800, so N and S are the SHORT walls
+
+    N (roof)       1457    16.2%
+    S (floor)      1625    18.0%
+    E              2940    32.6%
+    W              2883    32.0%
+    corner          104     1.2%
+
+    HOW CLUMPED -- mean pairwise distance between the arrows banked in one window
+
+    median 420 units over 539 windows of 4+ arrows      p10 314   p90 467
+    for scale: the hall is 520x800, perimeter 2640, and its own diagonal is 954
+
+    HOW FAR THE QUARRY WAS from each banked arrow, at the moment it stuck:
+
+       p10   p25  median   p75   p90
+       187   265     367   490   613
+  PASS  a window banks enough arrows to be an ultimate at all  -- median 16 arrows in 8s
+  PASS  the bank is not a corner case -- most windows carry a volley  -- 0.1% of windows bank nothing
+
+3/3 checks passed
+wrote ../05-reference/v61/quiver-bank.json

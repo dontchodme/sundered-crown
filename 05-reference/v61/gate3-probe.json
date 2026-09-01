@@ -1,0 +1,22 @@
+{
+ "shipped": {
+  "n": 120,
+  "win": 0.5083333333333333,
+  "casts": 2.058333333333333,
+  "volleys": 5330,
+  "volleysPerFight": 44.416666666666664,
+  "arrows": 15990,
+  "evictions": 0,
+  "both": 925,
+  "arrowOnly": 183,
+  "lightOnly": 1087,
+  "missed": 3135,
+  "liveV": 5330,
+  "liveMiss": 3135,
+  "shoves": 22.941666666666666,
+  "shoveNoDamage": 2409,
+  "shovesRaw": 2753,
+  "pool": 80.375,
+  "winOpen": 11.702361111111047
+ }
+}

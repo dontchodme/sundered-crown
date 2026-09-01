@@ -1,0 +1,26 @@
+
+QUIVER LAB -- sc-garrote.html, shooter ironhail, 25 foes x 6 seeds, ults suppressed
+
+
+[2] THE RELEASE -- 25 foes x 6 seeds an arm, window 8s, charge 15s, dmgMul 1
+    The body is ironhail carrying CURSE -- the cell as `row_price` priced it -- and every
+    ultimate in the roster is off, its own included, so the release is the only one in the hall.
+
+    arm         win%  casts  banked  /cast   rel  clamped   hits  HIT RATE  parried  quill dmg   dealt
+    none       55.3%    400       0    0.0     0     0.0%      0      0.0%     0.0%          0     374
+    back       90.0%    308    4230   13.7  3888   100.0%    738     19.0%    19.6%      22916     418
+    normal     88.7%    307    4120   13.4  3646   100.0%    682     18.7%    21.6%      21055     422
+    aimed      90.0%    286    3909   13.7  3586   100.0%    838     23.4%    27.6%      25680     421
+
+    THE FLOOR is the `none` arm: the same body, the same window opening and closing,
+    and nothing coming out of it. Every lift below is against 55.3%.
+
+    back      +34.7%   quill damage 153 a fight, 2.4 quill hits a cast
+    normal    +33.3%   quill damage 140 a fight, 2.2 quill hits a cast
+    aimed     +34.7%   quill damage 171 a fight, 2.9 quill hits a cast
+  PASS  the floor arm is inert -- the instrument banks and releases nothing when the mechanic is off  -- banked 0, released 0, hits 0
+  FAIL  every banked arrow is released -- nothing is lost between the wall and the volley  -- back 4230->3888; normal 4120->3646; aimed 3909->3586
+  PASS  a quill hits far harder than the arrow that banked it -- otherwise this ultimate is a re-roll of a 8% shot  -- back 19.0%; normal 18.7%; aimed 23.4%
+
+2/3 checks passed   (1 FAILED: every banked arrow is released -- nothing is lost between the wall and the volley)
+wrote ../05-reference/v61/quiver-release.json

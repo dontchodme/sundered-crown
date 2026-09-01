@@ -1,0 +1,129 @@
+
+[1] THE BOW ROW — 30 relics, 2 open bow cells
+
+                         bow       flail  greatsword      scythe   twinblade   warhammer    school
+    bloodsworn    Marrowdraw   Threshmaw   Goreshard           ·  Widowmaker   Ravelbone    5/6
+    dwarven         Ironhail   Slagheart   Emberedge Cindercleav           · Grudgebeare    5/6
+    runic                  ·     Paradox       Axiom    Foregone Spellbreake           ·    4/6
+    sanctified       Aureole           · Dawnbringer   Lastlight           ·      Censer    4/6
+    umbral                 ·  Gravemourn   Nightfell           ·   Twinshade  Shroudmaul    4/6
+    verdant        Vinesower           ·   Heartwood   Thornwake  Thornshear           ·    4/6
+    vigil          Farwarden           · Lightkeeper      Vesper           ·   Bulwarden    4/6
+    type                   5           4           7           5           4           5
+
+    the three that exist    aff             dmg      onHit/onSelf  cadence           ult
+    Ironhail                dwarven       16.23          sunder:1     0.34        volley
+    Farwarden               vigil         12.73     self ward:2.5     0.34     aimedshot
+    Aureole                 sanctified    16.01           smite:1     0.34          beam
+    Vinesower               verdant       15.60        entangle:2     0.34      seedfall
+    Marrowdraw              bloodsworn    15.25      hemorrhage:2     0.34      ballista
+
+    OPEN: runic x bow, umbral x bow
+  PASS  every bow shares one shot block — the shot is a property of the TYPE  — 5 bows, 1 distinct shot blocks
+  PASS  the bow is the only ranged mode in the game  — ranged: ['aureole', 'farwarden', 'ironhail', 'marrowdraw', 'vinesower']
+  PASS  the bow has the shortest reach in the game  — bow 54, next [54, 62, 76]
+
+[2a] CONTROL — does the instrument move the simulation?
+
+  PASS  wrapping resolveHit/spawnShot/spawnFx/tickShots changes nothing  — 4 seeds, steps+hp+hits+shotHits field for field
+
+[2] THE RANGED PATH, DECOMPOSED — ults suppressed, damage NOT pinned (this is what the three bows really do), 90s cap
+
+    bow           hits/s   arrow   stick  dmg arrow  landed  parried   wall  spent  live    sep  flight
+    Ironhail       0.308     63%     37%        63%    8.5%     9.1%  82.0%   0.0%   1.0    196     242
+    Farwarden      0.316     60%     40%        59%    8.6%     8.7%  82.6%   0.0%   0.8    182     233
+    Aureole        0.310     64%     36%        62%    8.6%     8.5%  82.5%   0.0%   0.9    194     240
+    Vinesower      0.310     62%     38%        60%    8.4%     8.2%  83.1%   0.0%   0.9    187     236
+    Marrowdraw     0.300     63%     37%        62%    8.2%     9.1%  82.2%   0.0%   0.9    194     240
+  PASS  every arrow is accounted for — fired = landed + parried + wall + spent + evicted + still in flight  — 84153 fired, 0 unexplained
+  PASS  no arrow is classified by a sink this probe does not know about  — 0 unknown
+  PASS  the parry tag is worth having — inference would misfile some parries as wall hits, and does not silently absorb new sinks  — 94 of 7339 parries (1.3%) were also past the wall line on the frame they were batted
+
+[3] THE PARRY IS A PROPERTY OF THE FOE — one bow (Ironhail), every non-bow foe, 3 seeds.
+    Damage pinned 14.0 and EVERY channel deleted, so the only thing that varies down this table is the foe's geometry.
+
+    foe           shape        reach width  spin blades   sweep    parried  landed   wall
+    Dawnbringer   greatsword     116    14   3.4      1    5522      14.4%    5.6%  79.9%
+    Lightkeeper   greatsword     116    14   3.4      1    5522      14.4%    5.6%  79.9%
+    Emberedge     greatsword     116    14   3.4      1    5522      14.4%    5.6%  79.9%
+    Goreshard     greatsword     116    14   3.4      1    5522      14.4%    5.6%  79.9%
+    Heartwood     greatsword     116    14   3.4      1    5522      14.4%    5.6%  79.9%
+    Nightfell     greatsword     116    14   3.4      1    5522      14.4%    5.6%  79.9%
+    Axiom         greatsword     116    14   3.4      1    5522      14.4%    5.6%  79.9%
+    Widowmaker    twinblade       62     8   5.7      2    5654      12.0%    7.7%  80.3%
+    Spellbreaker  twinblade       62     8   5.7      2    5654      12.0%    7.7%  80.3%
+    Twinshade     twinblade       62     8   5.7      2    5654      12.0%    7.7%  80.3%
+    Thornshear    twinblade       62     8   5.7      2    5654      12.0%    7.7%  80.3%
+    Thornwake     scythe         104    11   3.2      1    3661       9.0%   11.5%  79.2%
+    Lastlight     scythe         104    11   3.2      1    3661       9.0%   11.5%  79.2%
+    Foregone      scythe         104    11   3.2      1    3661       9.0%   11.5%  79.2%
+    Vesper        scythe         104    11   3.2      1    3661       9.0%   11.5%  79.2%
+    Cindercleave  scythe         104    11   3.2      1    3661       9.0%   11.5%  79.2%
+    Grudgebearer  warhammer       76    26   1.6      1    3162       7.6%    9.6%  82.5%
+    Censer        warhammer       76    26   1.6      1    3162       7.6%    9.6%  82.5%
+    Bulwarden     warhammer       76    26   1.6      1    3162       7.6%    9.6%  82.5%
+    Shroudmaul    warhammer       76    26   1.6      1    3162       7.6%    9.6%  82.5%
+    Ravelbone     warhammer       76    26   1.6      1    3162       7.6%    9.6%  82.5%
+    Gravemourn    flail           96    22   2.2      1    4646       4.6%   10.4%  84.8%
+    Slagheart     flail           96    22   2.2      1    4646       4.6%   10.4%  84.8%
+    Threshmaw     flail           96    22   2.2      1    4646       4.6%   10.4%  84.8%
+    Paradox       flail           96    22   2.2      1    4646       4.6%   10.4%  84.8%
+
+    parry rate spread: 4.6% — 14.4% (3.2x)
+  PASS  the parry rate is not a constant of the type — the foe's weapon decides it  — 4.6% to 14.4% across 25 foes
+  PASS  with damage pinned and every channel deleted, two relics of one shape parry IDENTICALLY — nothing per-relic reaches the shot path  — 5 shapes, one rate each
+
+[3b] THE ARC — the type's own thesis, tested. Ironhail's comment: "hits from
+     anywhere, dies up close ... the collapsing hall turns that into an arc for free."
+     Collapse starts at 15s. Damage pinned, channels deleted, 10s bins; a bin counts
+     only matches still running at the end of it.
+
+    bin        matches  fired  landed  parried   wall  melee/s  shot dmg    sep  inset
+    0-10s           75   1928   10.3%     9.7%  76.2%    0.089       73%    231      0
+    10-20s          75   1824    9.8%     9.3%  80.4%    0.096       71%    214      0
+    20-30s          75   1799    7.1%    11.2%  82.8%    0.097       62%    199     16
+    30-40s          75   1770    6.8%    10.8%  82.0%    0.136       56%    171     54
+    40-50s          75   1632    9.4%     8.0%  85.4%    0.170       59%    151     90
+    50-60s          54    600    8.8%    11.8%  81.0%    0.214       52%    120    122
+
+    landed rate 10.3% -> 8.8%   arrow's share of damage 73% -> 52%   separation 231 -> 120
+
+    VERDICT ON THE TYPE'S OWN THESIS: REAL. The arrow carries 73% of the damage
+    in the opening bin and 52% in the last, with the walls in 122.
+  PASS  the arc measurement has the resolution to see an arc if there were one — every bin carries enough arrows to separate 5%  — smallest bin 600 arrows over 6 bins
+
+[4] THE ART — palette HELD, only p.key varies, so a differing pixel is the dispatch
+
+    drawn 0.55    179px canvas, fit=y   rerun=0e+00   pair diff mean 55.3%   min 33.2%
+    undrawn       179px canvas, fit=y   rerun=0e+00   pair diff mean 59.6%   min 36.0%
+  PASS  the render is deterministic — same key twice is the same pixels  — max 0.0e+00
+  PASS  no bow is measured clipped — `_artBox` lies about a bow and v39 measured a cropped one  — both draw states
+  PASS  the comparator is sensitive — a nonsense key differs from every real school  — smallest 14.6%
+
+    open cell         nearest sibling    diff  inkIoU   ink px   rank on the type
+    runic x bow       dwarven           41.6%   0.724    50485   closest pair #4 of 21
+    umbral x bow      dwarven           54.5%   0.537    47251   closest pair #10 of 21
+  PASS  every open bow cell has art that differs from every sibling  — min 41.6%
+
+    NOTE: every one of those four is nearest to DWARVEN, and that is not
+    four coincidences — the dwarven branch is the smallest ornament on the
+    shape (v39: 0.12% of coverage), so it sits closest to the bare recurve
+    that all seven share. This column reads HOW MUCH the branch adds. It is
+    not a confusability score: at arena size two relics collide by PALETTE,
+    and that is a count, not a render —
+
+    open cell         same-school relics it would stand beside     mirror pairs
+    runic x bow       Spellbreaker, Axiom, Foregone, Paradox                  4
+    umbral x bow      Gravemourn, Nightfell, Twinshade, Shroudmaul            4
+
+[7] THE TRAPS v39 LEFT — asserted, not assumed
+
+    (a) a `shot` block on a MELEE weapon: 0 arrows before, 66 after, over 30s
+  PASS  v39 open decision 4 is still open — tickFire gates on `f.w.shot`, not on mode  — a melee greatsword fired 66 arrows
+  PASS  the trap probe put the roster back  — no `shot` left on the melee weapon
+    (b) a status clock over one FREE step: -0.00833s (dt=0.00833)   over ten FROZEN steps: -0.00000s
+  PASS  v39 §5.3 confirmed — hitStop freezes every clock in tickStatus  — one free step costs exactly dt, ten frozen steps cost nothing
+    ... and a bow fight is frozen 9.7% of its steps, so that much of every clock above is bought and not spent
+
+17/17 checks passed
+wrote ../05-reference/v61/bow-survey-at-garrote.json

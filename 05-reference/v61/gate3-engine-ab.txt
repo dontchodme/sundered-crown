@@ -1,0 +1,11 @@
+=== ENGINE A/B: 30 relics, 8 seeds x 435 pairings ===
+
+  sc-volley.html                  3480 matches  102.4s
+  sc-crossweave.html              3480 matches  147.1s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3480
+  PASS  every match identical field for field  — 3480/3480
+  PASS  the sweep is real  — 30/30 distinct winners, 3480 distinct seeds, 16.6-87.9s
+
+ENGINE A/B PASS — ../02-chain/sc-crossweave.html does not move the 30-relic roster.
