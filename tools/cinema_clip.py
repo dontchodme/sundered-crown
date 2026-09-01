@@ -192,7 +192,7 @@ window.__clip = {
      `startAt` seconds of MATCH time so the clip can begin just before the
      moment worth showing. The fast-forward is plain step() at 1x with the
      director idle: it is the same sim, just not photographed. */
-  init(idA, idB, seed, on, startAt, intro) {
+  init(idA, idB, seed, on, startAt) {
     const AC = window.AC;
     this.on = on; this.events = []; this.curve = []; this.wall = 0; this.acc = 0;
     /* The stakes band stamps the clank it exits on. `--ab` runs this harness
@@ -208,7 +208,6 @@ window.__clip = {
     const m = new AC.Match(idA, idB, seed);
     /* On a cold open the card starts DOWN; run_pass raises it on the first
        clank. The fight is then the first thing on screen. */
-    m.introT = (intro && !window.__coldOpen) ? AC.CONFIG.intro.dur : 0;
     this.m = m; window.__match = m; AC.__inject && AC.__inject(m);
     const dt = AC.CONFIG.physics.dt;
     let g = 0;
@@ -360,7 +359,10 @@ window.__clip = {
      resumes on the identical frame. Unlike render.py this needs no audio
      remapping: events here are stamped at WALL time, which keeps advancing
      under the card, so the mix already lines up with the picture. */
-  raiseCard(sec) { this.m.introT = sec; return this.m.t; },
+  /* `raiseCard` is gone with the card it raised (cardstrip_build.py). It
+     set `introT` to hold the match while a title card played over it, and
+     `--cold-open` used it to drop the card in on the first clank. There is no
+     card and there is no hold. */
 
   /* ---- offline audio -------------------------------------------------------
      render.py's proxy: play() reads this.ctx.currentTime, so the context is
@@ -492,12 +494,9 @@ def _ext(q):
 
 def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
              mb=1, shutter=1.0,
-             intro=False, cold_open=None, verdict_hold=2.4):
-    page.evaluate("([c]) => { window.__coldOpen = c; }", [cold_open is not None])
-    info = page.evaluate("([a,b,s,o,t,i]) => window.__clip.init(a,b,s,o,t,i)",
-                         [idA, idB, seed, on, start_at, intro])
-    card_up = cold_open is None or not intro
-    cut_t = -1.0
+             verdict_hold=2.4):
+    info = page.evaluate("([a,b,s,o,t]) => window.__clip.init(a,b,s,o,t)",
+                         [idA, idB, seed, on, start_at])
     # WALL seconds to the first clank. `scrunchAuto` arms the tape on exactly
     # this event (`!this.scrunchMode && this.clankCount > 0`), so with the card
     # gone this is where the introduction actually happens on screen -- and the
@@ -525,15 +524,13 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
         r = page.evaluate(
             "([raw,q,mb,sh]) => window.__clip.frame(raw,q,mb,sh)",
             [raw, q, mb, shutter])
-        if not card_up and (r["c"] > 0 or r["t"] >= cold_open):
-            # The EVENT is the anchor; the clock is only a cap. Measured over
-            # 144 matches, a timer alone cuts mid-approach: 17% have clanked
-            # by 1.5s, 48% by 3.0s.
-            cut_t = page.evaluate("([s]) => window.__clip.raiseCard(s)",
-                                  [page.evaluate("AC.CONFIG.intro.dur")])
-            card_up = True
-            print(f"    cold open ends at sim {cut_t:.2f}s "
-                  f"({'first clank' if r['c'] > 0 else 'cap'})")
+        # THE COLD OPEN STOOD HERE and it went with the card. It filmed the
+        # fight first and dropped the title card in on the first clank, which
+        # was a real finding -- the EVENT is the anchor and the clock is only a
+        # cap, because over 144 matches a timer alone cuts mid-approach (17%
+        # have clanked by 1.5s, 48% by 3.0s). That finding did not die with the
+        # card: it is why `scrunchAuto` arms the panel on `clankCount > 0`
+        # rather than on a timer, which is the line immediately below.
         if clank_wall is None and r["c"] > 0:
             clank_wall = i / fps
         p = outdir / f"{tag}_{i:05d}.{_ext(q)}"
@@ -654,36 +651,16 @@ def main() -> int:
                          "for encode minutes -- the source only has to be "
                          "visually lossless, the platform re-encodes anyway")
     ap.add_argument("--out", default="cinema-clip.mp4")
-    ap.add_argument("--cold-open", type=float, nargs="?", const=5.0, default=None,
-                    metavar="CAP",
-                    help="open on the fight and play the card on the first "
-                         "clank, or at CAP seconds, whichever comes first. "
-                         "Requires --intro. Roster p75 of first clank is 4.58s.")
     ap.add_argument("--verdict-hold", type=float, default=2.4,
                     help="seconds to hold the scrunch VERDICT panel after it "
                          "arms. The tail waits for the event, so this is a real "
                          "hold and not a guess at when it appears.")
-    ap.add_argument("--intro", action="store_true",
-                    help="DEAD. The 4s intro card was replaced by the scrunch "
-                         "and Rick has asked for it to stop appearing: "
-                         "\"id like the fight cards to die completely. they "
-                         "have been replaced with the scrunch and thats the "
-                         "only thing id like to see going forward.\" Requires "
-                         "--legacy-card to actually render, and nothing "
-                         "shipping should pass either.")
-    ap.add_argument("--legacy-card", action="store_true",
-                    help="unlock --intro / --cold-open. Present so the rule is "
-                         "ENFORCED rather than remembered: three clips went out "
-                         "with the card on because the flag was in a command "
-                         "somebody copied.")
-    # THE STAKES BAND -- hook brief §5a. Capture-side, like --vo and
-    # --cold-open, so the band and the ignition open ship as ONE bundle and
-    # a posting slate stays a single variable (§6).
-    #
-    # The brief says "following the outro card's precedent". THERE IS NO
-    # OUTRO CARD IN THIS TREE -- §7 of that brief says it was written off the
-    # project record and never saw the repo, and asks for exactly this to be
-    # confirmed. It was, and the answer is no. See 06-docs/v46/ §7.4.
+    # `--intro`, `--cold-open` and `--legacy-card` are GONE, with the card
+    # they rendered (`cardstrip_build.py`, 2026-08-31). They had already been
+    # refusing to run without `--legacy-card` for six versions on rule 1's
+    # "THE FIGHT CARD IS DEAD"; what is different now is that there is nothing
+    # left for them to unlock. A flag that cannot work is worse than an absent
+    # one -- it reads as an option somebody could take.
     ap.add_argument("--stakes", nargs="?", const=STAKES_LINE, default=None,
                     metavar="LINE",
                     help="a stakes band over the opening: the promise, in "
@@ -741,12 +718,6 @@ def main() -> int:
     # everything shipping. A flag that merely defaults off is a flag that comes
     # back the first time a command is copied from a doc -- which is exactly how
     # it came back three times in v40 -- so it refuses instead.
-    if (a.intro or a.cold_open is not None) and not a.legacy_card:
-        raise SystemExit(
-            "--intro / --cold-open render the retired fight card.\n"
-            "  The scrunch replaced it and it is the only opening that ships.\n"
-            "  Drop the flags, or pass --legacy-card if you genuinely want the\n"
-            "  old card and know why.")
 
     out = pathlib.Path(a.out).resolve()
     tmp = out.parent / "_clip_frames"
@@ -843,9 +814,8 @@ def main() -> int:
                                        a.fps, cap, Q, tmp, "on",
                                        mb=a.motion_blur,
                                        shutter=a.shutter,
-                                       intro=a.full and a.intro,
                                        verdict_hold=a.verdict_hold,
-                                       cold_open=a.cold_open)
+                                       )
         if errors:
             print("  page errors:", errors[:4])
     if a.capture_only:

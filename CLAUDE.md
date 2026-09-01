@@ -12,7 +12,12 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-nightfell.html       BUILD OF RECORD  27 relics · DEADFALL
+02-chain/sc-nocard.html          BUILD OF RECORD  27 relics · NO FIGHT CARD
+                                                   everything below, minus
+                                                   THE 4s TITLE CARD, ITS 545
+                                                   LINES OF RENDERER AND EVERY
+                                                   CONSTANT IT PUT IN THE CLOCK
+02-chain/sc-nightfell.html       the link before it, 27 relics · DEADFALL
                                                    everything below, plus
                                                    A WINDOW WHOSE EVERY BLOW
                                                    STAMPS A PENTAGRAM — ONE
@@ -50,6 +55,40 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE FIGHT CARD IS OUT OF THE BUILD** (`cardstrip_build.py`, 2026-08-31).
+Rick: *"if we can afford to remove the fight card then do it. theres no sense
+in keeping it as i dont intend to use it again. we can just archive it."*
+Rule 1 has said "THE FIGHT CARD IS DEAD" for six versions and nothing shipped
+with one, but it was never taken OUT — 545 lines of renderer, a `Match` field
+thirty tools zeroed defensively, a draw-time reentry guard four unrelated
+calls branched on, a toggle button in the page, and `CONFIG.intro.dur` sitting
+inside the seal-time arithmetic and the app's capture length. **A dead feature
+whose constants are inside the clock is not dormant.** Archived whole to
+`04-experiments/_fight-card-retired.js`; `06-docs/v54/cardstrip-v54.md`.
+
+> **IT COULD NOT MOVE A FIGHT AND THE ENGINE HAD ALREADY PROVED IT.** `step()`'s
+> hold branch said so in its own words — *"Nothing in the sim advances, so the
+> recorded duration and every statistic stay exactly what they would be
+> without an intro"* and *"simulate() never sets introT, so no sweep ever runs
+> this branch."* `engine_ab` **2808/2808 identical across all 27 relics**, and
+> `render_ab` **36/36 frames pixel-identical** over six pairings.
+
+> **THE SCRUNCH PANEL IS NOW THE ONLY SURFACE THE GAME TEACHES ON.** That was
+> checked before the cut, not after: it looked like a dependency and is not —
+> `drawScrunchPanel` composes its own facts from `STATUS[].tip`,
+> `relicStatus()`, `w.ult.tip` and `w.ult.charge`, and its own comment says why
+> it deliberately stopped sharing the card's helpers. So `w.ult.tip` did NOT
+> become write-only data the way `blurb` did. **It also means a wrong string
+> is now wrong everywhere a viewer can see**, which is an argument for open
+> item 4 (`tip_audit` does not check ult tips) rather than against it.
+
+> **AND THE PROSE WAS PART OF THE REMOVAL.** Four comments elsewhere in the
+> build explained themselves BY REFERENCE to the card — the config header, the
+> presentation-clock paragraph, and both of the scrunch panel's. A comment
+> defining a thing against something that no longer exists is worse than no
+> comment in a codebase that teaches through them, so the builder rewrites all
+> four and the two cuts take the section headers that introduced them.
 
 **NIGHTFELL'S ULTIMATE IS DEADFALL, AND IT IS THE FIRST THING IN THIS GAME
 THAT WAITS** (`nightfell_build.py`, 2026-08-31). Stage 3 of the v51/52 brief,
@@ -712,9 +751,15 @@ import fails only when you run it. The grouping lives in `tools/README.md`.
 
 ## 3. THE THREE RULES, AND THEY ARE RICK'S
 
-1. **THE FIGHT CARD IS DEAD.** Nothing ships with one. `cinema_clip --intro`
-   and `--cold-open` refuse to run without `--legacy-card`. The card is still
-   in the build; removing it is a chain-wide job, unstarted for five sessions.
+1. ~~**THE FIGHT CARD IS DEAD.**~~ **IT IS GONE**, 2026-08-31
+   (`cardstrip_build.py`). Rick: *"theres no sense in keeping it as i dont
+   intend to use it again. we can just archive it."* 545 lines of renderer,
+   `CONFIG.intro`, `Match.introT`, the `_introScene` reentry guard, the page's
+   own toggle button, and `cinema_clip`'s `--intro` / `--cold-open` /
+   `--legacy-card`. Archived whole to
+   `04-experiments/_fight-card-retired.js`. **The scrunch panel is now the
+   only surface the game teaches anything on**, which raises the stakes on its
+   copy rather than lowering them.
 
 2. **RICK GIVES INPUT ON SEVEN THINGS.** The cell, the ult mechanics, the ult
    name, the fighter name, the scrunch card wording, the ult animations, the
@@ -901,10 +946,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-nightfell.html --n 40       # 12/13, see §0
+python verify.py --game ../02-chain/sc-nocard.html --n 40          # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-nightfell.html          # what's open
+python cell_survey.py --game ../02-chain/sc-nocard.html             # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -929,6 +974,8 @@ python grasp_price.py --blade 39.79                                # four ways t
 python hand_art_lab.py                                             # an ult's art as a spread, before anybody is asked
 python row_price.py --type scythe --game ...                       # a cell by DELIVERED EFFECT, not by occupancy
 python nightfell_relic_probe.py                                    # §8.4 asserted — and the render path CALLED
+python cardstrip_build.py                                          # the fight card, removed and archived
+python render_ab.py --a <prev> --b <this> --pairs a:b:seed          # the PICTURE did not move
 python deadfall_sheet.py                                           # ARMING against ARMED, off a real match
 python umbral_sweep.py --relics nightfell --lo 8 --hi 22            # the blade: curve, bisect, wide confirm
 ```
@@ -943,7 +990,7 @@ and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-nightfell.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-nocard.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -952,7 +999,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-nightfell.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-nocard.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -1042,7 +1089,10 @@ git push
 1. **THE SHARED `cineFloor` IS STILL NOT BUILT.** v40 item 1, six relics deep.
    §3 of the v43 handoff is the first measurement it would be set against: a
    fatal cut is rare for **every** melee relic — 8% to 23% across six.
-2. **THE FIGHT CARD IS STILL IN THE BUILD.** Rule 1, five sessions unmoved.
+2. ~~**THE FIGHT CARD IS STILL IN THE BUILD.**~~ **DONE**, 2026-08-31, after
+    six sessions. `06-docs/v54/cardstrip-v54.md`. The gate that made it safe
+    was `render_ab` 36/36 pixel-identical plus `engine_ab` 2808/2808 — the
+    card was presentation and its own comment said so.
 3. **TWO BEATLESS DEATHS.** Daybreak's spark burn and `_traceHit` both take hp
    through `hurt()` and file nothing; Dawnbringer is 22.1% blind. The general
    fix is one backstop — *if a fighter died this step and no beat was filed,
