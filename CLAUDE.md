@@ -12,7 +12,17 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-grasp.html           BUILD OF RECORD  28 relics · GRASP
+02-chain/sc-gnawed.html          BUILD OF RECORD  28 relics · THE UMBRAL
+                                                   WARHAMMER REDRAWN
+                                                   everything below, with
+                                                   `_whEaten` DELETED and
+                                                   `_whGnawed` in its place —
+                                                   a near-black head, three
+                                                   bone spikes above and three
+                                                   below, a beak and a spur,
+                                                   ALL ON ONE CLOSED PATH
+                                                   engine_ab 3024/3024
+02-chain/sc-grasp.html           the link before it, 28 relics · GRASP
                                                    everything below, plus
                                                    SHROUDMAUL, AND A WINDOW
                                                    THAT GROWS ONE LARGE
@@ -70,6 +80,62 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE UMBRAL WARHAMMER IS REDRAWN, AND THE SILHOUETTE THAT v56 CALLED FREE WAS
+THE THING RICK REJECTED** (`gnawed_build.py`, 2026-08-31). `06-docs/v58/`.
+Rick: *"umbral hammers silhouette looks pretty bad ... the hammer with blocks
+attached to it idea just isnt working for me."* `_whEaten` was purely
+SUBTRACTIVE — call `_whBase`, punch two blobs and a haft slot out with
+`destination-out` — and **subtracting from a shape that is already rectilinear
+does not produce an absence, it produces smaller rectangles.** Every other
+grammar on that row ADDS a contour; umbral was the only one that removed one.
+`_whGnawed` replaces it and `_whEaten` is DELETED. **`engine_ab` 3024/3024
+identical on all 28** — `SHAPES` is render-only and that is the cheapest proof
+this project has.
+
+> **THE NUMBER SAID IT WAS FINE.** `_whEaten` scores 0.382 IoU against its
+> nearest sibling, inside the band the silhouette doc calls *"distinct, and
+> still recognisably one weapon type"*, and the v56 brief leaned on a separate
+> *78.6% distinct* to call the silhouette free work. **A NUMBER THAT IS EASY TO
+> COMPUTE IS NOT THEREBY THE NUMBER YOU WANT.** The replacement is a LATERAL
+> move on the metric — measured on the shipped build, worst 0.382 -> **0.325**
+> and mean 0.505 -> **0.563** — and is justified by the sheet and by Rick.
+
+> **AND THE TWO SILHOUETTE INSTRUMENTS DISAGREE, WHICH NOBODY HAS RECONCILED.**
+> `cell_survey`'s *78.6% distinct* is an INK mask against fifteen open cells;
+> `silhouette_probe`'s IoU is a SILHOUETTE mask against six siblings. 78.6%
+> distinct would be an IoU of 0.214 and the measurement is 0.325. **Do not
+> quote one as if it were the other.** Probably two masks and two comparison
+> sets; possibly one instrument being read wrong, which would matter well
+> beyond this cell.
+
+> **AND `silhouette_probe` NEEDS `--footprint` ON THIS BUILD.** `_whGnawed`'s
+> head is `_shade(p.dark, 0.92, 0.04)`, a near-black literal, and without that
+> flag the mask misses the head entirely — which would have measured the spikes
+> alone and called them the weapon.
+
+> **THE `destination-out` QUESTION IS SETTLED: THE ERASE IS REAL AND REACHES
+> NOTHING.** v58 §1.2 said that if the bites erase the BACKGROUND rather than
+> the weapon, `_gsEaten` and `_tbEaten` are shipped bugs outranking the whole
+> document. Measured: painted onto an opaque background the eaten cells punch
+> **1378 / 4132 / 4877** pixels straight through it, and sanctified's rosette
+> 560. **They are unreachable** — `litWeapon` bakes every weapon onto its own
+> TRANSPARENT scratch first, where `destination-out` can touch nothing but the
+> weapon. The one path that skips the buffer is `drawWeapon`'s fallback, and
+> `litWeapon` declines for **21 of 126 shape × school combinations, every one of
+> them a FLAIL** — and no flail school is eaten. **That is an accident of which
+> shapes need a buffer, not a design**, and it is worth knowing before somebody
+> adds an eaten flail or changes what `litWeapon` declines.
+
+> **AND THE ONE RULE THAT MADE THE NEW SHAPE WORK IS REUSABLE.** Rick, on the
+> first cut: *"upclose the spikes just look like triangles layered behind the
+> hammer."* **A grammar that adds a limb to a type must add it to the type's
+> OUTLINE, not behind it** — head, spikes, beak and spur are ONE closed path,
+> one fill, one stroke, no internal edges, so a spike cannot come apart from the
+> head at any zoom. `gnawed_build` refuses to write unless `path(c)` is called
+> exactly three times and `c.stroke()` exactly once. **Bloodsworn's six hooks
+> and dwarven's four bolt bosses are built the old way** and are candidates for
+> the same failure.
 
 **THE TWENTY-EIGHTH RELIC IS SHROUDMAUL, AND GRASP IS THE FIRST ULTIMATE IN
 THIS GAME THAT DEALS NOTHING AND HAS TO EARN ITS PAYOFF INSIDE ITS OWN WINDOW**
@@ -950,7 +1016,7 @@ the entire history of the project, not just the current session.
 | `02-chain/` | how the build was made, in order. `sc-base.html` is the ROOT. |
 | `04-experiments/` | unshipped variants **and controls**. Several are the control for a measurement, not a candidate. |
 | `05-reference/` | images, filmstrips, the clickable fighter review. |
-| `06-docs/` | the write-ups, one folder per version. `06-docs/v56/` is current. |
+| `06-docs/` | the write-ups, one folder per version. `06-docs/v58/` is current. |
 | `07-shorts/` | delivered videos. **mp4s are gitignored — the seed rebuilds them.** |
 | `08-analytics/` | retention curves and cold-open reads off real posts. |
 | `tools/` | every builder, probe and renderer. **Flat on purpose.** |
@@ -1166,10 +1232,10 @@ python shell_identity.py                                           # app == head
                                         # run `cd app && npm run identity` FIRST --
                                         # it diffs a json the app wrote, not a live app
 python post_identity.py                                            # the chain is invisible
-python verify.py --game ../02-chain/sc-grasp.html --n 40           # 12/13, see §0
+python verify.py --game ../02-chain/sc-gnawed.html --n 40          # 12/13, see §0
 python engine_ab.py --a <prev> --b <this> --ids <ids> --n 10       # nothing moved
 python chain_audit.py --relic <relic> --tip <tip> --builder <b>.py # inserts survive
-python cell_survey.py --game ../02-chain/sc-grasp.html              # what's open
+python cell_survey.py --game ../02-chain/sc-gnawed.html             # what's open
 python ult_bloom_probe.py                                          # which ults blow out
 python ult_fx_capture.py                                           # real ultFx, per relic
 python ult_live_probe.py                                           # ults that need a PLAYED match
@@ -1205,6 +1271,9 @@ python grasp_relic_probe.py --game ../02-chain/sc-grasp.html       # §5 asserte
 python grasp_sheet.py                                              # REACHING vs HOLDING vs THE CRUSH, off a real match
 python shroudmaul_sweep.py --only 0,1                              # the floor, then the grab count
 python umbral_sweep.py --relics shroudmaul --lo 12 --hi 26         # the blade, now a FOUR-relic tool
+python grasp_rhythm_lab.py                                         # the rhythm, priced at CONSTANT BALANCE
+python gnawed_build.py                                             # the umbral warhammer, redrawn
+python silhouette_probe.py --types warhammer --footprint --sheet <o>.png   # AND --footprint IS NOT OPTIONAL HERE
 ```
 
 **`frame_probe.py` HAS BEEN CRASHING, AND NOT BECAUSE OF ANYTHING NEW.** It
@@ -1217,7 +1286,7 @@ and already `shorts_build`'s default. The opening, the announcer on its flares
 and the stakes band all ride on it with no flags at all:
 
 ```bash
-python tools/shorts_build.py --game 02-chain/sc-grasp.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
+python tools/shorts_build.py --game 02-chain/sc-gnawed.html --a ironhail --b oathwound --seed 55196 --out 07-shorts/v47/short.mp4
 ```
 
 `--no-stakes` drops the band, `--lead N` goes back to filming the last N
@@ -1226,7 +1295,7 @@ seconds before the kill, `--vo <wav>` overrides the announcer.
 A raw clip, one tool down:
 
 ```bash
-python tools/cinema_clip.py --game ../02-chain/sc-grasp.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
+python tools/cinema_clip.py --game ../02-chain/sc-gnawed.html --a ironhail --b oathwound --seed 55196 --full --stakes --fps 60 --w 540 --out ../07-shorts/v47/clip.mp4
 ```
 
 > **`cinema_clip` RESOLVES ITS OWN PATHS AGAINST `tools/`, NOT AGAINST YOU.**
@@ -1481,7 +1550,22 @@ git push
     2.8 is refuted-at-1.35 and confirmed by nothing. §7 of the build brief and
     rule 2 both make this Rick's. `07-shorts/v56/grasp-first-cut.mp4`.
 
-Full detail: `06-docs/v56/` for the tip, `06-docs/v54/` for the relic
+34. **BLOODSWORN AND DWARVEN BUILD THEIR WARHAMMER GRAMMARS THE WAY RICK JUST
+    REJECTED.** §0. Their hooks and bolt bosses are separate stroked shapes on
+    top of `_whBase`, which is exactly the construction that made the umbral
+    spikes read as *"triangles layered behind the hammer"*. Nobody has
+    complained about them and nothing is measured. Worth a look the next time
+    anything brings somebody back to that file.
+35. **THE TWO SILHOUETTE INSTRUMENTS HAVE NEVER BEEN RUN AGAINST THE SAME
+    BUILD.** §0. `cell_survey`'s ink mask and `silhouette_probe`'s IoU
+    disagree by more than the difference between "distinct" and "identical",
+    and both were quoted in the v56 brief as if they were one number.
+36. **THE OTHER FIVE UMBRAL CELLS ARE STILL THE PALE `steel`.** Rick kept the
+    near-black head to this hammer *for now*, so umbral means two materials
+    across six types. A chosen state, not drift — and `night-plan.md` §1.4
+    wanted umbral "genuinely dark" in August and it never got done.
+
+Full detail: `06-docs/v58/` for the tip, `06-docs/v56/` for the relic in it, `06-docs/v54/` for the relic
 before it, `06-docs/v53/` for the two stages before that (curse-build then
 the hand-build now called Revenant), `06-docs/v49`-`v52` for the designs
 behind all three, `06-docs/v48/` for the relic before them, `06-docs/v47/` for
