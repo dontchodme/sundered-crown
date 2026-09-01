@@ -225,24 +225,33 @@ ULT = {
 }
 
 # WHAT THE CONNECT ENDS, and it is a STRING rather than a number so it is not
-# swept by accident. "window" is what shipped -- the ring and the wind-up end
-# together, because they are one field -- and "ring" is the arm Rick's own
-# sentence describes, where the ring blows apart and the hammer keeps turning
-# out the rest of its 8 seconds without being able to catch again.
-# `06-docs/v60/ravelbone-build-v60.md` sections 5c, 5d and 5d.1. RICK'S, and
-# he took "ring" on 2026-09-01 with the pair measured in front of him.
+# swept by accident. `06-docs/v60/ravelbone-build-v60.md` sections 5c-5f.
 #
-# IT IS NOT A BALANCE PREFERENCE, IT IS A BUILD MISREADING CORRECTED. At stage
-# 3 the two arms read +32.9 and +18.2 against the design's own registered
-# +29.9, so "ring" lands inside noise and "window" misses by 3.2 sigma. The
-# lab was measuring a window that OUTLIVED its ring -- which is also what makes
-# its experimental design coherent, because its "the window runs on, ring
-# RE-ARMS, +45.9" arm then changes exactly one thing rather than two.
+# "window"  the connect ends the ring AND the wind-up. THE SHIPPED ARM.
+# "ring"    the ring blows apart and the hammer keeps turning out the rest of
+#           its window without being able to catch again.
 #
-# WHAT IT COSTS IS THE PICTURE AND THAT IS UNSOLVED: the hammer keeps turning
-# at 6x for ~9.7s after the payoff has visibly happened, with nothing at its
-# reach. Open item 45.
-EXPIRE = "ring"
+# RICK RULED TWICE AND THE SECOND RULING IS THE ONE THAT COUNTS, because the
+# first was made on a table and the second was made on a rendered fight.
+#
+#   1. Shown +32.9 against +18.2, he took "ring" -- it reproduces the design's
+#      own registered +29.9 where "window" misses it by 3.2 sigma.
+#   2. Shown the CLIP: *"the extra wind up speed should stop after it lands a
+#      hit."*
+#
+# THE SECOND OVERRULES THE FIRST AND COSTS 14.7 MEASURED POINTS, and it is
+# section 4.1 working exactly as this project intends: the numbers said the arm
+# was free and a person watching said the picture was not. What he saw is open
+# item 45 -- after the connect the payoff has visibly happened, the ring is
+# gone, and the hammer is still turning at 6x with nothing in the arena saying
+# the window is open. `05-reference/v60/garrote-states-tail.png` is that frame.
+#
+# AND "LANDS A HIT" IS "THE CONNECT", WHICH IS CHECKED RATHER THAN ASSUMED. The
+# ring sits at `radius` 110 and a blow lands at about 144 between centres, so
+# the quarry cannot be struck without having been caught first. The only bodies
+# that can be hit un-caught are a SHADE and a quarry already pinned by Paradox,
+# and neither is the case his sentence is about.
+EXPIRE = "window"
 
 ULT_NAME = "Garrote"
 # MECHANIC-FIRST, <=72 characters, and it is a FIRST CUT -- brief open decision

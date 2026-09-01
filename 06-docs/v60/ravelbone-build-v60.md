@@ -473,10 +473,10 @@ above should stay reproducible:
 knob flipped, and it rebuilds to the same sha every time
 (`ravelbone_build.py --stage 2/3 --expire window`).
 
-**RICK TOOK `expire:"ring"`, 2026-09-01, with the pair measured in front of
-him.** It is the shipped arm and the whole chain is rebuilt on it;
-`sc-garrote.html` carries the sha of the variant that measured +32.9, so the
-build that shipped is the build that was measured.
+**RICK RULED TWICE AND THE SECOND RULING IS THE ONE THAT SHIPPED — see §5f.**
+Shown the pair as a table he took `expire:"ring"`. Shown it as a rendered
+fight he said *"the extra wind up speed should stop after it lands a hit"*,
+which is `expire:"window"`, and that is what ships.
 
 > **SO THIS IS A BUILD MISREADING BEING CORRECTED, NOT A BALANCE PREFERENCE.**
 > "The ring explodes and expires" was implemented as "the ring and the window
@@ -510,6 +510,52 @@ still driven off it, and `W.spent` is exactly the flag a tell would read.
 turning, and a viewer sees a fast hammer rather than an ultimate. The name is
 in the HUD and nowhere else. Open item 45, and it is Rick's — he took this arm
 with the cost named, and now he has the frame.
+
+---
+
+# 5f. AND THEN HE WATCHED IT, WHICH OVERRULED THE TABLE AND COST 14.7 POINTS
+
+> *"the extra wind up speed should stop after it lands a hit."*
+
+That is `expire:"window"` — the arm the measurement had just argued against —
+and it is what ships.
+
+**IT IS §4.1 WORKING EXACTLY AS THIS PROJECT INTENDS.** The numbers said the
+wind-up outliving its ring was worth +14.7 points and cost nothing a probe
+could see. `garrote_relic_probe` was 26/27 on it. `verify` was 12/13 and had
+Ravelbone comfortably inside its band. **What it cost was on screen and only a
+person watching could price it**, and it is the thing §5d.2 predicted in
+writing and open item 45 photographed before he was shown anything: after the
+connect the payoff has visibly happened, the ring is gone, and the hammer is
+still turning at 6× with nothing in the arena saying the window is open.
+
+```
+                        expire:"ring"     expire:"window"   <- SHIPPED
+lift over its floor        +32.9              +18.2
+against registered +29.9   +3.0 (0.8 sigma)   -11.7 (3.2 sigma)
+Ravelbone on verify        62.8%              49.6%
+roster spread              26.0pp             20.8pp
+window used a cast         7.63s of 8s        2.87s of 8s
+```
+
+> **AND IT FLIPS THE BLADE'S DIRECTION.** At +32.9 the relic was top of the
+> roster and the blade was plainly owed a cut. At +18.2 it sits mid-band with
+> very little to give back — so the brief's *"expect the answer BELOW 23.5"* is
+> once again a prediction nobody should carry into stage 4. **`dmg` may need to
+> go UP.** It is one wide direct measurement either way.
+
+> **THE REJECTED ARM IS KEPT AND IT REBUILDS TO THE SAME SHA.**
+> `04-experiments/_garrote-expire-ring.html`, from
+> `ravelbone_build.py --stage 2/3 --expire ring`. Both numbers in the table
+> above stay reproducible, and if the picture problem is ever solved — a ghost
+> of the ring, or the caster's shell carrying the wind-up — the +14.7 points
+> are one flag away.
+
+> **AND "LANDS A HIT" IS "THE CONNECT", WHICH WAS CHECKED RATHER THAN
+> ASSUMED.** The ring sits at `radius` 110 and a blow lands at about 144
+> between centres, so the quarry cannot be struck without having been caught
+> first. The only bodies that can be hit un-caught are a SHADE and a quarry
+> already held by Paradox. There is no second reading to price.
 
 ---
 

@@ -189,7 +189,20 @@ BISECTED**. `06-docs/v60/ravelbone-build-v60.md`.
 > measuring a window that outlived its ring, which is also what makes its
 > experimental design coherent. **The registered prediction was never refuted;
 > it was never tested, because the thing built was not the thing priced.**
-> Rick's, from a measured pair, and it is the shipped arm.
+
+> **AND THEN RICK WATCHED IT AND OVERRULED THE TABLE, WHICH IS §4.1 WORKING.**
+> Shown the pair as numbers he took `expire:"ring"`. Shown it as a rendered
+> fight: *"the extra wind up speed should stop after it lands a hit."* That is
+> `expire:"window"` and **it is what ships, at a measured cost of 14.7
+> points** — Ravelbone 62.8% -> 49.6%, roster spread 26.0pp -> 20.8pp. The
+> numbers said the longer window was free; the picture said it was not, and
+> only a person watching could price that. It is the fault the write-up
+> predicted and `05-reference/v60/garrote-states-tail.png` photographed BEFORE
+> he was shown anything: the payoff has visibly happened, the ring is gone, and
+> the hammer is still turning at 6x with nothing saying the window is open.
+> **The rejected arm is kept and rebuilds to the same sha**
+> (`04-experiments/_garrote-expire-ring.html`), so if the picture problem is
+> ever solved the 14.7 points are one flag away.
 
 > **THE CONSUME EATS 1.81 STACKS AND THE DESIGN ASSUMED FOUR.** Design §3 rests
 > on *"the bar is full before the ultimate casts"*; measured over 308 connects
@@ -2045,18 +2058,17 @@ git push
     shoulders its own catch is pushed OFF the thing it is holding, which could
     cost the connect the ring was opened for.
 
-43. **THE BLADE IS OWED AND RAVELBONE IS THE STRONGEST RELIC IN THE GAME.**
-    §0. `verify` reads it at **62.8%**, top of thirty, and the roster spread is
-    **26.0pp** — the widest this project has carried, against 18.5pp when the
-    umbral package shipped. It PASSES the 30-70% band, which is why nothing
-    stops it. `dmg` is 23.5, the warhammer's own value and a bisection START,
+43. **THE BLADE IS NOT BISECTED AND ITS DIRECTION IS NOW AN OPEN QUESTION.**
+    §0. `dmg` is 23.5 — the warhammer's own value and a bisection START —
     `TUNED_RB` is `None`, and `ravelbone_build.py --stage 4` refuses to run
-    with the reason printed. **This is the design's own prediction arriving on
-    the right build**: v60 §2 said the blade would have to pay by more than
-    Shroudmaul's did, and on the rejected `expire:"window"` arm the relic sat
-    at 49.6% with nothing to give back. What settles a blade on this roster is
-    a wide direct measurement at n >= 1000 a point, on both sides, repeated on
-    a second block — never a bisection.
+    with the reason printed. The brief said *"expect the answer BELOW 23.5"*,
+    and that was written against a relic worth +29.9. On `expire:"ring"` the
+    relic was top of the roster at 62.8% and the cut was plainly owed; on the
+    SHIPPED `expire:"window"` it lands at +18.2 and sits mid-band with very
+    little to give back, **so `dmg` may need to go UP.** Do not carry the
+    "downward" claim into stage 4. What settles a blade on this roster is a
+    wide direct measurement at n >= 1000 a point, on both sides, repeated on a
+    second block — never a bisection.
 
 43a. **AND THE STAGE-2 GATE IS WHAT FOUND ALL OF IT.** §0
     and `06-docs/v60/ravelbone-build-v60.md` §5a. The ring was registered at
