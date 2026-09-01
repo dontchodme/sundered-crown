@@ -1,0 +1,53 @@
+
+GLOAMWIRE RELIC PROBE -- sc-crossweave.html   30 foes x 4 seeds
+
+    magazine 24 x 3   fan 0.9 rad   cadMul 0.5   dmgMul 1.4
+    strandW 90 (reach 124 against the arrow's 58)   knock 260
+
+  PASS  [5a] the strand touches nothing but position -- no damage path in tickNet's own code  -- clean
+[1] THE MAGAZINE -- 120 fights
+
+    casts a fight        2.09
+    volleys a fight      44.5        (design 6.1: 36.6 at cadMul 0.5)
+    arrows a fight       133.4
+    arrows a volley      3.00        (must be exactly 3)
+    window open a fight  11.40s
+  PASS  [1a] a volley is one magazine round -- exactly n arrows a volley  -- 3.0000 against 3
+  PASS  [1b] the magazine empties -- volleys a cast is the magazine size  -- 21.3 a cast against a magazine of 24
+
+[2] THE CAP -- maxLive 64, and spawnShot SHIFTS at it
+
+    evictions            0        over 16011 arrows
+  PASS  [2a] the cap never fires -- no shot this build thinks it bought was deleted  -- 0 evictions
+
+[3] THE FOUR OUTCOMES -- 5337 volleys
+
+    both                916   17.2%
+    arrow only          196    3.7%
+    lightning only     1121   21.0%
+    miss               3104   58.2%
+  PASS  [3a] the four outcomes sum to the volley count, to the unit  -- 5337 against 5337
+  PASS  [6a] arrow-only is 1-6% and it is the volleys that lost an arrow first -- gate 3 item 4, do NOT tune it up  -- 3.7%
+
+    shoves a fight       23.5        (design 6.1: 22.3)
+    pool at the LAST step 81.7       (design 7's 40.8 is a TIME AVERAGE -- this is the final value, near its `peak`)
+  PASS  [5b] a shove that lands on a frame with no arrow contact costs the quarry no hp  -- 2447/2819 shoves took no hp on their own frame
+
+[4] THE GEOMETRY CONTROLS -- each one known before it ran
+
+    strandW 0        lightning only   2.4%   (must be under 3%)
+  PASS  [4a] a strand thinner than its own arrows is inside them  -- 2.4%
+    reach past 954   miss             0.0%   of ALL volleys
+                     miss             0.0%   of volleys loosed at a LIVE quarry (must be 0)
+  PASS  [4b] past the arena diagonal nothing loosed at a living quarry can be missed  -- 0 of 4596 -- and 0 more were loosed into `killFlight`, at a quarry already dead
+    strandKnock 0    win 42.5%  against the shipped arm's 51.7%
+                     -- that difference is THE SHOVE'S PRICE (+9.2%), not a control.
+                     The control is an ENGINE A/B against the no-strand build and it
+                     cannot be run inside one page: see `04-experiments/_gloamwire-knock0.html`.
+                     REPORTED, NOT CHECKED: n=120 an arm cannot rank a direction
+                     (CLAUDE.md's floor is n~700, and this reading has swung 11.7pp
+                     across a 0.2 change of blade). The design's own four arms say -9pp.
+
+    shipped win rate     51.7%        (design 6.1: ~51%, on 29 relics and Chromium 141)
+
+9/9 checks passed

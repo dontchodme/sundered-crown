@@ -21,10 +21,12 @@ short-form video for TikTok and YouTube Shorts.
                                                    SHOVE and never damage.
                                                    Stages 1-3 of 4. NO ART, NO
                                                    SOUND, NO BEAT — stage 4 is
-                                                   Rick's. BLADE NOT SWEPT: 9.2
-                                                   is the design's placeholder.
+                                                   Rick's. Blade SWEPT 9.2 ->
+                                                   9.0 on 12,240 fights, both
+                                                   sides, two blocks.
+                                                   verify 12/13 (the known one)
                                                    engine_ab 3480/3480 · probe
-                                                   10/10 · net_lab gate 1 6/6
+                                                   9/9 · net_lab gate 1 6/6
 02-chain/sc-volley.html          the link before it, 31 relics · THE VOLLEY —
                                                    the fan and the magazine, and
                                                    NO strand

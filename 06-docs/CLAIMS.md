@@ -68,6 +68,7 @@ cell you may claim.
 | umbral × bow | Quiver, the misses come back | Claude Code | 2026-09-01 ~18:45 | SUPERSEDED | `06-docs/v61/quiver-design-v61-SUPERSEDED.md` |
 | umbral × bow | Gloamwire / Crossweave, BUILD | Claude Code | 2026-09-01 20:10 | BUILDING | `tools/gloamwire_build.py` |
 | bloodsworn × scythe | Bloodmirror / Bloodletting | Cowork | 2026-09-01 | DESIGNED, NOT BUILT | `06-docs/v59/bloodmirror-build-brief-v59.md` |
+| umbral × scythe | the purple tornado — §1 in, clause 3 measured dead, awaiting ruling | Cowork | 2026-09-01 20:17 | OPEN | `06-docs/v62/umbral-scythe-design-v62.md` |
 
 **`bloodsworn × scythe` WAS the row that proved the point, and it is closed as
 of 2026-09-02.** Bloodmirror was designed in full on 2026-09-01 — named,

@@ -440,11 +440,26 @@ def main():
                   f"the no-strand build and it")
             print(f"                     cannot be run inside one page: see "
                   f"`04-experiments/_gloamwire-knock0.html`.")
-            check("[4c] the shove is a COST, monotone with the design's own "
-                  "sign (design 6.2: -9pp across 0 -> 400)",
-                  cK["win"] >= S["win"] - 1e-9,
-                  f"knock 0 {cK['win']:.1%} against knock "
-                  f"{u['strandKnock']:g} {S['win']:.1%}")
+            # NOT A CHECK, AND THE FIRST CUT ASSERTED IT AND WAS RIGHT TO
+            # FAIL. This is a BALANCE reading, not an invariant, and at the
+            # sample this probe runs it cannot support a direction: measured at
+            # blade 9.2 the shove read -2.5pp and at blade 9.0 it reads +9.2pp,
+            # an 11.7pp swing out of a 0.2 change to the blade. That is not a
+            # sign flip in the mechanic, it is n=120 an arm against CLAUDE.md's
+            # own floor of n~700 for ranking anything on this roster. The
+            # design measured it properly -- four monotone arms, -9pp across
+            # 0 -> 400 -- and `gloamwire_sweep.py` is the shape of instrument
+            # that could re-measure it.
+            #
+            # The INVARIANT half of gate 3 item 3 is testable and passes:
+            # 04-experiments/_gloamwire-knock0.html against sc-volley.html,
+            # 2790/2790 identical across all 31 ids.
+            print(f"                     REPORTED, NOT CHECKED: n={S['n']} an "
+                  f"arm cannot rank a direction")
+            print(f"                     (CLAUDE.md's floor is n~700, and this "
+                  f"reading has swung 11.7pp")
+            print(f"                     across a 0.2 change of blade). The "
+                  f"design's own four arms say -9pp.")
 
             print(f"\n    shipped win rate     {S['win']:.1%}"
                   f"        (design 6.1: ~51%, on 29 relics and Chromium 141)")

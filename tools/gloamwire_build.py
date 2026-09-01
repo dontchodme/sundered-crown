@@ -117,7 +117,26 @@ RELIC = "gloamwire"
 BLADE_IN = 9.2       # design 6/6.1. A PLACEHOLDER in CLAUDE.md section 4.9's
                      # sense: measured on Chromium 141 at 29 relics and it must
                      # be swept on the pin at 31 before it is believed.
-TUNED_GW = None      # STAGE 4. Not measured yet -- and it must not be guessed.
+TUNED_GW = 9.0       # MEASURED, and it is a WIDE DIRECT MEASUREMENT rather than
+                     # a bisection: `gloamwire_sweep.py --only 1`, three blades
+                     # x both sides x two seed blocks x 1020 fights a cell,
+                     # 12,240 in total, on the pin at 31 relics.
+                     #
+                     #     dmg    A-side  B-side  blockA  blockB   POOLED
+                     #    8.60     45.3%   44.7%   44.3%   45.7%    45.0%
+                     #    9.20     53.3%   51.2%   51.4%   53.1%    52.3%
+                     #    9.80     57.6%   58.6%   58.1%   58.1%    58.1%
+                     #
+                     # Monotone, side asymmetry +0.6pp, worst block
+                     # disagreement 1.8pp, 50% crossing at 9.01.
+                     #
+                     # THE HONEST PRECISION IS THE INTERVAL AND NOT THE DECIMAL.
+                     # The slope here is ~11pp a damage point, so the ~1.1pp SE
+                     # at n=4080 is about +/- 0.1 of blade: the answer is
+                     # 8.9-9.1 and 9.0 is the middle of it. The design's
+                     # placeholder 9.2 was not refuted -- it reads 52.3%, inside
+                     # `verify`'s band and about 2 SE high -- and this is a
+                     # correction rather than a repair.
 
 ULT = {
     "charge":      15.0,   # design 9. The roster mode and v55b's default.
@@ -709,7 +728,8 @@ def main() -> int:
           + {1: "the 31st relic, its ultimate stubbed",
              2: "THE VOLLEY -- a triple shot and the fan. No strand",
              3: "CROSSWEAVE -- the strand, the shove, the magazine",
-             4: "THE BLADE, and it is the only number this stage moves"
+             4: "THE BLADE -- gate 3 item 6, and NOT the brief's stage 4, "
+                "which is art"
              }[A.stage])
     print(f"  src {src_p.name}  {hashlib.sha256(s0.encode()).hexdigest()[:16]}")
 
@@ -794,6 +814,23 @@ def main() -> int:
               f"NO damage and NO status")
         print("  NOTHING IS DRAWN AND NOTHING SOUNDS -- that is stage 4, and "
               "it is Rick's")
+    elif A.stage == 4:
+        if "strandSpent" not in s0:
+            raise SystemExit("this source has no strand -- stage 3 first")
+        if TUNED_GW is None:
+            raise SystemExit("\n".join((
+                "TUNED_GW is None and this stage has no default.",
+                "  Measure it FIRST, and measure it the way CLAUDE.md says --",
+                "  `gloamwire_sweep.py --only 0` for the CURVE (does it bend?),"
+                " then",
+                "  `--only 1` for a WIDE DIRECT MEASUREMENT at n >= 1000 a"
+                " point, on BOTH",
+                "  SIDES, repeated on a SECOND SEED BLOCK. Never a bisection:"
+                " one converges",
+                "  on the noise in its own tail, and the last time that was"
+                " trusted it cost",
+                "  a whole damage point.")))
+        edits = []
     else:
         raise SystemExit(
             f"stage {A.stage} is not written yet. The stage before it must "
@@ -805,6 +842,19 @@ def main() -> int:
             old = old.replace(k, v)
             new = new.replace(k, v)
         s = one(s, old, new, label)
+
+    if A.stage == 4:
+        # THE SIX BOWS SHARE A STAT LINE, so the blade is found by walking
+        # forward from this relic's own id and never by a global replace --
+        # `dmg:9.2` would be a plausible value on any of them.
+        i = s.index(f'id:"{RELIC}"')
+        j = s.find(f"dmg:{BLADE_IN:g},", i)
+        if j < 0 or j - i > 400:
+            raise SystemExit(f"cannot retune: dmg:{BLADE_IN:g} is not in "
+                             f"Gloamwire's own entry. Already tuned?")
+        s = s[:j] + f"dmg:{A.dmg:g}," + s[j + len(f"dmg:{BLADE_IN:g},"):]
+        print(f"  blade dmg {BLADE_IN:g} -> {A.dmg:g}"
+              f"   (the placeholder read 52.3% at n=4080; 9.0 is the crossing)")
 
     ult_matches(s, A, A.stage)
 
