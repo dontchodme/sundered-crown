@@ -1,0 +1,20 @@
+
+GLOAMWIRE BLADE -- sc-crossweave.html   30 foes   shipped dmg 9
+
+[1] THE WIDE DIRECT MEASUREMENT -- 1020 fights a point a side a block,
+    12240 in total. Both sides, two seed blocks, no bisection.
+
+        dmg   A-side   B-side   blockA   blockB   POOLED
+       9.20    46.5%    46.8%    46.3%    46.9%    46.6%
+       9.80    53.8%    52.8%    53.7%    52.9%    53.3%
+      10.40    57.1%    55.8%    57.8%    55.0%    56.4%
+
+    SIDE ASYMMETRY   +0.7%   (Cindercleave measured about -1.3pp, and `verify` runs an
+                     appended relic as side B in all of its pairings)
+    BLOCK DISAGREEMENT 2.8% worst   (two n=702 readings of one number once
+                       differed by 4.3 points -- n~700 is a floor, not a guarantee)
+    MONOTONE: yes
+
+    50% crosses between dmg 9.2 and 9.8, at about 9.50
+
+wrote ../05-reference/v61/blade-wide2.json

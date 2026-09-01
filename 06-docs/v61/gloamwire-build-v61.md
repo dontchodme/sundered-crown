@@ -371,7 +371,27 @@ an arrow does when it lands* — and extra speed moves the landed rate DOWN.
 **Rick took 1.35 with the table in front of him**, which is a picture bought
 with points, like Cindercleave's shove at −2.3 and Garrote's window at −14.7.
 
-> **AND THE TWO INSTRUMENTS DISAGREE ABOUT HOW MUCH IT COST.** The speed sweep
+**AND THE WIDE PASS ADJUDICATED IT, AT 12,240 FIGHTS.** At `speedMul` 1.35:
+
+```
+    dmg   A-side   B-side   blockA   blockB   POOLED
+   9.20    46.5%    46.8%    46.3%    46.9%    46.6%
+   9.80    53.8%    52.8%    53.7%    52.9%    53.3%
+  10.40    57.1%    55.8%    57.8%    55.0%    56.4%
+
+  monotone · side asymmetry +0.7pp · worst block 2.8pp · crossing 9.50
+```
+
+The crossing moved **9.01 -> 9.50**, so the speed cost **0.49 of blade, which is
+about 5.5 points** at this slope. `dmg` 9.0 -> **9.5**.
+
+> **AND NEITHER CHEAP READING WAS RIGHT.** The speed sweep said −7.7pp at n=900
+> an arm; the re-run curve implied about zero. The truth is between them and
+> closer to the sweep. **Two under-powered readings of a 5.5-point effect
+> disagreed by five points, and the only way through was to spend the fights** —
+> which is CLAUDE.md's rule arriving as a lived cost rather than as advice.
+
+> **THE TWO INSTRUMENTS DISAGREED, AND THIS IS WHAT THEY SAID.** The speed sweep
 > says −7.7pp at dmg 9.0 (n=900 an arm); the re-run blade curve reads dmg 9.20
 > at **49.6%** under `speedMul` 1.35 (n=240 a point) where the same blade read
 > 50.0% at `speedMul` 1.0. If the cost were 7.7 points, 9.2 should read about

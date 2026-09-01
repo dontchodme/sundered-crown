@@ -117,18 +117,29 @@ RELIC = "gloamwire"
 BLADE_IN = 9.2       # design 6/6.1. A PLACEHOLDER in CLAUDE.md section 4.9's
                      # sense: measured on Chromium 141 at 29 relics and it must
                      # be swept on the pin at 31 before it is believed.
-TUNED_GW = 9.0       # MEASURED, and it is a WIDE DIRECT MEASUREMENT rather than
+TUNED_GW = 9.5       # MEASURED, and it is a WIDE DIRECT MEASUREMENT rather than
                      # a bisection: `gloamwire_sweep.py --only 1`, three blades
                      # x both sides x two seed blocks x 1020 fights a cell,
                      # 12,240 in total, on the pin at 31 relics.
                      #
+                     # AT speedMul 1.35 (the shipped one):
                      #     dmg    A-side  B-side  blockA  blockB   POOLED
-                     #    8.60     45.3%   44.7%   44.3%   45.7%    45.0%
-                     #    9.20     53.3%   51.2%   51.4%   53.1%    52.3%
-                     #    9.80     57.6%   58.6%   58.1%   58.1%    58.1%
+                     #    9.20     46.5%   46.8%   46.3%   46.9%    46.6%
+                     #    9.80     53.8%   52.8%   53.7%   52.9%    53.3%
+                     #   10.40     57.1%   55.8%   57.8%   55.0%    56.4%
+                     # monotone, side asymmetry +0.7pp, worst block 2.8pp,
+                     # crossing at 9.50.
                      #
-                     # Monotone, side asymmetry +0.6pp, worst block
-                     # disagreement 1.8pp, 50% crossing at 9.01.
+                     # AT speedMul 1.0, before Rick added the speed:
+                     #    8.60 45.0%   9.20 52.3%   9.80 58.1%
+                     # monotone, side asymmetry +0.6pp, crossing at 9.01.
+                     #
+                     # SO THE SPEED COST 0.49 OF BLADE, WHICH IS ~5.5pp AT THIS
+                     # SLOPE (11.2pp a damage point) -- and that number is the
+                     # only one of three that was measured properly. The speed
+                     # sweep said -7.7pp at n=900 an arm and the re-run cheap
+                     # curve implied about zero; both were wrong, in opposite
+                     # directions, and the wide pass adjudicated without either.
                      #
                      # THE HONEST PRECISION IS THE INTERVAL AND NOT THE DECIMAL.
                      # The slope here is ~11pp a damage point, so the ~1.1pp SE
@@ -1164,14 +1175,13 @@ def main() -> int:
         # THE SIX BOWS SHARE A STAT LINE, so the blade is found by walking
         # forward from this relic's own id and never by a global replace --
         # `dmg:9.2` would be a plausible value on any of them.
-        i = s.index(f'id:"{RELIC}"')
-        j = s.find(f"dmg:{BLADE_IN:g},", i)
-        if j < 0 or j - i > 400:
-            raise SystemExit(f"cannot retune: dmg:{BLADE_IN:g} is not in "
-                             f"Gloamwire's own entry. Already tuned?")
-        s = s[:j] + f"dmg:{A.dmg:g}," + s[j + len(f"dmg:{BLADE_IN:g},"):]
-        print(f"  blade dmg {BLADE_IN:g} -> {A.dmg:g}"
-              f"   (the placeholder read 52.3% at n=4080; 9.0 is the crossing)")
+        e = entry(s, RELIC)
+        m = re.search(r"dmg:\s*([0-9.]+),", e)
+        if not m:
+            raise SystemExit("cannot retune: no dmg in Gloamwire's own entry")
+        j = s.index(e) + m.start()
+        print(f"  blade dmg {m.group(1)} -> {A.dmg:g}")
+        s = s[:j] + f"dmg:{A.dmg:g}," + s[j + len(m.group(0)):]
 
     ult_matches(s, A, A.stage)
 

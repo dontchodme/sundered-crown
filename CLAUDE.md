@@ -26,12 +26,13 @@ short-form video for TikTok and YouTube Shorts.
                                                    and MEASURED AT -7.7pp
                                                    because a faster arrow
                                                    reaches the WALL sooner.
-                                                   ** THE BLADE IS VOID **
-                                                   9.0 was measured at speed
-                                                   380; the wide re-run is in
-                                                   flight. NO SOUND, NO BEAT.
-                                                   art A/B 2790/2790 on all 31
+                                                   Blade RE-SWEPT at that speed:
+                                                   crossing 9.01 -> 9.50, so the
+                                                   speed cost 0.49 of blade.
+                                                   NO SOUND, NO BEAT.
                                                    verify 12/13 (the known one)
+                                                   Gloamwire 51.2%, spread 20.3
+                                                   art A/B 2790/2790 on all 31
                                                    engine_ab 3480/3480 · probe
                                                    9/9 · net_lab gate 1 6/6
 02-chain/sc-volley.html          the link before it, 31 relics · THE VOLLEY —
