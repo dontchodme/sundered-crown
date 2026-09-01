@@ -196,6 +196,36 @@ applies nothing, and locks the weapon for 1.0s.** The THIRD grab is a true stun 
 > along, because the crush sets `hitStop` and a clock on the normal path
 > freezes for exactly the frames the viewer is staring hardest at.
 
+> **AND THE ARM IS GONE, WHICH WAS THE DESIGN'S OWN STRONGEST ARGUMENT.**
+> Rick: *"can we drop the arm and just have the hand float out and grab?"*
+> `grab-v56.md` §7b picked the tether out of four separations from Revenant's
+> hands and called it *"the strongest of the four and it is free"*. What it
+> cost was the read: a limb from the shell to the quarry draws a bright line
+> through the middle of the fight, and at 2.8x scale it was the largest object
+> on screen for the whole window, so the eye followed the LINE. Three of the
+> four separations still hold. The grab count moved from rungs on the tether to
+> studs on the back of the hand — onto the object the eye already follows.
+
+> **AND THE STUN NOW LANDS WHEN THE FIST OPENS, WHICH IS THE ONE SIM CHANGE IN
+> FOUR ROUNDS OF ART.** Rick: *"can we have the hand squeeze and let go before
+> the stun starts so we can see the enemy fighter stunned out of its grasp?"*
+> The squeeze SCHEDULES the stun on `f.graspPend` and it lands 0.30s later —
+> same length, later start, **held seconds unchanged**. It is on the FIGHTER
+> because the crush closes the window on the frame it lands and still owes 2.2s
+> after that. **The blade still does not move**: pooled 51.1% at dmg 21.0
+> (n=2160), against 49.0% with the pin and 50.0% before it.
+>
+> **THE FIRST CUT DROPPED THE PAYOFF ALONG WITH THE STUN** — guarded on
+> `foe.alive`, so a quarry that died inside that third of a second took the
+> crush's beat and its biggest voice with it. A true stun on a corpse is
+> nonsense; a set-piece that happened is not.
+>
+> **AND THE PROBE COUNTED FRAMES INSTEAD OF EVENTS**, reporting 10 drops for 3:
+> a pending stun lives 36 steps and it counted every one. Counted as
+> TRANSITIONS, 228 crushes came due and all 228 found a living quarry. **A
+> check that counts frames in which an event is POSSIBLE is not counting the
+> event.**
+
 > **AND THE HITSTUN WAS INVISIBLE, BECAUSE `f.stun` DOES NOT DO WHAT A VIEWER
 > EXPECTS.** Rick: *"im not seeing the hand apply any hitstun at all?"* and
 > then *"hitstun should freeze the enemy ball correct?"* **It does not.**

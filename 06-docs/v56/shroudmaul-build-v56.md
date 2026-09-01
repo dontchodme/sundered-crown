@@ -628,6 +628,72 @@ the squeeze may stop the ball and nothing longer may, which a one-word edit
 would otherwise break silently. `grasp_relic_probe [9]` is a band rather than a
 zero: the ball is pinned once per grab and on no other frame (760/760).
 
+## 6a-5. THE ARM IS GONE, AND IT WAS THE DESIGN'S OWN STRONGEST ARGUMENT
+
+Rick: *"can we drop the arm and just have the hand float out and grab?"*
+
+`grab-v56.md` §7b picked the tether out of four candidate separations from
+Revenant's hands — one against many, tethered against airborne, bone against
+smoke, reaching against striking — and called it *"the strongest of the four
+and it is free: nothing else in the game connects the wielder to the quarry
+with a limb."* Three of the four still hold and the separation survives on
+them.
+
+**What the arm cost was the read.** A limb from the shell to the quarry draws a
+bright line straight through the middle of the fight, and at `GRIP_SCALE` 2.8
+it was the largest object on screen for the whole window — so the eye followed
+the LINE and not the hand at the end of it. Nothing measures that.
+
+**And the count went with it.** `u.n` marks used to be rungs across the tether;
+they are studs across the back of the hand now, which is better placed anyway —
+on the object the eye is already following instead of on the line leading to
+it. The dark ground pool matters more than it did: with the arm gone, it and
+the reach ring are the only things saying whose hand that is.
+
+## 6a-6. AND "SQUEEZE AND LET GO BEFORE THE STUN STARTS" IS THE ONE SIM CHANGE IN FOUR ROUNDS OF ART
+
+Rick: *"can we have the hand squeeze and let go before the stun starts so we
+can see the enemy fighter stunned out of its grasp?"*
+
+The grab used to write `foe.stun` on the frame the fist CLOSED, so the quarry
+was already reeling while it was still being held and the two events could not
+be told apart. **The squeeze now SCHEDULES the stun and it lands `ult.squeeze`
+later, on the frame the fist opens** — caught, crushed, let go, and *then* left
+reeling with its weapon dead.
+
+```
+f.graspPend = { t, hold, crush }
+```
+
+On the FIGHTER and not on `ultGrasp`, because the crush closes the window on
+the frame it lands — "then dissipates" — and still owes its 2.2s for another
+third of a second after that. **Total held seconds are unchanged: the stun is
+the same length, it starts 0.30s later.**
+
+> **THE FIRST CUT DROPPED THE PAYOFF ALONG WITH THE STUN.** It guarded the
+> whole resolution on `foe.alive`, so a quarry that died to an ordinary hammer
+> blow inside that third of a second took the crush's BEAT and its biggest
+> VOICE with it — `cinePlan` told that the most distinctive moment in the fight
+> did not occur. Now the beat, the voice and the shake fire whenever the match
+> is live, and only the stun and the `breakSpin` are conditional on a living
+> quarry. **A true stun on a corpse is nonsense; a set-piece that happened is
+> not.**
+
+> **AND THE PROBE COUNTED FRAMES IN WHICH THE EVENT WAS POSSIBLE INSTEAD OF THE
+> EVENT.** Its first cut tested `graspPend && !foe.alive` on every step and
+> reported **10 drops for 3 real ones**, because a pending stun lives 36 steps
+> and it counted all of them. Counted as TRANSITIONS: **228 crushes came due
+> and all 228 found a living quarry.** The three that looked missing were
+> crushes whose 0.30s had not elapsed when the fight ended, which is correct
+> and unavoidable. `[2]`, `[4]` and `[10]` assert against what the engine
+> actually promises now rather than against a model of it.
+
+> **AND THE BLADE STILL DOES NOT MOVE.** Both sides, two seed blocks, n=1080
+> each, at `dmg` 21.0: **49.9% and 52.2%, pooled 51.1%** — against 49.0% with
+> the pin and 50.0% before it. Three rounds of mechanic changes and the relic
+> has stayed on the field through every one, which is the held-seconds law
+> doing exactly what it promised.
+
 ## 6b. THE HAND WAS 40px AND READ AS A SCRIBBLE
 
 `GRIP_SCALE` shipped at 1.35, which put the hand at ~40px on a 540 frame.

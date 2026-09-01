@@ -6248,6 +6248,25 @@ class Fighter {
        step path would freeze for exactly the frames the viewer is staring
        hardest at — which is what Deadfall's blast did, 96.2% of the time. */
     this.graspCrush = null;
+    /* {t, hold, crush} — A STUN THAT HAS BEEN EARNED AND HAS NOT LANDED YET.
+       Rick: "can we have the hand squeeze and let go before the stun starts so
+       we can see the enemy fighter stunned out of its grasp?"
+
+       The grab used to write `foe.stun` on the frame the fist CLOSED, so the
+       quarry was already reeling while it was still being held and the two
+       events could not be told apart. Now the squeeze schedules the stun and
+       the stun lands `ult.squeeze` later, on the frame the fist OPENS: caught,
+       crushed, let go, and THEN left reeling with its weapon dead.
+
+       IT IS ON THE FIGHTER AND NOT ON `ultGrasp`, because the crush closes the
+       window on the frame it lands — "then dissipates" — and its stun is still
+       owed for another 0.3s after that. It is the only piece of this ultimate
+       that outlives its own window, and nulling it on death or on `m.over` is
+       the reason `tickGrasp` opens by ticking it before anything else.
+
+       TOTAL HELD SECONDS ARE UNCHANGED: the stun is the same length, it simply
+       starts a third of a second later. */
+    this.graspPend = null;
     /* AND THE LIMB'S OWN FADE, because the window closing is not the same
        event as the picture of it ending. Same shape as `deadfallFade` and
        `winnowFade`, one relic along. It is on the FIGHTER and not on
@@ -8819,13 +8838,56 @@ class Match {
      -10.8 points and it is Rick's own sentence doing the balancing. */
   tickGrasp(dt){
     for (const f of [this.a, this.b]){
+      const u = f.w.ult;
+      const foe = f === this.a ? this.b : this.a;
+      /* ---- THE STUN THAT WAS EARNED A THIRD OF A SECOND AGO --------------
+         ABOVE the window guard, and that is load-bearing: the crush closes the
+         window on the frame it lands and still owes its 2.2s. Rick's "squeeze
+         and let go BEFORE the stun starts" is this whole block. */
+      if (f.graspPend){
+        const P = f.graspPend;
+        P.t -= dt;
+        if (P.t <= 0){
+          f.graspPend = null;
+          /* THE PAYOFF FIRES; ONLY THE STUN IS CONDITIONAL. The quarry can die
+             to an ordinary hammer blow inside the third of a second between
+             the fist closing and opening -- measured at 3 of 231 crushes -- and
+             a true stun on a corpse is nonsense. But the crush HAPPENED: the
+             fist closed, the art played, and a viewer watched it. The first cut
+             of the delay guarded the whole block on `foe.alive` and silently
+             dropped the beat and the biggest voice on the relic along with the
+             stun, which is `cinePlan` being told the most distinctive moment in
+             the fight did not occur. */
+          if (!this.over && f.alive){
+            if (foe.alive) foe.stun = Math.max(foe.stun, P.hold);
+            if (P.crush){
+              /* THE TRUE-STUN SITE IS STILL ONE AND STILL THE LAST GRAB —
+                 it has moved to the frame the hand lets go, which is where a
+                 viewer can see it happen. Guarded on the quarry being alive
+                 for the same reason the stun above is. */
+              if (foe.alive)
+                this.breakSpin(foe, "the hand closes and it does not open",
+                               u.trueStun);
+              this.hitStop = Math.max(this.hitStop, 0.09);
+              this.shake = Math.min(38, this.shake + 20);
+              this.ring(foe.x, foe.y, AFFINITIES.umbral.glow, 7, 130, 0.45, 6);
+              SFX.play("ult", { w: "shroudmaul-crush" });
+              this.note(`${f.w.name} — the last grab`);
+              /* RULE 3, NINTH RELIC RUNNING. See the cast's own note below:
+                 a zero-damage ultimate can file nothing through `resolveHit`,
+                 so this is one of exactly two beats it ever files. */
+              this.beat({ kind: "ult", side: f === this.a ? 0 : 1,
+                          x: foe.x, y: foe.y, w: f.w.id,
+                          foeHpFrac: foe.hp / foe.maxHp });
+            }
+          }
+        }
+      }
       /* THE LIMB'S PICTURE IS NOT DRIVEN HERE. `graspCrush` and `graspFade`
          both live on the presentation clock — see `tickPresentation`, and see
          the field's own comment in the Fighter constructor for why. */
       const G = f.ultGrasp;
       if (!G) continue;
-      const u = f.w.ult;
-      const foe = f === this.a ? this.b : this.a;
       G.t += dt;
       /* THE FIST, counted down for the picture, and it is NOT the stun. The
          stun is the foe's and is ticked by `tickStatus` like every other stun
@@ -8841,6 +8903,9 @@ class Match {
          one, it is attached, and it goes with the window. */
       if (G.t >= G.dur || !f.alive || !foe.alive || this.over){
         f.ultGrasp = null;
+        /* A STUN OWED TO A CORPSE IS NOT OWED. The pending block above refuses
+           to write it anyway; this stops the object outliving the fight. */
+        if (!f.alive || !foe.alive || this.over) f.graspPend = null;
         continue;
       }
 
@@ -8864,7 +8929,11 @@ class Match {
          NO `f.pin`: all four were considered and all four were ruled out, and
          the pool is measured to be unmoved by the whole ultimate (+1.2 blows
          and +5.4% of pool). */
-      foe.stun = Math.max(foe.stun, hold);
+      /* SCHEDULED, NOT APPLIED. `ult.squeeze` from now, which is the frame
+         the fist opens — see `f.graspPend`. `Math.max` still guards the write
+         itself when it lands, so a grab can never SHORTEN a hold the quarry is
+         already under. */
+      f.graspPend = { t: u.squeeze, hold, crush };
       /* ---- AND THE SQUEEZE STOPS THE BALL DEAD -------------------------
 
          Rick, watching the third build: "im not seeing the hand apply any
@@ -8946,8 +9015,9 @@ class Match {
          which means the crush has to be given the weight a killing blow gets
          for free, or the payoff of an eight-second window is a ball going
          quiet. */
-      this.breakSpin(foe, "the hand closes and it does not open",
-                     u.trueStun);
+      /* THE CRUSH'S STUN, ITS BEAT AND ITS VOICE ALL LAND WHEN THE FIST
+         OPENS, not here — see `f.graspPend` at the top of this function. What
+         is left on this frame is the picture of the fist closing. */
       /* AND THE PICTURE OF IT OUTLIVES THE WINDOW. `ultGrasp` is nulled four
          lines down — that is "then dissipates" and it is the balance clause —
          so without this the hand would VANISH on the frame it closed and the
@@ -8961,11 +9031,7 @@ class Match {
          own stopped weapon. Presentation only, in half-seconds. */
       f.graspCrush = { t: 0, grip: u.squeeze * 2 * 2,
                        life: (u.squeeze * 2 + u.squeeze * 1.8) * 2 };
-      this.hitStop = Math.max(this.hitStop, 0.09);
-      this.shake = Math.min(38, this.shake + 20);
-      this.ring(foe.x, foe.y, AFFINITIES.umbral.glow, 7, 130, 0.45, 6);
-      SFX.play("ult", { w: "shroudmaul-crush" });
-      this.note(`${f.w.name} — the last grab`);
+
       /* RULE 3, NINTH RELIC RUNNING, AND THIS ONE IS THE WORST PLACED YET.
          `cinePlan` scores an ultimate off the beats filed for it, and a
          zero-damage ultimate can file NOTHING through `resolveHit` — there
@@ -8980,9 +9046,6 @@ class Match {
          The relic's kills are all ordinary hammer blows through `resolveHit`,
          which already file fatal beats. `grasp_relic_probe [10]` asserts the
          beat, and [5] asserts there is nothing to be fatal about. */
-      this.beat({ kind: "ult", side: f === this.a ? 0 : 1,
-                  x: foe.x, y: foe.y, w: f.w.id,
-                  foeHpFrac: foe.hp / foe.maxHp });
       /* AND THEN IT DISSIPATES. Rick's own clause, and it is the balance knob
          rather than a cost: without it the ultimate is +31.2% instead of
          +20.4%, sixth of twenty-eight, and the blade would have to be cut
@@ -18775,8 +18838,10 @@ class Renderer {
                       : A;
 
       if (!over){
-        /* THE GROUND. A DARK pool under the wielder, because the arm has to
-           look like it came out of somewhere, and a thin ring at `radius`,
+        /* THE GROUND. A DARK pool under the wielder — WHICH MATTERS MORE
+           NOW THAN IT DID, because with the arm gone this and the reach ring
+           are the only things on screen saying WHOSE hand that is — and a thin
+           ring at `radius`,
            which is the one number in this ultimate that is not free. The ring
            teaches the mechanic — inside it you are caught — and it is a
            stroke rather than a fill for §4.1c's reason. */
@@ -18794,79 +18859,25 @@ class Renderer {
         continue;
       }
 
-      /* ---- THE TETHER ---------------------------------------------------
-         A limb of paired bones from the shell to the wrist, sagging when the
-         hand is only reaching and pulled STRAIGHT when it has hold of
-         something. The sag is the tension, and tension is the second of the
-         four separations between HOLDING and REACHING. */
-      const wx = hx - Math.cos(ang) * HR * 0.95;
-      const wy = hy - Math.sin(ang) * HR * 0.95;
-      const sag = held ? 0 : (1 - ext) * 30 + 6;
-      const mx = (f.x + wx) / 2 - Math.sin(ang) * sag;
-      const my = (f.y + wy) / 2 + Math.cos(ang) * sag;
-      const SEG = 9, bone = [];
-      let px = f.x, py = f.y;
-      for (let i = 1; i <= SEG; i++){
-        const s = i / SEG, k = 1 - s;
-        const qx = k * k * f.x + 2 * k * s * mx + s * s * wx;
-        const qy = k * k * f.y + 2 * k * s * my + s * s * wy;
-        /* PAIRED, like the radius and the ulna `_boneParts` opens with —
-           which is the discovery that made Revenant's hands bone in the first
-           place. The offset closes toward the wrist so the limb tapers. */
-        const na = Math.atan2(qy - py, qx - px) + Math.PI / 2;
-        const off = HR * 0.19 * (1 - s * 0.55);
-        bone.push({ x1: px + Math.cos(na) * off, y1: py + Math.sin(na) * off,
-                    x2: qx + Math.cos(na) * off, y2: qy + Math.sin(na) * off,
-                    w: HR * 0.115 * (1 - s * 0.35) });
-        bone.push({ x1: px - Math.cos(na) * off, y1: py - Math.sin(na) * off,
-                    x2: qx - Math.cos(na) * off, y2: qy - Math.sin(na) * off,
-                    w: HR * 0.095 * (1 - s * 0.35) });
-        px = qx; py = qy;
-      }
-      c.save();
-      this._drawBones(c, bone, HR, P, crush ? 1.1 : 0.7);
-      c.restore();
+      /* ---- NO ARM. THE HAND FLOATS. -------------------------------------
+         Rick: "can we drop the arm and just have the hand float out and grab?"
 
-      /* ---- THE COUNT, ON THE TETHER -------------------------------------
-         `u.n` marks, `G.grabs` of them lit. Before the last grab all but one
-         are burning, so the crush is PROMISED rather than merely delivered.
+         THE TETHER WAS THE DESIGN'S OWN STRONGEST ARGUMENT AND IT WAS WRONG.
+         `grab-v56.md` §7b picked it out of four candidate separations from
+         Revenant's hands — one against many, tethered against airborne, bone
+         against smoke, reaching against striking — and called it "the
+         strongest of the four and it is free: nothing else in the game
+         connects the wielder to the quarry with a limb". Three of those four
+         still hold. The fourth is gone, and the separation survives on the
+         other three: ONE hand, LARGE, and it opens and closes rather than
+         flying through and punching.
 
-         RUNGS ACROSS THE ARM, NOT BEADS ALONG IT, AND THE FIRST SHEET IS WHY.
-         The first cut drew lit dots in `pal.glow` -- the same colour the bone
-         beside them is drawn in -- laid on the same curve, and photographed
-         off a real match they were INVISIBLE: a bright dot on a bright line
-         reads as a thicker line. So they cross the limb instead of following
-         it, they are hot white against its purple, and an unlit one is a dark
-         bar rather than an absence. Four ways of not being the tether.
+         What the arm actually cost was the read. A limb from the shell to the
+         quarry draws a bright line straight through the middle of the fight,
+         and at 2.8x scale it was the largest object on screen for the whole
+         window — so the eye followed the LINE and not the hand at the end of
+         it. Nothing measures that; Rick watched it. */
 
-         WHETHER A VIEWER CAN READ THE COUNT AT ALL IS §7b AND IT IS RICK'S.
-         Nothing measures it and nothing can. */
-      const grabs = G ? G.grabs : u.n;
-      c.save();
-      c.lineCap = "round";
-      for (let i = 0; i < u.n; i++){
-        const s = (i + 1) / (u.n + 1), k = 1 - s;
-        const qx = k * k * f.x + 2 * k * s * mx + s * s * wx;
-        const qy = k * k * f.y + 2 * k * s * my + s * s * wy;
-        /* the tangent, from the curve's own derivative -- so a rung is square
-           to the limb however the limb happens to be bent */
-        const tx = 2 * k * (mx - f.x) + 2 * s * (wx - mx);
-        const ty = 2 * k * (my - f.y) + 2 * s * (wy - my);
-        const tl = Math.hypot(tx, ty) || 1;
-        const nx = -ty / tl, ny = tx / tl;
-        const lit = i < grabs;
-        const half = HR * (lit ? 0.34 : 0.24);
-        c.globalCompositeOperation = lit ? "lighter" : "source-over";
-        c.globalAlpha = fade * (lit ? 1 : 0.75);
-        c.strokeStyle = lit ? "#FFF2FF" : A.dark;
-        c.lineWidth = HR * (lit ? 0.10 : 0.075);
-        c.shadowColor = A.core; c.shadowBlur = lit ? 12 : 0;
-        c.beginPath();
-        c.moveTo(qx - nx * half, qy - ny * half);
-        c.lineTo(qx + nx * half, qy + ny * half);
-        c.stroke();
-      }
-      c.restore();
 
       /* ---- THE HAND -----------------------------------------------------
          `_boneParts` from the CARPALS on: the forearm it opens with is the
@@ -18879,6 +18890,31 @@ class Renderer {
       c.rotate(ang);
       this._handEmbers(c, HR, shut, P, crush ? 12 : 6, 2.2);
       this._drawBones(c, parts, HR, P, crush ? 1.6 : 1.0);
+      /* ---- THE COUNT, AND IT RODE THE ARM UNTIL THERE WAS NO ARM ---------
+         `u.n` marks, `G.grabs` of them lit, so the last grab is PROMISED
+         rather than merely delivered (§7b). They were rungs across the tether;
+         with the tether gone they are studs across the back of the hand, which
+         is better placed anyway — they are now ON the object the eye is
+         already following instead of on the line leading to it.
+
+         HOT WHITE AGAINST THE BONE, and an unlit one is a DARK BAR rather than
+         an absence. The first cut of the count drew lit dots in `pal.glow`,
+         the colour the bone beside them is drawn in, and photographed off a
+         real match they were invisible: a bright mark on a bright thing reads
+         as a thicker thing. */
+      c.lineCap = "round";
+      for (let i = 0; i < u.n; i++){
+        const lit = i < (G ? G.grabs : u.n);
+        const y = (i - (u.n - 1) / 2) * HR * 0.31;
+        c.globalCompositeOperation = lit ? "lighter" : "source-over";
+        c.globalAlpha = fade * (lit ? 1 : 0.8);
+        c.strokeStyle = lit ? "#FFF2FF" : A.dark;
+        c.lineWidth = HR * (lit ? 0.11 : 0.085);
+        c.shadowColor = A.core; c.shadowBlur = lit ? 12 : 0;
+        c.beginPath();
+        c.moveTo(-HR * 0.50, y); c.lineTo(-HR * 0.06, y);
+        c.stroke();
+      }
       c.restore();
     }
   }

@@ -136,7 +136,8 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
               windForge: 0, windSpin: 0, windBeam: 0,
               windHeldOk: 0, windGrabTouched: 0,
               held: 0, heldFights: 0, maxLive: 0,
-              graspSeen: 0, longestWindow: 0 };
+              graspSeen: 0, longestWindow: 0,
+              pendCrush: 0, pendFired: 0, pendStunned: 0 };
   for (const foeId of foes){
     for (const sd of seeds){
       const m = new AC.Match(rid, foeId, sd);
@@ -236,7 +237,7 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
       while (!m.over && step < secs / DT){
         const G0 = me.ultGrasp;
         const t0 = G0 ? G0.t : 0, g0 = G0 ? G0.grabs : 0;
-        const alive0 = th.alive, over0 = m.over;
+        const alive0 = th.alive, over0 = m.over, Pp = me.graspPend;
         A.callD = Infinity; A.callAlive = true;
         m.step(DT); step++;
         const G1 = me.ultGrasp;
@@ -274,6 +275,25 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
           A.crushes++;
           A.crushAtN += (G0.grabs === U.n) ? 1 : 0;
           A.held += G0.stunFor;
+        }
+        /* THE CRUSH'S PAYOFF RESOLVES 0.30s AFTER THE FIST CLOSED, and two
+           things can go wrong in between. COUNTED AS TRANSITIONS AND NOT AS
+           FRAMES: the first cut tested `graspPend && !th.alive` on every step
+           and reported 10 for 3 real drops, because a pending stun lives 36
+           steps and it counted all of them. A probe that counts frames in
+           which an event is POSSIBLE is not counting the event.
+
+              pendCrush    a crush's payoff came due
+              pendFired    ... with the match live and the caster alive, so
+                           the beat, the voice and the shake ran
+              pendStunned  ... and the quarry alive, so the stun and the
+                           `breakSpin` ran as well */
+        if (Pp && me.graspPend !== Pp && Pp.crush){
+          A.pendCrush++;
+          if (!m.over && me.alive){
+            A.pendFired++;
+            if (th.alive) A.pendStunned++;
+          }
         }
         if (G1) live = 1;
       }
@@ -458,11 +478,19 @@ def main() -> int:
         # times the crush called `breakSpin` WITH a duration, which is the
         # engine's own definition of a true stun; `crushAtN` is how many of
         # those landed on exactly the nth grab.
+        # THE ENGINE'S RULE, NOT THE PROBE'S MODEL OF IT: every crush that
+        # finds a LIVING quarry WHEN THE FIST OPENS files a true stun. The
+        # squeeze schedules the stun and it lands 0.30s later, so an ordinary
+        # hammer blow can kill in between. Asserting `breakTrue == crushes`
+        # reported three defects that were the engine being right.
+        landed, fired = A["pendStunned"], A["pendFired"]
         check(f"[2] exactly n={U['n']} grabs to a true stun",
-              A["breakTrue"] == A["crushes"] and A["crushAtN"] == A["crushes"]
+              A["breakTrue"] == landed and A["crushAtN"] == A["crushes"]
               and A["crushes"] > 0 and A["multiGrab"] == 0,
               f"{A['grabs']} grabs, {A['crushes']} crushes, "
-              f"{A['breakTrue']} true-stun calls, "
+              f"{A['breakTrue']} true-stun calls for {landed} that found "
+              f"a living quarry ({A['pendCrush'] - landed} of "
+              f"{A['pendCrush']} came due on a corpse or after the end), "
               f"{A['grabs'] / max(1, A['casts']):.2f} grabs a cast, "
               f"{A['multiGrab']} frames with more than one grab")
 
@@ -478,9 +506,9 @@ def main() -> int:
         # never reach the hook at all -- `breakInTick == breakTrue == crushes`.
         wind = A["windForge"] + A["windSpin"] + A["windBeam"]
         check("[4] only the crush is a true stun, and it lands as one",
-              A["breakInTick"] == A["crushes"] and A["breakTrue"] == A["crushes"]
+              A["breakInTick"] == landed and A["breakTrue"] == landed
               and A["windHeldOk"] == wind,
-              f"{A['breakInTick']} calls for {A['crushes']} crushes; "
+              f"{A['breakInTick']} calls for {landed} landed crushes; "
               f"caught {A['windForge']} forges / {A['windSpin']} storms / "
               f"{A['windBeam']} winding beams, all {A['windHeldOk']} taken"
               + ("" if wind else "  — NO WIND-UP WAS CAUGHT, so the second "
@@ -514,10 +542,11 @@ def main() -> int:
         # identical moments a cast -- `_cineVine`'s rule exactly.
         check("[10] the cast files a beat, the crush files its own, "
               "the ordinary grabs file none",
-              A["castBeats"] == A["casts"] and A["beatsInTick"] == A["crushes"]
+              A["castBeats"] == A["casts"] and A["beatsInTick"] == fired
               and A["fatalInTick"] == 0,
               f"{A['castBeats']} cast beats for {A['casts']} casts, "
-              f"{A['beatsInTick']} in-window beats for {A['crushes']} crushes, "
+              f"{A['beatsInTick']} in-window beats for {fired} crushes that "
+              f"resolved while the match was live, "
               f"{A['fatalInTick']} fatal (a zero-damage ultimate has none, ever)")
 
         # --------------------------------------------------------- [11] ----
