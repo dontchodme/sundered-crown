@@ -11,9 +11,9 @@ Built from `06-docs/v63/DUSKREAVE-BUILD-BRIEF.md` (Cowork), on the chain tip
 | 1 | the relic, ult stubbed | **BUILT**, gate 1 GREEN |
 | 2 | the tornado exists and sweeps, no damage | **BUILT**, `sc-scour.html`, probe 7/7 |
 | 3 | it catches, drags and ticks — the relic | **BUILT**, `sc-grind.html`, probe 13/13 |
-| 4 | it eats projectiles | not started |
-| 5 | art, sound, beat | not started |
-| 6 | the real price | not started |
+| 4 | it eats projectiles | **BUILT**, `sc-scourwind.html` |
+| 5 | art, sound, beat | **SILHOUETTE + FUNNEL + VOICE BUILT**. The voice is a SPREAD awaiting Rick |
+| 6 | the real price | **THE BALANCE PASS**: tick damage 5 -> 1, and the curse window landed under it |
 
 ---
 
@@ -503,3 +503,370 @@ is the higher form of rule 1.
 
 *(One of the three seeds produced no cast in 60s. That is a finding about the
 seed, not the band — it is printed rather than silently replaced.)*
+
+
+---
+
+# 8. STAGE 4 — IT EATS PROJECTILES
+
+`02-chain/sc-scourwind.html`. Measured over 20 fights a side:
+
+```
+    the five bows        127 arrows eaten
+    greatswords + warhammers    0, exactly
+```
+
+**THE ORDER IS THE GUARANTEE.** `tickShots` both MOVES an arrow and RESOLVES it
+in the same pass, so an eat placed with the other window tickers — after it,
+where `tickScour` lives — would let an arrow already standing in the band travel
+and connect on the frame before it was removed. `scourEat()` runs immediately
+**before** `tickShots`: anything inside the band at the top of the frame is gone
+before it can do anything at all. The brief's *"do not let the eaten shot deal
+damage"* is an ordering requirement, not a flag.
+
+**THE MARK IS A RING, NOT A SPARK FIELD**, and that is determinism rather than
+taste — `spawnFx` draws twice from `this.rng()` per particle. `Match.ring` is a
+pure push.
+
+---
+
+# 9. STAGE 5a — THE SILHOUETTE, AND IT IS NOT THIS SESSION'S
+
+`02-chain/sc-duskmoon.html`. Rick, shown `_scEaten` on screen for the first time
+in the game's history: *"this one is rough and should be redone."* Cowork owns
+the redraw (CLAIMS.md 03:58 UTC), Rick chose **arm A, THE MOON** from a spread
+of four, and the spec is `06-docs/v63/scmoon_spec.js` — **checked at 0 pixels
+differing** against the arm he actually picked.
+
+**THE SPEC IS PASTED VERBATIM.** Retyping any of it would be re-deciding a
+settled picture and would make that 0-pixel check meaningless.
+`tools/umbral_scythe_lab.py`'s candidates — this session's A–F and G–J — are
+**superseded**, and `_scEaten` is **deleted** (v58's precedent: `_whEaten` was
+deleted when `_whGnawed` replaced it, because a dead grammar that still parses
+is one the next dispatch edit can route back to by accident).
+
+> **AND THE CUT TOOK THE WRONG SPAN FIRST, WHICH THE SYNTAX GATE CAUGHT.** The
+> deleter walked back from the header to the nearest `/* -` to take the doc
+> comment with it — and found one **inside the function pasted just above**, so
+> it cut from the middle of `_scMoon` and took that function's tail with it.
+> `node --check` named the line. It now finds the comment by its `*/` being
+> separated from the header by whitespace and nothing else. **This is the
+> second bug the stage-2 syntax gate has caught in one build**, and neither
+> would have surfaced as anything but a twenty-second timeout.
+
+---
+
+# 10. STAGE 5b — THE FUNNEL
+
+`02-chain/sc-vortex.html`. Rick, on the placeholder band: *"the tornado is just
+a purple box."* Built against `ref-vortex.mp4` as the brief describes it: eleven
+stacked bands narrowing to the floor, each leaning on its own phase so the stack
+shears as it turns; a halo ring above; near-black debris orbiting between the
+bands; a hard floor line and pool; and the lightning.
+
+**THE LIGHTNING JUMPS INTO THE QUARRY WHILE IT IS CAUGHT, AND THAT IS THE ONLY
+ELEMENT THAT CHANGES WHEN THE MECHANIC FIRES.** The tick deals no knock, no hit
+stop and no stagger by design — so without it the most violent thing this relic
+does has **no representation on the target at all**. That is v59's bleed drips
+and v54's arming sigil, one relic along.
+
+## 10a. THE REFERENCE AND THE HIT BOX DISAGREE, AND THE POOL IS THE ANSWER
+
+The reference funnel is **narrow at the floor**; the catch is full width at
+every height (`|x − cx| <= w/2 + R`). Drawn literally, the picture says the
+floor is safe exactly where the hazard is widest — and CLAUDE.md is explicit
+that **a picture claiming a smaller hazard than the one that exists is the
+hardest kind of bug in this repo to see.**
+
+So the taper is the reference's and the floor carries the reference's own
+answer: the hard glow line and the pool span the **full band width**, so the
+footprint is stated by the brightest thing in the picture. **Whether that lands
+is a question only a person can answer**, and it is on Rick's list.
+
+## 10b. TWO CONSTRAINTS IT IS BUILT UNDER
+
+**NOT ONE `this.rng()` CALL.** Every phase is derived from `T.t` and an index.
+`spawnFx` takes two draws per particle, so a debris field here would have moved
+every Duskreave fight and put gate 6's price on a different sim — the hazard
+that forced Breach's sparks to be drawn rather than spawned, twice.
+
+**NO PER-FRAME GRADIENTS IN A LOOP.** Flat fills and strokes under `lighter`.
+`GRAIN_CACHE`'s comment names nine `createRadialGradient` calls a frame as *"the
+single cause of the stutter Rick reported"*, and Breach's billow put one inside
+a lobe loop for seventy-two a frame at 14× the render time.
+
+---
+
+# 11. SCOUR HAS NO VOICE, AND IT IS PLAYING SOMEBODY ELSE'S
+
+**Not silent — worse in one way, because silence is easier to notice.**
+`SFX.play("ult", { w: f.w.id })` falls through the whole relic dispatch to the
+final `else`, which is the **rune-crack**: a 0.5-second high burst written for
+runic. So a ten-second grinding tornado is announced by a short crack and then
+makes no sound for the rest of its window, and **the ticks are silent** — 7 a
+second, ~23 a fight, the loudest thing the relic does.
+
+That is v42's defect class in a milder costume (*a silent ultimate shipped
+through a 14-check probe, a 29-check probe, a full sweep and a 13/13 verify*),
+and it is why the brief asks for **a rendered spread — three casts × three holds
+× two tick voices — before anything is chosen.** Sound is Rick's (rule 2) and he
+has said he has no preference, which means he has to hear options.
+
+**It is also part of why both clips fail the loudness gate** at −17.0 LUFS
+against a −16..−13 target, with the mixer's three limiter settings all landing
+short. Not diagnosed further; the biggest set-piece in the fight currently
+contributes almost nothing to the mix.
+
+**THE COUNT: 22 relics have an ult voice and 11 fall through to the rune-crack**
+(`aureole, axiom, censer, duskreave, farwarden, gloamwire, heartwood, ironhail,
+lightkeeper, oathwound, spellbreaker`). Ten of those are not this build's and
+nobody has written it down before. Worth its own open item.
+
+
+---
+
+# 12. THE EASTER EGG — A COW, ON 13.3% OF SEEDS
+
+Rick, 2026-09-02: *"lets also make our first easter egg! lets have a small
+amount of seeds 10-15% show a cow flying around the tornado"* and *"lets also
+make sure our cow gets a good moo."*
+
+**SHE IS CHOSEN FROM `m.seed`, AND THAT IS THE WHOLE ENGINEERING PROBLEM IN ONE
+LINE.** The seed IS the fight: every recorded number, every clip, `engine_ab`
+and the entire history of this project rest on `(build, relics, seed)` naming
+exactly one fight. A draw from `this.rng()` would have moved the sim, so **the
+cow would change the fight she appears in** — an easter egg that alters the
+balance is a bug wearing a joke. Hashing the seed costs nothing, is stable
+per-fight, and makes the seed quotable, which is what an easter egg is *for*.
+
+```
+    h1(seed * 0.61803398875) < 0.125      12.5% by construction
+    measured over 4,000 seeds             13.3%        (Rick asked for 10-15%)
+```
+
+The scaled hash is not decoration: seeds are dense in the low integers and a
+raw `sin(n)` bands badly on consecutive inputs.
+
+**AND THE MOO USES THE SAME TEST, SO A MOO WITH NO COW CANNOT HAPPEN.** Twice a
+window — once as she first comes round, once late. Two falling tones a fifth
+apart with a sagging tail: **a moo is a pitch that sags**, which is what
+separates it from a horn. Quiet on purpose; an easter egg that shouts stops
+being one the second time you hear it.
+
+> **AND THE RNG GUARD REFUSED THE BUILD, ON ITS OWN EXPLANATION.** `duskreave_
+> build.py` will not write stage 5b if the funnel's source contains
+> `this.rng()` — and the cow's comment has to say those words to explain why it
+> does not call it. That is `curse_check` and `curse_build`'s failure from v53,
+> twice in one day, arriving a third time: **a check that cannot tell code from
+> the comment explaining it fires on its own explanation.** The fix was already
+> in the file — `strip_comments()` — and CLAUDE.md's note says this will keep
+> happening to anything that greps shipped source in a codebase that explains
+> itself in the file.
+
+---
+
+# 13. THE VOICE — A SPREAD, AND THEN THE SAME WINDOW THREE TIMES
+
+`tools/scour_sound_lab.py`, `05-reference/v63/scour-voices.wav`. Eight
+candidates in 44s: three casts, three holds, two ticks.
+
+**WHAT SCOUR NEEDS THAT NO OTHER RELIC HAS NEEDED.** Every other ultimate's
+voice is an EVENT — a strike, a nova, a shatter. This one holds for **ten
+seconds** and carries **seven ticks a second** under it, 70 a window. So the
+three questions are separable and the sheet asks them separately: does the
+window OPEN, does ten seconds of it WEAR OUT, and at seven a second is the tick
+a grind or a BUZZ.
+
+**AND THE HOLD HAS TO BE RE-STRUCK, WHICH IS NOT A STYLE CHOICE.** CLAUDE.md
+§4.5: `_burst` does not loop its 0.6s noise buffer so anything longer plays
+silence for its tail, and `_tone` ends on an exponential ramp over its whole
+length — **a held note does not exist in this toolkit.** Ten seconds of standing
+tornado is 38 strikes at 0.26s and there is no other way to do it. The cadence
+is therefore the character: Wind 0.26s, Turbine 0.16s, Hollow 0.44s.
+
+`T.hum` counts down in **window time**, inside `tickScour`, so the cadence stops
+with the window through a hit stop. A cadence on a frame counter would drift
+against the thing it is describing every time somebody landed a blow.
+
+## 13a. THE PER-SECTION PEAK WAS MEASURING THE WRONG SOUND
+
+The first run reported holds B1 and B3 at **0.434 — which is A1's cast peak**,
+bleeding into a section that opens with the neutral cast so the hold can be
+heard being arrived at. Two different candidates cannot have identical peaks to
+three decimals; that is the tell. Measured after the cast decays:
+
+```
+    B1 WIND      0.109
+    B2 TURBINE   0.486        four times louder than Wind
+    B3 HOLLOW    0.232
+```
+
+Every section is asserted audible at peak >= 0.005, because `SFX.play` returns
+on its first line headless and wraps its body in try/catch — **v42 shipped a
+silent ultimate through a 14-check probe, a 29-check probe, a full sweep and a
+13/13 verify.**
+
+## 13b. AND A SPREAD CANNOT ANSWER IT — RICK ASKED FOR CLIPS
+
+*"ill need to hear them in a clip."* That is `sentinel_hum_audition`'s finding
+one relic along: a spread is heard cold, and the question is whether the voice
+survives a real fight's clanks and hits and hit stops. So the three HOLDS are
+built into `04-experiments/_scour-voice-B1/B2/B3.html` and the **same window on
+the same cow seed** is filmed three times, varying one thing.
+
+**THE SIM CALLS THE VOICE AND THAT IS PROVABLY FREE.** `SFX.play` returns on its
+first line when `!this.on` — every headless run — and nothing in the audio path
+draws from `this.rng()`, so a sound in a tick loop reaches no fight.
+`engine_ab` over the roster is the proof, and it is the proof v42 never had.
+
+
+---
+
+# 14. RICK'S PICK, AND THE WOOSH
+
+**B1 WIND**, 2026-09-02, off the three clips: *"first one."* Landed in the chain
+at `02-chain/sc-scourvoice.html` with cast **A1 UPDRAFT** and tick **C1 ZAP**,
+which were held constant while he judged the hold. Those two axes have not been
+spread against him and can be, the same way, if he wants them.
+
+**AND A WOOSH OVER THE TOP** — *"can we also give the tornado a wooshing
+sound."* It is a SEPARATE LAYER and that is the design, not an implementation
+detail: B1's job is to say the tornado EXISTS, which is why it is a flat floor
+struck four times a second and deliberately even, so ten seconds of it does not
+wear out. A woosh says the tornado is MOVING — and this one is, at 200 px/s
+across the hall, bouncing off the walls. Folding the movement into the bed would
+give a floor that swells and fades, which is the one thing a ten-second bed must
+not do.
+
+**A WOOSH IS A MOVING FILTER, NOT A MOVING PITCH.** A rising pitch is a whistle;
+a cutoff climbing through a noise band and falling back is air going past. Five
+overlapping bursts up and down, because one long burst plays silence past 0.6s
+(§4.5) — the same constraint that gives the cast six bursts and the hold its
+re-striking.
+
+**ITS CLOCK IS 1.15s AGAINST THE BED'S 0.26s, DELIBERATELY NOT A MULTIPLE.** A
+woosh landing on every fourth wind strike would lock the two layers into a
+repeating bar and turn a floor into a rhythm. Drifting is what makes it read as
+weather.
+
+## 14a. GATE 5c — 4224/4224, AND THE FIRST RUN MEASURED THE WRONG BUILD
+
+`engine_ab` over all 33 relics, Duskreave's own pairings included: **every match
+identical field for field.** `SFX.play` returns on its first line when
+`!this.on` — every headless run — and nothing in the audio path draws from
+`this.rng()`, so seventy sound calls a window reach no fight. **That is the
+proof v42's silent ultimate never had.**
+
+> **AND THE FIRST RUN OF IT WAS AGAINST `_scour-voice-B1.html`, WHICH IS NOT
+> WHAT SHIPS.** The woosh was added after, and it puts another `SFX.play` on
+> another clock inside `tickScour`. Same class of change — but "same class" is
+> not "measured", and the chain tip is the thing that ships. Re-run against
+> `sc-scourvoice.html` rather than reasoned about.
+
+
+---
+
+# 15. THE BALANCE PASS — AND THE CURSE WINDOW LANDED FIRST
+
+Rick, 2026-09-02: *"lets do a balance pass"*, and then, asked which curse rule
+to balance against: **"add the last 3 window now and balance around that."**
+
+## 15a. THE WINDOW — `02-chain/sc-lastthree.html`
+
+`tools/curse_window_build.py`, and it is nothing but §1 of
+`06-docs/v63/curse-window-v63.md` applied: push `n` copies, then **drop the
+OLDEST** until the length is 3, instead of sorting descending and truncating.
+
+**IT IS COWORK'S CLAIM AND NOT THIS SESSION'S.** `CLAIMS.md` has it as
+DESIGNED, NOT TO LAND YET, gated on re-pricing the four built umbral relics.
+Rick asked for it now so the blade could be balanced against the rule the game
+will actually have. **The re-pricing that gate asks for is still owed** — the
+numbers it was ruled on (−2.6 / −4.6 / −4.0 / +0.0) are 320–350 fights an arm,
+well under the n≈700 floor, so they are a direction and not a measurement. The
+builder prints that on every run.
+
+**THE GATE HAS TO FAIL IN ONE DIRECTION AND PASS IN THE OTHER**, and it does:
+
+```
+    the 27 relics that cannot apply curse    2808/2808 IDENTICAL
+    the 6 that can                           DIFFER, as they must
+```
+
+An A/B that came back green on the umbral six would mean the rule did not land.
+One that came back red on the other 27 would mean it reached something it should
+not — `pushCurse` is only ever called from an `onHit:{curse:n}` or from
+Revenant's hands.
+
+## 15b. DUSKREAVE MEASURED 96.2%, AND THIRTEEN RELICS WENT 0/40
+
+`verify --n 40` on the window build, before any tuning:
+
+```
+    FAIL  every relic winrate in 30%-70%   Heartwood 37.8% .. Duskreave 96.2%
+                                           (spread 58.4pp)
+    FAIL  both sides can win every matchup 13 pairings at 0/40 against Duskreave
+    FAIL  pairing duration                 Censer/Duskreave 26.1s
+```
+
+Three failures, all one relic. Against a model that said **+40.5pp over a 17.6%
+floor — about 58%.**
+
+> **AND THE LARGEST SINGLE CAUSE WAS AN ART DECISION TAKEN WHILE BALANCE WAS
+> DEFERRED.** Rick: *"the tornado is too short. lets double its height"* —
+> a LOOK call, made explicitly before the balance pass. But `top` 600 → 400
+> doubles the catch area, and the catch is the entire mechanic:
+>
+> ```
+>     top 600 (what v62 priced)     quarry inside the band 22.9% of band-frames
+>     top 400 (what shipped)                               40.8%
+> ```
+>
+> A 78% increase in time-under-grind on a relic whose damage is ticks × echo.
+> **The height is currently carrying a balance decision that was made for the
+> picture**, and that is worth knowing rather than quietly compensating for.
+> Two other unpriced multipliers sit under it: the DRAG, which no lab modelled
+> (v62 HANDOFF §6) and which exists specifically to keep a caught ball caught,
+> and the tick count per window that both of them raise.
+
+## 15c. THE TICK'S DAMAGE IS 1, AND THE CURVE IS A CLIFF
+
+Rick: *"lets drop the damage… i ment drop the ults damage to 1 per tick if you
+have to."* Swept as a CURVE and not a bisection (v48, v56, v59, and v53's
+downward-bending blade), 896 fights a point, both sides, two seed blocks:
+
+```
+    tick   block 0   block 1
+    1.00     51.5%     55.0%      pooled ~53%, IN BAND
+    1.50        -      72.4%
+    2.00     82.8%     83.7%      reproduces across blocks
+    3.00     90.6%         -
+    5.00     96.8%         -      the brief's value
+```
+
+**THIRTY POINTS FOR ONE POINT OF TICK DAMAGE, and no crossing above 1.** There
+is no fine tuning available on this axis: 1 is the only value in band, and it is
+also the lowest the engine can express — `resolveHit` rounds, so a base below 1
+would round to 0 on some rolls and 1 on others. The 3.5pp gap between blocks at
+tick 1 is the n≈700 floor showing up exactly as documented; tick 2 reproducing
+to within a point is the control that says the instrument is sound.
+
+## 15d. AND THE WINDOW INVERTED WHAT THE RELIC IS MADE OF
+
+This is the finding of the pass and it is a design consequence, not a tuning
+one. Under the three-biggest rule the echo was **60% of every tick** — measured
+at stage 3, and it is the design's own headline: *"the echo is the relic."*
+
+Under the last-3 window, **every tick pushes its own small `dmgBase` into the
+pool and displaces the scythe's 35-damage memories**, so the pool fills with the
+tick's own damage and the echo collapses. What is left is raw output: 70 ticks a
+window, linear in the tick's damage, and very nearly lethal at 5 — 350 against a
+400 hp fighter. That is why the curve is a cliff and why the relic is now
+balanced by the GRIND rather than by the MEMORY.
+
+**Scour under the window is not the ultimate that was designed.** The design's
+central claim — that the ticks are hits *because* they collect the echo — is
+worth much less than the raw grind now. Nothing here is wrong; the rule was
+ruled, the relic is in band, and Rick accepted the tier in advance. But the
+sentence in `duskreave-design-v62.md` that the whole cell was chosen for is no
+longer the sentence that is true, and that belongs in writing rather than in
+somebody's head.

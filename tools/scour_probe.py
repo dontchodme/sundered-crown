@@ -43,6 +43,7 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
       const b = { hp: foe.hp, stun: foe.stun, stop: this.hitStop,
                   beats: this.beats.length, vx: foe.vx, vy: foe.vy,
                   pool: foe.cursePool.length, sum: foe.curseSum(),
+                  shieldMax: foe.shieldMax || 0, srcHp: self.hp,
                   latch: !!this.latch, heat: !!self.ultHeat,
                   wire: !!self.ultWire, mines: (this.mines||[]).length,
                   hands: (this.hands||[]).length, alive: foe.alive };
@@ -58,7 +59,19 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
       if (b.sum > 0){ W.withPool++; W.withPoolDmg += dealt; }
       else { W.noPool++; W.noPoolDmg += dealt; }
       if (dealt > W.maxTick) W.maxTick = dealt;
-      if (this.hitStop > b.stop){
+      /* A SHATTER IS THE WARD'S ENDING, NOT THE TICK'S WEIGHT. `shatter()`
+         sets hit stop 0.10, bursts the pool back at the CASTER and knocks him
+         -- all of it the ward's own mechanic, legitimately triggered by a hit
+         that happened to empty the shield. Counting it as "the tick carries
+         weight" is the same fault as counting a blade blow on a tick frame:
+         a check that cannot tell a mechanic from a defect reports the
+         mechanic. */
+      const shattered = b.shieldMax > 0 && (foe.shieldMax || 0) === 0;
+      if (shattered){
+        W.shatters++;
+        W.shatterBurst += Math.max(0, b.srcHp - self.hp);
+      }
+      if (this.hitStop > b.stop && !shattered){
         W.raisedStop++;
         /* WHICH value, and whether the tick killed -- "hit stop rose" is a
            symptom and the VALUE names the site that raised it. */
@@ -92,12 +105,13 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
                      noPool:0, noPoolDmg:0, maxTick:0, raisedStop:0,
                      raisedStun:0, fatal:0, fatalNoBeat:0, beatOnOrdinary:0,
                      movedByTick:0, latched:0, heatChanged:0, stamped:0,
-                     slung:0, poolMismatch:0, stopVals:{}, stopFatal:0 };
+                     slung:0, poolMismatch:0, stopVals:{}, stopFatal:0,
+                     shatters:0, shatterBurst:0 };
   const out = { casts:0, frames:0, alive:0, samples:[], bounces:0,
                 widths:{}, tops:{}, minCx: 1e9, maxCx:-1e9,
                 movedFrozen:0, movedFree:0, outOfHall:0, dur:{lo:1e9,hi:-1e9},
                 cutByMatch:0, ended:0, wall:{lo:1e9,hi:-1e9},
-                caughtFrames:0, bandFrames:0,
+                caughtFrames:0, bandFrames:0, eaten:0,
                 hpMoved:0, ticks:0, err:null };
   for (const foe of foes){
     for (const sd of seeds){
@@ -109,7 +123,8 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
       let step = 0;
       while (!m.over && step < secs / DT){
         const before = m.tornado ? { cx:m.tornado.cx, dir:m.tornado.dir,
-                                     t:m.tornado.t } : null;
+                                     t:m.tornado.t,
+                                     eaten:m.tornado.eaten || 0 } : null;
         const frozen = m.hitStop > 0;
         const hpBefore = th.hp;
         m.step(DT); step++;
@@ -164,6 +179,10 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
             if (frozen){ if (moved) out.movedFrozen++; }
             else if (moved) out.movedFree++;
             if (before.dir !== T.dir) out.bounces++;
+            /* COUNTED AS A DELTA ACROSS THE STEP, not read at the end -- a
+               tornado that dies takes its counter with it, and the last cast
+               of a fight is exactly the one most likely to be eating. */
+            out.eaten += Math.max(0, (T.eaten || 0) - before.eaten);
           }
         }
         /* STAGE 2 TOUCHES NOBODY. Damage taken by the quarry while a band
@@ -255,6 +274,8 @@ def main() -> int:
     print("  It is recorded so stage 3's ticks have a BEFORE to be read")
     print("  against, which is the only way to tell a tick from a blade blow.")
 
+    print("")
+    print("  shots eaten by the band: " + str(r["eaten"]))
     t = r.get("tick") or {}
     if t.get("ticks"):
         print("\n  ---- STAGE 3: THE TICK ----\n")
@@ -286,7 +307,9 @@ def main() -> int:
             "a tick carries no weight and no stagger",
             f"{nonfatal_stop} non-fatal ticks raised hit stop "
             f"({t['stopFatal']} fatal ones did, which is `killStop` and is "
-            f"correct), {t['raisedStun']} raised stun, over {t['ticks']} ticks"
+            f"correct; {t['shatters']} broke a ward, which is `shatter`'s own "
+            f"0.10 and is the WARD's mechanic), {t['raisedStun']} raised stun, "
+            f"over {t['ticks']} ticks"
             + (f"  values={t['stopVals']}" if nonfatal_stop else ""))
         chk(t["movedByTick"] == 0,
             "a tick does not knock; only the drag moves the quarry",
@@ -308,6 +331,15 @@ def main() -> int:
             if r["bandFrames"] else 0.0
         print(f"\n  the quarry was inside the band on {held:.1f}% of "
               f"band-frames")
+        if t["shatters"]:
+            print("")
+            print("  AND THE GRIND BREAKS WARDS: " + str(t["shatters"])
+                  + " ticks emptied a shield, and `shatter`")
+            print("  bursts " + str(t["shatterBurst"])
+                  + " damage back into the CASTER and knocks him off it.")
+            print("  Nobody has priced a tornado against a ward relic; 7 ticks")
+            print("  a second strips a pool very fast and the burst is paid by")
+            print("  the fighter who did the stripping.")
         print(f"  {t['ticks']} ticks, {t['dealt']:.0f} damage, "
               f"{t['dealt']/max(1,t['ticks']):.2f} a tick")
 

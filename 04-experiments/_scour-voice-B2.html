@@ -1925,7 +1925,7 @@ const WEAPONS = [
        one line of it. */
     ult:{ name:"Scour", charge:15, kind:"scour", tip:"-",
           dur:10, w:160, top:400, sweep:200,
-          tick:7, dmg:1 },
+          tick:7, dmg:5, drag:6 },
     blurb:"A hole in the floor of the world, turning. Whatever it catches, it keeps hold of long enough to finish." },
 
 ];
@@ -4401,7 +4401,7 @@ const SHAPES = {
     if (key === "runic")      return SHAPES._scConjured(c, L, W, p);
     if (key === "verdant")    return SHAPES._scGrown(c, L, W, p);
     if (key === "bloodsworn") return SHAPES._scBarbed(c, L, W, p);
-    if (key === "umbral")     return SHAPES._scEaten(c, L, W, p);
+    if (key === "umbral")     return SHAPES._scMoon(c, L, W, p);
     if (key === "sanctified") return SHAPES._scRadiant(c, L, W, p);
     if (key === "dwarven")    return SHAPES._scBuilt(c, L, W, p);
     if (key === "vigil")      return SHAPES._scPlated(c, L, W, p);
@@ -4748,77 +4748,155 @@ const SHAPES = {
      the blade has gaps exactly where it is supposed to work, and the snath is
      bitten through just below the collar -- the one joint the whole weapon
      hangs from. */
-  _scEaten(c, L, W, p){
-    c.save();
-    SHAPES._scBase(c, L, W, p);
-    c.globalCompositeOperation = "destination-out";
-    /* shared path — see `_gsEaten` and `_tbEaten`, which do the same thing:
-       destination-out removes the GLOW as well as the metal, so an un-rimmed
-       bite is a hard black hole in the picture.
+  /* ------------------------------------------------------------------ UMBRAL --
+     THE MOON. Rick's, 2026-09-02, from three references (`06-docs/v63/
+     ref-scythe-1/2/3.jpg`) and a spread of four (`umbral-scythe-silhouette-
+     v63.md`). Replaces `_scEaten`, which he rejected on sight the first time it
+     was ever drawn ("this one is rough and should be redone").
 
-       THE WARHAMMER USED TO BE ONE OF THESE AND IS NOT ANY MORE. Rick rejected
-       it (`06-docs/v58/`) and `_whGnawed` ADDS a contour rather than removing
-       one — and the reason the hammer left applies to all of them:
-       subtracting from a shape that is already rectilinear produces smaller
-       rectangles rather than an absence. Nobody has complained about these.
+     WHAT IT IS: a thin blade sweeping ~175 degrees, its tip curling back toward
+     the shaft -- the blade is HALF the weapon's footprint, where `_scBase`'s
+     crescent is a third. A faceted hub with a lit gem at the junction. A
+     near-black jointed shaft with three segments and a hex gem at the butt.
+     Near-black body, cold rim on the back, the honed edge lit twice.
 
-       AND THE BITES ERASE WHATEVER IS BEHIND THEM, WHICH IS LATENT AND NOT
-       LIVE. Measured: painted onto an OPAQUE background these punch 4877,
-       4132 and 560 pixels straight through it. The shipped path is safe only
-       because `litWeapon` bakes every weapon onto its own TRANSPARENT scratch
-       first, where `destination-out` can reach nothing but the weapon. The one
-       path that skips that buffer — `litWeapon` declining, which it does for
-       21 of 126 shape x school combinations — is the FLAIL, every time, and no
-       flail school is eaten. That is an accident of which shapes need a
-       buffer, not a design. */
-    const bitePath = (bx, by, r, seed) => {
+     CONSTRUCTION, and why:
+     * The honed edge is ONE cubic -- it carries the glow stroke, so it has to
+       be a clean curve. The back edge is that cubic pushed out along its
+       outward normal by a width profile w(t), so the blade's width is one
+       function and cannot disagree with the edge it belongs to.
+     * ONE closed path for the blade. v58's rule: a limb goes INTO the outline,
+       never behind it.
+     * The hub is drawn AFTER the blade and the blade's root sits inside it, so
+       the join is hidden at every zoom.
+     * The furthest point of the blade from the ball is 1.08 L (sim reach is
+       1.00 L; the shipped crescent was 1.02 L). Printed by the lab, not judged.
+     * Does not call `_scBase`, `_scCrescent` or `_scOuter`: the blade is a
+       different curve, and the inverted-normal defect those carry (open item,
+       `_scOuter`'s comment) is not inherited.
+     * Nothing here touches the sim. `litWeapon` bakes it; no probe reads the
+       path. engine_ab must come back identical.
+  */
+  _scMoon(c, L, W, p){
+    const TAU = Math.PI * 2;
+    const S = SHAPES;
+
+    /* ---- the shaft: near-black, a cold highlight line, three segments, a
+            hex gem at the butt. The line is `_scBase`'s own quadratic, moved
+            to meet the hub at (0.71L, 0.10W). ---- */
+    const at = (u) => { const it = 1 - u;
+      return { x: 2*it*u*(L*0.44) + u*u*(L*0.71), y: 2*it*u*(W*0.30) + u*u*(W*0.10),
+               a: Math.atan2(2*it*(W*0.30) + 2*u*(W*0.10 - W*0.30),
+                             2*it*(L*0.44) + 2*u*(L*0.71 - L*0.44)) }; };
+    c.lineCap = "round";
+    c.strokeStyle = S._ink(p.dark, 16); c.lineWidth = W*0.17;
+    c.beginPath(); c.moveTo(0, 0); c.quadraticCurveTo(L*0.44, W*0.30, L*0.71, W*0.10); c.stroke();
+    c.strokeStyle = S._shade(p.steel, 0.55, 0.45); c.lineWidth = W*0.05;
+    c.beginPath(); c.moveTo(L*0.05, -W*0.03); c.quadraticCurveTo(L*0.44, W*0.25, L*0.66, W*0.08); c.stroke();
+    for (let i = 0; i < 3; i++){
+      /* a SEGMENT of the rod, longer along the shaft than across it, so the
+         shaft reads as jointed rather than beaded (ref 1) */
+      const q = at(0.20 + 0.20*i);
+      c.save(); c.translate(q.x, q.y); c.rotate(q.a);
       c.beginPath();
-      for (let i = 0; i < 10; i++){
-        const a = i * TAU / 10;
-        const rr = r * (0.60 + 0.48 * Math.abs(Math.sin(i * 1.9 + seed)));
-        const px = bx + Math.cos(a) * rr, py = by + Math.sin(a) * rr;
-        if (i === 0) c.moveTo(px, py); else c.lineTo(px, py);
+      c.moveTo(-W*0.20, 0); c.lineTo(-W*0.13, -W*0.13); c.lineTo(W*0.13, -W*0.13);
+      c.lineTo( W*0.20, 0); c.lineTo( W*0.13,  W*0.13); c.lineTo(-W*0.13, W*0.13);
+      c.closePath();
+      c.fillStyle = S._ink(p.dark, 24); c.fill();
+      c.strokeStyle = p.core + "BB"; c.lineWidth = Math.max(1, W*0.028); c.stroke();
+      c.restore();
+    }
+    c.save(); c.rotate(at(0.02).a);                          // pommel gem
+    c.beginPath();
+    for (let i = 0; i < 6; i++){ const a = i*TAU/6, r = W*0.20;
+      if (i === 0) c.moveTo(Math.cos(a)*r, Math.sin(a)*r); else c.lineTo(Math.cos(a)*r, Math.sin(a)*r); }
+    c.closePath();
+    c.fillStyle = S._ink(p.dark, 22); c.fill();
+    c.strokeStyle = S._shade(p.steel, 1.0, 0.40); c.lineWidth = Math.max(1, W*0.03); c.stroke();
+    c.save(); c.globalCompositeOperation = "lighter";
+    { const g = c.createRadialGradient(0, 0, 0, 0, 0, W*0.30);
+      g.addColorStop(0, p.glow); g.addColorStop(0.4, p.core + "AA"); g.addColorStop(1, p.core + "00");
+      c.fillStyle = g; c.beginPath(); c.arc(0, 0, W*0.30, 0, TAU); c.fill(); }
+    c.restore();
+    c.fillStyle = p.glow; c.beginPath(); c.arc(0, 0, W*0.07, 0, TAU); c.fill();
+    c.restore();
+
+    /* ---- the blade ---- */
+    const P = [[L*0.72, W*0.02], [L*1.05, -W*0.24], [L*0.99, -W*1.46], [L*0.48, -W*1.52]];
+    const bez = (u) => {
+      const it = 1 - u;
+      const b  = (a,bq,cq,d) => it*it*it*a + 3*it*it*u*bq + 3*it*u*u*cq + u*u*u*d;
+      const db = (a,bq,cq,d) => 3*it*it*(bq-a) + 6*it*u*(cq-bq) + 3*u*u*(d-cq);
+      const x = b(P[0][0],P[1][0],P[2][0],P[3][0]), y = b(P[0][1],P[1][1],P[2][1],P[3][1]);
+      let tx = db(P[0][0],P[1][0],P[2][0],P[3][0]), ty = db(P[0][1],P[1][1],P[2][1],P[3][1]);
+      const m = Math.hypot(tx, ty) || 1; tx /= m; ty /= m;
+      return { x, y, tx, ty };
+    };
+    /* outward = toward the control points, which sit on the convex side of a
+       single-bend cubic; the sign is taken once at the midpoint */
+    const M = [(P[1][0]+P[2][0])/2, (P[1][1]+P[2][1])/2], mid = bez(0.5);
+    const sgn = (mid.ty*(M[0]-mid.x) - mid.tx*(M[1]-mid.y)) > 0 ? 1 : -1;
+    const edge = (t) => { const q = bez(t); return { x:q.x, y:q.y, nx: sgn*q.ty, ny: -sgn*q.tx }; };
+    const wAt = (t) => W*0.34 * Math.pow(1 - t, 0.62) * (t < 0.10 ? 0.75 + 2.5*t : 1);
+    const N = 48;
+    const blade = () => {
+      c.beginPath();
+      c.moveTo(P[0][0], P[0][1]);
+      c.bezierCurveTo(P[1][0],P[1][1],P[2][0],P[2][1],P[3][0],P[3][1]);   // honed edge, root -> tip
+      for (let i = N; i >= 0; i--){                                       // back edge, tip -> root
+        const t = i / N, q = edge(t), w = wAt(t);
+        c.lineTo(q.x + q.nx*w, q.y + q.ny*w);
       }
       c.closePath();
     };
-    const bite = (bx, by, r, seed) => { bitePath(bx, by, r, seed); c.fill(); };
-    const RIMS = [];
-    /* SMALL, and off the EDGE rather than through the middle. v1 used
-       0.30/0.24 centred at W*0.16 inboard and left a sliver, which reads
-       as broken rather than eaten. */
-    for (const [u, r, s] of [[0.32, 0.17, 0.4], [0.66, 0.14, 2.1]]){
-      const q = SHAPES._scOuter(L, W, u);
-      RIMS.push([q.x + q.nx * W*0.02, q.y + q.ny * W*0.02, W*r, s]);
-    }
-    RIMS.push([L*0.685, W*0.155, W*0.13, 1.3]);                 // the joint
-    for (const b of RIMS) bite(b[0], b[1], b[2], b[3]);
-    c.restore();
-
-    c.save();
-    /* THE RIM CARRIES A SHADOW. `destination-out` removes the glow along
-       with the metal, and the glow is 90%+ of the lit picture, so an
-       un-lit rim still reads as a hard black hole. Giving the rim its own
-       shadowBlur puts light back around the absence. */
-    c.shadowColor = p.core; c.shadowBlur = 12;
-    c.strokeStyle = p.glow; c.lineWidth = Math.max(1, W*0.040);
-    for (const b of RIMS){ bitePath(b[0], b[1], b[2], b[3]); c.stroke(); }
-    c.restore();
-
-    c.save();                                                    // what leaks out
-    c.globalAlpha = 0.5; c.fillStyle = p.core;
-    for (const u of [0.30, 0.62]){
-      const q = SHAPES._scOuter(L, W, u);
+    blade();
+    { const g = c.createLinearGradient(P[0][0], P[0][1], P[3][0], P[3][1]);
+      g.addColorStop(0, S._ink(p.dark, 30)); g.addColorStop(0.5, S._ink(p.dark, 18)); g.addColorStop(1, S._ink(p.dark, 26));
+      c.fillStyle = g; c.fill(); }
+    c.save(); c.shadowBlur = 0;                                  // the lit face, clipped
+    { const wl = S._litN(c); c.globalAlpha = 0.55 * Math.abs(wl) + 0.25;
+      blade(); c.clip();
+      c.strokeStyle = S._shade(p.steel, 0.70, 0.30); c.lineWidth = Math.max(1, W*0.09);
       c.beginPath();
-      c.moveTo(q.x, q.y);
-      c.quadraticCurveTo(q.x - q.nx * W*0.9, q.y - q.ny * W*0.9,
-                         q.x - q.nx * W*0.5 - Math.cos(q.a) * W*0.5,
-                         q.y - q.ny * W*0.5 - Math.sin(q.a) * W*0.5);
-      c.quadraticCurveTo(q.x - q.nx * W*0.3, q.y - q.ny * W*0.3, q.x, q.y);
-      c.closePath(); c.fill();
-    }
-    c.globalAlpha = 1;
+      for (let i = 0; i <= 40; i++){ const t = i/40, q = edge(t), w = wAt(t)*0.66;
+        const x = q.x + q.nx*w, y = q.y + q.ny*w; if (i === 0) c.moveTo(x, y); else c.lineTo(x, y); }
+      c.stroke(); }
     c.restore();
+    c.strokeStyle = S._shade(p.steel, 1.15, 0.55); c.lineWidth = Math.max(1, W*0.035);   // cold rim
+    blade(); c.stroke();
+    const honed = () => { c.beginPath(); c.moveTo(P[0][0], P[0][1]);
+      c.bezierCurveTo(P[1][0],P[1][1],P[2][0],P[2][1],P[3][0],P[3][1]); c.stroke(); };
+    c.lineCap = "round";
+    c.strokeStyle = p.core + "77"; c.lineWidth = Math.max(1, W*0.15); honed();          // wide and soft
+    c.strokeStyle = p.glow;        c.lineWidth = Math.max(1, W*0.055); honed();         // tight and bright
+
+    /* ---- the hub: a faceted plate over the blade's root, a lit gem, the
+            school's mark (tarnish) on its face ---- */
+    const hx = L*0.71, hy = W*0.10, r = W*0.30;
+    c.save(); c.translate(hx, hy);
+    c.beginPath();
+    for (let i = 0; i < 6; i++){ const a = -Math.PI/2 + i*TAU/6;
+      if (i === 0) c.moveTo(Math.cos(a)*r, Math.sin(a)*r); else c.lineTo(Math.cos(a)*r, Math.sin(a)*r); }
+    c.closePath();
+    c.fillStyle = S._ink(p.dark, 20); c.fill();
+    c.strokeStyle = S._shade(p.steel, 1.05, 0.40); c.lineWidth = Math.max(1, W*0.035); c.stroke();
+    c.beginPath();                                               // inner facet
+    for (let i = 0; i < 6; i++){ const a = -Math.PI/2 + i*TAU/6 + Math.PI/6;
+      if (i === 0) c.moveTo(Math.cos(a)*r*0.62, Math.sin(a)*r*0.62); else c.lineTo(Math.cos(a)*r*0.62, Math.sin(a)*r*0.62); }
+    c.closePath();
+    c.strokeStyle = p.core + "88"; c.lineWidth = Math.max(1, W*0.025); c.stroke();
+    const gr = r*0.36;                                           // the gem
+    c.save(); c.globalCompositeOperation = "lighter";
+    { const g = c.createRadialGradient(0, 0, 0, 0, 0, gr*2.2);
+      g.addColorStop(0, p.glow); g.addColorStop(0.35, p.core + "AA"); g.addColorStop(1, p.core + "00");
+      c.fillStyle = g; c.beginPath(); c.arc(0, 0, gr*2.2, 0, TAU); c.fill(); }
+    c.restore();
+    c.fillStyle = p.glow; c.beginPath(); c.arc(0, 0, gr*0.55, 0, TAU); c.fill();
+    c.restore();
+    S._makerMark(c, hx + r*0.55, hy + r*0.45, W*0.10, W*0.62, p);
   },
+
+
 
   /* ---------------------------------------------------------- SANCTIFIED --
      RADIANT AND PIERCED. THE CELL'S FLAIR: the halo does not sit behind the
@@ -5629,8 +5707,54 @@ class Sfx {
       /* One ultimate sound for six ultimates was the audio version of the
          caption problem: the picture said six different things and the ears
          heard the same thing every time. */
+      /* SCOUR'S HOLD, TICK AND MOO. Their own kinds rather than `ult`
+         sub-cases, because they are struck seventy times a window and `ult`
+         is an event -- and because `kind` is what the whole toolkit
+         dispatches on. */
+      else if (kind === "scour-hold"){
+        const n = p.n || 0, w = 1 + Math.sin(n * 0.9) * 0.014;
+        this._tone(t, { freq: 62 * w, to: 58 * w, gain: 0.090, dur: 0.34,
+                        type:"sawtooth" });
+        this._tone(t, { freq: 93 * w, to: 87 * w, gain: 0.042, dur: 0.30,
+                        type:"sawtooth" });
+        this._burst(t, { freq: 1400, q: 0.5, gain: 0.022, dur: 0.20,
+                         type:"bandpass" });
+      }
+      else if (kind === "scour-tick"){
+        this._burst(t, { freq: 3200, q: 1.7, gain: 0.075, dur: 0.030,
+                         type:"bandpass" });
+        this._burst(t, { freq: 900, q: 1.1, gain: 0.030, dur: 0.026,
+                         type:"bandpass" });
+      }
+      else if (kind === "scour-moo"){
+        /* THE COW. Rick, 2026-09-02: "lets also make sure our cow gets a good
+           moo." Two falling tones a fifth apart with a wobble on the tail --
+           a moo is a PITCH THAT SAGS, which is what separates it from a horn,
+           and the wobble is the animal running out of breath. Quiet: she is
+           thirty feet up and inside a tornado, and an easter egg that shouts
+           stops being one the second time you hear it. */
+        this._tone(t, { freq: 172, to: 128, gain: 0.115, dur: 0.62,
+                        type:"sawtooth" });
+        this._tone(t + 0.02, { freq: 258, to: 190, gain: 0.052, dur: 0.55,
+                               type:"triangle" });
+        this._tone(t + 0.30, { freq: 138, to: 116, gain: 0.070, dur: 0.46,
+                               type:"sine" });
+        this._burst(t + 0.30, { freq: 900, q: 0.8, gain: 0.030, dur: 0.30,
+                                type:"bandpass" });
+      }
       else if (kind === "ult"){
         const w = p.w;
+        if (w === "duskreave"){
+          [[0,300,0.10],[0.10,520,0.13],[0.20,820,0.15],
+           [0.30,1250,0.15],[0.40,1800,0.13],[0.50,2500,0.10]]
+            .forEach(([d,f,g]) =>
+              this._burst(t + d, { freq: f, q: 0.55, gain: g, dur: 0.34,
+                                   type:"bandpass" }));
+          this._tone(t + 0.44, { freq: 150, to: 46, gain: 0.34, dur: 0.85,
+                                 type:"sine" });
+          this._burst(t + 0.46, { freq: 220, q: 0.5, gain: 0.26, dur: 0.70,
+                                  type:"lowpass" });
+        } else
         if (w === "dawnbringer"){                       // a chord and a bell
           [0, 7, 12, 16].forEach((st, i) =>
             this._tone(t + i * 0.03, { freq: 220 * Math.pow(2, st/12), gain: 0.13,
@@ -7712,6 +7836,12 @@ class Match {
        were 1/120s ago -- and that is the price of both outcomes being reachable
        on the same frame. */
     this.tickNet(dt);
+    /* BEFORE `tickShots`, WHICH BOTH MOVES AND RESOLVES. An eat placed with the
+       other window tickers -- after it, where `tickScour` runs -- would let an
+       arrow already standing in the band travel and connect on the frame before
+       it was eaten. The brief's "do not let the eaten shot deal damage" is an
+       ORDERING requirement, not a flag. */
+    this.scourEat();
     this.tickShots(dt);
     this.tickSparks(dt);
     /* AFTER tickShots, so a seed that reached a wall this frame is a plant
@@ -9698,6 +9828,39 @@ class Match {
      with no Duskreave in it pays one null test a frame -- which is what makes
      `engine_ab` over the other 32 relics a meaningful check rather than a
      hopeful one. */
+  /* ANY ENEMY SHOT INSIDE THE BAND IS REMOVED. `own` is the side string the
+     shot was loosed by, so the test is "not the caster's" -- a Duskreave does
+     not eat its own arrows, and it has none anyway, which is exactly why the
+     check is written against the OWNER rather than against the weapon type.
+
+     THE MARK IS A RING AND NOT A SPARK FIELD, and that is determinism rather
+     than taste. `spawnFx` draws twice from `this.rng()` per particle, so a
+     debris field here would move the RNG stream on every frame an arrow was
+     eaten -- which is how Breach's sparks had to become DRAWN rather than
+     spawned, after the same hazard re-invalidated a blade twice. `Match.ring`
+     is a pure push and touches no randomness.
+
+     ZERO BURDEN: returns on its first line with no tornado, and again with no
+     shots, so 32 relics pay two null tests a frame. */
+  scourEat(){
+    const T = this.tornado;
+    if (!T || !this.shots.length) return;
+    const A = CONFIG.arena, half = T.w * 0.5;
+    const floorY = A.h - this.inset;
+    for (let i = this.shots.length - 1; i >= 0; i--){
+      const s = this.shots[i];
+      if (s.own === T.src) continue;
+      if (s.y < T.top || s.y > floorY) continue;
+      if (Math.abs(s.x - T.cx) > half) continue;
+      /* IT VANISHES AND PAYS NOTHING. Not a hit, not a parry, no damage, no
+         curse, nothing added to `shotHits` -- the arrow simply stops existing,
+         which is what "absorbs projectiles" means on Rick's own card line. */
+      this.shots.splice(i, 1);
+      T.eaten++;
+      this.ring(s.x, s.y, AFFINITIES.umbral.glow, 3, 26, 0.28, 3);
+    }
+  }
+
   tickScour(dt){
     const T = this.tornado;
     if (!T) return;
@@ -9719,6 +9882,139 @@ class Match {
     if (T.cx < lo){ T.cx = lo + (lo - T.cx); T.dir = 1; }
     if (T.cx > hi){ T.cx = hi - (T.cx - hi); T.dir = -1; }
     T.cx = Math.max(lo, Math.min(hi, T.cx));
+
+    /* ------------------------------------------------------------- THE VOICE
+       RE-STRUCK ON THE WINDOW'S OWN CLOCK. `T.hum` is decremented by `dt`
+       inside `tickScour`, so it stops while the world is frozen exactly as the
+       window does -- a cadence on a frame counter would drift against the
+       thing it is describing every time somebody landed a blow.
+
+       A HELD NOTE DOES NOT EXIST IN THIS TOOLKIT (CLAUDE.md 4.5), so ten
+       seconds of standing tornado is 38 strikes at 0.26s and there is no
+       other way to do it. `SFX.play` is a no-op headless and draws no
+       randomness, so none of this reaches the sim. */
+    T.hum -= dt;
+    if (T.hum <= 0){ T.hum += 0.16; SFX.play("scour-hold", { n: T.hums++ }); }
+
+    /* AND THE COW LOWS. Same seed test as the picture, so she is only ever
+       heard in a fight she can be seen in -- a moo with no cow is a bug that
+       would take somebody a long time to explain. Twice a window: once as she
+       comes round the first time, once late. */
+    if (T.moo >= 0){
+      T.moo -= dt;
+      if (T.moo <= 0){
+        const cow = (() => { const x = Math.sin(this.seed * 0.61803398875
+                                                * 127.1 + 311.7) * 43758.5453;
+                             return x - Math.floor(x) < 0.125; })();
+        if (cow) SFX.play("scour-moo", {});
+        T.moo = T.mooN++ < 1 ? 4.6 : -1;
+      }
+    }
+
+    /* ------------------------------------------------------------- THE CATCH
+       THE EDGE RULE, and it is the one every v62 number was measured with:
+       the quarry's SHELL touching the band is caught, not its centre. v62 8a
+       is the control that failed when the two rules were mixed -- do not mix
+       them. */
+    const src = T.src === "a" ? this.a : this.b;
+    const foe = T.src === "a" ? this.b : this.a;
+    const R = CONFIG.physics.ballR;
+    const caught = foe.alive && !this.over
+                && (foe.y + R >= T.top)
+                && Math.abs(foe.x - T.cx) <= T.w * 0.5 + R;
+    T.caught = caught;
+    if (!caught){ T.cd = 0; return; }
+
+    /* -------------------------------------------------------------- THE DRAG
+       Rick's section 1: "dragged down into it." An ACCELERATION toward the
+       band's floor centre, proportional to how far out the quarry is -- so a
+       ball at the edge is pulled hardest and one already in the throat is
+       barely touched, which is what makes it read as a vortex rather than as a
+       magnet.
+
+       NOT A PIN. `foe.pin` stays 0 and that is load-bearing three ways over:
+       `tickStasis` carries `f.stun = Math.max(f.stun, f.pin)` for BOTH
+       fighters on every frame outside any guard, so writing `pin` would hand
+       this relic a weapon lock from a file nowhere near it (v60's finding);
+       `_drawField` would draw PARADOX'S HEXAGON on the caught ball (open item
+       41, live on Shroudmaul today); and `ballCollision` treats a held ball as
+       an immovable object (open item 42). A pull is a pull.
+
+       AND IT IS NOT A KNOCK EITHER. `resolveHit`'s knock fires away from the
+       caster; this is a hazard that is not the caster, so it needs its own
+       bearing -- the Thicket's rule, and Breach's shove learned it too. */
+    const u = src.w.ult;
+    const floorY = CONFIG.arena.h - n - R;
+    const dx = T.cx - foe.x, dy = floorY - foe.y;
+    foe.vx += dx * u.drag * dt;
+    foe.vy += dy * u.drag * dt * 0.5;
+
+    /* -------------------------------------------------------------- THE TICK
+       ONE call into `resolveHit`, every 1/rate seconds, and it is a REAL HIT:
+       it collects `foe.curseEcho()`, it rolls crit and jitter, it reads
+       `dmgTakenMul` for Sunder, a ward absorbs it, and it pushes its own
+       `dmgBase` into the pool and applies a curse. THE ECHO IS THE RELIC --
+       measured at HALF the tornado's damage before anything was built.
+
+       `mul` IS DEFINED, which makes this a projectile-class hit rather than a
+       melee connect. That is what keeps Ironbloom's latch, the Crucible's
+       strike, Garrote's connect, Deadfall's stamp and Revenant's sling from
+       firing off a tornado tick: every one of them tests `mul === undefined`.
+       `u.dmg / w.dmg` because `resolveHit` scales the WEAPON's blade by `mul`,
+       so this is how a tick states its own base damage of `u.dmg`.
+
+       `u.tick` IS A RATE IN TICKS A SECOND and `u.dmg` is the damage of one.
+       The brief's own snippet writes `u.tick / f.w.dmg`, which reads as if
+       `tick` were the damage; it is not, here. The probe asserts BOTH -- the
+       observed rate and the observed base -- so the naming cannot drift into
+       a wrong number silently. */
+    T.cd -= dt;
+    if (T.cd > 0) return;
+    T.cd += 1 / u.tick;
+    T.ticks++;
+    const before = foe.hp;
+    /* AND `seg` CANNOT BE NULL, WHICH THE BRIEF'S OWN SNIPPET PASSES.
+       `resolveHit` reads `seg.bx - seg.ax` unconditionally, to fly the impact
+       sparks ALONG the blade rather than outward from the point, so a null
+       throws on the first tick that ever lands -- and it throws inside the
+       step, which kills the match rather than the frame. Every projectile
+       call site synthesises one; `tickShots` builds a 20-unit segment along
+       the shot's own velocity.
+
+       THE TORNADO'S IS HORIZONTAL, along the sweep. It is the bearing the
+       thing is actually travelling on, so the sparks come off the way the
+       band is moving -- the same reasoning that gave Breach's jets their own
+       bearing instead of the caster's. */
+    const sgx = T.dir || 1;
+    const seg = { ax: foe.x - sgx * 10, ay: foe.y,
+                  bx: foe.x + sgx * 10, by: foe.y, a: 0 };
+    this.resolveHit(src, foe, foe.x, foe.y, seg, u.dmg / src.w.dmg,
+                    { onHit: { curse: 1 }, knock: 0, stop: 0,
+                      stun: false, beat: false });
+    T.dealt += Math.max(0, before - foe.hp);
+    /* SEVEN A SECOND, AND THAT IS THE WHOLE QUESTION THE SPREAD ASKED. The
+       tick carries no hit stop, no knock and no stagger by design, so the
+       SOUND is most of what says a tick landed at all. */
+    SFX.play("scour-tick", { n: T.ticks });
+
+    /* THE DIRECTOR (CLAUDE.md section 3 rule 3). One `hit`-class beat the
+       FIRST time a cast catches somebody, carrying what the cast has dealt so
+       far -- a hit-heavy ultimate that files nothing is scored as empty air,
+       and this one files nothing on 22 of its 23 ticks by design. The fatal
+       tick files its own beat inside `resolveHit`, because `over.beat` does
+       not silence a kill. */
+    if (!T.filed){
+      T.filed = 1;
+      this.beat({ kind: "hit", side: src === this.a ? 0 : 1,
+                  x: foe.x, y: foe.y, dmg: T.dealt, crit: false,
+                  fatal: !foe.alive, hpAfter: Math.max(0, foe.hp),
+                  hpFrac: Math.max(0, foe.hp) / foe.maxHp,
+                  maxHp: foe.maxHp, selfHpFrac: src.hp / src.maxHp,
+                  spd: src.speed, foeSpd: foe.speed,
+                  close: Math.hypot(src.vx - foe.vx, src.vy - foe.vy),
+                  ranged: false, range: 0, loosT: 0, lx: 0, ly: 0,
+                  shotSpd0: 0 });
+    }
   }
 
   tickBreach(dt){
@@ -11874,7 +12170,24 @@ class Match {
     let stop = Math.min(I.stopMax, I.stopBase + dmg * I.stopPerDmg);
     if (crit) stop *= I.critStopMul;
     if (fatal){ stop = I.killStop; this.finisher = 1.0; }
-    this.hitStop = Math.max(this.hitStop, stop);
+    /* `over.stop` LETS ONE CALL SITE SAY IT CARRIES NO WEIGHT, and Scour is
+       why it exists: `stopBase 0.045 + 0.0022 x dmg` is about 0.067s a tick,
+       and SEVEN of those a second would freeze the world for ~45% of every
+       second the tornado holds someone. A grind is the one thing in this game
+       that must not stutter.
+
+       `=== undefined` and not `|| default` -- CLAUDE.md 4.3, because 0 is a
+       value a call site means. A fatal blow keeps its `killStop` regardless:
+       the kill is the shot, and no ultimate gets to take that away. */
+    if (over && over.stop !== undefined && !fatal) stop = over.stop;
+    /* A ZERO OVERRIDE DOES NOT TOUCH THE CLOCK AT ALL. `Math.max(hitStop, 0)`
+       looks like a no-op and is not: the clock carries a small NEGATIVE
+       residue between freezes, and clamping it up to exactly 0 is a write.
+       Nothing reads the difference -- `step()` tests `hitStop > 0` -- but an
+       invariant that is "nearly true" cannot be asserted, and a probe that has
+       to allow 155 exceptions is a probe that will not notice the 156th.
+       Identical for every ordinary hit, where `stop` is always positive. */
+    if (stop > 0) this.hitStop = Math.max(this.hitStop, stop);
     /* CINEMA (demo). `hpAfter` rather than `dmg` alone, because the director
        scores the SHARE of what was left that this hit took -- 40 points off a
        full relic is a scratch, 40 off a relic sitting on 45 is the fight. */
@@ -11900,7 +12213,15 @@ class Match {
        small hits drive the camera" is a different claim from "do not film the
        finish". How often a lash lands the killing blow is measured in
        vinesower_probe [19] rather than assumed here. */
-    if (!this._cineVine || fatal)
+    /* `over.beat` -- AND THE FATAL CASE IS NOT NEGOTIABLE. Seven ticks a
+       second is ~23 `hit` beats a fight from one ultimate, and `cinePlan`
+       would cut to every one of them; that is why a tick files nothing.
+       But a tick that KILLS has to file, or the director scores the end of
+       the fight as empty air -- which is exactly what happened to Gravemourn,
+       where 30 of 58 kills were landed by a hand and ALL THIRTY produced a
+       clip with no killing blow. `_cineVine` one line up is the same rule
+       arriving from the Thicket. */
+    if ((!this._cineVine || fatal) && (fatal || !(over && over.beat === false)))
     this.beat({ kind: "hit", side: _side, x: hx, y: hy,
                 dmg, crit, fatal, hpAfter: Math.max(0, foe.hp),
                 hpFrac: Math.max(0, foe.hp) / foe.maxHp, maxHp: foe.maxHp,
@@ -11919,7 +12240,11 @@ class Match {
                 loosT: _cs ? (_cs.t0 || 0) : 0,
                 lx: _cs ? _cs.x0 : 0, ly: _cs ? _cs.y0 : 0,
                 shotSpd0: _cs ? (_cs.spd0 || 0) : 0 });
-    if (!fatal) foe.takeHitstun(dmg);
+    /* `over.stun`. Seven stagger-locks a second is a weapon lock, not a
+       grind -- `stunDR` would grind most of it down (v56's trap) but the first
+       second is a lock either way, and the DRAG is the control this design
+       uses to hold a quarry, not the stun. */
+    if (!fatal && !(over && over.stun === false)) foe.takeHitstun(dmg);
     /* THE BLOW FEEDS THE FIELD. §1's second sentence is "the flail gains extra
        hit stun", and that was measured on the previous tip and is inert on
        this type: a 3x multiplier on this relic's own hitstun moves the foe's
@@ -12196,7 +12521,14 @@ class Match {
     }
 
     const kx = foe.x - self.x, ky = foe.y - self.y, kl = Math.hypot(kx, ky) || 1;
-    const power = CONFIG.combat.knock * (self.w.knockMul || 1) * (crit ? 1.5 : 1);
+    /* `over.knock` SCALES THE IMPULSE, and Scour passes 0. The ordinary knock
+       fires AWAY FROM THE CASTER'S BALL at 165 x knockMul, and seven of those
+       a second would throw the quarry straight out of the thing that is
+       supposed to be holding it -- the ultimate would be its own counter.
+       `=== undefined` again: 0 is the value this call site means. */
+    const kMul = (over && over.knock !== undefined) ? over.knock : 1;
+    const power = CONFIG.combat.knock * (self.w.knockMul || 1)
+                * (crit ? 1.5 : 1) * kMul;
     foe.vx += (kx / kl) * power; foe.vy += (ky / kl) * power;
 
     if (wire){
@@ -13965,7 +14297,9 @@ class Match {
       this.tornado = { src: f === this.a ? "a" : "b",
                        cx: cx, dir: (foe.x >= f.x ? 1 : -1),
                        t: 0, dur: u.dur, w: u.w, top: u.top,
-                       sweep: u.sweep, caught: false, ticks: 0 };
+                       sweep: u.sweep, caught: false, ticks: 0,
+                       cd: 0, dealt: 0, filed: 0, eaten: 0,
+                       hum: 0, hums: 0, moo: 1.1, mooN: 0 };
       /* THE SET-PIECE'S CLOCK IS THE WINDOW'S, the way Aegis, the Thicket, the
          ballista, the Stasis Field, the Winnowing and the Sentinel all set it
          at their own cast sites rather than from the `life` map. */
@@ -23477,6 +23811,12 @@ class Renderer {
     const y0 = T.top, y1 = A.h - n;
     if (y1 <= y0) return;
     const P = AFFINITIES.umbral;
+    /* ONE DETERMINISTIC HASH, standing in for the randomness this must not
+       have. Index in, a number in [0,1) out, stable for the life of the
+       build -- so the debris and the lightning are the same on every replay
+       of a seed, which is what `engine_ab` and every recorded number rest on. */
+    const h1 = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+                        return x - Math.floor(x); };
     /* THE WINDOW FADES AT BOTH ENDS rather than popping. A hazard that appears
        and vanishes on a frame is one the viewer cannot anticipate, and this one
        is on screen for ten seconds. */
@@ -23489,38 +23829,338 @@ class Renderer {
        27 probe checks and a 280-match A/B. */
     const c = this.ctx;
     c.save();
+    /* THE FUNNEL'S OWN GEOMETRY. `u` runs 0 at the floor to 1 at the top, and
+       the radius opens with it -- the reference's taper. `THROAT` is how narrow
+       the foot gets; it is a picture number and the pool below states the real
+       width regardless. */
+    const NB = 15, THROAT = 0.34, spin = T.t * 2.3;
+    const GAP = (y1 - y0) / NB;          // what one band has to cover
+    const bandAt = (u) => {
+      const r = half * (THROAT + (1 - THROAT) * Math.pow(u, 0.78));
+      /* THE SLIDE. Each ring is offset along the sweep by its own phase, so
+         the stack leans and shears instead of sitting like a stack of plates
+         -- "tilt and slide against each other as it turns". */
+      const ph = spin + u * 3.1;
+      /* THE TILT AND THE ELONGATION, and they are one motion rather than two
+         effects. Rick, 2026-09-02: "give the whole thing a better sense of
+         motion by adding slight tilts to the rings and having them slightly
+         elongate into ellipses when appropriate."
+
+         A ring seen edge-on is a line and a ring seen from above is a circle;
+         everything between is an ellipse whose SHORT axis and whose TILT both
+         follow the same phase. So `ry` opens and closes on `cos(ph)` while
+         `rot` leans on `sin(ph)` -- a quarter-turn apart, which is what makes
+         a rolling ring read as rolling instead of as a shape being squashed.
+         Small on purpose: "slight", and a big tilt turns a funnel into a
+         stack of thrown hoops. */
+      const e = 0.5 + 0.5 * Math.cos(ph);
+      return { y: y1 - (y1 - y0) * u, r: r,
+               cx: T.cx + Math.sin(ph) * r * 0.16,
+               ry: Math.max(3, r * (0.15 + 0.13 * e)),
+               rot: Math.sin(ph) * 0.13,
+               ph: ph };
+    };
     if (!over){
       c.globalCompositeOperation = "lighter";
-      const g = c.createLinearGradient(0, y0, 0, y1);
-      g.addColorStop(0, P.core + "00");
-      g.addColorStop(0.45, P.core + "3A");
-      g.addColorStop(1, P.core + "62");
       c.globalAlpha = fade;
-      c.fillStyle = g;
-      c.fillRect(x0, y0, T.w, y1 - y0);
-      /* THE POOL WHERE IT TOUCHES DOWN. The one place the band meets something
-         the viewer already understands -- the floor -- so it is the edge worth
-         drawing hardest. */
-      c.fillStyle = P.glow + "55";
+      /* THE POOL AND THE HARD LINE, AND THEY ARE THE FULL BAND WIDTH. This is
+         the picture's statement of where the hazard actually is, and it is
+         deliberately the brightest thing in it. */
+      c.fillStyle = P.core + "44";
       c.beginPath();
-      c.ellipse(T.cx, y1, half, 14, 0, 0, Math.PI * 2);
+      c.ellipse(T.cx, y1, half, 15, 0, 0, Math.PI * 2);
       c.fill();
+      c.fillStyle = P.glow + "88";
+      c.beginPath();
+      c.ellipse(T.cx, y1, half * 0.62, 7, 0, 0, Math.PI * 2);
+      c.fill();
+      c.fillStyle = P.glow;
+      c.fillRect(x0, y1 - 1.5, T.w, 3);
+      /* THE BODY, AND IT IS WHAT STOPS THIS READING AS A STACK OF HOOPS.
+         Rick, on the first cut: "lets fill in the gaps now so it looks less
+         like disconnected rings."
+
+         One closed skin down the left edge of every band and back up the
+         right, so the funnel is a SURFACE the rings sit on rather than a set
+         of separate objects at different heights. Filled once, flat, at a low
+         alpha under `lighter` -- a gradient here would be a per-frame
+         `createLinearGradient` and this loop already runs fifteen times.
+
+         Drawn BEFORE the rings so they read as bands ON the body, and under
+         the fighters so a caught ball is inside it. */
+      c.beginPath();
+      for (let i = 0; i <= NB; i++){
+        const b = bandAt(i / NB);
+        if (i === 0) c.moveTo(b.cx - b.r, b.y);
+        else c.lineTo(b.cx - b.r, b.y);
+      }
+      for (let i = NB; i >= 0; i--){
+        const b = bandAt(i / NB);
+        c.lineTo(b.cx + b.r, b.y);
+      }
+      c.closePath();
+      c.globalAlpha = fade * 0.52;
+      c.fillStyle = P.core;
+      c.fill();
+      /* AND A DARKER CORE DOWN THE MIDDLE, so the body has depth rather than
+         being one flat wash -- the throat of a funnel is the part you are
+         looking INTO. Source-over, not lighter: it has to take light away. */
+      c.globalCompositeOperation = "source-over";
+      c.globalAlpha = fade * 0.34;
+      c.fillStyle = SHAPES._ink(P.dark, 10);
+      c.beginPath();
+      for (let i = 0; i <= NB; i++){
+        const b = bandAt(i / NB);
+        if (i === 0) c.moveTo(b.cx - b.r * 0.46, b.y);
+        else c.lineTo(b.cx - b.r * 0.46, b.y);
+      }
+      for (let i = NB; i >= 0; i--){
+        const b = bandAt(i / NB);
+        c.lineTo(b.cx + b.r * 0.46, b.y);
+      }
+      c.closePath();
+      c.fill();
+      c.globalCompositeOperation = "lighter";
+      /* THE BACK HALF OF EVERY BAND. Drawn under the fighters, so a ball
+         inside the funnel is IN it rather than in front of a picture of it. */
+      c.lineCap = "butt";
+      for (let i = 0; i < NB; i++){
+        const u = (i + 0.5) / NB, b = bandAt(u);
+        c.globalAlpha = fade * (0.26 + 0.30 * u);
+        c.strokeStyle = P.core;
+        c.lineWidth = Math.max(3, GAP * 0.92);
+        c.beginPath();
+        c.ellipse(b.cx, b.y, b.r, b.ry, b.rot, Math.PI, Math.PI * 2);
+        c.stroke();
+      }
       c.restore();
       return;
     }
-    /* THE TWO EDGES, over everything, because they are the boundary the whole
-       mechanic is defined by: inside is caught and outside is not. */
-    c.globalAlpha = fade * 0.85;
+    /* THE FRONT HALF OF EVERY BAND, over the balls, with the lilac-white rim
+       the reference gives them. Cel-shaded: a hard core stroke and a hard rim
+       stroke, no gradient between -- "hard edges, high contrast". */
+    c.globalCompositeOperation = "lighter";
+    c.lineCap = "butt";
+    for (let i = 0; i < NB; i++){
+      const u = (i + 0.5) / NB, b = bandAt(u);
+      c.globalAlpha = fade * (0.40 + 0.42 * u);
+      c.strokeStyle = P.core;
+      c.lineWidth = Math.max(3, GAP * 0.92);
+      c.beginPath();
+      c.ellipse(b.cx, b.y, b.r, b.ry, b.rot, 0, Math.PI);
+      c.stroke();
+      c.globalAlpha = fade * (0.55 + 0.40 * u);
+      c.strokeStyle = P.glow;
+      c.lineWidth = Math.max(1, GAP * 0.22);
+      c.beginPath();
+      c.ellipse(b.cx, b.y, b.r, b.ry, b.rot, 0.12, Math.PI - 0.12);
+      c.stroke();
+    }
+    /* THE DEBRIS. Ragged near-black shards orbiting BETWEEN the bands -- the
+       one dark element, and what stops the funnel reading as a light effect
+       rather than as something with things caught in it. `_ink` keeps them the
+       school's hue at the school's own value instead of a literal near-black,
+       which no instrument in this project can see. */
+    c.globalCompositeOperation = "source-over";
+    c.fillStyle = SHAPES._ink(P.dark, 16);
+    /* FOUR SHARD PROFILES, not one. Rick: "lets also draw more debris so it
+       varies more." A single outline repeated twenty times reads as a texture
+       and stops reading as OBJECTS -- the eye finds the repeat long before it
+       counts the pieces. Each profile is a unit polygon scaled by `sz`, so
+       adding a fifth is four numbers. */
+    const SHARD = [
+      [[-1,-0.40],[0.50,-1.00],[1.00,0.50],[-0.30,0.80]],           // a chip
+      [[-1,-0.16],[0.20,-0.62],[1.00,0.10],[0.30,0.66],[-0.60,0.50]],// a plate
+      [[-0.90,-0.80],[0.95,-0.25],[0.20,0.90]],                      // a splinter
+      [[-1,-0.25],[-0.10,-0.95],[0.85,-0.55],[1.00,0.35],
+       [0.10,0.95],[-0.80,0.55]]                                     // a lump
+    ];
+    const shard = (dx, dy, sz, rot, k) => {
+      const P4 = SHARD[k & 3], ca = Math.cos(rot), sa = Math.sin(rot);
+      c.beginPath();
+      for (let j = 0; j < P4.length; j++){
+        const px = P4[j][0] * sz, py = P4[j][1] * sz;
+        const qx = dx + px * ca - py * sa, qy = dy + px * sa + py * ca;
+        if (j === 0) c.moveTo(qx, qy); else c.lineTo(qx, qy);
+      }
+      c.closePath(); c.fill();
+    };
+    /* THE ORBIT. Twenty-four pieces at their own heights, radii and rates, and
+       each TUMBLES on its own axis as it goes -- debris that keeps its
+       orientation reads as a decal on a cylinder. */
+    for (let i = 0; i < 24; i++){
+      const u = h1(i * 3.7);
+      const b = bandAt(0.05 + u * 0.92);
+      const rate = 1.05 + h1(i) * 0.75;
+      const a = spin * rate + i * 2.1;
+      /* SOME RIDE THE SKIN AND SOME FLY THROUGH IT. Rick: "more debris flying
+         through it." A piece at `rr > 1` is outside the band it belongs to and
+         crosses the funnel's face; one under it is down in the throat. */
+      const rr = 0.55 + h1(i * 5.3) * 0.75;
+      const dx = b.cx + Math.cos(a) * b.r * rr;
+      const dy = b.y + Math.sin(a) * b.ry * rr;
+      const sz = 2.5 + h1(i * 1.9) * 5.5;
+      c.globalAlpha = fade * (Math.sin(a) > 0 ? 0.88 : 0.30);
+      shard(dx, dy, sz, a * (0.6 + h1(i * 7.1)), i);
+    }
+    /* THE HALO. A single bright ring around the top, WIDER than the funnel --
+       the reference's most distinctive shape and the thing that says which end
+       is the mouth. */
+    c.globalCompositeOperation = "lighter";
+    const topB = bandAt(1.0);
+    c.globalAlpha = fade * 0.9;
     c.strokeStyle = P.glow;
-    c.lineWidth = 2;
+    c.lineWidth = 3;
     c.beginPath();
-    c.moveTo(x0, y0); c.lineTo(x0, y1);
-    c.moveTo(x1, y0); c.lineTo(x1, y1);
+    c.ellipse(topB.cx, y0, half * 1.16, half * 0.24 + topB.ry * 0.30,
+              topB.rot * 0.6, 0, Math.PI * 2);
     c.stroke();
-    /* AND THE TOP LIP, so `top` is a line a person can see rather than a
-       number in a table. Gate 2 is asking whether this height reads. */
-    c.globalAlpha = fade * 0.5;
-    c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y0); c.stroke();
+    c.globalAlpha = fade * 0.45;
+    c.strokeStyle = P.core;
+    c.lineWidth = 8;
+    c.beginPath();
+    c.ellipse(topB.cx, y0, half * 1.16, half * 0.24 + topB.ry * 0.30,
+              topB.rot * 0.6, 0, Math.PI * 2);
+    c.stroke();
+    /* THE ELECTRICITY. Rick's section 1: "crackling with electricity." Between
+       the bands always, and JUMPING TO A CAUGHT BALL while one is held -- which
+       is the only element in the whole picture that changes when the mechanic
+       fires, so it is the tell that the thing is working. Stepped off a
+       quantised clock so a bolt lasts several frames instead of strobing. */
+    const tick = Math.floor(T.t * 14);
+    c.strokeStyle = P.glow;
+    /* A BOLT IS A POLYLINE WITH SEVERAL KINKS, not one elbow. Three segments
+       is the least that reads as electricity rather than as a bent stick, and
+       the kinks come off the quantised clock so a bolt holds for a few frames
+       instead of strobing. */
+    const bolt = (x0b, y0b, x1b, y1b, n, jit, seedn) => {
+      c.beginPath();
+      c.moveTo(x0b, y0b);
+      for (let k = 1; k < n; k++){
+        const f = k / n;
+        c.lineTo(x0b + (x1b - x0b) * f + (h1(seedn + k * 9.7) - 0.5) * jit,
+                 y0b + (y1b - y0b) * f + (h1(seedn + k * 4.3) - 0.5) * jit);
+      }
+      c.lineTo(x1b, y1b);
+      c.stroke();
+    };
+    /* BETWEEN THE BANDS -- seven now rather than three. Rick: "more lightning
+       arching off the tornado." */
+    c.lineWidth = 1.6;
+    for (let i = 0; i < 7; i++){
+      const s0 = h1(tick * 7.3 + i), s1 = h1(tick * 3.1 + i * 5.7);
+      const a0 = bandAt(0.10 + s0 * 0.8), a1 = bandAt(0.10 + s1 * 0.8);
+      c.globalAlpha = fade * (0.45 + h1(tick + i * 3.3) * 0.45);
+      bolt(a0.cx + (h1(tick + i) - 0.5) * a0.r * 1.7, a0.y,
+           a1.cx + (h1(tick + i * 2.3) - 0.5) * a1.r * 1.7, a1.y,
+           4, 20, tick * 1.7 + i);
+    }
+    /* AND FOUR THAT LEAVE IT. A bolt that only ever runs between two bands
+       stays inside the silhouette and reads as internal wiring; one that
+       arcs OUT and dies in the air is what makes the thing look like it is
+       throwing charge off itself. They start on the skin and end well
+       outside it, and they are dimmer because they are further away. */
+    c.lineWidth = 1.3;
+    for (let i = 0; i < 4; i++){
+      const b = bandAt(0.15 + h1(tick * 2.9 + i * 6.1) * 0.8);
+      const ang = h1(tick * 5.7 + i) * Math.PI * 2;
+      const reach = b.r * (1.5 + h1(tick + i * 8.9) * 1.4);
+      c.globalAlpha = fade * (0.30 + h1(tick * 4.1 + i) * 0.35);
+      bolt(b.cx + Math.cos(ang) * b.r * 0.9, b.y + Math.sin(ang) * b.ry * 0.9,
+           b.cx + Math.cos(ang) * reach, b.y + Math.sin(ang) * reach * 0.55,
+           3, 16, tick * 3.3 + i * 2.7);
+    }
+    /* ------------------------------------------------------------- THE COW
+       THE FIRST EASTER EGG IN THIS GAME. Rick, 2026-09-02: "lets have a small
+       amount of seeds 10-15% show a cow flying around the tornado."
+
+       IT IS CHOSEN FROM THE MATCH'S OWN SEED AND NOT FROM `this.rng()`, and
+       that is the whole engineering problem in one line. The seed IS the
+       fight: every recorded number, every clip, `engine_ab` and the entire
+       history of this project rest on `(build, relics, seed)` naming one
+       fight. A draw that consumed a random number would move the sim, so the
+       cow would change the fight it appears in -- and an easter egg that
+       alters the balance is a bug wearing a joke.
+
+       `m.seed` is stable, it is per-fight, and it is already the thing the
+       viewer would quote if they wanted to see it again -- which is what an
+       easter egg is FOR. Seeds are dense in the low integers, so the hash is
+       taken on a scaled seed to avoid the banding a raw `sin(n)` gives on
+       consecutive inputs.
+
+       12.5%, inside Rick's 10-15%, and it is one line to move. */
+    if (h1(m.seed * 0.61803398875) < 0.125){
+      /* SHE ORBITS WIDER AND SLOWER THAN THE DEBRIS, so she reads as a
+         separate object caught in the thing rather than as one more shard --
+         and she tumbles, because a cow in a tornado is not flying, she is
+         being thrown. */
+      const cowA = T.t * 1.05;
+      const cb = bandAt(0.52 + Math.sin(T.t * 0.55) * 0.30);
+      const cx2 = cb.cx + Math.cos(cowA) * cb.r * 1.55;
+      const cy2 = cb.y + Math.sin(cowA) * cb.ry * 1.9;
+      const cs = 9;
+      c.save();
+      c.globalCompositeOperation = "source-over";
+      c.globalAlpha = fade * (Math.sin(cowA) > 0 ? 0.95 : 0.45);
+      c.translate(cx2, cy2);
+      c.rotate(cowA * 1.7);
+      /* Drawn small and read as a SILHOUETTE: body, head, four legs, tail,
+         one ear. The patches are the only lighter mark and they are what makes
+         it a cow rather than a dog -- at nine pixels the outline alone is a
+         quadruped and nothing more. */
+      c.fillStyle = SHAPES._ink(P.dark, 12);
+      c.beginPath();
+      c.ellipse(0, 0, cs, cs * 0.60, 0, 0, Math.PI * 2);
+      c.fill();
+      c.beginPath();                                       // head and snout
+      c.ellipse(cs * 1.02, -cs * 0.22, cs * 0.42, cs * 0.34, -0.25,
+                0, Math.PI * 2);
+      c.fill();
+      c.fillRect(-cs * 0.62, cs * 0.40, cs * 0.26, cs * 0.62);   // legs
+      c.fillRect(-cs * 0.16, cs * 0.44, cs * 0.24, cs * 0.60);
+      c.fillRect( cs * 0.34, cs * 0.42, cs * 0.24, cs * 0.60);
+      c.fillRect( cs * 0.70, cs * 0.36, cs * 0.22, cs * 0.56);
+      c.beginPath();                                       // tail
+      c.moveTo(-cs * 0.95, -cs * 0.10);
+      c.quadraticCurveTo(-cs * 1.60, cs * 0.10, -cs * 1.35, cs * 0.75);
+      c.lineTo(-cs * 1.12, cs * 0.70);
+      c.quadraticCurveTo(-cs * 1.30, cs * 0.14, -cs * 0.88, cs * 0.16);
+      c.closePath(); c.fill();
+      c.beginPath();                                       // ear
+      c.moveTo(cs * 1.16, -cs * 0.52);
+      c.lineTo(cs * 1.52, -cs * 0.74);
+      c.lineTo(cs * 1.24, -cs * 0.28);
+      c.closePath(); c.fill();
+      c.fillStyle = P.glow;                                // the patches
+      c.globalAlpha *= 0.80;
+      c.beginPath();
+      c.ellipse(-cs * 0.34, -cs * 0.10, cs * 0.28, cs * 0.22, 0.3,
+                0, Math.PI * 2);
+      c.fill();
+      c.beginPath();
+      c.ellipse(cs * 0.36, cs * 0.14, cs * 0.20, cs * 0.16, -0.2,
+                0, Math.PI * 2);
+      c.fill();
+      c.restore();
+    }
+
+    if (T.caught){
+      /* A BOLT INTO THE THING IT IS GRINDING. The tick deals no knock, no hit
+         stop and no stagger by design, so without this the most violent part
+         of the relic has NO representation on the quarry at all -- which is
+         the fault v59 found on the bleed drips and v54 on the arming sigil. */
+      const q = T.src === "a" ? m.b : m.a;
+      const b = bandAt(0.45);
+      c.globalAlpha = fade * 0.95;
+      c.lineWidth = 2.2;
+      c.beginPath();
+      c.moveTo(b.cx, b.y);
+      const mx2 = (b.cx + q.x) * 0.5 + (h1(tick * 2.9) - 0.5) * 30;
+      const my2 = (b.y + q.y) * 0.5 + (h1(tick * 5.1) - 0.5) * 20;
+      c.lineTo(mx2, my2);
+      c.lineTo(q.x, q.y);
+      c.stroke();
+    }
     c.restore();
   }
 

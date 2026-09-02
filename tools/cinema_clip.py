@@ -608,6 +608,17 @@ def main() -> int:
     ap.add_argument("--a", default="gravemourn")
     ap.add_argument("--b", default="dawnbringer")
     ap.add_argument("--seed", type=int, default=None)
+    # FILM A WINDOW, NOT A FIGHT. Rick, 2026-09-02: "from here on out please
+    # just render clips of the ult to save us time." `--lead` measures BACK
+    # from the killing blow, so it cannot frame a set-piece that happens in the
+    # middle of a fight; `--full` films everything and costs minutes of capture
+    # for a ten-second answer. These two say "start here, run this long" and
+    # are the cheapest way to look at an ultimate.
+    ap.add_argument("--at", type=float, default=None,
+                    help="start at this MATCH time instead of measuring back "
+                         "from the kill. Pairs with --window.")
+    ap.add_argument("--window", type=float, default=12.0,
+                    help="with --at, how many seconds of MATCH time to film")
     ap.add_argument("--lead", type=float, default=6.0,
                     help="seconds of match time before the kill to start from")
     ap.add_argument("--fps", type=int, default=60)
@@ -781,14 +792,30 @@ def main() -> int:
         # everything. Only --lead does, because it measures BACKWARDS from the
         # payoff, and there is no payoff here to measure from.
         if not kill:
-            if not a.full:
+            # `--at` NEEDS NO ANCHOR. It says where to start outright, so a
+            # seed the director scored nothing in is still filmable -- which
+            # is most of the point: the window being reviewed is often one the
+            # director cannot see (open item 29, and a hit-heavy ultimate that
+            # files almost nothing by design is exactly that case).
+            if not a.full and a.at is None:
                 sys.exit("! this seed has no cuts at all -- no killing blow and "
                          "nothing the director scored. --lead measures back from "
                          "a payoff, so there is nothing to anchor to. Film it with "
                          "--full, or pick a seed with a FATAL cut in its plan "
                          "(tools/pick_fight.py filters on exactly that).")
             print("no cuts in this seed's plan at all -- filming the whole fight")
-        start = 0.0 if a.full else max(0.0, kill["t"] - a.lead)
+        # `--at` is decided before the kill-anchored path, so a plan with no
+        # cuts in it never reaches an expression that subscripts `kill`.
+        if a.at is not None:
+            start = max(0.0, a.at)
+        elif a.full or not kill:
+            start = 0.0
+        else:
+            start = max(0.0, kill["t"] - a.lead)
+        if a.at is not None:
+            start = max(0.0, a.at)
+            print(f"--at {a.at:.2f}s: filming a {a.window:g}s window rather "
+                  f"than measuring back from the kill")
         if kill:
             print(f"seed {seed}: kill at {kill['t']:.2f}s, clip starts at {start:.2f}s")
         else:
@@ -802,6 +829,11 @@ def main() -> int:
         # the split holds that stop the hall for 1.55s a cast, which is a
         # dilation source no ultimate had when the old `lead + 14` was written.
         cap = 150 if a.full else a.lead * 2.6 + 16
+        if a.at is not None:
+            # the same 2.6x dilation allowance the lead path uses -- a window
+            # of MATCH seconds is longer in VIDEO seconds, and hit stop plus
+            # the split holds are where the difference comes from
+            cap = a.window * 2.6 + 6
         d_off = 0.0
         if a.ab:
             print("  rendering director OFF ...")
