@@ -29,7 +29,7 @@ const REPO = path.resolve(__dirname, '..');
  * grepped before saying "go and watch it in the app".
  *
  * IF YOU ADD A RELIC, THIS LINE IS PART OF THE CARRY. */
-const GAME = process.env.SWB_GAME || '02-chain/sc-crossweave.html';
+const GAME = process.env.SWB_GAME || '02-chain/sc-bloodletting.html';
 
 /* `npm run identity` has advertised this flag since the shell was written and
  * nothing read it, so the script started the app normally and the gate could

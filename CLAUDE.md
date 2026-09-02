@@ -12,7 +12,7 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-bloodletting.html    IN FLIGHT, NOT THE BUILD OF RECORD
+02-chain/sc-bloodletting.html    BUILD OF RECORD  <- app/main.js GAME
                                                    32 relics . BLOODMIRROR AND
                                                    BLOODLETTING - the scythe
                                                    throws THREE bloody spectral
@@ -24,10 +24,15 @@ short-form video for TikTok and YouTube Shorts.
                                                    STACKS TO 8 INSTEAD OF 4, FOR
                                                    THE BLADE TOO. FOE ONLY.
                                                    The ceiling is PER-FIGHTER.
-                                                   BLADE NOT YET SETTLED -- the
-                                                   curve crosses near 9 and the
-                                                   wide measurement is the
-                                                   answer. `TUNED_BM` is None
+                                                   Blade 21 -> 9.5, MEASURED
+                                                   WIDE AND TWICE: 12,648 fights
+                                                   a pass, both sides, two seed
+                                                   blocks, crossings 9.46 and
+                                                   9.63. NO BISECTION
+                                                   verify 12/13 (the known one)
+                                                   Bloodmirror 50.6%, spread
+                                                   23.0pp -- the widest since
+                                                   Thornshear
                                                    engine_ab 3720/3720 on the 31
                                                    probe 24/25 (the one FAIL is
                                                    the registered tick count)
@@ -41,7 +46,7 @@ short-form video for TikTok and YouTube Shorts.
                                                    times" and `_tagFirst`'s box
                                                    is 760. Provably inert:
                                                    engine_ab 3720/3720
-02-chain/sc-crossweave.html      the link before it  <- app/main.js GAME
+02-chain/sc-crossweave.html      the link before it
                                                    31 relics · GLOAMWIRE AND
                                                    CROSSWEAVE — a magazine of 24
                                                    triple-shot volleys at twice
@@ -186,7 +191,8 @@ scythe in a fan; they fly 0.55s at 420, stick, drift on at 26 px/s, and each
 mills a 138 disc for 4.5s - 3 damage and 2 Hemorrhage every 0.22s, shoving 120
 along its own bearing, FOE ONLY. **While one stands the quarry's bleed ceiling
 is 4 -> 8, and the blade feeds it too.** Blade **not yet settled**.
-`06-docs/v59/bloodmirror-build-v59.md`.
+`06-docs/v59/bloodmirror-build-v59.md`. **verify 12/13, Bloodmirror 50.6%,
+roster spread 23.0pp -- the widest since Thornshear and worth watching.**
 
 > **THE CEILING'S THREE SILENT FAILURES ARE UNREACHABLE RATHER THAN CHECKED
 > FOR.** `STATUS.hemorrhage.maxStacks` is ONE NUMBER shared by every fighter and

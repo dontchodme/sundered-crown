@@ -261,6 +261,46 @@ of bug in this repo to see, because both halves stay internally consistent.
 reads as drifting rather than milling — a held weapon gets its sense of speed
 from the ball swinging it, and these have no ball.
 
+**AND "THE CENTRE" TOOK THREE GOES, BECAUSE IT IS THREE DIFFERENT POINTS.**
+
+```
+read off the path constants   (L*0.515,  -W*0.51)
+the ink's BOUNDING-BOX centre (L*0.4455, -W*0.5435)   farthest ink 59.0
+the ink's 1-centre (minimax)  (L*0.4455, -W*0.2622)   farthest ink 54.6
+the ink's CENTRE OF MASS      (L*0.6165, -W*0.2996)   farthest ink 73.3
+```
+
+The path constants were 7.6 units out on their own, because the crescent's FILL
+never reaches its nominal control point at `L*1.03` and the snath is a STROKE
+whose round cap runs 4 units *behind* the origin — v56's *"measure the bounding
+box of the parts, not the skeleton's extent"*, on a second relic. Rick then
+said it *still* was not spinning on its centre, and he was right: **a crescent's
+ink is nearly all in the blade**, so the bounding box's middle is a point with
+almost no object at it. The centre of MASS ships.
+
+**AND `rmax` IS NOT A CHECK FOR THIS.** The first version verified that the
+farthest ink stayed a constant distance from the pivot as the copy turned — which
+is true of *any* pivot, because rotation preserves distance. A vacuous check that
+passes is worse than none.
+
+## 4.3a AND THE SPIN DIRECTION TOOK THREE GOES TOO, FOR A WORSE REASON
+
+Rick said *"the scythes spin the wrong way"* twice, about the same direction,
+because the second fix undid the first. Cut one was `+`. Cut two flipped it and
+**was never rendered**, because cut three replaced the flip with the caster's own
+`f.spinDir` — which is `side === 0 ? 1 : -1`, so on side A it is `+1` and the
+"fix" silently restored the direction he had already rejected.
+
+`f.spinDir` is the wrong INPUT, not just a wrong sign. A scythe cuts with the
+inside of its crescent, so the direction that makes the edge lead is a property
+of **the artwork**, and the artwork is not mirrored between sides — tied to
+`spinDir` these lead with the edge on side A and with the spine on side B, and a
+clank would reverse three objects in mid-air every time their wielder lost a
+bind. It is a constant −1.
+
+**Settled by looking at both arms at once** rather than by reasoning about canvas
+handedness a fourth time: `05-reference/v59/bloodletting-spin-direction.png`.
+
 ## 4.4 AND THEN THERE WERE THREE
 
 `n` 3 in a fan of ±0.34 rad, `drift` 26 px/s along each copy's own fired
@@ -338,8 +378,29 @@ relic saying that with a near-zero blade it is entirely its ultimate. The brief
 expected the answer in 20–22 and the one-copy build crossed at about 16; three
 copies put it near **9**.
 
-The wide direct measurement — three points, both sides, two seed blocks,
-1054 fights a point a side a block — is in `bloodmirror-blade.json`.
+```
+[1] THE WIDE DIRECT MEASUREMENT — 1054 fights a point a side a block, 12,648
+    fights a pass. Both sides, two seed blocks, no bisection. RUN TWICE,
+    because the second pass fixed a same-frame ordering bug in `tickSpectre`
+    and that moved the sim.
+
+      dmg    A-side  B-side  blockA  blockB  POOLED        dmg   POOLED
+     8.00     44.1%   46.6%   47.1%   43.7%   45.4%       9.00    48.5%
+     9.00     47.6%   48.8%   47.9%   48.4%   48.2%      10.00    50.9%
+    10.00     52.8%   51.5%   52.0%   52.4%   52.2%      11.00    54.8%
+    crossing 9.46                                    crossing 9.63
+```
+
+**IT SHIPS AT 9.5 AND THE SECOND MEASUREMENT DID NOT MOVE IT.** 9.46 and 9.63
+are 0.17 apart against a block disagreement of 3.0–3.4pp, and CLAUDE.md is
+explicit: *a change smaller than the error bar is not a tune, it is churn that
+looks like one.* **The honest precision is the 9–10 interval**, not either
+decimal.
+
+`verify` on the shipped file: **12/13**, the thirteenth the known
+Lightkeeper/Farwarden 73.9s. Every relic in band, 36.6% to 59.6%, **spread
+23.0pp** against 20.3 before this relic — the widest it has been since
+Thornshear, and worth watching rather than acting on.
 
 ---
 
