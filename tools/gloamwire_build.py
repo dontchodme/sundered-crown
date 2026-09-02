@@ -119,12 +119,29 @@ RELIC = "gloamwire"
 BLADE_IN = 9.2       # design 6/6.1. A PLACEHOLDER in CLAUDE.md section 4.9's
                      # sense: measured on Chromium 141 at 29 relics and it must
                      # be swept on the pin at 31 before it is believed.
-TUNED_GW = 9.5       # MEASURED, and it is a WIDE DIRECT MEASUREMENT rather than
+TUNED_GW = 7.25      # MEASURED, and it is a WIDE DIRECT MEASUREMENT rather than
                      # a bisection: `gloamwire_sweep.py --only 1`, three blades
                      # x both sides x two seed blocks x 1020 fights a cell,
                      # 12,240 in total, on the pin at 31 relics.
                      #
-                     # AT speedMul 1.35 (the shipped one):
+                     # AT THE SHIPPED SHEET -- speedMul 1.35, the trio held,
+                     # and every volley detonating -- 12,240 fights:
+                     #     dmg    A-side  B-side  blockA  blockB   POOLED
+                     #    7.00     48.6%   47.9%   47.7%   48.7%    48.2%
+                     #    7.40     50.0%   52.1%   49.9%   52.2%    51.1%
+                     #    7.80     57.2%   56.5%   55.6%   58.0%    56.8%
+                     # monotone, side asymmetry -0.2pp, worst block 2.4pp,
+                     # crossing at 7.25.
+                     #
+                     # AND IT REPRODUCED A NUMBER MEASURED TWO RNG STREAMS AGO.
+                     # 7.25 was first measured on the stage-8 build; stage 9
+                     # dropped a `spawnFx` call and stage 11 moved the audio, so
+                     # these are different fights. Two cheap readings said it had
+                     # drifted UP -- the probe 46.7% at n=90, the curve 49.2% at
+                     # n=240 -- and both were wrong. The expensive pass settled
+                     # it, which is the day's lesson for the third time.
+                     #
+                     # BEFORE THE NOVA, at speedMul 1.35 and no hold:
                      #     dmg    A-side  B-side  blockA  blockB   POOLED
                      #    9.20     46.5%   46.8%   46.3%   46.9%    46.6%
                      #    9.80     53.8%   52.8%   53.7%   52.9%    53.3%

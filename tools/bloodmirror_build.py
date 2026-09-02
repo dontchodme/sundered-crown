@@ -83,11 +83,26 @@ TUNED_BM = 9.5       # MEASURED, and it is a WIDE DIRECT MEASUREMENT rather
                      #     9.00    47.6%   48.8%   47.9%   48.4%   48.2%
                      #    10.00    52.8%   51.5%   52.0%   52.4%   52.2%
                      #
-                     # Monotone. 50% crosses at 9.46 and 9.5 is the shipped
-                     # value; THE HONEST PRECISION IS THE 9-10 INTERVAL, not
-                     # the decimal -- block disagreement is 3.4pp at its worst
-                     # (dmg 8, 47.1 against 43.7), which is n~700's floor
-                     # showing up at n=2108 a point.
+                     # Monotone, crossing at 9.46.
+                     #
+                     # AND IT WAS MEASURED TWICE, ON TWO BUILDS, BECAUSE THE
+                     # SECOND ONE MOVED THE SIM. Fixing the same-frame hit-stop
+                     # ordering (see `tickSpectre`) let copies two and three
+                     # pay on a frame the first had already frozen, so the
+                     # whole thing was re-run at 9/10/11:
+                     #
+                     #     dmg    A-side  B-side  blockA  blockB  POOLED
+                     #     9.00    49.0%   48.0%   49.2%   47.7%   48.5%
+                     #    10.00    51.5%   50.3%   52.4%   49.4%   50.9%
+                     #    11.00    56.5%   53.2%   53.5%   56.1%   54.8%
+                     #
+                     # Crossing 9.63. THE SHIPPED VALUE STAYS 9.5, and that is
+                     # the rule rather than laziness: 9.46 and 9.63 are 0.17
+                     # apart against a block disagreement of 3.0-3.4pp, and
+                     # CLAUDE.md is explicit that "a change smaller than the
+                     # error bar is not a tune, it is churn that looks like
+                     # one." THE HONEST PRECISION IS THE 9-10 INTERVAL, not
+                     # either decimal.
                      #
                      # AND IT IS 11.5 POINTS BELOW WHAT THE BRIEF EXPECTED.
                      # Section 5 said "expect the answer in 20-22"; the
@@ -607,10 +622,8 @@ S2 = [
 
          EACH STARTS TURNED TO ITS OWN BEARING (`spin: a`), so the three are
          visibly three objects from the first frame rather than one silhouette
-         stamped three times. AND EACH CARRIES THE CASTER'S TURN DIRECTION AS
-         IT WAS AT THE CAST (`dir`), because `spinDir` is per-fighter, is `-1`
-         on side B, and is FLIPPED BY A CLANK -- so a copy reading it live
-         would reverse in mid-air every time its wielder lost a bind.
+         stamped three times. `dir` IS -1 AND IT IS A CONSTANT: see
+         `tickSpectre` for why it is not `f.spinDir`.
 
          NOT `harrow`, AND THE COLLISION IS ON THIS RELIC'S OWN ROW. Lastlight
          is the SANCTIFIED scythe -- the same weapon -- and `smite` is
@@ -638,7 +651,7 @@ S2 = [
                              ax: Math.cos(a), ay: Math.sin(a),
                              t: 0, flight: u.flight, stand: 0, life: u.life,
                              disc: u.disc, tick: u.tick, cd: 0,
-                             spin: a, dir: f.spinDir, ticks: 0,
+                             spin: a, dir: -1, ticks: 0,
                              landed: false, dead: false, fade: 1 });
       }
       return;
@@ -766,15 +779,30 @@ S2 = [
            these have no ball. `=== undefined` and not `|| 1` (CLAUDE.md
            4.3).
 
-           AND THE DIRECTION IS THE CASTER'S OWN `spinDir`, WHICH IS WHY THE
-           FIRST TWO CUTS WERE BOTH WRONG. Rick: "the scythes spin the wrong
-           way." A hardcoded sign is right for one side and wrong for the
-           other -- `Fighter.spinDir` is `side === 0 ? 1 : -1`, AND A CLANK
-           FLIPS THE LOSER'S -- so there is no constant that could have been
-           correct. The copies are copies of a weapon that is turning a
-           particular way, and they take that way with them: `S.dir` is
-           snapshotted at the cast so a clank AFTER the throw cannot reach back
-           and reverse three objects already in the air. */
+           AND THE DIRECTION IS A CONSTANT -1, WHICH TOOK THREE GOES AND ONE
+           RENDERED STRIP. Rick, twice: "the scythes spin the wrong way."
+
+           Cut one was `+`. Cut two flipped it to `-` and was never rendered,
+           because cut three replaced it with the caster's own `f.spinDir` --
+           which is `side === 0 ? 1 : -1`, so on side A it is `+1` and the
+           "fix" silently restored the direction he had already rejected. That
+           is the whole of why he saw the same thing twice.
+
+           `f.spinDir` IS THE WRONG INPUT AND NOT JUST A WRONG SIGN. A scythe
+           cuts with the INSIDE of its crescent, so the direction that makes
+           the edge lead is a property of THE ARTWORK -- and the artwork is not
+           mirrored between sides. Tied to `spinDir` these would lead with the
+           edge on side A and with the spine on side B, and a clank would
+           reverse three objects in mid-air every time their wielder lost a
+           bind.
+
+           SETTLED BY LOOKING, on both arms at once rather than by reasoning
+           about canvas handedness a fourth time:
+           `05-reference/v59/bloodletting-spin-direction.png` is six frames of
+           each. At `+` the crescent's opening trails and the blade leads with
+           its spine; at `-` the opening faces into the travel and it scoops.
+           `dir` is kept as a field rather than folded into the sign so the
+           choice has somewhere to live. */
         S.spin += dt * f.w.spin * S.dir
                 * (u.spinMul === undefined ? 1 : u.spinMul);
 

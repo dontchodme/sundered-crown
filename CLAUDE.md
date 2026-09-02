@@ -55,10 +55,15 @@ short-form video for TikTok and YouTube Shorts.
                                                    and MEASURED AT -7.7pp
                                                    because a faster arrow
                                                    reaches the WALL sooner.
-                                                   Blade RE-SWEPT at that speed:
-                                                   crossing 9.01 -> 9.50, so the
-                                                   speed cost 0.49 of blade.
-                                                   NO SOUND, NO BEAT.
+                                                   THE TRIO IS HELD (no arrow
+                                                   flies naked) and EVERY VOLLEY
+                                                   DETONATES -- 72 novas a cast,
+                                                   DRAWN not spawned, so their
+                                                   size is free at 2790/2790.
+                                                   The pop is fitted to Rick's
+                                                   own reference, one per nova,
+                                                   flammed 26ms. NO BEAT YET.
+                                                   Blade 7.25 on 12,240 fights.
                                                    verify 12/13 (the known one)
                                                    Gloamwire 51.2%, spread 20.3
                                                    art A/B 2790/2790 on all 31
