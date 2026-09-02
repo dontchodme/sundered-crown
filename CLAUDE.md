@@ -12,7 +12,7 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-crossweave.html      IN FLIGHT, NOT THE BUILD OF RECORD
+02-chain/sc-crossweave.html      BUILD OF RECORD  <- app/main.js GAME
                                                    31 relics · GLOAMWIRE AND
                                                    CROSSWEAVE — a magazine of 24
                                                    triple-shot volleys at twice
@@ -40,7 +40,7 @@ short-form video for TikTok and YouTube Shorts.
                                                    NO strand
 02-chain/sc-gloamwire.html       the link before it, 31 relics, ULT STUBBED
                                                    engine_ab 3480/3480
-02-chain/sc-garrote.html         BUILD OF RECORD  30 relics · RAVELBONE AND
+02-chain/sc-garrote.html         the link before it, 30 relics · RAVELBONE AND
                                                    GARROTE
                                                    everything below, plus A
                                                    BARBED WIRE RING AT THE
