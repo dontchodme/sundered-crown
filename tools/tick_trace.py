@@ -7,8 +7,9 @@ rolling window. Same fight, same seed, same opponent, same contact.
 """
 from __future__ import annotations
 import pathlib, sys, json
-sys.path.insert(0, "/mnt/user-data/uploads/sundered-crown/tools")
-from scpage import game
+HERE = pathlib.Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))  # v63: was a hardcoded Cowork container path; runs from tools/ on any machine now
+from scpage import game, resolve_game
 
 INSTALL = r"""(mode) => {
   const m0 = new AC.Match(AC.WEAPONS[0].id, AC.WEAPONS[1].id, 1);
@@ -58,7 +59,7 @@ JS = r"""([donor, foe_, seed, base, push, win, rate, width, top, speed]) => {
   return rows;
 }"""
 
-G = pathlib.Path("/mnt/user-data/uploads/sundered-crown/02-chain/sc-garrote.html")
+G = resolve_game("02-chain/sc-garrote.html")  # v63: repo-relative
 with game(game_path=G) as (page, errors):
     for mode in ("top3", "fifo"):
         page.evaluate(INSTALL, mode)

@@ -271,7 +271,22 @@
        five drawn holes and a jet, not a particle field. */
     cindercleave: { mode: 'burst', n: 900, sp: [70, 330], grav: -240,
                     drag: 2.2, life: [0.30, 0.95], heavy: 0.06,
-                    size: [0.5, 2.0], spawn: 0.12, up: 40, atSelf: 1 }
+                    size: [0.5, 2.0], spawn: 0.12, up: 40, atSelf: 1 },
+    /* THE COPY LEAVING THE BLADE, AND `atSelf` IS WHY IT LEAVES THE RIGHT ONE.
+       A `burst` is drawn at the FOE -- right for the four novas that mode was
+       written for, which are cast AT somebody, and wrong for a thing THROWN
+       FROM the caster. Nothing has landed on the quarry when this plays; the
+       copy has not even arrived.
+
+       Heavier and wetter than the sparks above it: real gravity, a slow fall
+       and a long tail, because what is coming off the weapon is blood rather
+       than light. It is gone well before the spectre sticks, which is
+       deliberate -- the STICK has its own voice and its own beat, and a field
+       still running under it would blunt the one frame the design says has to
+       read. */
+    bloodmirror: { mode: 'burst', n: 1200, sp: [150, 600], grav: 300,
+                   drag: 2.3, life: [0.26, 0.78], heavy: 0.08,
+                   size: [0.8, 2.4], spawn: 0.06, up: 20, atSelf: 1 }
   };
 
   function Field() {

@@ -41,10 +41,12 @@ above it -- CLAUDE.md section 0 records that discrepancy). So
 `"24 volleys of 3 strung arrows; the strand shoves"` is 48 characters and
 **fits**, and that open decision closes itself.
 
-    BUT CHARACTERS ARE THE WRONG UNIT AND THE PANEL IS THE REAL GATE. The
-    scrunch panel is 536px on one line at 25px and a 48-character tip can be
-    583px. `tip_audit.py` measures pixels. A tip that passes `verify` and
-    overflows the card is exactly what happened to the curse line in v53.
+    BUT CHARACTERS ARE THE WRONG UNIT, AND THE SURFACE NAMED HERE WAS WRONG.
+    This said the scrunch panel, at 536px on one line. Cowork's v59 tip-surface
+    work corrects it: the panel WRAPS to three lines and always did. The
+    surface that can overflow is `_tagFirst` -- one line, 25px, no wrap, no
+    clip, no measure -- and `tip_audit.py` measures that box in the bundled
+    face. It has still not been run on this relic.
 
 **AND THE 2% FLOOR MEANS GATE 1'S `verify` WILL FAIL THE BAND.** The design
 measured Gloamwire at 2% with Crossweave stubbed -- the sharpest
@@ -157,16 +159,26 @@ ULT = {
                            # parallel and over two narrower fans.
     "cadmul":       0.5,   # design 5. Below 1 is FASTER; Marrowdraw uses 4 to
                            # go drastically slower.
-    "speedmul":     1.5,   # STAGE 6, and a PLACEHOLDER like the blade was.
-                           # Rick asked for "extra projectile speed" and not
-                           # for a number; `gloamwire_sweep.py --only 2` prices
-                           # it. 1.5 is 380 -> 570 and is a starting value.
+    "speedmul":    1.35,   # RICK'S, 2026-09-01, with the sweep in front of
+                           # him. 380 -> 513 px/s. NOT free: measured -7.7pp at
+                           # n=900 an arm and 0.49 of BLADE on the wide pass,
+                           # about 5.5 points -- because a faster arrow reaches
+                           # the WALL sooner (wall 83.8% -> 85.7%) and the bow
+                           # only ever lands 7.7% of what it fires. A picture
+                           # bought with points, like Cindercleave's shove.
     "dmgmul":       1.4,   # design 6, the +40% arm. Rick took all four
                            # strength clauses and the blade pays.
     "strandw":     90.0,   # design 4.2. Above the crossover at shot.r = 24, so
                            # "arrow only" is near zero BY CONSTRUCTION. Rick
                            # took above the line.
-    "strandknock": 260.0,  # design 6.2. A COST, monotone -9 points across the
+    "strandknock": 260.0,
+    # ---- STAGE 8, all three PLACEHOLDERS and all three must be swept.
+    "novarad":      90.0,  # matches the strand's own reach (34 + 90 = 124), so
+                           # a nova covers the ground its own lightning did.
+    "novadmg":      0.35,  # x the BLADE. 9.5 x 0.35 = 3.3 against one arrow's
+                           # 9.5 x 1.4 = 13.3. Rick: "less than an arrow."
+    "novaknock":   420.0,  # against the strand's 260. Rick: "the knockback
+                           # should be most of the payoff."  # design 6.2. A COST, monotone -9 points across the
                            # sweep, bought for the look and worth ~a point of
                            # blade.
 }
@@ -851,6 +863,505 @@ S6 = [
 ]
 
 
+# --------------------------------------------------------------- stage seven --
+# HOLD THE TRIO. Rick, after watching the built relic: *"what if the arrows
+# stuck until all 3 had a chance to collide? that way their trio is always alive
+# together"*, and then *"the stuck arrow is inert, and the strand still
+# shoves."*
+#
+# `06-docs/v61/crossweave-amendment-v61.md` is the design and this implements
+# it. WHY IT IS NEEDED, measured: only 51% of volleys still have all three
+# arrows by the first frame they can be drawn, and 31.5% of arrow-frames show an
+# arrow with no live neighbour -- 28.2% of them a lone survivor with both
+# siblings already in the wall.
+#
+# AND THE TWO THINGS THAT COULD HAVE KILLED IT WERE MEASURED FIRST:
+#   * `CONFIG.shot.maxLive` is 64 and `spawnShot` SHIFTS the oldest off the
+#     front SILENTLY at the cap -- which would delete the very arrows this
+#     exists to keep. Peak live goes 15 -> 23. Asserted by the probe, not
+#     assumed.
+#   * a stuck arrow sits a median 0.37s and at most 1.84s over 3,204 volleys,
+#     so a wall does not grow a hedge.
+
+S7 = [
+
+("stuck-inert", '''      const s = this.shots[i];
+      /* --- THE HOMING.''',
+ '''      const s = this.shots[i];
+      /* A STUCK ARROW IS INERT AND THIS ONE LINE IS THE WHOLE OF IT. Rick's
+         ruling, verbatim: "the stuck arrow is inert, and the strand still
+         shoves." It has already had its effect -- it hit, or was batted down,
+         or reached stone -- so it does not move, cannot hit, cannot be hit,
+         cannot be parried and cannot resolve a second time. `continue` before
+         any of that is the cheapest possible statement of it, and it is
+         auditable: nothing below this line can reach a stuck shot.
+
+         WHAT IT IS STILL DOING is being a strand ENDPOINT. `tickNet` and
+         `drawStrands` both walk `m.shots` and neither tests `stuck`, so a
+         volley that has lost an arrow to the wall keeps its lightning anchored
+         where that arrow landed -- which is the entire reason for this
+         stage. */
+      if (s.stuck) continue;
+      /* --- THE HOMING.'''),
+
+("hold-and-release", '''      if (dead) this.shots.splice(i, 1);
+    }
+  }''',
+ '''      /* HELD, NOT REMOVED. A Crossweave arrow that resolves stays in
+         `m.shots` as an inert anchor so its volley's strands survive it. Every
+         other projectile in the game is spliced out here exactly as before --
+         the branch is gated on `s.net` and reaches nothing else. */
+      if (dead && s.net && !s.stuck){
+        s.stuck = true; s.vx = 0; s.vy = 0; s.life = 1e9;
+      } else if (dead) this.shots.splice(i, 1);
+    }
+    this.releaseVolleys();
+  }
+
+  /* THE VOLLEY CLEARS AS A UNIT, and it is a separate pass rather than part of
+     the loop above because releasing a volley touches arrows at other indices
+     and a reverse loop that splices its own siblings is how an off-by-one gets
+     shipped.
+
+     RELEASED WHEN EVERY ARROW PRESENT IS STUCK, not when three are. A volley
+     whose arrow was shifted off the front by `CONFIG.shot.maxLive` would
+     otherwise be held for ever -- measured at peak 23 against a cap of 64, so
+     it cannot happen today, and this does not rely on that staying true. */
+  releaseVolleys(){
+    if (!this.shots.length) return;
+    const byVolley = new Map();
+    for (const s of this.shots){
+      if (!s.net) continue;
+      let g = byVolley.get(s.volley);
+      if (!g) byVolley.set(s.volley, g = []);
+      g.push(s);
+    }
+    if (!byVolley.size) return;
+    let done = null;
+    for (const [vid, g] of byVolley){
+      let all = true;
+      for (const s of g) if (!s.stuck){ all = false; break; }
+      if (all) (done || (done = [])).push(vid);
+    }
+    if (!done) return;
+    for (const vid of done){
+      const g = byVolley.get(vid);
+      this.volleyDone(g);
+      for (let i = this.shots.length - 1; i >= 0; i--)
+        if (this.shots[i].net && this.shots[i].volley === vid)
+          this.shots.splice(i, 1);
+    }
+  }
+
+  /* STAGE 8 FILLS THIS IN. In stage 7 a completed volley simply clears, so the
+     hold can be measured on its own before a damage channel is added on top of
+     it -- the same reason the brief separated the fan from the strand. */
+  volleyDone(g){}'''),
+
+]
+
+
+# --------------------------------------------------- stage seven, the guard --
+# THE CAP IS SHARED AND HOLDING ARROWS MADE IT BITE. `CONFIG.shot.maxLive` is 64
+# across BOTH fighters, so Gloamwire's 24 held arrows plus an opponent's volley
+# ultimate can cross it -- measured at 3 evictions in 12,327 arrows, on 0.004%
+# of frames. Small, and the check exists because a SILENT deletion invalidates
+# whatever it deleted.
+#
+# THE FIX IS WHICH ARROW GOES, NOT HOW MANY THERE ARE. `shift()` drops the
+# OLDEST, which may be an arrow still in flight that has not yet had its effect.
+# A STUCK arrow has already resolved -- it hit, or was parried, or reached stone
+# -- and is inert scenery holding a strand endpoint. Dropping that first costs a
+# strand a little early; dropping a flying one costs a shot the relic bought.
+#
+# GATED ON `s.stuck`, WHICH ONLY THIS RELIC EVER SETS, so all four call sites
+# behave exactly as before for every other projectile in the game.
+
+S7B = [
+
+("makeroom", '''  spawnShot(f, angle){
+    const S = f.w.shot;''',
+ '''  /* ROOM FOR ONE MORE, AND IT CHOOSES WHAT TO LOSE. The plain `shift()` this
+     replaces drops the oldest shot in the hall, which may be an arrow still in
+     flight; a Crossweave arrow that is STUCK has already resolved and is inert.
+     Losing one of those early costs a strand a fraction of a second. Losing a
+     flying shot costs a hit that was going to happen.
+
+     Inert for every other relic in the game: nothing else sets `stuck`. */
+  makeRoom(){
+    if (this.shots.length < CONFIG.shot.maxLive) return;
+    for (let i = 0; i < this.shots.length; i++){
+      if (this.shots[i].stuck){ this.shots.splice(i, 1); return; }
+    }
+    this.shots.shift();
+  }
+
+  spawnShot(f, angle){
+    const S = f.w.shot;'''),
+
+]
+
+
+# --------------------------------------------------------------- stage eight --
+# THE NOVA. Rick: *"how about when all 3 connect the arrows explode in a nova
+# for more damage and knockback?"* and, on what "connect" means, *"once all 3
+# arrows expire. so either by the wall or by hitting an enemy. should mean all of
+# them explode."* And on the scale: *"less than an arrow. its more about the
+# visual show. so i think the knockback should be most of the payoff."*
+#
+# SO THE TRIGGER IS THE VOLLEY COMPLETING, WHICH IS EVERY VOLLEY. 24 a cast at
+# 5.9 a second, three detonations each -- 72 novas in 4.1 seconds. The strict
+# reading (all three landing ON the quarry) was measured first and is dead: 3
+# volleys in 8,315, one fight in fifty.
+#
+# THE FAILURE MODE IS DEADFALL'S AND IT IS NAMED SO IT CANNOT BE FOUND LATE.
+# v54 paid a pentagram in five charges of `stamp/5` -- five damage numbers over
+# the ball across 42 milliseconds, every number right, and it read as noise.
+# Rick's own fix was ONE large mine. Seventy-two novas in four seconds is that
+# shape again, and the question it has to answer is whether three detonations at
+# three points read as one event.
+
+S8 = [
+
+("nova", '''  /* STAGE 8 FILLS THIS IN. In stage 7 a completed volley simply clears, so the
+     hold can be measured on its own before a damage channel is added on top of
+     it -- the same reason the brief separated the fan from the strand. */
+  volleyDone(g){}''',
+ '''  /* THE VOLLEY DETONATES. Every arrow of a completed volley explodes where it
+     stuck -- which is mostly ON THE WALL, because 85.7% of Crossweave arrows
+     end there, so this is a rim of blasts around the hall far more often than
+     three around the quarry.
+
+     THE KNOCKBACK IS THE PAYOFF AND THE DAMAGE IS NOT. Rick's scale, verbatim:
+     "less than an arrow. its more about the visual show. so i think the
+     knockback should be most of the payoff." `novaDmg` is a multiplier of the
+     BLADE, not of the arrow, so at %NOVADMG% it is about a quarter of what one
+     Crossweave arrow carries.
+
+     THE IMPULSE IS FROM THE BLAST, NOT FROM THE ARCHER. `resolveHit`'s own
+     knock fires away from the CASTER, which for a nova standing on a wall on
+     the far side of the room points the wrong way entirely. The Thicket's rule:
+     a hazard that is not the caster needs its own bearing.
+
+     AND IT APPLIES CURSE, WHICH IS RICK'S RULING OVER THIS BUILDER'S SAFE
+     DEFAULT. The first cut passed `over.onHit = {}` to suppress it, reasoning
+     that seventy-two tiny blows a cast would push seventy-two tiny memories
+     into a three-deep pool. Rick, 2026-09-01: "the novas should also apply
+     curse."
+
+     UNDER TODAY'S CURSE RULE THE WORRY IS MISPLACED, WHICH IS WHY IT IS SAFE.
+     `pushCurse` keeps the three BIGGEST and displaces the WEAKEST, so a
+     3.2-damage nova memory offered to a pool already holding the blade's
+     13-damage ones is refused. It refreshes the clock and adds nothing --
+     v49 section 5b's own finding arriving from the other side.
+
+     ** IT IS NOT SAFE UNDER THE PENDING RULE. ** `06-docs/CLAIMS.md` carries
+     a school-wide change, Rick's, 2026-09-02: the pool keeps the LAST 3 hits
+     instead of the 3 BIGGEST, marked to land AFTER Gloamwire ships. Under
+     LAST-3 these seventy-two tiny memories ARE the last three almost always,
+     and this ultimate would overwrite its own school's memory with its own
+     noise. Whoever lands that change must re-price this path. */
+  volleyDone(g){
+    if (!g || !g.length) return;
+    const src = g[0].own === "a" ? this.a : this.b;
+    const foe = g[0].own === "a" ? this.b : this.a;
+    const u = src.w.ult;
+    if (!u || u.novaKnock === undefined) return;
+    const R = CONFIG.physics.ballR;
+    let caught = 0;
+    for (const s of g){
+      /* A FIRST CUT AND NOTHING MORE. The register is Rick\\'s (rule 2) and this
+         is the engine\\'s existing vocabulary -- a ring and a spark burst in the
+         school\\'s own palette -- so the payload is not invisible while it waits
+         for him. An ultimate that shoves with nothing on screen is the fault he
+         rejected on the stage-3 clip. */
+      this.ring(s.x, s.y, src.aff.glow, 3, u.novaRad, 0.28, 4);
+      this.spawnFx(s.x, s.y, src.aff.core, 10, 280, 0.34, 2.8);
+      if (!foe.alive || !src.alive) continue;
+      const dx = foe.x - s.x, dy = foe.y - s.y;
+      const d = Math.hypot(dx, dy);
+      if (d > u.novaRad + R) continue;
+      caught++;
+      const dl = d || 1;
+      foe.vx += (dx / dl) * u.novaKnock;
+      foe.vy += (dy / dl) * u.novaKnock;
+      const seg = { ax: s.x - 8, ay: s.y, bx: s.x + 8, by: s.y, a: 0 };
+      this.resolveHit(src, foe, s.x, s.y, seg, u.novaDmg);
+    }
+    if (caught){
+      this.shake = Math.min(38, this.shake + 4);
+      SFX.play("clank");
+    }
+  }'''),
+
+("ult-nova", '''          strandW:%STRANDW%, strandKnock:%STRANDKNOCK%,''',
+ '''          strandW:%STRANDW%, strandKnock:%STRANDKNOCK%,
+          /* THE NOVA. PLACEHOLDERS, all three, and they must be swept.
+             `novaDmg` is a multiplier of the BLADE: at %NOVADMG% one nova is
+             about a quarter of one Crossweave arrow, which is Rick\\'s scale --
+             "less than an arrow ... the knockback should be most of the
+             payoff." `novaKnock` %NOVAKNOCK% against the strand\\'s
+             %STRANDKNOCK% is where that payoff is. */
+          novaRad:%NOVARAD%, novaDmg:%NOVADMG%, novaKnock:%NOVAKNOCK%,'''),
+
+]
+
+
+# ---------------------------------------------------------------- stage nine --
+# A BIG PURPLE EXPLOSION. Rick: *"can we make the animation for the novas
+# louder? a big purple explosion."*
+#
+# AND IT IS DRAWN, NOT SPAWNED, WHICH IS THE WHOLE ENGINEERING OF THIS STAGE.
+# `spawnFx` draws from `this.rng()`, so every particle it makes is part of the
+# simulation's own random stream -- Cindercleave's note, verbatim: "The sparks
+# are DRAWN and not spawned: `spawnFx` draws from `this.rng()`, so a debris
+# field would have moved every Cindercleave fight and re-invalidated the blade."
+# Stage 8's nova used `spawnFx`, so making it louder would have moved every
+# Gloamwire fight -- and would do so again every time the explosion was asked to
+# grow. This replaces it with a presentation record the RENDERER expands, so the
+# art is free and provable: `engine_ab` must come back identical on all 31.
+#
+# TICKED IN `tickPresentation` AND NOT ON THE NORMAL PATH, which is v54's
+# lesson: a detonation sets `hitStop`, and `step()` returns through
+# `decayImpactOnly` for as long as that runs, so a clock on the normal path
+# freezes for exactly the frames the viewer is staring hardest at. Deadfall's
+# blast froze on the floor 96.2% of the time for precisely this reason.
+#
+# NO GRADIENTS AND NO `shadowBlur`. Seventy-two of these in four seconds is the
+# load that took Cindercleave's capture to 0.19 frames a second when a
+# `createRadialGradient` went inside a per-lobe loop. Flat discs under
+# `lighter` do the same job -- which is what that fix was.
+
+S9 = [
+
+("nova-record", '''      this.ring(s.x, s.y, src.aff.glow, 3, u.novaRad, 0.28, 4);
+      this.spawnFx(s.x, s.y, src.aff.core, 10, 280, 0.34, 2.8);''',
+ '''      /* A RECORD, NOT A PARTICLE FIELD. `spawnFx` would consume `this.rng()`
+         and put this relic's art inside its own simulation; the renderer
+         expands this into the whole explosion and the sim never knows. */
+      (this.novaFx || (this.novaFx = [])).push({
+        x: s.x, y: s.y, t: 0, life: 0.62,
+        aff: src.aff, seq: (this.novaSeq = (this.novaSeq || 0) + 1) });
+      if (this.novaFx.length > 120) this.novaFx.shift();'''),
+
+("nova-tick", '''  tickPresentation(dt){''',
+ '''  /* THE NOVA'S CLOCK, and it is here rather than in a tick for the reason
+     `tickPresentation` already gives about status tags: every detonation sets
+     `hitStop`, and a clock on the normal path stops for exactly the frames the
+     viewer is watching hardest. Deadfall shipped that bug and 96.2% of its
+     blasts froze mid-expansion. */
+  tickNovaFx(dt){
+    if (!this.novaFx || !this.novaFx.length) return;
+    for (let i = this.novaFx.length - 1; i >= 0; i--){
+      const f = this.novaFx[i];
+      f.t += dt;
+      if (f.t >= f.life) this.novaFx.splice(i, 1);
+    }
+  }
+
+  tickPresentation(dt){
+    this.tickNovaFx(dt);'''),
+
+("nova-draw", '''    this.drawStrands(m);
+    this.drawShots(m);''',
+ '''    this.drawNovas(m);
+    this.drawStrands(m);
+    this.drawShots(m);'''),
+
+("nova-draw-fn", '''  drawStrands(m){
+    if (!m.shots.length) return;''',
+ '''  /* THE NOVA, EXPANDED FROM ONE RECORD. Everything here is derived from `t`
+     and from `shellHash(seq, k)` -- no stored state, no `this.rng()`, no
+     gradients and no `shadowBlur`. Seventy-two of these live inside four
+     seconds and the last two are why: they are the pair that took
+     Cindercleave's capture to 0.19 frames a second.
+
+     THE SHAPE IS A FLASH, A SHELL AND A SPRAY. The flash is one bright disc
+     that dies almost at once and is what makes it read as a detonation rather
+     than as a bubble. The shell is two rings racing outward at different rates
+     so the edge has thickness. The spray is sixteen streaks whose bearings are
+     hashed off the record's own sequence number, so every blast is a different
+     one and a replay draws the same different one. */
+  drawNovas(m){
+    if (!m.novaFx || !m.novaFx.length) return;
+    const c = this.ctx;
+    c.save();
+    c.globalCompositeOperation = "lighter";
+    c.lineCap = "round";
+    for (const f of m.novaFx){
+      const k = clamp(f.t / f.life, 0, 1);
+      const ease = 1 - Math.pow(1 - k, 2.2);
+      const fade = 1 - k;
+      const R = 96 * ease;
+
+      /* THE FLASH -- gone in the first sixth, and it is the whole "boom". */
+      const fl = clamp(1 - k * 6, 0, 1);
+      if (fl > 0){
+        c.globalAlpha = 0.55 * fl;
+        c.fillStyle = f.aff.glow;
+        c.beginPath(); c.arc(f.x, f.y, 26 * (0.5 + fl), 0, TAU); c.fill();
+      }
+
+      /* THE SHELL -- two rings, the outer one thinner and further. */
+      c.globalAlpha = 0.50 * fade;
+      c.strokeStyle = f.aff.glow;
+      c.lineWidth = 5 * fade + 1;
+      c.beginPath(); c.arc(f.x, f.y, R, 0, TAU); c.stroke();
+      c.globalAlpha = 0.30 * fade;
+      c.strokeStyle = f.aff.core;
+      c.lineWidth = 9 * fade + 1;
+      c.beginPath(); c.arc(f.x, f.y, R * 0.68, 0, TAU); c.stroke();
+
+      /* THE SPRAY. Sixteen streaks, each on its own hashed bearing and its own
+         hashed reach, drawn from a point that leaves the centre so the blast
+         opens rather than inflates. */
+      c.globalAlpha = 0.60 * fade * fade;
+      c.strokeStyle = f.aff.core;
+      c.lineWidth = 2.2;
+      c.beginPath();
+      for (let j = 0; j < 16; j++){
+        const a = shellHash(f.seq, j) * TAU;
+        const rr = R * (0.72 + 0.55 * shellHash(f.seq + 977, j));
+        const ca = Math.cos(a), sa = Math.sin(a);
+        c.moveTo(f.x + ca * rr * 0.55, f.y + sa * rr * 0.55);
+        c.lineTo(f.x + ca * rr,        f.y + sa * rr);
+      }
+      c.stroke();
+    }
+    c.globalAlpha = 1;
+    c.restore();
+  }
+
+  drawStrands(m){
+    if (!m.shots.length) return;'''),
+
+]
+
+
+# ----------------------------------------------------------------- stage ten --
+# THE NOVA'S VOICE, FITTED TO RICK'S REFERENCE BY MEASUREMENT. He supplied
+# `Occultist Profane Boom Feels GOOD.wav` and named the two POPS in it (2.2s and
+# 3.9s), not the loud hit at the end -- which is a different sound entirely and
+# has essentially no sub at all (0.3% below 120 Hz against the pops' 56-64%).
+#
+# THERE IS NO SAMPLER IN THIS PROJECT, so a reference cannot be used, only
+# measured and matched. `nova_voice_lab.py` renders candidates through
+# `buildChain` -- the path that ships -- and scores them against five numbers
+# taken off the reference. The fit went 48.8 -> 6.4 over three passes and each
+# pass failed for a reason worth keeping:
+#
+#   THE TAIL. `exponentialRampToValueAtTime(0.0001, t+dur)` crosses 10% of peak
+#   at ~29% of `dur`, so a 0.52s tone is audible for 150 ms, not 500.
+#
+#   THE CENTROID. An 18-point grid on the sub/air ratio moved `<120Hz` by one
+#   point, because the sub RINGS and the bursts do not: over the window the
+#   body outweighs the top whatever its gain. The reference carries 43% of its
+#   energy above 120 Hz across the whole pop, so the top is a third of the
+#   sound and has to decay WITH the body.
+#
+#   AND `_burst`'s OWN BUG IS THE RIGHT SHAPE HERE. CLAUDE.md 4.5: it does not
+#   loop its 0.6s noise buffer. At `dur` 1.5 the gain envelope is still at ~15%
+#   when the buffer runs dry at 0.6s -- which is where this sound should end
+#   anyway. The defect and the requirement coincide, and that is worth knowing
+#   before somebody "fixes" `_burst`.
+#
+# ONE POP PER VOLLEY, NOT PER NOVA. Three novas fire together and 72 land in
+# 4.1s; at one voice each that is 17.5 a second with a 450 ms tail, which is
+# nine overlapping and is a texture rather than a sound. Per volley it is 5.9 a
+# second. Deadfall came down the same way for the same reason.
+
+S10 = [
+
+("nova-voice", '''      else if (kind === "clank"){''',
+ '''      else if (kind === "nova"){
+        /* MEASURED AGAINST RICK'S REFERENCE, not chosen. Rendered through
+           `buildChain` in an OfflineAudioContext: peak 0.198, attack 37 ms
+           (his pops 40-190), tail to 10% 449 ms (480-630), 67.3% under 120 Hz
+           in the first 60 ms (68-74%), centroid 969 Hz (520-710). Sub-heavy at
+           the open and broadband through the decay, which is the shape of a
+           deathbloom rather than of a crack.
+
+           PEAK 0.198 AGAINST DEADFALL'S 0.605 IS DELIBERATE. That one fires
+           three times a fight; this fires 5.9 times a second. */
+        this._tone (t, { freq: 92, to: 30, gain: 0.110, dur: 1.15, type:"sine" });
+        this._tone (t, { freq: 58, to: 24, gain: 0.083, dur: 1.27, type:"sine" });
+        this._burst(t, { freq: 300,  q: 0.7, gain: 0.300, dur: 1.50, type:"lowpass" });
+        this._burst(t, { freq: 1300, q: 0.7, gain: 0.255, dur: 1.30, type:"bandpass" });
+        this._burst(t, { freq: 3000, q: 0.8, gain: 0.120, dur: 0.75, type:"highpass" });
+      }
+      else if (kind === "clank"){'''),
+
+("nova-voice-call", '''    if (caught){
+      this.shake = Math.min(38, this.shake + 4);
+      SFX.play("clank");
+    }''',
+ '''    /* THE VOICE IS PER VOLLEY AND FIRES WHETHER OR NOT IT CONNECTED -- the
+       explosion happens either way and it is most of what this ultimate is for.
+       The SHAKE is still gated on a catch, because that is the part that says
+       the quarry was in it. */
+    SFX.play("nova");
+    if (caught) this.shake = Math.min(38, this.shake + 4);'''),
+
+]
+
+
+# -------------------------------------------------------------- stage eleven --
+# ONE POP PER NOVA. Rick, on the clip: *"the pop is perfect. lets do 1 per nova
+# instead of 1 per volly."* Stage 10 shipped one per VOLLEY on the reasoning
+# that 17.5 voices a second against a 450 ms tail is a texture; he has heard it
+# and ruled.
+#
+# AND THREE ON THE SAME FRAME NEED A STAGGER OR THEY ARE NOT THREE. A volley
+# completes when its LAST arrow resolves, so all three novas fire on one frame
+# at one `currentTime`. Identical voices scheduled at the same instant are
+# phase-coherent: the sines sum to 3x amplitude and the ear hears ONE louder
+# pop, which is the opposite of what "one per nova" is for. `clank` already
+# solves this in this file -- it spaces five partials by 1.5 ms apiece -- and
+# this uses the same trick at a length the ear reads as separate events rather
+# than as one thickened one.
+#
+# THE OFFSET IS DERIVED FROM THE ARROW'S OWN `idx`, so it is deterministic, it
+# is the same on a replay, and the three pops arrive in the order the fan was
+# fired in rather than in whatever order the volley happened to be stored.
+
+S11 = [
+
+("nova-voice-per-arrow", '''    /* THE VOICE IS PER VOLLEY AND FIRES WHETHER OR NOT IT CONNECTED -- the
+       explosion happens either way and it is most of what this ultimate is for.
+       The SHAKE is still gated on a catch, because that is the part that says
+       the quarry was in it. */
+    SFX.play("nova");
+    if (caught) this.shake = Math.min(38, this.shake + 4);''',
+ '''    if (caught) this.shake = Math.min(38, this.shake + 4);'''),
+
+("nova-voice-in-loop", '''      (this.novaFx || (this.novaFx = [])).push({''',
+ '''      /* ONE PER NOVA, STAGGERED BY THE ARROW'S OWN POSITION IN THE FAN.
+         Rick's, over one per volley. All three resolve on the same frame, so
+         without the offset they are one voice at 3x amplitude rather than
+         three voices -- `clank` spaces its five partials by 1.5 ms for the same
+         reason. `idx` is 0, 1, 2 across the fan, so the triplet always flams in
+         the order the arrows were loosed. */
+      SFX.play("nova", { k: s.idx || 0 });
+      (this.novaFx || (this.novaFx = [])).push({'''),
+
+("nova-voice-offset", '''        this._tone (t, { freq: 92, to: 30, gain: 0.110, dur: 1.15, type:"sine" });
+        this._tone (t, { freq: 58, to: 24, gain: 0.083, dur: 1.27, type:"sine" });
+        this._burst(t, { freq: 300,  q: 0.7, gain: 0.300, dur: 1.50, type:"lowpass" });
+        this._burst(t, { freq: 1300, q: 0.7, gain: 0.255, dur: 1.30, type:"bandpass" });
+        this._burst(t, { freq: 3000, q: 0.8, gain: 0.120, dur: 0.75, type:"highpass" });''',
+ '''        /* THE FLAM. `k` is the arrow's index in the fan and the three novas
+           of one volley land on one frame; 26 ms apart the ear reads three
+           events, and at 0 it reads one pop at three times the amplitude. */
+        const tk = t + (p.k || 0) * 0.026;
+        this._tone (tk, { freq: 92, to: 30, gain: 0.110, dur: 1.15, type:"sine" });
+        this._tone (tk, { freq: 58, to: 24, gain: 0.083, dur: 1.27, type:"sine" });
+        this._burst(tk, { freq: 300,  q: 0.7, gain: 0.300, dur: 1.50, type:"lowpass" });
+        this._burst(tk, { freq: 1300, q: 0.7, gain: 0.255, dur: 1.30, type:"bandpass" });
+        this._burst(tk, { freq: 3000, q: 0.8, gain: 0.120, dur: 0.75, type:"highpass" });'''),
+
+]
+
+
 # ------------------------------------------------------------------ helpers --
 
 def one(src: str, old: str, new: str, label: str) -> str:
@@ -868,6 +1379,20 @@ def one(src: str, old: str, new: str, label: str) -> str:
             f"  anchor head: {old.splitlines()[0][:90]!r}")
     print(f"  ok    {label}")
     return src.replace(old, new, 1)
+
+
+def alln(src: str, old: str, new: str, label: str, n: int) -> str:
+    """The same edit at every one of its N sites, and it refuses on N-1.
+
+    `one()` is the right shape when an anchor is unique. `CONFIG.shot.maxLive`
+    is evicted at FOUR call sites and a fix applied to one of them is a fix that
+    works until the next relic spawns a projectile.
+    """
+    got = src.count(old)
+    if got != n:
+        raise SystemExit(f"ANCHOR {label}: expected {n} occurrences, found {got}")
+    print(f"  ok    {label}  ({n} sites)")
+    return src.replace(old, new)
 
 
 def strip_comments(js: str) -> str:
@@ -958,6 +1483,10 @@ def ult_matches(s: str, A, stage: int) -> None:
                   }.get(key, key)] = f"{getattr(A, key):g}"
         if stage >= 6:
             want["speedMul"] = f"{A.speedmul:g}"
+        if stage >= 8:
+            for k in ("novarad", "novadmg", "novaknock"):
+                want[{"novarad": "novaRad", "novadmg": "novaDmg",
+                      "novaknock": "novaKnock"}[k]] = f"{getattr(A, k):g}"
     missing = []
     for key, val in want.items():
         if not re.search(rf"\b{re.escape(key)}\s*:\s*{re.escape(val)}\s*[,}}]", blk):
@@ -973,7 +1502,7 @@ def ult_matches(s: str, A, stage: int) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", type=int, required=True,
-                    choices=(1, 2, 3, 4, 5, 6))
+                    choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
     ap.add_argument("--src", default="")
     ap.add_argument("--out", default="")
     ap.add_argument("--ult", default=ULT_NAME)
@@ -1015,7 +1544,14 @@ def main() -> int:
              4: "THE BLADE -- gate 3 item 6, and NOT the brief's stage 4, "
                 "which is art",
              5: "THE STRAND'S ART -- the brief's stage 4a. Presentation only",
-             6: "EXTRA PROJECTILE SPEED -- Rick's, and it VOIDS THE BLADE"
+             6: "EXTRA PROJECTILE SPEED -- Rick's, and it VOIDS THE BLADE",
+             7: "HOLD THE TRIO -- a resolved arrow sticks, inert, until its "
+                "volley completes",
+             8: "THE NOVA -- every completed volley detonates where it stuck",
+             9: "A BIG PURPLE EXPLOSION -- Rick's, and DRAWN rather than "
+                "spawned so it costs the sheet nothing",
+            10: "THE NOVA'S VOICE -- fitted to Rick's reference by measurement",
+            11: "ONE POP PER NOVA -- Rick's, over one per volley, flammed 26ms"
              }[A.stage])
     print(f"  src {src_p.name}  {hashlib.sha256(s0.encode()).hexdigest()[:16]}")
 
@@ -1068,7 +1604,9 @@ def main() -> int:
             "%CADMUL%": f"{A.cadmul:g}", "%DMGMUL%": f"{A.dmgmul:g}",
             "%STRANDW%": f"{A.strandw:g}", "%STRANDKNOCK%": f"{A.strandknock:g}",
             "%STRANDART%": A.strandart,
-            "%SPEEDMUL%": f"{A.speedmul:g}"}
+            "%SPEEDMUL%": f"{A.speedmul:g}",
+            "%NOVARAD%": f"{A.novarad:g}", "%NOVADMG%": f"{A.novadmg:g}",
+            "%NOVAKNOCK%": f"{A.novaknock:g}"}
 
     if A.stage == 1:
         if f'id:"{RELIC}"' in s0:
@@ -1102,6 +1640,64 @@ def main() -> int:
               f"NO damage and NO status")
         print("  NOTHING IS DRAWN AND NOTHING SOUNDS -- that is stage 4, and "
               "it is Rick's")
+    elif A.stage == 11:
+        if "kind === \"nova\"" not in s0:
+            raise SystemExit("this source has no nova voice -- stage 10 first")
+        if "const tk = t +" in s0:
+            raise SystemExit("this source already pops per nova -- built")
+        edits = S11
+        print("  3 novas a volley x 5.9 volleys/s = 17.5 voices a second")
+        print("  flammed 26ms off the arrow's own idx -- three on one frame at")
+        print("  zero offset is ONE pop at 3x amplitude, not three pops.")
+    elif A.stage == 10:
+        if "drawNovas" not in s0:
+            raise SystemExit("this source has no nova art -- stage 9 first")
+        if '"nova"' in s0 and "kind === \"nova\"" in s0:
+            raise SystemExit("this source already has the nova voice -- built")
+        edits = S10
+        print("  fitted in nova_voice_lab: 48.8 -> 6.4 over three passes")
+        print("  peak 0.198 (Deadfall 0.605), attack 37ms, tail 449ms,")
+        print("  67.3% under 120Hz at the open, centroid 969Hz")
+        print("  ONE POP PER VOLLEY = 5.9/s. Per nova would be 17.5/s.")
+    elif A.stage == 9:
+        if "novaKnock" not in s0:
+            raise SystemExit("this source has no nova -- stage 8 first")
+        if "drawNovas" in s0:
+            raise SystemExit("this source already draws the nova -- built")
+        edits = S9
+        print("  a flash, a two-ring shell and 16 hashed streaks, per nova")
+        print("  DRAWN, not spawned: `spawnFx` consumes this.rng() and would")
+        print("  put the art inside the simulation -- Cindercleave's note.")
+        print("  ticked in tickPresentation, so it cannot freeze in a hitStop.")
+        print("  ** engine_ab MUST come back identical on all 31. **")
+    elif A.stage == 8:
+        if "releaseVolleys" not in s0:
+            raise SystemExit("this source does not hold the trio -- stage 7 first")
+        if "novaKnock" in s0:
+            raise SystemExit("this source already has the nova -- built")
+        edits = S8
+        arrow = A.dmg * A.dmgmul
+        print(f"  nova radius {A.novarad:g} (reach {34 + A.novarad:g}), "
+              f"knock {A.novaknock:g} against the strand's {A.strandknock:g}")
+        print(f"  nova damage {A.novadmg:g} x blade = {A.dmg * A.novadmg:.1f} "
+              f"against one arrow's {arrow:.1f}   ({A.novadmg / A.dmgmul:.0%} of an arrow)")
+        print(f"  {A.volleys:g} volleys x {A.n:g} = {A.volleys * A.n:g} novas a cast, "
+              f"in {A.volleys * 0.34 * A.cadmul:.1f}s")
+        print("  CURSE ON -- Rick's. Safe under TOP-3 (a 3.2 memory is refused")
+        print("  by a pool holding 13s); NOT safe under the pending LAST-3 rule.")
+        print("  ** THE BLADE IS VOID -- this is a new damage channel. **")
+    elif A.stage == 7:
+        if "drawStrands" not in s0:
+            raise SystemExit("this source has no strand art -- stage 5 first")
+        if "releaseVolleys" in s0:
+            raise SystemExit("this source already holds the trio -- built")
+        edits = S7 + S7B
+        print("  a resolved Crossweave arrow STICKS where it expired, inert,")
+        print("  and its volley clears as a unit when the last one lands.")
+        print("  measured before building: peak live 15 -> 23 against a cap of")
+        print("  64, and a stuck arrow sits a median 0.37s (max 1.84s).")
+        print("  ** THE BLADE IS VOID AGAIN -- strands now live the whole")
+        print("     volley, so there are more frames in which one can shove. **")
     elif A.stage == 6:
         if "drawStrands" not in s0:
             raise SystemExit("this source has no strand art -- stage 5 first")
@@ -1153,6 +1749,15 @@ def main() -> int:
             old = old.replace(k, v)
             new = new.replace(k, v)
         s = one(s, old, new, label)
+
+    if A.stage == 7:
+        # EVERY SITE THAT EVICTS AT THE CAP, and there are four. A fix applied
+        # to `spawnShot` alone is a fix that works until the opponent's forks
+        # push the roster over the line.
+        s = alln(s,
+                 "if (this.shots.length >= CONFIG.shot.maxLive) this.shots.shift();",
+                 "this.makeRoom();",
+                 "cap-eviction", 4)
 
     if A.stage == 6 and "speedMul" in s0:
         # Walk forward from this relic's own id, never a global replace.

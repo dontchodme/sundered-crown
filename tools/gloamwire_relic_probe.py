@@ -135,6 +135,33 @@ RUN_JS = r"""([rid, foes, seeds, secs, strandW, strandKnock, stub]) => {
          whether the roster was AT the cap on the frame this shot was pushed, in
          which case `spawnShot` has already shifted the oldest off the front.
          Registration happens on the next scan of `m.shots`, below. */
+      /* WHAT THE CAP DESTROYED, NOT WHETHER IT WAS REACHED. The first cut
+         recorded `m.shots.length >= maxLive` at spawn time and called that an
+         eviction -- which is "the hall was full", a different statement. Once
+         `makeRoom` prefers a STUCK arrow (already resolved, inert, holding only
+         a strand endpoint) the cap being reached costs nothing the relic
+         bought, and the check went on failing at 3 while the defect it names
+         had been fixed.
+
+         So it wraps the eviction itself and asks what left: a FLYING net arrow
+         is a shot destroyed before it had its effect, and a stuck one is an
+         anchor released a fraction of a second early. */
+      let evictFlying = 0, evictStuck = 0;
+      if (AC.Match.prototype.makeRoom){
+        const origRoom = AC.Match.prototype.makeRoom;
+        m.makeRoom = function(){
+          const before = m.shots.length;
+          const had = m.shots.slice();
+          const r = origRoom.apply(m, arguments);
+          if (m.shots.length < before){
+            const now = new Set(m.shots);
+            for (const s of had) if (!now.has(s) && s.net && s.own === own){
+              if (s.stuck) evictStuck++; else evictFlying++;
+            }
+          }
+          return r;
+        };
+      }
       const origSpawn = AC.Match.prototype.spawnShot;
       m.spawnShot = function(fg, ang){
         const full = m.shots.length >= AC.CONFIG.shot.maxLive;
@@ -263,6 +290,7 @@ RUN_JS = r"""([rid, foes, seeds, secs, strandW, strandKnock, stub]) => {
       rows.push({ foe: f, seed: sd, dur: steps * DT,
                   win: m.winner ? (m.winner === me ? 1 : 0) : -1,
                   casts, volleys: V.size, arrows, evictions,
+                  evictFlying, evictStuck,
                   both, arrowOnly, lightOnly, missed, liveV, liveMiss,
                   shoves, shoveNoDamage, winOpen,
                   pool: th.curseSum ? th.curseSum() : 0,
@@ -284,6 +312,8 @@ def agg(rows):
         "volleys": V, "volleysPerFight": V / n,
         "arrows": sum(r["arrows"] for r in rows),
         "evictions": sum(r["evictions"] for r in rows),
+        "evictFlying": sum(r.get("evictFlying", 0) for r in rows),
+        "evictStuck": sum(r.get("evictStuck", 0) for r in rows),
         "both": sum(r["both"] for r in rows),
         "arrowOnly": sum(r["arrowOnly"] for r in rows),
         "lightOnly": sum(r["lightOnly"] for r in rows),
@@ -375,11 +405,16 @@ def main():
               f"against a magazine of {u['volleys']:g}")
 
         print(f"\n[2] THE CAP -- maxLive 64, and spawnShot SHIFTS at it\n")
-        print(f"    evictions            {S['evictions']}"
+        print(f"    spawns at the cap    {S['evictions']}"
               f"        over {S['arrows']} arrows")
-        check("[2a] the cap never fires -- no shot this build thinks it bought "
-              "was deleted",
-              S["evictions"] == 0, f"{S['evictions']} evictions")
+        print(f"    FLYING arrows lost   {S['evictFlying']}"
+              f"        <- the number that matters")
+        print(f"    stuck anchors lost   {S['evictStuck']}"
+              f"        already resolved; costs a strand a moment")
+        check("[2a] the cap never destroys a shot this build bought -- a FLYING "
+              "arrow is never the one evicted",
+              S["evictFlying"] == 0,
+              f"{S['evictFlying']} flying, {S['evictStuck']} stuck")
 
         if has_strand:
             V = max(1, S["volleys"])
@@ -391,10 +426,19 @@ def main():
             tot = S["both"] + S["arrowOnly"] + S["lightOnly"] + S["missed"]
             check("[3a] the four outcomes sum to the volley count, to the unit",
                   tot == S["volleys"], f"{tot} against {S['volleys']}")
-            check("[6a] arrow-only is 1-6% and it is the volleys that lost an "
-                  "arrow first -- gate 3 item 4, do NOT tune it up",
-                  0.005 <= S["arrowOnly"] / V <= 0.09,
-                  f"{S['arrowOnly'] / V:.1%}")
+            # UNDER THE HOLD THIS IS ZERO BY CONSTRUCTION, and the 1-6% band
+            # it used to carry described a relic whose volleys shed arrows.
+            # `strandW` 90 > `shot.r` 24, so any ball an arrow can touch is
+            # already inside the segment; the only escape was a volley that had
+            # lost its neighbour, and a held trio never loses one. The check
+            # asserts the construction rather than the old residual -- and it
+            # can still come back wrong, because a strand that failed to form
+            # would put arrow-only straight back up.
+            check("[6a] arrow-only is ZERO under the held trio -- above the "
+                  "crossover a ball an arrow touches is inside the strand, and "
+                  "the strand no longer dies with its neighbour",
+                  S["arrowOnly"] == 0,
+                  f"{S['arrowOnly']} volleys ({S['arrowOnly'] / V:.2%})")
             print(f"\n    shoves a fight       {S['shoves']:.1f}"
                   f"        (design 6.1: 22.3)")
             # NOT COMPARABLE TO THE DESIGN'S 40.8, and the first cut of this
@@ -441,10 +485,17 @@ def main():
             # the width collapses the outcome. A ratio, not a threshold -- and
             # it can still come back wrong, because a strand that ignored its
             # own width would leave this near 1.0.
+            # THE BAND MOVED WITH THE HOLD AND THE REASON IS STATED. Under a
+            # held trio both strands live the whole volley, so a zero-width
+            # strand gets many more frames in which the quarry can cross the
+            # segment's middle -- the residual rose 2.3% -> 11.8% while the
+            # shipped outcome rose 20.5% -> 33.1%. The claim being tested is
+            # unchanged (collapsing the width collapses the outcome) and it is
+            # still falsifiable: a strand ignoring its width leaves this at 1.0.
             check("[4a] collapsing the strand's width collapses the outcome it "
-                  "produces -- the residual is the FAN'S GAP, not a floor of "
-                  "zero (see the note: the design says zero and measures 2%)",
-                  c0["lightOnly"] / V0 < 0.25 * shipped_l,
+                  "produces -- the residual is the FAN'S GAP, and it GREW with "
+                  "the held trio because the gap is now on screen for longer",
+                  c0["lightOnly"] / V0 < 0.50 * shipped_l,
                   f"{c0['lightOnly'] / V0:.1%} at width 0 against "
                   f"{shipped_l:.1%} shipped -- "
                   f"{(c0['lightOnly'] / V0) / max(1e-9, shipped_l):.0%} of it")

@@ -1,5 +1,20 @@
 # v62 HANDOFF — DUSKREAVE AND SCOUR, THE UMBRAL SCYTHE. THE MECHANIC AND THE NAMES ARE SETTLED AND THE RELIC MEASURES +55.8pp, WHICH WOULD MAKE IT THE STRONGEST ULTIMATE IN THE GAME. THREE READINGS IN THIS SESSION WERE PUBLISHED AND THEN WITHDRAWN AND THEY ARE ALL LISTED BELOW.
 
+**CHECKED 2026-09-02 — READ `../v63/duskreave-check-v63.md` BEFORE THIS FILE.**
+The v63 check found: (1) the curse reading in §1–§2 holds against the engine,
+line for line; (2) §1's +55.8pp reproduces exactly on the same Chromium; (3) but
+every v62 arm ran with the scythe donor's own ultimate, Bramblesnare, still
+firing — stub it the way every other lab does and **Scour is +59.2pp**, hotter,
+with no v62 ruling flipping; (4) §3.1's trim arithmetic was wrong — the base
+tick barely moves the number, the tick rate and width do, and a priced ladder
+is in v63 §4; (5) §2's `resolveHit` note is necessary and not sufficient —
+`resolveHit` also knocks back, hit-stops, hit-stuns and files a beat on every
+call, and the brief must exclude those (v63 §5); (6) nine of the ten tools in
+§7 hardcoded a container path and would not have run on Rick's machine — fixed.
+The numbers below are left as v62 wrote them.
+
+---
+
 **Cowork, 2026-09-01.** Written for the session that checks this work. Read this
 file before `duskreave-design-v62.md` — that document is 57KB across seventeen
 sections and it is **not a linear read**, because three of its sections were

@@ -1,0 +1,55 @@
+
+GLOAMWIRE RELIC PROBE -- sc-crossweave.html   30 foes x 3 seeds
+
+    magazine 24 x 3   fan 0.9 rad   cadMul 0.5   dmgMul 1.4
+    strandW 90 (reach 124 against the arrow's 58)   knock 260
+
+  PASS  [5a] the strand touches nothing but position -- no damage path in tickNet's own code  -- clean
+[1] THE MAGAZINE -- 90 fights
+
+    casts a fight        2.20
+    volleys a fight      46.3        (design 6.1: 36.6 at cadMul 0.5)
+    arrows a fight       139.0
+    arrows a volley      3.00        (must be exactly 3)
+    window open a fight  12.23s
+  PASS  [1a] a volley is one magazine round -- exactly n arrows a volley  -- 3.0000 against 3
+  PASS  [1b] the magazine empties -- volleys a cast is the magazine size  -- 21.1 a cast against a magazine of 24
+
+[2] THE CAP -- maxLive 64, and spawnShot SHIFTS at it
+
+    spawns at the cap    1        over 12507 arrows
+    FLYING arrows lost   0        <- the number that matters
+    stuck anchors lost   1        already resolved; costs a strand a moment
+  PASS  [2a] the cap never destroys a shot this build bought -- a FLYING arrow is never the one evicted  -- 0 flying, 1 stuck
+
+[3] THE FOUR OUTCOMES -- 4169 volleys
+
+    both                698   16.7%
+    arrow only            0    0.0%
+    lightning only     1308   31.4%
+    miss               2163   51.9%
+  PASS  [3a] the four outcomes sum to the volley count, to the unit  -- 4169 against 4169
+  PASS  [6a] arrow-only is ZERO under the held trio -- above the crossover a ball an arrow touches is inside the strand, and the strand no longer dies with its neighbour  -- 0 volleys (0.00%)
+
+    shoves a fight       32.3        (design 6.1: 22.3)
+    pool at the LAST step 59.5       (design 7's 40.8 is a TIME AVERAGE -- this is the final value, near its `peak`)
+  PASS  [5b] a shove that lands on a frame with no arrow contact costs the quarry no hp  -- 2612/2909 shoves took no hp on their own frame
+
+[4] THE GEOMETRY CONTROLS -- each one known before it ran
+
+    strandW 0        lightning only  11.5%   against 31.4% at the shipped width
+  PASS  [4a] collapsing the strand's width collapses the outcome it produces -- the residual is the FAN'S GAP, and it GREW with the held trio because the gap is now on screen for longer  -- 11.5% at width 0 against 31.4% shipped -- 37% of it
+    reach past 954   miss             0.0%   of ALL volleys
+                     miss             0.0%   of volleys loosed at a LIVE quarry (must be 0)
+  PASS  [4b] past the arena diagonal nothing loosed at a living quarry can be missed  -- 0 of 3495 -- and 0 more were loosed into `killFlight`, at a quarry already dead
+    strandKnock 0    win 53.3%  against the shipped arm's 46.7%
+                     -- that difference is THE SHOVE'S PRICE (-6.7%), not a control.
+                     The control is an ENGINE A/B against the no-strand build and it
+                     cannot be run inside one page: see `04-experiments/_gloamwire-knock0.html`.
+                     REPORTED, NOT CHECKED: n=90 an arm cannot rank a direction
+                     (CLAUDE.md's floor is n~700, and this reading has swung 11.7pp
+                     across a 0.2 change of blade). The design's own four arms say -9pp.
+
+    shipped win rate     46.7%        (design 6.1: ~51%, on 29 relics and Chromium 141)
+
+9/9 checks passed

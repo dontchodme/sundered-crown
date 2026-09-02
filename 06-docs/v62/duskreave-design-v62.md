@@ -1,9 +1,21 @@
-# v62 — DUSKREAVE AND SCOUR, THE UMBRAL SCYTHE. THE TORNADO'S THIRD CLAUSE IS THE DEAD CLAUSE THE ENGINE HAS A COMMENT ABOUT, AND THE ENGINE NAMES IT BY NAME. Rick's §1 is otherwise intact: the floor is the busiest band in the arena, and "sucks up enemy projectiles" fires in nine matchups of twenty-nine.
+# v62 — DUSKREAVE AND SCOUR, THE UMBRAL SCYTHE. THE TICKS ARE HITS: THEY COLLECT THE CURSE ECHO AND THEY APPLY CURSE, BOTH, AND THE RELIC MEASURES ABOVE THE FIELD.
 
-**IN PROGRESS — DO NOT BUILD.** Geometry, cast and tick damage are settled
-(§9a, §11b). The curse verb is settled by measurement (§11d): the ticks CASH
-the pool rather than feed it. Blade, names, card, animation and sound do not
-exist yet. Composition, height, names, card, animation and sound do not exist yet.
+**THIS TITLE AND THIS BLOCK WERE REWRITTEN ON 2026-09-02 BY v63.** The original
+title called the curse clause "the dead clause"; that was §3's finding and it
+was overturned by §11 (Rick's correction, measured). The block below is the
+state as of the v63 check; everything under it is the v62 record and is NOT a
+linear read — three of its sections were withdrawn by later ones. **Read
+`HANDOFF-v62.md` §8 for the reading order, and `../v63/duskreave-check-v63.md`
+for what the check found.**
+
+**NOT A BUILD BRIEF. DO NOT BUILD FROM THIS.** Settled: the cell, the mechanic,
+the geometry (§9a), the blade (21, §12/§17), the names (Duskreave / Scour), the
+cast (10s duration), the tick rate (7/s, §15), and the curse verb — **the
+ticks are hits on the `resolveHit` path; each one COLLECTS the foe's curse echo
+and each one APPLIES curse, exactly as Rick's §1 says (§11, §17).** The apply
+clause is measured free under the shipped rule (+0.6pp, noise) and Rick has
+held it through four rounds; it is not open. **Everything else was ruled later
+the same day — the build brief is `../v63/DUSKREAVE-BUILD-BRIEF.md`.**
 
 **Cowork, 2026-09-01.** Against `02-chain/sc-garrote.html`, the build of record,
 **30 relics**, Chromium **141.0.7390.37** — byte-identical to the runtime v57,
@@ -1108,24 +1120,31 @@ against a ~4.3pp error bar. It stays in, exactly as Rick's §1 wrote it.
 
 # Open decisions
 
-1. **DOES THE ROLLING WINDOW GO IN?** §13. It is nearly free for the shipped
-   game (-2.6 to -4.6pp on three umbral relics, spread across weapons 3.4x ->
-   3.0x) and it costs the tornado ten points of win rate **only if the ticks
-   also apply curse.**
+**ALL FIVE ITEMS BELOW WERE RESOLVED LATER ON 2026-09-02 — see `../v63/DUSKREAVE-BUILD-BRIEF.md`.** Rick kept 7 ticks/s (+59), ruled the last-3 window in (after Gloamwire; Scour then ~+40), gave the card line, sent an animation reference, and left the sound to a rendered spread.
 
-2. **DO THE TORNADO'S TICKS APPLY CURSE AT ALL?** §13c. Under either rule the
-   answer that measures best is **no** — the apply is worth +2.5 echo a fight
-   under top-3 and −52 under a rolling window. The ticks should COLLECT and not
-   APPLY.
+**Rewritten 2026-09-02 by v63.** The block this replaces was written before
+§14–§17 and its item 2 asked whether the ticks should apply curse at all —
+"the ticks should COLLECT and not APPLY." **That is not open.** Rick ruled it
+three times over, §17 measured the apply clause free (+0.6pp), and the relic
+ships with both, as his §1 wrote it. The blade (item 3) and the names (item 5)
+were also settled after the block was written: 21, Duskreave, Scour.
 
-3. **THE BLADE: LIGHT.** §12. The ultimate is worth +48.1pp on a 17.25 blade
-   and +28.1pp on a 31.35 one. A light blade carried by a strong ultimate is
-   this relic's shape.
+1. **THE TRIM.** §17, and `../v63/duskreave-check-v63.md` §3 for the corrected
+   number and a priced ladder. Scour measures above every ultimate in the game.
+   Trim, or accept it as the strongest. Rick's.
 
-4. **CONFIRM THE TICKS ARE HITS.** §11c. The build brief must say
-   `resolveHit`, not `hurt`. Sentinel's beam is the precedent that will
-   otherwise be followed.
+2. **THE ROLLING WINDOW.** §13–§16. Nearly a no-op for the shipped game, and it
+   costs this relic a quarter of its damage because its ticks apply curse — and
+   Rick has ruled that the ticks apply curse. Not ruled. Should not land under
+   Code's live Gloamwire build in any case (§13d).
 
-5. **THE TWO NAMES, THE CARD, THE ANIMATION, THE SOUND.** Rick's, all five.
+3. **THE CARD, THE ANIMATION, THE SOUND.** Rick's, all three. Blank.
 
-6. **OUTCOME COLUMNS NEED n>=300 IN THIS ENGINE.** §10.
+4. **THE `resolveHit` NOTE IS NECESSARY AND NOT SUFFICIENT.** §11c said the
+   ticks must go through `resolveHit` for the echo. v63 §4 adds what
+   `resolveHit` ALSO does on every call — knockback away from the caster,
+   hit-stop that freezes the world, hit-stun, a director beat — none of which a
+   7-tick-a-second drag can carry. The brief has to say which parts of the
+   pipeline a tick takes and which it must not.
+
+5. **OUTCOME COLUMNS NEED n>=300 IN THIS ENGINE.** §10. Still true.

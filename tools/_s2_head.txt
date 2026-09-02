@@ -1,0 +1,417 @@
+#!/usr/bin/env python3
+"""BLOODMIRROR, AND ITS ULTIMATE BLOODLETTING. STAGES 1, 2 AND 3b.
+
+    python bloodmirror_build.py --stage 1 --src ../02-chain/sc-tipfix.html \
+                                --out ../02-chain/sc-bloodmirror.html
+    python bloodmirror_build.py --stage 2 --src ../02-chain/sc-bloodmirror.html \
+                                --out ../02-chain/sc-bloodletting.html
+    python bloodmirror_build.py --stage 3b --dmg <the swept blade>
+
+**THE DESIGN IS NOT THIS FILE'S AND IT NEVER WAS.**
+`06-docs/v59/spectre-design-v59.md` is the design,
+`06-docs/v59/bloodmirror-build-brief-v59.md` is the brief, and
+`tools/spectre_lab.py` is the instrument that measured every number in both.
+Rick chose the cell, both names, the composition, the knockback and the ceiling
+rule. This builder implements and refuses; it does not choose.
+
+CLAUDE.md section 3 rule 0: Claude Code does not design ultimates. If you are
+reading this file for the reasoning behind a mechanic, it is in the design doc.
+
+## FOUR DEPARTURES FROM THE BRIEF, ALL DECLARED HERE
+
+**IT IS THE THIRTY-SECOND RELIC AND THE BRIEF SAYS THE THIRTIETH.** The brief
+was written on 2026-09-01 against a 29-relic tip and then sat in a chat
+transcript for a day while Ravelbone (30) and Gloamwire (31) were built. Count
+what is BUILT AND IN A LINK -- CLAUDE.md section 0 is where that number is
+settled, and CLAIMS.md records the drift as one of the two costs of the
+collisions.
+
+**THE BASE IS `sc-tipfix.html` AND THE BRIEF SAYS "THE CINDERCLEAVE TIP".**
+Same reason. Stage T of the brief is built and green (`tipfix_build.py`), so
+this chains from it, and every `engine_ab` below runs over 31 others rather
+than 29.
+
+**EVERY ABSOLUTE NUMBER IN THE DESIGN DOC IS ON A DIFFERENT ROSTER.** It was
+measured against `sc-nightfell.html` with 27 relics and Thornwake standing in
+for a relic that did not exist. The brief says so in as many words and says the
+DIFFERENCES travel. So section 2's "near 23% at blade 21 with no ultimate" is a
+prediction to print and NOT a number to tune to at stage 1.
+
+**THE ART ALREADY EXISTS AND IS OPEN ITEM 34's THIRD INSTANCE.**
+`SHAPES.scythe` has routed `bloodsworn` to `_scBarbed` since before there was a
+relic in this cell, so stage 1 gets a drawn weapon for free. It is also built
+the way Rick rejected on the umbral hammer: five barbs and a tip hook STROKED
+ON TOP of `_scBase` rather than added to the type's outline. Brief open decision
+6 says look at it early, and "early" means before stage 1 ships, not after 3b.
+
+## THE ONE THING MOST LIKELY TO GO WRONG, AND IT IS NOT IN STAGE 1
+
+`AC.STATUS.hemorrhage.maxStacks` is ONE NUMBER shared by every fighter in the
+match and by the four other bloodsworn relics in the field. The ultimate raises
+it 4 -> 8 while the spectre stands. The lab moved it globally and restored it
+per match; a build that did that would hand a Marrowdraw in the same fight a
+window it never cast, silently. Stage 2 scopes it per-fighter. See section 3.2
+of both documents, and `bloodletting_relic_probe [5]`.
+"""
+from __future__ import annotations
+import argparse, hashlib, pathlib, re, sys
+
+HERE = pathlib.Path(__file__).parent
+PROTECTED = "sundered-crown.html"
+
+RELIC = "bloodmirror"
+
+# ------------------------------------------------------------- the numbers --
+
+# THE BLADE. Brief section 5: start the bisection at 21 and expect the answer in
+# 20-22. `final_blade.py` measured 46.6% with the ultimate and 17.8% without at
+# blade 20, on the design's own roster -- so the ultimate is worth roughly 28
+# points there, just above the roster mean of +20.1, and that is the composition
+# Rick chose from three (MEDIUM: 3 a tick, life 4.5).
+#
+# AND THE SURFACE IS NOT SIMPLE. `dmg` moves the blade AND the curse-free pool
+# AND -- through the raised ceiling -- what a blade blow is worth DURING the
+# window, because the blade feeds the ceiling too (Rick's ruling). v51 section
+# 4.5's superlinear warning applies here where it did not to Shroudmaul.
+BLADE_IN = 21.0
+TUNED_BM = None      # stage 3b refuses to run while this is None, and the
+                     # reason is printed. What settles a blade on this roster is
+                     # a WIDE DIRECT MEASUREMENT at n >= 1000 a point, on both
+                     # sides, repeated on a second block -- never a bisection.
+                     # v48, v56 and v59 all learned that separately.
+
+ULT_NAME = "Bloodletting"
+ULT_TIP  = "Stands a spectral scythe that mills - bleed stacks to 8"
+ULT_TIP1 = "-"       # stage 1, stubbed. verify only asks that it is non-empty.
+
+BLURB = ("A copy of the blade, cut loose and left standing. It does not chase "
+         "anything - it makes the room smaller.")
+
+
+def one(src: str, old: str, new: str, label: str) -> str:
+    d_old = old.count("/*") - old.count("*/")
+    d_new = new.count("/*") - new.count("*/")
+    if d_old != d_new:
+        raise SystemExit(f"BLOCK {label}: comment balance moves {d_old:+d} -> "
+                         f"{d_new:+d}. The page will not parse.")
+    n = src.count(old)
+    if n != 1:
+        raise SystemExit(
+            f"ANCHOR {label}: expected exactly 1 occurrence, found {n}.\n"
+            f"  The source has moved under this builder. Do not weaken the\n"
+            f"  anchor -- find out what changed.\n"
+            f"  anchor head: {old.splitlines()[0][:90]!r}")
+    print(f"  ok    {label}")
+    return src.replace(old, new, 1)
+
+
+def strip_comments(js: str) -> str:
+    """Code with the prose taken out.
+
+    CLAUDE.md: "a check that cannot tell code from the comment explaining it
+    fires on its own explanation." Every refusal below greps shipped source and
+    this build explains itself IN that source -- the relic's own comment has to
+    be able to say the words `STATUS.hemorrhage.maxStacks`.
+    """
+    js = re.sub(r"/\*[\s\S]*?\*/", "", js)
+    return re.sub(r"//[^\n]*", "", js)
+
+
+def entry(s: str, rid: str) -> str:
+    """One relic's own WEAPONS entry, by brace matching from its id."""
+    i = s.index(f'id:"{rid}"')
+    j = s.rindex("{", 0, i)
+    depth, k = 0, j
+    while k < len(s):
+        if s[k] == "{":
+            depth += 1
+        elif s[k] == "}":
+            depth -= 1
+            if depth == 0:
+                return s[j:k + 1]
+        k += 1
+    raise SystemExit(f"unbalanced braces in the entry for {rid}")
+
+
+def body_block(s: str, rid: str, key: str) -> str:
+    """One named sub-object of a relic's entry, comments out, space collapsed."""
+    e = strip_comments(entry(s, rid))
+    m = re.search(key + r"\s*:\s*\{", e)
+    if not m:
+        return ""
+    j = e.index("{", m.start())
+    depth, k = 0, j
+    while k < len(e):
+        if e[k] == "{":
+            depth += 1
+        elif e[k] == "}":
+            depth -= 1
+            if depth == 0:
+                return re.sub(r"\s+", " ", e[j:k + 1]).strip()
+        k += 1
+    return ""
+
+
+def phys(s: str, rid: str) -> dict:
+    """The physical stats a TYPE owns, off one relic's entry."""
+    e = strip_comments(entry(s, rid))
+    out = {}
+    for f in ("reach", "width", "artW", "spin", "mass", "mode", "arc"):
+        m = re.search(rf"\b{f}\s*:\s*(\"[a-z]+\"|[\d.]+)", e)
+        if m:
+            out[f] = m.group(1)
+    return out
+
+
+def ult_matches(s: str, A, stage) -> None:
+    """The shipped `ult` block carries every number this run printed.
+
+    v56's own failure, verbatim: a stage-2 insert wrote the whole `ult` block
+    and stage 3 rewrote only the line carrying `charge`, so the run LOGGED the
+    new rhythm and SHIPPED the old one, and every gate downstream measured a
+    relic the log was not describing.
+    """
+    blk = body_block(s, RELIC, "ult")
+    if not blk:
+        raise SystemExit("the shipped relic has no `ult` block")
+    want = {"name": f'"{A.ult}"', "kind": '"effigy"'}
+    if str(stage) == "1":
+        want["charge"] = "1e9"
+    else:
+        want["charge"] = f"{A.charge:g}"
+        for k in ("flight", "speed", "life", "disc", "tick", "dmg",
+                  "bleed", "cap", "knock", "spinMul", "artScale"):
+            want[k] = f"{getattr(A, {'dmg': 'tickdmg', 'spinMul': 'spinmul',
+                                    'artScale': 'artscale'}.get(k, k)):g}"
+    missing = [f"{k}:{v}" for k, v in want.items()
+               if not re.search(rf"\b{re.escape(k)}\s*:\s*{re.escape(v)}\s*[,}}]",
+                                blk)]
+    if missing:
+        raise SystemExit(
+            "REFUSING TO WRITE -- the shipped `ult` block does not carry what "
+            "this run printed:\n  missing " + ", ".join(missing)
+            + "\n  (v56 shipped an ultimate whose numbers the log did not "
+              "describe. Never again.)")
+
+
+# ------------------------------------------------------------------ stage 1 --
+
+S1 = [
+
+("relic", '''    blurb:"Three shafts and the dark strung between them. What the arrows miss, the lightning still moves." },
+
+];''',
+ '''    blurb:"Three shafts and the dark strung between them. What the arrows miss, the lightning still moves." },
+
+  /* BLOODMIRROR -- THE BLOODSWORN SCYTHE, and the thirty-second relic. It is
+     also the OLDEST DESIGN IN THE PROJECT: `06-docs/v59/` was written on
+     2026-09-01 and then spent a day in a chat transcript while two later cells
+     were built ahead of it, which is the standing example in `CLAIMS.md` of why
+     a deliverable that lives in a chat message does not exist.
+
+     EVERY PHYSICAL STAT IS THE SCYTHE'S, copied off Lastlight, Thornwake,
+     Foregone, Vesper and Cindercleave -- the type owns `reach:104, width:11,
+     artW:46, spin:3.2, mass:2.4, blades:[0], mode:"spin"` and there is no sixth
+     set to invent. This builder asserts that against the shipped file before it
+     writes rather than trusting this comment.
+
+     `onHit:{ hemorrhage:2 }` is the school's own weight, as on all four of the
+     other bloodsworn relics -- and it is load-bearing here in a way it is not
+     anywhere else. Hemorrhage is `{ maxStacks:4, dur:3.2, dps:1.5 }`, a hard
+     ceiling of 6 damage a second, and the ULTIMATE'S WHOLE MECHANIC is that
+     the ceiling moves while the spectre stands. The blade feeds the raised
+     ceiling too -- Rick's ruling, and it is what makes the window read as the
+     fighter opening up rather than as an object landing.
+
+     WHY THIS CELL. `budget-v59.md` section 4: bleed is the strongest foe
+     channel available on this weapon, +10.0pp against curse's +3.9 and
+     sunder's +4.7, beaten only by a shield that is already Vesper's.
+
+     THE ART IS OLDER THAN THE RELIC AND RICK RULED ON IT BEFORE THIS SHIPPED.
+     `SHAPES.scythe` has routed `bloodsworn` to `_scBarbed` since before this
+     cell had anything in it: five barbs riding the crescent, getting longer
+     toward the tip so the fastest part of the sweep is the part that catches.
+     Brief open decision 6 says look at it early -- v57 puts this cell at 59.0%
+     from its nearest sibling, the CLOSEST PAIR on the row, and v58 is the
+     standing warning that the number says nothing about whether the shape is
+     any good. Photographed beside sanctified at zoom, it was not the closeness
+     that was wrong: it was a SIXTH shape, a grey triangle hung off the
+     crescent's outer end point, reading as a detached object rather than as
+     part of the weapon. Rick: "the grey triangle at the tip of bloodsworn
+     scythe. lets get rid of it. everything else is great." It is gone, the
+     barbs are untouched, and the inversion `_scOuter` documents is now a
+     CHOSEN STATE on this row rather than an open defect -- he was shown the
+     shipped-against-flipped sheet for all seven schools and kept the shipped
+     one.
+
+     `dmg` 21 IS A STARTING POINT AND NOT AN ANSWER. Brief section 5 measured
+     the curve on the design's own roster -- flat between 18 and 20, steep
+     either side -- and says to expect 20-22. `TUNED_BM` is None until a wide
+     direct measurement says otherwise, and stage 3b refuses to run without
+     it. */
+  { id:"bloodmirror", name:"Bloodmirror", aff:"bloodsworn", shape:"scythe",
+    blades:[0], reach:104, width:11, artW:46, dmg:%DMG%, spin:3.2, mode:"spin", mass:2.4,
+    onHit:{ hemorrhage:2 },
+    /* BLOODLETTING. STUBBED AT `charge:1e9` IN STAGE 1 -- the same "OFF" the
+       charge sweep in v55b used and the same one Cindercleave's stage 1,
+       Shroudmaul's stage 2 and Gloamwire's stage 1 used: the clock can never
+       reach it, `fireUlt` never runs, and the relic is measured as a blade and
+       a channel and nothing else.
+
+       Stubbing rather than omitting is deliberate. The `ult` object is read by
+       `verify`, by `tip_audit`, by the scrunch panel and by half of `tools/`,
+       and a relic with no `ult` at all is a shape none of them have ever been
+       handed.
+
+       `kind:"effigy"` IS ITS OWN AND IS NOT `"harrow"`. Lastlight is the
+       SANCTIFIED scythe -- the same weapon -- and `smite` is byte-identical to
+       `hemorrhage` apart from its name, so without a real separation these two
+       relics are one relic in two palettes. Design section 3.4 is the
+       separation and it is structural: Harrowing sprays TWELVE small scythes
+       that stick to the BODY, burden it and burst once; this stands ONE large
+       one in the HALL, milling, and takes the quarry to a stack count nothing
+       else in the game can reach. */
+    ult:{ name:"%ULT%", charge:1e9, kind:"effigy", tip:"%TIP1%" },
+    blurb:"%BLURB%" },
+
+];'''),
+
+# THE TIP HOOK COMES OFF `_scBarbed`. RICK'S, 2026-09-01, shown the bloodsworn
+# scythe beside sanctified at zoom before stage 1 shipped: "the grey triangle at
+# the tip of bloodsworn scythe. lets get rid of it. everything else is great."
+#
+# It read as a detached grey triangle floating past the end of the blade -- the
+# `_whEaten` complaint ("the hammer with blocks attached to it idea just isnt
+# working for me") in a new place, and worse here because the hook is drawn at
+# `_scOuter(L, W, 1.0)`, the crescent's outer END POINT, so it hangs off the far
+# tip with the blade's own body falling away underneath it.
+#
+# THE FIVE BARBS STAY EXACTLY AS THEY ARE, and so does the side they are on.
+# `_scOuter`'s normal is INWARD at 1921 of 1921 samples and all 37 call sites in
+# this file assume otherwise, so `_scBarbed`'s barbs sweep across the concave
+# face rather than dragging off the back the way its own comment says. The
+# one-character fix moves six of the seven scythe silhouettes (bloodsworn 3.16%
+# of the frame, umbral 6.96%, vigil 7.87%, runic 0.00% as the control that does
+# not call it). Rick was shown that sheet -- `05-reference/v59/scythe-normal-
+# flip.png`, shipped against flipped, all seven schools -- and took "everything
+# else is great". SO THE INVERSION IS NOW A CHOSEN STATE ON THIS ROW, the way
+# `_whBarbed` became one on the warhammer row. Do not re-raise it and do not
+# "fix" it.
+#
+# PRESENTATION ONLY, AND THAT IS PROVEN RATHER THAN ASSERTED: `SHAPES` is
+# render-only, so `engine_ab` over the roster is the cheapest proof this project
+# has and v58 is the precedent (`_whGnawed`, 3024/3024 identical on all 28).
+("tip-hook", '''    const tip = SHAPES._scOuter(L, W, 1.0);                     // and a tip hook
+    c.beginPath();
+    c.moveTo(tip.x, tip.y);
+    c.lineTo(tip.x + W*0.10, tip.y - W*0.52);
+    c.lineTo(tip.x + W*0.34, tip.y - W*0.10);
+    c.closePath(); c.fill(); c.stroke();
+  },''',
+ '''    /* AND NO TIP HOOK. It was a sixth shape -- a triangle from the crescent's
+       outer END POINT out past the blade -- and at zoom it read as a detached
+       grey triangle floating off the end rather than as part of the weapon,
+       which is `_whEaten`'s fault on a second row. Rick, shown this cell beside
+       sanctified before the relic shipped: "the grey triangle at the tip of
+       bloodsworn scythe. lets get rid of it. everything else is great."
+
+       The five barbs are the grammar and they are untouched. */
+  },'''),
+
+]
+
+
+# ------------------------------------------------------------------ stage 2 --
+
+# EVERY ONE OF THESE IS THE DESIGN'S, AND THE ARRANGEMENT IS FREE. 23 arms
+# regressed on the damage the spectre delivers give
+#
+#     lift = +5.6 + 0.245 x spectreDamage      r2 = 0.80
+#     residual sd 2.9pp against a per-arm SE of 3.1pp
+#
+# -- the residuals are SMALLER than the measurement error, which is the same
+# result GRASP had on held seconds. So tick rate, damage a tick, life and flight
+# are four ways of writing one quantity: TUNE ON TICKS LANDED, NOT ON WIN RATE,
+# and make every remaining choice for the picture.
+#
+# TWO THINGS ARE NOT ON THAT LINE. The DISC is not a knob -- "a copy of itself"
+# fixes it at ball 34 + reach 104 = 138, and it is both the strongest lever in
+# the lab (104 -> +10.0, 206 -> +28.8) and the first thing that breaks the
+# fiction. And the CEILING is section 3 and is not on the line at all.
+ULT = {
+    "charge":  15.0,    # the roster mode. AND IT IS A REAL KNOB HERE, unlike
+                        # Grasp: this ultimate DOES scale with cast count --
+                        # more spectres is strictly more damage -- and v55b
+                        # established nobody's charge was ever derived. Open
+                        # decision 3 in the brief; one lab, and it belongs
+                        # BEFORE the bisection.
+    "flight":  0.55,    # thrown at where the quarry is NOW. NO HOMING.
+    "speed":   420.0,   # 0.55 x 420 = 231 units. A LONG THROW COSTS IT: flight
+                        # 1.1s halves the time the foe spends inside (13.1%
+                        # against 26.1%) because the spectre spends its life in
+                        # transit rather than standing.
+    "life":    4.5,     # it stands, then it is gone
+    "disc":    138.0,   # NOT A KNOB. See above.
+    "tick":    0.22,    # FREE at a fixed total. The rate is the picture.
+    "tickdmg": 3.0,     # through `hurt`, scaled by the quarry's own dmgTakenMul.
+                        # NAMED `tickdmg` HERE AND `dmg` IN THE SHIPPED BLOCK
+                        # because this file already has a `--dmg` and it is the
+                        # BLADE. Two numbers called dmg on one relic is how a
+                        # sweep tunes the wrong one.
+    "bleed":   2.0,     # the school's own rate. Worth +4.0pp over 1 a tick ONCE
+                        # THE CAP MOVES (z +2.53) and NOTHING AT ALL before it.
+    "cap":     8.0,     # 4 -> 8 WHILE IT STANDS, and the blade feeds it too.
+                        # Rick's, from four ways of breaking the ceiling.
+    "knock":   120.0,   # Rick's. +7.9pp, z +2.98, and FLAT from 60 to 240 -- so
+                        # any knockback buys about seven points and no
+                        # particular amount buys more.
+    "hitfly":  1.0,     # does it bite while flying? +12.7 against +11.2, inside
+                        # the noise, so it is a picture choice and not a number.
+    "spinmul": 4.0,     # RICK'S, 2026-09-01, off the first sheet: "lets also
+                        # increase the rotational speed by a lot." The copy used
+                        # to turn at the weapon's own 3.2 rad/s, which on an
+                        # object that is not attached to anybody read as drifting
+                        # rather than as milling. 4x is 12.8 rad/s, a hair over
+                        # two revolutions a second.
+                        #
+                        # PRESENTATION ONLY, AND THAT IS PROVEN RATHER THAN
+                        # ASSERTED: `S.spin` is read by `drawSpectre` and by the
+                        # pool's own pulse and by nothing else in the engine, so
+                        # `engine_ab` over the roster is the check.
+    "artscale": 1.0,    # how big the copy is drawn. 1.0 is the weapon at its own
+                        # size; `artScale` x 61 is the radius it sweeps about its
+                        # own centre, so 2.26 is the one that fills the 138 disc
+                        # exactly. RICK'S -- see `drawSpectre`.
+}
+
+# ---- 11. AND IT GETS A PARTICLE FIELD ---------------------------------------
+# THE 26th SPEC WENT IN WITH A RULE ATTACHED AND TWO RELICS HAVE SINCE MISSED
+# IT. `ULTFX.sync` RETURNS SILENTLY on a missing spec -- it is not an error,
+# which is exactly why it ships -- and `SPECS` today carries 29 entries in both
+# `src/render/fx.js` and the inlined copy, with NO `ravelbone` and NO
+# `gloamwire`. So the last two relics built have no particle field and nothing
+# said so. This one has one, in BOTH copies, and the builder refuses to write
+# unless they match byte for byte afterwards.
+FX_SPEC = """,
+    /* THE COPY LEAVING THE BLADE, AND `atSelf` IS WHY IT LEAVES THE RIGHT ONE.
+       A `burst` is drawn at the FOE -- right for the four novas that mode was
+       written for, which are cast AT somebody, and wrong for a thing THROWN
+       FROM the caster. Nothing has landed on the quarry when this plays; the
+       copy has not even arrived.
+
+       Heavier and wetter than the sparks above it: real gravity, a slow fall
+       and a long tail, because what is coming off the weapon is blood rather
+       than light. It is gone well before the spectre sticks, which is
+       deliberate -- the STICK has its own voice and its own beat, and a field
+       still running under it would blunt the one frame the design says has to
+       read. */
+    bloodmirror: { mode: 'burst', n: 1200, sp: [150, 600], grav: 300,
+                   drag: 2.3, life: [0.26, 0.78], heavy: 0.08,
+                   size: [0.8, 2.4], spawn: 0.06, up: 20, atSelf: 1 }"""
+
+FX_ANCHOR = """                    size: [0.5, 2.0], spawn: 0.12, up: 40, atSelf: 1 }
+  };"""
+
+
+S2 = [
+

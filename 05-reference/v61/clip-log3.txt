@@ -1,0 +1,96 @@
+[progress] capture frames=0 elapsed=0.0
+[progress] capture frames=6 elapsed=1.1
+[progress] capture frames=14 elapsed=2.2
+[progress] capture frames=22 elapsed=3.2
+[progress] capture frames=30 elapsed=4.3
+[progress] capture frames=38 elapsed=5.3
+[progress] capture frames=46 elapsed=6.5
+[progress] capture frames=53 elapsed=7.5
+[progress] capture frames=61 elapsed=8.6
+[progress] capture frames=69 elapsed=9.7
+[progress] capture frames=77 elapsed=10.7
+[progress] capture frames=85 elapsed=11.7
+[progress] capture frames=93 elapsed=12.8
+[progress] capture frames=102 elapsed=13.9
+[progress] capture frames=111 elapsed=15.0
+[progress] capture frames=119 elapsed=16.0
+[progress] capture frames=127 elapsed=17.0
+[progress] capture frames=135 elapsed=18.0
+[progress] capture frames=143 elapsed=19.1
+[progress] capture frames=152 elapsed=20.2
+[progress] capture frames=161 elapsed=21.2
+[progress] capture frames=170 elapsed=22.2
+[progress] capture frames=179 elapsed=23.4
+[progress] capture frames=187 elapsed=24.5
+[progress] capture frames=195 elapsed=25.6
+[progress] capture frames=202 elapsed=26.6
+[progress] capture frames=209 elapsed=27.6
+[progress] capture frames=217 elapsed=28.8
+[progress] capture frames=224 elapsed=29.8
+[progress] capture frames=231 elapsed=30.8
+[progress] capture frames=238 elapsed=31.9
+[progress] capture frames=244 elapsed=33.0
+[progress] capture frames=250 elapsed=34.0
+[progress] capture frames=257 elapsed=35.2
+[progress] capture frames=263 elapsed=36.3
+[progress] capture frames=269 elapsed=37.3
+[progress] capture frames=276 elapsed=38.4
+[progress] capture frames=283 elapsed=39.5
+[progress] capture frames=290 elapsed=40.6
+[progress] capture frames=297 elapsed=41.7
+[progress] capture frames=304 elapsed=42.8
+[progress] capture frames=311 elapsed=43.9
+[progress] capture frames=318 elapsed=44.9
+[progress] capture frames=325 elapsed=46.1
+[progress] capture frames=332 elapsed=47.1
+[progress] capture frames=340 elapsed=48.1
+[progress] capture frames=349 elapsed=49.2
+[progress] capture frames=358 elapsed=50.3
+[progress] capture frames=367 elapsed=51.4
+[progress] capture frames=376 elapsed=52.5
+[progress] capture frames=385 elapsed=53.6
+[progress] capture frames=393 elapsed=54.6
+[progress] capture frames=401 elapsed=55.7
+[progress] capture frames=409 elapsed=56.8
+[progress] capture frames=416 elapsed=57.8
+[progress] capture frames=424 elapsed=58.9
+[progress] capture frames=432 elapsed=60.0
+[progress] capture frames=441 elapsed=61.0
+[progress] capture frames=450 elapsed=62.2
+[progress] capture frames=458 elapsed=63.2
+[progress] capture frames=466 elapsed=64.3
+[progress] capture frames=474 elapsed=65.3
+[progress] capture frames=482 elapsed=66.3
+[progress] capture frames=489 elapsed=67.4
+[progress] capture frames=496 elapsed=68.5
+[progress] capture frames=503 elapsed=69.6
+[progress] capture frames=511 elapsed=70.7
+[progress] capture frames=519 elapsed=71.8
+[progress] capture frames=527 elapsed=73.0
+[progress] capture frames=534 elapsed=74.1
+[progress] capture frames=541 elapsed=75.2
+[progress] capture frames=548 elapsed=76.3
+[progress] capture frames=555 elapsed=77.4
+[progress] capture frames=563 elapsed=78.5
+[progress] capture frames=570 elapsed=79.5
+[progress] capture frames=577 elapsed=80.5
+[progress] capture frames=584 elapsed=81.6
+[progress] capture frames=591 elapsed=82.7
+[progress] capture frames=598 elapsed=83.7
+[progress] capture frames=605 elapsed=84.7
+[progress] capture frames=613 elapsed=85.9
+[progress] capture frames=620 elapsed=86.9
+[progress] capture frames=627 elapsed=88.0
+[progress] capture frames=634 elapsed=89.2
+[progress] capture frames=641 elapsed=90.2
+[progress] capture frames=648 elapsed=91.2
+no killing blow on this seed (timeout finish); using the last cut
+seed 33243: kill at 36.62s, clip starts at 30.02s
+cut list: 17.3s T2, 33.7s T3, 36.6s T3
+  rendering director ON ...
+    verdict panel held 2.40s of the 3.43s tail (armed 1.03s after the kill)
+    on: 857 frames, 14.3s wall, 123s to render, match ended {'seed': 33243, 't': 30.024999999998936, 'kill': None}
+    on: FIGHT over=True t=38.7333 clanks=5 hp=[183, 0]
+
+wrote C:\dev\sundered-crown\07-shorts\v61\crossweave-ult-only.mp4  3.95 MB  (0.0s off + 14.3s on)
+the two halves are the same seed. If the winner differs, the feature is broken.

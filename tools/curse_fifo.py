@@ -26,11 +26,12 @@ Three measurements, runtime injection only, nothing written to any build:
 """
 from __future__ import annotations
 import argparse, json, pathlib, statistics, sys, time
-sys.path.insert(0, "/mnt/user-data/uploads/sundered-crown/tools")
-from scpage import game
+HERE = pathlib.Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))  # v63: was a hardcoded Cowork container path; runs from tools/ on any machine now
+from scpage import game, resolve_game
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--game", default="/mnt/user-data/uploads/sundered-crown/02-chain/sc-garrote.html")
+ap.add_argument("--game", default="02-chain/sc-garrote.html")  # v63: repo-relative, resolved by scpage.resolve_game
 ap.add_argument("--seeds", type=int, default=30)
 ap.add_argument("--out", default="/tmp/curse_fifo.json")
 a = ap.parse_args()
@@ -97,7 +98,7 @@ RELIC_JS = r"""([id, foes, seeds, secs]) => {
 TYPE_DONOR = {"greatsword":"dawnbringer","twinblade":"widowmaker","warhammer":"grudgebearer",
               "scythe":"thornwake","flail":"gravemourn","bow":"ironhail"}
 
-with game(game_path=pathlib.Path(a.game)) as (page, errors):
+with game(game_path=resolve_game(a.game)) as (page, errors):
     ids = page.evaluate("() => AC.WEAPONS.map(w => w.id)")
     seeds = [12101 + 47*i for i in range(a.seeds)]
     panel = ["dawnbringer","widowmaker","grudgebearer","gravemourn","ironhail",

@@ -1,0 +1,49 @@
+=== rate 7 base 4 ===
+DUSKREAVE / SCOUR — blade 21, 7 ticks/s, base 4, 160 wide, 10s casts
+    no ultimate                    17.6%   ticks   0.0   base    0.0   echo    0.0   total    0.0   per cast    0.0   donor casts 0.00
+    SCOUR, ticks apply curse       74.2%   ticks  23.8   base   95.4   echo  118.6   total  214.0   per cast  107.0   donor casts 0.00
+    SCOUR, ticks do not apply      73.5%   ticks  24.1   base   96.4   echo  116.2   total  212.6   per cast  106.3   donor casts 0.00
+    SCOUR IS WORTH +56.6pp   (apply clause +0.7pp)   paired flips 598/986   paired SE ~2.5pp
+    CONTROL 2 — no-ult floor 17.6% must sit below cell_ults_on's 39.0% (blade 31.35, no ult): PASS
+    2958 fights in 148s   errors: []
+=== rate 7 base 3 ===
+DUSKREAVE / SCOUR — blade 21, 7 ticks/s, base 3, 160 wide, 10s casts
+    no ultimate                    17.6%   ticks   0.0   base    0.0   echo    0.0   total    0.0   per cast    0.0   donor casts 0.00
+    SCOUR, ticks apply curse       69.5%   ticks  24.8   base   74.3   echo  124.8   total  199.1   per cast   99.6   donor casts 0.00
+    SCOUR, ticks do not apply      68.6%   ticks  25.0   base   75.0   echo  123.0   total  198.0   per cast   99.0   donor casts 0.00
+    SCOUR IS WORTH +51.8pp   (apply clause +0.9pp)   paired flips 551/986   paired SE ~2.4pp
+    CONTROL 2 — no-ult floor 17.6% must sit below cell_ults_on's 39.0% (blade 31.35, no ult): PASS
+    2958 fights in 151s   errors: []
+=== rate 4.5 base 5 ===
+DUSKREAVE / SCOUR — blade 21, 4.5 ticks/s, base 5, 160 wide, 10s casts
+    no ultimate                    17.6%   ticks   0.0   base    0.0   echo    0.0   total    0.0   per cast    0.0   donor casts 0.00
+    SCOUR, ticks apply curse       64.7%   ticks  17.4   base   86.8   echo   90.6   total  177.4   per cast   88.7   donor casts 0.00
+    SCOUR, ticks do not apply      62.3%   ticks  17.5   base   87.7   echo   88.7   total  176.4   per cast   88.2   donor casts 0.00
+    SCOUR IS WORTH +47.1pp   (apply clause +2.4pp)   paired flips 524/986   paired SE ~2.3pp
+    CONTROL 2 — no-ult floor 17.6% must sit below cell_ults_on's 39.0% (blade 31.35, no ult): PASS
+    2958 fights in 155s   errors: []
+=== rate 5 base 5 ===
+DUSKREAVE / SCOUR — blade 21, 5 ticks/s, base 5, 160 wide, 10s casts
+    no ultimate                    17.6%   ticks   0.0   base    0.0   echo    0.0   total    0.0   per cast    0.0   donor casts 0.00
+    SCOUR, ticks apply curse       67.7%   ticks  19.0   base   94.8   echo   97.8   total  192.6   per cast   96.3   donor casts 0.00
+    SCOUR, ticks do not apply      65.6%   ticks  19.0   base   95.2   echo   94.8   total  189.9   per cast   95.0   donor casts 0.00
+    SCOUR IS WORTH +50.1pp   (apply clause +2.1pp)   paired flips 550/986   paired SE ~2.4pp
+    CONTROL 2 — no-ult floor 17.6% must sit below cell_ults_on's 39.0% (blade 31.35, no ult): PASS
+    2958 fights in 153s   errors: []
+=== rate 3 base 5 ===
+DUSKREAVE / SCOUR — blade 21, 3 ticks/s, base 5, 160 wide, 10s casts
+    no ultimate                    17.6%   ticks   0.0   base    0.0   echo    0.0   total    0.0   per cast    0.0   donor casts 0.00
+    SCOUR, ticks apply curse       49.2%   ticks  12.7   base   63.3   echo   68.5   total  131.8   per cast   65.9   donor casts 0.00
+    SCOUR, ticks do not apply      48.1%   ticks  12.7   base   63.5   echo   67.1   total  130.6   per cast   65.3   donor casts 0.00
+    SCOUR IS WORTH +31.5pp   (apply clause +1.1pp)   paired flips 405/986   paired SE ~2.0pp
+    CONTROL 2 — no-ult floor 17.6% must sit below cell_ults_on's 39.0% (blade 31.35, no ult): PASS
+    2958 fights in 162s   errors: []
+=== width 120, rate 7 base 5 ===
+DUSKREAVE / SCOUR — blade 21, 7 ticks/s, base 5, 120 wide, 10s casts
+    no ultimate                    17.6%   ticks   0.0   base    0.0   echo    0.0   total    0.0   per cast    0.0   donor casts 0.00
+    SCOUR, ticks apply curse       70.5%   ticks  20.0   base  100.2   echo  102.1   total  202.2   per cast  101.1   donor casts 0.00
+    SCOUR, ticks do not apply      69.2%   ticks  20.2   base  101.1   echo   99.2   total  200.3   per cast  100.1   donor casts 0.00
+    SCOUR IS WORTH +52.8pp   (apply clause +1.3pp)   paired flips 563/986   paired SE ~2.4pp
+    CONTROL 2 — no-ult floor 17.6% must sit below cell_ults_on's 39.0% (blade 31.35, no ult): PASS
+    2958 fights in 151s   errors: []
+DONE

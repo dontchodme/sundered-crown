@@ -1,0 +1,20 @@
+
+GLOAMWIRE BLADE -- sc-crossweave.html   30 foes   shipped dmg 7.25
+
+[0] THE CURVE -- 240 fights a point, side A. Wide and cheap,
+    and it is here to find the REGION and to see whether the
+    curve bends. It is NOT the answer.
+
+        dmg     win     dur  timeouts
+       6.50   40.4%    45.9         0
+       7.25   49.2%    44.6         0
+       8.00   59.6%    43.3         0
+       8.75   65.8%    41.8         0
+       9.50   78.3%    39.8         0
+
+    monotone in the blade: YES
+    the 40-60% region is dmg 6.5 to 8
+
+    NEXT: --only 1 --points <lo>,<mid>,<hi> from the region above.
+
+wrote ../05-reference/v61/blade-curve5.json

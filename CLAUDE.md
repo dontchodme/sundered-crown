@@ -12,7 +12,36 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-crossweave.html      BUILD OF RECORD  <- app/main.js GAME
+02-chain/sc-bloodletting.html    IN FLIGHT, NOT THE BUILD OF RECORD
+                                                   32 relics . BLOODMIRROR AND
+                                                   BLOODLETTING - the scythe
+                                                   throws THREE bloody spectral
+                                                   copies of itself in a fan.
+                                                   They fly 0.55s, STICK, drift
+                                                   slowly on, and mill a 138
+                                                   disc each for 4.5s - and
+                                                   WHILE ONE STANDS, HEMORRHAGE
+                                                   STACKS TO 8 INSTEAD OF 4, FOR
+                                                   THE BLADE TOO. FOE ONLY.
+                                                   The ceiling is PER-FIGHTER.
+                                                   BLADE NOT YET SETTLED -- the
+                                                   curve crosses near 9 and the
+                                                   wide measurement is the
+                                                   answer. `TUNED_BM` is None
+                                                   engine_ab 3720/3720 on the 31
+                                                   probe 24/25 (the one FAIL is
+                                                   the registered tick count)
+                                                   chain_audit 14/14
+02-chain/sc-bloodmirror.html     the link before it, 32 relics, ULT STUBBED
+                                                   AND `_scBarbed`'S TIP HOOK IS
+                                                   GONE - Rick's, off a zoom
+                                                   shot. engine_ab 3720/3720
+02-chain/sc-tipfix.html          the link before it, 31 relics - THE TIP SURFACE
+                                                   curse's tip says "stacks 3
+                                                   times" and `_tagFirst`'s box
+                                                   is 760. Provably inert:
+                                                   engine_ab 3720/3720
+02-chain/sc-crossweave.html      the link before it  <- app/main.js GAME
                                                    31 relics · GLOAMWIRE AND
                                                    CROSSWEAVE — a magazine of 24
                                                    triple-shot volleys at twice
@@ -142,6 +171,93 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE THIRTY-SECOND RELIC IS BLOODMIRROR, AND BLOODLETTING IS THE FIRST THING IN
+THIS GAME THAT MOVES A STATUS'S CEILING** (`bloodmirror_build.py`, 2026-09-01).
+Bloodsworn x scythe, the OLDEST DESIGN IN THE PROJECT - `06-docs/v59/` was
+written on 2026-09-01 and then spent a day in a chat transcript while two later
+cells were built ahead of it. A cast throws THREE bloody spectral copies of the
+scythe in a fan; they fly 0.55s at 420, stick, drift on at 26 px/s, and each
+mills a 138 disc for 4.5s - 3 damage and 2 Hemorrhage every 0.22s, shoving 120
+along its own bearing, FOE ONLY. **While one stands the quarry's bleed ceiling
+is 4 -> 8, and the blade feeds it too.** Blade **not yet settled**.
+`06-docs/v59/bloodmirror-build-v59.md`.
+
+> **THE CEILING'S THREE SILENT FAILURES ARE UNREACHABLE RATHER THAN CHECKED
+> FOR.** `STATUS.hemorrhage.maxStacks` is ONE NUMBER shared by every fighter and
+> by all five bloodsworn relics, and the design named the three ways a build
+> gets that wrong: a Marrowdraw inherits a window it never cast, the cap is left
+> at 8 for the NEXT match, and it is restored on `m.over` but not on a window
+> merely expiring. `f.bleedCap` is a property of the fighter BEING BLED and
+> `tickSpectre` **recomputes it from scratch every frame** instead of raising
+> and restoring it, so there is no paired write to forget. Eight matches of the
+> other four, run before AND after two Bloodmirror matches: 0 frames.
+
+> **RICK CHANGED THE MECHANIC AFTER WATCHING IT AND THE RELIC IS NOW WORTH ABOUT
+> TWICE WHAT WAS PRICED.** The design and the brief are written for ONE copy that
+> STICKS IN PLACE; what ships is three that drift. *"lets have it shoot out 3
+> copies of itself"* and *"a small amount of movement so they slowly continue to
+> float in the direction they were fired."* **Every absolute number in
+> `06-docs/v59/` is on the other branch** - the one-scalar law survives and
+> three copies move its input; the ceiling numbers survive because a ceiling is
+> a ceiling and the count is not on it; the blade does not survive at all.
+> Ticks a fight **10.5-11.0 registered, 23.42 measured**, and 65.5% of them land
+> on a quarry standing in more than one disc, because each copy carries its own
+> cooldown. **That multiplier is priced nowhere.**
+
+> **AND EVEN AT ONE COPY THE REGISTERED PREDICTION WAS OUT OF BAND**, at 13.12.
+> 16.5% of ticks land while the copy is still in the air, which `hitFly` allows
+> and both the brief's table and `spectre_lab`'s default turn on - so the gap is
+> somewhere else and the likeliest remainder is that the prediction was derived
+> for `life 4.5` from a lab centre running `life 6.0`. **The stage-1 prediction
+> DID land**: the relic with no ultimate at all measured 21.5% against a
+> registered ~23%, on a roster it was never priced against.
+
+> **`_stBleed` DREW `Math.min(4, n)` DRIPS, SO EIGHT STACKS LOOKED EXACTLY LIKE
+> FOUR.** Design 7c calls the stack readout *"the only evidence on screen that
+> the ceiling moved"*, and the +7.9pp mechanic had NO representation whatsoever
+> - correct for every fight ever played on this engine and wrong the instant
+> something could exceed four. The drips scale to the fighter's own ceiling now,
+> and the status tag prints the count while the ceiling is up, for the BLADE's
+> applications as well as a copy's. **The odd numbers do not exist**: every
+> application in this school is TWO, so a quarry goes 2, 4, 6, 8 and 7c's
+> request to photograph 5 and 7 asks for states the arithmetic forbids.
+
+> **FOUR PICTURE CHANGES CAME OFF RICK WATCHING, AND ONE OF THEM FOUND A PIVOT
+> DOING A SECOND JOB.** The tip hook off `_scBarbed` (*"the grey triangle at the
+> tip ... lets get rid of it"*); a landing RING because the STICK did not read
+> at all and a burst would have said something was hit when nothing was; the
+> pool roughly doubled; and the copies turning about their own centres at 4x
+> speed. **The old pivot at `R - 6` made the drawn sweep exactly `R + reach` =
+> the disc, for free** - centred, the sweep is `artScale x 0.555 x L` and only
+> `artScale` 2.26 puts the tip back on the rim. He was shown both and took 2.26.
+> The builder prints both numbers every run, because a picture claiming a
+> smaller hazard than the one that exists is the hardest kind of bug in this repo
+> to see.
+
+> **AND `_scOuter`'S INVERSION IS NOW A CHOSEN STATE ON THE SCYTHE ROW.** Its own
+> comment records that the normal is INWARD at 1921 of 1921 samples and that
+> **0 of 37 call sites** move toward the side their comment names - so
+> `_scBarbed`'s barbs sweep across the concave face rather than dragging off the
+> back. The one-character fix moves six of the seven scythes (bloodsworn 3.16%
+> of the frame, vigil 7.87%, runic 0.00% as the control). Rick was shown the
+> shipped-against-flipped sheet for all seven and answered *"everything else is
+> great."* Do not re-raise it and do not "fix" it.
+
+> **THE LAST TWO RELICS SHIPPED WITH NO PARTICLE FIELD AND NOTHING SAID SO.**
+> `SPECS` carries 29 entries in both `src/render/fx.js` and the inlined copy and
+> neither has `ravelbone` or `gloamwire`. `ULTFX.sync` RETURNS on a missing spec
+> - it is not an error, which is exactly why it ships. This file predicted it
+> when the 26th spec went in. Open item 46.
+
+> **AND THE PROBE WAS WRONG FIVE TIMES BEFORE THE BUILD WAS, THREE OF THEM THE
+> SAME WAY.** It measured a duration against `m.t` and called 24 of 24 landings
+> late (every impact opens with a freeze, so the copy's clock stops while the
+> match's does not); it counted frames on which the match was over and a copy
+> existed and called six killing ticks violations; it did the same for "a tick on
+> a corpse"; and it expected the copies to drift on 5,501 frozen frames. **A
+> CHECK THAT COUNTS FRAMES IN WHICH AN EVENT IS POSSIBLE IS NOT COUNTING THE
+> EVENT** - five times in one file in v60, twice in v56, three more here.
 
 **IN FLIGHT: GLOAMWIRE AND CROSSWEAVE, THE UMBRAL BOW — AND IT COLLIDED WITH A
 SECOND DESIGN FOR ITS OWN CELL ON THE DAY IT WAS WRITTEN.** Two v61 designs
@@ -1942,10 +2058,14 @@ not in the tree yet at the moment the second session looked.
    device bridge dropped on the write and the work sat in a chat transcript for
    ten hours. **A deliverable that lives in a chat message does not exist.**
 
-**AND THE STANDING EXAMPLE IS BLOODMIRROR.** Bloodsworn × scythe — named,
-composed, its bleed-ceiling rule ruled on, knockback chosen — has **no document
-anywhere in this repo**. It is in no link and no `06-docs/` folder. The next
-session to look at that cell will correctly conclude it is open.
+~~**AND THE STANDING EXAMPLE IS BLOODMIRROR.**~~ **ITS DOCUMENTS LANDED AND IT
+IS BUILT**, 2026-09-01. Bloodsworn × scythe was designed in full on 2026-09-01,
+and for a day it existed only in a chat transcript because the device bridge
+dropped mid-write. Five documents are now in `06-docs/v59/` and the relic is the
+thirty-second. **The lesson it stood for still holds and is the reason §7 rule 3
+exists**: the failure was not forgetting to write, it was writing ONCE, AT THE
+END, into a channel that could fail. A stub survives a dropped connection and a
+finished document held in a transcript does not.
 
 ---
 
@@ -2121,8 +2241,13 @@ session to look at that cell will correctly conclude it is open.
     2.8 is refuted-at-1.35 and confirmed by nothing. §7 of the build brief and
     rule 2 both make this Rick's. `07-shorts/v56/grasp-first-cut.mp4`.
 
-34. **THREE CELLS NOW BUILD THEIR GRAMMAR THE WAY RICK REJECTED — AND ONE OF
-    THE THREE IS NOW A CHOSEN STATE.** §0. Bloodsworn's six hooks and dwarven's
+34. **THREE CELLS BUILT THEIR GRAMMAR THE WAY RICK REJECTED — AND TWO OF THE
+    THREE ARE NOW CHOSEN STATES.** `_scBuilt` is the one left. Shown the
+    bloodsworn scythe at zoom on 2026-09-01, Rick took the TIP HOOK off it
+    (*"the grey triangle at the tip ... lets get rid of it"*) and kept the five
+    barbs and the side they are on: *"everything else is great."* So the scythe
+    row is settled and only dwarven's four bolt bosses are unasked.
+    THE ORIGINAL ITEM, KEPT: §0. Bloodsworn's six hooks and dwarven's
     four bolt bosses are separate stroked shapes on top of `_whBase`, and
     **`_scBuilt` — the dwarven scythe — is a square bracket plate and four
     bolts stroked on top of `_scBase`.** All three are the construction that
@@ -2255,9 +2380,58 @@ session to look at that cell will correctly conclude it is open.
     wrapped round a shell, and the ultimate's own banner is drawn over the
     ring. Rule 2 and §4.0.
 
-Full detail: `06-docs/v60/` for the tip — and read
-`06-docs/v60/CONFLICT-READ-FIRST-v60.md` FIRST, because two designs were
-written for that cell in parallel and Rick's ruling is at the bottom of it.
+46. **RAVELBONE AND GLOAMWIRE HAVE NO PARTICLE FIELD.** §0. `SPECS` carries 29
+    entries in both `src/render/fx.js` and the build's inlined copy, and neither
+    has an entry for either relic — so the last two ultimates before this one
+    emit nothing, and `ULTFX.sync` returns silently rather than erroring. This
+    file predicted the failure mode when the 26th spec went in. The fix is one
+    spec each in two files, and `bloodmirror_build.py` now refuses to write
+    unless the two tables are byte-identical after its own insert. Rick's,
+    because a field is art.
+
+47. **`_tagFirst`'s BOX OVERFLOWS AT THE DELIVERY RESOLUTION AND ALWAYS HAS.**
+    The box is sized in DEVICE pixels and drawn in ARENA units, so it gets
+    WIDER as the render gets smaller: 287 arena units at 1080, **574 at the
+    540-wide short**, 684 in the app at phone size — against a 520-unit hall,
+    at the OLD 596 width. `clamp(v,a,b)` returns `a` when `a > b`, so it runs
+    off the right edge instead of failing. Stage T takes it to 760. Not stage
+    T's defect and stage T makes it worse; **nobody has ever photographed a
+    first-application pop-up at anything but 1080**. `tipfix_build.py` prints
+    the table every run.
+
+48. **BLOODLETTING'S OVERLAP IS AN UNPRICED MULTIPLIER.** §0. Each of the three
+    copies carries its own cooldown, so **65.5% of all ticks land on a quarry
+    standing in more than one disc** and are paid two or three times. It is the
+    plain reading of "three copies of itself" and the only one that needs no
+    rule written for it — and Breach's `spent` is one payment per firing
+    precisely because sweeping several bodies with one hazard is either a shield
+    or a multiplier. The alternatives are one payment a volley or a cooldown
+    shared across the three, and both are a different relic. The blade currently
+    absorbs it.
+
+49. **STACKS ABOVE FOUR DO NOT DECAY ONE AT A TIME.** Design §6.4 chose "leave
+    them to run out on hemorrhage's own 3.2s clock" over trimming instantly,
+    and pictured a gentle run-down. This engine expires a status **as a whole**,
+    and any new application refreshes the clock — so a quarry still being hit
+    holds 8 stacks until contact stops. Bounded in practice (this relic lands
+    ~7.5 blows across ~40s, and 3.2s is usually shorter than the gap) and not
+    what the design pictured.
+
+50. **NOBODY HAS WATCHED THE THREE-COPY BUILD.** The one clip that exists
+    (`07-shorts/v59/bloodletting-first-cut.mp4`) is the ONE-copy version, and
+    every one of the four rounds of looking so far moved something no probe had
+    a number for. The ring, the pool, the centre-axis spin and the three copies
+    are photographed in `05-reference/v59/bloodletting-states-*.png` and have
+    never been seen in motion. §4.0.
+
+Full detail: `06-docs/v59/bloodmirror-build-v59.md` is the tip, and
+`06-docs/v59/spectre-design-v59.md` plus `bloodmirror-build-brief-v59.md` are
+the design it was built from — read the BUILD doc's §0 first, because Rick
+changed the mechanic after seeing it and the other two are written for one
+copy that sticks. `06-docs/v61/` for the relic before it, `06-docs/v60/` for the
+one before that — and read `06-docs/v60/CONFLICT-READ-FIRST-v60.md` FIRST,
+because two designs were written for that cell in parallel and Rick's ruling is
+at the bottom of it.
 `06-docs/v59/` for the relic before it and `06-docs/v57/` for the design and
 pricing behind that one, `06-docs/v58/` for the umbral hammer, `06-docs/v56/` for the
 relic before that, `06-docs/v54/` for the relic

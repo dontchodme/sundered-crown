@@ -18,11 +18,12 @@ result means nothing.
 """
 from __future__ import annotations
 import argparse, json, pathlib, statistics, sys, time
-sys.path.insert(0, "/mnt/user-data/uploads/sundered-crown/tools")
-from scpage import game
+HERE = pathlib.Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))  # v63: was a hardcoded Cowork container path; runs from tools/ on any machine now
+from scpage import game, resolve_game
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--game", default="/mnt/user-data/uploads/sundered-crown/02-chain/sc-garrote.html")
+ap.add_argument("--game", default="02-chain/sc-garrote.html")  # v63: repo-relative, resolved by scpage.resolve_game
 ap.add_argument("--seeds", type=int, default=12)
 ap.add_argument("--out", default="/tmp/tick_ab.json")
 a = ap.parse_args()
@@ -60,7 +61,7 @@ JS = r"""([donor, foes, seeds, secs, mem, windows, rate]) => {
   return out;
 }"""
 
-with game(game_path=pathlib.Path(a.game)) as (page, errors):
+with game(game_path=resolve_game(a.game)) as (page, errors):
     panel = ["dawnbringer","widowmaker","grudgebearer","gravemourn","ironhail",
              "axiom","censer","bulwarden","foregone","heartwood"]
     seeds = [9101 + 31*i for i in range(a.seeds)]

@@ -1,0 +1,626 @@
+# ---- 6. THE BLADE'S OWN BLEED TAG CARRIES THE COUNT TOO ---------------------
+("resolve-tag", '''      this.statusTag(hx, hy, k, first, k === "curse" ? Math.round(foe.curseSum()) : 0);''',
+ '''      /* AND HEMORRHAGE CARRIES ITS COUNT WHILE A BLOODLETTING CEILING IS UP.
+         Rick's ruling is that THE BLADE FEEDS THE RAISED CEILING TOO, which is
+         what makes the window read as the fighter opening up rather than as an
+         object landing -- so the blade's own tag has to be able to say `5`,
+         `6`, `7`, `8` exactly as the spectre's does. Zero in every match with
+         no standing spectre in it, which is every match this build had before
+         this one. */
+      this.statusTag(hx, hy, k, first,
+                     k === "curse" ? Math.round(foe.curseSum())
+                   : (k === "hemorrhage"
+                      && foe.bleedCap > STATUS.hemorrhage.maxStacks)
+                     ? foe.stacks("hemorrhage") : 0);'''),
+
+# ---- 7. AND THE SHELL DRAWS PAST FOUR ---------------------------------------
+("bleed-art", '''  _stBleed(m, f, R, n){
+    const c = this.ctx, N = Math.min(4, n) * 2;''',
+ '''  /* AND THE DRIP COUNT IS CLAMPED TO THE FIGHTER'S OWN CEILING, NOT TO FOUR.
+     It was `Math.min(4, n)`, which was right for every fight ever played on
+     this engine and is wrong the moment a Bloodletting spectre stands: eight
+     stacks would have drawn exactly what four draws, and design 7c says the
+     readout is THE ONLY EVIDENCE ON SCREEN that the ceiling moved. A viewer
+     cannot see a constant, and no probe in this repo could have said so --
+     which is v54 2c, the precedent that cost a build. */
+  _stBleed(m, f, R, n){
+    const c = this.ctx, N = Math.min(f.bleedCap || 4, n) * 2;'''),
+
+# ---- 8. THE CAST'S OWN FLASH LIVES THE LENGTH OF THE THROW ------------------
+("ultfx-life", '''              ravelbone: 1.5,''',
+ '''              ravelbone: 1.5,
+              /* THE SPECTRE IS NOT IN HERE. This is the THROW's flash and its
+                 particle field only; the copy itself is on `f.ultSpectre` and
+                 `f.spectreFade` for v54 section 2a's measured reason, so this
+                 number is short on purpose and does not track `ult.life`. */
+              bloodmirror: 1.5,'''),
+
+# ---- 9. FOUR VOICES, AND THE THIRD IS THE HARD ONE --------------------------
+("sfx", '''        } else if (w === "nightfell-stamp"){''',
+ '''        } else if (w === "bloodmirror"){        // the copy leaves the blade
+          /* THE THROW, and it is the CAST voice -- `fireUlt` plays
+             `{ w: f.w.id }` for every relic, so this is the first of the four
+             and nothing extra has to be scheduled for it. A wet tear followed
+             by something leaving at speed: the copy coming off the weapon. */
+          this._burst(t, { freq: 1100, q: 0.9, gain: 0.20, dur: 0.16, type:"bandpass" });
+          this._tone (t, { freq: 260, to: 96, gain: 0.24, dur: 0.34, type:"sawtooth" });
+          this._tone (t + 0.05, { freq: 620, to: 210, gain: 0.13, dur: 0.40, type:"triangle" });
+        } else if (w === "bloodmirror-stick"){  // and it STOPS
+          /* THE FRAME THAT SAYS IT IS STAYING. Design 7c: if the stick does not
+             read, the ultimate looks like a missed shot -- so this is the
+             LOUDEST of the four and it is the only one with a hard transient.
+             A blade going into something and holding. */
+          this._burst(t, { freq: 2400, q: 1.2, gain: 0.22, dur: 0.09, type:"bandpass" });
+          this._tone (t, { freq: 150, to: 54, gain: 0.26, dur: 0.40, type:"sine" });
+          this._burst(t + 0.03, { freq: 300, q: 0.5, gain: 0.17, dur: 0.36, type:"lowpass" });
+        } else if (w === "bloodmirror-mill"){   // and it turns, for 4.5s
+          /* THE HARD ONE, and the design says so. It has to survive being
+             heard for four and a half seconds without becoming a wash, and
+             CLAUDE.md 4.5 says a HELD NOTE DOES NOT EXIST IN THIS TOOLKIT --
+             `_tone` ends on an exponential ramp over its whole length, so
+             anything that must last is RE-STRUCK. `tickSpectre` strikes this
+             every 0.75s, which is six strikes over a window.
+
+             It is deliberately DULL and low: the Winnowing's rung problem, and
+             the thing that keeps a repeated voice from becoming wallpaper is
+             that it is quiet enough to sit under the ticks that ride on it. */
+          this._tone (t, { freq: 86, to: 62, gain: 0.13, dur: 0.70, type:"sawtooth" });
+          this._burst(t, { freq: 420, q: 0.7, gain: 0.07, dur: 0.55, type:"lowpass" });
+        } else if (w === "bloodmirror-tick"){   // and something is inside it
+          /* THE PAYMENT. It has to cut through a 0.03s hit-stop and be
+             distinguishable from the mill it rides on, because the one thing a
+             viewer has to learn from this ultimate is WHEN IT IS BEING PAID.
+             Short, bright and wet.
+
+             NO BURST IS LONGER THAN 0.6s. CLAUDE.md 4.5: `_burst` does not loop
+             its 0.6s noise buffer, so anything longer plays silence for its
+             tail. */
+          this._burst(t, { freq: 3000, q: 1.0, gain: 0.14, dur: 0.07, type:"highpass" });
+          this._tone (t, { freq: 330, to: 120, gain: 0.15, dur: 0.16, type:"sawtooth" });
+        } else if (w === "bloodmirror-close"){  // and it is gone
+          /* THE WINDOW CLOSING, and it is the quietest of the four on purpose:
+             nothing happens on this frame. It is the mill's own note let go of
+             -- same register, falling, with the noise bed taken out from under
+             it -- so the absence is what a viewer hears. */
+          this._tone (t, { freq: 74, to: 38, gain: 0.15, dur: 0.55, type:"sine" });
+          this._tone (t + 0.04, { freq: 220, to: 90, gain: 0.08, dur: 0.44, type:"triangle" });
+        } else if (w === "nightfell-stamp"){'''),
+
+# ---- 9b. THE RING IS AGED ON THE PRESENTATION CLOCK -------------------------
+("ring-tick", '''    for (const f of [this.a, this.b]){
+      if (f.graspCrush){''',
+ '''    /* THE SPECTRE'S LANDING RING. HERE and not in `tickSpectre` for v54's
+       reason, stated one relic along: anything presentation that can share a
+       frame with an impact belongs on this clock, because a hit stop runs
+       `decayImpactOnly` and a clock on the normal path freezes for exactly the
+       frames the viewer is staring hardest at. Deadfall's blast froze on the
+       floor 96.2% of the time before that was understood.
+
+       `life` IS IN HALF-SECONDS, like every other presentation clock in this
+       engine: this method is called once directly and once through
+       `decayImpactOnly`, so it runs at 2x sim time and 0.44 is 0.22 seconds. */
+    for (const f of [this.a, this.b]){
+      if (f.spectreRing){
+        f.spectreRing.t += dt;
+        if (f.spectreRing.t >= f.spectreRing.life) f.spectreRing = null;
+      }
+    }
+    for (const f of [this.a, this.b]){
+      if (f.graspCrush){'''),
+
+# ---- 10. THE COPY IS DRAWN, UNDER BOTH FIGHTERS -----------------------------
+("draw-call", '''    if (__world){
+    this.drawShades(m);''',
+ '''    if (__world){
+    /* UNDER both fighters and under the shades, because a hazard the balls
+       navigate around has to be something they pass IN FRONT OF -- and over
+       the floor, because it is standing on it. IN THE WORLD PASS AND NOT THE
+       EMISSIVE ONE: see `drawSpectre`. */
+    this.drawSpectre(m);
+    this.drawShades(m);'''),
+
+("draw-spectre", '''  drawSigils(m){''',
+ '''  /* THE COPY, STANDING IN THE HALL.
+
+     Design 7b: nothing in this game has ever occupied open space. The Thicket's
+     vines root to walls, Breach's vents are torn in walls, Deadfall's sigils
+     are stamped where a blow landed and the Stasis Field rings its own caster.
+     This is the first object the two balls have to navigate around, it is free,
+     and the design calls it the strongest thing in Rick's section 1.
+
+     IT IS THE WEAPON'S OWN SHAPE THROUGH THE WEAPON'S OWN DRAW PATH, so a
+     change to `_scBarbed` reaches the copy for free and the two can never
+     disagree -- "the same silhouette, red and ghosted" is the design's line and
+     the silhouette is literally the same function. The geometry follows for
+     free too: `drawWeapon` pivots at `R - 6` and draws `reach + 6`, so the
+     swept radius is exactly `R + reach` = 138, which is the disc. The builder
+     asserts that rather than trusting this sentence.
+
+     DRAWN IN THE WORLD PASS AND NOT THE EMISSIVE ONE. That is where every real
+     weapon is drawn and it is deliberate: this is a scythe the size of a
+     scythe, and putting a solid blade into the emissive layer is CLAUDE.md
+     4.1b's fault -- the art blowing the post chain out -- with a bigger object
+     than any of the three relics that have already done it. If it ever wants
+     light, measure the art and the chain SEPARATELY first.
+
+     ONE GRADIENT A FRAME PER STANDING COPY, at most two in a match. Named
+     because the same call in a LOOP is what cost Breach 14x its render time
+     (`GRAIN_CACHE`, seventy-two gradient objects a frame); two is not that, and
+     the flat-disc substitute is available if it ever becomes so. */
+  drawSpectre(m){
+    const c = this.ctx, R = CONFIG.physics.ballR;
+    for (const f of [m.a, m.b]){
+      const S = f.ultSpectre;
+      const G = S || f.spectreGhost;
+      const fade = S ? 1 : (f.spectreFade || 0);
+      const u = f.w.ult, pal = f.aff;
+
+      /* THE LANDING RING, AND IT IS THE FRAME THE DESIGN SAYS HAS TO WORK.
+         Rick's, off the first sheet: photographed on a real match the STICK
+         did not read at all -- a thin red line arriving in a busy frame, with
+         nothing saying it had ARRIVED. Design 7c: "if it does not read, the
+         ultimate looks like a missed shot."
+
+         A RING AND NOT A BURST, and that is the distinction rather than a
+         preference: a burst says something HIT, and nothing was hit -- the
+         copy landed on empty floor. A ring expanding to the disc's own edge
+         says THIS IS NOW A PLACE, and it draws the boundary of the thing that
+         has just been made once, hard, at the moment it appears, instead of
+         asking the pool to hold that job for four and a half seconds.
+
+         Drawn OUTSIDE the object's own guard, because it has its own position
+         and its own clock and must survive the copy being gone. */
+      const RG = f.spectreRing;
+      if (RG){
+        const k = clamp(RG.t / RG.life, 0, 1);
+        const ease = 1 - Math.pow(1 - k, 3);
+        const rr = u.disc * (0.16 + 0.90 * ease);
+        c.save();
+        c.globalAlpha = (1 - k) * 0.95;
+        c.strokeStyle = pal.glow;
+        c.lineWidth = 10 * (1 - k) + 1.5;
+        c.beginPath(); c.arc(RG.x, RG.y, rr, 0, TAU); c.stroke();
+        /* a second, tighter one a beat behind: one ring reads as a bubble and
+           two read as something arriving hard */
+        c.globalAlpha = (1 - k) * 0.55;
+        c.strokeStyle = pal.core;
+        c.lineWidth = 4 * (1 - k) + 1;
+        c.beginPath(); c.arc(RG.x, RG.y, rr * 0.62, 0, TAU); c.stroke();
+        c.restore();
+      }
+
+      if (!G || fade < 0.02) continue;
+      /* IN THE AIR IT IS A THROWN OBJECT AND ON THE GROUND IT IS A PLACE. The
+         floor only reads once it has stopped -- the STICK is the frame that
+         tells a viewer it is staying, and a pool that arrived with the copy
+         would spend the flight saying it had already landed. */
+      const down = S && !S.landed ? 0.0 : 1.0;
+
+      if (down > 0){
+        /* THE GROUND IT HAS MADE UNSAFE. Not a dashed ring: `garrote_sheet`
+           photographed one of those and it read as a RANGE INDICATOR, which is
+           the one thing a hazard must not look like. A pool instead -- dark in
+           the middle, gone by the rim -- so what is drawn is ground rather than
+           a boundary. It breathes at the mill's own rate so the floor and the
+           blade are visibly one object. */
+        const pulse = 1 + 0.05 * Math.sin(G.spin * 2);
+        const rr = u.disc * pulse;
+        /* RAISED ON RICK'S WORD, off the first sheet: at the alphas this
+           shipped with it read in one frame of three and vanished in the other
+           two. IT COSTS THE POST CHAIN NOTHING -- this is drawn in the WORLD
+           pass, not the emissive one, so none of it reaches the bloom and
+           CLAUDE.md 4.1b's "take away AREA, not alpha" does not apply in
+           either direction. That is the whole reason it could simply be turned
+           up rather than redesigned. */
+        const g = c.createRadialGradient(G.x, G.y, rr * 0.10, G.x, G.y, rr);
+        g.addColorStop(0,    pal.core + "8E");
+        g.addColorStop(0.42, pal.core + "52");
+        g.addColorStop(0.84, pal.core + "24");
+        g.addColorStop(1,    pal.core + "00");
+        c.save();
+        c.globalAlpha = fade * down;
+        c.fillStyle = g;
+        c.beginPath(); c.arc(G.x, G.y, rr, 0, TAU); c.fill();
+        /* AND A WET RIM, so the extent is a readable edge rather than a
+           gradient that could end anywhere. Continuous and soft: a DASHED one
+           is what `garrote_sheet` photographed reading as a range indicator,
+           which is the one thing a hazard must not look like. */
+        c.globalAlpha = fade * down * 0.55;
+        c.strokeStyle = pal.core;
+        c.lineWidth = 2.4;
+        c.beginPath(); c.arc(G.x, G.y, rr * 0.94, 0, TAU); c.stroke();
+        c.restore();
+      }
+
+      c.save();
+      /* GHOSTED, and it dissolves rather than being cut. The alpha is the only
+         thing separating the copy from a real weapon, so it is held high enough
+         that the barbs still read: the object has to be legible enough to
+         navigate around. */
+      c.globalAlpha = 0.80 * fade;
+      /* IT TURNS ABOUT ITS OWN CENTRE, AND THAT IS RICK'S: "the scythe should
+         rotate around its center axis. not the end of its handle."
+
+         It used to be drawn the way a HELD weapon is -- pivot at the ball's
+         centre, weapon offset `R - 6` along the radius -- which is right for a
+         scythe somebody is swinging and wrong for one nobody is holding: the
+         handle end traced a circle and the whole object read as orbiting an
+         invisible ball rather than spinning.
+
+         THE CENTRE IS THE DRAWING'S OWN BOUNDING CENTRE, taken off `_scBase`'s
+         path constants rather than guessed: the scythe spans x in [0, L*1.03]
+         and y in [-W*1.32, W*0.30], so its middle is (L*0.515, -W*0.51) and
+         its circumscribed radius about that middle is about 0.555 * L.
+
+         AND THAT CHANGES WHAT THE BLADE COVERS. Pivoted at `R - 6` the tip
+         swept exactly `R + reach` = the disc, so the drawn sweep and the hit
+         box were the same circle for free. Centred, the sweep is `artScale *
+         0.555 * L` and only `artScale` 2.26 puts it back on the disc's edge.
+         `bloodmirror_build` PRINTS both numbers on every run rather than
+         letting the two drift apart quietly -- a picture that claims a smaller
+         hazard than the one that exists is the hardest kind of bug in this repo
+         to see, because both halves stay internally consistent. What carries
+         the extent when they differ is the POOL and its rim, which is drawn at
+         the disc and is why it was worth turning up. */
+      const L = f.w.reach + 6, WW = f.w.artW;
+      const sc = (u.artScale === undefined ? 1 : u.artScale)
+               * (fade < 1 ? 0.86 + 0.14 * fade : 1);
+      c.translate(G.x, G.y);
+      c.rotate(G.spin);
+      c.scale(sc, sc);
+      c.translate(-L * 0.515, WW * 0.51);
+      if (!litWeapon(c, f.w.shape, L, WW, pal, f.drawK, G.spin)){
+        const fn = SHAPES[f.w.shape];
+        if (fn) fn(c, L, WW, pal, f.drawK);
+      }
+      c.restore();
+    }
+  }
+
+  drawSigils(m){'''),
+
+# ---- 12. AND THE REAL `ult` BLOCK -------------------------------------------
+("ult-block", '''    ult:{ name:"%ULT%", charge:1e9, kind:"effigy", tip:"%TIP1%" },''',
+ '''    ult:{ name:"%ULT%", charge:%CHARGE%, kind:"effigy",
+          flight:%FLIGHT%, speed:%SPEED%, life:%LIFE%, disc:%DISC%,
+          tick:%TICK%, dmg:%DMG_T%, bleed:%BLEED%, cap:%CAP%,
+          knock:%KNOCK%, hitFly:%HITFLY%,
+          spinMul:%SPINMUL%, artScale:%ARTSCALE%,
+          tip:"%TIP%" },'''),
+
+]
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--stage", required=True, choices=("1", "2", "3b"))
+    ap.add_argument("--src", default="")
+    ap.add_argument("--out", default="")
+    ap.add_argument("--ult", default=ULT_NAME)
+    ap.add_argument("--tip", default=ULT_TIP)
+    ap.add_argument("--dmg", type=float, default=None,
+                    help="THE BLADE. Not the ultimate's per-tick damage, "
+                         "which is --tickdmg.")
+    for k, v in ULT.items():
+        ap.add_argument(f"--{k}", type=float, default=v)
+    A = ap.parse_args()
+    if A.dmg is None:
+        A.dmg = TUNED_BM if (A.stage == "3b" and TUNED_BM is not None) \
+            else BLADE_IN
+
+    src = A.src or {"1": "../02-chain/sc-tipfix.html",
+                    "2": "../02-chain/sc-bloodmirror.html",
+                    "3b": "../02-chain/sc-bloodletting.html"}[A.stage]
+    out = A.out or {"1": "../02-chain/sc-bloodmirror.html",
+                    "2": "../02-chain/sc-bloodletting.html",
+                    "3b": "../02-chain/sc-bloodletting.html"}[A.stage]
+    src_p = (HERE / src).resolve()
+    out_p = (HERE / out).resolve()
+    if out_p.name == PROTECTED:
+        raise SystemExit("refusing to write the live build")
+    if not src_p.exists():
+        raise SystemExit(f"no such build: {src_p}")
+
+    s0 = src_p.read_text(encoding="utf-8")
+    s = s0
+    print(f"\nBLOODMIRROR -- STAGE {A.stage}: "
+          + {"1": "the 32nd relic, its ultimate STUBBED",
+             "2": "BLOODLETTING -- the throw, the stick, the mill, the ceiling",
+             "3b": "THE BLADE"}[A.stage])
+    print(f"  src {src_p.name}  {hashlib.sha256(s0.encode()).hexdigest()[:16]}")
+
+    # THE CHAIN IS LINEAR. Every stage asserts what has to be under it.
+    if "cursePool" not in s0:
+        raise SystemExit("this source predates the v53 curse rework")
+    if "tickNet" not in s0:
+        raise SystemExit("this source is not the v61 tip -- `tickNet` is "
+                         "absent. Build off `sc-tipfix.html`; the brief's "
+                         "Cindercleave tip predates Ravelbone and Gloamwire.")
+    if 'tip:"Hits reflect 8% of the damage that cursed, stacks 3 times"' not in s0:
+        raise SystemExit(
+            "STAGE T IS NOT UNDER THIS BUILD. `tipfix_build.py` is the brief's\n"
+            "  stage T and it goes FIRST, because it is the only stage that can\n"
+            "  be proven inert -- and proving it inert is worth much less once\n"
+            "  a relic has been added on top of it.")
+
+    if A.stage != "3b":
+        if len(A.tip) > 72:
+            raise SystemExit(f"ULT TIP is {len(A.tip)} characters against "
+                             f"verify's 72:\n  {A.tip}")
+
+    if A.stage == "1":
+        if f'id:"{RELIC}"' in s0:
+            raise SystemExit("this source already has Bloodmirror -- built")
+
+        # THE PHYSICAL STATS ARE THE TYPE'S, ASSERTED AND NOT ASSUMED. Every
+        # number in the design was measured on Thornwake's body -- same shape,
+        # mass, reach and 5.24s contact gap -- and is only transferable if the
+        # five shipped scythes really do agree. If they do not, the design's
+        # numbers are not this relic's numbers and that is a finding, not a
+        # detail.
+        scythes = ["lastlight", "thornwake", "foregone", "vesper",
+                   "cindercleave"]
+        got = {r: phys(s0, r) for r in scythes}
+        keys = ("reach", "width", "artW", "spin", "mass", "mode")
+        base = {k: got[scythes[0]].get(k) for k in keys}
+        odd = {r: {k: v.get(k) for k in keys if v.get(k) != base[k]}
+               for r, v in got.items()}
+        odd = {r: d for r, d in odd.items() if d}
+        if odd:
+            raise SystemExit(
+                "the five shipped scythes do NOT agree on the type's own "
+                "stats, so the\n  design's numbers -- all measured on one "
+                "scythe body -- are not\n  transferable to a sixth:\n  "
+                + "\n  ".join(f"{r}: {d}" for r, d in odd.items()))
+        print(f"  body  one set across {len(scythes)} scythes -- the TYPE "
+              f"owns it")
+        print(f"        {base}")
+        for k, v in base.items():
+            lit = v.strip('"')
+            if f"{k}:{lit}" not in S1[0][2].replace('"', "") \
+               and f'{k}:"{lit}"' not in S1[0][2]:
+                raise SystemExit(
+                    f"the entry about to be written does not carry the type's "
+                    f"own {k} ({v})")
+
+        # AND THE ART EXISTS. Stage 1 ships a drawn weapon or it ships a relic
+        # nobody can see, and `SHAPES.scythe`'s router is the only thing that
+        # decides which.
+        if 'if (key === "bloodsworn") return SHAPES._scBarbed' not in s0:
+            raise SystemExit(
+                "`SHAPES.scythe` does not route bloodsworn to `_scBarbed` in "
+                "this build.\n  Stage 1 would ship an undrawn relic.")
+        if "// and a tip hook" not in s0:
+            raise SystemExit(
+                "`_scBarbed` has no tip hook to remove in this source.\n"
+                "  Either it is already gone -- in which case this build has\n"
+                "  been run before -- or the shape has moved. Do not weaken\n"
+                "  the anchor; find out which.")
+        print("  art   SHAPES.scythe -> _scBarbed, TIP HOOK REMOVED (Rick's,")
+        print("        2026-09-01, off a zoom shot before this shipped). The")
+        print("        five barbs and their side are untouched and are now a")
+        print("        chosen state -- he was shown the sign-flip sheet.")
+
+        edits = S1
+        print(f"  ult   {A.ult}  STUBBED at charge 1e9, kind \"effigy\"")
+        print(f"  blade {A.dmg:g}   (brief section 5's START, not its answer)")
+    elif A.stage == "2":
+        if f'id:"{RELIC}"' not in s0:
+            raise SystemExit("this source has no Bloodmirror -- run stage 1")
+        if "tickSpectre" in s0:
+            raise SystemExit("this source already has Bloodletting -- built")
+
+        # THE DISC IS NOT A KNOB AND THE GEOMETRY IS WHY. "A copy of itself"
+        # fixes it: the copy pivots at `R - 6` and draws `reach + 6`, so its
+        # swept radius is exactly `R + reach`. A `disc` that did not equal that
+        # would be a hit box the picture disagrees with -- the hardest bug in
+        # this repo to see, because both halves stay internally consistent.
+        R = float(re.search(r"ballR:\s*([\d.]+)", s0).group(1))
+        reach = float(phys(s0, RELIC)["reach"])
+        if abs((R + reach) - A.disc) > 1e-6:
+            raise SystemExit(
+                f"REFUSING TO WRITE -- disc {A.disc:g} is not the copy's own "
+                f"sweep.\n  ballR {R:g} + reach {reach:g} = {R + reach:g}. The "
+                f"disc is not a knob:\n  'a copy of itself' is what fixes it, "
+                f"and a disc that disagrees with the\n  drawn sweep is a hit "
+                f"box the picture lies about.")
+        print(f"  disc  {A.disc:g} = ballR {R:g} + reach {reach:g}   "
+              f"(NOT a knob -- it is what 'a copy of itself' means)")
+
+        # AND WHAT THE BLADE ACTUALLY COVERS, PRINTED EVERY RUN. Rick's
+        # centre-axis rotation means the drawn sweep is no longer the disc for
+        # free -- see `drawSpectre`. A picture that claims a smaller hazard than
+        # the one that exists is the hardest kind of bug in this repo to see,
+        # because both halves stay internally consistent, so the two numbers are
+        # put next to each other rather than left to drift apart quietly.
+        L = reach + 6.0
+        swept = A.artscale * 0.555 * L
+        fill = swept / A.disc
+        print(f"  sweep {swept:.1f} at artScale {A.artscale:g} "
+              f"({fill:.0%} of the disc)   "
+              + ("the blade fills it" if fill > 0.97 else
+                 "THE POOL CARRIES THE REST OF THE EXTENT"))
+        print(f"        artScale {A.disc / (0.555 * L):.2f} is the one that "
+              f"puts the tip back on the rim")
+        print(f"  spin  {A.spinmul:g}x the weapon's own rate   "
+              f"(presentation only -- engine_ab is the proof)")
+
+        # AND THE CEILING HAS TO BE ABOVE THE STATUS'S OWN, OR THE WHOLE
+        # ULTIMATE IS THE ARM THAT MEASURED -2.5pp AT z -0.93.
+        base = float(re.search(r"hemorrhage:\s*\{[^}]*maxStacks:\s*(\d+)",
+                               s0).group(1))
+        if A.cap <= base:
+            raise SystemExit(
+                f"REFUSING TO WRITE -- cap {A.cap:g} is not above "
+                f"hemorrhage's own {base:g}.\n  Under the ceiling, adding bleed "
+                f"to this spectre measures -2.5pp at z -0.93;\n  above it, "
+                f"+6.9pp at z +2.67. The ceiling IS the ultimate.")
+        print(f"  cap   {base:g} -> {A.cap:g} while it stands, PER FIGHTER "
+              f"(design 6.3)")
+
+        edits = S2
+        print(f"  ult   {A.ult}  charge {A.charge:g}, kind \"effigy\"")
+        print(f"  tip   {len(A.tip)}/72  {A.tip!r}")
+        print(f"  throw {A.flight:g}s at {A.speed:g} = "
+              f"{A.flight * A.speed:g} units, NO homing")
+        print(f"  mill  {A.life:g}s, a tick every {A.tick:g}s -> "
+              f"{A.life / A.tick:.1f} ticks a cast at full dwell")
+        print(f"  each  {A.tickdmg:g} damage, {A.bleed:g} Hemorrhage, "
+              f"knock {A.knock:g}, FOE ONLY")
+        print(f"  blade {A.dmg:g}   (unchanged by this stage; 3b bisects it)")
+    else:
+        raise SystemExit(
+            "stage 3b is not built yet, and it must not be until stage 2 is\n"
+            "  green. Brief section 0: bloodletting_relic_probe 13/13,\n"
+            "  engine_ab identical on the 31 in any match with no cast, and\n"
+            "  TICKS A FIGHT IN 10.5-11.0 -- the scalar the whole design is\n"
+            "  priced on. FILM IT BEFORE YOU TUNE (brief section 7d).")
+
+    subs = {"%ULT%": A.ult, "%TIP1%": ULT_TIP1, "%TIP%": A.tip,
+            "%BLURB%": BLURB, "%DMG%": f"{A.dmg:g}",
+            "%CHARGE%": f"{A.charge:g}", "%FLIGHT%": f"{A.flight:g}",
+            "%SPEED%": f"{A.speed:g}", "%LIFE%": f"{A.life:g}",
+            "%DISC%": f"{A.disc:g}", "%TICK%": f"{A.tick:g}",
+            "%DMG_T%": f"{A.tickdmg:g}", "%BLEED%": f"{A.bleed:g}",
+            "%CAP%": f"{A.cap:g}", "%KNOCK%": f"{A.knock:g}",
+            "%HITFLY%": "true" if A.hitfly else "false",
+            "%SPINMUL%": f"{A.spinmul:g}", "%ARTSCALE%": f"{A.artscale:g}"}
+    for label, old, new in edits:
+        # BOTH SIDES. Stage 2's `ult` anchor is the block STAGE 1 WROTE, so it
+        # carries `Bloodletting` and the stub tip rather than the placeholders
+        # this file spells them with. Substituting only the replacement is how
+        # a builder ends up unable to find its own previous stage's output.
+        for k, v in subs.items():
+            old = old.replace(k, v)
+            new = new.replace(k, v)
+        s = one(s, old, new, label)
+    for k in subs:
+        if k in s:
+            raise SystemExit(f"unsubstituted placeholder left in the build: {k}")
+
+    ult_matches(s, A, A.stage)
+
+    # THE SCHOOL'S OWN CHANNEL, ASSERTED AGAINST WHAT WAS WRITTEN.
+    if A.stage == "1":
+        mine = body_block(s, RELIC, "onHit")
+        others = {r: body_block(s, r, "onHit")
+                  for r in ("oathwound", "redflail", "widowmaker",
+                            "marrowdraw", "ravelbone")}
+        if mine != "{ hemorrhage: 2 }".replace(" ", "").replace("{", "{ ") \
+           and mine.replace(" ", "") != "{hemorrhage:2}":
+            raise SystemExit(f"onHit written as {mine!r}, not the school's "
+                             f"`hemorrhage:2`")
+        print(f"  onHit {mine}   (the school's own weight; the others carry "
+              f"{sorted(set(others.values()))})")
+
+    # THE PARTICLE FIELD GOES IN BOTH COPIES OR IT GOES IN NEITHER.
+    # `src/render/fx.js` is the source and `fx_build.py` inlines it; a spec
+    # added only to the page is a spec the next `fx_build` run silently drops,
+    # and `ULTFX.sync` returns on a missing spec rather than erroring. That is
+    # why `ravelbone` and `gloamwire` have no field today and nothing said so.
+    if A.stage == "2":
+        fx_p = (HERE / "../src/render/fx.js").resolve()
+        if not fx_p.exists():
+            raise SystemExit(f"no such file: {fx_p} -- the spec source")
+        fx0 = fx_p.read_text(encoding="utf-8")
+        grown = FX_ANCHOR.replace(" }\n  };", " }" + FX_SPEC + "\n  };")
+        # THE SIGNATURE AND NOT THE NAME. `bloodmirror:` also appears in
+        # `ultFx`'s `life` map, which the stage-2 insert above has just
+        # written -- so a bare name test reports "already built" on a build
+        # this very run created.
+        SIG = f"{RELIC}: {{ mode: 'burst'"
+        if SIG in s:
+            raise SystemExit("the page already carries this spec -- built")
+        if FX_ANCHOR not in s:
+            raise SystemExit(
+                "cannot find the end of the SPECS table in the page.\n"
+                "  The spec goes in BOTH copies or in NEITHER: a field added "
+                "only to the page\n  is dropped by the next `fx_build` run, "
+                "silently, because `ULTFX.sync`\n  returns on a missing spec "
+                "rather than erroring.")
+        s = one(s, FX_ANCHOR, grown, "fx spec (page)")
+        # AND THE SOURCE MAY ALREADY HAVE IT. `src/render/fx.js` is not
+        # rewritten by a rebuild of this stage, so a second run finds the spec
+        # already there -- which is not an error and must not look like one.
+        # The comparison below is the real check either way.
+        if SIG in fx0:
+            fx1 = fx0
+            print("  ok    fx spec (src/render/fx.js)  already present")
+        elif FX_ANCHOR in fx0:
+            fx1 = fx0.replace(FX_ANCHOR, grown, 1)
+            fx_p.write_text(fx1, encoding="utf-8", newline="\n")
+            print("  ok    fx spec (src/render/fx.js)  written")
+        else:
+            raise SystemExit(
+                "cannot find the end of the SPECS table in src/render/fx.js, "
+                "and it does\n  not already carry this spec. Find out what "
+                "moved -- do not write only the\n  page.")
+        # AND THE TWO COPIES ARE COMPARED, NOT ASSUMED. `thornshear_build.py`
+        # refuses to write unless they are byte-identical; this is the same
+        # check, scoped to the table rather than to the whole file, because the
+        # page's copy has been through `fx_build`'s inliner.
+        i0 = fx1.index("var SPECS = {"); i1 = fx1.index("\n  };", i0)
+        j0 = s.index("var SPECS = {");   j1 = s.index("\n  };", j0)
+        if fx1[i0:i1] != s[j0:j1]:
+            raise SystemExit(
+                "REFUSING TO WRITE -- the SPECS table in the page and in "
+                "src/render/fx.js\n  are not identical after the insert. A "
+                "spec that exists in only one of them\n  is a field the next "
+                "`fx_build` run drops or invents.")
+        n_fx = fx1[i0:i1].count("mode:")
+        print(f"        {n_fx} specs, byte-identical in both copies")
+        print("        NOTE: `ravelbone` and `gloamwire` still have NONE, and")
+        print("        `ULTFX.sync` returns silently on a missing spec.")
+
+    out_p.write_text(s, encoding="utf-8", newline="\n")
+    print(f"  out {out_p.name}  {hashlib.sha256(s.encode()).hexdigest()[:16]}"
+          f"   ({len(s) - len(s0):+d} bytes)")
+
+    if A.stage == "1":
+        print("\n  GATE 1:")
+        print(f"    python engine_ab.py --a {src} --b {out} --ids <the 31> --n 8")
+        print("      IDENTICAL in every match not containing Bloodmirror.")
+        print(f"    python verify.py --game {out} --n 40")
+        print("      completes with 32 relics. Bloodmirror will be LOW and")
+        print("      that is not a failure -- the design measured its own")
+        print("      no-ultimate floor at 48.8% on a 27-relic roster and the")
+        print("      brief predicts ~23% at blade 21 on this one. Print it.")
+        print("      Do not tune to it.")
+        print("      AND THE ART CHANGE IS IN THIS SAME LINK, so this run is")
+        print("      also v58's proof that a `SHAPES` edit is render-only.")
+        print("    python silhouette_probe.py --game " + out + " \\")
+        print("      --types scythe --sheet "
+              "../05-reference/v59/scythe-row-notip.png")
+        print("      BRIEF OPEN DECISION 6, ANSWERED. The tip hook is off on")
+        print("      Rick's word; this is the row it leaves behind, and the")
+        print("      number to watch is whether bloodsworn moved TOWARD its")
+        print("      nearest sibling -- removing a shape can only lose")
+        print("      separation, and he took that trade with the picture in")
+        print("      front of him.")
+
+    if A.stage == "2":
+        print("\n  GATE 2:")
+        print(f"    python bloodletting_relic_probe.py --game {out}")
+        print("      13/13, one check per sentence of the design -- and check")
+        print("      12 is TICKS A FIGHT, which must be 10.5-11.0. That is the")
+        print("      scalar the whole design is priced on and it is the")
+        print("      registered prediction this build exists to falsify.")
+        print(f"    python engine_ab.py --a {src} --b {out} --ids <the 31> --n 8")
+        print("      IDENTICAL on the 31 in any match containing no cast. The")
+        print("      `apply` edit touches every relic that applies any status,")
+        print("      so this is the check that says `bleedCap` is 4 whenever")
+        print("      nothing has raised it.")
+        print("    FILM IT. BEFORE YOU TUNE. Brief section 7d and CLAUDE.md")
+        print("      4.0: this ultimate is a thing you watch stand there for")
+        print("      four and a half seconds. Thirty seconds of clip on")
+        print("      placeholder numbers costs four minutes; v43 spent about")
+        print("      thirty thousand fights learning that.")
+        print("      AND PHOTOGRAPH THE STACK READOUT AT 5, 6, 7 AND 8 off a")
+        print("      real match. Design 7c calls it the only evidence on")
+        print("      screen that the ceiling moved, and v54 2c is the")
+        print("      precedent that cost a build.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

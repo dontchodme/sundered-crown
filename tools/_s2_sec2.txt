@@ -1,0 +1,22 @@
+# ---- 2. AND `apply` READS IT ------------------------------------------------
+("apply-cap", '''    const cur = this.status[key] || { stacks:0, t:0 };
+    cur.stacks = Math.min(def.maxStacks, cur.stacks + n);
+    cur.t = def.dur;''',
+ '''    const cur = this.status[key] || { stacks:0, t:0 };
+    /* HEMORRHAGE READS THE FIGHTER'S OWN CEILING; EVERY OTHER STATUS READS THE
+       GLOBAL. `bleedCap` is 4 on every fighter in every match with no standing
+       Bloodletting spectre in it, so this is the identity it replaced
+       everywhere else -- and `engine_ab` proves that rather than this comment
+       asserting it.
+
+       A FIGHTER ALREADY ABOVE THE CEILING IS NOT TRIMMED BY A NEW APPLICATION.
+       When the window closes the cap drops back to 4 with the stacks still at
+       8, and `Math.min(cap, cur + n)` would CUT them to 4 on the very next
+       blow -- which is the instant trim the design's 6.4 rejected as "the
+       version that looks like a bug". They run out on hemorrhage's own 3.2s
+       clock instead. WHAT THAT COSTS IS WRITTEN ON `tickSpectre`, because this
+       engine expires a status as a whole rather than a stack at a time. */
+    const cap = key === "hemorrhage" ? this.bleedCap : def.maxStacks;
+    if (cur.stacks < cap) cur.stacks = Math.min(cap, cur.stacks + n);
+    cur.t = def.dur;'''),
+

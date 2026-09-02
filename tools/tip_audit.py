@@ -67,24 +67,61 @@ JUSTIFIED = {
         "flat '55%' here would be correct for one relic and wrong for the other.",
 }
 
-EXTRACT = """() => {
+EXTRACT = """async () => {
+  // THE FACE THE BOX IS ACTUALLY DRAWN IN, AND IT IS NOT THE PANEL'S.
+  // `_tagFirst` -- the pop-up the first time a status lands in a fight -- draws
+  // `500 25px 'Atkinson Hyperlegible Next'`, one line, no wrap, no clip and no
+  // measurement, so a tip wider than its box just draws out into the hall. This
+  // tool used to set "500 25px ui-sans-serif,system-ui,sans-serif", which is
+  // right for the PANEL and wrong for the surface that can overflow: the same
+  // string measures 475px in the bundled face, 414 in Segoe UI (Rick's PC) and
+  // 526 in DejaVu (a Linux container). So the gate had 61px of imaginary
+  // headroom on the machine that matters. The bundled face is embedded in the
+  // build as a data URI, so measuring in it is machine-independent -- this is
+  // not a trade-off, it is strictly better. tip-surface-v59 section 1.2.
+  const FACE = "500 25px 'Atkinson Hyperlegible Next'";
+  await document.fonts.load(FACE);
+  await document.fonts.ready;
   const c = document.createElement('canvas').getContext('2d');
-  // THE PANEL'S OWN FONT STRING, copied from intro_probe [6]. A previous
-  // version of this tool used a 400-weight -apple-system stack and measured
-  // every tip ~13% narrow, which invented 80px of headroom that did not exist
-  // and passed four tips that overflow. If two tools measure the same thing,
-  // they have to measure it the same way.
-  c.font = "500 25px ui-sans-serif,system-ui,sans-serif";
+  c.font = FACE;
+  // AND THE FALLBACK IS THE FAILURE MODE. If the face did not load, canvas
+  // silently measures whatever the browser substitutes and this tool is wrong
+  // again in a new way, with every number looking plausible. Report it and let
+  // the caller refuse.
+  const loaded = document.fonts.check(FACE);
   const out = [];
   for (const k in AC.STATUS){
     const s = AC.STATUS[k];
     const fields = {};
     for (const f in s) if (f !== 'name' && f !== 'tip') fields[f] = s[f];
-    out.push({ key:k, name:s.name, tip:s.tip, fields,
+    out.push({ key:k, name:s.name, tip:s.tip, fields, loaded,
                len:s.tip.length, px:Math.round(c.measureText(s.tip).width) });
   }
   return out;
 }"""
+
+
+TAG_BOX = re.compile(r"_tagFirst[\s\S]{0,4000}?const w = (\d+) \* k")
+
+
+def tag_budget(src: str) -> tuple[int, int]:
+    """The reminder box's width and its TEXT budget, read out of the build.
+
+    Not a literal. The 536 this tool carried was `596 - 2 * 30` written down by
+    hand, and stage T of the Bloodmirror brief moves the box to 760 -- a gate
+    with the old constant baked in would have gone on reporting overflows that
+    had been fixed, or worse, passing a build whose box had been narrowed.
+    """
+    m = TAG_BOX.search(src)
+    if not m:
+        raise SystemExit(
+            """cannot find `_tagFirst`'s box width in this build.
+  This tool measures the ONE-LINE, NO-WRAP, NO-CLIP reminder -- the only
+  tip surface that can overflow -- and it reads the box out of the source
+  rather than assuming it. Do not fall back to a literal: find out what
+  moved.""")
+    w = int(m.group(1))
+    return w, w - 60          # 30px text inset each side
 
 
 def mentions(tip: str, key: str, val) -> bool:
@@ -106,22 +143,41 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--game", default="sc-gs7-ults.html")
-    ap.add_argument("--panel-px", type=int, default=536,
-                    help="the in-arena explainer panel's width — the REAL constraint")
     A = ap.parse_args()
 
     g = HERE / A.game
     if not g.exists():
         sys.exit(f"no such build: {g}")
+
+    # THE BUDGET COMES OUT OF THE BUILD, NOT OUT OF THIS FILE.
+    # tip-surface-v59 change 4.
+    box, budget = tag_budget(g.read_text(encoding="utf-8"))
+
     with game(game_path=g.resolve()) as (page, errors):
         rows = page.evaluate(EXTRACT)
         if errors:
             sys.exit(f"page errors: {errors[:3]}")
 
-    print(f"STATUS TIPS — {A.game}   panel limit {A.panel_px}px at 25px\n")
+    # AND IF THE FACE DID NOT LOAD, EVERY WIDTH BELOW IS A SUBSTITUTE'S.
+    if rows and not rows[0]["loaded"]:
+        sys.exit(
+            """REFUSING TO REPORT -- 'Atkinson Hyperlegible Next' did not
+  load in this page, so every width below belongs to some substitute face
+  and this tool is wrong again in a new way. That is the defect change 4
+  exists to remove.""")
+
+    print(f"STATUS TIPS -- {A.game}")
+    print("  the surface is `_tagFirst`, the first-application reminder: "
+          "ONE line, 25px,")
+    print(f"  no wrap, no clip, no measurement. Box {box}px, text budget "
+          f"{budget}px, in")
+    print("  the BUNDLED 'Atkinson Hyperlegible Next'. The scrunch panel "
+          "wraps to three")
+    print("  lines, shrinks, and is not the gate.")
+    print()
     gaps = 0
     for r in rows:
-        fit = "" if r["px"] <= A.panel_px else "  <-- OVER PANEL"
+        fit = "" if r["px"] <= budget else "  <-- OVER THE BOX, DRAWS INTO THE HALL"
         print(f"  {r['name']:<11} {r['len']:>3}ch {r['px']:>4}px  \"{r['tip']}\"{fit}")
         for f, v in r["fields"].items():
             if f in EXEMPT:

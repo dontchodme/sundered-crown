@@ -1698,7 +1698,7 @@ const WEAPONS = [
      four as putting this relic below the row unless the blade pays. The other
      five bows ship at 12.73 to 16.23. */
   { id:"gloamwire", name:"Gloamwire", aff:"umbral", shape:"bow",
-    blades:[0], reach:54, width:9, artW:44, dmg:9.5, spin:2.8, mode:"ranged", mass:1.6,
+    blades:[0], reach:54, width:9, artW:44, dmg:7.25, spin:2.8, mode:"ranged", mass:1.6,
     shot:{ cadence:0.34, speed:380, r:24, life:3.4, grav:0, dmgMul:1.0,
            tip:"Fires along its facing · shots can be clanked" },
     onHit:{ curse:1 },
@@ -1751,6 +1751,13 @@ const WEAPONS = [
           volleys:24, n:3, spread:0.9, cadMul:0.5,
           dmgMul:1.4, speedMul:1.35,
           strandW:90, strandKnock:260,
+          /* THE NOVA. PLACEHOLDERS, all three, and they must be swept.
+             `novaDmg` is a multiplier of the BLADE: at 0.35 one nova is
+             about a quarter of one Crossweave arrow, which is Rick\'s scale --
+             "less than an arrow ... the knockback should be most of the
+             payoff." `novaKnock` 420 against the strand\'s
+             260 is where that payoff is. */
+          novaRad:90, novaDmg:0.35, novaKnock:420,
           /* PURE LOOK, and the balance cannot see it -- `drawStrands` is the
              only reader and `engine_ab` is identical on all 31 relics with it
              set to any value. Four registers were offered as a spread because
@@ -5448,6 +5455,26 @@ class Sfx {
         this._tone (t, { freq: 190 - 90*w, to: 46, gain: 0.22 + 0.26*w, dur: 0.11 + 0.13*w, type:"sine" });
         if (p.crit) this._tone(t, { freq: 1500, to: 520, gain: 0.16, dur: 0.16, type:"triangle" });
       }
+      else if (kind === "nova"){
+        /* MEASURED AGAINST RICK'S REFERENCE, not chosen. Rendered through
+           `buildChain` in an OfflineAudioContext: peak 0.198, attack 37 ms
+           (his pops 40-190), tail to 10% 449 ms (480-630), 67.3% under 120 Hz
+           in the first 60 ms (68-74%), centroid 969 Hz (520-710). Sub-heavy at
+           the open and broadband through the decay, which is the shape of a
+           deathbloom rather than of a crack.
+
+           PEAK 0.198 AGAINST DEADFALL'S 0.605 IS DELIBERATE. That one fires
+           three times a fight; this fires 5.9 times a second. */
+        /* THE FLAM. `k` is the arrow's index in the fan and the three novas
+           of one volley land on one frame; 26 ms apart the ear reads three
+           events, and at 0 it reads one pop at three times the amplitude. */
+        const tk = t + (p.k || 0) * 0.026;
+        this._tone (tk, { freq: 92, to: 30, gain: 0.110, dur: 1.15, type:"sine" });
+        this._tone (tk, { freq: 58, to: 24, gain: 0.083, dur: 1.27, type:"sine" });
+        this._burst(tk, { freq: 300,  q: 0.7, gain: 0.300, dur: 1.50, type:"lowpass" });
+        this._burst(tk, { freq: 1300, q: 0.7, gain: 0.255, dur: 1.30, type:"bandpass" });
+        this._burst(tk, { freq: 3000, q: 0.8, gain: 0.120, dur: 0.75, type:"highpass" });
+      }
       else if (kind === "clank"){
         /* Inharmonic partials — the ratios are deliberately not integers. */
         const base = 480 + 520 * (1 - clamp((p.mass || 3) / 6, 0, 1));
@@ -7445,7 +7472,22 @@ class Match {
      only advanced on the normal path they would sit still for exactly the
      frames the viewer is staring hardest at. Nothing in the simulation reads
      any of them. */
+  /* THE NOVA'S CLOCK, and it is here rather than in a tick for the reason
+     `tickPresentation` already gives about status tags: every detonation sets
+     `hitStop`, and a clock on the normal path stops for exactly the frames the
+     viewer is watching hardest. Deadfall shipped that bug and 96.2% of its
+     blasts froze mid-expansion. */
+  tickNovaFx(dt){
+    if (!this.novaFx || !this.novaFx.length) return;
+    for (let i = this.novaFx.length - 1; i >= 0; i--){
+      const f = this.novaFx[i];
+      f.t += dt;
+      if (f.t >= f.life) this.novaFx.splice(i, 1);
+    }
+  }
+
   tickPresentation(dt){
+    this.tickNovaFx(dt);
     /* GRASP'S LIMB, AND BOTH HALVES OF IT ARE HERE FOR THE REASON THE
        PARAGRAPH BELOW ALREADY GIVES FOR STATUS TAGS AND THE DEADFALL'S BLAST:
        the crush is an IMPACT, every impact begins with a hit stop, and a hit
@@ -8156,9 +8198,24 @@ class Match {
   /* Spawned at the blade tip, moving along the facing, with NO inheritance of
      the ball's own velocity. Inheritance is more physical and it breaks the
      one sentence the whole design rests on: you saw where it was pointing. */
+  /* ROOM FOR ONE MORE, AND IT CHOOSES WHAT TO LOSE. The plain `shift()` this
+     replaces drops the oldest shot in the hall, which may be an arrow still in
+     flight; a Crossweave arrow that is STUCK has already resolved and is inert.
+     Losing one of those early costs a strand a fraction of a second. Losing a
+     flying shot costs a hit that was going to happen.
+
+     Inert for every other relic in the game: nothing else sets `stuck`. */
+  makeRoom(){
+    if (this.shots.length < CONFIG.shot.maxLive) return;
+    for (let i = 0; i < this.shots.length; i++){
+      if (this.shots[i].stuck){ this.shots.splice(i, 1); return; }
+    }
+    this.shots.shift();
+  }
+
   spawnShot(f, angle){
     const S = f.w.shot;
-    if (this.shots.length >= CONFIG.shot.maxLive) this.shots.shift();
+    this.makeRoom();
     const R = CONFIG.physics.ballR;
     const a = angle === undefined ? f.theta : angle;
     const ca = Math.cos(a), sa = Math.sin(a);
@@ -8386,6 +8443,20 @@ class Match {
 
     for (let i = this.shots.length - 1; i >= 0; i--){
       const s = this.shots[i];
+      /* A STUCK ARROW IS INERT AND THIS ONE LINE IS THE WHOLE OF IT. Rick's
+         ruling, verbatim: "the stuck arrow is inert, and the strand still
+         shoves." It has already had its effect -- it hit, or was batted down,
+         or reached stone -- so it does not move, cannot hit, cannot be hit,
+         cannot be parried and cannot resolve a second time. `continue` before
+         any of that is the cheapest possible statement of it, and it is
+         auditable: nothing below this line can reach a stuck shot.
+
+         WHAT IT IS STILL DOING is being a strand ENDPOINT. `tickNet` and
+         `drawStrands` both walk `m.shots` and neither tests `stuck`, so a
+         volley that has lost an arrow to the wall keeps its lightning anchored
+         where that arrow landed -- which is the entire reason for this
+         stage. */
+      if (s.stuck) continue;
       /* --- THE HOMING. `tickFire`'s own comment is what this breaks: "No aim,
          no steering, no homing: the shot leaves along f.theta." Four bows
          shipped under that sentence and Reprisal's entire design honours it,
@@ -8735,8 +8806,126 @@ class Match {
                         bx: clamp(s.x, 90, A.w - 90),
                         by: clamp(s.y, 90, A.h - 90) };
       }
-      if (dead) this.shots.splice(i, 1);
+      /* HELD, NOT REMOVED. A Crossweave arrow that resolves stays in
+         `m.shots` as an inert anchor so its volley's strands survive it. Every
+         other projectile in the game is spliced out here exactly as before --
+         the branch is gated on `s.net` and reaches nothing else. */
+      if (dead && s.net && !s.stuck){
+        s.stuck = true; s.vx = 0; s.vy = 0; s.life = 1e9;
+      } else if (dead) this.shots.splice(i, 1);
     }
+    this.releaseVolleys();
+  }
+
+  /* THE VOLLEY CLEARS AS A UNIT, and it is a separate pass rather than part of
+     the loop above because releasing a volley touches arrows at other indices
+     and a reverse loop that splices its own siblings is how an off-by-one gets
+     shipped.
+
+     RELEASED WHEN EVERY ARROW PRESENT IS STUCK, not when three are. A volley
+     whose arrow was shifted off the front by `CONFIG.shot.maxLive` would
+     otherwise be held for ever -- measured at peak 23 against a cap of 64, so
+     it cannot happen today, and this does not rely on that staying true. */
+  releaseVolleys(){
+    if (!this.shots.length) return;
+    const byVolley = new Map();
+    for (const s of this.shots){
+      if (!s.net) continue;
+      let g = byVolley.get(s.volley);
+      if (!g) byVolley.set(s.volley, g = []);
+      g.push(s);
+    }
+    if (!byVolley.size) return;
+    let done = null;
+    for (const [vid, g] of byVolley){
+      let all = true;
+      for (const s of g) if (!s.stuck){ all = false; break; }
+      if (all) (done || (done = [])).push(vid);
+    }
+    if (!done) return;
+    for (const vid of done){
+      const g = byVolley.get(vid);
+      this.volleyDone(g);
+      for (let i = this.shots.length - 1; i >= 0; i--)
+        if (this.shots[i].net && this.shots[i].volley === vid)
+          this.shots.splice(i, 1);
+    }
+  }
+
+  /* THE VOLLEY DETONATES. Every arrow of a completed volley explodes where it
+     stuck -- which is mostly ON THE WALL, because 85.7% of Crossweave arrows
+     end there, so this is a rim of blasts around the hall far more often than
+     three around the quarry.
+
+     THE KNOCKBACK IS THE PAYOFF AND THE DAMAGE IS NOT. Rick's scale, verbatim:
+     "less than an arrow. its more about the visual show. so i think the
+     knockback should be most of the payoff." `novaDmg` is a multiplier of the
+     BLADE, not of the arrow, so at 0.35 it is about a quarter of what one
+     Crossweave arrow carries.
+
+     THE IMPULSE IS FROM THE BLAST, NOT FROM THE ARCHER. `resolveHit`'s own
+     knock fires away from the CASTER, which for a nova standing on a wall on
+     the far side of the room points the wrong way entirely. The Thicket's rule:
+     a hazard that is not the caster needs its own bearing.
+
+     AND IT APPLIES CURSE, WHICH IS RICK'S RULING OVER THIS BUILDER'S SAFE
+     DEFAULT. The first cut passed `over.onHit = {}` to suppress it, reasoning
+     that seventy-two tiny blows a cast would push seventy-two tiny memories
+     into a three-deep pool. Rick, 2026-09-01: "the novas should also apply
+     curse."
+
+     UNDER TODAY'S CURSE RULE THE WORRY IS MISPLACED, WHICH IS WHY IT IS SAFE.
+     `pushCurse` keeps the three BIGGEST and displaces the WEAKEST, so a
+     3.2-damage nova memory offered to a pool already holding the blade's
+     13-damage ones is refused. It refreshes the clock and adds nothing --
+     v49 section 5b's own finding arriving from the other side.
+
+     ** IT IS NOT SAFE UNDER THE PENDING RULE. ** `06-docs/CLAIMS.md` carries
+     a school-wide change, Rick's, 2026-09-02: the pool keeps the LAST 3 hits
+     instead of the 3 BIGGEST, marked to land AFTER Gloamwire ships. Under
+     LAST-3 these seventy-two tiny memories ARE the last three almost always,
+     and this ultimate would overwrite its own school's memory with its own
+     noise. Whoever lands that change must re-price this path. */
+  volleyDone(g){
+    if (!g || !g.length) return;
+    const src = g[0].own === "a" ? this.a : this.b;
+    const foe = g[0].own === "a" ? this.b : this.a;
+    const u = src.w.ult;
+    if (!u || u.novaKnock === undefined) return;
+    const R = CONFIG.physics.ballR;
+    let caught = 0;
+    for (const s of g){
+      /* A FIRST CUT AND NOTHING MORE. The register is Rick\'s (rule 2) and this
+         is the engine\'s existing vocabulary -- a ring and a spark burst in the
+         school\'s own palette -- so the payload is not invisible while it waits
+         for him. An ultimate that shoves with nothing on screen is the fault he
+         rejected on the stage-3 clip. */
+      /* A RECORD, NOT A PARTICLE FIELD. `spawnFx` would consume `this.rng()`
+         and put this relic's art inside its own simulation; the renderer
+         expands this into the whole explosion and the sim never knows. */
+      /* ONE PER NOVA, STAGGERED BY THE ARROW'S OWN POSITION IN THE FAN.
+         Rick's, over one per volley. All three resolve on the same frame, so
+         without the offset they are one voice at 3x amplitude rather than
+         three voices -- `clank` spaces its five partials by 1.5 ms for the same
+         reason. `idx` is 0, 1, 2 across the fan, so the triplet always flams in
+         the order the arrows were loosed. */
+      SFX.play("nova", { k: s.idx || 0 });
+      (this.novaFx || (this.novaFx = [])).push({
+        x: s.x, y: s.y, t: 0, life: 0.62,
+        aff: src.aff, seq: (this.novaSeq = (this.novaSeq || 0) + 1) });
+      if (this.novaFx.length > 120) this.novaFx.shift();
+      if (!foe.alive || !src.alive) continue;
+      const dx = foe.x - s.x, dy = foe.y - s.y;
+      const d = Math.hypot(dx, dy);
+      if (d > u.novaRad + R) continue;
+      caught++;
+      const dl = d || 1;
+      foe.vx += (dx / dl) * u.novaKnock;
+      foe.vy += (dy / dl) * u.novaKnock;
+      const seg = { ax: s.x - 8, ay: s.y, bx: s.x + 8, by: s.y, a: 0 };
+      this.resolveHit(src, foe, s.x, s.y, seg, u.novaDmg);
+    }
+    if (caught) this.shake = Math.min(38, this.shake + 4);
   }
 
   /* ------------------------------------------------------------- clank --- */
@@ -12669,7 +12858,7 @@ class Match {
      is what the shot path already routes through. */
   spawnSpike(f){
     const u = f.w.ult;
-    if (this.shots.length >= CONFIG.shot.maxLive) this.shots.shift();
+    this.makeRoom();
     const a = f.headAng;
     const ca = Math.cos(a), sa = Math.sin(a);
     const off = (f.w.artW || 40) * 0.42;
@@ -12865,7 +13054,7 @@ class Match {
       for (let i = 0; i < N; i++){
         const a = f.theta + (i / N) * TAU + (shellHash(7717, i) - 0.5) * 0.28;
         const spd = u.speed * (0.86 + shellHash(7723, i) * 0.28);
-        if (this.shots.length >= CONFIG.shot.maxLive) this.shots.shift();
+        this.makeRoom();
         this.shots.push({
           own: f === this.a ? "a" : "b",
           /* Clear of the shell AND armed. The trap the splinters hit and
@@ -13481,7 +13670,7 @@ class Match {
     for (let i = 0; i < N; i++){
       const a = (i / N) * TAU + (shellHash(6151, i) - 0.5) * 0.55;
       const spd = u.shardSpd * (0.78 + shellHash(6173, i) * 0.5);
-      if (this.shots.length >= CONFIG.shot.maxLive) this.shots.shift();
+      this.makeRoom();
       this.shots.push({
         /* Clear of the shell AND armed. The first build spawned these at
            R+6 — inside `R + s.r`, the hit radius — so all nine resolved on
@@ -15534,6 +15723,7 @@ class Renderer {
     this.drawDrains(m);
     /* UNDER the arrows: they are the objects and this is what runs between
        them. Over the fighters, because a strand crosses the room. */
+    this.drawNovas(m);
     this.drawStrands(m);
     this.drawShots(m);
     this.drawHands(m);
@@ -20681,6 +20871,68 @@ class Renderer {
 
      UNDER `drawShots` so the arrows read ON TOP of what connects them: the
      arrows are the objects and the strand is the thing between them. */
+  /* THE NOVA, EXPANDED FROM ONE RECORD. Everything here is derived from `t`
+     and from `shellHash(seq, k)` -- no stored state, no `this.rng()`, no
+     gradients and no `shadowBlur`. Seventy-two of these live inside four
+     seconds and the last two are why: they are the pair that took
+     Cindercleave's capture to 0.19 frames a second.
+
+     THE SHAPE IS A FLASH, A SHELL AND A SPRAY. The flash is one bright disc
+     that dies almost at once and is what makes it read as a detonation rather
+     than as a bubble. The shell is two rings racing outward at different rates
+     so the edge has thickness. The spray is sixteen streaks whose bearings are
+     hashed off the record's own sequence number, so every blast is a different
+     one and a replay draws the same different one. */
+  drawNovas(m){
+    if (!m.novaFx || !m.novaFx.length) return;
+    const c = this.ctx;
+    c.save();
+    c.globalCompositeOperation = "lighter";
+    c.lineCap = "round";
+    for (const f of m.novaFx){
+      const k = clamp(f.t / f.life, 0, 1);
+      const ease = 1 - Math.pow(1 - k, 2.2);
+      const fade = 1 - k;
+      const R = 96 * ease;
+
+      /* THE FLASH -- gone in the first sixth, and it is the whole "boom". */
+      const fl = clamp(1 - k * 6, 0, 1);
+      if (fl > 0){
+        c.globalAlpha = 0.55 * fl;
+        c.fillStyle = f.aff.glow;
+        c.beginPath(); c.arc(f.x, f.y, 26 * (0.5 + fl), 0, TAU); c.fill();
+      }
+
+      /* THE SHELL -- two rings, the outer one thinner and further. */
+      c.globalAlpha = 0.50 * fade;
+      c.strokeStyle = f.aff.glow;
+      c.lineWidth = 5 * fade + 1;
+      c.beginPath(); c.arc(f.x, f.y, R, 0, TAU); c.stroke();
+      c.globalAlpha = 0.30 * fade;
+      c.strokeStyle = f.aff.core;
+      c.lineWidth = 9 * fade + 1;
+      c.beginPath(); c.arc(f.x, f.y, R * 0.68, 0, TAU); c.stroke();
+
+      /* THE SPRAY. Sixteen streaks, each on its own hashed bearing and its own
+         hashed reach, drawn from a point that leaves the centre so the blast
+         opens rather than inflates. */
+      c.globalAlpha = 0.60 * fade * fade;
+      c.strokeStyle = f.aff.core;
+      c.lineWidth = 2.2;
+      c.beginPath();
+      for (let j = 0; j < 16; j++){
+        const a = shellHash(f.seq, j) * TAU;
+        const rr = R * (0.72 + 0.55 * shellHash(f.seq + 977, j));
+        const ca = Math.cos(a), sa = Math.sin(a);
+        c.moveTo(f.x + ca * rr * 0.55, f.y + sa * rr * 0.55);
+        c.lineTo(f.x + ca * rr,        f.y + sa * rr);
+      }
+      c.stroke();
+    }
+    c.globalAlpha = 1;
+    c.restore();
+  }
+
   drawStrands(m){
     if (!m.shots.length) return;
     const byVolley = new Map();

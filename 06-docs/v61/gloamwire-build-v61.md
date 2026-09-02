@@ -465,9 +465,13 @@ argument for its checks, and because two of these reached a printed table.
    already records as folklore. **`"24 volleys of 3 strung arrows; the strand
    shoves"` is 48 characters and fits**, and it is in the build.
 
-   **But characters are the wrong unit and `tip_audit` is the real gate.** The
-   scrunch panel is 536px on one line at 25px and a 48-character tip can be
-   583px. That measurement has not been run.
+   **But characters are the wrong unit, and the surface I named was the wrong
+   one.** I wrote that the risk is the scrunch panel at 536px on one line.
+   Cowork's v59 tip-surface work corrects that: the panel WRAPS to three lines
+   and always did. The surface that can overflow is `_tagFirst` -- one line,
+   25px, no wrap, no clip, no measure -- and its budget is `w - 60` px in the
+   bundled Atkinson Hyperlegible Next. `tip_audit` measures that box in that
+   face and has still not been run on this relic.
 
 2. **`chain_audit.py`'s COMMAND LINE IN CLAUDE.md SECTION 5 READS AS A RELIC ID
    AND A TIP STRING.** Both arguments are BUILD PATHS — `--relic` is the link

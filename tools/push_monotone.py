@@ -6,8 +6,9 @@ Run against the real Fighter.pushCurse in the build, and against the proposed
 rolling-window replacement, on the same starting pools.
 """
 import pathlib, sys, json
-sys.path.insert(0, "/mnt/user-data/uploads/sundered-crown/tools")
-from scpage import game
+HERE = pathlib.Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))  # v63: was a hardcoded Cowork container path; runs from tools/ on any machine now
+from scpage import game, resolve_game
 
 JS = r"""(mode) => {
   const m0 = new AC.Match(AC.WEAPONS[0].id, AC.WEAPONS[1].id, 1);
@@ -38,7 +39,7 @@ JS = r"""(mode) => {
   return rows;
 }"""
 
-G = pathlib.Path("/mnt/user-data/uploads/sundered-crown/02-chain/sc-garrote.html")
+G = resolve_game("02-chain/sc-garrote.html")  # v63: repo-relative
 with game(game_path=G) as (page, errors):
     for mode, title in (("top3", "SHIPPED RULE — push, sort descending, truncate to 3"),
                         ("fifo", "ROLLING WINDOW — push, shift the oldest out")):

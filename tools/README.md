@@ -29,6 +29,14 @@ went stale without anyone noticing.
 - `pace_build.py` — the long-fight pace: baseHP 400, seals 21/49, the timeout raised to a backstop, and Grudgebearer nerfed to match. The ONLY chain link that touches the simulation, so engine_ab MUST differ on it
 - `fx_build.py` — `src/render/fx.js` into the build: deterministic particle fields on all 25 ultimates, aged off sim time so the hook is idempotent and the app and the video cannot diverge
 - `ignition_build.py` — `src/render/open.js` into the build: THE IGNITION OPEN. The first 2.35s of every fight is a shot — a solo on each relic, a hard cut, a pull wide, both relics igniting, and every glow in the hall powering on. Four one-line hooks in `Renderer.draw`, all of them a pure function of `m.t`
+- `tipfix_build.py` — STAGE T of the Bloodmirror brief: curse's tip says "stacks 3 times" and `_tagFirst`'s box goes 596 -> 760 (Rick's, from a spread of four). The only stage in that brief that can be PROVEN inert, which is why it goes first — neither edit is read by the sim and `engine_ab` is the proof
+- `bloodmirror_build.py` — BLOODMIRROR and BLOODLETTING, the 32nd relic. Stage 1 adds the relic with its ultimate stubbed and takes the tip hook off `_scBarbed` (Rick's); stage 2 builds the three drifting spectral copies, the per-fighter bleed ceiling, four voices, a particle field in BOTH copies of `SPECS`, and the landing rings. Stage 3b is the blade
+
+> **AND THE LIST ABOVE SKIPS SIX RELICS.** `thornshear_build.py`,
+> `vesper_build.py`, `shroudmaul_build.py`, `cindercleave_build.py`,
+> `ravelbone_build.py` and `gloamwire_build.py` each made a chain link and none
+> of them was added here, which is `docs/BUILD-CHAIN.md` §5's rule going unkept
+> for six sessions. Not backfilled here; named so the next session can.
 
 Not stamped at the tip, but chain-adjacent:
 

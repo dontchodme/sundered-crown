@@ -79,13 +79,18 @@ LEGIBILITY_JS = r"""
     if (!u.tip || !u.tip.trim()) bad.push(`${w.name}: ultimate ${u.name} has no tip`);
     // 44 -> 72 with the v2 fight card (2026-08-14): ult tips render on
     // their own 25px line now, so the budget is the line, not the tag row.
-    // Status tips are 48, and this comment said 40 for a long time while the
-    // line under it enforced 48 — which is how "the status limit is 40" ended
-    // up stated twice in a build brief. Every shipped tip is under 40, so the
-    // gap has never been tested and nothing caught the drift.
-    // CHARACTERS ARE ALSO THE WRONG UNIT: the scrunch panel is 536px on one
-    // line, and a 48-character tip can be 583px. tip_audit measures pixels and
-    // is the gate that actually protects the layout.
+    // STATUS TIPS ARE 72 TOO, as of stage T of the Bloodmirror brief
+    // (tip-surface-v59 change 3). They were 48 in this file under a comment
+    // that said 40 -- which is how "the status limit is 40" ended up stated
+    // twice in a build brief -- and every shipped tip was under 40, so the
+    // gap was never tested and nothing caught the drift. 72 is the number the
+    // ult tips on the same column through the same wrapper already use.
+    // CHARACTERS ARE THE WRONG UNIT AND THIS CAP IS NOT THE REAL GATE. The
+    // surface that can overflow is `_tagFirst` -- one line, 25px, no wrap, no
+    // clip, no measure -- and its budget is `w - 60` px in the BUNDLED
+    // 'Atkinson Hyperlegible Next'. tip_audit measures that box in that face
+    // and is the gate that actually protects the layout. The scrunch panel,
+    // which this comment used to name, wraps to three lines and always did.
     else if (u.tip.length > 72) bad.push(`${w.name}: ult tip ${u.tip.length} chars (max 72)`);
     for (const k of Object.keys(u.apply || {}))
       if (!statusKeys.includes(k))
@@ -100,7 +105,7 @@ LEGIBILITY_JS = r"""
         if (!statusKeys.includes(k)) { bad.push(`${w.name}: ${chan} has unknown status "${k}"`); continue; }
         const s = AC.STATUS[k];
         if (!s.tip || !s.tip.trim()) bad.push(`${w.name}: status ${k} has no tip`);
-        else if (s.tip.length > 48) bad.push(`${k}: status tip ${s.tip.length} chars (max 48)`);
+        else if (s.tip.length > 72) bad.push(`${k}: status tip ${s.tip.length} chars (max 72)`);
       }
     }
     // ...and now the RENDER check, not just the data check. The above proves a
