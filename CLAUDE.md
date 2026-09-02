@@ -12,7 +12,38 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-lastthree.html       THE CHAIN TIP, AND *NOT* THE BUILD OF RECORD.
+02-chain/sc-static.html          THE CHAIN TIP, AND *NOT* THE BUILD OF RECORD.
+                                                   34 relics . ARCLIGHT AND
+                                                   STATIC, the vigil twinblade
+                                                   -- a pink lightning storm it
+                                                   grows from its own hits,
+                                                   eats back as shield, and
+                                                   detonates. Stages 1-3 of the
+                                                   v64 brief. THE BLADE IS NOT
+                                                   TUNED AND CANNOT BE: at
+                                                   dmg 0.5 the relic still wins
+                                                   80.6% while the body alone
+                                                   wins 0.0%, so stage 4 is
+                                                   STOPPED ON A RULING and the
+                                                   art and sound are first cuts
+                                                   nobody has chosen.
+                                                   engine_ab 4224/4224 on the
+                                                   other 33 . probe 19/20 (the
+                                                   one FAIL is the 60-bolt cap,
+                                                   which binds because the
+                                                   design's overlay bounced its
+                                                   bolts off the ARENA and the
+                                                   build bounces them off
+                                                   `m.inset`) . gate 3 PASSES
+                                                   once storm_price is re-run
+                                                   on the pinned runtime.
+                                                   See 06-docs/v64/.
+02-chain/sc-storm.html           the link before it . THE SWARM -- no ward, no
+                                                   damage
+02-chain/sc-arclight.html        the link before it . the 34th relic, ult
+                                                   STUBBED
+02-chain/sc-lastthree.html       the link before it, AND THE ONE ARCLIGHT IS
+                                                   BUILT ON.
                                                    33 relics . DUSKREAVE AND
                                                    SCOUR, the umbral scythe and
                                                    THE LAST SCYTHE -- plus the
@@ -276,6 +307,59 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE THIRTY-FOURTH RELIC IS ARCLIGHT, AND STATIC IS THE FIRST THING IN THE
+VIGIL SCHOOL THAT PAYS INTO THE SHIELD RATHER THAN SPENDING IT**
+(`arclight_build.py`, 2026-09-02). Vigil x twinblade, built to `06-docs/v64/`'s
+brief in three staged links. A cast opens an 8s window; every blade hit inside
+it throws EIGHT bolts off the quarry, which ricochet six times, FORK INTO TWO
+MORE on the foe and are CONSUMED by the caster for 2 ward each; at t=8 every
+bolt pops and the ones within 80 of the quarry are 15 damage each through
+`resolveHit`. Aegis reflects the shield, Reprisal fires it, Sentinel drinks it;
+this one feeds it. `06-docs/v64/arclight-build-v64.md`.
+
+> **THERE IS NO BLADE THAT BALANCES IT, AND THAT IS MEASURED RATHER THAN
+> ARGUED.** Brief stage 4 says to bisect DOWN from 8.3 and expect the lightest
+> blade in the game; swept as a curve first, the relic reads 93.9% at dmg 8.3
+> and **80.6% at dmg 0.5** -- while the same body with the ultimate stubbed
+> wins **0.0% of 330 fights** below dmg 4. The blade gives back 13 points and
+> it needs 31. **Design section 6's "has to give back ~40 points at the blade"
+> is the assumption that fails, and it fails for the design's own model too**
+> (D = 90.7% when `storm_price` is re-run here). Stage 4 is STOPPED and the
+> ruling is Rick's and Cowork's.
+
+> **AND THE TWO HALVES OF THE ULTIMATE ARE SUBSTITUTES, NOT ADDENDS.** Deleting
+> the ward feed entirely costs **3.6pp** -- and the ward feed ALONE, with the
+> detonation switched off, is worth **+29.2pp**. Both are correct: either half
+> wins the fight on its own, so **every one-knob curve understates its own
+> knob** and a tune that takes one down looks nearly free and changes nearly
+> nothing. Six WHOLE settings are priced in the build doc; `4/1/3` reads 57.6%
+> and `4/0.5/3` reads 46.4%. **None is chosen** -- rule 0.
+
+> **THE REPRODUCTION CONTROL MOVED THE GATE, WHICH IS SECTION 4.2b EARNING ITS
+> PLACE AGAIN.** Gate 3 reads the built relic against the design's published
+> +33.1 and it measured +40.9 -- 7.8pp hot. `storm_price.py` UNMODIFIED, on the
+> design's own build, on this machine, returns **+37.5**: v64 was priced on
+> Chromium 141 in a Cowork container and this repo pins 151. So the build is
+> +3.4 over the model as measured here, **inside the tier, and gate 3 passes.**
+> Every decimal in `06-docs/v64/` is on the other runtime.
+
+> **AND THE DESIGN'S OVERLAY BOUNCED ITS BOLTS OFF THE ARENA.** `storm_price`
+> uses `x < P.rb`; the build uses `n = this.inset`, which the seals walk 0 ->
+> 140, because a bolt that ignored it would fly into stone the balls cannot
+> reach. In the OPEN hall the build reproduces the priced swarm on all five
+> counts (fork 33.4 against ~30, eaten 21.1 against ~21, alive 26.6 against
+> ~24, peak 28.4 against ~30); once the hall closes it is five times that, and
+> the 60-bolt cap -- brief section 0's *"a safety, not a knob"* -- refuses
+> **3,867 spawns across 98 of 241 casts**. The probe's cap check is left FAILING
+> rather than widened, because it is the only measurement that says so.
+
+> **NOBODY HAS WATCHED IT AND THE BOLT IS A FIRST CUT.** `07-shorts/v64/`
+> holds two clips of the window, cast to detonation. Brief stage 5 says the
+> bolt's look and the sound are Rick's from rendered spreads and that he must
+> not be asked in words; neither spread has been made. **And there is no
+> particle field** -- `SPECS` has no `arclight` entry in either copy, which is
+> open item 46 for the third relic running.
 
 **THE THIRTY-SECOND RELIC IS BLOODMIRROR, AND BLOODLETTING IS THE FIRST THING IN
 THIS GAME THAT MOVES A STATUS'S CEILING** (`bloodmirror_build.py`, 2026-09-01).
@@ -2038,6 +2122,25 @@ python hold_lab.py --game ../02-chain/sc-garrote.html              # how long th
                                         # (open item 10) so its blade cannot come round
 python wire_channel.py --game ../02-chain/sc-wire.html --sn 26      # WHY THE STAGE-2 GATE MISSED BY TEN POINTS
 python _wire_pick.py --game ../02-chain/sc-garrote.html            # a fight with the ult in it, to FILM
+python arclight_build.py --stage 1|2|3                             # the 34th relic: stubbed, the swarm, THE RELIC
+python arclight_probe.py --game ../02-chain/sc-static.html         # the swarm's census, AND the render path CALLED
+                                        # it reads WHICH STAGE off the page --
+                                        # stage 2's damage checks are checks
+                                        # that nothing happened, stage 3's are
+                                        # the same instrument read the other
+                                        # way round
+python arclight_price.py --game ../02-chain/sc-static.html --seeds 8   # the four-arm budget shape on the BUILT relic
+python arclight_sweep.py --blades 8.3,6,4,2,1,0.5                  # THE CURVE FIRST -- and it does not cross 50%
+python arclight_sweep.py --knob dmg --vals 15,10,6,3,0             # one number inside the ultimate, at a fixed blade
+python arclight_sweep.py --combos 4:1:3,4:0.5:3                    # WHOLE SETTINGS side by side, because the two
+                                        # halves of Static are SUBSTITUTES and
+                                        # a one-knob curve understates both
+python storm_price.py --game ../02-chain/sc-bloodletting.html      # THE REPRODUCTION CONTROL. The design's own tool
+                                        # on the design's own build: +37.5 here
+                                        # against a published +33.1, because
+                                        # v64 was priced on Chromium 141 and
+                                        # this repo pins 151
+python _storm_pick.py --game ../02-chain/sc-static.html            # a cast worth filming, biggest swarm first
 ```
 
 **`frame_probe.py` HAS BEEN CRASHING, AND NOT BECAUSE OF ANYTHING NEW.** It
