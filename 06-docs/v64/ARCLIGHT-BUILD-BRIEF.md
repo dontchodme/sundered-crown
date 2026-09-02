@@ -28,7 +28,9 @@ onSelf            { ward: 1 }          the school's channel, exactly as the othe
 ult.name          STATIC               Rick, from four
 ult.charge        15                   the twinblade row runs 13–18; priced at 15
 ult.kind          "static"             new kind; nothing shares it (one sigil, one sound, one picture)
-ult.tip           RICK'S — pending. ≤72 chars, one string for both surfaces (see §5)
+ult.tip           "Hits spawn forking lightning. Caught bolts apply ward. All explode at 8s"
+                                       RICK'S OWN LINE, 2026-09-02, 72 chars exactly. One string, both
+                                       surfaces. Measure it on both the way Scour's was (§5).
 
 THE STORM — all of it Rick's §1 with his numbers turned up (design §3), and the rulings of 2026-09-02
   window          8.0 s                ONE timer: spawning stops and every bolt detonates at t = 8
@@ -217,20 +219,19 @@ shape again. Write the gap between the model's +33 and the built number into
 # 4. WHAT IS RICK'S AND STILL OPEN
 
 Of his seven: cell ✓, mechanics ✓ (with the three rulings of 2026-09-02),
-fighter name ✓ Arclight, ult name ✓ Static. **Open: the card line, the bolt
-art, the sound.** Art and sound are rendered spreads (stage 5) — do not ask
-him in words.
+fighter name ✓ Arclight, ult name ✓ Static, card line ✓ (§5). **Open: the
+bolt art, the sound.** Both are rendered spreads (stage 5) — do not ask him
+in words.
 
-# 5. THE CARD LINE — PENDING RICK
-
-≤72 characters, one string for the fight card and the scrunch panel.
-Candidates offered, mechanic-first as he chose for the umbral pair (lengths
-counted by script):
+# 5. THE CARD LINE — RICK'S
 
 ```
-Hits spark forking lightning. Catch it for shield. At 8s it all blows        69
-Hits spark forking lightning. Caught bolts shield you. Then it all blows     72
-For 8s hits spark forking bolts. Catch them for shield, then they blow       70
+Hits spawn forking lightning. Caught bolts apply ward. All explode at 8s        72
 ```
 
-Measure whatever he picks on both surfaces the way Scour's line was.
+His. He wrote "Hits spawn forking lightning. Bolts hitting #name# apply ward.
+bolts explode after X seconds" (94 filled in), was shown the 72 cap, called the
+first trim's middle sentence "pretty rough", and took this middle from four.
+Every word but "caught" is his. **Measure it on the ult-bar reminder (390px at
+18px Atkinson Next) and the scrunch panel at 21px before stage 5 closes**, the
+way Scour's line was; it is exactly at the cap.

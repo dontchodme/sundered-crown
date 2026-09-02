@@ -1,0 +1,11 @@
+
+ARCLIGHT -- THE BLADE AS A CURVE  (ULTIMATE STUBBED)
+  ../02-chain/sc-static.html, 33 foes x 10 seeds, side A = 330 fights a point
+
+       dmg      win   +/- SE  ults/fight     dur
+      8.30    21.8%     2.3         0.00   61.6s
+      4.00     0.0%     0.0         0.00   58.8s
+      1.00     0.0%     0.0         0.00   55.1s
+      0.50     0.0%     0.0         0.00   54.5s
+
+  NO CROSSING IN THIS RANGE -- the curve runs 0.0% to 21.8%.

@@ -1,0 +1,40 @@
+
+STATIC -- stage 2, 99 fights (33 foes x 3 seeds), 241 casts
+
+  PASS  the ultimate casts at all
+        241 casts over 99 fights (2.43 a fight; charge 15 predicts ~2-3)
+  PASS  the books balance -- spawned + forked = eaten + died + alive
+        241 of 241 casts balance
+  PASS  eight bolts a blade hit, and none from anywhere else
+        689 blows -> 4927 spawned
+  PASS  IN THE OPEN HALL the swarm is the one the design priced (within 25%)
+        99 of 241 casts opened at inset < 40:  spawned 15.2 (want 17-20)  forked 33.4 (want 30-30)  eaten 21.1 (want 21-21)  alive 26.6 (want 24-24)  peak 28.4 (want 30-30)
+  PASS  a storm needs a spark -- casts that grow nothing are the minority
+        20 of 241 casts landed no blade hit inside the window (8%; the model says 8-12%, and the brief FORBIDS a fallback spawn)
+  FAIL  the cap is a safety and never binds
+        peak seen 60 of a cap of 60, 3867 spawns refused; refused in 98 of 241 casts, and 11 of 99 while the hall was open
+  PASS  both sinks are real -- the caster eats and the walls kill
+        14361 eaten, 605 spent on a 7th wall, 61009 ricochets
+  PASS  no bolt is ever outside the hall
+        0 ticker calls left a bolt in the stone
+  PASS  the bolts freeze with everything else
+        0 of 35476 steps that BEGAN frozen moved a bolt (must be 0, and the denominator must not be 0 -- a check with no chance to fire is not a check)
+  PASS  no damage and no ward -- stage 2 touches neither pool
+        hp moved 0, caster ward moved 0, foe ward moved 0 (all must be 0 at stage 2)
+  PASS  and it is silent to the director and to the physics
+        beats 0, hit stops 0, hitstun 0, knocks 0
+  PASS  no storm outlives its match
+        0 matches ended with one standing
+  PASS  nothing in the storm calls `Math.random`
+        0 calls over 262724 ticker frames (the stub counts every one; a single call breaks engine_ab)
+
+  12/13 checks pass
+
+  per cast: blows 2.9  spawned 20.4  forked 78.1  eaten 59.6  died 2.5  alive 36.4  peak 38.8  walls 253.1
+  window ran 8.00s .. 8.00s on its own clock
+
+  BY HOW CLOSED THE HALL WAS AT THE CAST:
+         inset  casts   spawn    fork   eaten   alive    peak  refused
+       1-40        99    15.2    33.4    21.1    26.6    28.4      1.6
+      40-90        94    20.1    69.9    48.4    38.9    41.3     11.1
+      90-999       48    31.9   186.3   160.8    52.0    55.5     55.5

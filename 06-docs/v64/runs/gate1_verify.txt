@@ -1,0 +1,97 @@
+
+{
+ "winrate": {
+  "dawnbringer": 0.5787878787878787,
+  "widowmaker": 0.5068181818181818,
+  "grudgebearer": 0.5227272727272727,
+  "thornwake": 0.5113636363636364,
+  "lastlight": 0.5280303030303031,
+  "gravemourn": 0.5212121212121212,
+  "slagheart": 0.5681818181818182,
+  "spellbreaker": 0.4818181818181818,
+  "ironhail": 0.6037878787878788,
+  "lightkeeper": 0.5053030303030303,
+  "farwarden": 0.5628787878787879,
+  "aureole": 0.5651515151515152,
+  "censer": 0.5189393939393939,
+  "emberedge": 0.4772727272727273,
+  "oathwound": 0.44393939393939397,
+  "heartwood": 0.3931818181818182,
+  "nightfell": 0.49015151515151517,
+  "axiom": 0.4128787878787879,
+  "twinshade": 0.478030303030303,
+  "redflail": 0.5007575757575757,
+  "foregone": 0.5356060606060606,
+  "vinesower": 0.46060606060606063,
+  "bulwarden": 0.5454545454545454,
+  "marrowdraw": 0.5128787878787879,
+  "paradox": 0.5454545454545454,
+  "thornshear": 0.453030303030303,
+  "vesper": 0.5659090909090909,
+  "shroudmaul": 0.5,
+  "cindercleave": 0.48333333333333334,
+  "ravelbone": 0.5492424242424242,
+  "gloamwire": 0.4492424242424242,
+  "bloodmirror": 0.5106060606060606,
+  "duskreave": 0.5371212121212121,
+  "arclight": 0.1803030303030303
+ },
+ "meanDur": 48.36473172905526,
+ "meanClanks": 15.439527629233512
+}
+=== The Sundered Crown — falsification pass ===
+
+
+# sweep: 22440 matches in 1471.2s (40 seeds x 561 pairings)
+# mean duration 48.4s   mean clanks 15.4
+
+  Ironhail        60.4%  ##############################
+  Dawnbringer     57.9%  #############################
+  Slagheart       56.8%  ############################
+  Vesper          56.6%  ############################
+  Aureole         56.5%  ############################
+  Farwarden       56.3%  ############################
+  Ravelbone       54.9%  ###########################
+  Bulwarden       54.5%  ###########################
+  Paradox         54.5%  ###########################
+  Duskreave       53.7%  ###########################
+  Foregone        53.6%  ###########################
+  Lastlight       52.8%  ##########################
+  Grudgebearer    52.3%  ##########################
+  Gravemourn      52.1%  ##########################
+  Censer          51.9%  ##########################
+  Marrowdraw      51.3%  ##########################
+  Thornwake       51.1%  ##########################
+  Bloodmirror     51.1%  ##########################
+  Widowmaker      50.7%  #########################
+  Lightkeeper     50.5%  #########################
+  Threshmaw       50.1%  #########################
+  Shroudmaul      50.0%  #########################
+  Nightfell       49.0%  #########################
+  Cindercleave    48.3%  ########################
+  Spellbreaker    48.2%  ########################
+  Twinshade       47.8%  ########################
+  Emberedge       47.7%  ########################
+  Vinesower       46.1%  #######################
+  Thornshear      45.3%  #######################
+  Gloamwire       44.9%  ######################
+  Goreshard       44.4%  ######################
+  Axiom           41.3%  #####################
+  Heartwood       39.3%  ####################
+  Arclight        18.0%  #########
+
+  PASS  no JS errors or page exceptions
+  PASS  every status and ultimate has viewer-facing text
+  PASS  all 561 pairings ran  — 561 pairings
+  PASS  every match resolved  — 0 pairings had unresolved matches
+  PASS  both sides can win every matchup
+  PASS  timeout rate <= 10%  — 0/22440 = 0.0%
+  FAIL  every relic winrate in 30%-70%  — Arclight 18.0% .. Ironhail 60.4% (spread 42.3pp)
+  FAIL  every pairing mean duration in 18-70s  — Ironhail/Marrowdraw 30.3s .. Farwarden/Arclight 83.0s
+  PASS  overall mean duration in 28-54s  — 48.4s
+  PASS  every pairing clanks at least once
+  PASS  no pairing resolves on fewer than 6 hits
+  PASS  capture path pins the canvas to 1080x1920  — 1080x1920 k=1
+  PASS  renderer draws a non-blank frame  — 114 distinct sampled colours
+
+11/13 checks passed  (2 FAILED)

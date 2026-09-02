@@ -285,8 +285,9 @@ the four-arm price as the stage-3 gate.
 
 # Open decisions
 
-1. **THE CARD LINE.** Rick's. Three ≤72 candidates in the brief §5; he has
-   written his own for the last two relics and may here.
+1. ~~THE CARD LINE~~ — **closed.** Rick wrote his own; the 72-char form he
+   took is in the brief §5: *"Hits spawn forking lightning. Caught bolts apply
+   ward. All explode at 8s"*.
 2. **THE BOLT'S LOOK AND THE SOUND.** Rick's, from rendered spreads at stage 5.
    He has not been asked in words and should not be.
 3. **THE DETONATION'S DAMAGE PATH.** Priced through `m.hurt` (no sunder, no

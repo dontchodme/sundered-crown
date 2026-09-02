@@ -1,0 +1,11 @@
+=== ENGINE A/B: 33 relics, 10 seeds x 528 pairings ===
+
+  sc-lastthree.html               5280 matches  269.5s
+  sc-arclight.html                5280 matches  263.2s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 5280
+  PASS  every match identical field for field  — 5280/5280
+  PASS  the sweep is real  — 33/33 distinct winners, 5280 distinct seeds, 17.6-90.2s
+
+ENGINE A/B PASS — ../02-chain/sc-arclight.html does not move the 33-relic roster.

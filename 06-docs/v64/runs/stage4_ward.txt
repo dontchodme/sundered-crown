@@ -1,0 +1,16 @@
+
+ARCLIGHT -- ult.ward AS A CURVE, blade held at 8.3
+  ../02-chain/sc-static.html, 33 foes x 10 seeds, side A = 330 fights a point
+
+    ult.ward      win   +/- SE  ults/fight     dur
+      2.00    93.9%     1.3         2.25   47.1s
+      1.00    91.8%     1.5         2.25   47.1s
+      0.50    90.9%     1.6         2.25   47.3s
+      0.00    90.3%     1.6         2.25   46.9s
+
+  NO CROSSING IN THIS RANGE -- the curve runs 90.3% to 93.9%.
+  `ult.ward` CANNOT BALANCE THIS RELIC ON ITS OWN, at the blade and bolt damage this run held fixed. Stop and
+  say so: what comes down next is the ULTIMATE, and which
+  number comes down is a design decision (rule 0). The
+  design already names its own knob -- open decision 3,
+  'the 15-a-bolt is the knob, not the radius'.
