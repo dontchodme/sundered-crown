@@ -12,7 +12,33 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-bloodletting.html    BUILD OF RECORD  <- app/main.js GAME
+02-chain/sc-nova.html            BUILD OF RECORD  <- app/main.js GAME
+                                                   32 relics . CROSSWEAVE
+                                                   FINISHED, carried on to the
+                                                   Bloodmirror tip: the trio is
+                                                   HELD so no arrow flies naked,
+                                                   EVERY VOLLEY DETONATES (72
+                                                   novas a cast), the explosion
+                                                   is DRAWN not spawned so its
+                                                   size is free, and the pop is
+                                                   fitted to Rick's own
+                                                   reference. THE CARRY MOVES
+                                                   NOTHING ELSE -- engine_ab
+                                                   2790/2790 over the other 31,
+                                                   Bloodmirror included.
+                                                   shell_identity 200/200.
+                                                   Blade 7.25, re-measured at 32
+02-chain/sc-bloodletting.html    the link before it, AND THE ONE DUSKREAVE IS
+                                                   BEING BUILT ON. It carries
+                                                   Crossweave's stages 1-6 ONLY:
+                                                   the hold, the nova, the
+                                                   explosion and the voice are
+                                                   in sc-nova above it. A new
+                                                   link rather than an edit,
+                                                   because moving another
+                                                   session's base mid-build is
+                                                   rule 0 arriving through the
+                                                   chain.
                                                    32 relics . BLOODMIRROR AND
                                                    BLOODLETTING - the scythe
                                                    throws THREE bloody spectral
