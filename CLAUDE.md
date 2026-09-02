@@ -12,6 +12,75 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
+02-chain/sc-lastthree.html       THE CHAIN TIP, AND *NOT* THE BUILD OF RECORD.
+                                                   33 relics . DUSKREAVE AND
+                                                   SCOUR, the umbral scythe and
+                                                   THE LAST SCYTHE -- plus the
+                                                   CURSE WINDOW under it.
+                                                   The app still loads
+                                                   sc-nova.html; this tip has
+                                                   not been watched end to end
+                                                   and its ult tip is still the
+                                                   stub. See 06-docs/v63/.
+                                                   A cast stands a band 160
+                                                   wide and 400 tall in the
+                                                   hall for 10s; it sweeps at
+                                                   200 px/s, bounces off the
+                                                   walls, EATS ENEMY ARROWS,
+                                                   DRAGS whoever it catches
+                                                   toward its throat and GRINDS
+                                                   them 7 times a second. THE
+                                                   TICK IS A HIT -- it goes
+                                                   through resolveHit and
+                                                   collects the curse echo --
+                                                   and it carries NO knock, NO
+                                                   hit stop, NO stagger and NO
+                                                   beat except the first catch
+                                                   and the fatal.
+                                                   Blade 21 (Rick's, not
+                                                   bisected). TICK DAMAGE 1,
+                                                   MEASURED: the curve is a
+                                                   CLIFF -- 51.5/55.0% at 1 and
+                                                   82.8/83.7% at 2, two blocks,
+                                                   896 fights a point, no
+                                                   crossing above 1.
+                                                   AND THE CURSE WINDOW
+                                                   INVERTED THE RELIC: the echo
+                                                   was 60% of a tick under the
+                                                   three-biggest rule and
+                                                   collapses under the last-3,
+                                                   because every tick displaces
+                                                   the scythe's big memories
+                                                   with its own small one. What
+                                                   balances it now is the GRIND,
+                                                   not the MEMORY.
+                                                   probe 13/13 . chain_audit
+                                                   28/28 . art A/B 4224/4224 on
+                                                   all 33 . the window is
+                                                   2808/2808 on the 27 relics
+                                                   that cannot apply curse
+02-chain/sc-scourvoice.html      the link before it, 33 relics, the THREE-
+                                                   BIGGEST curse rule. Scour's
+                                                   voice: cast, a re-struck
+                                                   wind bed, a tick at 7/s, a
+                                                   WOOSH on `_sweep` (a new
+                                                   primitive -- this toolkit
+                                                   had no swept noise), and a
+                                                   COW that MOOS on 13.3% of
+                                                   seeds, chosen from m.seed so
+                                                   it can never move a fight
+02-chain/sc-vortex.html          the link before it . THE FUNNEL, built to
+                                                   Rick's ref-vortex.mp4
+02-chain/sc-duskmoon.html        the link before it . `_scMoon`, Cowork's
+                                                   redraw, Rick's pick. _scEaten
+                                                   DELETED
+02-chain/sc-scourwind.html       the link before it . IT EATS PROJECTILES
+02-chain/sc-grind.html           the link before it . THE CATCH, THE DRAG AND
+                                                   THE TICKS
+02-chain/sc-scour.html           the link before it . the tornado sweeps and
+                                                   touches nobody
+02-chain/sc-duskreave.html       the link before it . the 33rd relic, ult
+                                                   STUBBED
 02-chain/sc-nova.html            BUILD OF RECORD  <- app/main.js GAME
                                                    32 relics . CROSSWEAVE
                                                    FINISHED, carried on to the
