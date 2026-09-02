@@ -110,7 +110,7 @@ ARENA_JS = r"""([rid, foe, sd, secs, wantT])=>{
   return null;
 }"""
 
-SCOUR_JS = r"""([rid, foe, sd, secs, want]) => {
+SCOUR_JS = r"""([rid, foe, sd, secs, want, need]) => {
   window.__frozen = true;
   const pan = document.getElementById("cinePanel");
   if (pan) pan.style.display = "none";
@@ -129,6 +129,12 @@ SCOUR_JS = r"""([rid, foe, sd, secs, want]) => {
        window (`scour_probe`), so "a third of the way in" would not mean the
        same thing on two seeds. */
     if (T.t < want * T.dur) continue;
+    if (need){
+      const th2 = me === m.a ? m.b : m.a;
+      const inside = (th2.y + 34 >= T.top &&
+                      Math.abs(th2.x - T.cx) <= T.w/2 + 34);
+      if (!inside || m.hitStop > 0) continue;
+    }
     AC.__draw(m);
     const A = AC.CONFIG.arena;
     return { t:+m.t.toFixed(2), wt:+T.t.toFixed(2), cx:Math.round(T.cx),
@@ -169,6 +175,9 @@ def main() -> int:
     ap.add_argument("--zoom", type=float, default=3.2)
     ap.add_argument("--seedlist", default="33581,11961,55196",
                     help="the three seeds gate 2 films")
+    ap.add_argument("--caught", action="store_true",
+                    help="GATE 3: only take a frame where the quarry is "
+                         "actually inside the band")
     ap.add_argument("--scour", action="store_true",
                     help="GATE 2: three casts on three seeds, before any "
                          "tuning. Does the band read as a third of the hall?")
@@ -244,7 +253,8 @@ def main() -> int:
             for i, sd in enumerate(seeds):
                 want = [0.12, 0.50, 0.86][i % 3]
                 got = pg.evaluate(SCOUR_JS,
-                                  [A.relic, A.foe, sd, A.secs, want])
+                                  [A.relic, A.foe, sd, A.secs, want,
+                                   1 if A.caught else 0])
                 if not got:
                     print(f"  seed {sd}: NO CAST in {A.secs:g}s -- that is a "
                           f"finding about the seed, not the band")
@@ -274,7 +284,8 @@ def main() -> int:
                     sh.paste(im, (x, 26))
                     d.text((x + 8, 32), lab, fill=(235, 220, 250))
                     x += im.width
-                q = out / "scour-gate2.png"
+                q = out / ("scour-gate3.png" if A.caught
+                           else "scour-gate2.png")
                 sh.save(q)
                 print(f"  {q}  {sh.size}")
 

@@ -1,0 +1,20 @@
+
+GLOAMWIRE BLADE -- sc-nova.html   31 foes   shipped dmg 9.5
+
+[1] THE WIDE DIRECT MEASUREMENT -- 1054 fights a point a side a block,
+    12648 in total. Both sides, two seed blocks, no bisection.
+
+        dmg   A-side   B-side   blockA   blockB   POOLED
+       7.00    49.1%    48.1%    48.2%    49.0%    48.6%
+       7.40    50.2%    52.0%    50.0%    52.1%    51.1%
+       7.80    57.5%    57.0%    56.3%    58.3%    57.3%
+
+    SIDE ASYMMETRY   -0.1%   (Cindercleave measured about -1.3pp, and `verify` runs an
+                     appended relic as side B in all of its pairings)
+    BLOCK DISAGREEMENT 2.1% worst   (two n=702 readings of one number once
+                       differed by 4.3 points -- n~700 is a floor, not a guarantee)
+    MONOTONE: yes
+
+    50% crosses between dmg 7 and 7.4, at about 7.22
+
+wrote ../05-reference/v61/carry-wide.json

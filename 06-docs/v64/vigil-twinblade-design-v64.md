@@ -1,6 +1,6 @@
-# v64 — THE VIGIL TWINBLADE, THE 34TH RELIC
+# v64 — ARCLIGHT / STATIC. THE VIGIL TWINBLADE, THE 34TH RELIC. A pink lightning storm grown from its own hits, eaten back as shield, and detonated — and the §1 as written was a whisper until his own numbers were turned up.
 
-**IN PROGRESS — Cowork, claimed 2026-09-02 02:40 UTC. Do not build. Do not
+**DESIGNED — Cowork, 2026-09-02. Claimed 02:40 UTC, designed by ~05:00 UTC. Build from `ARCLIGHT-BUILD-BRIEF.md`; do not
 design this cell in another session; it is claimed in `06-docs/CLAIMS.md`.**
 
 Cell chosen by Rick from four priced candidates (v62 table, measured at
@@ -257,4 +257,46 @@ row's floor today and this one will land under it. Its blows will read as
 scratches; the storm and the shield are the fighter. That is the cost of the
 cell, not of the §1, and budget-v59 §3 named it before this cell was chosen.
 
-*(Rick's rulings on §3, §4 and §6 pending)*
+# 7. RICK'S RULINGS (2026-09-02), AND THE NAMES
+
+Three rulings, each from a priced spread in plain language:
+
+1. **The big storm** — 8 bolts a hit, fat bolts (r 16), 6 bounces, an
+   8-second storm, "fork into two more" literal. Over an in-between (6 a hit,
+   +23pp) and the sentence as written (+7pp). §3's storm arm, unchanged.
+2. **Blast radius 80** — about the twinblade's reach — over his own "small"
+   50 (blank a third of the time) and over 100.
+3. **"The storm is the fighter."** He accepts the lightest blade in the game
+   rather than toning the storm down to keep a real blade. Stage 4 of the brief
+   bisects DOWN from Twinshade's 8.3.
+
+**ARCLIGHT.** Rick's, from four (Levin, Fulgurite, Arclight, Coronet). Electric
+light drawn across a gap — the pink arcs between the walls. Single evocative
+noun, the register Vesper set for the school (v48 §7).
+
+**STATIC.** Rick's, from four (Kindling, Harvest, Static, Thunderhead). Charge
+that hangs in the air and then discharges all at once — the storm and the
+detonation in one word. Sits beside Grasp, Breach, Scour.
+
+**Build brief: `06-docs/v64/ARCLIGHT-BUILD-BRIEF.md`.** Six stages, six gates,
+the four-arm price as the stage-3 gate.
+
+---
+
+# Open decisions
+
+1. **THE CARD LINE.** Rick's. Three ≤72 candidates in the brief §5; he has
+   written his own for the last two relics and may here.
+2. **THE BOLT'S LOOK AND THE SOUND.** Rick's, from rendered spreads at stage 5.
+   He has not been asked in words and should not be.
+3. **THE DETONATION'S DAMAGE PATH.** Priced through `m.hurt` (no sunder, no
+   crit, no jitter). The build routes it properly; gate 3 and gate 6 write the
+   gap. If the built number lands outside the +33 ±6 tier the 15-a-bolt is the
+   knob, not the radius (Rick ruled the radius).
+4. **A THIRD SEED BLOCK.** Everything here is 3 seeds (93 fights) or 8 seeds
+   (248). v60 §2's rule stands: tiers, not decimals. The build's gates are the
+   next reading.
+5. **THIS SESSION RAN BESIDE ANOTHER COWORK SESSION** (the umbral scythe
+   silhouette, claimed 03:58 UTC). No collision — different cell, different
+   kind of work — and CLAIMS.md is what showed it. The protocol worked the way
+   it was meant to on its second day.

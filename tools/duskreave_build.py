@@ -653,7 +653,14 @@ S3 = [
        value a call site means. A fatal blow keeps its `killStop` regardless:
        the kill is the shot, and no ultimate gets to take that away. */
     if (over && over.stop !== undefined && !fatal) stop = over.stop;
-    this.hitStop = Math.max(this.hitStop, stop);'''),
+    /* A ZERO OVERRIDE DOES NOT TOUCH THE CLOCK AT ALL. `Math.max(hitStop, 0)`
+       looks like a no-op and is not: the clock carries a small NEGATIVE
+       residue between freezes, and clamping it up to exactly 0 is a write.
+       Nothing reads the difference -- `step()` tests `hitStop > 0` -- but an
+       invariant that is "nearly true" cannot be asserted, and a probe that has
+       to allow 155 exceptions is a probe that will not notice the 156th.
+       Identical for every ordinary hit, where `stop` is always positive. */
+    if (stop > 0) this.hitStop = Math.max(this.hitStop, stop);'''),
 
 ("over-beat", '''    if (!this._cineVine || fatal)
     this.beat({ kind: "hit", side: _side, x: hx, y: hy,''',
@@ -758,7 +765,22 @@ S3 = [
     T.cd += 1 / u.tick;
     T.ticks++;
     const before = foe.hp;
-    this.resolveHit(src, foe, foe.x, foe.y, null, u.dmg / src.w.dmg,
+    /* AND `seg` CANNOT BE NULL, WHICH THE BRIEF'S OWN SNIPPET PASSES.
+       `resolveHit` reads `seg.bx - seg.ax` unconditionally, to fly the impact
+       sparks ALONG the blade rather than outward from the point, so a null
+       throws on the first tick that ever lands -- and it throws inside the
+       step, which kills the match rather than the frame. Every projectile
+       call site synthesises one; `tickShots` builds a 20-unit segment along
+       the shot's own velocity.
+
+       THE TORNADO'S IS HORIZONTAL, along the sweep. It is the bearing the
+       thing is actually travelling on, so the sparks come off the way the
+       band is moving -- the same reasoning that gave Breach's jets their own
+       bearing instead of the caster's. */
+    const sgx = T.dir || 1;
+    const seg = { ax: foe.x - sgx * 10, ay: foe.y,
+                  bx: foe.x + sgx * 10, by: foe.y, a: 0 };
+    this.resolveHit(src, foe, foe.x, foe.y, seg, u.dmg / src.w.dmg,
                     { onHit: { curse: 1 }, knock: 0, stop: 0,
                       stun: false, beat: false });
     T.dealt += Math.max(0, before - foe.hp);

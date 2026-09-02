@@ -24,10 +24,80 @@ from scpage import game  # noqa: E402
 
 RUN_JS = r"""([rid, foes, seeds, secs]) => {
   const DT = AC.CONFIG.physics.dt, A = AC.CONFIG.arena;
+  /* THE TICK IS MEASURED AROUND ITS OWN CALL, NOT AROUND THE FRAME IT LANDED
+     ON. A frame can carry a tick AND a blade blow, and a blade blow legitimately
+     raises hit stop, stun and the beat count -- so a frame-level check would
+     report the BLADE as a defect in the tick. That is CLAUDE.md's most repeated
+     probe fault in a new costume: a check that counts frames in which an event
+     is possible is not counting the event.
+
+     Wrapping `resolveHit` puts the before/after either side of the tick and
+     nothing else. The wrapper is installed once and removed with the page. */
+  if (!AC.Match.prototype.__scourWrapped){
+    const orig = AC.Match.prototype.resolveHit;
+    AC.Match.prototype.resolveHit = function(self, foe, hx, hy, seg, mul, over){
+      const tick = !!(over && over.beat === false && over.stun === false
+                      && over.knock === 0);
+      if (!tick) return orig.call(this, self, foe, hx, hy, seg, mul, over);
+      const W = window.__scour;
+      const b = { hp: foe.hp, stun: foe.stun, stop: this.hitStop,
+                  beats: this.beats.length, vx: foe.vx, vy: foe.vy,
+                  pool: foe.cursePool.length, sum: foe.curseSum(),
+                  latch: !!this.latch, heat: !!self.ultHeat,
+                  wire: !!self.ultWire, mines: (this.mines||[]).length,
+                  hands: (this.hands||[]).length, alive: foe.alive };
+      const r = orig.call(this, self, foe, hx, hy, seg, mul, over);
+      const dealt = b.hp - foe.hp;
+      W.ticks++;
+      W.dealt += dealt;
+      /* THE ECHO IS THE RELIC. A tick landing on a NON-EMPTY pool must be
+         worth more than one landing on an empty one -- that is the whole
+         difference between the `resolveHit` path and the `hurt` path, and it
+         is what the +59 rests on. Split rather than averaged, because an
+         average over both populations hides it. */
+      if (b.sum > 0){ W.withPool++; W.withPoolDmg += dealt; }
+      else { W.noPool++; W.noPoolDmg += dealt; }
+      if (dealt > W.maxTick) W.maxTick = dealt;
+      if (this.hitStop > b.stop){
+        W.raisedStop++;
+        /* WHICH value, and whether the tick killed -- "hit stop rose" is a
+           symptom and the VALUE names the site that raised it. */
+        const k = this.hitStop.toFixed(3);
+        W.stopVals[k] = (W.stopVals[k] || 0) + 1;
+        if (b.alive && !foe.alive) W.stopFatal++;
+      }
+      if (foe.stun > b.stun) W.raisedStun++;
+      /* THE FATAL TICK MUST FILE AND ONLY THE FATAL TICK MAY. */
+      const filed = this.beats.length - b.beats;
+      if (b.alive && !foe.alive){ W.fatal++; if (filed < 1) W.fatalNoBeat++; }
+      else if (filed > 0) W.beatOnOrdinary += filed;
+      /* VELOCITY. The tick passes knock 0, so the only thing that may move the
+         quarry on this call is nothing at all -- the drag is applied in
+         `tickScour`, OUTSIDE this call. */
+      if (foe.vx !== b.vx || foe.vy !== b.vy) W.movedByTick++;
+      /* NO OTHER `mul === undefined` MECHANIC MAY FIRE OFF A TICK. Every one
+         of them tests that the hit is a melee connect, and the tick passes a
+         defined `mul` -- this counts whether any of them fired anyway. */
+      if ((!!this.latch) !== b.latch) W.latched++;
+      if ((!!self.ultHeat) !== b.heat) W.heatChanged++;
+      if ((this.mines||[]).length > b.mines) W.stamped++;
+      if ((this.hands||[]).length > b.hands) W.slung++;
+      /* THE INVARIANT `apply` DERIVES: the stack count IS the pool length. */
+      if (foe.stacks("curse") !== foe.cursePool.length) W.poolMismatch++;
+      return r;
+    };
+    AC.Match.prototype.__scourWrapped = 1;
+  }
+  window.__scour = { ticks:0, dealt:0, withPool:0, withPoolDmg:0,
+                     noPool:0, noPoolDmg:0, maxTick:0, raisedStop:0,
+                     raisedStun:0, fatal:0, fatalNoBeat:0, beatOnOrdinary:0,
+                     movedByTick:0, latched:0, heatChanged:0, stamped:0,
+                     slung:0, poolMismatch:0, stopVals:{}, stopFatal:0 };
   const out = { casts:0, frames:0, alive:0, samples:[], bounces:0,
                 widths:{}, tops:{}, minCx: 1e9, maxCx:-1e9,
                 movedFrozen:0, movedFree:0, outOfHall:0, dur:{lo:1e9,hi:-1e9},
                 cutByMatch:0, ended:0, wall:{lo:1e9,hi:-1e9},
+                caughtFrames:0, bandFrames:0,
                 hpMoved:0, ticks:0, err:null };
   for (const foe of foes){
     for (const sd of seeds){
@@ -102,23 +172,29 @@ RUN_JS = r"""([rid, foes, seeds, secs]) => {
            exists AND the two are not in weapon contact. Kept coarse on
            purpose: any nonzero here is worth reading by hand. */
         if (T && th.hp < hpBefore) out.hpMoved++;
+        if (T && T.caught) out.caughtFrames++;
+        if (T) out.bandFrames++;
         hpA = th.hp;
       }
       if (m.tornado) out.alive++;
     }
   }
+  out.tick = window.__scour;
   return out;
 }"""
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--game", default="../02-chain/sc-scour.html")
+    ap.add_argument("--game", default="../02-chain/sc-grind.html")
     ap.add_argument("--relic", default="duskreave")
     ap.add_argument("--foes", default="lastlight,ironhail,grudgebearer,axiom")
     ap.add_argument("--seeds", default="")
     ap.add_argument("--n", type=int, default=6)
     ap.add_argument("--secs", type=float, default=120.0)
+    ap.add_argument("--base", type=float, default=5.0,
+                    help="the tick's stated base damage, off "
+                         "the ult block")
     A = ap.parse_args()
     seeds = ([int(x) for x in A.seeds.split(",")] if A.seeds
              else [11961 + i * 977 for i in range(A.n)])
@@ -178,6 +254,62 @@ def main() -> int:
     print("  STAGE 2 DOES NOT MAKE THAT ZERO -- the blade is still swinging.")
     print("  It is recorded so stage 3's ticks have a BEFORE to be read")
     print("  against, which is the only way to tell a tick from a blade blow.")
+
+    t = r.get("tick") or {}
+    if t.get("ticks"):
+        print("\n  ---- STAGE 3: THE TICK ----\n")
+        wp, np_ = t["withPool"], t["noPool"]
+        wpd = t["withPoolDmg"] / wp if wp else 0.0
+        npd = t["noPoolDmg"] / np_ if np_ else 0.0
+        # THE HEADLINE CHECK. A tick that always deals round(base x jitter) is
+        # collecting no echo and is on the `hurt` path -- which is a +17.8
+        # ultimate rather than a +59 one, and every other number would still
+        # look plausible.
+        base = A.base
+        chk(wp > 0 and wpd > base * 1.4,
+            "the tick COLLECTS THE CURSE ECHO",
+            f"{wpd:.2f} mean damage a tick against a stated base of {base:g} "
+            f"-- the echo is {100*(wpd-base)/wpd:.0f}% of it. "
+            f"({wp} ticks on a non-empty pool, {np_} on an empty one, "
+            f"peak {t['maxTick']})")
+        if np_ == 0:
+            print("        NOTE: the empty-pool population is EMPTY, so this")
+            print("              is measured against the STATED BASE and not")
+            print("              against a control arm. The blade applies")
+            print("              curse on every blow, so a tornado never")
+            print("              catches a quarry whose pool is clean.")
+        # A FATAL TICK KEEPS ITS `killStop` ON PURPOSE -- the kill is the shot
+        # and no ultimate gets to take that away, so it is excluded here rather
+        # than counted as a defect.
+        nonfatal_stop = t["raisedStop"] - t["stopFatal"]
+        chk(nonfatal_stop == 0 and t["raisedStun"] == 0,
+            "a tick carries no weight and no stagger",
+            f"{nonfatal_stop} non-fatal ticks raised hit stop "
+            f"({t['stopFatal']} fatal ones did, which is `killStop` and is "
+            f"correct), {t['raisedStun']} raised stun, over {t['ticks']} ticks"
+            + (f"  values={t['stopVals']}" if nonfatal_stop else ""))
+        chk(t["movedByTick"] == 0,
+            "a tick does not knock; only the drag moves the quarry",
+            f"{t['movedByTick']} ticks changed the foe's velocity inside "
+            f"resolveHit")
+        chk(t["beatOnOrdinary"] == 0 and t["fatalNoBeat"] == 0,
+            "no beat except the first catch and the fatal",
+            f"{t['beatOnOrdinary']} ordinary ticks filed one; "
+            f"{t['fatal']} fatal ticks, {t['fatalNoBeat']} of them silent")
+        chk(t["poolMismatch"] == 0,
+            "stacks(curse) === cursePool.length after every tick",
+            f"{t['poolMismatch']} mismatches over {t['ticks']} ticks")
+        chk(t["latched"] == 0 and t["heatChanged"] == 0
+            and t["stamped"] == 0 and t["slung"] == 0,
+            "no `mul === undefined` mechanic fires off a tick",
+            f"latch {t['latched']}, forge heat {t['heatChanged']}, "
+            f"stamps {t['stamped']}, hands {t['slung']} -- all must be 0")
+        held = (100.0 * r["caughtFrames"] / r["bandFrames"]) \
+            if r["bandFrames"] else 0.0
+        print(f"\n  the quarry was inside the band on {held:.1f}% of "
+              f"band-frames")
+        print(f"  {t['ticks']} ticks, {t['dealt']:.0f} damage, "
+              f"{t['dealt']/max(1,t['ticks']):.2f} a tick")
 
     if errs:
         print("\n  PAGE ERRORS:", *errs[:6], sep="\n    ")

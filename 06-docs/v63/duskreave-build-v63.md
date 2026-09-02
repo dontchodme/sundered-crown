@@ -10,7 +10,7 @@ Built from `06-docs/v63/DUSKREAVE-BUILD-BRIEF.md` (Cowork), on the chain tip
 |---|---|---|
 | 1 | the relic, ult stubbed | **BUILT**, gate 1 GREEN |
 | 2 | the tornado exists and sweeps, no damage | **BUILT**, `sc-scour.html`, probe 7/7 |
-| 3 | it catches, drags and ticks — the relic | not started |
+| 3 | it catches, drags and ticks — the relic | **BUILT**, `sc-grind.html`, probe 13/13 |
 | 4 | it eats projectiles | not started |
 | 5 | art, sound, beat | not started |
 | 6 | the real price | not started |
@@ -394,3 +394,112 @@ area by a third and therefore the price. **Rick's.**
 > smaller hazard than one cast early, and nobody has measured that. It is the
 > same class as Breach's vents, whose comment says an absolute (x, y) torn early
 > is outside the room later.
+
+
+---
+
+# 7. STAGE 3 — IT CATCHES, DRAGS AND TICKS. THIS IS THE RELIC.
+
+`02-chain/sc-grind.html`, `9b8effdcc917c2a8`.
+
+```
+  tick 7/s at base 5, drag 6, EDGE catch rule (|x-cx| <= w/2 + R, y + R >= top)
+```
+
+**THE ECHO IS THE RELIC AND IT MEASURES.** 465 ticks over 24 fights:
+
+```
+    mean damage a tick          12.53      against a stated base of 5
+    the echo's share            60%
+    peak tick                   28
+    ticks on an empty pool      0 of 465
+```
+
+v63 §0 predicted the echo would be about half the tornado's damage, measured on
+a model before anything was built (113 of 226 a fight). Built, it is **60%** —
+and the relic is on the `resolveHit` path, which is the whole difference between
+a +17.8 ultimate and a +59 one. Sentinel's `beamHit` uses `hurt` and collects
+nothing; that is the precedent this build was warned not to follow.
+
+## 7a. `over` LEARNED FOUR SWITCHES, AND `resolveHit` WAS NOT FORKED
+
+The brief is explicit — *"Extend it — do not fork `resolveHit`."* A second copy
+of a 500-line function read by thirty tools is how two damage paths drift apart.
+
+| switch | why | measured |
+|---|---|---|
+| `knock: 0` | the ordinary knock fires AWAY FROM THE CASTER at 165×`knockMul`; seven a second throws the quarry out of the thing holding it | 0 of 465 ticks moved the foe inside `resolveHit` |
+| `stop: 0` | `0.045 + 0.0022×dmg` ≈ 0.067s a tick, and 7 a second freezes ~45% of every second | 0 non-fatal ticks raised hit stop |
+| `stun: false` | 7 stagger-locks a second is a weapon lock, not a grind; the DRAG is this design's control | 0 raised stun |
+| `beat: false` | ~23 `hit` beats a fight from one ultimate, and `cinePlan` would cut to every one | 0 ordinary ticks filed; **14 fatal ticks, 0 of them silent** |
+
+**THE FATAL TICK FILES REGARDLESS, AND THAT IS NOT NEGOTIABLE.** A kill the
+director cannot see is Gravemourn's 30-of-58 all over again — 30 kills landed by
+a hand, all thirty producing a clip with no killing blow. `over.beat` silences
+an ordinary tick and cannot silence a kill.
+
+> **AND A ZERO OVERRIDE NOW SKIPS THE WRITE RATHER THAN CLAMPING.** The first
+> cut left `this.hitStop = Math.max(this.hitStop, stop)` with `stop` 0, and the
+> probe reported **155 ticks raising hit stop to 0.000** — the clock carries a
+> small NEGATIVE residue between freezes and `Math.max(…, 0)` clamps it up,
+> which is a write. Nothing reads the difference (`step()` tests `> 0`), so it
+> was inert — but **an invariant that is "nearly true" cannot be asserted, and
+> a check that has to allow 155 exceptions will not notice the 156th.**
+
+## 7b. THE BRIEF'S OWN SNIPPET PASSES A `seg` THAT THROWS
+
+Brief stage 3 gives the call as `this.resolveHit(f, foe, foe.x, foe.y, null, …)`.
+**`resolveHit` reads `seg.bx - seg.ax` unconditionally** — impact sparks fly
+ALONG the blade rather than outward from the point — so `null` throws on the
+first tick that ever lands, and it throws *inside the step*, which kills the
+match rather than the frame. Every projectile call site synthesises one;
+`tickShots` builds a 20-unit segment along the shot's own velocity.
+
+The tornado's is **horizontal, along the sweep** — the bearing the thing is
+actually travelling on, which is the same reasoning that gave Breach's jets
+their own bearing instead of the caster's.
+
+## 7c. THE DRAG IS CODE'S, AND IT IS `drag` 6.0 UNTIL SOMEONE WATCHES IT
+
+Open decision 1, and the labs never modelled it (v62 HANDOFF §6). An
+**acceleration toward the band's floor centre, proportional to how far out the
+quarry is** — so a ball at the edge is pulled hardest and one already in the
+throat is barely touched, which is what makes it read as a vortex rather than a
+magnet. At the band's edge, 80 units out, 6.0 buys about 480 px/s² inward, which
+meets the brief's own test: a ball entering from the side is still inside a
+second later.
+
+**IT IS NOT A PIN, AND THAT IS LOAD-BEARING THREE TIMES OVER.** `foe.pin` stays
+0 because `tickStasis` carries `f.stun = Math.max(f.stun, f.pin)` for both
+fighters on every frame outside any guard (v60's finding — any relic that writes
+`pin` is handed a weapon lock from a file nowhere near it); because `_drawField`
+would draw PARADOX'S HEXAGON on the caught ball (open item 41, live on Shroudmaul
+today); and because `ballCollision` treats a held ball as immovable (open item
+42). **A pull is a pull.**
+
+Measured: the quarry is inside the band on **22.9%** of band-frames.
+
+## 7d. THE PROBE MEASURES THE TICK, NOT THE FRAME IT LANDED ON
+
+`scour_probe` wraps `resolveHit` and takes its before/after either side of the
+tick's own call. A frame can carry a tick AND a blade blow, and a blade blow
+legitimately raises hit stop, stun and the beat count — so a frame-level check
+would have reported **the blade** as a defect in the tick. That is CLAUDE.md's
+most repeated probe fault in a new costume.
+
+**AND ONE CHECK COULD NOT FAIL, WHICH IS WORTH MORE THAN THE CHECK.** The
+headline test was written as "ticks on a non-empty pool must out-damage ticks on
+an empty one" — and the empty-pool population is **0 of 465**. The blade applies
+curse on every blow, so a tornado never catches a quarry whose pool is clean.
+The comparison is against the tick's stated base instead, and the absence is
+itself the finding: **there is no such thing as a Scour tick without an echo.**
+
+## 7e. GATE 3
+
+`05-reference/v63/scour-gate3.png` — the catch, on two seeds. Tick damage of
+**10 and 12** floating over the quarry against a base of 5, with `CURSE 66` and
+`CURSE 77` on the shell: the echo is legible on screen without a caption, which
+is the higher form of rule 1.
+
+*(One of the three seeds produced no cast in 60s. That is a finding about the
+seed, not the band — it is printed rather than silently replaced.)*
