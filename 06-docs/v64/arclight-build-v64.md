@@ -404,3 +404,16 @@ ships.**
    item 46 for the third and fourth relic running (Ravelbone and Gloamwire have
    the same hole). A field is art and therefore Rick's.
 4. **THE BLADE.** Not bisected. `TUNED_AL` is `None` and stage 4 has not run.
+5. **AND `app/main.js` HAS AN UNCOMMITTED POINTER MOVE ON IT, WHICH IS NOT THIS
+   BUILD'S.** The working tree on this machine carries
+   `GAME = '02-chain/sc-lastthree.html'` against a committed
+   `'02-chain/sc-nova.html'`, plus a whole-file CRLF rewrite, and
+   `out/shell_identity_app.json` moved with it. So **the app on this machine is
+   already showing the 33-relic Duskreave tip while the repo says the build of
+   record is 32.** That is exactly the drift `docs/ARCHITECTURE.md` §1 and
+   CLAUDE.md's "IF YOU ADD A RELIC, THIS LINE IS PART OF THE CARRY" exist to
+   catch, and no tool can see it — `shell_identity` compares the app against
+   headless on whatever `GAME` already says. It is left ALONE and uncommitted
+   here because it is somebody else's change and whether that tip becomes the
+   build of record is Rick's. `tools/ult_price.py` is uncommitted in the same
+   way (a `--skip` flag added for Rick's *"leave out axiom"*).
