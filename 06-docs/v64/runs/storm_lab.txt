@@ -1,0 +1,59 @@
+STORM LAB — 93 fights, 32 relics, cast every 15.0s, tracks at 16.7ms
+HeadlessChrome/141.0.7390.37 Safari/537.36
+
+columns are MEANS PER CAST. 'in rx' = bolts inside the foe's blast radius at the detonation;
+'any' = share of casts where at least one is. 'ward' = banked by eaten bolts; 'w.cap' = after the 90 cap.
+
+BASE and its controls
+  arm                            hits  spawn   fork  peak  eaten  walls  alive  in rx    any   ward  w.cap
+  BASE  w6 k4 v600 ric4 det8 rx50  1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+    fork OFF (control)            1.8    7.4    0.0   5.5    3.7    2.5    1.1   0.05     5%   15.0   14.8
+    no cap                        1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+
+  empty casts (no blade hit in the window): 12%   eaten within 0.5s of birth: 33%   truncated by fight end: 93
+
+WINDOW and DETONATION TIMER (det >= window)
+  arm                            hits  spawn   fork  peak  eaten  walls  alive  in rx    any   ward  w.cap
+    window 4  det 4               1.2    4.9    1.2   4.9    2.0    0.3    3.9   0.43    22%    7.9    7.8
+    window 4  det 6               1.2    4.8    2.0   5.0    3.1    1.1    2.7   0.22    14%   12.3   12.2
+    window 6  det 6               1.9    7.5    2.6   7.0    3.9    1.1    5.1   0.58    31%   15.6   15.4
+    window 6  det 8               1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+    window 6  det 10              1.7    7.0    4.1   6.8    5.7    3.5    1.9   0.15    10%   23.0   22.9
+    window 8  det 8               2.5   10.2    3.8   8.4    5.8    2.5    5.7   0.52    26%   23.3   23.0
+    window 8  det 11              2.4    9.5    5.3   8.4    7.8    4.5    2.5   0.19    12%   31.1   30.8
+
+BOLT SPEED
+  arm                            hits  spawn   fork  peak  eaten  walls  alive  in rx    any   ward  w.cap
+    speed 300                     1.8    7.4    5.0   8.9    5.1    0.3    7.0   0.52    27%   20.3   20.0
+    speed 450                     1.8    7.4    3.6   7.6    4.9    1.5    4.7   0.36    22%   19.5   19.3
+    speed 600                     1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+    speed 800                     1.8    7.4    3.6   6.6    5.2    3.5    2.2   0.15    10%   20.9   20.7
+
+RICOCHETS before a bolt dies
+  arm                            hits  spawn   fork  peak  eaten  walls  alive  in rx    any   ward  w.cap
+    ric 2                         1.8    7.4    2.1   5.8    3.4    5.2    0.8   0.04     3%   13.6   13.4
+    ric 4                         1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+    ric 6                         1.8    7.4    4.2   7.7    5.7    1.0    5.0   0.31    19%   22.6   22.4
+    ric 99                        1.8    7.4    4.2   7.7    5.9    0.0    5.7   0.44    28%   23.7   23.4
+
+BOLTS PER HIT
+  arm                            hits  spawn   fork  peak  eaten  walls  alive  in rx    any   ward  w.cap
+    per hit 2                     1.8    3.7    1.7   3.8    2.5    1.3    1.6   0.14    10%   10.0    9.8
+    per hit 4                     1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+    per hit 6                     1.8   11.1    5.4  10.1    7.7    3.6    5.2   0.29    19%   30.8   30.5
+    per hit 8                     1.8   14.7    7.2  13.5   10.2    4.8    7.0   0.56    30%   40.8   40.3
+
+BLAST RADIUS at the detonation
+  arm                            hits  spawn   fork  peak  eaten  walls  alive  in rx    any   ward  w.cap
+    rx 30                         1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.12     9%   19.7   19.5
+    rx 50                         1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+    rx 80                         1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.34    22%   19.7   19.5
+    rx 120                        1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.64    36%   19.7   19.5
+
+SWARM CAP
+  arm                            hits  spawn   fork  peak  eaten  walls  alive  in rx    any   ward  w.cap
+    cap 30                        1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+    cap 60                        1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+    cap 120                       1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21    15%   19.7   19.5
+
+29 arms in 85s

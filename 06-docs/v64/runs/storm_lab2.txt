@@ -1,0 +1,21 @@
+GROWTH — what it takes for the swarm to outrun the caster eating it
+
+  arm                                      hits  spawn   fork  peak  eaten  walls  alive  in rx   any   ward
+  BASE (fork +1, ric 4, rb 8)               1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21   15%   19.7
+  fork +2 ('two MORE')                      1.8    7.4   10.7  11.0    7.4    3.2    7.5   0.60   29%   29.6
+  no wall death (ric 99)                    1.8    7.4    4.2   7.7    5.9    0.0    5.7   0.44   28%   23.7
+  fork +2, ric 99                           1.8    7.4   13.5  14.0    8.5    0.0   12.4   1.09   41%   33.9
+  thick bolts rb 16                         1.8    7.4    4.8   7.2    6.4    2.0    3.7   0.35   20%   25.8
+  thick rb 16, fork +2, ric 99              1.8    7.3   17.8  15.2   11.9    0.0   13.3   1.32   40%   47.4
+  rb 16, fork +2, ric 99, k8                1.8   14.7   33.3  27.5   22.6    0.0   25.4   2.73   61%   90.5
+  rb 16, fork +2, ric 99, k8, slow 350      1.8   14.5   36.2  31.7   20.8    0.0   30.0   3.27   67%   83.1
+  rb 16, fork +2, ric 99, k8, cap 30        1.8   13.4   23.3  19.8   19.1    0.0   17.7   1.56   54%   76.3
+  rb 16, fork +2, ric 99, k8, w6 det6       1.9   14.9   18.7  22.0   13.2    0.0   20.4   2.44   56%   52.7
+  rb 16, fork +2, ric 99, k8, w8 det8       2.5   19.6   34.5  31.7   24.3    0.0   29.8   2.97   70%   97.0
+  rb 16, fork +2, ric 99, k8, w8 det8 rx100  2.5   19.6   34.5  31.7   24.3    0.0   29.8   5.91   84%   97.0
+
+CASTER AS SINK — what if the caster did NOT eat bolts (bolts pass through it)
+  arm                                      hits  spawn   fork  peak  eaten  walls  alive  in rx   any   ward
+  BASE, caster eats                         1.8    7.4    3.3   6.9    4.9    2.4    3.4   0.21   15%   19.7
+  BASE, caster does not eat                 1.8    7.4    6.4  10.8    0.0    5.2    8.6   0.73   36%    0.0
+  fork +2 ric 99 rb16 k8, no eat            1.8   13.1   31.3  44.4    0.0    0.0   44.4   2.97   80%    0.0

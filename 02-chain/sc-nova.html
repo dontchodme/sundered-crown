@@ -729,7 +729,7 @@ const STATUS = {
 
      THE STACK COUNT IS THE POOL LENGTH. See `apply` and `pushCurse`. */
   curse:      { name:"Curse",      maxStacks:3, dur:99,  echo:0.08,
-                tip:"Hits reflect 8% of the damage that cursed" },
+                tip:"Hits reflect 8% of the damage that cursed, stacks 3 times" },
   sunder:     { name:"Sunder",     maxStacks:6, dur:5.0, taken:0.11,
                 tip:"Increases damage taken by 11% per stack" },
   /* Earned, never granted: only collecting a Daybreak spark applies it. The
@@ -1769,6 +1769,83 @@ const WEAPONS = [
           strandArt:"bolt",
           tip:"Triple shot; arrows joined by lightning and explode where they land" },
     blurb:"Three shafts and the dark strung between them. What the arrows miss, the lightning still moves." },
+
+  /* BLOODMIRROR -- THE BLOODSWORN SCYTHE, and the thirty-second relic. It is
+     also the OLDEST DESIGN IN THE PROJECT: `06-docs/v59/` was written on
+     2026-09-01 and then spent a day in a chat transcript while two later cells
+     were built ahead of it, which is the standing example in `CLAIMS.md` of why
+     a deliverable that lives in a chat message does not exist.
+
+     EVERY PHYSICAL STAT IS THE SCYTHE'S, copied off Lastlight, Thornwake,
+     Foregone, Vesper and Cindercleave -- the type owns `reach:104, width:11,
+     artW:46, spin:3.2, mass:2.4, blades:[0], mode:"spin"` and there is no sixth
+     set to invent. This builder asserts that against the shipped file before it
+     writes rather than trusting this comment.
+
+     `onHit:{ hemorrhage:2 }` is the school's own weight, as on all four of the
+     other bloodsworn relics -- and it is load-bearing here in a way it is not
+     anywhere else. Hemorrhage is `{ maxStacks:4, dur:3.2, dps:1.5 }`, a hard
+     ceiling of 6 damage a second, and the ULTIMATE'S WHOLE MECHANIC is that
+     the ceiling moves while the spectre stands. The blade feeds the raised
+     ceiling too -- Rick's ruling, and it is what makes the window read as the
+     fighter opening up rather than as an object landing.
+
+     WHY THIS CELL. `budget-v59.md` section 4: bleed is the strongest foe
+     channel available on this weapon, +10.0pp against curse's +3.9 and
+     sunder's +4.7, beaten only by a shield that is already Vesper's.
+
+     THE ART IS OLDER THAN THE RELIC AND RICK RULED ON IT BEFORE THIS SHIPPED.
+     `SHAPES.scythe` has routed `bloodsworn` to `_scBarbed` since before this
+     cell had anything in it: five barbs riding the crescent, getting longer
+     toward the tip so the fastest part of the sweep is the part that catches.
+     Brief open decision 6 says look at it early -- v57 puts this cell at 59.0%
+     from its nearest sibling, the CLOSEST PAIR on the row, and v58 is the
+     standing warning that the number says nothing about whether the shape is
+     any good. Photographed beside sanctified at zoom, it was not the closeness
+     that was wrong: it was a SIXTH shape, a grey triangle hung off the
+     crescent's outer end point, reading as a detached object rather than as
+     part of the weapon. Rick: "the grey triangle at the tip of bloodsworn
+     scythe. lets get rid of it. everything else is great." It is gone, the
+     barbs are untouched, and the inversion `_scOuter` documents is now a
+     CHOSEN STATE on this row rather than an open defect -- he was shown the
+     shipped-against-flipped sheet for all seven schools and kept the shipped
+     one.
+
+     `dmg` 21 IS A STARTING POINT AND NOT AN ANSWER. Brief section 5 measured
+     the curve on the design's own roster -- flat between 18 and 20, steep
+     either side -- and says to expect 20-22. `TUNED_BM` is None until a wide
+     direct measurement says otherwise, and stage 3b refuses to run without
+     it. */
+  { id:"bloodmirror", name:"Bloodmirror", aff:"bloodsworn", shape:"scythe",
+    blades:[0], reach:104, width:11, artW:46, dmg:9.5, spin:3.2, mode:"spin", mass:2.4,
+    onHit:{ hemorrhage:2 },
+    /* BLOODLETTING. STUBBED AT `charge:1e9` IN STAGE 1 -- the same "OFF" the
+       charge sweep in v55b used and the same one Cindercleave's stage 1,
+       Shroudmaul's stage 2 and Gloamwire's stage 1 used: the clock can never
+       reach it, `fireUlt` never runs, and the relic is measured as a blade and
+       a channel and nothing else.
+
+       Stubbing rather than omitting is deliberate. The `ult` object is read by
+       `verify`, by `tip_audit`, by the scrunch panel and by half of `tools/`,
+       and a relic with no `ult` at all is a shape none of them have ever been
+       handed.
+
+       `kind:"effigy"` IS ITS OWN AND IS NOT `"harrow"`. Lastlight is the
+       SANCTIFIED scythe -- the same weapon -- and `smite` is byte-identical to
+       `hemorrhage` apart from its name, so without a real separation these two
+       relics are one relic in two palettes. Design section 3.4 is the
+       separation and it is structural: Harrowing sprays TWELVE small scythes
+       that stick to the BODY, burden it and burst once; this stands ONE large
+       one in the HALL, milling, and takes the quarry to a stack count nothing
+       else in the game can reach. */
+    ult:{ name:"Bloodletting", charge:15, kind:"effigy",
+          flight:0.55, speed:420, life:4.5, disc:138,
+          tick:0.22, dmg:3, bleed:2, cap:8,
+          knock:120, hitFly:true,
+          n:3, spread:0.34, drift:26,
+          spinMul:4, artScale:1.88,
+          tip:"Stands a spectral scythe that mills - bleed stacks to 8" },
+    blurb:"A copy of the blade, cut loose and left standing. It does not chase anything - it makes the room smaller." },
 
 ];
 /* The single source of truth for "which status does this relic teach".
@@ -4575,12 +4652,14 @@ const SHAPES = {
       c.lineTo(q.x + Math.cos(q.a) * W * 0.16, q.y + Math.sin(q.a) * W * 0.16);
       c.closePath(); c.fill(); c.stroke();
     }
-    const tip = SHAPES._scOuter(L, W, 1.0);                     // and a tip hook
-    c.beginPath();
-    c.moveTo(tip.x, tip.y);
-    c.lineTo(tip.x + W*0.10, tip.y - W*0.52);
-    c.lineTo(tip.x + W*0.34, tip.y - W*0.10);
-    c.closePath(); c.fill(); c.stroke();
+    /* AND NO TIP HOOK. It was a sixth shape -- a triangle from the crescent's
+       outer END POINT out past the blade -- and at zoom it read as a detached
+       grey triangle floating off the end rather than as part of the weapon,
+       which is `_whEaten`'s fault on a second row. Rick, shown this cell beside
+       sanctified before the relic shipped: "the grey triangle at the tip of
+       bloodsworn scythe. lets get rid of it. everything else is great."
+
+       The five barbs are the grammar and they are untouched. */
   },
 
   /* ------------------------------------------------------------- UMBRAL --
@@ -6276,6 +6355,53 @@ class Sfx {
           this._tone (t, { freq: 210, to: 62, gain: 0.22, dur: 0.30, type:"sine" });
           this._burst(t + 0.01, { freq: 240, q: 0.5, gain: 0.20, dur: 0.34, type:"lowpass" });
           this._tone (t + 0.02, { freq: 640, to: 150, gain: 0.12, dur: 0.22, type:"sawtooth" });
+        } else if (w === "bloodmirror"){        // the copy leaves the blade
+          /* THE THROW, and it is the CAST voice -- `fireUlt` plays
+             `{ w: f.w.id }` for every relic, so this is the first of the four
+             and nothing extra has to be scheduled for it. A wet tear followed
+             by something leaving at speed: the copy coming off the weapon. */
+          this._burst(t, { freq: 1100, q: 0.9, gain: 0.20, dur: 0.16, type:"bandpass" });
+          this._tone (t, { freq: 260, to: 96, gain: 0.24, dur: 0.34, type:"sawtooth" });
+          this._tone (t + 0.05, { freq: 620, to: 210, gain: 0.13, dur: 0.40, type:"triangle" });
+        } else if (w === "bloodmirror-stick"){  // and it STOPS
+          /* THE FRAME THAT SAYS IT IS STAYING. Design 7c: if the stick does not
+             read, the ultimate looks like a missed shot -- so this is the
+             LOUDEST of the four and it is the only one with a hard transient.
+             A blade going into something and holding. */
+          this._burst(t, { freq: 2400, q: 1.2, gain: 0.22, dur: 0.09, type:"bandpass" });
+          this._tone (t, { freq: 150, to: 54, gain: 0.26, dur: 0.40, type:"sine" });
+          this._burst(t + 0.03, { freq: 300, q: 0.5, gain: 0.17, dur: 0.36, type:"lowpass" });
+        } else if (w === "bloodmirror-mill"){   // and it turns, for 4.5s
+          /* THE HARD ONE, and the design says so. It has to survive being
+             heard for four and a half seconds without becoming a wash, and
+             CLAUDE.md 4.5 says a HELD NOTE DOES NOT EXIST IN THIS TOOLKIT --
+             `_tone` ends on an exponential ramp over its whole length, so
+             anything that must last is RE-STRUCK. `tickSpectre` strikes this
+             every 0.75s, which is six strikes over a window.
+
+             It is deliberately DULL and low: the Winnowing's rung problem, and
+             the thing that keeps a repeated voice from becoming wallpaper is
+             that it is quiet enough to sit under the ticks that ride on it. */
+          this._tone (t, { freq: 86, to: 62, gain: 0.13, dur: 0.70, type:"sawtooth" });
+          this._burst(t, { freq: 420, q: 0.7, gain: 0.07, dur: 0.55, type:"lowpass" });
+        } else if (w === "bloodmirror-tick"){   // and something is inside it
+          /* THE PAYMENT. It has to cut through a 0.03s hit-stop and be
+             distinguishable from the mill it rides on, because the one thing a
+             viewer has to learn from this ultimate is WHEN IT IS BEING PAID.
+             Short, bright and wet.
+
+             NO BURST IS LONGER THAN 0.6s. CLAUDE.md 4.5: `_burst` does not loop
+             its 0.6s noise buffer, so anything longer plays silence for its
+             tail. */
+          this._burst(t, { freq: 3000, q: 1.0, gain: 0.14, dur: 0.07, type:"highpass" });
+          this._tone (t, { freq: 330, to: 120, gain: 0.15, dur: 0.16, type:"sawtooth" });
+        } else if (w === "bloodmirror-close"){  // and it is gone
+          /* THE WINDOW CLOSING, and it is the quietest of the four on purpose:
+             nothing happens on this frame. It is the mill's own note let go of
+             -- same register, falling, with the noise bed taken out from under
+             it -- so the absence is what a viewer hears. */
+          this._tone (t, { freq: 74, to: 38, gain: 0.15, dur: 0.55, type:"sine" });
+          this._tone (t + 0.04, { freq: 220, to: 90, gain: 0.08, dur: 0.44, type:"triangle" });
         } else if (w === "nightfell-stamp"){    // a figure hits the floor
           /* SHORT AND LOW. It rides UNDER the blow that stamped it -- a blow
              already has a voice, and a second loud thing on the same frame
@@ -6606,6 +6732,87 @@ class Fighter {
        relic along. It is on the FIGHTER and not on `m.ultFx` for a measured
        reason -- see `drawCrackle`. */
     this.deadfallFade = 0;
+    /* THE COPIES BLOODLETTING HAS IN THE HALL. An ARRAY, and empty on every
+       other relic and on this one outside its own window -- which is the whole
+       zero-burden argument: `tickSpectre` returns after a two-iteration loop
+       that does nothing and `drawSpectre` returns on its first line.
+
+       THREE OF THEM, AND THAT IS RICK'S, 2026-09-01, off the first clip: "lets
+       have it shoot out 3 copies of itself." The design and the brief are both
+       written for ONE -- design section 1's own arms table has "two spectres,
+       half life" at +16.2 against the centre's +11.2, inside the noise, and
+       nothing in `06-docs/v59/` prices three at FULL life. So every absolute
+       number in those two documents is on the other branch and only the
+       relative ones survive. What travels is the one-scalar law -- lift = +5.6
+       + 0.245 x spectre damage -- and three copies move the input to it.
+
+       EACH IS ITS OWN OBJECT WITH ITS OWN COOLDOWN, so a quarry standing where
+       two discs overlap is bitten by both. That is the plain reading of "three
+       copies of itself" and it is the only one that does not need a rule
+       written for it, but it is NOT free and nobody has priced it: Breach's
+       `spent` is one payment per firing precisely because sweeping several
+       bodies with one hazard is either a shield or a multiplier. Here the
+       multiplier is deliberate and it is what the blade pays for.
+
+       ONE ARRAY, OWNED BY A FIGHTER. Not `m.shots`: `spawnShot` SHIFTS THE
+       OLDEST LIVE ENTRY OUT at `maxLive` 64, so a copy could vanish with no
+       error and no invariant broken -- and `tickShots` lets `bladeSegments`
+       PARRY a shot with melee's defence winning ties. A spectral scythe the
+       quarry can parry is a different mechanic and nobody has decided it is
+       this one (design 6.2). And not `m.ultFx`, which is ONE SLOT the
+       opponent's cast overwrites (v54 2a, open item 25).
+
+       A DEAD COPY IS KEPT UNTIL ITS `fade` RUNS OUT, because the window
+       closing is not the same event as the picture of it ending, and three
+       copies drifting apart cannot share one per-fighter fade the way
+       `deadfallFade` does -- each dissolves where it was standing. */
+    this.ultSpectres = [];
+    /* {x, y, t, life} EACH -- THE RINGS THE COPIES THROW WHEN THEY STOP, and
+       they are Rick's, off the first sheet. Design 7c says the STICK is the
+       frame that tells a viewer the thing is staying and that "if it does not
+       read, the ultimate looks like a missed shot"; photographed off a real
+       match it did not read at all -- a thin red line arriving in a busy frame
+       with nothing marking the arrival. A ring says THIS IS NOW A PLACE, where
+       a burst would only say something hit, and nothing was hit: the copies
+       land on empty floor.
+
+       Presentation only, and TICKED IN `tickPresentation` rather than in
+       `tickSpectre`. v54's lesson: a hit stop runs `decayImpactOnly` and a
+       clock on the normal path freezes for exactly the frames the viewer is
+       staring hardest at -- which is what Deadfall's blast did, 96.2% of the
+       time. The landing does not set `hitStop` itself, but a blade blow on the
+       same frame does, and that is the frame these rings are most likely to
+       share with something. `life` is in HALF-SECONDS like every other
+       presentation clock here, because that method is called once directly and
+       once through `decayImpactOnly`. */
+    this.spectreRings = [];
+    /* THE BLEED CEILING THIS FIGHTER IS UNDER, AND IT IS THE WHOLE OF
+       BLOODLETTING.
+
+       Hemorrhage is `{ maxStacks:4, dur:3.2, dps:1.5 }` -- a hard ceiling of 6
+       damage a second -- and a copy ticking every 0.22s reaches four stacks in
+       under a second, after which every application only refreshes a clock.
+       Measured: adding bleed to the spectre at cap 4 is worth -2.5pp at
+       z -0.93, and at cap 8 it is +6.9pp at z +2.67. THE SAME COMPARISON,
+       TWICE, WITH ONLY THE CEILING CHANGED. Rick's sentence -- "hits rapidly
+       applying bleed" -- describes a mechanic the game currently forbids, and
+       "rapidly" is exactly the word the cap deletes.
+
+       `AC.STATUS.hemorrhage.maxStacks` IS ONE NUMBER shared by every fighter in
+       the match and by all five bloodsworn relics. The lab moved it globally
+       and restored it per match; a BUILD that did that has three silent
+       failures, all named in the design's 6.3 before anything was built: a
+       Marrowdraw in the same fight inherits a window it never cast, the cap is
+       left at 8 for the NEXT match, and it is restored on `m.over` but not on a
+       window merely expiring.
+
+       So the ceiling is a property of THE FIGHTER BEING BLED, exactly the way
+       v53 scoped the curse pool -- "a convention that two call sites must both
+       fire is not agreement, it is a promise." `apply` reads this and nothing
+       else does. And `tickSpectre` RECOMPUTES it from scratch every frame
+       rather than raising and restoring it, so there is no paired write to
+       forget and the third failure mode cannot exist. */
+    this.bleedCap = STATUS.hemorrhage.maxStacks;
     /* {t, dur, grabs, cd, grip, stunFor, crush, held} while GRASP's window is
        open. `grip` is how long the FIST is still shut and `stunFor` is what
        the last grab wrote to `foe.stun`; they are different numbers and the
@@ -6832,7 +7039,21 @@ class Fighter {
     const def = STATUS[key];
     if (!def) return;
     const cur = this.status[key] || { stacks:0, t:0 };
-    cur.stacks = Math.min(def.maxStacks, cur.stacks + n);
+    /* HEMORRHAGE READS THE FIGHTER'S OWN CEILING; EVERY OTHER STATUS READS THE
+       GLOBAL. `bleedCap` is 4 on every fighter in every match with no standing
+       Bloodletting spectre in it, so this is the identity it replaced
+       everywhere else -- and `engine_ab` proves that rather than this comment
+       asserting it.
+
+       A FIGHTER ALREADY ABOVE THE CEILING IS NOT TRIMMED BY A NEW APPLICATION.
+       When the window closes the cap drops back to 4 with the stacks still at
+       8, and `Math.min(cap, cur + n)` would CUT them to 4 on the very next
+       blow -- which is the instant trim the design's 6.4 rejected as "the
+       version that looks like a bug". They run out on hemorrhage's own 3.2s
+       clock instead. WHAT THAT COSTS IS WRITTEN ON `tickSpectre`, because this
+       engine expires a status as a whole rather than a stack at a time. */
+    const cap = key === "hemorrhage" ? this.bleedCap : def.maxStacks;
+    if (cur.stacks < cap) cur.stacks = Math.min(cap, cur.stacks + n);
     cur.t = def.dur;
     /* CURSE'S STACK COUNT IS DERIVED FROM ITS POOL, and that is structural
        rather than conventional. The brief asks that `stacks("curse")` and
@@ -7430,6 +7651,7 @@ class Match {
     this.tickWinnow(dt);
     this.tickSling(dt);
     this.tickDeadfall(dt);
+    this.tickSpectre(dt);
     this.tickGrasp(dt);
     /* AFTER the fighter loop that moved the blade and BEFORE the hit loops,
        for the reason `tickWinnow` gives one line up: the wall's state has to
@@ -7501,6 +7723,22 @@ class Match {
        AND THE FADE IS DRIVEN OFF BOTH, which is what makes "then dissipates"
        read: the hand is solid while the window is open, still solid through
        the two seconds of the crush, and only then lets go. */
+    /* THE COPIES' LANDING RINGS. HERE and not in `tickSpectre` for v54's
+       reason, stated one relic along: anything presentation that can share a
+       frame with an impact belongs on this clock, because a hit stop runs
+       `decayImpactOnly` and a clock on the normal path freezes for exactly the
+       frames the viewer is staring hardest at. Deadfall's blast froze on the
+       floor 96.2% of the time before that was understood.
+
+       `life` IS IN HALF-SECONDS, like every other presentation clock in this
+       engine: this method is called once directly and once through
+       `decayImpactOnly`, so it runs at 2x sim time and 0.44 is 0.22 seconds. */
+    for (const f of [this.a, this.b]){
+      if (f.spectreRings.length){
+        for (const G of f.spectreRings) G.t += dt;
+        f.spectreRings = f.spectreRings.filter(G => G.t < G.life);
+      }
+    }
     for (const f of [this.a, this.b]){
       if (f.graspCrush){
         f.graspCrush.t += dt;
@@ -9923,6 +10161,339 @@ class Match {
                   close: Math.hypot(own.vx - foe.vx, own.vy - foe.vy) });
   }
 
+  /* BLOODLETTING -- THE THROW, THE STICK, THE DRIFT, THE MILL, THE CEILING.
+
+     FOUR STATES AND THE LAST ONE IS THE MECHANIC (design 7c): the copies leave
+     the weapon; they STOP, which is the frame that tells a viewer they are
+     staying and without which the ultimate looks like a missed shot; they mill
+     for 4.5 seconds, which is most of the ultimate and the state that has to
+     hold up without becoming wallpaper; and while they stand the quarry can
+     carry more bleed than anything else in the game can put on it.
+
+     AND THEY NO LONGER STOP DEAD, WHICH IS A CHANGE TO RICK'S OWN SECTION 1.
+     It read "flies a short duration and then sticks in place"; he asked for
+     "a small amount of movement so they slowly continue to float in the
+     direction they were fired." `drift` is 6% of the throw speed, so a copy
+     covers about a fifth of its own disc over a whole window -- enough that
+     the hall is never quite the same shape twice and far too little to read as
+     a second flight. `bloodletting_relic_probe [2]` no longer asserts that the
+     position is constant; it asserts that the ONLY movement after landing is
+     the drift along the fired bearing plus whatever the closing wall added.
+
+     THE WHOLE THING IS ONE SCALAR AND THE PROBE REPORTS IT. `ticks` is the
+     number the design is priced on -- 23 arms give lift = +5.6 + 0.245 x
+     spectre damage at r2 0.80 with residuals smaller than the per-arm SE -- so
+     TUNE ON TICKS LANDED, NOT ON WIN RATE. It is 30x cheaper and it is what
+     the win rate is made of.
+
+     THE COOLDOWN IS A COOLDOWN AND NOT A METRONOME. `cd` counts down and is
+     only reset by a tick that LANDS, so a quarry that walks into a disc is
+     bitten on the frame it arrives rather than on the next multiple of 0.22s.
+     That is the barbed wire ring's rule one relic along -- a place it is
+     unsafe to be -- and it is what makes dwell map cleanly onto ticks. EACH
+     COPY CARRIES ITS OWN, so a quarry in an overlap is bitten by each. */
+  tickSpectre(dt){
+    const A = CONFIG.arena, R = CONFIG.physics.ballR, n = this.inset;
+    /* THE FREEZE IS READ ONCE, AT THE TOP, AND EVERY COPY SEES THE SAME FRAME.
+       Read live inside the loop it is not the same test for each of the three:
+       the first copy to tick sets `hitStop` itself, and copies two and three
+       then find the hall frozen BY THEIR OWN VOLLEY and skip. Whether a copy
+       was paid depended on its index in the array, which is not a rule anybody
+       chose -- and it silently capped the overlap the design is now built on.
+       `bloodletting_relic_probe [3]` caught it as one owed tick in ten.
+
+       The rule is unchanged and is the design's 6.5: nothing ticks THROUGH a
+       freeze. A freeze this frame's own tick created is not one of those; it
+       stops the NEXT step, which is where `step()` already returns early. */
+    const froze = this.hitStop > 0;
+
+    for (const f of [this.a, this.b]){
+      const list = f.ultSpectres;
+      if (!list.length) continue;
+      const u = f.w.ult, foe = f === this.a ? this.b : this.a;
+      let landedNow = 0, closedNow = 0, milling = null;
+
+      for (const S of list){
+        /* A DEAD COPY IS A PICTURE AND NOTHING ELSE. It dissolves where it was
+           standing, which is why the fade is on the COPY and not on the
+           fighter: three of them drift apart, and one per-fighter clock could
+           only ever dissolve them all in the same place. */
+        if (S.dead){ S.fade = Math.max(0, S.fade - dt / 0.35); continue; }
+
+        /* THE CASTER'S CORPSE ENDS THEM, the way Deadfall's window ends with
+           its own caster. NOTHING IS RESTORED HERE -- the ceiling is
+           recomputed from scratch at the bottom of this method on every frame,
+           so there is no paired write for this branch to forget. That is the
+           design's third silent failure mode made unreachable rather than
+           checked for. */
+        if (!f.alive){ S.dead = true; continue; }
+
+        if (!S.landed){
+          S.t += dt;
+          S.x += S.ax * u.speed * dt;
+          S.y += S.ay * u.speed * dt;
+          if (S.t >= S.flight){
+            S.landed = true;
+            landedNow++;
+            f.spectreRings.push({ x: S.x, y: S.y, t: 0, life: 0.44 });
+          }
+        } else {
+          S.stand += dt;
+          if (S.stand >= S.life){ S.dead = true; closedNow++; continue; }
+          /* THE DRIFT. Rick's, and it is the one line that stops these being
+             furniture: a hazard that is very slightly still moving is one the
+             other ball has to keep re-reading. Along the FIRED bearing and
+             nothing else -- there is no steering here any more than there is
+             in the flight. */
+          S.x += S.ax * (u.drift || 0) * dt;
+          S.y += S.ay * (u.drift || 0) * dt;
+          if (milling === null) milling = S;
+        }
+
+        /* THEY STAY IN THE HALL, AND IN THE HALL AS IT IS NOW rather than as
+           it was when they were thrown. `CONFIG.collapse` walks the inset
+           0 -> 140 from t = 21s and the mean fight is 49.5s, so a copy
+           anchored early spends much of its life inside a room that is closing
+           on it. Design 6.5 asks for a decision and this is it: THE WALL
+           SHOVES IT, it does not kill it. The alternative -- letting it die
+           when the stone reaches it -- deletes an ultimate silently and late,
+           which is the worse of the two failures to watch. Clamped with the
+           ball's own margin, the same one `move()` uses. UNMEASURED, and the
+           lab did not model the collapse at all. */
+        S.x = clamp(S.x, n + R, A.w - n - R);
+        S.y = clamp(S.y, n + R, A.h - n - R);
+
+        /* THE SPIN IS THE PICTURE AND NOTHING READS IT -- `drawSpectre` and
+           the pool's own pulse, and nothing else in the engine, which is why
+           `engine_ab` is the proof that changing it is free.
+
+           RICK'S, off the first sheet: "lets also increase the rotational
+           speed by a lot." At the weapon's own 3.2 rad/s a copy that is not
+           attached to anybody reads as DRIFTING rather than as milling -- a
+           held weapon gets its sense of speed from the ball swinging it, and
+           these have no ball. `=== undefined` and not `|| 1` (CLAUDE.md
+           4.3).
+
+           AND THE DIRECTION IS A CONSTANT -1, WHICH TOOK THREE GOES AND ONE
+           RENDERED STRIP. Rick, twice: "the scythes spin the wrong way."
+
+           Cut one was `+`. Cut two flipped it to `-` and was never rendered,
+           because cut three replaced it with the caster's own `f.spinDir` --
+           which is `side === 0 ? 1 : -1`, so on side A it is `+1` and the
+           "fix" silently restored the direction he had already rejected. That
+           is the whole of why he saw the same thing twice.
+
+           `f.spinDir` IS THE WRONG INPUT AND NOT JUST A WRONG SIGN. A scythe
+           cuts with the INSIDE of its crescent, so the direction that makes
+           the edge lead is a property of THE ARTWORK -- and the artwork is not
+           mirrored between sides. Tied to `spinDir` these would lead with the
+           edge on side A and with the spine on side B, and a clank would
+           reverse three objects in mid-air every time their wielder lost a
+           bind.
+
+           SETTLED BY LOOKING, on both arms at once rather than by reasoning
+           about canvas handedness a fourth time:
+           `05-reference/v59/bloodletting-spin-direction.png` is six frames of
+           each. At `+` the crescent's opening trails and the blade leads with
+           its spine; at `-` the opening faces into the travel and it scoops.
+           `dir` is kept as a field rather than folded into the sign so the
+           choice has somewhere to live. */
+        S.spin += dt * f.w.spin * S.dir
+                * (u.spinMul === undefined ? 1 : u.spinMul);
+
+        /* DOES IT BITE WHILE FLYING? +12.7 against +11.2, inside the noise, so
+           it is a picture choice. `=== undefined` and not `|| 1` again: a
+           sweep must be able to set this to 0. */
+        if (!S.landed && !(u.hitFly === undefined || u.hitFly)) continue;
+
+        /* NO TICK ON A CORPSE, NONE AFTER `m.over`, AND NONE DURING HIT-STOP.
+           The sim is frozen during a freeze and so is the hall -- and this
+           method is on the normal step path, which `step()` does not reach
+           while `hitStop` runs, so the third guard is belt and braces that
+           also says what the rule is. The lab does all three and it is NOT
+           free: a copy that kept milling through hit-stop would collect extra
+           ticks for nothing, and `ticks` is the number the whole design is
+           priced on. */
+        if (this.over || froze || !foe.alive) continue;
+
+        S.cd -= dt;
+        if (S.cd > 0) continue;
+        /* ONE TEST, AT THE QUARRY'S CENTRE, AGAINST THIS COPY'S DISC. And it
+           reads THE FOE and nothing else: a spectre that milled both balls
+           measures -16.5pp at z -6.02, which is BELOW this relic's own
+           no-ultimate floor. A scythe has to fight near what it left behind,
+           so a shared hazard is a self-inflicted wound for the whole window.
+           Six standard errors is not a number to tune against -- it is a
+           different relic. */
+        const d = Math.hypot(foe.x - S.x, foe.y - S.y);
+        if (d > S.disc) continue;
+        S.cd = S.tick;
+        S.ticks++;
+        this.spectreHit(S, f, foe, d);
+      }
+
+      /* ONE VOICE AND ONE BEAT PER VOLLEY, NOT PER COPY. Three copies share a
+         `flight`, so they land on the same frame: three copies of one sound is
+         a click rather than a chord, and three `ult` beats would hand the
+         director the same instant three times. `nightfell-arm`'s rule, one
+         relic along -- the state change belongs to the VOLLEY. */
+      if (landedNow){
+        SFX.play("ult", { w: "bloodmirror-stick" });
+        this.shake = Math.min(38, this.shake + 10);
+        const S0 = list.find(S => S.landed && !S.dead) || list[0];
+        /* THE LANDING FILES ITS OWN BEAT and the individual ticks file none --
+           the Thicket's `_cineVine` rule, and at fifteen ticks a second across
+           three copies filing them would hand the director a fight made of
+           three objects standing still. The STICK is the beat because it is
+           the event: it is the frame that says the things are staying. */
+        this.beat({ kind: "ult", side: f === this.a ? 0 : 1,
+                    x: S0.x, y: S0.y, w: f.w.id,
+                    foeHpFrac: foe.hp / foe.maxHp });
+      }
+      if (closedNow) SFX.play("ult", { w: "bloodmirror-close" });
+
+      /* THE MILL, RE-STRUCK, AND ONCE FOR THE WHOLE SET. CLAUDE.md 4.5:
+         `_tone` ends on an exponential ramp over its whole length, so A HELD
+         NOTE DOES NOT EXIST IN THIS TOOLKIT -- anything that must last is
+         re-struck. The Winnowing's rung problem, and the design calls this the
+         hard one of the four voices because it has to survive being heard for
+         four and a half seconds without becoming a wash. Three of it at once
+         would be exactly that wash. */
+      if (milling){
+        const was = Math.floor((milling.stand - dt) / 0.75);
+        if (Math.floor(milling.stand / 0.75) > was)
+          SFX.play("ult", { w: "bloodmirror-mill" });
+      }
+
+      /* AND A COPY LEAVES ONLY WHEN ITS PICTURE HAS FINISHED. */
+      if (list.some(S => S.dead && S.fade <= 0))
+        f.ultSpectres = list.filter(S => !S.dead || S.fade > 0);
+    }
+
+    /* ---- THE CEILING, RECOMPUTED AND NEVER RESTORED --------------------
+
+       Both fighters, every frame, whether or not anybody has cast anything.
+       There is no raise and no matching restore, so none of the design's three
+       silent failure modes is reachable: a fighter's cap is a pure function of
+       whether the OTHER fighter has a copy STANDING right now, a fresh Match
+       starts at the status's own 4 and cannot inherit anything, and a window
+       that merely expires puts it back on the same frame the last copy dies.
+
+       RAISED WHILE ONE STANDS AND NOT WHILE THEY FLY. "While it stands" is the
+       design's own wording, it is the arm Rick took (+7.9pp at z +4.35, against
+       +9.4 for the whole fight), and the flight is 0.55s of a 5.05s object.
+       THREE COPIES DO NOT RAISE IT THREE TIMES -- the ceiling is a ceiling and
+       the count is not on it, which is the one part of this that three copies
+       leave exactly where the design put it. */
+    for (const f of [this.a, this.b]){
+      const foe = f === this.a ? this.b : this.a;
+      const live = foe.ultSpectres.some(S => S.landed && !S.dead);
+      f.bleedCap = (live && foe.w.ult.cap)
+                 ? foe.w.ult.cap : STATUS.hemorrhage.maxStacks;
+    }
+  }
+
+  /* ONE TICK. Modelled on `jetHit` line for line, because it is the same shape
+     of event: a payload that resolves OUTSIDE `resolveHit`, against the quarry
+     only, from a thing that is not the caster. */
+  spectreHit(S, own, foe, d){
+    const u = own.w.ult;
+    /* ROUNDED, because every damage number in this engine is an integer and
+       this one gets printed over a ball. `dmgTakenMul` is the quarry's own
+       Sunder -- nothing this relic applies, but a Cindercleave in the same
+       fight can. */
+    const dmg = Math.round((u.dmg || 3) * foe.dmgTakenMul());
+    if (dmg > 0){
+      this.hurt(foe, dmg, own);
+      own.dealt += dmg;
+      /* `hits` is deliberately NOT incremented: a tick does not go through
+         `resolveHit`, and verify's "no pairing resolves on fewer than 6 hits"
+         floor is about BLOWS LANDED, which this is not. The same call the
+         Deadfall's mines and Breach's jets make. */
+      foe.flash = 1; foe.ringFlash = 1;
+      this.float(foe.x, foe.y - 40, dmg, AFFINITIES.bloodsworn.glow,
+                 26 + dmg * 1.1);
+    }
+    /* THE BLEED LANDS AFTER THE DAMAGE, so a tick does not amplify itself --
+       and it goes through `apply`, which reads the quarry's own `bleedCap`, so
+       this is the one place in the game where a status can pass four. */
+    const first = !this.taught.hemorrhage
+                && !!(STATUS.hemorrhage && STATUS.hemorrhage.tip);
+    if (first) this.taught.hemorrhage = true;
+    foe.apply("hemorrhage", u.bleed || 2);
+    /* AND THE TAG CARRIES THE COUNT WHILE THE CEILING IS UP, which is the only
+       evidence on screen that the ceiling moved at all.
+
+       Design 7c: "the stack readout going past four is the only evidence on
+       screen that the ceiling moved", and v54 2c is the precedent that cost a
+       build -- Deadfall's arming state was invisible at alpha 0.16 and no probe
+       in this repo could have said so. A VIEWER CANNOT SEE A CONSTANT. The
+       count is printed only while `bleedCap` is above the status default, so
+       every other match in the game draws exactly what it drew before, and
+       inside this window it is printed for the BLADE'S bleed too -- because the
+       blade feeds the raised ceiling, and a number that appeared on some
+       applications and not others would be worse than none. */
+    this.statusTag(foe.x, foe.y, "hemorrhage", first,
+                   foe.bleedCap > STATUS.hemorrhage.maxStacks
+                     ? foe.stacks("hemorrhage") : 0);
+
+    /* THE SHOVE, ALONG THIS COPY'S OWN BEARING -- out of its disc. The
+       Thicket's rule and Breach's: `resolveHit`'s built-in knock fires away
+       from the CASTER, and this hazard is not the caster, so a shove borrowed
+       from that function would push the quarry along a line nothing on screen
+       is drawn on. WITH THREE COPIES THAT MATTERS MORE, not less: a quarry
+       shoved out of one disc is as likely to be shoved into another, and the
+       bearing is the only thing that says which one did it.
+
+       AFTER the damage and BEFORE the fatal test, so a killing tick still
+       throws the corpse -- `killFlight` is what carries a slain ball into the
+       wall it shatters against.
+
+       IT DOES NOT BUY DWELL AND THE DESIGN SAYS SO: ticks fall 11.7 -> 10.9 and
+       dwell 26.1% -> 23.1% when the foe is shoved. What the seven points buy is
+       somewhere else -- a second thing in the hall interrupting the other
+       ball's rhythm. */
+    if (foe.alive && (u.knock || 0) > 0){
+      const k = d || 1;
+      const ax = d > 0.001 ? (foe.x - S.x) / k : S.ax;
+      const ay = d > 0.001 ? (foe.y - S.y) / k : S.ay;
+      foe.vx += ax * u.knock;
+      foe.vy += ay * u.knock;
+    }
+
+    const fatal = !foe.alive;
+    if (fatal){
+      /* A TICK THAT ENDS THE FIGHT CARRIES THE FIGHT'S OWN WEIGHT.
+         `resolveHit` swaps its hit-stop for `killStop` and arms `finisher` on a
+         fatal blow; anything landing outside that function has to do it itself
+         or this ultimate's killing blow is lighter than a swing. */
+      this.hitStop = Math.max(this.hitStop, CONFIG.impact.killStop);
+      this.finisher = 1.0;
+    } else {
+      /* SMALL ON PURPOSE, AND SMALLER NOW THAT THERE ARE THREE. A tick every
+         0.22s from each of three copies with a full hit-stop each would freeze
+         the hall solid for the whole window -- the Deadfall's first build made
+         exactly that mistake in reverse. */
+      this.hitStop = Math.max(this.hitStop, 0.02);
+    }
+    this.shake = Math.min(38, this.shake + (fatal ? 20 : 4));
+    this.spawnFx(foe.x, foe.y, AFFINITIES.bloodsworn.glow, 10, 200, 0.40, 3);
+    SFX.play("ult", { w: "bloodmirror-tick" });
+    /* AND THE FATAL ONE FILES A BEAT, WHICH IS THE WHOLE OF v53 section 4.
+       `cinema_clip` finds the killing blow with `plan.find(c => c.fatal)` and
+       NOTHING on an `ult` beat carries that flag. Measured on Gravemourn before
+       that line existed there: 30 of 58 kills were landed by a hand and ALL
+       THIRTY rendered a clip with no killing blow. This ultimate deals damage
+       and can therefore kill, so it must file one. */
+    if (fatal)
+      this.beat({ kind: "hit", side: own === this.a ? 0 : 1,
+                  x: foe.x, y: foe.y, dmg, crit: false, fatal: true,
+                  hpAfter: 0, hpFrac: 0, maxHp: foe.maxHp,
+                  selfHpFrac: own.hp / own.maxHp,
+                  spd: own.speed, foeSpd: foe.speed,
+                  close: Math.hypot(own.vx - foe.vx, own.vy - foe.vy) });
+  }
+
   tickDeadfall(dt){
     for (const f of [this.a, this.b]){
       const D = f.ultDeadfall;
@@ -11446,7 +12017,18 @@ class Match {
          watching; the pool holds 42-60, peaks above 100, fills in three blows
          and is what BOTH umbral ultimates read. `CURSE 96` at the impact and
          then a detonation for 96 is a story a viewer can follow. */
-      this.statusTag(hx, hy, k, first, k === "curse" ? Math.round(foe.curseSum()) : 0);
+      /* AND HEMORRHAGE CARRIES ITS COUNT WHILE A BLOODLETTING CEILING IS UP.
+         Rick's ruling is that THE BLADE FEEDS THE RAISED CEILING TOO, which is
+         what makes the window read as the fighter opening up rather than as an
+         object landing -- so the blade's own tag has to be able to say `5`,
+         `6`, `7`, `8` exactly as the spectre's does. Zero in every match with
+         no standing spectre in it, which is every match this build had before
+         this one. */
+      this.statusTag(hx, hy, k, first,
+                     k === "curse" ? Math.round(foe.curseSum())
+                   : (k === "hemorrhage"
+                      && foe.bleedCap > STATUS.hemorrhage.maxStacks)
+                     ? foe.stacks("hemorrhage") : 0);
     }
 
     /* ---- THE BLOW LEAVES A FIGURE ON THE FLOOR. Rick: "when it lands a hit
@@ -12977,6 +13559,11 @@ class Match {
                  `f.wireFade` for v54 section 2a's measured reason, so this
                  number is short on purpose and does not track `ult.dur`. */
               ravelbone: 1.5,
+              /* THE SPECTRE IS NOT IN HERE. This is the THROW's flash and its
+                 particle field only; the copy itself is on `f.ultSpectre` and
+                 `f.spectreFade` for v54 section 2a's measured reason, so this
+                 number is short on purpose and does not track `ult.life`. */
+              bloodmirror: 1.5,
               aureole: 1.6, censer: 1.6,
               emberedge: 1.5, slagheart: 4.9 }[f.w.id] || 1.5,
     };
@@ -13413,6 +14000,62 @@ class Match {
          been through the stone once. A licence that opened mid-cut would tear
          a hole out of a pass that began before the ultimate did. */
       f.ultBreach = { t: 0, cap: u.cap, n: u.n, tears: 0, pass: null };
+      return;
+    }
+
+    if (u.kind === "effigy"){
+      /* NOTHING RESOLVES HERE and there is no radius test. The cast throws
+         `n` copies of the weapon at where the quarry IS ON THIS FRAME, and the
+         ultimate is what they do after they stop.
+
+         THE BEARINGS ARE FIXED AT SPAWN AND THERE IS NO HOMING. `ax`/`ay` are
+         computed once, here, and `tickSpectre` never recomputes them: "thrown
+         at where the quarry is NOW" is the design's own sentence, and a copy
+         that steered would be a different ultimate. It is the first thing
+         `bloodletting_relic_probe [1]` asserts.
+
+         THREE OF THEM IN A FAN, and both the count and the fan are Rick's. The
+         fan is `spread` radians either side of the bearing to the quarry, so
+         the middle copy is the one the design describes and the outer two open
+         the shape out -- three copies on ONE bearing would be one copy drawn
+         three times, and three at random angles would not read as aimed. With
+         `n` 1 the spread term is identically zero and this is the one-copy
+         ultimate the design priced, which is what makes the two comparable.
+
+         EACH STARTS TURNED TO ITS OWN BEARING (`spin: a`), so the three are
+         visibly three objects from the first frame rather than one silhouette
+         stamped three times. `dir` IS -1 AND IT IS A CONSTANT: see
+         `tickSpectre` for why it is not `f.spinDir`.
+
+         NOT `harrow`, AND THE COLLISION IS ON THIS RELIC'S OWN ROW. Lastlight
+         is the SANCTIFIED scythe -- the same weapon -- and `smite` is
+         byte-identical to `hemorrhage` apart from its name, so without a
+         structural separation these two are one relic in two palettes.
+         Harrowing sprays TWELVE small scythes that stick to the BODY, burden
+         it and burst once. These stand in the HALL, milling, and while they
+         stand the quarry can carry a stack count nothing else in the game can
+         put on it.
+
+         AND NOTHING IN THIS GAME HAS EVER OCCUPIED OPEN SPACE. The Thicket's
+         vines root to walls, Breach's vents are torn in walls, Deadfall's
+         sigils are stamped where a blow landed and the Stasis Field rings its
+         own caster. These are the first objects the two balls have to navigate
+         around, it is free, and the design calls it the strongest thing in the
+         section 1. */
+      const dx = foe.x - f.x, dy = foe.y - f.y;
+      const a0 = Math.atan2(dy, dx);
+      const N  = Math.max(1, u.n || 1);
+      f.ultSpectres = [];
+      for (let i = 0; i < N; i++){
+        const a = a0 + (N === 1 ? 0
+                                : ((i / (N - 1)) - 0.5) * 2 * (u.spread || 0));
+        f.ultSpectres.push({ x: f.x, y: f.y,
+                             ax: Math.cos(a), ay: Math.sin(a),
+                             t: 0, flight: u.flight, stand: 0, life: u.life,
+                             disc: u.disc, tick: u.tick, cd: 0,
+                             spin: a, dir: -1, ticks: 0,
+                             landed: false, dead: false, fade: 1 });
+      }
       return;
     }
 
@@ -15703,6 +16346,11 @@ class Renderer {
     this.drawSplitHold(m);
     }
     if (__world){
+    /* UNDER both fighters and under the shades, because hazards the balls
+       navigate around have to be things they pass IN FRONT OF -- and over the
+       floor, because they are standing on it. IN THE WORLD PASS AND NOT THE
+       EMISSIVE ONE: see `drawSpectre`. */
+    this.drawSpectre(m);
     this.drawShades(m);
     this.drawDrips(m);
     }
@@ -19464,8 +20112,15 @@ class Renderer {
   /* HEMORRHAGE — it bleeds. Drops well at the underside and fall away, which
      now that the hall has gravity is the direction they should already be
      going. The shell keeps losing something; that is the mechanic. */
+  /* AND THE DRIP COUNT IS CLAMPED TO THE FIGHTER'S OWN CEILING, NOT TO FOUR.
+     It was `Math.min(4, n)`, which was right for every fight ever played on
+     this engine and is wrong the moment a Bloodletting spectre stands: eight
+     stacks would have drawn exactly what four draws, and design 7c says the
+     readout is THE ONLY EVIDENCE ON SCREEN that the ceiling moved. A viewer
+     cannot see a constant, and no probe in this repo could have said so --
+     which is v54 2c, the precedent that cost a build. */
   _stBleed(m, f, R, n){
-    const c = this.ctx, N = Math.min(4, n) * 2;
+    const c = this.ctx, N = Math.min(f.bleedCap || 4, n) * 2;
     c.save();
     c.lineCap = "round";
     c.globalAlpha = 0.5; c.strokeStyle = "#7E0F14"; c.lineWidth = 3.6;
@@ -20161,6 +20816,184 @@ class Renderer {
      test in `tickDeadfall` reads and `g.rad` is the radius it reads it at, so
      the lit ground and the live trigger are the same number. The class of bug
      CLAUDE.md §4.1 exists for is not available to this block. */
+  /* THE COPIES, STANDING IN THE HALL.
+
+     Design 7b: nothing in this game has ever occupied open space. The Thicket's
+     vines root to walls, Breach's vents are torn in walls, Deadfall's sigils
+     are stamped where a blow landed and the Stasis Field rings its own caster.
+     These are the first objects the two balls have to navigate around, they are
+     free, and the design calls it the strongest thing in Rick's section 1.
+
+     THEY ARE THE WEAPON'S OWN SHAPE THROUGH THE WEAPON'S OWN DRAW PATH, so a
+     change to `_scBarbed` reaches them for free and the two can never disagree
+     -- "the same silhouette, red and ghosted" is the design's line and the
+     silhouette is literally the same function.
+
+     DRAWN IN THE WORLD PASS AND NOT THE EMISSIVE ONE. That is where every real
+     weapon is drawn and it is deliberate: these are scythes the size of
+     scythes, and putting solid blades into the emissive layer is CLAUDE.md
+     4.1b's fault -- the art blowing the post chain out -- with bigger objects
+     than any of the three relics that have already done it, and now three of
+     them at once. If they ever want light, measure the art and the chain
+     SEPARATELY first.
+
+     THREE GRADIENTS A FRAME PER CASTER, SIX IN THE WORST CASE. Named because
+     the same call in a LOOP is what cost Breach 14x its render time
+     (`GRAIN_CACHE`, seventy-two gradient objects a frame); six is not that, and
+     the flat-disc substitute is available if it ever becomes so. */
+  drawSpectre(m){
+    const c = this.ctx;
+    for (const f of [m.a, m.b]){
+      const u = f.w.ult, pal = f.aff;
+
+      /* THE LANDING RINGS, AND THEY ARE THE FRAME THE DESIGN SAYS HAS TO WORK.
+         Rick's, off the first sheet: photographed on a real match the STICK did
+         not read at all -- a thin red line arriving in a busy frame, with
+         nothing saying it had ARRIVED. Design 7c: "if it does not read, the
+         ultimate looks like a missed shot."
+
+         A RING AND NOT A BURST, and that is the distinction rather than a
+         preference: a burst says something HIT, and nothing was hit -- the
+         copies land on empty floor. A ring expanding to a disc's own edge says
+         THIS IS NOW A PLACE, and it draws the boundary of the thing that has
+         just been made once, hard, at the moment it appears, instead of asking
+         the pool to hold that job for four and a half seconds.
+
+         Drawn OUTSIDE the objects' own loop, because a ring has its own
+         position and its own clock and must survive its copy being gone. */
+      for (const RG of f.spectreRings){
+        const k = clamp(RG.t / RG.life, 0, 1);
+        const ease = 1 - Math.pow(1 - k, 3);
+        const rr = u.disc * (0.16 + 0.90 * ease);
+        c.save();
+        c.globalAlpha = (1 - k) * 0.95;
+        c.strokeStyle = pal.glow;
+        c.lineWidth = 10 * (1 - k) + 1.5;
+        c.beginPath(); c.arc(RG.x, RG.y, rr, 0, TAU); c.stroke();
+        /* a second, tighter one a beat behind: one ring reads as a bubble and
+           two read as something arriving hard */
+        c.globalAlpha = (1 - k) * 0.55;
+        c.strokeStyle = pal.core;
+        c.lineWidth = 4 * (1 - k) + 1;
+        c.beginPath(); c.arc(RG.x, RG.y, rr * 0.62, 0, TAU); c.stroke();
+        c.restore();
+      }
+
+      for (const S of f.ultSpectres){
+        const fade = S.dead ? S.fade : 1;
+        if (fade < 0.02) continue;
+        /* IN THE AIR THEY ARE THROWN OBJECTS AND ON THE GROUND THEY ARE
+           PLACES. The floor only reads once one has stopped -- the STICK is the
+           frame that tells a viewer it is staying, and a pool that arrived with
+           the copy would spend the flight saying it had already landed. */
+        if (S.landed || S.dead){
+          /* THE GROUND THEY HAVE MADE UNSAFE. Not a dashed ring: `garrote_sheet`
+             photographed one of those and it read as a RANGE INDICATOR, which
+             is the one thing a hazard must not look like. A pool instead --
+             dark in the middle, gone by the rim -- so what is drawn is ground
+             rather than a boundary. It breathes at the mill's own rate so the
+             floor and the blade are visibly one object.
+
+             RAISED ON RICK'S WORD, off the first sheet: at the alphas this
+             shipped with it read in one frame of three and vanished in the
+             other two. IT COSTS THE POST CHAIN NOTHING -- this is drawn in the
+             WORLD pass, not the emissive one, so none of it reaches the bloom
+             and CLAUDE.md 4.1b's "take away AREA, not alpha" does not apply in
+             either direction. That is the whole reason it could simply be
+             turned up rather than redesigned. */
+          const pulse = 1 + 0.05 * Math.sin(S.spin * 2);
+          const rr = u.disc * pulse;
+          const g = c.createRadialGradient(S.x, S.y, rr * 0.10, S.x, S.y, rr);
+          g.addColorStop(0,    pal.core + "8E");
+          g.addColorStop(0.42, pal.core + "52");
+          g.addColorStop(0.84, pal.core + "24");
+          g.addColorStop(1,    pal.core + "00");
+          c.save();
+          c.globalAlpha = fade;
+          c.fillStyle = g;
+          c.beginPath(); c.arc(S.x, S.y, rr, 0, TAU); c.fill();
+          /* AND A WET RIM, so the extent is a readable edge rather than a
+             gradient that could end anywhere. Continuous and soft: a DASHED
+             one is what read as a range indicator. */
+          c.globalAlpha = fade * 0.55;
+          c.strokeStyle = pal.core;
+          c.lineWidth = 2.4;
+          c.beginPath(); c.arc(S.x, S.y, rr * 0.94, 0, TAU); c.stroke();
+          c.restore();
+        }
+
+        c.save();
+        /* GHOSTED, and it dissolves rather than being cut. The alpha is the
+           only thing separating a copy from a real weapon, so it is held high
+           enough that the barbs still read: the objects have to be legible
+           enough to navigate around. */
+        c.globalAlpha = 0.80 * fade;
+        /* THEY TURN ABOUT THEIR OWN CENTRES, AND THAT IS RICK'S: "the scythe
+           should rotate around its center axis. not the end of its handle."
+
+           They used to be drawn the way a HELD weapon is -- pivot at the ball's
+           centre, weapon offset `R - 6` along the radius -- which is right for
+           a scythe somebody is swinging and wrong for one nobody is holding:
+           the handle end traced a circle and the whole object read as orbiting
+           an invisible ball rather than spinning.
+
+           AND "THE CENTRE" TOOK THREE GOES, BECAUSE IT IS THREE DIFFERENT
+           POINTS AND ONLY ONE OF THEM IS WHAT A VIEWER MEANS.
+
+           Cut one read the PATH CONSTANTS: x in [0, L*1.03], y in
+           [-W*1.32, W*0.30], middle "(L*0.515, -W*0.51)". Rasterised, the INK
+           spans x in [-4, 102] -- the crescent's FILL never reaches its own
+           nominal control point, and the snath is a STROKE with a round cap
+           that runs 4 units BEHIND the origin -- so that was 7.6 units out
+           before anything else was decided. v56 learned the same thing on
+           Revenant's hand: measure the bounding box of the PARTS, not the
+           skeleton's extent.
+
+           Cut two used the ink's BOUNDING-BOX centre, (L*0.4455, -W*0.5435),
+           and Rick said it still was not spinning on its centre. He was right
+           and the measurement says why: **a crescent's ink is nearly all in
+           the blade**, so the bounding box's middle is a point with almost no
+           object at it. Three candidates, measured off the drawn pixels:
+
+             bounding-box centre   (L*0.4455, -W*0.5435)   farthest ink 59.0
+             1-centre (minimax)    (L*0.4455, -W*0.2622)   farthest ink 54.6
+             CENTRE OF MASS        (L*0.6165, -W*0.2996)   farthest ink 73.3
+
+           The centre of MASS is what ships. It is what a thrown blade actually
+           turns about, it is the only one of the three with the object's own
+           substance at it, and "spins on its center axis" means the visual mass
+           stays put rather than orbiting. `rmax` is NOT the check for this --
+           the farthest ink is the same distance from ANY pivot under rotation,
+           so a constant sweep radius cannot tell a good centre from a bad one,
+           and the first version of this check was vacuous.
+
+           AND THAT CHANGES WHAT THE BLADE COVERS. Pivoted at `R - 6` the tip
+           swept exactly `R + reach` = the disc, so the drawn sweep and the hit
+           box were the same circle for free. Centred on the mass, the sweep is
+           `artScale * 0.6664 * L` and only `artScale` 1.88 puts it back on the
+           rim.
+           `bloodmirror_build` PRINTS both numbers on every run rather than
+           letting them drift apart quietly -- a picture that claims a smaller
+           hazard than the one that exists is the hardest kind of bug in this
+           repo to see, because both halves stay internally consistent. What
+           carries the extent when they differ is the POOL and its rim, which is
+           drawn at the disc and is why it was worth turning up. */
+        const L = f.w.reach + 6, WW = f.w.artW;
+        const sc = (u.artScale === undefined ? 1 : u.artScale)
+                 * (fade < 1 ? 0.86 + 0.14 * fade : 1);
+        c.translate(S.x, S.y);
+        c.rotate(S.spin);
+        c.scale(sc, sc);
+        c.translate(-L * 0.6165, WW * 0.2996);
+        if (!litWeapon(c, f.w.shape, L, WW, pal, f.drawK, S.spin)){
+          const fn = SHAPES[f.w.shape];
+          if (fn) fn(c, L, WW, pal, f.drawK);
+        }
+        c.restore();
+      }
+    }
+  }
+
   drawSigils(m){
     const c = this.ctx, A = AFFINITIES.umbral;
 
@@ -21645,7 +22478,13 @@ class Renderer {
     const inK  = clamp(age / 0.15, 0, 1);
     const pop  = 0.74 + 0.26 * (1 - Math.pow(1 - inK, 3));
     const fade = clamp(g.life / 0.45, 0, 1) * inK;
-    const w = 596 * k, h = 92 * k;
+    const w = 760 * k, h = 92 * k;   /* 596 -> 760: RICK'S, from a spread of four
+                                        photographed at 1080x1920. His curse line is
+                                        653px and the text budget is w - 60, so 596
+                                        ran 117px into the hall and 720 fit by 7. This
+                                        box does NOT wrap, does NOT clip and does NOT
+                                        measure -- an over-long tip just draws out of
+                                        it. tip-surface-v59 section 1. */
     const x = clamp(g.x - w / 2, 6, A.w - w - 6);
     let   y = g.low ? A.h - h - 30 : g.y - (150 + g.off) * k;
     if (y < 6) y = g.y + 74 * k;                    // struck near the ceiling
@@ -27120,7 +27959,22 @@ POSTFX.init();
        five drawn holes and a jet, not a particle field. */
     cindercleave: { mode: 'burst', n: 900, sp: [70, 330], grav: -240,
                     drag: 2.2, life: [0.30, 0.95], heavy: 0.06,
-                    size: [0.5, 2.0], spawn: 0.12, up: 40, atSelf: 1 }
+                    size: [0.5, 2.0], spawn: 0.12, up: 40, atSelf: 1 },
+    /* THE COPY LEAVING THE BLADE, AND `atSelf` IS WHY IT LEAVES THE RIGHT ONE.
+       A `burst` is drawn at the FOE -- right for the four novas that mode was
+       written for, which are cast AT somebody, and wrong for a thing THROWN
+       FROM the caster. Nothing has landed on the quarry when this plays; the
+       copy has not even arrived.
+
+       Heavier and wetter than the sparks above it: real gravity, a slow fall
+       and a long tail, because what is coming off the weapon is blood rather
+       than light. It is gone well before the spectre sticks, which is
+       deliberate -- the STICK has its own voice and its own beat, and a field
+       still running under it would blunt the one frame the design says has to
+       read. */
+    bloodmirror: { mode: 'burst', n: 1200, sp: [150, 600], grav: 300,
+                   drag: 2.3, life: [0.26, 0.78], heavy: 0.08,
+                   size: [0.8, 2.4], spawn: 0.06, up: 20, atSelf: 1 }
   };
 
   function Field() {

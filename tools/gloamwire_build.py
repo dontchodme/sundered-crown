@@ -203,7 +203,16 @@ ULT = {
 ULT_NAME = "Crossweave"
 # 48 characters against verify's 72. See the header: the 40 in both documents
 # is the status-tip figure. `tip_audit` is still the gate that matters.
-ULT_TIP = "24 volleys of 3 strung arrows; the strand shoves"
+# RICK'S, 2026-09-01, and the third of the four he was offered. 67 characters
+# against verify's 72. His own first wording was "Gains triple shot, arrows are
+# connected by a lightning chain and explode on contact" -- 83 characters, and
+# it also said ON CONTACT, which is the one thing the mechanic does not do: an
+# arrow STICKS where it resolves and all three detonate when the LAST is spent,
+# so most novas go off against walls. "explode where they land" is the reading
+# that survives a viewer checking it. v40 shipped a card saying "5s" after the
+# sweep moved the number to 8.1 and nothing caught it; Marrowdraw's probe
+# asserts every number in its tip against the weapon's own fields because of it.
+ULT_TIP = "Triple shot; arrows joined by lightning and explode where they land"
 ULT_TIP1 = "—"     # stage 1, stubbed. verify only asks that it is non-empty.
 
 # STAGE 5, AND IT IS RICK'S TO CHANGE. Four registers, and the default is the
@@ -1519,7 +1528,7 @@ def ult_matches(s: str, A, stage: int) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", type=int, required=True,
-                    choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+                    choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
     ap.add_argument("--src", default="")
     ap.add_argument("--out", default="")
     ap.add_argument("--ult", default=ULT_NAME)
@@ -1568,7 +1577,9 @@ def main() -> int:
              9: "A BIG PURPLE EXPLOSION -- Rick's, and DRAWN rather than "
                 "spawned so it costs the sheet nothing",
             10: "THE NOVA'S VOICE -- fitted to Rick's reference by measurement",
-            11: "ONE POP PER NOVA -- Rick's, over one per volley, flammed 26ms"
+            11: "ONE POP PER NOVA -- Rick's, over one per volley, flammed 26ms",
+            12: "THE CARD LINE -- Rick's words, and the only surface the game "
+                "teaches on"
              }[A.stage])
     print(f"  src {src_p.name}  {hashlib.sha256(s0.encode()).hexdigest()[:16]}")
 
@@ -1657,6 +1668,12 @@ def main() -> int:
               f"NO damage and NO status")
         print("  NOTHING IS DRAWN AND NOTHING SOUNDS -- that is stage 4, and "
               "it is Rick's")
+    elif A.stage == 12:
+        if f'id:"{RELIC}"' not in s0:
+            raise SystemExit("this source has no Gloamwire")
+        edits = []
+        print(f"  tip {len(tip)}/72")
+        print(f"  {tip!r}")
     elif A.stage == 11:
         if "kind === \"nova\"" not in s0:
             raise SystemExit("this source has no nova voice -- stage 10 first")
@@ -1775,6 +1792,29 @@ def main() -> int:
                  "if (this.shots.length >= CONFIG.shot.maxLive) this.shots.shift();",
                  "this.makeRoom();",
                  "cap-eviction", 4)
+
+    if A.stage == 12:
+        # THE CARD IS THE ONLY SURFACE THIS GAME TEACHES ANYTHING ON since the
+        # fight card was retired, so a wrong line is wrong everywhere a viewer
+        # can see. Replaced inside this relic's own entry by brace matching,
+        # never by a global search -- `tip:` appears on every weapon and on
+        # every status in the file.
+        # INSIDE THE `ult` BLOCK, NOT THE FIRST `tip:` IN THE ENTRY. The first
+        # cut matched `tip:"[^"]*"\s*\},` against the whole entry and hit the
+        # SHOT block's line -- "Fires along its facing" -- which every bow in
+        # the game shares byte for byte. It wrote the ultimate's card over the
+        # type's own tip and printed the old value, which is the only reason it
+        # was caught. Find the ult block first, then the tip inside it.
+        e = entry(s, RELIC)
+        u = re.search(r"ult:\s*\{", e)
+        if not u:
+            raise SystemExit("cannot find Gloamwire's ult block")
+        m = re.search(r'tip:"([^"]*)"', e[u.start():])
+        if not m:
+            raise SystemExit("cannot find Gloamwire's ult tip")
+        j = s.index(e) + u.start() + m.start()
+        print(f"  was {m.group(1)!r}")
+        s = s[:j] + f'tip:"{tip}"' + s[j + len(m.group(0)):]
 
     if A.stage == 6 and "speedMul" in s0:
         # Walk forward from this relic's own id, never a global replace.

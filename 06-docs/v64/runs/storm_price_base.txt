@@ -1,0 +1,13 @@
+32 relics · 372 fights in 33s · AC.STATUS exposed: True
+swarm: window 8.0s = detonation · 8 bolts a hit · speed 600.0 · r 16.0 · fork +2 · ric 99 · cap 60 · blast r 80.0 · 15.0/bolt · ward 2.0/bolt · cast every 15.0s
+
+  arm                       win  casts  spawn   fork  eaten  alive  in rx  dmg/cast ward/cast
+  A no ultimate           60.2%   0.00    0.0    0.0    0.0    0.0   0.00       0.0       0.0
+  B ward only             72.0%   3.63   19.5   30.8   22.3   25.5   4.27       0.0      38.0
+  C detonation only       87.1%   2.74   17.9   30.1   21.1   24.8   4.25      63.8       0.0
+  D the whole §1          89.2%   2.85   17.5   30.3   20.9   24.9   4.06      60.9      36.4
+
+  CONTROL: arm A 60.2% against storm_tracks' 60.2% on the same seeds and foes — PASS
+  B - A = +11.8pp
+  C - A = +26.9pp
+  D - A = +29.0pp

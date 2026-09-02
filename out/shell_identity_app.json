@@ -1,5 +1,5 @@
 {
-  "build": "02-chain/sc-bloodletting.html",
+  "build": "02-chain/sc-nova.html",
   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) sundered-crown-app/0.1.0 Chrome/152.0.7977.54 Electron/44.0.0 Safari/537.36",
   "chrome": "152.0.7977.54",
   "rows": [
@@ -310,19 +310,19 @@
         "seed": 147938870,
         "a": "Emberedge",
         "b": "Gloamwire",
-        "winner": "Gloamwire",
-        "hp": 113,
-        "duration": 38.67,
+        "winner": "Emberedge",
+        "hp": 184,
+        "duration": 48.53,
         "reason": "slain",
         "hits": {
-          "a": 12,
-          "b": 20
+          "a": 14,
+          "b": 25
         },
         "crits": {
           "a": 2,
-          "b": 4
+          "b": 1
         },
-        "clanks": 13
+        "clanks": 14
       }
     },
     {
@@ -701,19 +701,19 @@
         "seed": 2323673847,
         "a": "Gloamwire",
         "b": "Vinesower",
-        "winner": "Gloamwire",
-        "hp": 82,
-        "duration": 37.42,
+        "winner": "Vinesower",
+        "hp": 156,
+        "duration": 46.48,
         "reason": "slain",
         "hits": {
-          "a": 21,
-          "b": 24
+          "a": 23,
+          "b": 49
         },
         "crits": {
           "a": 2,
-          "b": 2
+          "b": 5
         },
-        "clanks": 3
+        "clanks": 4
       }
     },
     {
@@ -1046,17 +1046,17 @@
         "seed": 3485504598,
         "a": "Emberedge",
         "b": "Gloamwire",
-        "winner": "Gloamwire",
-        "hp": 132,
-        "duration": 39.27,
+        "winner": "Emberedge",
+        "hp": 124,
+        "duration": 48.12,
         "reason": "slain",
         "hits": {
-          "a": 13,
-          "b": 19
+          "a": 17,
+          "b": 33
         },
         "crits": {
           "a": 0,
-          "b": 3
+          "b": 0
         },
         "clanks": 12
       }
@@ -1437,19 +1437,19 @@
         "seed": 1366272279,
         "a": "Gloamwire",
         "b": "Vinesower",
-        "winner": "Gloamwire",
-        "hp": 192,
-        "duration": 37,
+        "winner": "Vinesower",
+        "hp": 63,
+        "duration": 43.75,
         "reason": "slain",
         "hits": {
-          "a": 20,
-          "b": 23
+          "a": 28,
+          "b": 48
         },
         "crits": {
-          "a": 4,
+          "a": 2,
           "b": 2
         },
-        "clanks": 3
+        "clanks": 5
       }
     },
     {
@@ -1783,18 +1783,18 @@
         "a": "Emberedge",
         "b": "Gloamwire",
         "winner": "Emberedge",
-        "hp": 77,
-        "duration": 52.62,
+        "hp": 40,
+        "duration": 44.66,
         "reason": "slain",
         "hits": {
-          "a": 17,
-          "b": 17
+          "a": 16,
+          "b": 34
         },
         "crits": {
           "a": 2,
-          "b": 0
+          "b": 3
         },
-        "clanks": 16
+        "clanks": 11
       }
     },
     {
@@ -2173,19 +2173,19 @@
         "seed": 408870711,
         "a": "Gloamwire",
         "b": "Vinesower",
-        "winner": "Gloamwire",
-        "hp": 161,
-        "duration": 34.26,
+        "winner": "Vinesower",
+        "hp": 57,
+        "duration": 46.82,
         "reason": "slain",
         "hits": {
-          "a": 23,
-          "b": 16
+          "a": 32,
+          "b": 45
         },
         "crits": {
           "a": 3,
-          "b": 1
+          "b": 7
         },
-        "clanks": 1
+        "clanks": 3
       }
     },
     {
@@ -2519,18 +2519,18 @@
         "a": "Emberedge",
         "b": "Gloamwire",
         "winner": "Gloamwire",
-        "hp": 85,
-        "duration": 47.76,
+        "hp": 71,
+        "duration": 52.86,
         "reason": "slain",
         "hits": {
-          "a": 13,
-          "b": 20
+          "a": 14,
+          "b": 34
         },
         "crits": {
-          "a": 1,
-          "b": 1
+          "a": 0,
+          "b": 3
         },
-        "clanks": 12
+        "clanks": 16
       }
     },
     {
@@ -2909,19 +2909,19 @@
         "seed": 3746436439,
         "a": "Gloamwire",
         "b": "Vinesower",
-        "winner": "Gloamwire",
-        "hp": 113,
-        "duration": 37.75,
+        "winner": "Vinesower",
+        "hp": 40,
+        "duration": 43.54,
         "reason": "slain",
         "hits": {
-          "a": 22,
-          "b": 26
+          "a": 33,
+          "b": 46
         },
         "crits": {
-          "a": 4,
-          "b": 2
+          "a": 2,
+          "b": 6
         },
-        "clanks": 1
+        "clanks": 3
       }
     },
     {
@@ -3255,18 +3255,18 @@
         "a": "Emberedge",
         "b": "Gloamwire",
         "winner": "Emberedge",
-        "hp": 128,
-        "duration": 45.85,
+        "hp": 171,
+        "duration": 50.92,
         "reason": "slain",
         "hits": {
-          "a": 16,
-          "b": 14
+          "a": 12,
+          "b": 23
         },
         "crits": {
-          "a": 0,
+          "a": 2,
           "b": 1
         },
-        "clanks": 14
+        "clanks": 11
       }
     },
     {
@@ -3645,19 +3645,19 @@
         "seed": 2789034871,
         "a": "Gloamwire",
         "b": "Vinesower",
-        "winner": "Gloamwire",
-        "hp": 171,
-        "duration": 37.77,
+        "winner": "Vinesower",
+        "hp": 49,
+        "duration": 50.45,
         "reason": "slain",
         "hits": {
-          "a": 22,
-          "b": 29
+          "a": 31,
+          "b": 48
         },
         "crits": {
-          "a": 2,
-          "b": 1
+          "a": 5,
+          "b": 3
         },
-        "clanks": 4
+        "clanks": 5
       }
     },
     {
@@ -3991,18 +3991,18 @@
         "a": "Emberedge",
         "b": "Gloamwire",
         "winner": "Emberedge",
-        "hp": 128,
-        "duration": 41.02,
+        "hp": 117,
+        "duration": 45.03,
         "reason": "slain",
         "hits": {
-          "a": 17,
-          "b": 14
+          "a": 15,
+          "b": 27
         },
         "crits": {
           "a": 2,
-          "b": 0
+          "b": 2
         },
-        "clanks": 11
+        "clanks": 13
       }
     },
     {
@@ -4381,19 +4381,19 @@
         "seed": 1831633303,
         "a": "Gloamwire",
         "b": "Vinesower",
-        "winner": "Vinesower",
-        "hp": 176,
-        "duration": 44.13,
+        "winner": "Gloamwire",
+        "hp": 168,
+        "duration": 37.7,
         "reason": "slain",
         "hits": {
-          "a": 13,
-          "b": 48
+          "a": 37,
+          "b": 25
         },
         "crits": {
-          "a": 1,
-          "b": 5
+          "a": 4,
+          "b": 0
         },
-        "clanks": 3
+        "clanks": 2
       }
     },
     {

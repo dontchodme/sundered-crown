@@ -1,0 +1,7 @@
+30 relics in this build
+
+  cell                              FIELD ULTS OFF         FIELD ULTS ON     gap
+                                 floor        lift     floor        lift
+  vigil x twinblade              33.1%      +47.9pp     10.7%      +45.5pp   -2.4
+
+  1160 fights in 92s   errors: []
