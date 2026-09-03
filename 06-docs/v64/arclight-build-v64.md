@@ -1,4 +1,20 @@
-# v64 — ARCLIGHT AND STATIC, BUILT. The vigil twinblade, the 34th relic — and the design's overlay was measuring a room that does not close.
+# v64 — ARCLIGHT AND STATIC, BUILT AND THEN SCRAPPED. The vigil twinblade — and the design's overlay was measuring a room that does not close.
+
+> **SCRAPPED BY RICK, 2026-09-02, HAVING WATCHED IT:** *"i dont like what ive
+> built. lets start over."* `sc-arclight`, `sc-storm` and `sc-static` are
+> deleted and the chain is back to `sc-lastthree` at 33 relics. **The cell is
+> open and a replacement ultimate is Rick's and Cowork's, not Code's** (rule 0).
+>
+> **This document is kept rather than deleted, on v60's rule** — a superseded
+> design is kept because of what is in it. Everything below was measured, all of
+> it reproduces (`tools/arclight_build.py --stage 1|2|3` rebuilds the three
+> links byte-identically from `sc-lastthree`, and the probe, the price and the
+> sweep are all still in `tools/`), and **four of the findings are about this
+> engine rather than about this relic**: §4 (no blade balances a relic that wins
+> off its ultimate), §4a (two payoffs on one ultimate can be substitutes, so
+> every one-knob curve understates its knob), §0 (a lab that bounces things off
+> the ARENA is not measuring a hall whose seals close) and §3aa (the published
+> price was on another runtime). Those outlive Arclight.
 
 **Claude Code, 2026-09-02. Stages 1-3 are built and gated. STAGE 4 IS STOPPED
 AND WAITING ON A RULING: there is no blade that balances this relic, measured —
