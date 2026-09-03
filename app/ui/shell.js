@@ -11,6 +11,16 @@ const frame = $('game');
 
 let AC = null;   // the game's export surface, once it exists
 
+/* THE DIRECTOR IS OFF IN THE APP. Rick, 2026-09-02: "it needs some work done
+   and im not ready to do it just yet. best to turn it off until then."
+   The engine boots with CINE.on = true; the app flips it in applyDirector()
+   below, through the engine's own panel button -- the same thing the C key
+   does -- so the label stays true and CINE.reset() runs. The engine file is
+   untouched (Phase 1), and the video pipeline is not affected either:
+   cinema_clip.py sets CINE.on itself for each pass. Set this to true to bring
+   the director back; the cinema panel still toggles it per session. */
+const DIRECTOR = false;
+
 /* ---------------------------------------------------------------- boot ---- */
 
 async function boot() {
@@ -32,6 +42,7 @@ function onGameLoad() {
       clearInterval(wait);
       AC = w.AC;
       hideGameChrome(w);
+      applyDirector(w);
       fillRoster();
       wireControls();
       trackSeed(w);
@@ -75,6 +86,21 @@ function hideGameChrome(w) {
       aspect-ratio: auto; border: none; border-radius: 0; box-shadow: none;
     }`;
   w.document.head.appendChild(st);
+}
+
+/* Bring the engine's director in line with DIRECTOR. The engine's boot match
+   has already been planned by the time this runs; with CINE.on false the plan
+   is inert (CINE.update returns raw wall time untouched) and the next
+   newMatch skips the prescan. Prefer the panel button over poking CINE
+   directly so the button's label and class cannot lie; fall back to the
+   field only if the panel is not there. */
+function applyDirector(w) {
+  const cine = w.CINE;
+  if (!cine || !!cine.on === DIRECTOR) return;
+  const btn = w.document.getElementById('cnOn');
+  if (btn) { btn.click(); return; }
+  cine.on = DIRECTOR;
+  if (!DIRECTOR) cine.reset();
 }
 
 /* The cinema panel is a real feature of the engine — director on/off, force a

@@ -17,7 +17,9 @@ window:
      seeds whose plan carried none -- the fight ends and the camera was never
      told, so the payoff is filmed as ordinary air. `window.cinePlan` answers
      it before a render rather than after one, which is the rule v42 set.
-  2. HOW CLOSE IT FINISHES. The winner's remaining hp against baseHP 300. A
+  2. HOW CLOSE IT FINISHES. The winner's remaining hp against the build's own
+     `CONFIG.combat.baseHP`, which has been 300, then 400, and is 520 on the
+     v65 pace -- it is read off the page, never written here. A
      fight decided at 4hp and one decided at 210 look the same until the end.
 
 HARD FILTERS, then a rank. The filters are the things that make a clip
@@ -73,7 +75,9 @@ def main():
     ap.add_argument("--b", required=True)
     ap.add_argument("--n", type=int, default=300, help="seeds to scan")
     ap.add_argument("--seed0", type=int, default=1)
-    ap.add_argument("--secs", default="18,55", help="min,max fight duration")
+    ap.add_argument("--secs", default=None,
+                    help="min,max fight duration. Default: 18s to "
+                         "CONFIG.timeout x 0.46, read off the build")
     ap.add_argument("--margin", type=float, default=0.35,
                     help="winner's remaining hp as a fraction of baseHP; lower "
                          "is a closer finish")
@@ -81,13 +85,25 @@ def main():
     ap.add_argument("--json", default="")
     A = ap.parse_args()
 
-    lo, hi = (float(x) for x in A.secs.split(","))
+    # THE CEILING IS A PROPERTY OF THE BUILD, NOT OF THIS TOOL. It was a flat
+    # `18,55`, written when the mean fight was 47.5s -- and the v65 pace change
+    # moved the roster's median to 59.7s and its p90 to 75.7s, so a flat 55
+    # would have excluded MOST OF THE ROSTER from a tool whose whole job is
+    # finding a fight worth filming. It is derived off the page instead:
+    # 0.46 x CONFIG.timeout is 55.2 on the pace_build clock -- the old default,
+    # reproduced -- and 71.8 on the v65 one, which is the same quantile of the
+    # same distribution. Pass --secs to override on either.
+    lo, hi = (float(x) for x in A.secs.split(",")) if A.secs else (None, None)
     g = (HERE / A.game).resolve()
     if A.a == A.b:
         sys.exit("! a relic cannot fight itself")
 
     seeds = list(range(A.seed0, A.seed0 + A.n))
     with game(game_path=g) as (page, errors):
+        if hi is None:
+            lo, hi = 18.0, page.evaluate("() => AC.CONFIG.timeout") * 0.46
+            print(f"  --secs from the build: {lo:g}-{hi:.1f}s "
+                  f"(0.46 x CONFIG.timeout)")
         ids = page.evaluate("() => AC.WEAPONS.map(w => w.id)")
         for r in (A.a, A.b):
             if r not in ids:

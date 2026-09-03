@@ -35,6 +35,9 @@ JS = r"""([id, foes, seeds, secs, off]) => {
 ap = argparse.ArgumentParser()
 ap.add_argument("--game", default="../02-chain/sc-thornshear.html")
 ap.add_argument("--seeds", type=int, default=5)
+ap.add_argument("--skip", default="",
+                help="comma-separated relics NOT to price. They stay in the "
+                     "foe list -- they are still in the game.")
 ap.add_argument("--secs", type=float, default=120.0)
 a = ap.parse_args()
 seeds = [3301 + 19 * i for i in range(a.seeds)]
@@ -44,12 +47,30 @@ with game(game_path=(HERE / a.game).resolve()) as (page, errors):
         ult:(w.ult&&w.ult.name)||null, kind:(w.ult&&w.ult.kind)||null,
         charge:(w.ult&&w.ult.charge)||null, tip:(w.ult&&w.ult.tip)||null}))""")
     ids = [x["id"] for x in W]
+    # SKIPPED FROM BEING PRICED, BUT KEPT AS AN OPPONENT. Rick, 2026-09-02:
+    # "leave out axiom as im intending to rework its ult." Pricing a relic
+    # whose ultimate is about to be replaced is measuring a build that will not
+    # exist -- but it still FIGHTS in this game today, so removing it from the
+    # foe list would change everybody else's number for a reason that has
+    # nothing to do with them.
+    skip = set(x for x in a.skip.split(",") if x)
+    bad = skip - set(ids)
+    if bad:
+        raise SystemExit(f"--skip names relics that are not in this build: "
+                         f"{sorted(bad)}")
+    priced = [i for i in ids if i not in skip]
+    if skip:
+        print("  SKIPPED (not priced, still fought): "
+              + ", ".join(sorted(skip)))
     byid = {x["id"]: x for x in W}
     print(f"\nWHAT EVERY ULTIMATE IS WORTH — paired A/B against its own deletion")
-    print(f"    {a.seeds} seeds x 25 foes = {25*a.seeds} fights an arm, "
-          f"{2*26*25*a.seeds} fights total\n")
+    n_arm = (len(ids) - 1) * a.seeds
+    print("    " + str(a.seeds) + " seeds x " + str(len(ids) - 1)
+          + " foes = " + str(n_arm) + " fights an arm, "
+          + str(2 * len(priced) * n_arm) + " fights total")
+    print("")
     res = []
-    for id_ in ids:
+    for id_ in priced:
         foes = [i for i in ids if i != id_]
         on = page.evaluate(JS, [id_, foes, seeds, a.secs, False])
         off = page.evaluate(JS, [id_, foes, seeds, a.secs, True])

@@ -95,6 +95,21 @@ def mix_graph(limit, tp, vo_vol=2.0, vo_at=0.0):
 # one that was right the first time.
 CEILINGS = [(0.79, -2.0), (0.63, -3.0), (0.50, -4.0)]
 
+# The pass marks a rung of the ladder can move. Everything else in measure()
+# is a property of the capture or the encode, and a rung re-mixing to chase
+# one of those is a rung doing harm.
+LADDER_MARKS = ("-16..-13 LUFS", "TP <= -0.3")
+
+# THE LENGTH GATE IS THE PLATFORM'S, AND THE PLATFORM MOVED. This was `< 60.0`
+# from the day the tool was written, when a Short was sixty seconds; YouTube
+# has taken Shorts to three minutes since late 2024 and TikTok is longer. It
+# stayed at 60 because nothing ever hit it -- a whole fight delivered at
+# 40-55s. The v65 pace change (mean fight ~60s, so ~68s delivered with the open
+# and the verdict tail) would have failed nearly every whole-fight short on
+# it. Rick, 2026-09-03: the platform limit. It is still a gate, so a runaway
+# capture cannot ship; trimming for taste is what --lead is for.
+MAX_SECONDS = 180.0
+
 
 def run(cmd, stream_err=False, **kw):
     """stream_err: let the child's stderr go STRAIGHT THROUGH to ours.
@@ -241,7 +256,29 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
              "-movflags", "+faststart", out])
         m = measure(out)
         m["limit"], m["tp_target"] = limit, tp
-        if all(m["pass"].values()):
+        # ONLY THE LOUDNESS MARKS CLIMB THE LADDER. A rung exists to bring the
+        # true peak inside the band; it can do nothing about the picture size,
+        # the codec or the length. Before 2026-09-03 the test here was
+        # `all(m["pass"])`, so a clip that failed on LENGTH alone walked every
+        # rung, shipped at the quietest one (0.50 / -4 dBTP -- a mix nobody
+        # chose), and still exited 1. With the mean fight moving to ~60s that
+        # would have been most whole-fight shorts. Found by reading, not by a
+        # failed render; see 06-docs/v65/pace-60-v65.md.
+        # AND THE FILTER HAS TO BE CHECKED, BECAUSE ITS FAILURE MODE IS
+        # SILENT AND GREEN. `all()` over an empty generator is True, so if a
+        # mark in measure() is ever renamed and LADDER_MARKS is not, this test
+        # passes on the FIRST rung forever: the ladder stops climbing, a real
+        # true-peak failure ships at 0.79, and nothing says so. A check whose
+        # failure mode is "everything passes" is the one that has to assert
+        # its own inputs.
+        missing = [k for k in LADDER_MARKS if k not in m["pass"]]
+        if missing:
+            raise SystemExit(
+                f"! LADDER_MARKS names {missing} and measure() does not "
+                f"produce it.\n  The ladder would climb on nothing and every "
+                f"mix would 'pass' at the first rung.\n  measure() marks: "
+                f"{list(m['pass'])}")
+        if all(ok for k, ok in m["pass"].items() if k in LADDER_MARKS):
             if i:
                 print(f"         §8's 0.79 measured {m['dbtp']} dBTP on this "
                       f"content; {limit} holds it.")
@@ -289,7 +326,7 @@ def measure(path):
     res["pass"] = {
         "1080x1920": v["width"] == 1080 and v["height"] == 1920,
         "h264+aac": v["codec_name"] == "h264" and au.get("codec_name") == "aac",
-        "under 60s": dur < 60.0,
+        f"under {MAX_SECONDS:.0f}s": dur < MAX_SECONDS,
         "-16..-13 LUFS": lufs is not None and -16.0 <= lufs <= -13.0,
         "TP <= -0.3": tp is not None and tp <= -0.3,
     }

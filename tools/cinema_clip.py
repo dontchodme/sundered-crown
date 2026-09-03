@@ -828,7 +828,18 @@ def main() -> int:
         # the director dilates between the two. 2.6x covers every cut tier plus
         # the split holds that stop the hall for 1.55s a cast, which is a
         # dilation source no ultimate had when the old `lead + 14` was written.
-        cap = 150 if a.full else a.lead * 2.6 + 16
+        # A WHOLE FIGHT'S CAP FOLLOWS THE BUILD'S OWN TIMEOUT. No match can run
+        # past CONFIG.timeout seconds of MATCH time, so the video of one is at
+        # most that, dilated by the director, plus the open and the verdict
+        # tail. It was a bare `150` -- 1.25x the timeout of 120 it was written
+        # against -- and the v65 pace change moves the timeout to 156, which
+        # would have put the roster's longest pairings (~108s of match) within
+        # a director's dilation of a cap that "has no ending, do not ship".
+        # 1.3x is more than a whole fight dilates (a full fight measures ~1.05x;
+        # the 2.6x below is for a WINDOW, where the cuts concentrate) and 16 is
+        # the open plus the tail, as on the lead path.
+        game_timeout = float(page.evaluate("() => AC.CONFIG.timeout"))
+        cap = game_timeout * 1.3 + 16 if a.full else a.lead * 2.6 + 16
         if a.at is not None:
             # the same 2.6x dilation allowance the lead path uses -- a window
             # of MATCH seconds is longer in VIDEO seconds, and hit stop plus

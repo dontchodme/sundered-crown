@@ -12,6 +12,43 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
+02-chain/sc-minute.html          THE MINUTE, AND A BRANCH OFF sc-lastthree
+                                                   RATHER THAN THE ARCLIGHT
+                                                   CHAIN. 33 relics, unchanged
+                                                   -- what moved is the PACE:
+                                                   baseHP 400 -> 520, the seals
+                                                   21/49 -> 27/64 with the hall
+                                                   closing on the Second Seal,
+                                                   timeout 120 -> 156. Rick's
+                                                   ruling of S = H = 1.30 out
+                                                   of 06-docs/v65/, built by
+                                                   pace60_build.py.
+                                                   MEAN FIGHT 47.5s -> 60.2s
+                                                   over all 528 pairings, 0
+                                                   timeouts, 4.2 -> 5.5 ults a
+                                                   fight -- and the design was
+                                                   priced on Chromium 141 and
+                                                   REPRODUCES on the pinned 151
+                                                   to a tenth of a second.
+                                                   engine_ab 135/135 DIFFER,
+                                                   which is the pass. The text
+                                                   diff is 72 lines and they
+                                                   are the six edits and the
+                                                   stamp. verify 11/13 AND BOTH
+                                                   REDS ARE THE CLOCK -- the
+                                                   known pairing band (99.0s,
+                                                   ruled accept) and the
+                                                   overall-mean band, which is
+                                                   28-54s and CANNOT CONTAIN A
+                                                   MINUTE. Every relic is in
+                                                   30-70% and NO DAMAGE NUMBER
+                                                   NEEDS TO MOVE.
+                                                   See 06-docs/v65/.
+                                                   IT INHERITS THE SHORTER
+                                                   BRANCH: Crossweave's stages
+                                                   7-12 are in sc-nova ONLY.
+                                                   NOBODY HAS WATCHED A
+                                                   SIXTY-SECOND FIGHT.
 02-chain/sc-static.html          THE CHAIN TIP, AND *NOT* THE BUILD OF RECORD.
                                                    34 relics . ARCLIGHT AND
                                                    STATIC, the vigil twinblade
@@ -307,6 +344,112 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sundered-crown.html      OLD SNAPSHOT      16 relics — NOT A TARGET
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
+
+**THE FIGHT IS A MINUTE LONG NOW, AND IT IS THE SAME FIGHT STRETCHED**
+(`pace60_build.py`, 2026-09-02). Rick: *"we also did some work to make fights
+last longer. id really like to get the average closer to a minute. how do we
+achieve that."* Cowork priced it across a grid and the roster in
+`06-docs/v65/pace-60-v65.md`; Rick ruled **S = H = 1.30** and **accept the
+pairing ceiling**. `baseHP` 400 -> 520, the Second Seal 21s -> 27s with the
+hall closing on it, the Third 49s -> 64s, `timeout` 120 -> 156. **Mean fight
+47.5s -> 60.2s** over all 528 pairings, 0 timeouts, and **4.2 -> 5.5 ultimates
+a fight** — charge is pure wall time, so a longer fight buys set-pieces for
+free. `02-chain/sc-minute.html`, `06-docs/v65/pace60-build-v65.md`.
+
+> **IT IS `pace_build`'s LEVER PULLED A SECOND TIME AND NOT A NEW ONE.** Damage
+> escalates on a WALL CLOCK — x1.00, x1.35 at the Second Seal, x1.85 at the
+> Third — so health alone spends the extra fight inside the Third Seal at 1.85x
+> and changes the fight's SHAPE. Measured again on the v65 grid: health only
+> (H 1.45) reaches 59.6s and the diagonal reaches 61.6s at LESS health. **The
+> diagonal is the one that is the same fight**, and `collapse.startT` moves
+> inside the same edit as the seal because the hall has to start closing when
+> the seal breaks. The builder reads both numbers back out of its own output
+> and refuses to write if they disagree.
+
+> **AND A COWORK-PRICED DOCUMENT REPRODUCED ON THE PINNED RUNTIME TO A TENTH OF
+> A SECOND, WHICH THIS PROJECT HAS NOT BEEN ABLE TO SAY BEFORE.** v65 was
+> measured on Chromium 141 in a container; the repo pins 151. Mean 60.1 against
+> **60.2**, median 59.7 against **59.7**, p90 75.7 against **75.7**, ults 5.5
+> against **5.5**, and the control cell lands on 47.5 both times. Only the
+> single-fight MAXIMUM moves (107.5 -> 115.9), which is one fight in 1,584 and
+> is exactly what `docs/RUNTIME-DRIFT.md` describes. **Section 4.2b's
+> reproduction control earning its place the other way round for once** — the
+> last time it ran, on Arclight, it moved a gate by 7.8pp.
+
+> **AND IT FAILS A verify CHECK BY DOING EXACTLY WHAT RICK ASKED FOR.** 11/13,
+> and the second red is NEW: *"overall mean duration in 28-54s"* reads **60.1s**.
+> That band was written for a 37.3s game and survived `pace_build` only because
+> 49.3 is the top of it; **a sixty-second target cannot fit inside it, so the
+> band now contradicts a ruling.** It was NOT widened — a gate moved by the
+> build it is judging is not a gate, and this one is read by every future link,
+> so it is chain-wide and Rick's. **Read `11/13` as two stale bands, not as a
+> broken build**, and the winrate check is the one that would have caught a
+> broken build: it PASSES outright.
+
+> **AND THE DESIGN'S EXPECTATION OF "TWO OR THREE DAMAGE TOUCHES" DID NOT
+> LAND — IT WANTS NONE.** All 33 relics sit inside 30-70% (Heartwood 35.2% to
+> Ironhail 60.6%), so no damage number moves in this link. The spread does
+> widen — 25.4pp against 20.0pp on this branch, and the paired n~96 probe
+> agrees on the direction — which is worth watching and is not the same
+> sentence as somebody needing a tune. **And v65 §4's per-relic drift table
+> does not reproduce**: re-run on the pinned runtime with the same seeds the
+> big movers are Aureole, Oathwound and Gravemourn rather than Ravelbone,
+> Marrowdraw and Axiom. At +/-7pp on a difference that table names nobody
+> reliably, and `verify --n 40` settled it by finding nothing out of band.
+
+> **THE PAIRING CEILING GETS WORSE AND RICK RULED TO ACCEPT IT, AS BEFORE.**
+> The same four relics that have been the answer three times running —
+> Lightkeeper, Axiom, Farwarden, Spellbreaker — run to **~100s against each
+> other**, so `verify`'s thirteenth check is red by thirty seconds instead of
+> by five. It is the known and accepted failure, not a new one, and **do not
+> read it as green either.** Tuning those four is the only thing that has ever
+> been on the table for them.
+
+> **NO DAMAGE NUMBER WAS TOUCHED, DELIBERATELY.** `pace_build` folded
+> Grudgebearer's nerf into the pace builder; this one does not, because the
+> design says which relic moved is `verify`'s to say on the pinned runtime and
+> because a link carrying both leaves the pace and the tune inseparable in
+> `engine_ab`. v65 §4 names who drifts at n~96 a relic: Ravelbone and
+> Marrowdraw down 16-20 points, Axiom up 17, and the roster spread NARROWS.
+
+> **AND THE CLIP PIPELINE HELD UP, ONCE FOUR THINGS IN IT WERE MOVED OFF THE
+> OLD CLOCK.** Rick: *"how about the clip maker on the app? will it hold up to
+> the longer videos?"* `shorts_build.py` gated delivery on `dur < 60.0` (the
+> Shorts limit from the day it was written) -> **`MAX_SECONDS = 180`**, and
+> only the two loudness marks climb the mix ladder, because a LENGTH failure
+> used to walk all three rungs and ship at a mix nobody chose.
+> `cinema_clip.py` capped a whole-fight capture at a bare `150` seconds ->
+> **`CONFIG.timeout * 1.3 + 16`**, read off the page. `pick_fight.py`'s
+> `--secs` default was a flat `18,55` and would have **rejected the typical
+> fight on the new pace** -> `0.46 * CONFIG.timeout`, which reproduces 55.2 on
+> the old clock and gives 71.8 here. And the ladder's key filter is
+> `all()` over a generator, whose failure mode is that **everything passes**,
+> so it asserts its own marks now.
+> **MEASURED, NOT REASONED ABOUT**: one whole fight through the real pipeline
+> delivers **64.3s, 5 of 5 marks, 38.2MB** — and the ladder still climbed on a
+> genuine true-peak failure (0.0 dBTP at rung 0, held at −2.0 by rung 1).
+> `07-shorts/v65/minute-first-cut.mp4`, and **nobody has watched it.**
+
+> **AND IT INHERITS THE SHORTER BRANCH, WHICH THE AUDIT FOUND RATHER THAN THE
+> BUILD.** `gloamwire_build.py` has 21 inserts and **10 are missing from
+> `sc-lastthree` and from `sc-static`** — the held trio, the nova, the drawn
+> explosion and Crossweave's voice. They are in `sc-nova` ONLY, because that
+> carry was re-applied as a new link on top of `sc-bloodletting` while the
+> Duskreave branch was growing from the same parent. **The chain is forked and
+> neither branch has everything.** Not this build's doing and not this build's
+> to settle; the pace is four constants and two comments, so it is much the
+> cheaper of the two to re-apply on whichever branch becomes the trunk.
+
+> **AND `chain_audit` CANNOT SEE A BUILDER SHAPED LIKE `pace_build`, WHICH IS
+> OPEN ITEM 31 FOR THE FIFTH TIME.** Its tuple-table discovery takes the LABEL
+> from a row's first element and the BODY from its last, so `(old, new, label)`
+> — `pace_build`'s own shape, and therefore the shape this builder was written
+> in — reads as "no inserts found, which is itself a failure". The table was
+> reordered to `(label, old, new)` and the output's sha256 is **identical
+> before and after**. **It was NOT fixed in the tool**: accepting single-line
+> bodies would make every `(old, new, label)` builder report its own LABELS as
+> lost inserts, so the obvious widening turns a tool that audits nothing into
+> one that fails loudly on correct chains.
 
 **THE THIRTY-FOURTH RELIC IS ARCLIGHT, AND STATIC IS THE FIRST THING IN THE
 VIGIL SCHOOL THAT PAYS INTO THE SHIELD RATHER THAN SPENDING IT**

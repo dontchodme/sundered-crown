@@ -29,7 +29,7 @@ const REPO = path.resolve(__dirname, '..');
  * grepped before saying "go and watch it in the app".
  *
  * IF YOU ADD A RELIC, THIS LINE IS PART OF THE CARRY. */
-const GAME = process.env.SWB_GAME || '02-chain/sc-nova.html';
+const GAME = process.env.SWB_GAME || '02-chain/sc-lastthree.html';
 
 /* `npm run identity` has advertised this flag since the shell was written and
  * nothing read it, so the script started the app normally and the gate could
@@ -316,7 +316,8 @@ ipcMain.handle('swb:revealFile', async (_e, p) => {
 
 /* ---- CREATE SHORT -------------------------------------------------------
  *
- * A full capture is ~1,400-2,800 frames and 3-4 minutes, so this cannot be a
+ * A full capture is ~2,800-4,000 frames and 4-5 minutes -- and a worst-case
+ * pairing on the v65 pace runs to ~7,000 frames and ~8 -- so this cannot be a
  * call that returns a file. It starts a job, streams what the pipeline says,
  * and can be cancelled. ONE AT A TIME: two captures would fight over the same
  * _clip_frames directory and the second would encode the first one's frames.
