@@ -12,6 +12,33 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
+02-chain/sc-leaf.html            THE NEWEST LINK, AND THE APP DOES NOT POINT AT
+                                 IT YET . THE WINNOWING'S HIT STOP: a kunai
+                                 carries `over:{stop:0}` and the rung sets
+                                 `0.02 x rung`, so a fresh leaf freezes NOTHING
+                                 and one off three walls freezes 0.060 -- Rick's
+                                 numbers, not bisected. He watched Thornshear
+                                 and said the hit stop "reads as lag even though
+                                 its probably not", and the brief made the
+                                 diagnosis a STOP CONDITION: the unpatched tip
+                                 froze 1.825s A CAST, 22.9% OF THE WINDOW, with
+                                 6002 of 7304 freezes caused by a kunai --
+                                 against a predicted "several hundred ms". After
+                                 1.142s and 16.4%. rung-0 freezes 0 EXACTLY,
+                                 rungs at 0.020/0.040/0.060 exactly, killStop
+                                 0.550 untouched, blade freezes unchanged at
+                                 1305 either side. engine_ab 4224/4224 on the 33
+                                 others and 64 of 288 differ WITH Thornshear in
+                                 -- exactly 8 pairings x 8 seeds, which is the
+                                 pass. Thornshear +1.15pp on two blocks of 1320
+                                 both sides, inside a 0.7-1.2pp block spread.
+                                 verify 10/13: the third red is `Axiom vs
+                                 Thornshear 0/40` and IT IS NOT THIS PATCH --
+                                 that pairing was already 289/300 (96.3%) on
+                                 sc-trunk and a 0.7pp nudge tipped a
+                                 zero-tolerance check at a sample of forty.
+                                 GATE 4 IS RICK'S EYE and the pointer waits on
+                                 it. See 06-docs/v67/.
 02-chain/sc-trunk.html           BUILD OF RECORD  <- app/main.js GAME
                                                    34 relics . THE FORK IS
                                                    SETTLED. sc-corona-fx plus
