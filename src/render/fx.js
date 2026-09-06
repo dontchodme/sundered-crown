@@ -286,7 +286,21 @@
        read. */
     bloodmirror: { mode: 'burst', n: 1200, sp: [150, 600], grav: 300,
                    drag: 2.3, life: [0.26, 0.78], heavy: 0.08,
-                   size: [0.8, 2.4], spawn: 0.06, up: 20, atSelf: 1 }
+                   size: [0.8, 2.4], spawn: 0.06, up: 20, atSelf: 1 },
+    /* THE RING LIGHTING, AND IT IS THE CAST AND NOT THE WINDOW. `swirl` is
+       already drawn at `[u.x, u.y]` -- only a `burst` goes to the quarry --
+       so this one needs no `atSelf`, and it is SHORT because the eight
+       seconds after it are a drawn ring, a drawn star and sixteen drawn
+       stars rather than a field.
+
+       IT TURNS AND IT DOES NOT FALL. `grav` is barely negative and `drag` is
+       low, so what a viewer reads is material taking up an ORBIT around the
+       shell -- which is the one thing the ring has to say in the half second
+       before anybody has walked into it. Vesper's spec is the reference: the
+       other vigil relic whose ultimate is a thing that then STANDS. */
+    starwarden: { mode: 'swirl', n: 1150, sp: [70, 230], grav: -12, drag: 0.85,
+                  life: [0.40, 1.25], heavy: 0.0, size: [0.6, 2.0],
+                  spawn: 0.28, up: 0 }
   };
 
   function Field() {

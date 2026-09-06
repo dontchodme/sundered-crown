@@ -12,6 +12,102 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
+02-chain/sc-trunk.html           BUILD OF RECORD  <- app/main.js GAME
+                                                   34 relics . THE FORK IS
+                                                   SETTLED. sc-corona-fx plus
+                                                   Crossweave's stages 7-12
+                                                   re-applied by
+                                                   gloamwire_build --stage
+                                                   7..12, every anchor holding
+                                                   first time. So this build
+                                                   has EVERYTHING for the first
+                                                   time since the fork: the
+                                                   minute pace, Duskreave,
+                                                   Starwarden, and Crossweave's
+                                                   held trio, nova, drawn
+                                                   explosion and voice.
+                                                   engine_ab 3168/3168 on the
+                                                   33 (Gloamwire excluded --
+                                                   its ultimate IS the carry).
+                                                   chain_audit 21/21 gloamwire
+                                                   AND 35/35 starwarden.
+                                                   shell_identity 200/200.
+                                                   verify 11/13, ALL 34 IN
+                                                   BAND, both reds the clock.
+                                                   AND THE CARRY PUT GLOAMWIRE
+                                                   AT 64.1%, TOP OF THE ROSTER,
+                                                   SPREAD 24.0 -> 29.3pp: its
+                                                   blade is 7.25, measured at
+                                                   32 relics on the 48s clock,
+                                                   and it is now in a 34-relic
+                                                   minute-pace field. NOT a
+                                                   defect in the carry and NOT
+                                                   this build's to tune.
+                                                   AND THE APP POINTER WAS NOT
+                                                   WHERE THIS FILE SAID: it has
+                                                   read sc-lastthree since
+                                                   6117924, not sc-nova, so the
+                                                   app has been missing BOTH
+                                                   Crossweave's stages and the
+                                                   pace. See 06-docs/v66/.
+02-chain/sc-corona-fx.html       the link before it. 34 relics . STARWARDEN AND
+                                                   CORONA, the vigil twinblade,
+                                                   and it is the SECOND design
+                                                   for that cell -- Arclight was
+                                                   scrapped built. A ring of
+                                                   neon light worn like Saturn's
+                                                   for 8s; crossing it burns,
+                                                   every tick and every crossing
+                                                   stacks an UNCAPPED burn, a
+                                                   star on the body pops on the
+                                                   first body contact into 16
+                                                   bouncing stars, a touched one
+                                                   is +2 stacks and a 600 knock,
+                                                   and the leftovers chain top
+                                                   to bottom when it shuts.
+                                                   AND THE BURN FEEDS THE
+                                                   CASTER'S SHIELD at the
+                                                   blade's own rate, which is
+                                                   the first status tick in this
+                                                   game that pays anybody.
+                                                   Blade 8.3 (Rick's, not a
+                                                   bisection start). THE ONE
+                                                   KNOB is the burn's per-stack
+                                                   damage: 0.14, MEASURED, both
+                                                   sides, two seed blocks, 2112
+                                                   fights a point, no bisection.
+                                                   verify 11/13 and BOTH REDS
+                                                   ARE THE CLOCK. Starwarden
+                                                   47.0%, every relic 30-70%,
+                                                   spread 25.4 -> 24.0pp -- RUN
+                                                   ON sc-corona.html, the link
+                                                   below, because the art, the
+                                                   voices and the fx spec above
+                                                   it are engine_ab 3366/3366
+                                                   identical and cannot move a
+                                                   win rate.
+                                                   engine_ab 5280/5280 on the
+                                                   other 33 over the WHOLE
+                                                   ultimate . probe 20/20 .
+                                                   the 32nd fx spec, in both
+                                                   copies, sha re-stamped.
+                                                   THE APP POINTER DOES NOT
+                                                   MOVE -- this is the sc-minute
+                                                   fork and it does not carry
+                                                   Crossweave's stages 7-12.
+                                                   ONE WINDOW HAS BEEN WATCHED,
+                                                   TWICE, and it moved the star.
+                                                   See 06-docs/v66/.
+02-chain/sc-corona.html          the link before it, 34 relics, ART UNFIXED and
+                                                   NO PARTICLE FIELD
+02-chain/sc-shower.html          the link before it . THE STAR AND THE SHOWER,
+                                                   and no chain
+02-chain/sc-ring.html            the link before it . THE RING AND THE BURN.
+                                                   No star
+02-chain/sc-starwarden.html      the link before it . the 34th relic, ult
+                                                   STUBBED. 19.5% with no
+                                                   ultimate at all, against a
+                                                   brief band of 15-25%
 02-chain/sc-minute.html          THE MINUTE, AND A BRANCH OFF sc-lastthree.
                                                    It was written as "rather
                                                    than the Arclight chain";
@@ -122,7 +218,9 @@ short-form video for TikTok and YouTube Shorts.
                                                    touches nobody
 02-chain/sc-duskreave.html       the link before it . the 33rd relic, ult
                                                    STUBBED
-02-chain/sc-nova.html            BUILD OF RECORD  <- app/main.js GAME
+02-chain/sc-nova.html            THE OTHER SIDE OF THE FORK, and no longer
+                                                   the build of record -- sc-trunk carries
+                                                   its stages 7-12 now
                                                    32 relics . CROSSWEAVE
                                                    FINISHED, carried on to the
                                                    Bloodmirror tip: the trio is
@@ -424,6 +522,126 @@ free. `02-chain/sc-minute.html`, `06-docs/v65/pace60-build-v65.md`.
 > bodies would make every `(old, new, label)` builder report its own LABELS as
 > lost inserts, so the obvious widening turns a tool that audits nothing into
 > one that fails loudly on correct chains.
+
+> **AND ONE COLUMN OF THE DESIGN'S TABLE DOES NOT REPRODUCE: THE DWELL.**
+> `corona_relic_probe [2]` is RED on the build of record at the full 33-foe
+> roster -- **0.56s against the lab's 0.82s** -- while eight other columns land
+> (crossings 6.20 against 5.68, stacks 34.4 against 33.97, stars touched 10.9
+> against 10.90, peak 57 against 49). The foe enters the band as often as the
+> design says and LEAVES SOONER. `coronaRing` is a line-for-line port of
+> `ring_price`'s `inRing`, so it is not the geometry; the untested candidates
+> are where in the frame the test is sampled and what the shower's 600-knock
+> does to a foe standing in the band. **What it costs is the smallest channel
+> in the relic** -- ring ticks are ~3 damage a cast of ~26, and the design's own
+> section 6 calls the ring the fuse and the burn 94% of the damage -- and the
+> BALANCE is unaffected, because `corona_sweep` measured the built relic
+> directly rather than trusting the overlay. **The band was not widened.**
+
+**THE THIRTY-FOURTH RELIC IS STARWARDEN, AND CORONA'S BURN IS THE FIRST STATUS
+TICK IN THIS GAME THAT PAYS SOMEBODY** (`starwarden_build.py`, 2026-09-03).
+Vigil × twinblade, the SECOND design for the cell Arclight was scrapped out of,
+built to `06-docs/v66/STARWARDEN-BUILD-BRIEF.md` in four staged links plus a
+knob and a picture. A cast wears an elliptical band of light — Rick's *"like
+the rings of saturn"* — 120 × 42, band 24, tilt 0.45, fixed in the world and
+centred on the ball, for 8s every 15s. Crossing it costs 1 damage and a burn
+stack at 10/s, plus one on every entry; a star on the body pops on the first
+body contact into **16** stars that bounce the CURRENT inset and never expire;
+a touched one is **+2 stacks and a 600 knock**; the leftovers chain top to
+bottom at 70ms when the window shuts. **The burn is UNCAPPED** (Rick's first
+ruling, and the whole relic rests on it: capped, the ring and the shower
+substitute for each other and every look knob is inert) **and 55% of every burn
+tick is banked as ward on the caster** — his third ruling, at the blade's own
+rate. Blade **8.3**, his. `06-docs/v66/starwarden-build-v66.md`.
+
+> **THE ONE KNOB IS THE BURN'S PER-STACK DAMAGE AND IT IS 0.14, MEASURED.**
+> The design's placeholder was 0.10 and its own ladder put the band at 0.20 —
+> and said in as many words that a +15pp step for 0.05 at n=192 is a sample and
+> not a curve. `corona_sweep.py` ran the curve WIDE first (0.04 to 0.32) to
+> find the bracket rather than guess it, then measured five rows **both sides
+> of every pairing, on two seed blocks, 2112 fights a point**: 0.120 → 45.7%,
+> 0.130 → 49.4%, **0.140 → 50.9%**, 0.145 → 51.5%, 0.170 → 56.5%. **NO
+> BISECTION WAS RUN** — v48 and v56, twice each. 0.140 is taken over the row
+> nearer 50% because 0.130's two blocks came back 47.8% and 50.9%, a swing
+> larger than the difference being decided, while 0.140 reproduces to two
+> tenths. **The honest precision is the interval 0.130-0.145.**
+
+> **AND THE DESIGN'S OWN LAB REPRODUCES ITS MECHANISM ACROSS RUNTIMES AND ITS
+> WIN RATE DOES NOT.** `ring_price.py` UNMODIFIED, at the design's settled
+> settings, on the pinned 151: **arm A 19.4% against a published 17.2%, arm D
+> 45.3% against 49.1%, D−A +25.9 against +31.9** — while dwell (0.82s), stacks
+> a cast (33.97 against 33.9), stars touched (10.90 against 10.9), chained
+> (3.29 against 3.4), ring damage, shield and peak stacks all land to a
+> decimal. **Nothing about the ring, the shower or the burn is different on the
+> two Chromiums and the same arm is six points weaker on ours.** Section 4.2b's
+> control earning its place for the third time. Read the design's 0.20 against
+> 45.3%, never against 49.1%.
+
+> **AND THE BUILT RELIC AGREES WITH THE OVERLAY THAT PRICED IT**, which is the
+> control that could have failed: the lab's arm D at 0.10 reads 45.3% and the
+> built relic's curve reads 43.2% at 0.096 (SE 3.0pp). What was built is what
+> was priced.
+
+> **THREE ENGINE CHANGES, ALL PROVED INERT.** `apply` gained an optional third
+> argument (`src`, "a" or "b" — a side letter and not a Fighter, because a
+> reference would put a live object graph inside a status the renderer
+> snapshots every frame); `tickStatus` gained one branch, which reads
+> `STATUS.ward.bank` rather than a second copy of 0.55 because "the blade's
+> rate" is Rick's sentence; and `tickCharge` gained one clause so a cast waits
+> for the last chain to drain. **`engine_ab` 5280/5280 identical on the other
+> 33 across the WHOLE ultimate.** `tickStatus`'s fatal-tick beat has carried
+> the note *"the day a third party can apply a bleed, this needs a source on
+> the status"* for four versions — this is that day, from the other direction:
+> the burn does not need to know who to BLAME, it needs to know who to PAY.
+
+> **verify IS 11/13 AND BOTH REDS ARE THE CLOCK, AGAIN.** Starwarden **47.0%**,
+> every relic in 30-70% (Heartwood 35.5 to Ironhail 59.5), **and the roster
+> spread came DOWN, 25.4pp → 24.0pp, with a thirty-fourth relic in it.** The
+> two failures are `Farwarden/Starwarden` at 98.4s — the known pairing ceiling,
+> the same four relics for the fifth time, ruled accept — and the overall-mean
+> band of 28-54s, which cannot contain a minute and has contradicted a ruling
+> since `pace60_build` landed. The stage-1 red that DID clear is the one that
+> matters: "both sides can win every matchup" fails on the stubbed body and
+> passes on the finished relic.
+
+> **AND RICK COULD NOT SEE THE LARGE STAR, WHICH IS §4.1 AND THREE OLD RULES AT
+> ONCE.** *"looking good. i cant see the large star in the ring though."*
+> Measured before it was touched (`corona_star_probe.py`, now a permanent
+> check): the star stands **2.72s of a 9.26s window — 29%, so it was never a
+> duration problem** — and its brightest pixel moved the picture by **0.167**
+> with a mean of 0.017. Three faults: it was drawn inside `drawCorona`'s
+> `lighter` block, so it ADDED pink light to an already-bright pink shell
+> (§4.1b, third time); it was radius **17 against `ballR` 34**, so it sat
+> entirely inside the disc it was meant to be sitting on; and it was `P.core`
+> on a vigil relic, which is **`_stWard`'s own capitals — A SELF-BUFF MUST
+> SEPARATE BY VALUE, NOT BY HUE.** Redrawn `source-over` at 1.02 × ballR with a
+> 7px outline in the school's dark: peak **0.167 → 0.808**, mean 0.017 →
+> 0.078. **`engine_ab` 3366/3366 identical WITH STARWARDEN ITSELF IN THE
+> ROSTER** — the picture moved and no fight did.
+
+> **THE FORK IS SETTLED AND THE APP IS ON IT** (`sc-trunk.html`, 2026-09-03,
+> Rick: *"lets get it in the app"*). Crossweave's six missing stages were
+> re-applied onto this relic's tip -- the cheap direction -- and every anchor
+> held first time. **AND THE POINTER WAS NOT WHERE THIS FILE SAID IT WAS**: it
+> has read `sc-lastthree` since `6117924`, not `sc-nova`, so the app has been
+> showing 33 relics with neither Crossweave's stages nor the minute pace. Two
+> paragraphs of this section were describing a pointer that moved out from
+> under them, which is exactly the drift `docs/ARCHITECTURE.md` §1 exists to
+> prevent and is why the carry now checks it.
+
+> **AND IT GOT THE 32nd PARTICLE FIELD, IN BOTH COPIES, WITH THE SHA
+> RE-STAMPED.** The stamp was **already stale chain-wide** — the page said
+> `3fe5a2bb` and `src/render/fx.js` hashed to `91a5a1b7`, because every SPECS
+> insert since `fx_build` last ran has changed both copies without touching the
+> stamp. It is recomputed now. **`ravelbone` and `gloamwire` still have no
+> field at all** and `ULTFX.sync` still returns silently on a missing spec —
+> open item 46, untouched.
+
+> **NOBODY HAS HEARD IT.** The four cast voices and the three burn/star voices
+> of brief stage 6 have not been rendered, so the cast plays the generic
+> "rune-crack" fallback. The ring, the shower, the burn tag and the chain are
+> still first cuts. `07-shorts/v66/corona-window.mp4` and `corona-window2.mp4`
+> are the only two clips that exist, same seed and same window, before and
+> after the star.
 
 **THE THIRTY-FOURTH RELIC WAS ARCLIGHT AND IT IS SCRAPPED.** Rick, 2026-09-02,
 having seen it: *"i dont like what ive built. lets start over."* Vigil x
