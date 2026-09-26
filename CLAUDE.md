@@ -448,8 +448,9 @@ short-form video for TikTok and YouTube Shorts.
 > open cells (the grid is FULL at 42 of 42) and eleven redesigns of the
 > v5-era one-liners, each with a design doc, a brief, a lab module under
 > `tools/overlays/` and its runs, all claimed in `06-docs/CLAIMS.md`.
-> **RICK WAIVED THE VETO, 2026-09-26: no vetoes, build all nineteen, on
-> yert, in the handoff's order.** **Start at
+> **RICK WAIVED THE VETO, 2026-09-26: no vetoes, build all nineteen, in the
+> handoff's order — and they are built on DESKTOP-DERRAFT, NOT yert** (Rick:
+> *"just build them here"*; `yert` sees the work after a pull). **Start at
 > `06-docs/v87/HANDOFF-DESIGN-BATCH-v87.md`.** Rule 0 unchanged: Code builds
 > them from their docs and designs nothing. Every number in v68–v86 is on
 > Chromium 141; every brief's stage 0 is the reproduction on 151.
