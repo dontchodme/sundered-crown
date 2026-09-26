@@ -1,0 +1,12 @@
+
+  arm                       win  casts  bites   stk   dmg  touch% foeStk  grow root s hits in/out castsHit
+  A no ultimate            7.0%   0.00   0.00   0.0   0.0    0.0%   0.00  1.00   0.00  0.00/9.08        0%
+  B bites only             8.2%   3.23   1.67   1.7   3.3    3.6%   1.52  1.00   0.00  3.85/5.25       63%
+  C bites + growth         7.9%   3.20   1.75   1.8   3.5    3.8%   1.57  1.16   0.00  3.87/5.16       65%
+  D the whole §1           7.9%   3.24   1.75   1.7   3.5    3.9%   1.57  1.16   0.41  3.89/5.25       65%
+  R root only              7.6%   3.20   0.00   0.0   0.0    3.6%   1.21  1.00   0.30  3.96/5.35        0%
+
+  lifts over A: B +1.2  C +0.9  D +0.9  R +0.6
+  CONTROL arm A 6.97% against 6.97%: PASS
+
+  1650 fights in 148s   errors: []

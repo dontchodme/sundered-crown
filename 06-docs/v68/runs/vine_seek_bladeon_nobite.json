@@ -1,0 +1,34 @@
+{
+ "P": {
+  "blade": null,
+  "charge": 16.0,
+  "dur": 8.0,
+  "vineW": 8.0,
+  "biteDmg": 0.0,
+  "biteCd": 0.3,
+  "bitePer": 0,
+  "grow": 0.05,
+  "growCap": 3.0,
+  "rootPer": 0.3,
+  "haft": 0,
+  "growTime": 0.3,
+  "seek": 1,
+  "noblade": 0
+ },
+ "arms": {
+  "C": {
+   "win": 0.5151515151515151,
+   "n": 330,
+   "casts": 1012,
+   "bitesPerCast": 10.82213438735178,
+   "stacksPerCast": 0.0,
+   "dmgPerCast": 0.0,
+   "touch": 0.33473007278598704,
+   "foeStk": 2.7737651675971846,
+   "growPeak": 3,
+   "rootSec": 0.0,
+   "hitsIn": 9.878787878787879,
+   "hitsOut": 4.957575757575758
+  }
+ }
+}
