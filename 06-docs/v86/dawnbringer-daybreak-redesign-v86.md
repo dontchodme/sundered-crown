@@ -36,3 +36,6 @@ Stage 0 control on 151 (`--arms A,SHIP,B`). Stage 1 — sparks out (`_burst` and
 
 # 6. Open decisions
 1. **Rick's veto — his first relic.** 2. The heal: one flag, +17, and a blade under the row; his. 3. Line speed — the floor-to-ceiling rise in 8s means the last second lights the whole hall; a rise to 80% of the height instead is one number.
+
+# 7. Ruled at build time (recorded by Claude Code, not designed)
+**Rick, 2026-09-26:** no vetoes, build all nineteen, and **CHARGE 16** (the window, 8, is stated above). This doc did not state the charge, and 16 is what every run in `runs/` was priced at (`P` in each json). Items 2 and 3 are built as written, with no heal and the full floor-to-ceiling rise, unless Rick flags otherwise before this build starts.

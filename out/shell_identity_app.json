@@ -1,5 +1,5 @@
 {
-  "build": "02-chain/sc-trunk.html",
+  "build": "02-chain/sc-leaf.html",
   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) sundered-crown-app/0.1.0 Chrome/152.0.7977.54 Electron/44.0.0 Safari/537.36",
   "chrome": "152.0.7977.54",
   "rows": [
@@ -196,18 +196,18 @@
         "a": "Ironhail",
         "b": "Thornshear",
         "winner": "Thornshear",
-        "hp": 192,
-        "duration": 70.7,
+        "hp": 164,
+        "duration": 65.89,
         "reason": "slain",
         "hits": {
           "a": 14,
-          "b": 74
+          "b": 85
         },
         "crits": {
           "a": 0,
-          "b": 3
+          "b": 8
         },
-        "clanks": 9
+        "clanks": 11
       }
     },
     {
@@ -586,19 +586,19 @@
         "seed": 1936396930,
         "a": "Thornshear",
         "b": "Ironhail",
-        "winner": "Thornshear",
-        "hp": 94,
-        "duration": 59.97,
+        "winner": "Ironhail",
+        "hp": 170,
+        "duration": 51.43,
         "reason": "slain",
         "hits": {
-          "a": 78,
-          "b": 15
+          "a": 46,
+          "b": 20
         },
         "crits": {
-          "a": 7,
+          "a": 4,
           "b": 1
         },
-        "clanks": 13
+        "clanks": 11
       }
     },
     {
@@ -977,19 +977,19 @@
         "seed": 4112131907,
         "a": "Ironhail",
         "b": "Thornshear",
-        "winner": "Ironhail",
-        "hp": 272,
-        "duration": 45.37,
+        "winner": "Thornshear",
+        "hp": 130,
+        "duration": 59.12,
         "reason": "slain",
         "hits": {
-          "a": 18,
-          "b": 47
+          "a": 15,
+          "b": 96
         },
         "crits": {
-          "a": 4,
-          "b": 9
+          "a": 1,
+          "b": 8
         },
-        "clanks": 2
+        "clanks": 8
       }
     },
     {
@@ -1369,18 +1369,18 @@
         "a": "Thornshear",
         "b": "Ironhail",
         "winner": "Ironhail",
-        "hp": 258,
-        "duration": 46.72,
+        "hp": 183,
+        "duration": 51.08,
         "reason": "slain",
         "hits": {
-          "a": 48,
-          "b": 16
+          "a": 42,
+          "b": 19
         },
         "crits": {
-          "a": 4,
-          "b": 3
+          "a": 9,
+          "b": 0
         },
-        "clanks": 14
+        "clanks": 6
       }
     },
     {
@@ -1760,18 +1760,18 @@
         "a": "Ironhail",
         "b": "Thornshear",
         "winner": "Ironhail",
-        "hp": 255,
-        "duration": 49.77,
+        "hp": 270,
+        "duration": 41.14,
         "reason": "slain",
         "hits": {
-          "a": 18,
-          "b": 51
+          "a": 19,
+          "b": 48
         },
         "crits": {
-          "a": 1,
-          "b": 6
+          "a": 2,
+          "b": 1
         },
-        "clanks": 12
+        "clanks": 8
       }
     },
     {
@@ -2150,19 +2150,19 @@
         "seed": 2049402246,
         "a": "Thornshear",
         "b": "Ironhail",
-        "winner": "Thornshear",
-        "hp": 51,
-        "duration": 63.06,
+        "winner": "Ironhail",
+        "hp": 31,
+        "duration": 72.78,
         "reason": "slain",
         "hits": {
           "a": 84,
-          "b": 16
+          "b": 13
         },
         "crits": {
-          "a": 13,
-          "b": 1
+          "a": 5,
+          "b": 2
         },
-        "clanks": 13
+        "clanks": 17
       }
     },
     {
@@ -2542,18 +2542,18 @@
         "a": "Ironhail",
         "b": "Thornshear",
         "winner": "Ironhail",
-        "hp": 225,
-        "duration": 56.38,
+        "hp": 381,
+        "duration": 35.6,
         "reason": "slain",
         "hits": {
-          "a": 19,
-          "b": 58
+          "a": 17,
+          "b": 26
         },
         "crits": {
-          "a": 1,
-          "b": 3
+          "a": 2,
+          "b": 1
         },
-        "clanks": 10
+        "clanks": 6
       }
     },
     {
@@ -2933,15 +2933,15 @@
         "a": "Thornshear",
         "b": "Ironhail",
         "winner": "Thornshear",
-        "hp": 5,
-        "duration": 60.92,
+        "hp": 92,
+        "duration": 59.56,
         "reason": "slain",
         "hits": {
-          "a": 80,
-          "b": 17
+          "a": 90,
+          "b": 16
         },
         "crits": {
-          "a": 12,
+          "a": 8,
           "b": 1
         },
         "clanks": 7
@@ -3324,18 +3324,18 @@
         "a": "Ironhail",
         "b": "Thornshear",
         "winner": "Ironhail",
-        "hp": 167,
-        "duration": 55.22,
+        "hp": 31,
+        "duration": 60.97,
         "reason": "slain",
         "hits": {
-          "a": 20,
-          "b": 51
+          "a": 18,
+          "b": 76
         },
         "crits": {
           "a": 1,
-          "b": 8
+          "b": 11
         },
-        "clanks": 3
+        "clanks": 11
       }
     },
     {
@@ -3715,18 +3715,18 @@
         "a": "Thornshear",
         "b": "Ironhail",
         "winner": "Ironhail",
-        "hp": 222,
-        "duration": 46.07,
+        "hp": 281,
+        "duration": 42.89,
         "reason": "slain",
         "hits": {
-          "a": 48,
-          "b": 19
+          "a": 50,
+          "b": 16
         },
         "crits": {
-          "a": 3,
-          "b": 1
+          "a": 4,
+          "b": 3
         },
-        "clanks": 9
+        "clanks": 11
       }
     },
     {
@@ -4106,18 +4106,18 @@
         "a": "Ironhail",
         "b": "Thornshear",
         "winner": "Ironhail",
-        "hp": 69,
-        "duration": 61.21,
+        "hp": 54,
+        "duration": 71.73,
         "reason": "slain",
         "hits": {
-          "a": 18,
-          "b": 68
+          "a": 20,
+          "b": 78
         },
         "crits": {
-          "a": 2,
-          "b": 4
+          "a": 0,
+          "b": 3
         },
-        "clanks": 12
+        "clanks": 17
       }
     },
     {
@@ -4497,18 +4497,18 @@
         "a": "Thornshear",
         "b": "Ironhail",
         "winner": "Ironhail",
-        "hp": 277,
-        "duration": 46.77,
+        "hp": 49,
+        "duration": 64.61,
         "reason": "slain",
         "hits": {
-          "a": 44,
-          "b": 20
+          "a": 90,
+          "b": 21
         },
         "crits": {
           "a": 6,
-          "b": 1
+          "b": 0
         },
-        "clanks": 9
+        "clanks": 18
       }
     },
     {

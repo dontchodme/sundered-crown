@@ -158,6 +158,13 @@ and that is gate 4.**
 
 ## 3. OPEN, AND WHOSE
 
+> **GATE 4 PASSED, 2026-09-26.** Rick: *"I approve the Thornshear fix."* Items
+> 1 and 2 below are closed by that: the numbers stand as built (0.06 at rung 3
+> included), and `app/main.js` now reads `sc-leaf.html`. `npm run identity`
+> then `shell_identity.py`: **PASS 200/200** on sc-leaf (app Chromium 152 vs
+> headless 151, run on DESKTOP-DERRAFT). The v68-v86 design batch is built on
+> top of this link.
+
 1. **Whether 0.06 at rung 3 reads as "bigger".** The brief's own open item 1, a
    picture question, and it is Rick's from the pair above rather than in words.
 2. **THE APP POINTER HAS NOT MOVED.** `app/main.js` still reads `sc-trunk.html`.

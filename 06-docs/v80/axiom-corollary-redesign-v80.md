@@ -35,3 +35,6 @@ Stage 0 control on 151 (`--arms A,SHIP,C --P echoMul=1.0 --seeds 20`). Stage 1 �
 
 # 6. Open decisions
 1. Rick's veto. 2. Echo reach 200 — a foe knocked out of reach by the blow itself escapes the corollary 37% of the time; that is the type's own knock and a lever if wanted. 3. Whether the echo should carry the blow's crit (it does not).
+
+# 7. Ruled at build time (recorded by Claude Code, not designed)
+**Rick, 2026-09-26:** no vetoes, build all nineteen, and **CHARGE 16, WINDOW 8**. This doc stated neither, and those are the numbers every run in `runs/` was priced at (`P` in each json). The other open items are built as written: reach 200 (item 2); the echo does NOT carry the blow's crit (item 3, and §4 "no crit"); a queued echo past the window still lands (§4). `overlays/corollary.js` differs from the prose on the last two (it copies `me.dealt`, crit included, and drops the queue at window close), so the build's gates read against a lab run of the prose reading, made on 151.

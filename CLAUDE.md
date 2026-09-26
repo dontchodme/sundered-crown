@@ -12,8 +12,13 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-leaf.html            THE NEWEST LINK, AND THE APP DOES NOT POINT AT
-                                 IT YET . THE WINNOWING'S HIT STOP: a kunai
+02-chain/sc-leaf.html            BUILD OF RECORD  <- app/main.js GAME, since
+                                 2026-09-26: RICK PASSED GATE 4 ("I approve the
+                                 Thornshear fix"), the pointer moved, and
+                                 shell_identity 200/200 on sc-leaf (app
+                                 Chromium 152 vs headless 151). The design
+                                 batch (v68-v86) is built ON THIS LINK.
+                                 THE WINNOWING'S HIT STOP: a kunai
                                  carries `over:{stop:0}` and the rung sets
                                  `0.02 x rung`, so a fresh leaf freezes NOTHING
                                  and one off three walls freezes 0.060 -- Rick's
@@ -37,9 +42,10 @@ short-form video for TikTok and YouTube Shorts.
                                  that pairing was already 289/300 (96.3%) on
                                  sc-trunk and a 0.7pp nudge tipped a
                                  zero-tolerance check at a sample of forty.
-                                 GATE 4 IS RICK'S EYE and the pointer waits on
-                                 it. See 06-docs/v67/.
-02-chain/sc-trunk.html           BUILD OF RECORD  <- app/main.js GAME
+                                 GATE 4 WAS RICK'S EYE, and it passed on
+                                 2026-09-26. See 06-docs/v67/.
+02-chain/sc-trunk.html           the link before it; BUILD OF RECORD until
+                                 2026-09-26
                                                    34 relics . THE FORK IS
                                                    SETTLED. sc-corona-fx plus
                                                    Crossweave's stages 7-12
