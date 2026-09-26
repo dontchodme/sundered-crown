@@ -443,6 +443,16 @@ short-form video for TikTok and YouTube Shorts.
 01-live/sc-playable.html         OLD SNAPSHOT      16 relics — NOT A TARGET
 ```
 
+> **NINETEEN ULTIMATES ARE DESIGNED AND NONE IS BUILT** (Cowork, 2026-09-26 —
+> Rick: *"do it all. we will hand off the whole thing at once"*). The eight
+> open cells (the grid is FULL at 42 of 42) and eleven redesigns of the
+> v5-era one-liners, each with a design doc, a brief, a lab module under
+> `tools/overlays/` and its runs, all claimed in `06-docs/CLAIMS.md` as
+> `DESIGNED, AWAITING RICK'S VETO`. **Start at
+> `06-docs/v87/HANDOFF-DESIGN-BATCH-v87.md`.** Rule 0 unchanged: Code builds
+> the survivors from their docs and designs nothing. Every number in v68–v86
+> is on Chromium 141; every brief's stage 0 is the reproduction on 151.
+
 **THE FIGHT IS A MINUTE LONG NOW, AND IT IS THE SAME FIGHT STRETCHED**
 (`pace60_build.py`, 2026-09-02). Rick: *"we also did some work to make fights
 last longer. id really like to get the average closer to a minute. how do we
