@@ -1,0 +1,14 @@
+34 relics in this build
+
+  cell                              FIELD ULTS OFF         FIELD ULTS ON     gap
+                                 floor        lift     floor        lift
+  dwarven x twinblade            36.1%      +40.3pp      9.7%      +23.9pp  -16.4
+  runic x bow                    35.8%      +24.5pp     13.0%      +20.6pp   -3.9
+  runic x warhammer              36.7%      +13.6pp     13.6%       +9.1pp   -4.5
+  sanctified x flail             16.7%      +12.7pp      3.6%       +3.3pp   -9.4
+  sanctified x twinblade         36.1%      +33.3pp      9.7%      +20.6pp  -12.7
+  verdant x flail                16.7%       +7.3pp      3.6%       +3.3pp   -3.9
+  verdant x warhammer            36.7%       +7.3pp     13.6%       +2.1pp   -5.2
+  vigil x flail                  16.7%      +36.1pp      3.6%      +23.6pp  -12.4
+
+  10560 fights in 975s   errors: []
