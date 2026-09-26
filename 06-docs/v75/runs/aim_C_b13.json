@@ -1,0 +1,103 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 8.0,
+  "blade": 13
+ },
+ "arms": {
+  "A": {
+   "win": 0.1484848484848485,
+   "n": 660,
+   "casts": 0.0,
+   "hitsIn": 0.0,
+   "hitsOut": 21.472727272727273,
+   "stats": {
+    "arrowHits": 0.0,
+    "f_foeStk": 0.0,
+    "hex": 0.0
+   },
+   "byFoe": {
+    "dawnbringer": 0.05,
+    "widowmaker": 0.1,
+    "grudgebearer": 0.15,
+    "thornwake": 0.15,
+    "lastlight": 0.2,
+    "gravemourn": 0.2,
+    "slagheart": 0.1,
+    "spellbreaker": 0.0,
+    "lightkeeper": 0.05,
+    "farwarden": 0.1,
+    "aureole": 0.15,
+    "censer": 0.3,
+    "emberedge": 0.3,
+    "oathwound": 0.1,
+    "heartwood": 0.1,
+    "nightfell": 0.05,
+    "axiom": 0.0,
+    "twinshade": 0.1,
+    "redflail": 0.45,
+    "foregone": 0.1,
+    "vinesower": 0.35,
+    "bulwarden": 0.1,
+    "marrowdraw": 0.2,
+    "paradox": 0.1,
+    "thornshear": 0.2,
+    "vesper": 0.3,
+    "shroudmaul": 0.15,
+    "cindercleave": 0.05,
+    "ravelbone": 0.25,
+    "gloamwire": 0.05,
+    "bloodmirror": 0.35,
+    "duskreave": 0.05,
+    "starwarden": 0.0
+   }
+  },
+  "C": {
+   "win": 0.5969696969696969,
+   "n": 660,
+   "casts": 3.446969696969697,
+   "hitsIn": 14.89090909090909,
+   "hitsOut": 12.751515151515152,
+   "stats": {
+    "arrowHits": 4.204835164835165,
+    "f_foeStk": 2.8963980996842467,
+    "hex": 4.204835164835165
+   },
+   "byFoe": {
+    "dawnbringer": 0.75,
+    "widowmaker": 0.5,
+    "grudgebearer": 0.65,
+    "thornwake": 0.7,
+    "lastlight": 0.5,
+    "gravemourn": 0.65,
+    "slagheart": 0.65,
+    "spellbreaker": 0.45,
+    "lightkeeper": 0.65,
+    "farwarden": 0.65,
+    "aureole": 0.7,
+    "censer": 0.65,
+    "emberedge": 0.7,
+    "oathwound": 0.55,
+    "heartwood": 0.6,
+    "nightfell": 0.65,
+    "axiom": 0.7,
+    "twinshade": 0.45,
+    "redflail": 0.9,
+    "foregone": 0.55,
+    "vinesower": 0.75,
+    "bulwarden": 0.35,
+    "marrowdraw": 0.85,
+    "paradox": 0.35,
+    "thornshear": 0.95,
+    "vesper": 0.9,
+    "shroudmaul": 0.2,
+    "cindercleave": 0.8,
+    "ravelbone": 0.5,
+    "gloamwire": 0.25,
+    "bloodmirror": 0.5,
+    "duskreave": 0.05,
+    "starwarden": 0.65
+   }
+  }
+ }
+}
