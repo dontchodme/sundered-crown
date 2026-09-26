@@ -447,11 +447,12 @@ short-form video for TikTok and YouTube Shorts.
 > Rick: *"do it all. we will hand off the whole thing at once"*). The eight
 > open cells (the grid is FULL at 42 of 42) and eleven redesigns of the
 > v5-era one-liners, each with a design doc, a brief, a lab module under
-> `tools/overlays/` and its runs, all claimed in `06-docs/CLAIMS.md` as
-> `DESIGNED, AWAITING RICK'S VETO`. **Start at
+> `tools/overlays/` and its runs, all claimed in `06-docs/CLAIMS.md`.
+> **RICK WAIVED THE VETO, 2026-09-26: no vetoes, build all nineteen, on
+> yert, in the handoff's order.** **Start at
 > `06-docs/v87/HANDOFF-DESIGN-BATCH-v87.md`.** Rule 0 unchanged: Code builds
-> the survivors from their docs and designs nothing. Every number in v68–v86
-> is on Chromium 141; every brief's stage 0 is the reproduction on 151.
+> them from their docs and designs nothing. Every number in v68–v86 is on
+> Chromium 141; every brief's stage 0 is the reproduction on 151.
 
 **THE FIGHT IS A MINUTE LONG NOW, AND IT IS THE SAME FIGHT STRETCHED**
 (`pace60_build.py`, 2026-09-02). Rick: *"we also did some work to make fights
