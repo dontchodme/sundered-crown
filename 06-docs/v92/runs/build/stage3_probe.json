@@ -1,0 +1,58 @@
+{
+ "T": {
+  "fights": 148,
+  "wins": 77,
+  "dur": 11596.20833333459,
+  "looses": 24535,
+  "badCad": [],
+  "bolts": 17170,
+  "badBolt": [],
+  "blows": 5045,
+  "landings": 3583,
+  "knockChecked": 3583,
+  "badKnock": [],
+  "lampLand": 1444,
+  "banked": 3185,
+  "capped": 352,
+  "noBank": 0,
+  "nodmg": 40,
+  "badBank": [],
+  "reflected": 6,
+  "casts": 652,
+  "ultBeats": 652,
+  "badPlace": [],
+  "lampShots": 4277,
+  "badLamp": [],
+  "badGap": [],
+  "outside": 0,
+  "noCine": 0,
+  "winFrames": 685127,
+  "shield": 22180927.125,
+  "winBlows": 3149,
+  "refused": 0,
+  "labCasts": 660,
+  "tally": 652,
+  "live": true
+ },
+ "row": {
+  "win": 0.5202702702702703,
+  "castsF": 4.405405405405405,
+  "lampC": 6.559815950920245,
+  "lampBlowC": 2.214723926380368,
+  "winBlowsF": 21.277027027027028,
+  "winBlowC": 4.829754601226994,
+  "shield": 32.37491315478736,
+  "blowsF": 34.08783783783784,
+  "outF": 12.81081081081081,
+  "dur": 78.3527590090175
+ },
+ "D": {
+  "threw": null,
+  "frames": 20833,
+  "seen": {
+   "bolt": 8715,
+   "lamp": 8007,
+   "lantern": 18260
+  }
+ }
+}

@@ -1,0 +1,11 @@
+=== ENGINE A/B: 38 relics, 10 seeds x 703 pairings ===
+
+  sc-beacon.html                  7030 matches  624.5s
+  sc-watchlight-fx.html           7030 matches  399.8s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 7030
+  PASS  every match identical field for field  — 7030/7030
+  PASS  the sweep is real  — 38/38 distinct winners, 7030 distinct seeds, 16.3-148.5s
+
+ENGINE A/B PASS — ../02-chain/sc-watchlight-fx.html does not move the 38-relic roster.

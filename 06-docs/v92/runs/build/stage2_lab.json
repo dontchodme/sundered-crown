@@ -1,0 +1,72 @@
+{
+ "T": {
+  "fights": 660,
+  "wins": 145,
+  "dur": 51657.558333339366,
+  "looses": 111801,
+  "badCad": [],
+  "bolts": 78633,
+  "badBolt": [],
+  "blows": 16471,
+  "landings": 9809,
+  "knockChecked": 0,
+  "badKnock": [],
+  "lampLand": 0,
+  "banked": 9127,
+  "capped": 534,
+  "noBank": 2,
+  "nodmg": 141,
+  "badBank": [
+   {
+    "foe": "bulwarden",
+    "foeAlive": true,
+    "over": false,
+    "selfHpLost": 0,
+    "shield0": 25.5,
+    "dealt": 7,
+    "shield": 22.125,
+    "lamp": false,
+    "t": 57.42499999999738
+   },
+   {
+    "foe": "bulwarden",
+    "foeAlive": true,
+    "over": false,
+    "selfHpLost": 0,
+    "shield0": 6,
+    "dealt": 4,
+    "shield": 0,
+    "lamp": false,
+    "t": 24.624999999999243
+   }
+  ],
+  "reflected": 5,
+  "casts": 0,
+  "ultBeats": 0,
+  "badPlace": [],
+  "lampShots": 0,
+  "badLamp": [],
+  "badGap": [],
+  "outside": 0,
+  "noCine": 0,
+  "winFrames": 0,
+  "shield": 0,
+  "winBlows": 0,
+  "refused": 0,
+  "labCasts": 2905,
+  "tally": 0,
+  "live": false
+ },
+ "row": {
+  "win": 0.2196969696969697,
+  "castsF": 0.0,
+  "lampC": 0,
+  "lampBlowC": 0,
+  "winBlowsF": 0.0,
+  "winBlowC": 0,
+  "shield": 0,
+  "blowsF": 24.956060606060607,
+  "outF": 24.956060606060607,
+  "dur": 78.26902777778692
+ }
+}

@@ -1,0 +1,9 @@
+
+WATCHLIGHT / BEACON -- the insert audit against ../02-chain/sc-watchlight-fx.html
+  ok    stage 1  Watchlight joins the roster, its ultimate stubbed: 1 line(s) replaced by a later stage, by design
+  ok    stage 2  the wardbolt is drawn (first cut): 1 line(s) replaced by a later stage, by design
+  ok    stage 3  tickBeacon: the lantern fires at the foe: 1 line(s) replaced by a later stage, by design
+  ok    stage 3  the lantern's shot is drawn (first cut): 1 line(s) replaced by a later stage, by design
+  ok    stage 3  drawBeacon: the lantern on the floor (first cut): 7 line(s) replaced by a later stage, by design
+
+  24/24 inserts survive in sc-watchlight-fx.html (5 carry lines a later stage replaced on purpose)

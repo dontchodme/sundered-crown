@@ -1,0 +1,3 @@
+WATCHLIGHT PROBE -- ../02-chain/sc-beacon.html   660 fights, --lab (side A, the lab's seeds and field)   86s
+  win 49.7%   casts 4.39   hits in/out 21.32/12.90   lantern shots 6.61 a cast   blows 4.86 a window (2.17 the lantern's)   shield 31.8 on a window frame   blows 34.2 a fight   mean 78.9s   refused 0
+  against stage 0 on 151 (runs/build/stage0_*.txt)

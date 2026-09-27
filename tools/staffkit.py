@@ -75,6 +75,10 @@ def relic_entry(code: str, rid: str) -> str:
 
 
 def fnum(v) -> str:
+    """A number as the page writes it -- and a boolean as JS writes one (Crozier's
+    `pierce: true`; `str(True)` would put a Python name into the page)."""
+    if isinstance(v, bool):
+        return "true" if v else "false"
     return repr(v) if isinstance(v, float) else str(v)
 
 

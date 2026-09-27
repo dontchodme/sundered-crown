@@ -1,0 +1,45 @@
+WATCHLIGHT'S VOICES -- ../02-chain/sc-beacon.html -- Chromium 151.0.7922.34 -- the method of culverin_voice_lab
+
+  control  hit@9.3      peak 0.421  TOP  -18.9 dB @   25 ms  aud   75 ms  cent    157 Hz  low 0.79  low60 0.76  hi20 0.02  PHONE  -30.5
+  control  arrow loose  peak 0.026  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   1027 Hz  low 0.01  low60 0.01  hi20 0.14  PHONE  -48.1
+  control  wall         peak 0.089  TOP  -38.9 dB @   25 ms  aud   25 ms  cent  11829 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -38.9
+  control  rune-crack   peak 0.647  TOP  -17.2 dB @   25 ms  aud  445 ms  cent   1086 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -17.2
+  (hit@9.3 is a wardbolt landing: blade 9.3 x 1.0; 'arrow loose' is the staff's own release)
+
+THE CAST  -- "a wooden knock into a glass chime, 0.35s"   -- level-matched to HIT -6 dB
+  KNOCKCHIME   peak 0.145  TOP  -25.0 dB @   95 ms  aud  355 ms  cent   1667 Hz  low 0.00  low60 0.00  hi20 0.01  PHONE  -25.0  vs HIT  -6.0 dB  clicks 11
+               REG rune-crack 0.60  
+  SETDOWN      peak 0.169  TOP  -25.0 dB @  105 ms  aud  350 ms  cent   1468 Hz  low 0.00  low60 0.00  hi20 0.01  PHONE  -25.0  vs HIT  -6.1 dB  clicks 11
+               REG rune-crack 0.17  
+  GLASSBELL    peak 0.158  TOP  -25.0 dB @   85 ms  aud  335 ms  cent   1376 Hz  low 0.00  low60 0.00  hi20 0.01  PHONE  -25.1  vs HIT  -6.0 dB  clicks 9
+               REG rune-crack 0.18  
+  PICK  SETDOWN
+
+THE LANTERN SHOT  -- "the staff's own shot voice, filtered brighter and quieter ... pitched by the count"   -- level-matched to HIT -32 dB
+  BRIGHT       peak 0.027  TOP  -51.0 dB @   25 ms  aud   35 ms  cent   1810 Hz  low 0.00  low60 0.00  hi20 0.47  PHONE  -51.0  vs HIT -32.0 dB  clicks 1
+               REG the release 0.85  rise 7.25
+  BRIGHTER     peak 0.026  TOP  -51.1 dB @   25 ms  aud   30 ms  cent   1973 Hz  low 0.00  low60 0.00  hi20 0.65  PHONE  -51.1  vs HIT -32.1 dB  clicks 2
+               REG the release 0.68  rise 4.52
+  BRIGHTEST    peak 0.023  TOP  -51.1 dB @   25 ms  aud   30 ms  cent   2566 Hz  low 0.00  low60 0.00  hi20 0.94  PHONE  -51.1  vs HIT -32.1 dB  clicks 1
+               REG the release 0.61  rise 8.49
+  GLASS        peak 0.013  TOP  -50.9 dB @   25 ms  aud   90 ms  cent   1486 Hz  low 0.00  low60 0.00  hi20 0.93  PHONE  -50.9  vs HIT -32.0 dB  clicks 2
+               REG the release 0.30  rise 6.01
+  PICK  BRIGHTEST
+
+THE THUMP  -- "a low thump under the hit when knock >= 400"   -- level-matched to HIT -8 dB
+  LOWTHUMP     peak 0.133  TOP  -26.9 dB @   25 ms  aud   75 ms  cent     85 Hz  low 1.00  low60 1.00  hi20 0.00  PHONE  -49.1  vs HIT  -7.9 dB  clicks 3
+               REG hit 0.22  
+  DRUM         peak 0.177  TOP  -27.1 dB @   25 ms  aud   60 ms  cent    109 Hz  low 0.98  low60 0.98  hi20 0.00  PHONE  -42.2  vs HIT  -8.1 dB  clicks 2
+               REG hit 0.64  
+  PUSH         peak 0.160  TOP  -27.1 dB @   25 ms  aud   65 ms  cent    100 Hz  low 0.99  low60 0.99  hi20 0.00  PHONE  -44.2  vs HIT  -8.2 dB  clicks 2
+               REG hit 0.48  
+  PICK  DRUM
+
+THE CLOSE  -- "the chime reversed, short"   -- level-matched to HIT -10 dB
+  SHORT        peak 0.109  TOP  -29.0 dB @   65 ms  aud  115 ms  cent   1506 Hz  low 0.00  low60 0.00  hi20 0.99  PHONE  -29.0  vs HIT -10.1 dB  clicks 5
+               REG the cast 0.98  
+  STAGGER2     peak 0.109  TOP  -29.0 dB @  135 ms  aud  185 ms  cent   1513 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -29.0  vs HIT -10.1 dB  clicks 7
+               REG the cast 0.97  
+  PICK  STAGGER2
+
+THE PICKS: cast SETDOWN, lamp BRIGHTEST, thump DRUM, close STAGGER2

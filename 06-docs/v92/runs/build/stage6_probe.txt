@@ -1,0 +1,16 @@
+WATCHLIGHT PROBE -- ../02-chain/sc-watchlight-fx.html   148 fights, every foe, both sides   115s
+  win 52.0%   casts 4.41   hits in/out 21.28/12.81   lantern shots 6.56 a cast   blows 4.83 a window (2.21 the lantern's)   shield 32.4 on a window frame   blows 34.1 a fight   mean 78.4s   refused 0
+  PASS  [1] every wardbolt leaves with the spell's numbers and its shove  -- 17170 bolts
+  PASS  [2] the cadence is exact  -- 24535 looses
+  PASS  [3] every landing shoves `knock` along the bolt's travel (420 a wardbolt, 150 a lantern shot)  -- 3583 of 3583 landings read exactly
+  PASS  [4] every landing that deals damage banks ward (unless the plate is full)  -- banked 3185, full 352, dealt nothing 40, reflected 6, missed 0
+  PASS  [5] blows a fight (the brief's ~25 is the spell's; the lantern adds)  -- 34.1
+  PASS  [6] the lantern is set down at the caster's centre, clamped  -- 652 casts
+  PASS  [7] every lantern shot leaves the lantern with its numbers  -- 4277
+  PASS  [8] the lantern fires every 1.2s of the window clock  -- ok
+  PASS  [9] lantern shots 6-7 a cast, blows ~4.5 a window (staff and lantern, the lab's hitsInWin), shield ~31 on a window frame  -- 6.56, 4.83 (2.21 the lantern's), 32.4
+  PASS  [10] the lantern never fires outside a window or after a death  -- 0
+  PASS  [11] an ult beat a cast; every lantern shot carries x0, y0, t0  -- 652 beats for 652 casts; 0 shots without flight data
+  PASS  [P] the render path is CALLED  --   20833 frames  {'bolt': 8715, 'lamp': 8007, 'lantern': 18260}
+
+  12/12

@@ -1,0 +1,105 @@
+=== The Sundered Crown — falsification pass ===
+
+
+# sweep: 28120 matches in 2094.1s (40 seeds x 703 pairings)
+# mean duration 61.1s   mean clanks 18.5
+
+  Gloamwire       63.0%  ###############################
+  Ironhail        59.5%  ##############################
+  Foregone        57.3%  #############################
+  Duskreave       56.1%  ############################
+  Farwarden       56.0%  ############################
+  Dawnbringer     55.9%  ############################
+  Slagheart       55.3%  ############################
+  Cindercleave    54.4%  ###########################
+  Gravemourn      53.9%  ###########################
+  Aureole         53.7%  ###########################
+  Paradox         53.6%  ###########################
+  Cipher          53.2%  ###########################
+  Twinshade       52.7%  ##########################
+  Vesper          52.7%  ##########################
+  Spellbreaker    52.6%  ##########################
+  Grudgebearer    52.3%  ##########################
+  Lastlight       52.2%  ##########################
+  Bulwarden       52.0%  ##########################
+  Bloodmirror     51.6%  ##########################
+  Ravelbone       50.2%  #########################
+  Marrowdraw      50.1%  #########################
+  Widowmaker      50.0%  #########################
+  Starwarden      49.9%  #########################
+  Threshmaw       49.6%  #########################
+  Censer          49.5%  #########################
+  Culverin        48.7%  ########################
+  Thornwake       48.4%  ########################
+  Emberedge       47.2%  ########################
+  Briarwand       47.2%  ########################
+  Watchlight      46.3%  #######################
+  Shroudmaul      45.7%  #######################
+  Nightfell       44.0%  ######################
+  Lightkeeper     42.4%  #####################
+  Thornshear      41.6%  #####################
+  Axiom           40.9%  ####################
+  Vinesower       40.5%  ####################
+  Goreshard       38.3%  ###################
+  Heartwood       31.6%  ################
+
+  PASS  no JS errors or page exceptions
+  PASS  every status and ultimate has viewer-facing text
+  PASS  all 703 pairings ran  — 703 pairings
+  PASS  every match resolved  — 0 pairings had unresolved matches
+  FAIL  both sides can win every matchup  — Heartwood vs Twinshade 0/40; Axiom vs Twinshade 0/40; Axiom vs Bloodmirror 0/40; Starwarden vs Watchlight 40/0
+  PASS  timeout rate <= 10%  — 7/28120 = 0.0%
+  PASS  every relic winrate in 30%-70%  — Heartwood 31.6% .. Gloamwire 63.0% (spread 31.4pp)
+  FAIL  every pairing mean duration in 18-70s  — Gravemourn/Ironhail 38.6s .. Lightkeeper/Watchlight 122.9s
+  FAIL  overall mean duration in 28-54s  — 61.1s
+  PASS  every pairing clanks at least once
+  PASS  no pairing resolves on fewer than 6 hits
+  PASS  capture path pins the canvas to 1080x1920  — 1080x1920 k=1
+  PASS  renderer draws a non-blank frame  — 117 distinct sampled colours
+
+10/13 checks passed  (3 FAILED)
+
+{
+ "winrate": {
+  "dawnbringer": 0.5594594594594594,
+  "widowmaker": 0.5,
+  "grudgebearer": 0.522972972972973,
+  "thornwake": 0.48445945945945945,
+  "lastlight": 0.5216216216216216,
+  "gravemourn": 0.5391891891891892,
+  "slagheart": 0.5527027027027027,
+  "spellbreaker": 0.5263513513513514,
+  "ironhail": 0.5945945945945946,
+  "lightkeeper": 0.4243243243243243,
+  "farwarden": 0.5601351351351351,
+  "aureole": 0.5371621621621622,
+  "censer": 0.4945945945945946,
+  "emberedge": 0.4722972972972973,
+  "oathwound": 0.3831081081081081,
+  "heartwood": 0.31554054054054054,
+  "nightfell": 0.43986486486486487,
+  "axiom": 0.40945945945945944,
+  "twinshade": 0.527027027027027,
+  "redflail": 0.49594594594594593,
+  "foregone": 0.572972972972973,
+  "vinesower": 0.4047297297297297,
+  "bulwarden": 0.5202702702702703,
+  "marrowdraw": 0.5013513513513513,
+  "paradox": 0.5358108108108108,
+  "thornshear": 0.4155405405405405,
+  "vesper": 0.527027027027027,
+  "shroudmaul": 0.45675675675675675,
+  "cindercleave": 0.543918918918919,
+  "ravelbone": 0.5020270270270271,
+  "gloamwire": 0.6297297297297297,
+  "bloodmirror": 0.5155405405405405,
+  "duskreave": 0.5608108108108109,
+  "starwarden": 0.49864864864864866,
+  "culverin": 0.4871621621621622,
+  "briarwand": 0.4722972972972973,
+  "cipher": 0.5317567567567567,
+  "watchlight": 0.46283783783783783
+ },
+ "meanDur": 61.07938122332859,
+ "meanClanks": 18.46383357041252
+}

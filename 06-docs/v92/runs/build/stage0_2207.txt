@@ -1,0 +1,10 @@
+34 relics · Chromium 151.0.7922.34 · ironhail as vigil:staff · 33 foes x 20 seeds = 660 fights an arm · stage0 151 block 2207
+  charge=16.0 dur=8.0 blade=9.3 every=1.2 bMul=0.6 knock=420
+
+  arm       win  casts  hits in/out f_shieldhitsInWinlampShots
+  A        6.4%   0.00  0.00/21.28      0.00     0.00     0.00
+  B       23.8%   4.33 10.68/14.36      0.00     0.00     0.00
+  S       19.1%   4.38 10.74/14.30      0.00     0.00     0.00
+  U       50.2%   4.46 20.21/14.76     31.83     4.48     6.63
+  lifts over A: B +17.4  S +12.7  U +43.8
+  2640 fights in 204s   errors: []

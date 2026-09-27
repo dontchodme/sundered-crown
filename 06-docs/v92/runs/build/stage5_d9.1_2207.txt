@@ -1,0 +1,4 @@
+watchlight on sc-beacon.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · set dmg=9.1 · wide d9.1 b2207
+  win 47.4%   side A 50.8%   side B 44.1%   mean 78.1s   timeouts 1
+  by type  warhammer 56%  flail 52%  scythe 51%  bow 48%  staff 43%  greatsword 43%  twinblade 38%
+  worst    cipher 0%  starwarden 10%  dawnbringer 15%   (740 fights in 115s)

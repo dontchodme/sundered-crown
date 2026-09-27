@@ -1,0 +1,7 @@
+187 Beacon windows
+   17.2  cindercleave   4418  lantern hits  4  shoves  8  away  170   --a watchlight --b cindercleave --seed 4418 --at 30.3 --window 11.3
+   16.6  emberedge      4435  lantern hits  6  shoves  3  away  133   --a watchlight --b emberedge --seed 4435 --at 63.3 --window 11.8
+   15.9  ravelbone      4452  lantern hits  6  shoves  1  away  189   --a watchlight --b ravelbone --seed 4452 --at 61.7 --window 8.2
+   15.9  grudgebearer   4469  lantern hits  5  shoves  4  away  160   --a watchlight --b grudgebearer --seed 4469 --at 45.7 --window 11.5
+   15.4  nightfell      4469  lantern hits  4  shoves  3  away  336   --a watchlight --b nightfell --seed 4469 --at 31.3 --window 11.0
+   15.1  nightfell      4401  lantern hits  5  shoves  1  away  256   --a watchlight --b nightfell --seed 4401 --at 62.7 --window 12.1

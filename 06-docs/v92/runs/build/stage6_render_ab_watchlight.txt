@@ -1,0 +1,18 @@
+
+RENDER A/B  2 pairings x 5 frames  540x960
+  a  sc-beacon.html
+  b  sc-watchlight-fx.html
+  watchlight v emberedge seed 7011 t=  5.00  DIFFERS   luma 20.852 -> 20.890   lit 76.06% -> 76.06%
+  watchlight v emberedge seed 7011 t= 17.00  DIFFERS   luma 22.803 -> 22.884   lit 88.26% -> 88.26%
+  watchlight v emberedge seed 7011 t= 19.00  DIFFERS   luma 21.967 -> 21.929   lit 88.17% -> 88.17%
+  watchlight v emberedge seed 7011 t= 22.00  DIFFERS   luma 22.259 -> 22.521   lit 88.18% -> 88.18%
+  watchlight v axiom seed 7012 t=  5.00  DIFFERS   luma 23.135 -> 23.218   lit 88.38% -> 88.38%
+  watchlight v axiom seed 7012 t= 17.00  DIFFERS   luma 22.540 -> 22.423   lit 88.39% -> 88.39%
+  watchlight v axiom seed 7012 t= 19.00  DIFFERS   luma 23.009 -> 22.781   lit 88.40% -> 88.40%
+  watchlight v axiom seed 7012 t= 22.00  DIFFERS   luma 23.342 -> 23.191   lit 88.40% -> 88.40%
+  watchlight v axiom seed 7012 t= 30.00  DIFFERS   luma 26.140 -> 26.232   lit 89.97% -> 89.97%
+
+FAIL  1/10 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
