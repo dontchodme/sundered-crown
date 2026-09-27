@@ -1,0 +1,3 @@
+CROZIER PROBE -- ../02-chain/sc-radiance.html   660 fights, --lab (side A, the lab's seeds and field)   84s
+  win 64.5%   casts 2.72   lance blows 11.61 a fight   grown 13.46 a cast   lance blows 2.18 a cast (in the window)   blows 16.7 a fight   mean 50.0s
+  against stage 0 on 151 (runs/build/stage0_*.txt): lanceHits is per cast

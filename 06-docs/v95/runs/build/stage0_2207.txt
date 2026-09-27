@@ -1,0 +1,9 @@
+34 relics · Chromium 151.0.7922.34 · ironhail as sanctified:staff · 33 foes x 20 seeds = 660 fights an arm · stage0 151 block 2207
+  charge=16.0 dur=8.0 blade=14.5 gT=0.4 gR1=70 gMul=3
+
+  arm       win  casts  hits in/out f_foeStkf_inShare    grownlanceHits
+  A       25.8%   0.00  0.00/17.30      0.00     0.00     0.00     0.00
+  S       18.5%   3.08  3.50/5.03       0.00     0.00     0.00     2.47
+  Z       57.4%   2.77  2.93/4.52       0.00     0.00    11.88     3.22
+  lifts over A: S -7.3  Z +31.7
+  1980 fights in 149s   errors: []

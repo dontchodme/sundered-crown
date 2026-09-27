@@ -1,0 +1,4 @@
+crozier on sc-radiance-blade.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 8111 · stage5 control, no --set
+  win 50.0%   side A 50.3%   side B 49.7%   mean 52.3s   timeouts 0
+  by type  twinblade 61%  flail 57%  greatsword 56%  warhammer 55%  scythe 46%  bow 38%  staff 36%
+  worst    farwarden 10%  watchlight 10%  duskreave 20%   (760 fights in 52s)

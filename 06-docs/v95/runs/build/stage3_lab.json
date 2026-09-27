@@ -1,0 +1,95 @@
+{
+ "T": {
+  "fights": 660,
+  "wins": 426,
+  "dur": 32995.291666665544,
+  "looses": 73660,
+  "badCad": [],
+  "lances": 59526,
+  "badLance": [],
+  "blows": 11042,
+  "lanceBlows": 7664,
+  "opps": 34851,
+  "clanks": 6,
+  "casts": 1798,
+  "ultBeats": 1798,
+  "rampChecked": 773252,
+  "rampDev": 0,
+  "badRamp": [],
+  "badGrow": 0,
+  "grown": 24207,
+  "winLanceBlows": 3922,
+  "bigGrown": 3338,
+  "bigCrit": 3338,
+  "tally": 1798,
+  "labCasts": 1758,
+  "lostWhy": [
+   {
+    "foe": "duskreave",
+    "shots": 1,
+    "full": false,
+    "scour": false,
+    "x": 402,
+    "y": 486,
+    "life": 2.43
+   },
+   {
+    "foe": "duskreave",
+    "shots": 1,
+    "full": false,
+    "scour": false,
+    "x": 335,
+    "y": 415,
+    "life": 2.45
+   },
+   {
+    "foe": "duskreave",
+    "shots": 1,
+    "full": false,
+    "scour": false,
+    "x": 199,
+    "y": 605,
+    "life": 2.48
+   },
+   {
+    "foe": "duskreave",
+    "shots": 1,
+    "full": false,
+    "scour": false,
+    "x": 292,
+    "y": 599,
+    "life": 2.43
+   },
+   {
+    "foe": "duskreave",
+    "shots": 1,
+    "full": false,
+    "scour": false,
+    "x": 256,
+    "y": 496,
+    "life": 2.45
+   },
+   {
+    "foe": "duskreave",
+    "shots": 1,
+    "full": false,
+    "scour": false,
+    "x": 368,
+    "y": 651,
+    "life": 2.48
+   }
+  ],
+  "badBeat": [],
+  "eaten": 90,
+  "live": true
+ },
+ "row": {
+  "win": 0.6454545454545455,
+  "castsF": 2.724242424242424,
+  "lanceF": 11.612121212121211,
+  "grownC": 13.463292547274749,
+  "winLanceC": 2.181312569521691,
+  "blowsF": 16.73030303030303,
+  "dur": 49.99286616161446
+ }
+}

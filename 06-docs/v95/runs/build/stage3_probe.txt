@@ -1,0 +1,14 @@
+CROZIER PROBE -- ../02-chain/sc-radiance.html   152 fights, every foe, both sides   28s
+  win 62.5%   casts 2.70   lance blows 11.19 a fight   grown 13.56 a cast   lance blows 2.19 a cast (in the window)   blows 16.3 a fight   mean 49.3s
+  PASS  [1] every lance leaves with the spell's numbers and its pierce  -- 13462 lances
+  PASS  [2] the cadence is exact  -- 16692 looses
+  PASS  [3] no lance is ever clanked -- over the frames it stood in a blade's reach  -- 6867 lance-frames inside a foe blade's parry reach; 19 eaten by Duskreave's Scour; 0 otherwise lost off the wall and unlanded
+  PASS  [4] lance blows a fight (the brief's ~7.6)  -- 11.19
+  PASS  [5] a grown lance is exactly on the ramp at every step  -- 177147 lance-steps, worst deviation 0.00e+00
+  PASS  [6] a lance grows iff it was loosed in the window  -- 5560 grown, 0 wrong
+  PASS  [7] grown ~12 a cast, lance blows ~3.2 a cast  -- 13.56, 2.19
+  PASS  [8] a grown landing of 20 or more files a crit beat  -- 785 of 785
+  PASS  [9] an ult beat a cast  -- 411 beats for 411 casts
+  PASS  [P] the render path is CALLED  --   6638 frames  {'needle': 1005, 'shaft': 1901}
+
+  10/10

@@ -1,0 +1,4 @@
+crozier on sc-radiance.html · Chromium 151.0.7922.34 · 38 foes x 4 seeds x sides AB = 304 fights · seed0 2207 · set dmg=13 · coarse d13
+  win 48.0%   side A 47.4%   side B 48.7%   mean 51.6s   timeouts 0
+  by type  twinblade 65%  greatsword 52%  scythe 52%  flail 47%  warhammer 45%  bow 42%  staff 28%
+  worst    lastlight 12%  farwarden 12%  cipher 12%   (304 fights in 37s)

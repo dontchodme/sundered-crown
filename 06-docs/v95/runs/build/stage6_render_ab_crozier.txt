@@ -1,0 +1,16 @@
+
+RENDER A/B  2 pairings x 5 frames  540x960
+  a  sc-radiance-blade.html
+  b  sc-crozier-fx.html
+  crozier v emberedge seed 7011 t= 17.00  DIFFERS   luma 33.108 -> 34.537   lit 88.24% -> 88.24%
+  crozier v emberedge seed 7011 t= 19.00  DIFFERS   luma 26.531 -> 26.277   lit 88.24% -> 88.24%
+  crozier v emberedge seed 7011 t= 22.00  DIFFERS   luma 27.224 -> 27.210   lit 88.25% -> 88.25%
+  crozier v axiom seed 7012 t=  5.00  DIFFERS   luma 21.073 -> 20.787   lit 68.78% -> 68.53%
+  crozier v axiom seed 7012 t= 17.00  DIFFERS   luma 27.006 -> 27.039   lit 88.45% -> 88.45%
+  crozier v axiom seed 7012 t= 19.00  DIFFERS   luma 26.332 -> 26.364   lit 88.46% -> 88.46%
+  crozier v axiom seed 7012 t= 22.00  DIFFERS   luma 26.583 -> 26.612   lit 88.44% -> 88.44%
+
+FAIL  3/10 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

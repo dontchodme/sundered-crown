@@ -1,0 +1,48 @@
+{
+ "T": {
+  "fights": 152,
+  "wins": 95,
+  "dur": 7498.249999999739,
+  "looses": 16692,
+  "badCad": [],
+  "lances": 13462,
+  "badLance": [],
+  "blows": 2476,
+  "lanceBlows": 1701,
+  "opps": 6867,
+  "clanks": 0,
+  "casts": 410,
+  "ultBeats": 411,
+  "rampChecked": 177147,
+  "rampDev": 0,
+  "badRamp": [],
+  "badGrow": 0,
+  "grown": 5560,
+  "winLanceBlows": 897,
+  "bigGrown": 785,
+  "bigCrit": 785,
+  "tally": 411,
+  "labCasts": 399,
+  "lostWhy": [],
+  "badBeat": [],
+  "eaten": 19,
+  "live": true
+ },
+ "row": {
+  "win": 0.625,
+  "castsF": 2.6973684210526314,
+  "lanceF": 11.19078947368421,
+  "grownC": 13.560975609756097,
+  "winLanceC": 2.1878048780487807,
+  "blowsF": 16.289473684210527,
+  "dur": 49.33059210526144
+ },
+ "D": {
+  "threw": null,
+  "frames": 6638,
+  "seen": {
+   "needle": 1005,
+   "shaft": 1901
+  }
+ }
+}

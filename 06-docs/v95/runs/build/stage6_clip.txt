@@ -1,0 +1,104 @@
+[progress] capture frames=0 elapsed=0.0
+[progress] capture frames=5 elapsed=1.0
+[progress] capture frames=11 elapsed=2.2
+[progress] capture frames=17 elapsed=3.3
+[progress] capture frames=22 elapsed=4.5
+[progress] capture frames=27 elapsed=5.6
+[progress] capture frames=32 elapsed=6.6
+[progress] capture frames=38 elapsed=7.8
+[progress] capture frames=43 elapsed=9.0
+[progress] capture frames=47 elapsed=10.0
+[progress] capture frames=52 elapsed=11.2
+[progress] capture frames=57 elapsed=12.3
+[progress] capture frames=63 elapsed=13.4
+[progress] capture frames=69 elapsed=14.5
+[progress] capture frames=75 elapsed=15.6
+[progress] capture frames=81 elapsed=16.6
+[progress] capture frames=87 elapsed=17.6
+[progress] capture frames=93 elapsed=18.7
+[progress] capture frames=100 elapsed=19.8
+[progress] capture frames=106 elapsed=20.9
+[progress] capture frames=112 elapsed=21.9
+[progress] capture frames=118 elapsed=23.0
+[progress] capture frames=124 elapsed=24.0
+[progress] capture frames=130 elapsed=25.0
+[progress] capture frames=136 elapsed=26.0
+[progress] capture frames=142 elapsed=27.0
+[progress] capture frames=148 elapsed=28.0
+[progress] capture frames=154 elapsed=29.0
+[progress] capture frames=160 elapsed=30.1
+[progress] capture frames=166 elapsed=31.1
+[progress] capture frames=172 elapsed=32.2
+[progress] capture frames=178 elapsed=33.3
+[progress] capture frames=184 elapsed=34.4
+[progress] capture frames=190 elapsed=35.4
+[progress] capture frames=196 elapsed=36.6
+[progress] capture frames=201 elapsed=37.6
+[progress] capture frames=206 elapsed=38.6
+[progress] capture frames=212 elapsed=39.8
+[progress] capture frames=218 elapsed=40.9
+[progress] capture frames=224 elapsed=42.0
+[progress] capture frames=230 elapsed=43.1
+[progress] capture frames=236 elapsed=44.2
+[progress] capture frames=242 elapsed=45.3
+[progress] capture frames=248 elapsed=46.4
+[progress] capture frames=254 elapsed=47.5
+[progress] capture frames=260 elapsed=48.5
+[progress] capture frames=266 elapsed=49.5
+[progress] capture frames=272 elapsed=50.6
+[progress] capture frames=278 elapsed=51.6
+[progress] capture frames=284 elapsed=52.7
+[progress] capture frames=290 elapsed=53.7
+[progress] capture frames=296 elapsed=54.7
+[progress] capture frames=302 elapsed=55.7
+[progress] capture frames=308 elapsed=56.7
+[progress] capture frames=314 elapsed=57.7
+[progress] capture frames=321 elapsed=58.9
+[progress] capture frames=327 elapsed=60.0
+[progress] capture frames=333 elapsed=61.0
+[progress] capture frames=339 elapsed=62.0
+[progress] capture frames=345 elapsed=63.0
+[progress] capture frames=351 elapsed=64.1
+[progress] capture frames=357 elapsed=65.1
+[progress] capture frames=363 elapsed=66.2
+[progress] capture frames=369 elapsed=67.3
+[progress] capture frames=375 elapsed=68.3
+[progress] capture frames=381 elapsed=69.4
+[progress] capture frames=387 elapsed=70.5
+[progress] capture frames=392 elapsed=71.5
+[progress] capture frames=397 elapsed=72.6
+[progress] capture frames=403 elapsed=73.7
+[progress] capture frames=409 elapsed=74.8
+[progress] capture frames=415 elapsed=75.9
+[progress] capture frames=421 elapsed=77.0
+[progress] capture frames=427 elapsed=78.1
+[progress] capture frames=433 elapsed=79.2
+[progress] capture frames=439 elapsed=80.3
+[progress] capture frames=445 elapsed=81.5
+[progress] capture frames=451 elapsed=82.6
+[progress] capture frames=457 elapsed=83.6
+[progress] capture frames=463 elapsed=84.6
+[progress] capture frames=469 elapsed=85.6
+[progress] capture frames=475 elapsed=86.7
+[progress] capture frames=481 elapsed=87.7
+[progress] capture frames=487 elapsed=88.7
+[progress] capture frames=493 elapsed=89.7
+[progress] capture frames=499 elapsed=90.8
+[progress] capture frames=505 elapsed=91.8
+[progress] capture frames=511 elapsed=92.9
+[progress] capture frames=517 elapsed=93.9
+[progress] capture frames=523 elapsed=94.9
+[progress] capture frames=529 elapsed=96.0
+[progress] capture frames=535 elapsed=97.0
+[progress] capture frames=541 elapsed=98.2
+no killing blow on this seed (timeout finish); using the last cut
+--at 30.80s: filming a 9.7s window rather than measuring back from the kill
+seed 4435: kill at 27.53s, clip starts at 30.80s
+cut list: 27.5s T2
+  rendering director ON ...
+    verdict panel held 2.40s of the 3.43s tail (armed 1.03s after the kill)
+    on: 751 frames, 12.5s wall, 120s to render, match ended {'seed': 4435, 't': 30.808333333332225, 'kill': None}
+    on: FIGHT over=True t=39.8833 clanks=11 hp=[298.6, 0]
+
+wrote C:\dev\sundered-crown\07-shorts\v95\radiance-window.mp4  2.09 MB  (0.0s off + 12.5s on)
+the two halves are the same seed. If the winner differs, the feature is broken.

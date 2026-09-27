@@ -1,0 +1,42 @@
+CROZIER'S VOICES -- ../02-chain/sc-radiance-blade.html -- Chromium 151.0.7922.34 -- the method of culverin_voice_lab
+
+  control  hit@12.8     peak 0.447  TOP  -18.4 dB @   25 ms  aud   80 ms  cent    150 Hz  low 0.87  low60 0.83  hi20 0.02  PHONE  -30.8
+  control  arrow loose  peak 0.026  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   1027 Hz  low 0.01  low60 0.01  hi20 0.14  PHONE  -48.1
+  control  wall         peak 0.089  TOP  -38.9 dB @   25 ms  aud   25 ms  cent  11829 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -38.9
+  control  rune-crack   peak 0.647  TOP  -17.2 dB @   25 ms  aud  445 ms  cent   1086 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -17.2
+  (hit@12.8 is a lance landing: blade 12.75 x 1.0; 'arrow loose' is the staff's generic release)
+
+THE TICK  -- "a very short bright tick (the needle), pitched high"   -- level-matched to HIT -30 dB
+  NEEDLE       peak 0.027  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   3194 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -48.0  vs HIT -29.6 dB  clicks 1
+               REG the release 0.18  
+  PING         peak 0.021  TOP  -47.9 dB @   25 ms  aud   30 ms  cent   2720 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -47.9  vs HIT -29.5 dB  clicks 1
+               REG the release 0.13  
+  CLICK        peak 0.051  TOP  -48.0 dB @   25 ms  aud   10 ms  cent  12531 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -48.0  vs HIT -29.6 dB  clicks 1
+               REG the release 0.26  
+  PICK  CLICK
+
+ON A PIERCE  -- "the same tick with a glassy after-ring"   -- level-matched to HIT -27 dB
+  RING         peak 0.018  TOP  -44.9 dB @   25 ms  aud  215 ms  cent   2839 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -44.9  vs HIT -26.6 dB  clicks 2
+               REG the tick 0.21  
+  RING_LONG    peak 0.016  TOP  -44.9 dB @   35 ms  aud  315 ms  cent   2838 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -44.9  vs HIT -26.6 dB  clicks 2
+               REG the tick 0.21  
+  PICK  NONE -- no candidate passes the rule
+
+THE CAST  -- "a rising choir swell, 0.4s"   -- level-matched to HIT -6 dB
+  CHOIR        peak 0.250  TOP  -24.5 dB @  120 ms  aud  205 ms  cent   3169 Hz  low 0.00  low60 0.00  hi20 0.89  PHONE  -24.5  vs HIT  -6.1 dB  clicks 8
+               REG rune-crack 0.49  
+  HALO         peak 0.055  TOP  -35.3 dB @  115 ms  aud  195 ms  cent   1353 Hz  low 0.00  low60 0.00  hi20 0.89  PHONE  -35.3  vs HIT -16.9 dB  clicks 5
+               REG rune-crack 0.52  
+  FIFTHS       peak 0.228  TOP  -24.4 dB @  110 ms  aud  200 ms  cent   2790 Hz  low 0.00  low60 0.00  hi20 0.76  PHONE  -24.4  vs HIT  -6.1 dB  clicks 8
+               REG rune-crack 0.56  
+  PICK  NONE -- no candidate passes the rule
+
+THE BLOOM  -- "a low bloom under the hit that scales with k"   -- level-matched to HIT -8 dB
+  SWELL        peak 0.160  TOP  -26.3 dB @   25 ms  aud   95 ms  cent    175 Hz  low 0.10  low60 0.01  hi20 0.00  PHONE  -31.7  vs HIT  -8.0 dB  clicks 2
+               REG hit 0.51  k02 8.19
+  BODY         peak 0.161  TOP  -26.6 dB @   25 ms  aud   80 ms  cent    101 Hz  low 0.99  low60 0.98  hi20 0.00  PHONE  -43.0  vs HIT  -8.3 dB  clicks 3
+               REG hit 0.47  k02 7.54
+  WARM         peak 0.126  TOP  -26.6 dB @   25 ms  aud   90 ms  cent    163 Hz  low 0.83  low60 0.89  hi20 0.00  PHONE  -40.9  vs HIT  -8.2 dB  clicks 5
+               REG hit 0.79  k02 7.41
+  PICK  NONE -- no candidate passes the rule
+a voice has no pick: pierce, cast, bloom, close

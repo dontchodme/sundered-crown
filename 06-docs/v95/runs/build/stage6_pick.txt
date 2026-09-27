@@ -1,0 +1,7 @@
+117 Radiance windows
+   13.0  cindercleave   4452  grown landings  7 (k  4.2)  through a blade  3   --a crozier --b cindercleave --seed 4452 --at 14.2 --window 10.4
+   12.8  widowmaker     4435  grown landings  4 (k  3.4)  through a blade  4   --a crozier --b widowmaker --seed 4435 --at 30.8 --window 9.7
+   11.9  grudgebearer   4418  grown landings  5 (k  3.7)  through a blade  3   --a crozier --b grudgebearer --seed 4418 --at 14.7 --window 10.9
+   10.4  nightfell      4469  grown landings  6 (k  3.0)  through a blade  3   --a crozier --b nightfell --seed 4469 --at 14.8 --window 10.6
+   10.3  twinshade      4418  grown landings  3 (k  2.9)  through a blade  3   --a crozier --b twinshade --seed 4418 --at 14.8 --window 11.3
+   10.1  emberedge      4469  grown landings  5 (k  2.0)  through a blade  4   --a crozier --b emberedge --seed 4469 --at 31.8 --window 10.4
