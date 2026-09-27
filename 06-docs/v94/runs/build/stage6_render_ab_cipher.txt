@@ -1,0 +1,18 @@
+
+RENDER A/B  2 pairings x 5 frames  540x960
+  a  sc-converge-blade.html
+  b  sc-cipher-fx.html
+  cipher v emberedge seed 7011 t=  5.00  DIFFERS   luma 18.826 -> 18.762   lit 68.45% -> 68.45%
+  cipher v emberedge seed 7011 t= 17.00  DIFFERS   luma 26.011 -> 26.700   lit 88.22% -> 88.21%
+  cipher v emberedge seed 7011 t= 19.00  DIFFERS   luma 22.263 -> 23.895   lit 88.27% -> 88.27%
+  cipher v emberedge seed 7011 t= 22.00  DIFFERS   luma 22.231 -> 23.023   lit 88.26% -> 88.33%
+  cipher v axiom seed 7012 t=  5.00  DIFFERS   luma 23.804 -> 23.551   lit 88.50% -> 88.50%
+  cipher v axiom seed 7012 t= 17.00  DIFFERS   luma 24.616 -> 26.228   lit 88.47% -> 88.47%
+  cipher v axiom seed 7012 t= 19.00  DIFFERS   luma 22.250 -> 22.810   lit 88.49% -> 88.49%
+  cipher v axiom seed 7012 t= 22.00  DIFFERS   luma 23.283 -> 25.357   lit 88.51% -> 88.51%
+  cipher v axiom seed 7012 t= 30.00  DIFFERS   luma 28.220 -> 28.230   lit 89.06% -> 89.06%
+
+FAIL  1/10 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

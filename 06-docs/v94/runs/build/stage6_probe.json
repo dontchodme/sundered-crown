@@ -1,0 +1,56 @@
+{
+ "T": {
+  "fights": 144,
+  "wins": 66,
+  "dur": 8586.849999999853,
+  "looses": 18971,
+  "badCad": [],
+  "glyphs": 14478,
+  "badGlyph": [],
+  "sigils": 16024,
+  "badSigil": [],
+  "moved": 0,
+  "sigilHits": 1126,
+  "clanked": 9273,
+  "blows": 6414,
+  "casts": 458,
+  "ultBeats": 459,
+  "atCast": 1048,
+  "badOrder": [],
+  "inWin": 7121,
+  "badFuse": [],
+  "launched": 3606,
+  "winBlows": 3575,
+  "winFrames": 476643,
+  "foeStk": 1273048,
+  "reformed": 0,
+  "overStay": 0,
+  "labCasts": 462,
+  "born": 3910,
+  "tallyCasts": 459,
+  "castOnLive": 0,
+  "live": true
+ },
+ "row": {
+  "win": 0.4583333333333333,
+  "castsF": 3.1805555555555554,
+  "sig16": 29.857747602439122,
+  "launchC": 7.873362445414847,
+  "winBlows": 7.8056768558951966,
+  "stk": 2.67086267919596,
+  "atCast": 2.2882096069868996,
+  "blowsF": 44.541666666666664,
+  "dur": 59.630902777776754,
+  "sigLab": 34.683982683982684,
+  "born16": 7.285558732247689
+ },
+ "D": {
+  "threw": null,
+  "frames": 8030,
+  "seen": {
+   "bolt": 4891,
+   "sigil": 4657,
+   "flown": 5223
+  }
+ }
+}

@@ -1,0 +1,9 @@
+34 relics · Chromium 151.0.7922.34 · ironhail as runic:staff · 33 foes x 20 seeds = 660 fights an arm · stage0 151 block 2207
+  charge=16.0 dur=8.0 blade=11
+
+  arm       win  casts  hits in/out f_foeStkhitsInWin launched   sigilssigilsAtCast
+  A        9.8%   0.00  0.00/21.88      0.00     0.00     0.00     0.00     0.00
+  S       30.5%   3.56 12.32/18.65      0.00     0.00     0.00    25.50     1.74
+  Y       51.5%   3.20 18.81/18.44      2.63     5.77     5.44    26.00     1.91
+  lifts over A: S +20.6  Y +41.7
+  1980 fights in 204s   errors: []

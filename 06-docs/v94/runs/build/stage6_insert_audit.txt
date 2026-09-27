@@ -1,0 +1,6 @@
+
+CIPHER / CONVERGENCE -- the insert audit against ../02-chain/sc-cipher-fx.html
+  ok    stage 1  Cipher joins the roster, its ultimate stubbed: 2 line(s) replaced by a later stage, by design
+  ok    stage 3  the glyph, the sigil and the flown rune are drawn (first cuts): 6 line(s) replaced by a later stage, by design
+
+  27/27 inserts survive in sc-cipher-fx.html (2 carry lines a later stage replaced on purpose)

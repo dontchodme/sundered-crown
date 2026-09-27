@@ -1,0 +1,4 @@
+CIPHER PROBE -- ../02-chain/sc-glyph.html   660 fights, --lab (side A, the lab's seeds and field)  --labtag   76s
+  win 30.5%   casts 0.00   sigils 22.5 a cast-equivalent   hanging at a cast 0.00   launched 0.00 a cast   blows 0.00 a window   foe hex 0.00   blows 31.0 a fight   mean 64.5s
+  sigils 25.47 a lab cast (the lab's normalization)   of them born on the step they were loosed 0.0 a cast-equivalent
+  against stage 0 on 151 (block 2207): arm S 30.5%, 25.50 sigils a lab cast; arm Y 51.5%, 1.91 hanging, 5.44 launched, 5.77 blows, hex 2.63, 26.00 sigils

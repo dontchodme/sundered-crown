@@ -1,0 +1,4 @@
+CIPHER PROBE -- ../02-chain/sc-converge.html   660 fights, --lab (side A, the lab's seeds and field)  --labtag   69s
+  win 55.5%   casts 3.14   sigils 22.6 a cast-equivalent   hanging at a cast 1.96   launched 6.43 a cast   blows 6.77 a window   foe hex 2.63   blows 37.9 a fight   mean 58.1s
+  sigils 25.98 a lab cast (the lab's normalization)   of them born on the step they were loosed 0.0 a cast-equivalent
+  against stage 0 on 151 (block 2207): arm S 30.5%, 25.50 sigils a lab cast; arm Y 51.5%, 1.91 hanging, 5.44 launched, 5.77 blows, hex 2.63, 26.00 sigils

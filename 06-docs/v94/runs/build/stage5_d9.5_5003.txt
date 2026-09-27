@@ -1,0 +1,4 @@
+cipher on sc-converge.html · Chromium 151.0.7922.34 · 36 foes x 10 seeds x sides AB = 720 fights · seed0 5003 · set dmg=9.5 · wide d9.5 b5003
+  win 59.7%   side A 58.3%   side B 61.1%   mean 57.4s   timeouts 0
+  by type  staff 82%  flail 72%  bow 65%  twinblade 61%  warhammer 54%  greatsword 54%  scythe 51%
+  worst    duskreave 10%  lastlight 30%  twinshade 35%   (720 fights in 103s)

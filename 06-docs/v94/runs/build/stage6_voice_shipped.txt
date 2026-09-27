@@ -1,0 +1,61 @@
+CIPHER'S VOICES -- ../02-chain/sc-cipher-fx.html -- Chromium 151.0.7922.34 -- the method of culverin_voice_lab
+
+  control  hit@8.9      peak 0.420  TOP  -19.0 dB @   25 ms  aud   75 ms  cent    158 Hz  low 0.78  low60 0.75  hi20 0.02  PHONE  -30.5
+  control  arrow loose  peak 0.026  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   1027 Hz  low 0.01  low60 0.01  hi20 0.14  PHONE  -48.1
+  control  wall         peak 0.089  TOP  -38.9 dB @   25 ms  aud   25 ms  cent  11829 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -38.9
+  control  rune-crack   peak 0.647  TOP  -17.2 dB @   25 ms  aud  445 ms  cent   1086 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -17.2
+  (hit@8.9 is a glyph, a sigil or a rune landing: blade 8.875 x 1.0 -- every blow this relic lands)
+
+THE CAST  -- "an inhale into a chime, 0.4s"   -- level-matched to HIT -6 dB
+  INHALE       peak 0.165  TOP  -25.0 dB @  175 ms  aud  420 ms  cent   1447 Hz  low 0.01  low60 0.00  hi20 0.88  PHONE  -25.2  vs HIT  -6.0 dB  clicks 10
+               REG rune-crack 0.27  
+  EYE          peak 0.127  TOP  -25.2 dB @  165 ms  aud  380 ms  cent   1250 Hz  low 0.00  low60 0.15  hi20 0.02  PHONE  -25.2  vs HIT  -6.2 dB  clicks 6
+               REG rune-crack 0.61  
+  BELL         peak 0.153  TOP  -25.1 dB @  170 ms  aud  450 ms  cent   1089 Hz  low 0.00  low60 0.00  hi20 0.89  PHONE  -25.1  vs HIT  -6.0 dB  clicks 12
+               REG rune-crack 0.23  
+  PICK  INHALE
+
+THE WALL-STOP  -- "a short stone tap ... quiet, pitched by how many are hanging"   -- level-matched to HIT -18 dB
+  STONE        peak 0.088  TOP  -37.0 dB @   25 ms  aud   30 ms  cent    408 Hz  low 0.00  low60 0.00  hi20 0.03  PHONE  -37.2  vs HIT -18.0 dB  clicks 1
+               REG wall 0.05  rise 5.23
+  KNOCK        peak 0.074  TOP  -37.2 dB @   25 ms  aud   35 ms  cent    493 Hz  low 0.00  low60 0.00  hi20 0.00  PHONE  -37.3  vs HIT -18.2 dB  clicks 1
+               REG wall 0.01  rise 5.11
+  CHIP         peak 0.085  TOP  -37.1 dB @   25 ms  aud   25 ms  cent    987 Hz  low 0.00  low60 0.00  hi20 0.13  PHONE  -37.1  vs HIT -18.0 dB  clicks 1
+               REG wall 0.09  rise 5.00
+  PICK  STONE
+
+THE LEAVE  -- "one soft tap per rune as it leaves, in sequence"   -- level-matched to HIT -14 dB
+  LIFT         peak 0.106  TOP  -33.0 dB @   25 ms  aud   40 ms  cent   1616 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -33.1  vs HIT -14.0 dB  clicks 1
+               REG the tap 0.06  
+  TICK         peak 0.172  TOP  -33.1 dB @   25 ms  aud   20 ms  cent   1851 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -33.1  vs HIT -14.1 dB  clicks 1
+               REG the tap 0.08  
+  PLUCK        peak 0.112  TOP  -33.0 dB @   25 ms  aud   45 ms  cent    934 Hz  low 0.00  low60 0.00  hi20 0.01  PHONE  -33.1  vs HIT -14.0 dB  clicks 1
+               REG the tap 0.06  
+  PICK  PLUCK
+
+THE HEX SNAP  -- "the bow's own arrow voice plus a hex snap"   -- level-matched to HIT -10 dB
+  SNAP         peak 0.175  TOP  -29.0 dB @   25 ms  aud   40 ms  cent   2148 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -29.1  vs HIT -10.0 dB  clicks 2
+               REG hit 0.04  rise 4.83
+  CRACKLE      peak 0.255  TOP  -29.2 dB @   25 ms  aud   30 ms  cent   2199 Hz  low 0.00  low60 0.00  hi20 0.42  PHONE  -29.2  vs HIT -10.1 dB  clicks 2
+               REG hit 0.06  rise 4.59
+  GLINT        peak 0.225  TOP  -29.1 dB @   25 ms  aud   50 ms  cent   1891 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -29.1  vs HIT -10.0 dB  clicks 1
+               REG hit 0.04  rise 4.58
+  PICK  GLINT
+
+THE CLOSE  -- "the chime reversed"   -- level-matched to HIT -8 dB
+  REVERSE      peak 0.130  TOP  -27.1 dB @  115 ms  aud  200 ms  cent   1619 Hz  low 0.00  low60 0.00  hi20 0.99  PHONE  -27.1  vs HIT  -8.0 dB  clicks 9
+               REG the cast 0.97  
+  STAGGER      peak 0.144  TOP  -27.1 dB @  280 ms  aud  355 ms  cent   1802 Hz  low 0.00  low60 0.00  hi20 0.99  PHONE  -27.1  vs HIT  -8.1 dB  clicks 9
+               REG the cast 0.93  
+  STAGGER_LONG peak 0.130  TOP  -27.1 dB @  370 ms  aud  455 ms  cent   1651 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -27.1  vs HIT  -8.0 dB  clicks 9
+               REG the cast 0.97  
+  PICK  STAGGER
+
+THE PICKS: cast INHALE, tap STONE, leave PLUCK, hex GLINT, close STAGGER
+
+THE SHIPPED ARMS against the picked bodies:
+  ok    cast    max |shipped - picked| = 2.98e-08   the same body twice: 2.98e-08
+  ok    tap     max |shipped - picked| = 0   the same body twice: 0
+  ok    leave   max |shipped - picked| = 0   the same body twice: 0
+  ok    hex     max |shipped - picked| = 0   the same body twice: 0
+  ok    close   max |shipped - picked| = 1.49e-08   the same body twice: 2.24e-08

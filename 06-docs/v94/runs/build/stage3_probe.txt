@@ -1,0 +1,17 @@
+CIPHER PROBE -- ../02-chain/sc-converge.html   144 fights, every foe, both sides   67s
+  win 66.0%   casts 2.57   sigils 29.6 a cast-equivalent   hanging at a cast 2.81   launched 9.24 a cast   blows 8.30 a window   foe hex 2.87   blows 39.6 a fight   mean 49.4s
+  sigils 35.35 a lab cast (the lab's normalization)   of them born on the step they were loosed 6.6 a cast-equivalent
+  PASS  [1] every glyph leaves with the spell's numbers and one bounce  -- 12181 glyphs
+  PASS  [2] the cadence is exact  -- 15595 looses
+  PASS  [3] every glyph a wall stops is a sigil: still, life 4.0, hex 2  -- 13152 sigils
+  PASS  [4] a sigil never moves while it is one  -- 0 sigil-steps moved
+  PASS  [5] sigils are touched and clanked  -- touched 1221, clanked/expired-early 6500
+  PASS  [6] blows a fight, the brief's ~31  -- 39.6
+  PASS  [7] the hanging sigils leave in laid order, 0.25s apart  -- 1039 at 370 casts
+  PASS  [8] a sigil laid in the window leaves 0.5s after it is laid  -- 5462
+  PASS  [9] launched, blows a window, the foe's hex (the lab's 5.4/5.7/2.6 are --labtag's; the build tags at spawn)  -- launched 9.24, blows 8.30, hex 2.87
+  PASS  [10] no flown rune ever becomes a sigil again  -- 0 re-formed
+  PASS  [11] an ult beat a cast; the state never outlives its last fuse  -- 370 beats for 370 casts; 0 over-stays
+  PASS  [P] the render path is CALLED  --   7562 frames  {'bolt': 5242, 'sigil': 4219, 'flown': 4674}
+
+  12/12

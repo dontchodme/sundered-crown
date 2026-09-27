@@ -1,0 +1,12 @@
+CIPHER PROBE -- ../02-chain/sc-glyph.html   144 fights, every foe, both sides   62s
+  win 51.4%   casts 0.00   sigils 30.0 a cast-equivalent   hanging at a cast 0.00   launched 0.00 a cast   blows 0.00 a window   foe hex 0.00   blows 34.7 a fight   mean 61.8s
+  sigils 34.18 a lab cast (the lab's normalization)   of them born on the step they were loosed 7.5 a cast-equivalent
+  PASS  [1] every glyph leaves with the spell's numbers and one bounce  -- 15053 glyphs
+  PASS  [2] the cadence is exact  -- 19917 looses
+  PASS  [3] every glyph a wall stops is a sigil: still, life 4.0, hex 2  -- 16713 sigils
+  PASS  [4] a sigil never moves while it is one  -- 0 sigil-steps moved
+  PASS  [5] sigils are touched and clanked  -- touched 2010, clanked/expired-early 10560
+  PASS  [6] blows a fight, the brief's ~31  -- 34.7
+  PASS  [P] the render path is CALLED  --   3578 frames  {'bolt': 1768, 'sigil': 1569, 'flown': 0}
+
+  7/7

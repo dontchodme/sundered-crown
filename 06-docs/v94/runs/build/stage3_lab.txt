@@ -1,0 +1,3 @@
+CIPHER PROBE -- ../02-chain/sc-converge.html   660 fights, --lab (side A, the lab's seeds and field)   46s
+  win 69.4%   casts 2.67   sigils 29.6 a cast-equivalent   hanging at a cast 2.84   launched 9.11 a cast   blows 8.46 a window   foe hex 2.82   blows 40.5 a fight   mean 50.9s
+  the lab's arm Y on Chromium 151 (stage 0): see stage0_2207.txt

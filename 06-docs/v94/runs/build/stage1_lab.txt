@@ -1,0 +1,3 @@
+CIPHER PROBE -- ../02-chain/sc-cipher.html   660 fights, --lab (side A, the lab's seeds and field)   41s
+  win 9.8%   casts 0.00   sigils 0.0 a cast-equivalent   hanging at a cast 0.00   launched 0.00 a cast   blows 0.00 a window   foe hex 0.00   blows 21.9 a fight   mean 65.5s
+  the lab's arm Y on Chromium 151 (stage 0): see stage0_2207.txt

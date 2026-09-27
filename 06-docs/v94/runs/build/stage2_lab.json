@@ -1,0 +1,41 @@
+{
+ "T": {
+  "fights": 660,
+  "wins": 297,
+  "dur": 41208.483333333264,
+  "looses": 91653,
+  "badCad": [],
+  "glyphs": 69912,
+  "badGlyph": [],
+  "sigils": 76965,
+  "badSigil": [],
+  "moved": 0,
+  "sigilHits": 8640,
+  "clanked": 47959,
+  "blows": 22467,
+  "casts": 0,
+  "ultBeats": 0,
+  "atCast": 0,
+  "badOrder": [],
+  "inWin": 0,
+  "badFuse": [],
+  "launched": 0,
+  "winBlows": 0,
+  "winFrames": 0,
+  "foeStk": 0,
+  "reformed": 0,
+  "overStay": 0,
+  "live": false
+ },
+ "row": {
+  "win": 0.45,
+  "castsF": 0.0,
+  "sig16": 29.883167260463004,
+  "launchC": 0,
+  "winBlows": 0,
+  "stk": 0,
+  "atCast": 0,
+  "blowsF": 34.04090909090909,
+  "dur": 62.43709595959586
+ }
+}

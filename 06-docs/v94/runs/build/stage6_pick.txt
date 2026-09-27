@@ -1,0 +1,7 @@
+149 Convergence windows
+   52.8  farwarden      4452  hanging  8  left  28  landed  20   --a cipher --b farwarden --seed 4452 --at 14.9 --window 12.0
+   52.2  nightfell      4435  hanging  8  left  29  landed  19   --a cipher --b nightfell --seed 4435 --at 14.8 --window 12.0
+   50.4  farwarden      4418  hanging  8  left  26  landed  19   --a cipher --b farwarden --seed 4418 --at 14.6 --window 10.9
+   48.6  nightfell      4401  hanging  7  left  23  landed  19   --a cipher --b nightfell --seed 4401 --at 15.3 --window 11.7
+   47.4  farwarden      4401  hanging  8  left  25  landed  17   --a cipher --b farwarden --seed 4401 --at 15.0 --window 11.2
+   46.8  nightfell      4469  hanging  8  left  26  landed  16   --a cipher --b nightfell --seed 4469 --at 15.3 --window 11.6

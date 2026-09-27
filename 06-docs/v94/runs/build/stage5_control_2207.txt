@@ -1,0 +1,4 @@
+cipher on sc-converge-blade.html · Chromium 151.0.7922.34 · 36 foes x 10 seeds x sides AB = 720 fights · seed0 2207 · stage5 control, no --set
+  win 46.9%   side A 47.2%   side B 46.7%   mean 59.9s   timeouts 0
+  by type  warhammer 59%  staff 52%  flail 51%  bow 49%  twinblade 47%  greatsword 45%  scythe 34%
+  worst    duskreave 10%  thornshear 20%  gloamwire 20%   (720 fights in 57s)

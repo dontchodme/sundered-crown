@@ -1,0 +1,17 @@
+CIPHER PROBE -- ../02-chain/sc-cipher-fx.html   144 fights, every foe, both sides   51s
+  win 45.8%   casts 3.18   sigils 29.9 a cast-equivalent   hanging at a cast 2.29   launched 7.87 a cast   blows 7.81 a window   foe hex 2.67   blows 44.5 a fight   mean 59.6s
+  sigils 34.68 a lab cast (the lab's normalization)   of them born on the step they were loosed 7.3 a cast-equivalent
+  PASS  [1] every glyph leaves with the spell's numbers and one bounce  -- 14478 glyphs
+  PASS  [2] the cadence is exact  -- 18971 looses
+  PASS  [3] every glyph a wall stops is a sigil: still, life 4.0, hex 2  -- 16024 sigils
+  PASS  [4] a sigil never moves while it is one  -- 0 sigil-steps moved
+  PASS  [5] sigils are touched and clanked  -- touched 1126, clanked/expired-early 9273
+  PASS  [6] the spell adds blows: over 1.3x the bow body's 21.9 a fight (stage 1), under 60 (the lab's ~31 is --labtag's)  -- 44.5
+  PASS  [7] the hanging sigils leave in laid order, 0.25s apart  -- 1048 at 458 casts
+  PASS  [8] a sigil laid in the window leaves 0.5s after it is laid  -- 7121
+  PASS  [9] launched, blows a window, the foe's hex (the lab's 5.4/5.7/2.6 are --labtag's; the build tags at spawn)  -- launched 7.87, blows 7.81, hex 2.67
+  PASS  [10] no flown rune ever becomes a sigil again  -- 0 re-formed
+  PASS  [11] an ult beat a cast; no cast lands on a live window; the state never outlives its last fuse  -- 459 beats for 459 casts (458 seen open after their step); 0 casts on a live window; 0 over-stays
+  PASS  [P] the render path is CALLED  --   8030 frames  {'bolt': 4891, 'sigil': 4657, 'flown': 5223}
+
+  12/12

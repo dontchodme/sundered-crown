@@ -1,0 +1,3 @@
+=== ENGINE A/B: 36 relics, 10 seeds x 630 pairings ===
+
+  sc-glyph.html                   6300 matches  417.0s
