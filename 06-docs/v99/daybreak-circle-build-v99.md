@@ -208,7 +208,7 @@ frames. `runs/build/s3_sheet*.txt|json`; the filmstrip is `05-reference/v99/sunr
                                            spellbreaker   aureole     grudgebearer
 L1 the wash over the bare floor  (>= +0.15)    +0.187        +0.179       +0.182      PASS x3
 L2 the rim: band luma            (>= 0.50)      0.769         0.687        0.771
-   the step, worst angle, 7 frames (>= 0.12)    0.126         0.116        0.109      PASS, FAIL, FAIL
+   the step, worst clean angle, 7 frames        0.126         0.116        0.109*     PASS, FAIL, FAIL
    the step, median                             0.13-0.14     0.13         0.13-0.14
 L3 the rays |dL| / cover of r60-110            0.079 / 10%   0.084 / 16%  0.084 / 16%   PASS x3
 L4 the tick's "2" |dL| vs the echo's "12"      0.235/0.282   0.278/0.251  0.253/0.275   FAIL, PASS, FAIL
@@ -225,9 +225,13 @@ own light across the rim (the frame minus the same frame without the sun: a real
 other light just outside the rim, and raw luma read it as the rim failing, down to -0.39). Where
 the floor is the hall's near-black the step is 0.13-0.14; where the hall's own art brightens the
 floor (the pentagram, its rings, the centre's glow) the design's 0.20 of amber at the rim can
-only add `0.20 x (0.735 - floor)`, and the worst angles read 0.109-0.119. **The wash's alpha is
-the design** (brief §2, stage 3), so it was not moved: **0.23 at the rim would clear every
-measured angle** (0.109 x 1.15 = 0.125; 0.22 lands the worst one on 0.120). Rick's and Cowork's.
+only add `0.20 x (0.735 - floor)`: the worst clean angles read 0.109-0.119, and on the brightest
+patch measured (*Grudgebearer's sixth frame, three angles near (350, 700)) 0.093-0.095. **One
+angle between those reads 0.010**, flanked by 0.093 and 0.095: something narrow is over the sun
+there, and it is not identified (not a ball, a blade, a shot, a word or a wall). **The wash's
+alpha is the design** (brief §2, stage 3), so it was not moved: **0.23 at the rim clears every
+clean angle but that brightest patch, and about 0.26 clears it too** (0.093 x 1.3 = 0.121).
+Rick's and Cowork's.
 
 **L4, THE NUMBER, IS THE DESIGN'S COLOUR ON THE DESIGN'S WASH.** A tick only happens inside the
 sun, so its number always sits over the amber wash, and gold on amber is lower contrast than the
@@ -263,6 +267,15 @@ spans are byte-identical on both tips), and the draw call anchors on two lines i
 three. **From `sc-zenith` the builder reproduces `sc-sunrise` and `sc-sunrise-fx` byte for byte**
 (`b84435a83eb5cce7`, `740b05d4bb6e7001`); **onto `sc-zenith-fx` both stages build and parse**
 (`73e1a5f6d6ae8b14`, `2cdb93ba5baf8cc3`, scratch only -- not written to the chain and not gated).
+
+### 4f. verify --n 40 on sc-sunrise-fx: 11/13, both reds the clock
+
+`runs/build/s3_verify.txt`. **Dawnbringer 50.4%**; every relic in 30-70% (Heartwood 35.4 ..
+Gloamwire 65.1, spread 29.6pp -- Gloamwire's carry, v66, not this build's). The two reds are the
+known clock bands: the pairing ceiling (Farwarden/Starwarden 99.7s, ruled accept) and the
+28-54s overall band that cannot hold a minute (60.3s). 0/23800 timeouts; both sides win every
+matchup. Run on `740b05d4`; the build's later edits were comments and docstrings, and it
+reproduces that sha byte for byte.
 
 ## 5. Stage 4: the clip and the sheet — Rick's gate, the one no tool runs
 

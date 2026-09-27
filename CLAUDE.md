@@ -12,24 +12,28 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-ironfall-blade.html  A BRANCH OFF sc-leaf, NOT THE CHAIN TIP (built on
-                                 yert): THE STAFF ROW'S FIRST RELIC. CULVERIN /
-                                 IRONFALL, the dwarven staff (06-docs/v96/), and
-                                 the staff TYPE with it: shape "staff" pasted from
-                                 Cowork's spec (all 21 heads, RICK'S LETTERS
-                                 OWED), the weapon glow sized for a weapon 1.7
+02-chain/sc-ironfall-fx.html     A BRANCH OFF sc-leaf, NOT THE CHAIN TIP (built on
+                                 yert): THE STAFF ROW'S FIRST RELIC, STAGES 1-6
+                                 DONE. CULVERIN / IRONFALL, the dwarven staff
+                                 (06-docs/v96/), and the staff TYPE with it:
+                                 shape "staff" pasted from Cowork's spec (all 21
+                                 heads; dwarven "A" is Code's pick under Rick's
+                                 "you pick i overrule", the other six letters
+                                 owed), the weapon glow sized for a weapon 1.7
                                  reaches long, the slug (gravity, no new engine
-                                 field) and the shells. sc-culverin -> sc-slug ->
-                                 sc-ironfall -> sc-ironfall-blade; stages 1-2
-                                 reproduce the lab TO THE FIGHT; charge 14 is the
-                                 lab's 16 in the game's clock, measured; blade
-                                 13.5, measured wide (provisional until the row
-                                 re-prices); verify 11/13, both reds the clock.
-                                 Stage 6 (picture, voice, field) next. The design
-                                 batch's line below also starts at sc-leaf; THIS
-                                 LINE DOES NOT MOVE GAME until one is carried
-                                 onto the other (culverin_build takes --src and
-                                 accepts either).
+                                 field), the shells, seven voices picked on the
+                                 PHONE band, drawn embers (no fx.js field: that
+                                 file is shared by both lines). sc-culverin ->
+                                 sc-slug -> sc-ironfall -> sc-ironfall-blade ->
+                                 sc-ironfall-fx. Charge 14 (the lab's 16), blade
+                                 13.5 measured (provisional until the row
+                                 re-prices), verify 11/13 both reds the clock,
+                                 engine_ab 5950/5950 WITH Culverin at stage 6,
+                                 shell_identity 194/194. THE CLIP IS WITH RICK.
+                                 THIS LINE DOES NOT MOVE GAME until it and the
+                                 batch line are carried onto one another
+                                 (culverin_build takes --src and accepts
+                                 either).
 02-chain/sc-sunrise-fx.html      A BRANCH OFF sc-zenith, NOT THE CHAIN TIP (built on
                                  yert, Rick's call): DAYBREAK, RICK'S CIRCLE (v99,
                                  sunrise_build.py). The cast puts the sun in the
@@ -40,7 +44,8 @@ short-form video for TikTok and YouTube Shorts.
                                  out whole. sc-zenith -> sc-sunrise ->
                                  sc-sunrise-fx; blade 10.4 confirmed (48.9%);
                                  engine_ab 3570/3570 WITH Dawnbringer, probe
-                                 16/16, shell_identity 194/194. Picture gates
+                                 16/16, shell_identity 194/194, verify 11/13
+                                 (both reds the clock), Dawnbringer 50.4%. Picture gates
                                  12/17: every red a design-owned number
                                  (06-docs/v99/daybreak-circle-build-v99.md §4d).
                                  THE CLIP IS WITH RICK. The batch line moved on
