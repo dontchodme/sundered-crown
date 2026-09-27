@@ -12,7 +12,11 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-corollary-fx.html    THE CHAIN TIP, NOT THE BUILD OF RECORD, AWAITING
+02-chain/sc-corollary-src.html   THE CHAIN TIP. Corollary stage 5: the echo's hex
+                                 names its applier by side letter, apply's own
+                                 contract (was the Fighter). engine_ab 3366/3366
+                                 WITH Axiom, probe 14/14. See 06-docs/v88/ §7.
+02-chain/sc-corollary-fx.html    the link before it; NOT THE BUILD OF RECORD, AWAITING
                                  RICK'S EYE. Corollary's stage 4 on top of the
                                  entry below: the bolt's art and field retired,
                                  the rune / flare / ghost / broken-rune picture,

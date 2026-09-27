@@ -10,7 +10,8 @@ lab (`overlays/corollary.js`) -- see THE READINGS below.
     stage 1   the echo, no hex       sc-leaf -> sc-echo.html
     stage 2   the hex                sc-echo -> sc-corollary.html
     stage 3   the blade              7.42 KEPT -- Rick, 2026-09-26 (no link)
-    stage 4   picture, voice, beat   (not written yet)
+    stage 4   picture, voice, beat, field   sc-corollary -> sc-corollary-fx.html
+    stage 5   the apply contract     sc-corollary-fx -> sc-corollary-src.html
 
 §1: "For a duration every blow Axiom lands is followed by its corollary: half
 a second later a rune-echo of the same blow strikes the enemy again, for the
@@ -976,6 +977,26 @@ def sync_fx(s: str) -> str:
 SYNC_FX_WRITE: list = []     # written only after every refusal has passed
 
 
+# ---------------------------------------------------------------- stage 5 --
+# THE APPLY CONTRACT, KEPT. `Fighter.apply(key, n, src)`'s own comment: "`src`
+# IS 'a' OR 'b' ... A SIDE LETTER AND NOT A FIGHTER. A reference would put a
+# live object graph inside a status the renderer snapshots every frame."
+# Stage 1 passed `f` (v80 §4 and the lab both write `apply("hex", 1, f)`).
+# Nothing in the simulation reads hex's `src` (only `feed` statuses and a
+# fatal damage tick do, and hex has neither), so no fight moves -- engine_ab
+# with Axiom in is the proof -- but the contract is kept. Found while mapping
+# Daybreak's smite, which DOES tick damage and would mis-attribute a kill.
+S5 = [
+
+("the echo's hex names its applier by side, not by reference",
+ '''        if (u.hex > 0){ tgt.apply("hex", u.hex, f); T.hex += u.hex; }
+''',
+ '''        if (u.hex > 0){ tgt.apply("hex", u.hex, f === this.a ? "a" : "b"); T.hex += u.hex; }
+'''),
+
+]
+
+
 def axiom_ult(code: str) -> str:
     """The ult block of Axiom's weapon entry, comments stripped."""
     i = code.find('id:"axiom"')
@@ -988,7 +1009,7 @@ def axiom_ult(code: str) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", choices=["1", "2", "4"], required=True)
+    ap.add_argument("--stage", choices=["1", "2", "4", "5"], required=True)
     ap.add_argument("--src", required=True)
     ap.add_argument("--out", required=True)
     A = ap.parse_args()
@@ -1040,6 +1061,12 @@ def main() -> int:
         if strip_comments(ult1) in code:
             raise SystemExit("this source already carries stage 2 -- built")
         edits = S2
+    elif A.stage == "5":
+        if "echoShown" not in code:
+            raise SystemExit("stage 5 needs stage 4 under it -- no echoShown here")
+        if 'tgt.apply("hex", u.hex, f === this.a ? "a" : "b")' in code:
+            raise SystemExit("this source already carries stage 5 -- built")
+        edits = S5
     else:
         if strip_comments(ult1) not in code:
             raise SystemExit("stage 4 needs stage 2 under it -- no hexing echo here")
@@ -1076,7 +1103,7 @@ def main() -> int:
     # which throws 40 sparks off the stream when an echo breaks a ward; that
     # is the ward's rule for all damage and v80 §4 routes the echo through it
     # ("ward first"). It is deterministic, and it is not this code's own draw.
-    for label, _old, new in S1 + S4 + PICTURE_ROWS + voice_rows():
+    for label, _old, new in S1 + S4 + PICTURE_ROWS + voice_rows() + S5:
         ins = strip_comments(new)
         if "rng()" in ins or "spawnFx" in ins:
             raise SystemExit(f"REFUSING TO WRITE -- insert '{label}' draws "

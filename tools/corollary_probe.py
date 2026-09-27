@@ -190,6 +190,15 @@ JS = r"""([seeds, wantHex]) => {
       for (const [tgt, vx, vy, x, y] of p.tv)
         if (tgt.vx !== vx || tgt.vy !== vy || tgt.x !== x || tgt.y !== y) fail(5, "an echo moved its target");
       const dh = f.echoTally.hex - p.hex0;
+      /* [14] THE APPLY CONTRACT: a status's `src` is "a" or "b", never a
+         Fighter (Fighter.apply's own comment). After an echo hexes, the
+         foe's hex names its applier by side. */
+      if (dh > 0){
+        const hs = p.q.length && p.q[0].tgt && p.q[0].tgt.status ? p.q[0].tgt.status.hex : null;
+        const side = f === this.a ? "a" : "b";
+        if (!hs || hs.src !== side) fail(14, `hex src ${hs && typeof hs.src === "object" ? "a Fighter" : JSON.stringify(hs && hs.src)}, want "${side}"`);
+        else inc("srcOk");
+      }
       if (wantHex){ if (dh !== hi * u.hex) fail(7, `hex +${dh} for ${hi} landed`); else inc("hexOk", hi); }
       else if (dh !== 0 || u.hex !== 0) fail(7, `stage 1 hexed ${dh} (u.hex ${u.hex})`);
     }
@@ -267,6 +276,9 @@ checks = [
     (10, "every echo strikes the foe, Axiom's opponent -- a blow on a shade too",
      n.get("aimedFoe", 0) > 0),
 ]
+if a.hex:
+    checks.append((14, "the echo's hex names its applier by side letter, not a Fighter (apply's contract)",
+                   n.get("srcOk", 0) > 0))
 if R.get("stage4"):
     checks.append((11, "stage 4: one hit beat per landed echo, fatal iff it killed, none for a miss",
                    n.get("beatOk", 0) > 0 and n.get("fatalBeat", 0) > 0))

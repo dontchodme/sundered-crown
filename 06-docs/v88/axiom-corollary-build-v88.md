@@ -359,3 +359,19 @@ picked **axiom v lightkeeper, seed 88212**: cast at 74.83, 8 blows, 6 landed, 2 
 
 15.9s, 953 frames, AAC audio (mean -20.9 dB, max -2.1 dB), sent to Rick 2026-09-26. The mp4 is
 gitignored; this command rebuilds it.
+
+## 7. Stage 5: the apply contract kept — `sc-corollary-src.html`
+
+Found while mapping Daybreak: `Fighter.apply(key, n, src)`'s own comment says `src` is "a" or
+"b", "A SIDE LETTER AND NOT A FIGHTER. A reference would put a live object graph inside a
+status the renderer snapshots every frame." Stage 1 passed `f`, as v80 §4 and the lab both
+write it. `corollary_build.py --stage 5` changes that one call to the side letter: out
+`82433ea61c9701b6`, +23 characters. Nothing in the simulation reads hex's `src` (only `feed`
+statuses and a damage tick's fatal beat do, and hex has neither), so no fight moves:
+- **engine_ab sc-corollary-fx → sc-corollary-src, all 34 WITH Axiom, n=6: 3366/3366.**
+- **corollary_probe --hex: 14/14.** New check **[14]**: after an echo hexes, the foe's hex
+  names its applier by side letter. On sc-corollary-fx it FAILS 2728 times ("a Fighter, want
+  'a'"), so the check can fail.
+
+The chain tip is now `sc-corollary-src`, and Daybreak (v97) builds on it. The picture and
+voices are unchanged from stage 4, so the clip Rick has stands for this link.
