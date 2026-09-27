@@ -1,0 +1,36 @@
+  (28 insert(s) found in bindweed_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-tendril-fx.html
+tip    sc-tendril-fx.html
+28 inserts read out of bindweed_build.py
+
+    ok  S1:bindweed joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the vine has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the vine relic  1  mid   -  tip  1
+    ok  S2:the vine does not spin  relic  1  mid   -  tip  1
+    ok  S2:the vine turns toward the foe relic  1  mid   -  tip  1
+    ok  S2:the cast opens the vine and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the vine ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:a cast waits for the last vine's wither relic  1  mid   -  tip  1
+    ok  S2:tickTendril grows, bites and roots relic  1  mid   -  tip  1
+    ok  S3:the bites               relic  1  mid   -  tip  1
+    ok  S4:the root                relic  1  mid   -  tip  1
+    ok  S5:the turn: the build's knob, inside 3-5 relic  1  mid   -  tip  1
+    ok  S5:the blade: at the crossing relic  1  mid   -  tip  1
+    ok  S6:Sfx: Bindweed's cast, bite, root and wither arms, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:tickTendril: the bite voice, once per bite, after the bite's hurt and entangle relic  1  mid   -  tip  1
+    ok  S6:tickTendril: the wither voice, on a clock close with both alive relic  1  mid   -  tip  1
+    ok  S6:tickTendril: the root voice, on the frame the pin is written relic  1  mid   -  tip  1
+    ok  S6:tendril picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:tendril picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:tendril picture: tickTwine relic  1  mid   -  tip  1
+    ok  S6:tendril picture: the root's beat relic  4  mid   -  tip  4
+    ok  S6:tendril picture: the held-ball guard relic  1  mid   -  tip  1
+    ok  S6:tendril picture: drawWeapon's vine hook relic  1  mid   -  tip  1
+    ok  S6:tendril picture: drawWeapon's wither hook relic  1  mid   -  tip  1
+    ok  S6:tendril picture: the ground call relic  1  mid   -  tip  1
+    ok  S6:tendril picture: the over-fighter call relic  1  mid   -  tip  1
+    ok  S6:tendril picture: twineCurve / twineLeaf relic  1  mid   -  tip  1
+    ok  S6:tendril picture: the drawing methods relic  1  mid   -  tip  1
+
+ALL 28 INSERTS SURVIVE to sc-tendril-fx.html
+exit 0

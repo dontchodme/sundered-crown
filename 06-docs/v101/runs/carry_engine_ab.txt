@@ -1,0 +1,11 @@
+=== ENGINE A/B: 38 relics, 6 seeds x 703 pairings ===
+
+  sc-tendril-fx.html              4218 matches  428.9s
+  sc-tendril-fx.html              4218 matches  417.0s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4218
+  PASS  every match identical field for field  — 4218/4218
+  PASS  the sweep is real  — 38/38 distinct winners, 4218 distinct seeds, 22.7-114.9s
+
+ENGINE A/B PASS — C:\dev\sundered-crown\02-chain\sc-tendril-fx.html does not move the 38-relic roster.

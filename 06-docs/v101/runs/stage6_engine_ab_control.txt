@@ -1,0 +1,21 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-tendril-t3.html                36 matches    2.9s
+  mut-twinewrite.html               36 matches    3.2s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 16 differ
+          #0
+            control {"seed": 1233799701, "a": "Bindweed", "b": "Grudgebearer", "winner": "Bindweed", "hp": 5, "duration": 53.92, "reason": "slain", "hits": {"a": 21, "b": 12}, "crits": {"a": 2, "b": 1}, "clanks": 12}
+            variant {"seed": 1233799701, "a": "Bindweed", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 3, "duration": 51.26, "reason": "slain", "hits": {"a": 20, "b": 12}, "crits": {"a": 2, "b": 1}, "clanks": 10}
+          #1
+            control {"seed": 330441002, "a": "Bindweed", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 150, "duration": 54.18, "reason": "slain", "hits": {"a": 13, "b": 11}, "crits": {"a": 1, "b": 3}, "clanks": 12}
+            variant {"seed": 330441002, "a": "Bindweed", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 277, "duration": 45.12, "reason": "slain", "hits": {"a": 10, "b": 10}, "crits": {"a": 1, "b": 4}, "clanks": 8}
+          #2
+            control {"seed": 4184808219, "a": "Bindweed", "b": "Grudgebearer", "winner": "Bindweed", "hp": 22, "duration": 51.57, "reason": "slain", "hits": {"a": 19, "b": 8}, "crits": {"a": 2, "b": 2}, "clanks": 15}
+            variant {"seed": 4184808219, "a": "Bindweed", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 43, "duration": 47.92, "reason": "slain", "hits": {"a": 18, "b": 9}, "crits": {"a": 2, "b": 2}, "clanks": 14}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 21.6-63.9s
+
+ENGINE A/B FAIL
+exit 1

@@ -1,0 +1,12 @@
+no killing blow on this seed (timeout finish); using the last cut
+--at 45.92s: filming a 12.35s window rather than measuring back from the kill
+seed 101275: kill at 55.94s, clip starts at 45.92s
+cut list: 55.9s T3
+  rendering director ON ...
+    the window ends at 58.27s of match time: stopped at 13.3s of video
+    on: 800 frames, 13.3s wall, 192s to render, match ended {'seed': 101275, 't': 45.924999999998036, 'kill': None}
+    on: FIGHT over=None t=58.275 clanks=16 hp=[55, 18]
+
+wrote C:\dev\sundered-crown\07-shorts\v101\tendril-window.mp4  2.88 MB  (0.0s off + 13.3s on)
+the two halves are the same seed. If the winner differs, the feature is broken.
+exit 0

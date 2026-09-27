@@ -1,0 +1,66 @@
+=== MUTANT witherdeath (--seeds 2 --no-draw)
+
+TENDRIL PROBE  mut-witherdeath.html  Chromium 151.0.7922.34  148 fights (Bindweed both sides x every foe x 2 seeds)   ult {'charge': 14, 'turn': 3, 'grow': 0.3, 'growCap': 3, 'biteDmg': 2, 'bitePer': 1, 'rootPer': 0.3}
+  casts/fight 3.31   blows a fight: in windows 12.99, outside 4.99   growth peak 2.25 (per fight)   Bindweed win 48.6%
+  per cast: bites 5.96  dmg 11.93  root 0.86s   touch 13.8% of window frames   foe stacks on a window frame 2.99   clock closes rooting 94%
+  seek frames stunned 63304 of 421715   killing bites 6   wards broken by a bite 38   FREEZE CENSUS 15.9% of window steps frozen
+  stage 6 voice: casts 490  bites 2922 (killing 6; n 1:231, 2:52, 3:246, 4:2393)  roots 368  withers 390 on 390 clock closes  silent death closes 0  ward shatters voiced in the vine's tick 38   run totals {'bindweed': 490, 'bindweed-bite': 2922, 'bindweed-wither': 406, 'bindweed-root': 368}
+  stage 6 picture: tickTwine calls clean 2001791  root beats 368  held steps 54953  drawn frames 0 (0 with the picture up, 0 of them in a hit stop)   (drawn subset OFF)
+  [1] PASS  the window is `dur` on the window clock, closes on either death; only Bindweed carries ultVine
+  [2] PASS  the seek: theta + clamp(shortest angle, +-turn x dt), stunned or not, drive 0; spin as ever outside
+  [3] PASS  the growth: `grow` x dt toward clamp((d - R)/(reach x mods.reach), 1, cap), both ways; 1 after
+  [4] PASS  every blow the flail's own, rebuilt exactly, in the window and out
+  [5] PASS  a bite only in contact, never closer than biteCd, never a missed clear contact
+  [6] PASS  each bite: hurt(foe, biteDmg, caster) once, entangle +bitePer by side letter; nothing else
+  [7] PASS  a killing bite files one fatal beat; nothing else files one
+  [8] PASS  the root: pin max(pin, rootPer x stacks) at a clock close, Grasp's write, pinFree untouched; none at a death
+  [9] PASS  no cast while a vine hunts or withers; every close leaves `wither`
+  [10] FAIL  stage 6 voice: one cast voice a cast, one bite voice a bite at the foe's stacks, one root voice a root, one wither voice a clock close and none on a death; nothing else sounds; every voice accounted for   17 FAIL: ['a wither voice on a death close (caster dead, foe alive)', 'a wither voice on a death close (caster dead, foe alive)', 'a wither voice on a death close (caster dead, foe alive)', 'a wither voice on a death close (caster dead, foe alive)']
+  [11] PASS  stage 6 picture: tickTwine writes no sim field and draws no RNG; one write-only beat a root and none on another close; twineHeld exactly while the root holds; no drawn frame throws or writes the sim
+
+  10/11
+exit 1
+=== MUTANT twinewrite (--seeds 2 --no-draw)
+
+TENDRIL PROBE  mut-twinewrite.html  Chromium 151.0.7922.34  148 fights (Bindweed both sides x every foe x 2 seeds)   ult {'charge': 14, 'turn': 3, 'grow': 0.3, 'growCap': 3, 'biteDmg': 2, 'bitePer': 1, 'rootPer': 0.3}
+  casts/fight 3.31   blows a fight: in windows 12.84, outside 4.69   growth peak 2.25 (per fight)   Bindweed win 46.6%
+  per cast: bites 5.86  dmg 11.72  root 0.83s   touch 13.8% of window frames   foe stacks on a window frame 2.94   clock closes rooting 94%
+  seek frames stunned 63358 of 418711   killing bites 5   wards broken by a bite 34   FREEZE CENSUS 16.0% of window steps frozen
+  stage 6 voice: casts 490  bites 2871 (killing 5; n 1:253, 2:63, 3:248, 4:2307)  roots 355  withers 378 on 378 clock closes  silent death closes 22  ward shatters voiced in the vine's tick 34   run totals {'bindweed': 490, 'bindweed-bite': 2871, 'bindweed-wither': 378, 'bindweed-root': 355}
+  stage 6 picture: tickTwine calls clean 1977951  root beats 355  held steps 53199  drawn frames 0 (0 with the picture up, 0 of them in a hit stop)   (drawn subset OFF)
+  [1] PASS  the window is `dur` on the window clock, closes on either death; only Bindweed carries ultVine
+  [2] PASS  the seek: theta + clamp(shortest angle, +-turn x dt), stunned or not, drive 0; spin as ever outside
+  [3] PASS  the growth: `grow` x dt toward clamp((d - R)/(reach x mods.reach), 1, cap), both ways; 1 after
+  [4] PASS  every blow the flail's own, rebuilt exactly, in the window and out
+  [5] PASS  a bite only in contact, never closer than biteCd, never a missed clear contact
+  [6] PASS  each bite: hurt(foe, biteDmg, caster) once, entangle +bitePer by side letter; nothing else
+  [7] PASS  a killing bite files one fatal beat; nothing else files one
+  [8] PASS  the root: pin max(pin, rootPer x stacks) at a clock close, Grasp's write, pinFree untouched; none at a death
+  [9] PASS  no cast while a vine hunts or withers; every close leaves `wither`
+  [10] PASS  stage 6 voice: one cast voice a cast, one bite voice a bite at the foe's stacks, one root voice a root, one wither voice a clock close and none on a death; nothing else sounds; every voice accounted for
+  [11] FAIL  stage 6 picture: tickTwine writes no sim field and draws no RNG; one write-only beat a root and none on another close; twineHeld exactly while the root holds; no drawn frame throws or writes the sim   2864 FAIL: ['tickTwine changed the sim: "598.9140749811813,-71.1127592785414,-498.66145864003335,426," -> "598.9140749811813,-71.1127592775414,-498.66145864003335,426,"', 'tickTwine changed the sim: "566.8213869878078,780.3043733811273,244.7857901990018,404,0," -> "566.8213869878078,780.3043733821273,244.7857901990018,404,0,"', 'tickTwine changed the sim: "701.5662215983239,477.9248939411612,-1090.2467754804304,402," -> "701.5662215983239,477.9248939421612,-1090.2467754804304,402,"', 'tickTwine changed the sim: "4.83338593656595,-218.57290778503216,69.72442301345674,364,0" -> "4.83338593656595,-218.57290778403217,69.72442301345674,364,0"']
+
+  10/11
+exit 1
+=== MUTANT drawwrite (--seeds 1, drawn every 24th)
+
+TENDRIL PROBE  mut-drawwrite.html  Chromium 151.0.7922.34  74 fights (Bindweed both sides x every foe x 1 seeds)   ult {'charge': 14, 'turn': 3, 'grow': 0.3, 'growCap': 3, 'biteDmg': 2, 'bitePer': 1, 'rootPer': 0.3}
+  casts/fight 3.30   blows a fight: in windows 12.97, outside 4.59   growth peak 2.21 (per fight)   Bindweed win 51.4%
+  per cast: bites 5.88  dmg 11.75  root 0.84s   touch 13.7% of window frames   foe stacks on a window frame 2.92   clock closes rooting 95%
+  seek frames stunned 29604 of 207024   killing bites 3   wards broken by a bite 25   FREEZE CENSUS 15.9% of window steps frozen
+  stage 6 voice: casts 244  bites 1434 (killing 3; n 1:119, 2:25, 3:123, 4:1167)  roots 178  withers 187 on 187 clock closes  silent death closes 7  ward shatters voiced in the vine's tick 25   run totals {'bindweed': 244, 'bindweed-bite': 1434, 'bindweed-wither': 187, 'bindweed-root': 178}
+  stage 6 picture: tickTwine calls clean 984525  root beats 178  held steps 26639  drawn frames 10213 (6163 with the picture up, 871 of them in a hit stop)
+  [1] PASS  the window is `dur` on the window clock, closes on either death; only Bindweed carries ultVine
+  [2] PASS  the seek: theta + clamp(shortest angle, +-turn x dt), stunned or not, drive 0; spin as ever outside
+  [3] PASS  the growth: `grow` x dt toward clamp((d - R)/(reach x mods.reach), 1, cap), both ways; 1 after
+  [4] PASS  every blow the flail's own, rebuilt exactly, in the window and out
+  [5] PASS  a bite only in contact, never closer than biteCd, never a missed clear contact
+  [6] PASS  each bite: hurt(foe, biteDmg, caster) once, entangle +bitePer by side letter; nothing else
+  [7] PASS  a killing bite files one fatal beat; nothing else files one
+  [8] PASS  the root: pin max(pin, rootPer x stacks) at a clock close, Grasp's write, pinFree untouched; none at a death
+  [9] PASS  no cast while a vine hunts or withers; every close leaves `wither`
+  [10] PASS  stage 6 voice: one cast voice a cast, one bite voice a bite at the foe's stacks, one root voice a root, one wither voice a clock close and none on a death; nothing else sounds; every voice accounted for
+  [11] FAIL  stage 6 picture: tickTwine writes no sim field and draws no RNG; one write-only beat a root and none on another close; twineHeld exactly while the root holds; no drawn frame throws or writes the sim   5453 FAIL: ['a drawn frame changed the sim: "89.0006243444999,-640.978815892724,679.2025097601031,460.962" -> "89.0006243444999,-640.978815891724,679.2025097601031,460.962"', 'a drawn frame changed the sim: "739.0535732009306,-625.3494499508062,868.6250144839005,460.3" -> "739.0535732009306,-625.3494499498062,868.6250144839005,460.3"', 'a drawn frame changed the sim: "637.0651080676736,597.281238546184,-700.7857527815105,459.78" -> "637.0651080676736,597.281238547184,-700.7857527815105,459.78"', 'a drawn frame changed the sim: "527.9860915942527,420.77979014039283,-488.9680906354983,447." -> "527.9860915942527,420.7797901413928,-488.9680906354983,447.3"']
+
+  10/11
+exit 1

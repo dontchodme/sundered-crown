@@ -1,0 +1,12 @@
+[Parsed_volumedetect_0 @ 00000229c7876040] n_samples: 0
+[Parsed_volumedetect_0 @ 00000229c7283400] n_samples: 1282048
+[Parsed_volumedetect_0 @ 00000229c7283400] mean_volume: -22.0 dB
+[Parsed_volumedetect_0 @ 00000229c7283400] max_volume: -3.1 dB
+[Parsed_astats_0 @ 000002c29dc05680] Number of NaNs: 0
+[Parsed_astats_0 @ 000002c29dc05680] Peak level dB: -3.146447
+[Parsed_astats_0 @ 000002c29dc05680] RMS level dB: -22.052850
+[Parsed_astats_0 @ 000002c29dc05680] Number of NaNs: 0
+[Parsed_astats_0 @ 000002c29dc05680] Overall
+[Parsed_astats_0 @ 000002c29dc05680] Peak level dB: -3.146447
+[Parsed_astats_0 @ 000002c29dc05680] RMS level dB: -22.042651
+[Parsed_astats_0 @ 000002c29dc05680] Number of NaNs: 0.000000

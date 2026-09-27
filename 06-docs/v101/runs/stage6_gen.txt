@@ -1,0 +1,6 @@
+the returned rows equal the files: voice 4/4, picture 11/11
+base sc-tendril-t3.html 5a6216e3b629fad4
+picture-only sha ef4bd13fe968d99c (the picture lab's stamp: ef4bd13fe968d99c)
+15 rows -> 15 edits (0 merged at a shared anchor)
+voice+picture sha 5e2cc29a1178bef4 (both orders identical; every anchor still once)
+stage 6 written into bindweed_build.py : 15 edits; sha 68184400ccb02861

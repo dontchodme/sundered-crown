@@ -1,0 +1,21 @@
+
+  sc-tendril-fx.html  ·  12 foes x 6 seeds  ·  Bindweed side A
+
+  foe              seed  cast at  window clock root  hold bites     n  in touch%  peak blows  score
+  shroudmaul     101275    47.12    9.35     1    1  1.20    10  1234  10   21.4  1.64     3  22.55
+  lightkeeper    101201    46.87   10.25     1    1  1.20    12    34   8   31.4  1.77    10  22.50
+  thornwake      101312    31.49    9.18     1    1  1.20     9  1234   6   18.4  1.87     4  22.45
+  heartwood      101275    15.27    9.66     1    1  1.20    11   134   5   33.5  1.95     4  22.15
+  thornwake      101201    30.91    9.70     1    1  1.20     8  1234   5   22.6  1.78     4  22.10
+  lightkeeper    101238    31.44   10.17     1    1  1.20    11    14   9   22.2  1.73     7  21.90
+  twinshade      101386    51.23   10.43     1    1  1.20    10    34  11   12.6  1.80     9  21.80
+  paradox        101275    29.49    9.57     1    1  1.20    10    34   8   25.2  1.91     8  21.80
+  censer         101238    30.35   10.21     1    1  1.20    13    34  12   24.1  1.50     9  21.50
+  starwarden     101201    62.80   10.67     1    1  1.20    12    14  12   21.8  1.46     8  21.50
+  paradox        101386    30.02    9.92     1    1  1.20    11    14  11   22.3  1.66     5  21.40
+  lightkeeper    101386    46.30    9.57     1    1  1.20    10    14   7   22.4  1.88     6  21.30
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/bindweed/links/sc-tendril-fx.html --a bindweed --b shroudmaul --seed 101275 \
+      --at 45.92 --window 12.35 --end-at-window --fps 60 --w 540 --out ../07-shorts/v101/tendril-window.mp4

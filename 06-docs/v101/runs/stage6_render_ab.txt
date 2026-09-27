@@ -1,0 +1,23 @@
+
+RENDER A/B  4 pairings x 6 frames  540x960
+  a  sc-tendril-t3.html
+  b  sc-tendril-fx.html
+
+PASS  24/24 frames pixel-identical.
+      Same relics, same seeds, same frame indices, one runtime.
+exit 0
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-tendril-t3.html
+  b  sc-tendril-fx.html
+  bindweed v grudgebearer seed 31337 t= 16.00  DIFFERS   luma 19.985 -> 20.019   lit 68.85% -> 68.85%
+  bindweed v grudgebearer seed 31337 t= 20.00  DIFFERS   luma 23.557 -> 23.606   lit 88.18% -> 88.18%
+  bindweed v grudgebearer seed 31337 t= 24.10  DIFFERS   luma 23.430 -> 24.244   lit 88.18% -> 88.18%
+  bindweed v grudgebearer seed 31337 t= 33.00  DIFFERS   luma 22.551 -> 22.601   lit 87.14% -> 87.14%
+  bindweed v grudgebearer seed 31337 t= 39.20  DIFFERS   luma 22.480 -> 22.305   lit 78.15% -> 78.15%
+
+FAIL  1/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

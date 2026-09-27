@@ -1,0 +1,53 @@
+  (28 insert(s) found in bindweed_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-tendril-fx.html
+tip    sc-tendril-t3.html
+28 inserts read out of bindweed_build.py
+
+    ok  S1:bindweed joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the vine has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the vine relic  1  mid   -  tip  1
+    ok  S2:the vine does not spin  relic  1  mid   -  tip  1
+    ok  S2:the vine turns toward the foe relic  1  mid   -  tip  1
+    ok  S2:the cast opens the vine and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the vine ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:a cast waits for the last vine's wither relic  1  mid   -  tip  1
+    ok  S2:tickTendril grows, bites and roots relic  1  mid   -  tip  1
+    ok  S3:the bites               relic  1  mid   -  tip  1
+    ok  S4:the root                relic  1  mid   -  tip  1
+    ok  S5:the turn: the build's knob, inside 3-5 relic  1  mid   -  tip  1
+    ok  S5:the blade: at the crossing relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Bindweed's cast, bite, root and wither arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'this._sweep(t + 0.12, { f0: 5000, f1: 3400, q: 0.9, gain: g * 0.8, dur: 0.22, atk: 0.05,'
+  LOST  S6:tickTendril: the bite voice, once per bite, after the bite's hurt and entangle relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "bindweed-bite", n: foe.stacks("entangle") });'
+  LOST  S6:tickTendril: the wither voice, on a clock close with both alive relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur && f.alive && foe.alive) SFX.play("ult", { w: "bindweed-wither" });'
+  LOST  S6:tickTendril: the root voice, on the frame the pin is written relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "bindweed-root" });'
+  LOST  S6:tendril picture: fighter fields relic  1  mid   -  tip  0
+        'this.twineRootSeen = 0;'
+  LOST  S6:tendril picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickTwine(dt);                 // TENDRIL'S PICTURE (v68 section 8.1)"
+  LOST  S6:tendril picture: tickTwine relic  1  mid   -  tip  0
+        'return [u * u * V.px + 2 * u * s * V.mx + s * s * V.hx, u * u * V.py + 2 * u * s * V.my '
+    ok  S6:tendril picture: the root's beat relic  4  mid   -  tip  3
+  LOST  S6:tendril picture: the held-ball guard relic  1  mid   -  tip  0
+        'if (f.pin > 0 && !f.pinFree && !(f.twineHeld > 0)){'
+  LOST  S6:tendril picture: drawWeapon's vine hook relic  1  mid   -  tip  0
+        'if (f.ultVine && !m.over && f.alive && this.drawTwineWeapon(m, f, reach, dim)) return;'
+  LOST  S6:tendril picture: drawWeapon's wither hook relic  1  mid   -  tip  0
+        'c.shadowBlur = 0; c.translate(-f.headX, -f.headY);'
+  LOST  S6:tendril picture: the ground call relic  1  mid   -  tip  0
+        'if (__world) this.drawTwine(m);'
+  LOST  S6:tendril picture: the over-fighter call relic  1  mid   -  tip  0
+        'this.drawTwineTop(m);'
+  LOST  S6:tendril picture: twineCurve / twineLeaf relic  1  mid   -  tip  0
+        'c.quadraticCurveTo(x + ux * L * 0.5 - uy * W, y + uy * L * 0.5 + ux * W, x + ux * L, y +'
+  LOST  S6:tendril picture: the drawing methods relic  1  mid   -  tip  0
+        'const cn = Math.cos(a + Math.PI / 2) * sd, sn = Math.sin(a + Math.PI / 2) * sd, ca = Mat'
+
+!! 14 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Bindweed's cast, bite, root and wither arms, before the shared rune-crack fallback, S6:tickTendril: the bite voice, once per bite, after the bite's hurt and entangle, S6:tickTendril: the wither voice, on a clock close with both alive, S6:tickTendril: the root voice, on the frame the pin is written, S6:tendril picture: fighter fields, S6:tendril picture: the presentation call, S6:tendril picture: tickTwine, S6:tendril picture: the held-ball guard, S6:tendril picture: drawWeapon's vine hook, S6:tendril picture: drawWeapon's wither hook, S6:tendril picture: the ground call, S6:tendril picture: the over-fighter call, S6:tendril picture: twineCurve / twineLeaf, S6:tendril picture: the drawing methods
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+exit 1

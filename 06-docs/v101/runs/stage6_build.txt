@@ -1,0 +1,26 @@
+
+BINDWEED / TENDRIL -- stage 6
+  src sc-tendril-t3.html  5a6216e3b629fad4  (LF text)
+  base  the chain tip (Onslaught stage 5); the donor's flail profile, the verdant channel and the verdant head hold
+  ok    Sfx: Bindweed's cast, bite, root and wither arms, before the shared rune-crack fallback
+  ok    tickTendril: the bite voice, once per bite, after the bite's hurt and entangle
+  ok    tickTendril: the wither voice, on a clock close with both alive
+  ok    tickTendril: the root voice, on the frame the pin is written
+  ok    tendril picture: fighter fields
+  ok    tendril picture: the presentation call
+  ok    tendril picture: tickTwine
+  ok    tendril picture: the root's beat
+  ok    tendril picture: the held-ball guard
+  ok    tendril picture: drawWeapon's vine hook
+  ok    tendril picture: drawWeapon's wither hook
+  ok    tendril picture: the ground call
+  ok    tendril picture: the over-fighter call
+  ok    tendril picture: twineCurve / twineLeaf
+  ok    tendril picture: the drawing methods
+  ok    ult   ult:{ name:"Tendril", charge:14, kind:"tendril", dur:8, turn:3, grow:0.3, growCap:3.0, vineW:8,  ...
+  ok    card  70 chars  'The chain becomes a vine that hunts the foe. Bites entangle, then root'
+  ok    reachMul at the chain (site 2)
+  ok    one tendril ultimate, Bindweed's; no insert draws the RNG, writes the shared weapon or touches pinFree; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-tendril-fx.html  5e2cc29a1178bef4   (+43378 chars, written LF)
