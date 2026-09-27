@@ -1,0 +1,35 @@
+Morningstar / Zenith (sc-zenith, blade 24.03) win by foe, pooled seed0 2207 + 2317 (40 fights a foe, both sides)
+
+aureole         17.5%
+gloamwire       17.5%
+ironhail        22.5%
+twinshade       25.0%
+lastlight       27.5%
+farwarden       32.5%
+marrowdraw      35.0%
+redflail        35.0%
+slagheart       35.0%
+grudgebearer    40.0%
+thornshear      42.5%
+starwarden      42.5%
+vesper          42.5%
+foregone        45.0%
+cindercleave    47.5%
+duskreave       50.0%
+vinesower       52.5%
+widowmaker      55.0%
+lightkeeper     57.5%
+nightfell       57.5%
+paradox         57.5%
+ravelbone       57.5%
+emberedge       60.0%
+shroudmaul      62.5%
+censer          65.0%
+bloodmirror     65.0%
+thornwake       70.0%
+bulwarden       72.5%
+oathwound       77.5%
+spellbreaker    77.5%
+dawnbringer     82.5%
+heartwood       82.5%
+axiom           85.0%

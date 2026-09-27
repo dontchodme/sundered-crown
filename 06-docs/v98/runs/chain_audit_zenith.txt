@@ -1,0 +1,16 @@
+  (8 insert(s) found in morningstar_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-burn.html
+tip    sc-zenith.html
+8 inserts read out of morningstar_build.py
+
+    ok  S1:morningstar joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the sun has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the sun's window relic  1  mid   -  tip  1
+    ok  S2:the cast lights the sun and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the sun ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickSun burns in the light of the head relic  1  mid   -  tip  1
+    ok  S3:the burn                relic  1  mid   -  tip  1
+   ?  S4:the heal                not in the relic build either — the marker is wrong, not the chain
+
+ALL 7 INSERTS SURVIVE to sc-zenith.html
+(1 marker(s) unresolved and reported above)

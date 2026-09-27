@@ -1,0 +1,6 @@
+34 relics · Chromium 151.0.7922.34 · gravemourn as sanctified:flail · 33 foes x 20 seeds = 660 fights an arm · 
+  charge=16.0 dur=8.0 blade=None sunR=100 blessOnTick=1
+
+  arm       win  casts  hits in/out    bless      dmg f_foeStk f_litPct   stacks    ticks
+  D       51.1%   3.19  3.72/5.30       5.87    17.60     2.69    19.96     5.87     5.87
+  660 fights in 74s   errors: []

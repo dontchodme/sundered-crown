@@ -1,0 +1,15 @@
+
+ZENITH PROBE  sc-sun.html  Chromium 151.0.7922.34  408 fights (Morningstar both sides x every foe x 6 seeds)   ult {'charge': 14, 'tickDmg': 0, 'bless': 0, 'r': 100, 'tick': 0.4}
+  per cast: ticks 5.28  dmg 0.00  bless 0.00  foe lit 15.3% of the window   casts/fight 3.07   Morningstar win 17.2%
+  killing ticks 0   wards broken by a tick 0
+  [1] PASS  every tick lands on a foe within r + R of the flail head
+  [2] PASS  the lab's cadence: never closer than `tick`, never a missed clear lit frame
+  [3] PASS  each tick: hurt(foe, tickDmg) once, smite +smite (to its cap)
+  [4] PASS  nothing else: no move, no stop but a ward's own
+  [5] PASS  blessing +bless on every tick (none at bless 0)
+  [6] PASS  no beat, except the killing tick's own fatal beat
+  [7] PASS  the window is `dur` long on the window clock
+  [8] PASS  smite's (and blessing's) source is a side letter
+  [9] PASS  only Morningstar carries ultSun
+
+  9/9

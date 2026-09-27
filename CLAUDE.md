@@ -12,7 +12,17 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-daybreak-fx.html     THE CHAIN TIP, AWAITING RICK'S EYE. Daybreak stage 3:
+02-chain/sc-zenith.html          THE CHAIN TIP. 35 RELICS: MORNINGSTAR / ZENITH, the
+                                 sanctified flail (morningstar_build.py stages 1-4,
+                                 v98). For 8s the flail's head is a sun of radius
+                                 100: a foe in its light takes 3 + smite every 0.4s
+                                 and each tick blesses Morningstar. Charge 14 (the
+                                 lab's 16), blade 24.03 confirmed. 51.4% against the
+                                 lab's 51.0; engine_ab 4488/4488 on the 34; verify
+                                 11/13, Morningstar 47.8%. Art is placeholder
+                                 (the donor's head): stage 6 next.
+02-chain/sc-daybreak-fx.html     the link before it; Daybreak stage 3 (the LINE --
+                                 Rick redesigned it as a circle, now with Cowork):
                                  the dawn drawn as a world-pass wash + horizon line
                                  (bloom share ~0, the balls untouched), the
                                  sparks-era corona/pool/banner/field retired, a
