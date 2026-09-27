@@ -1,0 +1,12 @@
+=== ENGINE A/B: 35 relics, 6 seeds x 595 pairings ===
+
+  sc-sunrise-fx.html              3570 matches  297.3s
+  sc-sunrise-e26.html             3570 matches  294.4s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3570
+  PASS  every match identical field for field  — 3570/3570
+  PASS  the sweep is real  — 35/35 distinct winners, 3570 distinct seeds, 21.6-108.6s
+
+ENGINE A/B PASS — ../02-chain/sc-sunrise-e26.html does not move the 35-relic roster.
+ENGINE_AB rc=0

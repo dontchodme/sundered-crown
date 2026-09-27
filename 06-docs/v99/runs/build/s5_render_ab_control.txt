@@ -1,0 +1,14 @@
+
+RENDER A/B  1 pairings x 4 frames  540x960
+  a  sc-sunrise-fx.html
+  b  sc-sunrise-e26.html
+  dawnbringer v grudgebearer seed 4242 t= 15.90  DIFFERS   luma 28.210 -> 28.277   lit 88.66% -> 88.66%
+  dawnbringer v grudgebearer seed 4242 t= 17.60  DIFFERS   luma 38.574 -> 40.038   lit 88.77% -> 88.77%
+  dawnbringer v grudgebearer seed 4242 t= 20.40  DIFFERS   luma 40.181 -> 41.613   lit 88.20% -> 88.20%
+  dawnbringer v grudgebearer seed 4242 t= 22.00  DIFFERS   luma 38.768 -> 40.114   lit 88.16% -> 88.16%
+
+FAIL  0/4 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+RENDER rc=1

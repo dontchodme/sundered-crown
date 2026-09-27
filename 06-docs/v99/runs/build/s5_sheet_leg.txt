@@ -1,0 +1,39 @@
+
+DAYBREAK'S CIRCLE -- THE PICTURE  sc-sunrise-e26.html  Chromium 151.0.7922.34  540x960
+
+  LEGIBILITY (first)
+   spellbreaker  THE RIM over 6 hold frames: [0.175/0.179 low 0/13 br +0.022]  [0.161/0.176 low 0/13 br -0.023]  [0.161/0.165 low 0/15 br -0.016]  [0.167/0.179 low 0/10 br +0.028]  [0.161/0.163 low 0/11 br +0.007]  [0.162/0.176 low 0/12 br -0.030]
+   spellbreaker  seed 5100 at 37.67s (sun t 2.31)
+     wash    +0.210 over the bare floor (chain off +0.210)   n 63390
+     rim     band min 0.770 med 0.785   step min 0.175 med 0.179   (13/72 angles usable)   chain off: band min 0.770 step min 0.175
+     rays    |dL| 0.077 over 6610 px, covering 10% of the circle at r 60-110
+     number  the tick's |dL| 0.235 (123 px)   the echo's 0.282 (210 px)   by size: 24 0.235  26 0.249  28 0.249  30 0.263
+   aureole       THE RIM over 6 hold frames: [0.151/0.166 low 0/18 br -0.016]  [0.150/0.168 low 0/18 br +0.028]  [0.168/0.176 low 0/6 br +0.007]  [0.148/0.162 low 0/21 br -0.030]  [0.148/0.165 low 0/18 br +0.001]  [0.154/0.168 low 0/14 br +0.029]
+   aureole       seed 5100 at 18.23s (sun t 2.31)
+     wash    +0.201 over the bare floor (chain off +0.201)   n 56583
+     rim     band min 0.691 med 0.707   step min 0.151 med 0.166   (18/72 angles usable)   chain off: band min 0.691 step min 0.151
+     rays    |dL| 0.081 over 6617 px, covering 16% of the circle at r 60-110
+     number  the tick's |dL| 0.278 (126 px)   the echo's 0.251 (218 px)   by size: 24 0.278  26 0.292  28 0.299  30 0.295
+   grudgebearer  THE RIM over 6 hold frames: [0.169/0.174 low 0/21 br -0.013]  [0.144/0.172 low 0/30 br +0.029]  [0.144/0.174 low 0/13 br +0.005]  [0.138/0.174 low 0/22 br -0.030]  [0.172/0.179 low 0/4 br +0.004]  [0.174/0.180 low 0/13 br +0.029]
+   grudgebearer  seed 5100 at 19.47s (sun t 2.31)
+     wash    +0.207 over the bare floor (chain off +0.207)   n 74518
+     rim     band min 0.774 med 0.781   step min 0.169 med 0.174   (21/72 angles usable)   chain off: band min 0.774 step min 0.169
+     rays    |dL| 0.082 over 6906 px, covering 16% of the circle at r 60-110
+     number  the tick's |dL| 0.253 (110 px)   the echo's 0.275 (212 px)   by size: 24 0.253  26 0.271  28 0.277  30 0.281
+
+  THE BLOOM (after)
+
+  PASS  L1 wash >= +0.15 (spellbreaker)
+  PASS  L2 rim band >= 0.50 and step >= 0.12 at every usable angle, 7 judged frames (spellbreaker)
+  PASS  L3 rays are marks, not a disc (spellbreaker)
+  FAIL  L4 the tick's number reads >= the echo's (spellbreaker)
+  PASS  L1 wash >= +0.15 (aureole)
+  PASS  L2 rim band >= 0.50 and step >= 0.12 at every usable angle, 7 judged frames (aureole)
+  PASS  L3 rays are marks, not a disc (aureole)
+  PASS  L4 the tick's number reads >= the echo's (aureole)
+  PASS  L1 wash >= +0.15 (grudgebearer)
+  PASS  L2 rim band >= 0.50 and step >= 0.12 at every usable angle, 6 judged frames (grudgebearer)
+  PASS  L3 rays are marks, not a disc (grudgebearer)
+  FAIL  L4 the tick's number reads >= the echo's (grudgebearer)
+
+  10/12   (14s)

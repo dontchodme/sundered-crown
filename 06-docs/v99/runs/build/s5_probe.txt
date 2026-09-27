@@ -1,0 +1,34 @@
+
+DAYBREAK'S CIRCLE -- PROBE  sc-sunrise-e26.html  Chromium 151.0.7922.34  408 fights (Dawnbringer both sides x 34 foes x 6 seeds)
+  casts/fight 3.28   suns/fight 3.17   breaks/cast 0.966   Dawnbringer win 48.0%
+  per cast: ticks 9.11  dmg 18.22    per sun: ticks 9.43  dmg 18.87
+  foe inside the sun: 51.9% anchored at the HIT POINT (built)   51.4% anchored at the foe's CENTRE (the lab's)   design: 56% (centre)
+  arming wait (match time, cast -> break): mean 2.80s  median 1.77s  p90 6.93s  max 15.68s   design: ~3.0s mean
+  hit point from the struck body's centre: median 37.7  p10 32.1  p90 40.4  (ballR 34)
+  killing ticks 17   wards broken by a tick 185   re-casts while a sun was up 123   suns set by the clock 964
+  voice cast (the root)  peak 0.040  audible 1.35s
+  voice hum, step 2      peak 0.040  audible 1.35s
+  voice the bell         peak 0.182  audible 1.85s
+  voice the shimmer      peak 0.021  audible 2.00s
+  voice the sunset       peak 0.091  audible 1.80s
+  voice the tick         peak 0.765  audible 1.25s
+  ticks with their three marks 12206   quiet frames 1076803   hum strikes 13313   bells 1294   shimmer strikes 17044   clock sunsets voiced 964
+  [1] PASS  every tick lands on a foe inside r(t) + R of the anchor
+  [2] PASS  the lab's cadence: never closer than `tick`, never a missed clear inside frame
+  [3] PASS  each tick: smite +smite (to its cap) and hurt(foe, tickDmg) once, through hurt
+  [4] PASS  nothing else: no move, no stop but a ward's own
+  [5] PASS  no beat, except the killing tick's own fatal beat
+  [6] PASS  the caster gets nothing
+  [7] PASS  the sun sets at `dur` on its own clock, and with its caster
+  [8] PASS  smite's source is a side letter
+  [9] PASS  only Dawnbringer carries ultSunrise; the line's state is gone
+  [10] PASS  the break: at the blow's hit point, t = cd = 0, one sunrise beat there; the anchor holds
+  [11] PASS  the arming: every cast arms; a re-cast leaves the sun that is up alone
+  [12] PASS  the rim travels 100 px/s off the block (r / grow)
+  [13] PASS  stage 3: every tick, and only a tick, has its number, its shell flash and its voice
+  [14] PASS  stage 3: the hum on the arming's clock at its step; none after the break; one bell a break
+  [15] PASS  stage 3: the sunset voice on a clock set only; the shimmer on its half seconds
+  [16] PASS  stage 3: every voice renders audibly alone; the line's steps are gone from the synth
+
+  16/16
+PROBE rc=0

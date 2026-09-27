@@ -1,0 +1,4 @@
+[identity] build 02-chain/sc-sunrise-e26.html
+[identity] headless Chromium 151.0.7922.34
+
+PASS  194/194 identical.

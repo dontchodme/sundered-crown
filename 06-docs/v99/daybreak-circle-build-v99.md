@@ -1,4 +1,4 @@
-# v99 — DAWNBRINGER / DAYBREAK, THE CIRCLE, BUILD. STAGES 1-3 BUILT AND GATED ON yert; THE CLIP IS WITH RICK (card hidden). A side branch off `sc-zenith`; the app pointer waits on him.
+# v99 — DAWNBRINGER / DAYBREAK, THE CIRCLE, BUILD. STAGES 1-3 AND RICK'S EDGE WASH (STAGE 5) BUILT AND GATED ON yert: the branch tip is `sc-sunrise-e26`; THE CLIP IS WITH RICK (card hidden). A side branch off `sc-zenith`; the app pointer waits on him.
 
 Claude Code on **yert**, claimed 2026-09-27 04:17 UTC (`CLAIMS.md`, the BUILD row under THE
 CIRCLE). **Rick chose yert over DESKTOP-DERRAFT for this one**, asked in this session: the
@@ -208,7 +208,7 @@ frames. `runs/build/s3_sheet*.txt|json`; the filmstrip is `05-reference/v99/sunr
                                            spellbreaker   aureole     grudgebearer
 L1 the wash over the bare floor  (>= +0.15)    +0.187        +0.179       +0.182      PASS x3
 L2 the rim: band luma            (>= 0.50)      0.769         0.687        0.771
-   the step, worst clean angle, 7 frames        0.126         0.116        0.109*     PASS, FAIL, FAIL
+   the step, worst clean angle, 7 frames        0.126         0.116        0.109      PASS, FAIL, FAIL
    the step, median                             0.13-0.14     0.13         0.13-0.14
 L3 the rays |dL| / cover of r60-110            0.079 / 10%   0.084 / 16%  0.084 / 16%   PASS x3
 L4 the tick's "2" |dL| vs the echo's "12"      0.235/0.282   0.278/0.251  0.253/0.275   FAIL, PASS, FAIL
@@ -220,18 +220,22 @@ B3 the sun paints no ball, and is not bloom    disc change max 0.0018 on and off
                                                the wash the same chain on and off
 ```
 
-**L2, THE RIM'S STEP, IS THE DESIGN'S NUMBERS AGAINST THIS HALL'S FLOOR.** The step is the sun's
-own light across the rim (the frame minus the same frame without the sun: a real fight puts
-other light just outside the rim, and raw luma read it as the rim failing, down to -0.39). Where
-the floor is the hall's near-black the step is 0.13-0.14; where the hall's own art brightens the
-floor (the pentagram, its rings, the centre's glow) the design's 0.20 of amber at the rim can
-only add `0.20 x (0.735 - floor)`: the worst clean angles read 0.109-0.119, and on the brightest
-patch measured (*Grudgebearer's sixth frame, three angles near (350, 700)) 0.093-0.095. **One
-angle between those reads 0.010**, flanked by 0.093 and 0.095: something narrow is over the sun
-there, and it is not identified (not a ball, a blade, a shot, a word or a wall). **The wash's
-alpha is the design** (brief §2, stage 3), so it was not moved: **0.23 at the rim clears every
-clean angle but that brightest patch, and about 0.26 clears it too** (0.093 x 1.3 = 0.121).
-Rick's and Cowork's.
+**L2, THE RIM'S STEP, WAS THE DESIGN'S NUMBERS AGAINST THIS HALL'S FLOOR -- AND RICK RAISED IT
+(§7).** The step is the sun's own light across the rim (the frame minus the same frame without
+the sun: a real fight puts other light just outside the rim, and raw luma read it as the rim
+failing, down to -0.39). Where the floor is the hall's near-black the step is 0.13-0.14; where the
+hall's own art brightens the floor (the pentagram, its rings, the centre's glow) the design's
+0.20 of amber at the rim can only add `0.20 x (0.735 - floor)`, and the worst clean angles read
+**0.116 (Aureole) and 0.109 (Grudgebearer)**. The wash's alpha is the design, so this stage left
+it and reported it.
+
+**A CORRECTION TO WHAT THIS SECTION FIRST SAID, AND TO WHAT RICK WAS FIRST TOLD.** It reported a
+"brightest floor patch" at 0.093-0.095 on Grudgebearer's sixth frame, and between those an angle
+at 0.010 that nothing identified. **Both were Grudgebearer's own ultimate NAME BANNER** --
+"Crucible", with its glow, drawn over everything by `drawUltName` and lying across the rim at
+that moment -- which the measure excluded as a word only for numbers and status tags. Rendered
+and cropped, it is unmistakable. The banner is excluded now (`sunrise_sheet.py`, re-run on this
+link: `runs/build/s3_sheet_leg_bannerfix.txt`), and the numbers above are with it excluded.
 
 **L4, THE NUMBER, IS THE DESIGN'S COLOUR ON THE DESIGN'S WASH.** A tick only happens inside the
 sun, so its number always sits over the amber wash, and gold on amber is lower contrast than the
@@ -312,11 +316,55 @@ hidden. Rick sees it with the clip.
 4. **The heal** (§6.4): not taken.
 5. **Code's two picks** (§6.5), on the numbers: the crossing flare and the arming smear are both
    IN. Overrule either and it is one draw call.
-6. **THE THREE REDS, each one number of the design's** (§4d): the rim-side wash 0.20 → 0.23
-   clears the rim's step on the hall's brighter floor; the number's gold on amber reads under the
-   echo's on two foes of three (the colour or the size); the flash's radius 70 is the design's
-   next knob for its bloom tipping a hit-flashed ball past 0.90. None was moved, because each is
-   the design's to move -- and Rick's eye on the clip is the gate those numbers exist to serve.
-7. **THE FORK**: this branch and DESKTOP-DERRAFT's (`sc-zenith-fx`, Ironwood next) meet by
-   re-applying one onto the other. `sunrise_build.py --src <their tip>` is tested onto
-   `sc-zenith-fx`; which way round, and when, is the carry session's call.
+6. **THE REDS, each one number of the design's** (§4d). ~~The rim-side wash~~ **RULED: Rick,
+   2026-09-27, 0.26 (§7) -- the rim's step passes on all three foes.** Left: the number's gold on
+   amber reads under the echo's on two foes of three (the colour or the size); the flash's
+   radius 70 is the design's next knob for its bloom tipping a hit-flashed ball past 0.90.
+   Neither was moved, because each is the design's to move -- and Rick's eye on the clip is the
+   gate those numbers exist to serve.
+7. **THE FORK**: this branch and DESKTOP-DERRAFT's meet by re-applying one onto the other.
+   `sunrise_build.py --src <their tip>` is tested, all three stages, onto `sc-zenith-fx` and onto
+   the batch's tip at the time of stage 5, `sc-tendril-t3` (38 relics; scratch, not written or
+   gated). Which way round, and when, is the carry session's call.
+
+## 7. Stage 5: Rick's edge wash — `sc-sunrise-e26.html`
+
+Rick, 2026-09-27, off §4d: **"raise the edge wash to 0.26 and rebuild."** One number, the wash's
+stop at the rim, 0.20 → 0.26; the core's stop (0.35) and its breath, the rim's own gold ring and
+halo, the rays, the embers and the flash do not move. It is its OWN STAGE rather than a change
+to stage 3, so `sc-sunrise` and `sc-sunrise-fx` still rebuild from the builder byte for byte
+(checked: `b84435a83eb5cce7`, `740b05d4bb6e7001`); the number lives in the builder as
+`EDGE_WASH`.
+
+`sunrise_build.py --stage 5 --src ../02-chain/sc-sunrise-fx.html --out ../02-chain/sc-sunrise-e26.html`:
+out `7517c5ac642c048f`, +280 characters, two anchored edits (the stop and its comment).
+
+- **engine_ab sc-sunrise-fx → sc-sunrise-e26, ALL 35 WITH Dawnbringer, n=6: 3570/3570
+  identical** (`runs/build/s5_engine_ab35.txt`). So **verify carries from stage 3** (11/13, both
+  reds the clock, Dawnbringer 50.4%).
+- **sunrise_probe 16/16**, the fight statistics identical to the digit; **shell_identity
+  194/194**; **render_ab** the other relics' pairs 24/24 identical and the control inside a sun
+  0/4 (mean luma +1.4 with the sun up); **chain_audit** 26/26 at the tip, stage 1's 10/10 and
+  stage 3's 25/25 surviving stage 5, Corollary's 25/25; **tip_audit** clean.
+- **The picture's gates, 14 of 17** (`runs/build/s5_sheet*.txt|json`; the filmstrip is redrawn):
+
+```
+                                           spellbreaker   aureole     grudgebearer
+L1 the wash over the bare floor  (>= +0.15)    +0.210        +0.201       +0.207      PASS x3
+L2 the rim's step, worst clean angle           0.161         0.148        0.138       PASS x3
+   (at the design's 0.20, the same frames)     0.126         0.116        0.109
+L4 the tick's "2" vs the echo's "12"           0.235/0.282   0.278/0.251  0.253/0.275   FAIL, PASS, FAIL
+B2 the flash                                   unchanged: 5 of 400 hit-flashed ball-frames tipped   FAIL
+everything else (L3, L5, L6, B1, B3)           as §4d; the sun's bloom share max +0.00006, the
+                                               balls untouched (disc change max 0.0020)          PASS
+```
+
+**The two reds left are the number's colour and the flash's radius (§6).**
+
+**The clip, on this link, the same sun as §5** -- dawnbringer v heartwood 99138, card hidden:
+
+    python cinema_clip.py --game ../02-chain/sc-sunrise-e26.html --a dawnbringer --b heartwood \
+      --seed 99138 --at 47.28 --window 12.71 --end-at-window --fps 60 --w 540 --no-card \
+      --out ../07-shorts/v99/daybreak-sun-e26.mp4
+
+14.7s. The 0.20 clip (`daybreak-sun.mp4`) stays beside it for the before and after.

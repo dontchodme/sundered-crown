@@ -15,7 +15,7 @@ LEGIBILITY (v99 brief stage 3), each able to fail:
        at the hold (the line measured +0.085 and failed Rick's eye)
   [L2] the rim: band luma >= 0.50, and the step from just inside it to just
        outside its halo >= 0.12, at every angle a wall, a ball, a blade, a shot
-       or a word does not cover, on every hold frame with >= 6 such angles
+       or a word (a number, a tag, an ultimate's name banner) does not cover, on every hold frame with >= 6 such angles
        (fewer is not enough to judge, and is not counted either way). THE STEP IS THE SUN'S OWN LIGHT (the frame minus the same
        frame without the sun), because a real fight puts other things just
        outside the rim -- a foe's ultimate, arrows, a white ball's glow -- and
@@ -152,6 +152,14 @@ window.SUNLAB = (() => {
         for (const [wx, wy] of words) if (Math.hypot(x - wx, y - wy) < 70) bins[k].bad = true;
         for (const sg of segs) if (segD(x, y, sg) < 24) bins[k].bad = true;
         for (const [ox, oy] of objs) if (Math.hypot(x - ox, y - oy) < BR + 20) bins[k].bad = true;
+        /* and an ultimate's NAME BANNER, a word drawn over everything: centred
+           78 below its anchor and clamped into the hall (drawUltName). It
+           covered one angle of a Daybreak rim with "Crucible" and read as a
+           step of 0.01. */
+        if (m.banner){
+          const bx = Math.max(150, Math.min(A.w - 150, m.banner.bx)), by = m.banner.by + 78;
+          if (Math.abs(x - bx) < 150 && Math.abs(y - by) < 55) bins[k].bad = true;
+        }
       }
     }
     eachPx(m, (i, x, y) => {

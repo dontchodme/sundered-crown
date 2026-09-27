@@ -460,6 +460,16 @@ def cut_tick(src: str) -> str:
 # THE VOICES' LEVELS, AND THE ONLY PLACE THEY LIVE: solved by
 # `sunrise_voice_lab.py` against a blow (the `hit` voice at the blade's 10.4)
 # to design §4.2's bounds, on the loudest 50 ms through the shipped chain.
+# RICK'S RULINGS AFTER THE BUILD, one number each, applied as STAGE 5 (stage 4
+# is the clip, which writes no link) so that every link under it still
+# rebuilds byte for byte from this file.
+#
+# THE WASH AT THE RIM. The design's 0.20 of amber made a step of only
+# 0.093-0.119 across the rim on the hall's brighter floor -- the pentagram, its
+# rings, the centre's glow -- against the brief's 0.12 (build doc §4d).
+# Rick, 2026-09-27: "raise the edge wash to 0.26 and rebuild".
+EDGE_WASH = 0.26
+
 VOICE = {
     "hum": 0.0239,     # the arming: -16 dB under a blow
     "mallet": 0.02028,   # the break's mallet tick, 30 ms
@@ -1085,6 +1095,41 @@ def s3_edits() -> list:
 S3 = s3_edits()
 
 
+# ---------------------------------------------------------------- stage 5 --
+# RICK'S EDGE WASH. The rim's stop of the wash, and the comment that states it.
+# Nothing else in the picture moves: the core's stop and its breath, the rim's
+# own gold ring and halo, the rays, the embers, the flash.
+S5 = [
+
+("the wash at the rim is Rick's 0.26",
+ '''  /* THE WASH: a radial gradient from gold at the core (0.35) to amber at the
+     rim (0.20), source-over -- brightest where the sun came up, so it reads as
+     light with a source and not as a pool -- breathing +-0.03 at 0.8 Hz AT THE
+     SOURCE, while the boundary holds. Measured with the breath on the rim's
+     stop as well, the step across the rim fell under the brief's 0.12 for
+     half of every cycle (0.20 - 0.03 = 0.17 at the trough). */
+''',
+ f'''  /* THE WASH: a radial gradient from gold at the core (0.35) to amber at the
+     rim ({EDGE_WASH:.2f}), source-over -- brightest where the sun came up, so it reads as
+     light with a source and not as a pool -- breathing +-0.03 at 0.8 Hz AT THE
+     SOURCE, while the boundary holds. Measured with the breath on the rim's
+     stop as well, the step across the rim fell under the brief's 0.12 for
+     half of every cycle (0.20 - 0.03 = 0.17 at the trough).
+     THE RIM'S {EDGE_WASH:.2f} IS RICK'S, 2026-09-27 ("raise the edge wash to {EDGE_WASH:.2f}"),
+     over the design's 0.20: on the hall's brighter floor -- the pentagram,
+     its rings, the centre's glow -- 0.20 of amber made a step of only
+     0.093-0.119 across the rim against the brief's 0.12. */
+'''),
+
+("the wash's rim stop",
+ '''    g.addColorStop(1, "rgba(255,179,71," + (0.20 * k).toFixed(4) + ")");
+''',
+ f'''    g.addColorStop(1, "rgba(255,179,71," + ({EDGE_WASH:.2f} * k).toFixed(4) + ")");
+'''),
+
+]
+
+
 def relic_ult(code: str) -> str:
     """The ult block of Dawnbringer's weapon entry, comments stripped."""
     i = code.find('id:"dawnbringer"')
@@ -1102,7 +1147,7 @@ LINE_NAMES = ("ultDawn", "dawnTally", "tickDawn", "drawDawn", "dawnShown",
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", choices=["1", "3"], required=True)
+    ap.add_argument("--stage", choices=["1", "3", "5"], required=True)
     ap.add_argument("--src", required=True)
     ap.add_argument("--out", required=True)
     A = ap.parse_args()
@@ -1146,13 +1191,22 @@ def main() -> int:
         s = cut_tick(s)
         for label, old, new in S1:
             s = one(s, old, new, label)
-    else:
+    elif A.stage == "3":
         if "ultSunrise" not in code:
             raise SystemExit("stage 3 needs stage 1 under it -- no sun here")
         if "sunriseShown" in code:
             raise SystemExit("this source already carries stage 3 -- built")
         print("  base  stage 1 (the sun) on the batch tip")
         for label, old, new in S3:
+            s = one(s, old, new, label)
+    else:
+        if "sunriseShown" not in code:
+            raise SystemExit("stage 5 needs stage 3 under it -- no picture here")
+        if '(0.20 * k).toFixed(4)' not in code:
+            raise SystemExit("this source's wash is not the design's 0.20 at the rim "
+                             "-- stage 5 is built, or the picture has moved")
+        print("  base  stage 3 (the picture) on the batch tip")
+        for label, old, new in S5:
             s = one(s, old, new, label)
 
     out_code = strip_comments(s)
@@ -1186,14 +1240,20 @@ def main() -> int:
           f"relic is radiant")
     if out_code.count("Math.random") != code.count("Math.random"):
         raise SystemExit("REFUSING TO WRITE -- this build adds a Math.random")
-    for label, _old, new in S1 + S1_TICK + S3:
+    for label, _old, new in S1 + S1_TICK + S3 + S5:
         ins = strip_comments(new)
         if "rng()" in ins or "spawnFx" in ins:
             raise SystemExit(f"REFUSING TO WRITE -- insert '{label}' draws "
                              "the match RNG")
     n_ids = len(re.findall(r'\{ id:"[a-z]+", name:"', out_code))
     print(f"  ok    no insert draws the RNG; {n_ids} relics in the roster")
-    if A.stage == "3":
+    if A.stage == "5":
+        want = f"({EDGE_WASH:.2f} * k).toFixed(4)"
+        if out_code.count(want) != 1 or "(0.20 * k).toFixed(4)" in out_code:
+            raise SystemExit(f"REFUSING TO WRITE -- the wash's rim stop is not "
+                             f"exactly Rick's {EDGE_WASH:.2f}")
+        print(f"  ok    the wash at the rim {EDGE_WASH:.2f} (Rick's; the design's 0.20)")
+    if A.stage in ("3", "5"):
         # THE BREAK'S FLASH IS THE ONLY LIGHT: nothing else of the sun's is
         # `lighter`, and every mark but the flash is drawn in the world pass.
         draw = strip_comments(DRAW_SUNRISE)
@@ -1226,6 +1286,8 @@ def main() -> int:
         print(f"    python sunrise_probe.py --game {A.out}")
         print("    the relic at 10.4 against stage 0's arm D on 151 (the lab)")
     else:
+        if A.stage == "5":
+            print("    (a presentation number: verify carries from stage 3 on engine_ab's identity)")
         print(f"    python sunrise_sheet.py --game {A.out}          # legibility FIRST, then the bloom")
         print(f"    python engine_ab.py --a {A.src} --b {A.out} --ids <ALL 35> --n 6")
         print(f"    python sunrise_probe.py --game {A.out}          # + the stage-3 checks")

@@ -34,7 +34,7 @@ short-form video for TikTok and YouTube Shorts.
                                  batch line are carried onto one another
                                  (culverin_build takes --src and accepts
                                  either).
-02-chain/sc-sunrise-fx.html      A BRANCH OFF sc-zenith, NOT THE CHAIN TIP (built on
+02-chain/sc-sunrise-e26.html     A BRANCH OFF sc-zenith, NOT THE CHAIN TIP (built on
                                  yert, Rick's call): DAYBREAK, RICK'S CIRCLE (v99,
                                  sunrise_build.py). The cast puts the sun in the
                                  blade; the next blow that lands breaks the dawn
@@ -42,16 +42,19 @@ short-form video for TikTok and YouTube Shorts.
                                  in 2s, 8s from the contact); a foe inside is
                                  smitten +1 and takes 2 every 0.5s. The line is
                                  out whole. sc-zenith -> sc-sunrise ->
-                                 sc-sunrise-fx; blade 10.4 confirmed (48.9%);
-                                 engine_ab 3570/3570 WITH Dawnbringer, probe
-                                 16/16, shell_identity 194/194, verify 11/13
-                                 (both reds the clock), Dawnbringer 50.4%. Picture gates
-                                 12/17: every red a design-owned number
-                                 (06-docs/v99/daybreak-circle-build-v99.md §4d).
+                                 sc-sunrise-fx -> sc-sunrise-e26 (RICK'S EDGE
+                                 WASH, 0.20 -> 0.26: the rim's step now passes
+                                 on all three foes); blade 10.4 confirmed
+                                 (48.9%); engine_ab 3570/3570 WITH Dawnbringer at
+                                 each picture stage, probe 16/16, shell_identity
+                                 194/194, verify 11/13 (both reds the clock),
+                                 Dawnbringer 50.4%. Picture gates 14/17: the two
+                                 reds left are the design's (the number's colour,
+                                 the flash's radius), build doc §4d and §7.
                                  THE CLIP IS WITH RICK. The batch line moved on
-                                 while it was built (sc-zenith-fx, then Ironwood
-                                 to sc-canopy-w38); the builder re-applies onto
-                                 sc-zenith-fx cleanly (tested, scratch).
+                                 while it was built; the builder re-applies all
+                                 three stages onto sc-zenith-fx and onto
+                                 sc-tendril-t3 cleanly (tested, scratch).
 02-chain/sc-tendril-t3.html      THE CHAIN TIP. 38 RELICS: BINDWEED / TENDRIL, the
                                  verdant flail (bindweed_build.py stages 1-5, v101).
                                  For 8s the chain is a vine: it turns toward the foe
@@ -98,7 +101,7 @@ short-form video for TikTok and YouTube Shorts.
                                  the lab's 51.0; engine_ab 4488/4488 on the 34;
                                  verify 11/13, Morningstar 47.8%.
 02-chain/sc-daybreak-fx.html     the link before it; Daybreak stage 3 (the LINE --
-                                 Rick redesigned it as a circle: sc-sunrise-fx):
+                                 Rick redesigned it as a circle: sc-sunrise-e26):
                                  the dawn drawn as a world-pass wash + horizon line
                                  (bloom share ~0, the balls untouched), the
                                  sparks-era corona/pool/banner/field retired, a
