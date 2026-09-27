@@ -41,7 +41,45 @@ HERE = pathlib.Path(__file__).parent
 # the longest line the builder writes VERBATIM.
 TEMPLATED = re.compile(r"%[A-Z_0-9]+%")
 
-def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
+# A MARKER IS A LINE OF CODE, NOT A LINE OF A COMMENT. The filters below drop
+# lines that START with "/*", "*" or "//", but this codebase writes its block
+# comments with no leading "*" on the continuation lines -- so the longest line
+# of an insert was, as often as not, comment PROSE. A marker made of prose
+# survives any edit to the code around it: v88's review built a tip with
+# Corollary's ultimate reverted to the bolt, its ticker call deleted and its
+# queue disabled, and this tool still printed "ALL 5 INSERTS SURVIVE". Strip
+# the block comments first and the marker is code, which is the thing that has
+# to survive. (A "//" trailing a code line stays; it is verbatim in the build.)
+def _code(body: str) -> str:
+    return re.sub(r"/\*[\s\S]*?\*/", "", body)
+
+
+def _markable(l: str) -> bool:
+    return (len(l) > 18 and not l.startswith(("/*", "*", "//"))
+            and not l.strip("{}(); ") == "" and not TEMPLATED.search(l))
+
+
+def _cands(body: str, old: str | None = None) -> list[tuple[str, bool]]:
+    """Every line this insert could be recognised by, best first, as
+    (line, is_code). AND ONLY LINES IT ADDS: a line that is also in the anchor
+    (`old`) was in the source before the builder ran, so finding it at the tip
+    proves nothing -- v88's review deleted Corollary's ticker call and the
+    audit still passed, because the marker it had picked for that insert was
+    the `for` loop the call was inserted above. Code lines first, longest
+    first; then comment lines, for an insert whose added code is all shorter
+    than the floor (a one-field edit). `main` takes the first one the relic
+    build actually contains, so a line the builder templates at write time
+    falls through to the next instead of leaving the insert unwatched."""
+    had = {l.strip() for l in old.splitlines()} if old else set()
+    code = [l.strip() for l in _code(body).splitlines()]
+    code = [l for l in dict.fromkeys(code) if _markable(l) and l not in had]
+    rest = [l.strip() for l in body.splitlines()]
+    rest = [l for l in dict.fromkeys(rest)
+            if _markable(l) and l not in had and l not in code]
+    return ([(l, True) for l in sorted(code, key=len, reverse=True)]
+            + [(l, False) for l in sorted(rest, key=len, reverse=True)])
+
+def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, list[tuple[str, bool]]]]:
     """Pull the anchors a relic builder inserts, straight out of its own source.
 
     Hand-maintaining a marker list beside a builder means the list rots the
@@ -60,13 +98,9 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
         name, body = m.group(1), m.group(2)
         # the most distinctive line the insert adds: longest non-comment,
         # non-blank line that is not pure punctuation
-        cands = [l.strip() for l in body.splitlines()]
-        cands = [l for l in cands
-                 if len(l) > 18 and not l.startswith(("/*", "*", "//"))
-                 and not l.strip("{}(); ") == ""
-                 and not TEMPLATED.search(l)]
+        cands = _cands(body)
         if cands:
-            out.append((name, max(cands, key=len)))
+            out.append((name, cands))
 
     # SOURCE-READING MISSES AN INSERT THAT IS NOT A LITERAL. A builder may
     # COMPUTE its insert, or import it from the builder that owns the art so
@@ -95,13 +129,9 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
             body = getattr(mod, name)
             if not isinstance(body, str):
                 continue
-            cands = [l.strip() for l in body.splitlines()]
-            cands = [l for l in cands
-                     if len(l) > 18 and not l.startswith(("/*", "*", "//"))
-                     and not l.strip("{}(); ") == ""
-                     and not TEMPLATED.search(l)]
+            cands = _cands(body)
             if cands:
-                out.append((name, max(cands, key=len)))
+                out.append((name, cands))
         if out:
             print(f"  ({len(out)} insert(s) found by importing {builder.name} "
                   f"-- computed or imported, not source literals)")
@@ -139,7 +169,7 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
                   f"tables: {e})")
             return out
         n0 = len(out)
-        seen = {line for _, line in out}
+        seen = {c[0][0] for _, c in out}
         for tname in dir(mod):
             if tname.startswith("_"):
                 continue
@@ -153,15 +183,12 @@ def markers_from_builder(builder: pathlib.Path) -> list[tuple[str, str]]:
                 if not isinstance(body, str) or "\n" not in body:
                     continue
                 label = row[0] if isinstance(row[0], str) else f"{tname}[{i}]"
-                cands = [l.strip() for l in body.splitlines()]
-                cands = [l for l in cands
-                         if len(l) > 18 and not l.startswith(("/*", "*", "//"))
-                         and not l.strip("{}(); ") == ""
-                         and not TEMPLATED.search(l)]
+                old = row[1] if len(row) >= 3 and isinstance(row[1], str) else None
+                cands = _cands(body, old)
                 if cands:
-                    row2 = (f"{tname}:{label}", max(cands, key=len))
-                    if row2[1] not in seen:
-                        seen.add(row2[1]); out.append(row2)
+                    row2 = (f"{tname}:{label}", cands)
+                    if cands[0][0] not in seen:
+                        seen.add(cands[0][0]); out.append(row2)
         if len(out) > n0:
             print(f"  ({len(out) - n0} insert(s) found in {builder.name}'s "
                   f"insert table(s) -- tuples, not *_NEW constants)")
@@ -194,8 +221,12 @@ def main() -> int:
     print(f"tip    {tip.name}")
     print(f"{len(marks)} inserts read out of {A.builder}\n")
 
-    lost, never = [], []
-    for name, line in marks:
+    lost, never, prose = [], [], []
+    for name, cands in marks:
+        # THE FIRST CANDIDATE THE RELIC BUILD CONTAINS (see `_cands`).
+        hit = next(((l, c) for l, c in cands if R.count(l)), None)
+        line, is_code = hit if hit else cands[0]
+        if hit and not is_code: prose.append(name)
         r, t = R.count(line), T.count(line)
         m_ = M.count(line) if M is not None else None
         if r == 0:
@@ -219,6 +250,9 @@ def main() -> int:
               "calls are the\n   usual cause — and move the insert outside it.")
         return 1
     print(f"ALL {len(marks) - len(never)} INSERTS SURVIVE to {tip.name}")
+    if prose:
+        print(f"({len(prose)} of them are marked by COMMENT text -- the code they "
+              f"add is shorter than the floor: {', '.join(prose)})")
     if never:
         print(f"({len(never)} marker(s) unresolved and reported above)")
     return 0

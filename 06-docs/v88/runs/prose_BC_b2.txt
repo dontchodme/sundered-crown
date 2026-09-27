@@ -1,0 +1,7 @@
+34 relics · Chromium 151.0.7922.34 · axiom (redesign) · 33 foes x 20 seeds = 660 fights an arm · prose B,C block 2
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out    blowscritBlows      dmg   echoes      hex   landed     late
+  B       32.3%   4.15 12.04/14.21      2.87     0.27    22.50     2.84     0.00     1.78     0.16
+  C       36.1%   4.21 12.38/14.35      2.91     0.27    23.12     2.89     1.82     1.82     0.18
+  1320 fights in 126s   errors: []

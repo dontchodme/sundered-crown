@@ -1,0 +1,6 @@
+34 relics · Chromium 151.0.7922.34 · axiom (redesign) · 33 foes x 20 seeds = 660 fights an arm · stage0 C (lab as written) on sc-leaf
+  charge=16.0 dur=8.0 blade=None echoMul=1.0
+
+  arm       win  casts  hits in/out      dmg   echoes      hex   landed
+  C       37.3%   4.19 12.42/14.49     24.35     2.73     1.73     1.73
+  660 fights in 75s   errors: []

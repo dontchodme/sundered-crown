@@ -1,0 +1,8 @@
+34 relics · Chromium 151.0.7922.34 · axiom (redesign) · 33 foes x 20 seeds = 660 fights an arm · stage0 A,SHIP on sc-leaf
+  charge=16.0 dur=8.0 blade=None echoMul=1.0
+
+  arm       win  casts  hits in/out
+  A       18.9%   0.00  0.00/28.27 
+  SHIP    41.1%   0.00  0.00/28.38 
+  lifts over A: SHIP +22.1
+  1320 fights in 143s   errors: []

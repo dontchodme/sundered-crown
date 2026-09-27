@@ -1,0 +1,6 @@
+34 relics · Chromium 151.0.7922.34 · axiom (redesign) · 33 foes x 20 seeds = 660 fights an arm · BUILT s2 blade 8.65 block 1
+  charge=16.0 dur=8.0 blade=8.65
+
+  arm       win  casts  hits in/out
+  SHIP    40.5%   0.00  0.00/25.65 
+  660 fights in 67s   errors: []

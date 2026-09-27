@@ -1,0 +1,18 @@
+
+COROLLARY PROBE  sc-echo.html  Chromium 151.0.7922.34  396 fights (Axiom both sides x 33 foes x 6 seeds)
+  per cast: blows 3.24  echoes 3.16  landed 1.92 (60.7%)  echo dmg 22.32  hex 0.00  crit blows 0.28   casts/fight 3.52
+  late echoes resolved 286, landed 177   in reach but not landed (a dead foe) 2   out of reach 1730   Axiom win 26.5%
+  blows on a shade, echoed onto the foe 69
+  wards broken by an echo 119 (the ward's own shatter: burst, knock on the attacker, 0.10 stop -- not the echo's weight)
+  [1] PASS  a blow in the window queues exactly one echo; none outside
+  [2] PASS  echo = the blow as dealt; a crit's with critMul out
+  [3] PASS  every echo resolves `delay` after its blow
+  [4] PASS  lands only inside reach + R
+  [5] PASS  hurt(queued dmg) only -- no crit, sunder, knock or hit stop
+  [6] PASS  queued echoes still land after the window closes
+  [7] PASS  stage 1: the echo does not hex
+  [8] PASS  no relic but Axiom ever carries ultEcho
+  [9] PASS  no echo left unresolved while a fight is still running
+  [10] PASS  every echo strikes the foe, Axiom's opponent -- a blow on a shade too
+
+  10/10

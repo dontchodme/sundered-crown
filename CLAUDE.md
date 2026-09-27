@@ -12,6 +12,19 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
+02-chain/sc-corollary.html       THE CHAIN TIP, NOT THE BUILD OF RECORD. The design
+                                 batch's first build: AXIOM / COROLLARY, stages
+                                 1-3 (sc-leaf -> sc-echo -> sc-corollary,
+                                 corollary_build.py). Every blow in an 8s window
+                                 echoes 0.5s later onto the foe, hexing; charge
+                                 16; blade KEPT at 7.42 by Rick over parity
+                                 (34.9% against the bolt's 40.2%). engine_ab
+                                 4224/4224 on the 33 others, probe 10/10, verify
+                                 11/13 (both reds the clock; Axiom 33.5%, the
+                                 roster's lowest, in band). The bolt's ART still
+                                 plays: stage 4 (picture, voice, beat, field) is
+                                 next, then Rick's eye, then the pointer. See
+                                 06-docs/v88/.
 02-chain/sc-leaf.html            BUILD OF RECORD  <- app/main.js GAME, since
                                  2026-09-26: RICK PASSED GATE 4 ("I approve the
                                  Thornshear fix"), the pointer moved, and
