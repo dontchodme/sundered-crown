@@ -1,0 +1,43 @@
+BRIARWAND'S VOICES -- ../02-chain/sc-bloom-blade.html -- Chromium 151.0.7922.34 -- the method of culverin_voice_lab
+
+  control  hit@9.2      peak 0.421  TOP  -19.0 dB @   25 ms  aud   75 ms  cent    157 Hz  low 0.79  low60 0.75  hi20 0.02  PHONE  -30.5
+  control  arrow loose  peak 0.026  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   1027 Hz  low 0.01  low60 0.01  hi20 0.14  PHONE  -48.1
+  control  wall         peak 0.089  TOP  -38.9 dB @   25 ms  aud   25 ms  cent  11829 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -38.9
+  control  rune-crack   peak 0.647  TOP  -17.2 dB @   25 ms  aud  445 ms  cent   1086 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -17.2
+  (hit@9.2 is a thorn landing: blade 15.25 x 0.6 -- the blow this relic lands most)
+
+THE CAST  -- "a soft exhale into a rustle, 0.4s"   -- level-matched to HIT -6 dB
+  EXHALE    peak 0.216  TOP  -25.0 dB @   70 ms  aud  350 ms  cent   3082 Hz  low 0.00  low60 0.00  hi20 0.51  PHONE  -25.0  vs HIT  -6.0 dB  clicks 7
+            REG rune-crack 0.53  
+  BUDSIGH   peak 0.231  TOP  -25.0 dB @   90 ms  aud  240 ms  cent   3082 Hz  low 0.00  low60 0.00  hi20 0.86  PHONE  -25.0  vs HIT  -6.0 dB  clicks 12
+            REG rune-crack 0.56  
+  PETAL     peak 0.124  TOP  -25.0 dB @   25 ms  aud  350 ms  cent    935 Hz  low 0.10  low60 0.00  hi20 0.00  PHONE  -25.0  vs HIT  -6.0 dB  clicks 5
+            REG rune-crack 0.50  
+  PICK  EXHALE
+
+THE RUSTLE  -- "a very quiet sustained rustle ... (peak <= 0.12)"   -- level-matched to HIT -20 dB
+  LEAVES2   peak 0.045  TOP  -39.1 dB @  640 ms  aud 1925 ms  cent   4739 Hz  low 0.00  low60 0.00  hi20 0.99  PHONE  -39.1  vs HIT -20.1 dB  clicks 15
+            REG wall 0.87  sustain 7.15
+  HISS2     peak 0.630  TOP  -37.4 dB @ 1265 ms  aud 1990 ms  cent  12770 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -37.4  vs HIT -18.4 dB  clicks 29
+            REG wall 0.97  sustain 3.64
+  AIRY      peak 0.047  TOP  -39.0 dB @  275 ms  aud 1895 ms  cent   4036 Hz  low 0.00  low60 0.00  hi20 0.92  PHONE  -39.0  vs HIT -20.0 dB  clicks 10
+            REG wall 0.79  sustain 9.20
+  PICK  LEAVES2
+
+THE BITE  -- "a short vegetable snap, pitched by entangle count"   -- level-matched to HIT -14 dB
+  SNAP      peak 0.139  TOP  -33.0 dB @   25 ms  aud   35 ms  cent    699 Hz  low 0.00  low60 0.00  hi20 0.04  PHONE  -33.0  vs HIT -14.0 dB  clicks 1
+            REG wall 0.09  rise 5.77
+  STALK     peak 0.163  TOP  -33.0 dB @   25 ms  aud   40 ms  cent    963 Hz  low 0.00  low60 0.00  hi20 0.06  PHONE  -33.0  vs HIT -14.0 dB  clicks 1
+            REG wall 0.11  rise 4.40
+  CELERY    peak 0.118  TOP  -33.0 dB @   25 ms  aud   35 ms  cent    711 Hz  low 0.00  low60 0.00  hi20 0.03  PHONE  -36.9  vs HIT -14.0 dB  clicks 2
+            REG wall 0.28  rise 0.00
+  PICK  SNAP
+
+THE CLOSE  -- "the rustle fading"   -- not level-matched
+  FADE      peak 0.045  TOP  -39.1 dB @  140 ms  aud  925 ms  cent   4743 Hz  low 0.00  low60 0.00  hi20 0.99  PHONE  -39.1  vs HIT -20.2 dB  clicks 15
+            REG the rustle 1.00  
+  FADE_LONG peak 0.045  TOP  -39.1 dB @  140 ms  aud 1325 ms  cent   4736 Hz  low 0.00  low60 0.00  hi20 0.99  PHONE  -39.1  vs HIT -20.2 dB  clicks 15
+            REG the rustle 1.00  
+  PICK  FADE
+
+THE PICKS: cast EXHALE, rustle LEAVES2, bite SNAP, close FADE

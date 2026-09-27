@@ -1,0 +1,101 @@
+=== The Sundered Crown — falsification pass ===
+
+
+# sweep: 25200 matches in 1804.0s (40 seeds x 630 pairings)
+# mean duration 60.1s   mean clanks 18.7
+
+  Gloamwire       64.0%  ################################
+  Ironhail        58.7%  #############################
+  Farwarden       58.0%  #############################
+  Slagheart       55.6%  ############################
+  Cindercleave    55.6%  ############################
+  Dawnbringer     54.7%  ###########################
+  Aureole         54.4%  ###########################
+  Bulwarden       54.2%  ###########################
+  Paradox         54.1%  ###########################
+  Twinshade       53.7%  ###########################
+  Duskreave       53.7%  ###########################
+  Culverin        53.2%  ###########################
+  Gravemourn      53.1%  ###########################
+  Widowmaker      52.9%  ##########################
+  Vesper          52.9%  ##########################
+  Foregone        52.6%  ##########################
+  Grudgebearer    51.9%  ##########################
+  Bloodmirror     51.7%  ##########################
+  Threshmaw       51.4%  ##########################
+  Spellbreaker    51.2%  ##########################
+  Lastlight       50.7%  #########################
+  Ravelbone       50.0%  #########################
+  Censer          49.6%  #########################
+  Marrowdraw      49.1%  #########################
+  Briarwand       48.7%  ########################
+  Starwarden      48.6%  ########################
+  Thornwake       48.1%  ########################
+  Shroudmaul      46.9%  #######################
+  Emberedge       45.7%  #######################
+  Lightkeeper     43.1%  ######################
+  Vinesower       42.9%  #####################
+  Nightfell       42.7%  #####################
+  Thornshear      40.1%  ####################
+  Axiom           37.1%  ###################
+  Goreshard       35.9%  ##################
+  Heartwood       33.1%  #################
+
+  PASS  no JS errors or page exceptions
+  PASS  every status and ultimate has viewer-facing text
+  PASS  all 630 pairings ran  — 630 pairings
+  PASS  every match resolved  — 0 pairings had unresolved matches
+  PASS  both sides can win every matchup
+  PASS  timeout rate <= 10%  — 0/25200 = 0.0%
+  PASS  every relic winrate in 30%-70%  — Heartwood 33.1% .. Gloamwire 64.0% (spread 30.9pp)
+  FAIL  every pairing mean duration in 18-70s  — Gravemourn/Ironhail 38.8s .. Lightkeeper/Farwarden 101.8s
+  FAIL  overall mean duration in 28-54s  — 60.1s
+  PASS  every pairing clanks at least once
+  PASS  no pairing resolves on fewer than 6 hits
+  PASS  capture path pins the canvas to 1080x1920  — 1080x1920 k=1
+  PASS  renderer draws a non-blank frame  — 117 distinct sampled colours
+
+11/13 checks passed  (2 FAILED)
+
+{
+ "winrate": {
+  "dawnbringer": 0.5471428571428572,
+  "widowmaker": 0.5285714285714286,
+  "grudgebearer": 0.5185714285714286,
+  "thornwake": 0.48142857142857143,
+  "lastlight": 0.5071428571428571,
+  "gravemourn": 0.5314285714285715,
+  "slagheart": 0.5557142857142857,
+  "spellbreaker": 0.5121428571428571,
+  "ironhail": 0.5871428571428572,
+  "lightkeeper": 0.4307142857142857,
+  "farwarden": 0.58,
+  "aureole": 0.5442857142857143,
+  "censer": 0.4957142857142857,
+  "emberedge": 0.45714285714285713,
+  "oathwound": 0.35928571428571426,
+  "heartwood": 0.33071428571428574,
+  "nightfell": 0.42714285714285716,
+  "axiom": 0.3707142857142857,
+  "twinshade": 0.5371428571428571,
+  "redflail": 0.5135714285714286,
+  "foregone": 0.5264285714285715,
+  "vinesower": 0.42928571428571427,
+  "bulwarden": 0.5421428571428571,
+  "marrowdraw": 0.49142857142857144,
+  "paradox": 0.5414285714285715,
+  "thornshear": 0.4007142857142857,
+  "vesper": 0.5285714285714286,
+  "shroudmaul": 0.4692857142857143,
+  "cindercleave": 0.5557142857142857,
+  "ravelbone": 0.5,
+  "gloamwire": 0.64,
+  "bloodmirror": 0.5171428571428571,
+  "duskreave": 0.5371428571428571,
+  "starwarden": 0.4857142857142857,
+  "culverin": 0.5321428571428571,
+  "briarwand": 0.48714285714285716
+ },
+ "meanDur": 60.14792023809524,
+ "meanClanks": 18.723095238095237
+}

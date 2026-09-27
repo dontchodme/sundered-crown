@@ -1,0 +1,8 @@
+
+BRIARWAND / BLOOM -- the insert audit against ../02-chain/sc-bloom-fx.html
+  ok    stage 1  Briarwand joins the roster, its ultimate stubbed: 2 line(s) replaced by a later stage, by design
+  ok    stage 3  the cast lets the cloud go and resolves nothing: 1 line(s) replaced by a later stage, by design
+  ok    stage 3  tickPollen drifts the cloud and bites: 1 line(s) replaced by a later stage, by design
+  ok    stage 3  drawPollen: the cloud (first cut): 6 line(s) replaced by a later stage, by design
+
+  26/26 inserts survive in sc-bloom-fx.html (4 carry lines a later stage replaced on purpose)

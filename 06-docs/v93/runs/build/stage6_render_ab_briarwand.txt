@@ -1,0 +1,19 @@
+
+RENDER A/B  2 pairings x 5 frames  540x960
+  a  sc-bloom-blade.html
+  b  sc-bloom-fx.html
+  briarwand v ravelbone seed 4469 t= 31.50  DIFFERS   luma 26.041 -> 26.286   lit 88.68% -> 88.67%
+  briarwand v ravelbone seed 4469 t= 33.00  DIFFERS   luma 25.664 -> 26.013   lit 88.43% -> 88.44%
+  briarwand v ravelbone seed 4469 t= 35.00  DIFFERS   luma 26.818 -> 26.970   lit 86.17% -> 86.17%
+  briarwand v ravelbone seed 4469 t= 52.92  DIFFERS   luma 44.931 -> 44.940   lit 85.43% -> 85.43%
+  briarwand v ravelbone seed 4469 t= 52.92  DIFFERS   luma 44.931 -> 44.940   lit 85.43% -> 85.43%
+  briarwand v spellbreaker seed 4401 t= 31.50  DIFFERS   luma 28.401 -> 28.710   lit 88.22% -> 88.22%
+  briarwand v spellbreaker seed 4401 t= 33.00  DIFFERS   luma 27.767 -> 27.830   lit 87.18% -> 87.19%
+  briarwand v spellbreaker seed 4401 t= 35.00  DIFFERS   luma 27.443 -> 27.552   lit 83.57% -> 83.57%
+  briarwand v spellbreaker seed 4401 t= 62.00  DIFFERS   luma 19.177 -> 19.034   lit 66.58% -> 66.58%
+  briarwand v spellbreaker seed 4401 t= 64.00  DIFFERS   luma 18.851 -> 18.767   lit 66.51% -> 66.51%
+
+FAIL  0/10 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
