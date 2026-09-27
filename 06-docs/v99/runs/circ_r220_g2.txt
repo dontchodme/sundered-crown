@@ -1,0 +1,6 @@
+34 relics · Chromium 141.0.7390.37 · dawnbringer (redesign) · 33 foes x 20 seeds = 660 fights an arm · circ_r220_g2
+  charge=16.0 dur=8.0 blade=None rMax=220 growT=2
+
+  arm       win  casts  hits in/out      dmgf_armWait f_breaksf_foeInPct    ticks
+  D       55.0%   3.34  7.37/9.67      20.62     2.95     3.20    60.63    10.31
+  660 fights in 53s   errors: []

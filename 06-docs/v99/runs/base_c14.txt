@@ -1,0 +1,9 @@
+34 relics · Chromium 141.0.7390.37 · dawnbringer (redesign) · 33 foes x 20 seeds = 660 fights an arm · BASE c14: the sparks and the v86 line on the pricing base
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out      dmgf_foeLitPct f_foeStk    ticks
+  A       17.6%   0.00  0.00/19.11      0.00     0.00     0.00     0.00
+  SHIP    59.7%   0.00  0.00/18.73      0.00     0.00     0.00     0.00
+  B       53.8%   3.33  7.15/9.65      19.93    60.50     3.22     9.97
+  lifts over A: SHIP +42.1  B +36.2
+  1980 fights in 174s   errors: []

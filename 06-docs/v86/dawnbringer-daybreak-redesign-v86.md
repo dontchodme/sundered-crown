@@ -1,5 +1,7 @@
 # v86 — DAWNBRINGER / DAYBREAK, REDESIGNED. The sun rises up the hall: a line of light climbs from the floor over the window, and everything below it is in the dawn. Rick's first relic; its sparks were the school's first light and the first bloom fight.
 
+**SUPERSEDED 2026-09-27 by Rick's circle — `06-docs/v99/dawnbringer-daybreak-circle-design-v99.md`. The line was built and gated (`sc-daybreak-fx`, v97) and does not ship.** Kept for its pricing; the circle was priced against arm B here.
+
 **DESIGNED — Cowork, 2026-09-26. Build from §5; do not design (rule 0); claimed in `06-docs/CLAIMS.md`. Rick vetoes from this file — this one above all.** Lab: `overlays/dawn.js`; runs in `06-docs/v86/runs/`.
 
 ## Why
