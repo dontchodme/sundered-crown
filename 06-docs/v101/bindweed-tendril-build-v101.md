@@ -126,7 +126,11 @@ turn   blade   block 1   block 2   pooled (1480)   side A   side B
 
 - **engine_ab sc-onslaught-b23 → sc-tendril-t3, the 37 others, n=6: 3996/3996 identical**
   (`runs/engine_ab37.txt`). Adding Bindweed moves no other fight.
-- **verify --n 40 on sc-tendril-t3: RUNNING at this commit**; its record follows in the next.
+- **verify --n 40 on sc-tendril-t3 (38 relics): 10/13** (`runs/verify_t3.txt`). Bindweed 49.7% (side B,
+  as verify plays an appended relic); every relic in 30-70%. The reds: the two clock bands, and "both
+  sides can win every matchup" on Heartwood v Twinshade 0/40 (not Bindweed's pairing) and Heartwood v
+  Bindweed 0/40 -- Bindweed's own lopsided verdant pairing (Heartwood 97.5% in its ladder). Item 12/32,
+  Rick's.
 
 ## 5. Stage 6 (next)
 
