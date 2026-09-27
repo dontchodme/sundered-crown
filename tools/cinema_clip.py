@@ -494,7 +494,7 @@ def _ext(q):
 
 def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
              mb=1, shutter=1.0,
-             verdict_hold=2.4):
+             verdict_hold=2.4, stop_t=None):
     info = page.evaluate("([a,b,s,o,t]) => window.__clip.init(a,b,s,o,t)",
                          [idA, idB, seed, on, start_at])
     # WALL seconds to the first clank. `scrunchAuto` arms the tape on exactly
@@ -537,6 +537,15 @@ def run_pass(page, idA, idB, seed, on, start_at, fps, max_secs, q, outdir, tag,
         p.write_bytes(base64.b64decode(r["i"]))
         frames.append(p)
         i += 1
+        # --end-at-window: the WINDOW is the clip. Stop on the MATCH clock, not
+        # on the video cap: the cap assumes the director dilates 2.6x, and a
+        # window it barely slows runs on for half a minute of fight.
+        if stop_t is not None and not r["o"] and \
+                page.evaluate("() => window.__clip.m.t") >= stop_t:
+            print(f"    the window ends at {stop_t:.2f}s of match time: stopped at "
+                  f"{i / fps:.1f}s of video")
+            hit_cap = False
+            break
         if r["o"]:
             # THE TAIL IS ANCHORED ON THE VERDICT EVENT, NOT ON A FRAME COUNT.
             #
@@ -723,6 +732,16 @@ def main() -> int:
                     help="also render the director-OFF half. Off by default: "
                          "the A/B has served its purpose and nobody needs to "
                          "watch the control a fourth time.")
+    ap.add_argument("--end-at-window", action="store_true",
+                    help="with --at: stop when the MATCH clock passes --at + "
+                         "--window, so the clip is the window and nothing after "
+                         "it (the default stops at a video cap that assumes the "
+                         "director slows the window 2.6x)")
+    ap.add_argument("--no-card", action="store_true",
+                    help="hide the HUD's ult card (ULTBAR.tip: an ultimate's "
+                         "own text, faded in for the five seconds before it "
+                         "fires) -- for a clip watched to see whether the "
+                         "picture ALONE says what the ultimate does (v99)")
     a = ap.parse_args()
 
     # THE CARD IS DEAD. The scrunch replaced it and Rick wants it gone from
@@ -754,6 +773,16 @@ def main() -> int:
       with game(game_path=resolve_game(a.game)) as (page, errors):
         page.evaluate(f"AC.setResolution({a.w}, {round(a.w*16/9)})")
         page.evaluate(HARNESS)
+        # THE CARD, HIDDEN, for a review clip: the gate is whether a viewer
+        # can say what the ultimate does from the picture, and the HUD prints
+        # its card for the five seconds before it fires. A live flag on the
+        # page, so nothing about the fight or the rest of the frame moves.
+        if a.no_card:
+            r = page.evaluate("() => { if (typeof ULTBAR === 'undefined') return "
+                              "'no ULTBAR in this build'; ULTBAR.tip = false; return 'ok'; }")
+            if r != "ok":
+                sys.exit(f"! --no-card: {r}")
+            print("    the HUD's ult card is hidden (ULTBAR.tip = false)")
         if a.blur_scale:
             page.evaluate(BLUR_SCALE_JS)
             note = "a no-op here" if a.w == 1080 else "the glow narrows"
@@ -858,6 +887,9 @@ def main() -> int:
                                        mb=a.motion_blur,
                                        shutter=a.shutter,
                                        verdict_hold=a.verdict_hold,
+                                       stop_t=(a.at + a.window
+                                               if a.end_at_window and a.at is not None
+                                               else None),
                                        )
         if errors:
             print("  page errors:", errors[:4])

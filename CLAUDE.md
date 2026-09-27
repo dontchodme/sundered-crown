@@ -30,6 +30,22 @@ short-form video for TikTok and YouTube Shorts.
                                  LINE DOES NOT MOVE GAME until one is carried
                                  onto the other (culverin_build takes --src and
                                  accepts either).
+02-chain/sc-sunrise-fx.html      A BRANCH OFF sc-zenith, NOT THE CHAIN TIP (built on
+                                 yert, Rick's call): DAYBREAK, RICK'S CIRCLE (v99,
+                                 sunrise_build.py). The cast puts the sun in the
+                                 blade; the next blow that lands breaks the dawn
+                                 WHERE IT LANDS: a circle of sunlight (r 200, up
+                                 in 2s, 8s from the contact); a foe inside is
+                                 smitten +1 and takes 2 every 0.5s. The line is
+                                 out whole. sc-zenith -> sc-sunrise ->
+                                 sc-sunrise-fx; blade 10.4 confirmed (48.9%);
+                                 engine_ab 3570/3570 WITH Dawnbringer, probe
+                                 16/16, shell_identity 194/194. Picture gates
+                                 12/17: every red a design-owned number
+                                 (06-docs/v99/daybreak-circle-build-v99.md §4d).
+                                 THE CLIP IS WITH RICK. Zenith's stage 6 is a
+                                 sibling (sc-zenith-fx): the builder re-applies
+                                 onto it cleanly (tested, scratch).
 02-chain/sc-zenith-fx.html       THE CHAIN TIP, AWAITING RICK'S EYE. 35 RELICS.
                                  Zenith stage 6 (v98 §4): the sun drawn as a gold
                                  ring off the fighter (never ultFx), a faceted gold
@@ -45,7 +61,7 @@ short-form video for TikTok and YouTube Shorts.
                                  the lab's 51.0; engine_ab 4488/4488 on the 34;
                                  verify 11/13, Morningstar 47.8%.
 02-chain/sc-daybreak-fx.html     the link before it; Daybreak stage 3 (the LINE --
-                                 Rick redesigned it as a circle, now with Cowork):
+                                 Rick redesigned it as a circle: sc-sunrise-fx):
                                  the dawn drawn as a world-pass wash + horizon line
                                  (bloom share ~0, the balls untouched), the
                                  sparks-era corona/pool/banner/field retired, a

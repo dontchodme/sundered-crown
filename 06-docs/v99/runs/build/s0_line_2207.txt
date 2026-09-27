@@ -1,0 +1,9 @@
+35 relics · Chromium 151.0.7922.34 · dawnbringer (redesign) · 34 foes x 20 seeds = 680 fights an arm · s0 line 2207 (SHIP = the line as built)
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out      dmgf_foeLitPct f_foeStk    ticks
+  A       14.9%   0.00  0.00/18.92      0.00     0.00     0.00     0.00
+  SHIP    52.4%   0.00  0.00/16.82      0.00     0.00     0.00     0.00
+  B       53.4%   3.33  7.18/9.69      19.86    60.37     3.24     9.93
+  lifts over A: SHIP +37.5  B +38.5
+  2040 fights in 452s   errors: []

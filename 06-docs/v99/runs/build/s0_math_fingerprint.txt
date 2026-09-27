@@ -1,0 +1,7 @@
+[mathfp] electron  Chromium 152.0.7977.54
+[mathfp] headless  Chromium 151.0.7922.34
+
+  identical : sin cos tan asin acos atan exp log sqrt cbrt sinh cosh tanh expm1 log1p log2 log10 atan2 pow hypot
+  DIFFERENT : (none)
+
+PASS  the two runtimes agree to the last bit.

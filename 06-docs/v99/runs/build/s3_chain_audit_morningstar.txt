@@ -1,0 +1,31 @@
+  (20 insert(s) found in morningstar_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-zenith.html
+tip    sc-sunrise-fx.html
+20 inserts read out of morningstar_build.py
+
+    ok  S1:morningstar joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the sun has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the sun's window relic  1  mid   -  tip  1
+    ok  S2:the cast lights the sun and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the sun ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickSun burns in the light of the head relic  1  mid   -  tip  1
+    ok  S3:the burn                relic  1  mid   -  tip  1
+    ok  S4:the heal                relic  1  mid   -  tip  1
+    ok  S6:Sfx: Zenith's cast, tick and close arms, before the shared rune-crack fallback relic  2  mid   -  tip  1
+   ?  S6:tickSun: the close, when the window runs out by its clock with the caster alive not in the relic build either — the marker is wrong, not the chain
+   ?  S6:the tick: its chime, the heal's voice and its picture (voice + picture rows, merged) not in the relic build either — the marker is wrong, not the chain
+  LOST  S6:zenith picture: fighter fields relic  1  mid   -  tip  0
+        'window closes, the caster falls, or the match ends'
+    ok  S6:zenith picture: the match's tick records relic  2  mid   -  tip  2
+   ?  S6:zenith picture: sunShown not in the relic build either — the marker is wrong, not the chain
+    ok  S6:zenith picture: its clocks in tickPresentation relic  6  mid   -  tip  5
+   ?  S6:zenith picture: the tick records age not in the relic build either — the marker is wrong, not the chain
+   ?  S6:zenith picture: the floor call (world pass, under both balls) not in the relic build either — the marker is wrong, not the chain
+   ?  S6:zenith picture: the top call (over both fighters) not in the relic build either — the marker is wrong, not the chain
+    ok  S6:zenith picture: drawSun and drawSunTop relic  8  mid   -  tip  8
+    ok  S6:zenith picture: the faceted gold head relic  8  mid   -  tip  8
+
+!! 1 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:zenith picture: fighter fields
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

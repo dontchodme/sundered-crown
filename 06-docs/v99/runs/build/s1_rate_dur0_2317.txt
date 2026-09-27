@@ -1,0 +1,4 @@
+
+DAYBREAK RATE  sc-sunrise.html  Chromium 151.0.7922.34  kind sunrise  blade 10.4  set {'dur': 0}
+  680 fights (Dawnbringer side A x 34 foes x 20 seeds, seed0 2317, the lab's arm-SHIP loop)
+  WIN 15.0%   casts/fight 3.55   breaks/fight 3.41   ticks/cast 0.00   dmg/cast 0.00   foe inside 0.0%

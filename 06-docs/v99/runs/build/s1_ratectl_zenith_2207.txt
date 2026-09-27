@@ -1,0 +1,4 @@
+
+DAYBREAK RATE  sc-zenith.html  Chromium 151.0.7922.34  kind dawn  blade 10.4  set -
+  680 fights (Dawnbringer side A x 34 foes x 20 seeds, seed0 2207, the lab's arm-SHIP loop)
+  WIN 52.4%   casts/fight 3.29   breaks/fight 0.00   ticks/cast 9.78   dmg/cast 19.56   foe inside 58.9%

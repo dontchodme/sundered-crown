@@ -1,0 +1,33 @@
+  (25 insert(s) found in corollary_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-corollary-c14.html
+tip    sc-sunrise-fx.html
+25 inserts read out of corollary_build.py
+
+    ok  PICTURE_ROWS:picture: the ghost needs the blow’s swing and distance relic  1  mid   -  tip  1
+    ok  PICTURE_ROWS:picture: Fighter: echoFade relic  1  mid   -  tip  1
+    ok  PICTURE_ROWS:picture: Match: echoFx relic  1  mid   -  tip  1
+    ok  PICTURE_ROWS:picture: tickPresentation: echoFade relic  1  mid   -  tip  1
+    ok  PICTURE_ROWS:picture: tickPresentation: echoFx relic  1  mid   -  tip  1
+    ok  PICTURE_ROWS:picture: decay: echoFx at match end relic  1  mid   -  tip  1
+    ok  PICTURE_ROWS:picture: draw: ghost, world pass over the fighters relic  1  mid   -  tip  1
+    ok  PICTURE_ROWS:picture: draw: runes + line, emissive pass over the fighters relic  1  mid   -  tip  1
+    ok  PICTURE_ROWS:picture: Renderer: the Corollary methods relic  1  mid   -  tip  1
+    ok  RETIRE:the bolt's construction lines (drawUltUnder) relic  1  mid   -  tip  1
+    ok  S1:axiom's ultimate is the echo relic  1  mid   -  tip  1
+    ok  S1:the fighter carries the echo's window relic  1  mid   -  tip  1
+    ok  S1:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S1:the blow is also priced with no crit relic  1  mid   -  tip  1
+    ok  S1:a blow landed in the window queues its corollary relic  1  mid   -  tip  1
+    ok  S1:the echo ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S1:tickEcho pays the corollary relic  1  mid   -  tip  1
+    ok  S2:the echo hexes          relic  1  mid   -  tip  1
+    ok  S4:a missed echo is shown  relic  1  mid   -  tip  1
+    ok  S4:a landed echo is shown  relic  1  mid   -  tip  1
+    ok  S4:echoShown: the echo's voice, beat, flash, motes and picture relic  1  mid   -  tip  1
+    ok  S4:the cast's life entry says what it carries now relic  1  mid   -  tip  1
+    ok  S5:the echo's hex names its applier by side, not by reference relic  1  mid   -  tip  1
+    ok  S6:the charge in the game's clock: the lab's 16 is the engine's 14 relic  1  mid   -  tip  1
+    ok  VOICE_ARM_ROWS:the runic school’s hex snap, its own kind relic  1  mid   -  tip  1
+
+ALL 25 INSERTS SURVIVE to sc-sunrise-fx.html
+(4 of them are marked by COMMENT text -- the code they add is shorter than the floor: PICTURE_ROWS:picture: Fighter: echoFade, PICTURE_ROWS:picture: Match: echoFx, PICTURE_ROWS:picture: draw: runes + line, emissive pass over the fighters, RETIRE:the bolt's construction lines (drawUltUnder))

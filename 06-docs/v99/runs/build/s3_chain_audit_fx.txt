@@ -1,0 +1,32 @@
+  (24 insert(s) found in sunrise_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-sunrise-fx.html
+tip    sc-sunrise-fx.html
+24 inserts read out of sunrise_build.py
+
+    ok  S1:dawnbringer's ultimate is the circle relic  1  mid   -  tip  1
+    ok  S1:the fighter carries the sun: armed, up, where, how long relic  1  mid   -  tip  1
+    ok  S1:the cast arms the blade and resolves nothing relic  1  mid   -  tip  1
+    ok  S1:the blow that lands breaks the dawn where it lands relic  2  mid   -  tip  2
+    ok  S1:the sun ticks with the window tickers, in the line's place relic  1  mid   -  tip  1
+    ok  S1:the ultFx life map: say what dawnbringer's entry is now relic  1  mid   -  tip  1
+    ok  S1:the HUD sigil's comment stops describing the line relic  1  mid   -  tip  1
+    ok  S1:the banner's comment stops describing the line relic  1  mid   -  tip  1
+    ok  S1_TICK:tickSunrise, the sun's ticker (in tickDawn's span) relic  1  mid   -  tip  1
+    ok  S3:the sun's palette, used nowhere else relic  1  mid   -  tip  1
+    ok  S3:the fighter carries the sun's picture relic  1  mid   -  tip  1
+    ok  S3:every cast restarts the arming's own clock relic  1  mid   -  tip  1
+    ok  S3:the break rings the bell, on the blow's own frame relic  1  mid   -  tip  1
+    ok  S3:the hum and the sunset ride the sun's own clocks relic  1  mid   -  tip  1
+    ok  S3:the shimmer strikes every half second of the sun relic  1  mid   -  tip  1
+    ok  S3:every tick is shown: the number, the shell's flash, the voice relic  1  mid   -  tip  1
+    ok  S3:sunriseShown            relic  1  mid   -  tip  1
+    ok  S3:the sun's presentation clocks (tickPresentation) relic  1  mid   -  tip  1
+    ok  S3:the sun is drawn on the floor (world pass) relic  1  mid   -  tip  1
+    ok  S3:drawSunrise, its five parts, the blade and the flash relic  1  mid   -  tip  1
+    ok  S3:the sun in the blade, over both fighters (world pass) relic  1  mid   -  tip  1
+    ok  S3:the break's flash, over both balls (emissive pass) relic  1  mid   -  tip  1
+    ok  S3:the synth: the arming, the bell, the shimmer, the sunset relic  1  mid   -  tip  1
+    ok  S3:the synth: the tick's sizzle-chime, its own kind relic  1  mid   -  tip  1
+
+ALL 24 INSERTS SURVIVE to sc-sunrise-fx.html
+(3 of them are marked by COMMENT text -- the code they add is shorter than the floor: S1:the ultFx life map: say what dawnbringer's entry is now, S1:the HUD sigil's comment stops describing the line, S1:the banner's comment stops describing the line)

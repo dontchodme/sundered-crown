@@ -1,0 +1,22 @@
+
+DAYBREAK'S CIRCLE -- PROBE  sc-sunrise.html  Chromium 151.0.7922.34  408 fights (Dawnbringer both sides x 34 foes x 6 seeds)   SET {'tickDmg': 0, 'smite': 0}
+  casts/fight 3.44   suns/fight 3.31   breaks/cast 0.962   Dawnbringer win 22.3%
+  per cast: ticks 9.19  dmg 0.00    per sun: ticks 9.56  dmg 0.00
+  foe inside the sun: 52.7% anchored at the HIT POINT (built)   52.3% anchored at the foe's CENTRE (the lab's)   design: 56% (centre)
+  arming wait (match time, cast -> break): mean 2.78s  median 1.79s  p90 6.87s  max 15.68s   design: ~3.0s mean
+  hit point from the struck body's centre: median 37.7  p10 31.9  p90 40.5  (ballR 34)
+  killing ticks 0   wards broken by a tick 0   re-casts while a sun was up 124   suns set by the clock 1031
+  [1] PASS  every tick lands on a foe inside r(t) + R of the anchor
+  [2] PASS  the lab's cadence: never closer than `tick`, never a missed clear inside frame
+  [3] PASS  each tick: smite +smite (to its cap) and hurt(foe, tickDmg) once, through hurt
+  [4] PASS  nothing else: no move, no stop but a ward's own
+  [5] PASS  no beat, except the killing tick's own fatal beat
+  [6] PASS  the caster gets nothing
+  [7] PASS  the sun sets at `dur` on its own clock, and with its caster
+  [8] PASS  smite's source is a side letter
+  [9] PASS  only Dawnbringer carries ultSunrise; the line's state is gone
+  [10] PASS  the break: at the blow's hit point, t = cd = 0, one sunrise beat there; the anchor holds
+  [11] PASS  the arming: every cast arms; a re-cast leaves the sun that is up alone
+  [12] PASS  the rim travels 100 px/s off the block (r / grow)
+
+  12/12

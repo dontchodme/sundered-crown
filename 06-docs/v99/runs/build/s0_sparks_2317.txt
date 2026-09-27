@@ -1,0 +1,6 @@
+34 relics · Chromium 151.0.7922.34 · dawnbringer (redesign) · 33 foes x 20 seeds = 660 fights an arm · s0 sparks 2317 (sc-corollary-c14)
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    57.4%   0.00  0.00/18.79 
+  660 fights in 187s   errors: []
