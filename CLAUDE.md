@@ -30,7 +30,17 @@ short-form video for TikTok and YouTube Shorts.
                                  LINE DOES NOT MOVE GAME until one is carried
                                  onto the other (culverin_build takes --src and
                                  accepts either).
-02-chain/sc-zenith-fx.html       THE CHAIN TIP, AWAITING RICK'S EYE. 35 RELICS.
+02-chain/sc-canopy-w38.html      THE CHAIN TIP. 36 RELICS: IRONWOOD / CANOPY, the
+                                 verdant warhammer (ironwood_build.py stages 1-5,
+                                 v99). For 8s the hammer roots (pin + pinFree), its
+                                 reach grows 0.35/s to 2.5, two more boughs sprout at
+                                 1.5s (blows x0.38 while the tree stands), and a foe
+                                 under the canopy is entangled every 0.5s. Charge 14,
+                                 winDmg 0.35 -> 0.38 (the brief's knob), blade 24:
+                                 50.1% both sides. verify 11/13, Ironwood 48.7%. The
+                                 gap to the lab is clocks (v99 §4). Art is the
+                                 hammer's own: stage 6 next.
+02-chain/sc-zenith-fx.html       the link under it, AWAITING RICK'S EYE (the clip).
                                  Zenith stage 6 (v98 §4): the sun drawn as a gold
                                  ring off the fighter (never ultFx), a faceted gold
                                  head, drawn embers (no fx.js field), voices STEP /

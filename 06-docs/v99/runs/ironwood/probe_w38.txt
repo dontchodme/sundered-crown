@@ -1,0 +1,18 @@
+
+CANOPY PROBE  sc-canopy-w38.html  Chromium 151.0.7922.34  420 fights (Ironwood both sides x every foe x 6 seeds)   ult {'charge': 14, 'boughs': 3, 'winDmg': 0.38, 'canopy': 1, 'reachCap': 2.5, 'sprout': 1.5}
+  casts/fight 3.67   blows a fight: in windows 18.52, outside 6.74   growth peak 2.489 a cast   Ironwood win 49.3%
+  canopy: foe under it 35.6% of window frames   applications a cast 7.28   entangle stacks on an average window frame 3.10
+  root: moved on 0.00% of window frame pairs   pinFree found cleared 0x   sprouts 1502
+  FREEZE CENSUS: 16.5% of window steps frozen (272203 of 1645456)   blows exempt (an Aegis or a curse on the foe) 123
+  [1] PASS  the rooted ball does not move (>= 99% of window frames); pin and pinFree every frame
+  [2] PASS  released on close: a live caster to rest, a dead one's kill flight untouched
+  [3] PASS  the root never locks the weapon (pinFree cleared only by a wire, <= 1% of frames)
+  [4] PASS  reachMul rises grow x dt to reachCap on the window clock, and is 1 after
+  [5] PASS  the boughs sprout at `sprout` as [0, 1/3, 2/3] with ribbons and clear cooldowns, and go on close
+  [6] PASS  every blow: the hammer's blade x (winDmg while the tree stands), crit and jitter rebuilt exactly
+  [7] PASS  the canopy: entangle `canopy` inside the reach, the cadence, a side letter; nothing else
+  [8] PASS  no cast while a tree stands or withers; every close leaves `wither`
+  [9] PASS  the window is `dur` long on the window clock
+  [10] PASS  only Ironwood carries ultTree / bladeSet
+
+  10/10

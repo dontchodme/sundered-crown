@@ -1,0 +1,11 @@
+=== ENGINE A/B: 35 relics, 8 seeds x 595 pairings ===
+
+  sc-zenith-fx.html               4760 matches  300.7s
+  sc-canopy.html                  4760 matches  302.7s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4760
+  PASS  every match identical field for field  — 4760/4760
+  PASS  the sweep is real  — 35/35 distinct winners, 4760 distinct seeds, 16.3-112.4s
+
+ENGINE A/B PASS — ../02-chain/sc-canopy.html does not move the 35-relic roster.

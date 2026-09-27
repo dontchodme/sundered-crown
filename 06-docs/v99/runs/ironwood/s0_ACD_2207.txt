@@ -1,0 +1,9 @@
+35 relics · Chromium 151.0.7922.34 · grudgebearer as verdant:warhammer · 33 foes x 20 seeds = 660 fights an arm · 
+  charge=16.0 dur=8.0 blade=None boughs=3 growCap=2.5 winDmg=0.35
+
+  arm       win  casts  hits in/outf_canopyPct f_foeStk growPeak   stacks
+  A       16.1%   0.00  0.00/11.35      0.00     0.00     0.00     0.00
+  C       45.3%   3.75 17.82/7.67       0.00     2.85     2.46     0.00
+  D       46.2%   3.76 17.79/7.82      40.33     3.25     2.46     7.75
+  lifts over A: C +29.2  D +30.2
+  1980 fights in 162s   errors: []

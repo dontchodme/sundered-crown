@@ -1,0 +1,4 @@
+ironwood on sc-canopy.html · Chromium 151.0.7922.34 · 35 foes x 10 seeds x sides AB = 700 fights · seed0 2207 · set dmg=24 ult.winDmg=0.38
+  win 50.3%   side A 49.1%   side B 51.4%   mean 68.6s   timeouts 0
+  by type  greatsword 79%  flail 49%  scythe 46%  bow 42%  warhammer 40%  twinblade 39%
+  worst    twinshade 5%  bloodmirror 5%  cindercleave 20%   (700 fights in 44s)
