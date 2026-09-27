@@ -12,7 +12,19 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-corollary.html       THE CHAIN TIP, NOT THE BUILD OF RECORD. The design
+02-chain/sc-corollary-fx.html    THE CHAIN TIP, NOT THE BUILD OF RECORD, AWAITING
+                                 RICK'S EYE. Corollary's stage 4 on top of the
+                                 entry below: the bolt's art and field retired,
+                                 the rune / flare / ghost / broken-rune picture,
+                                 rune marks on the blade, rune motes, a chime
+                                 cast, the reversed-strike echo voice, the runic
+                                 school's first hex SNAP, one hit beat per landed
+                                 echo. engine_ab 3366/3366 WITH Axiom, probe
+                                 13/13, render_ab 24/24, shell_identity 200/200,
+                                 verify 11/13. fx.js stamp -> 060d6c89f9c3451d.
+                                 The clip is with Rick; the pointer moves when
+                                 he has nothing to overrule. See 06-docs/v88/.
+02-chain/sc-corollary.html       the link before it. The design
                                  batch's first build: AXIOM / COROLLARY, stages
                                  1-3 (sc-leaf -> sc-echo -> sc-corollary,
                                  corollary_build.py). Every blow in an 8s window
@@ -21,10 +33,7 @@ short-form video for TikTok and YouTube Shorts.
                                  (34.9% against the bolt's 40.2%). engine_ab
                                  4224/4224 on the 33 others, probe 10/10, verify
                                  11/13 (both reds the clock; Axiom 33.5%, the
-                                 roster's lowest, in band). The bolt's ART still
-                                 plays: stage 4 (picture, voice, beat, field) is
-                                 next, then Rick's eye, then the pointer. See
-                                 06-docs/v88/.
+                                 roster's lowest, in band).
 02-chain/sc-leaf.html            BUILD OF RECORD  <- app/main.js GAME, since
                                  2026-09-26: RICK PASSED GATE 4 ("I approve the
                                  Thornshear fix"), the pointer moved, and

@@ -41,6 +41,7 @@ a = ap.parse_args()
 JS = r"""([seeds, wantHex]) => {
   const P = AC.Match.prototype, C = AC.CONFIG, R = C.physics.ballR, DT = C.physics.dt;
   const critMul = C.chaos.critMul;
+  const stage4 = typeof P.echoShown === "function";
   const bad = {}, n = {};
   const fail = (k, msg) => { (bad[k] = bad[k] || []).length < 4 && bad[k].push(msg); n["x" + k] = (n["x" + k] || 0) + 1; };
   const inc = (k, v = 1) => { n[k] = (n[k] || 0) + v; };
@@ -110,6 +111,17 @@ JS = r"""([seeds, wantHex]) => {
     }
     const hs0 = this.hitStop, hurts = [], oHurt = this.hurt;
     let shattered = 0;
+    /* STAGE 4: THE BEATS AN ECHO FILES, read inside the tick. */
+    const beats = [], oBeat = this.beat;
+    if (stage4) this.beat = function(o){ beats.push(o); return oBeat.call(this, o); };
+    /* AND THE SOUNDS IT PLAYS, counted at the call -- headless, SFX.play
+       returns on its first line, so a voice that is defined and never called
+       is invisible to everything but a count like this one (v42). */
+    const sounds = { echo: 0, snap: 0 }, oPlay = AC.SFX.play;
+    if (stage4) AC.SFX.play = function(kind, p){
+      if (kind === "ult" && p && p.w === "axiom-echo") sounds.echo++;
+      if (kind === "hex-snap") sounds.snap++;
+      return oPlay.call(this, kind, p); };
     this.hurt = function(tgt, dmg, src){
       const sh0 = tgt.shield; hurts.push([tgt, dmg]);
       const r = oHurt.call(this, tgt, dmg, src);
@@ -117,6 +129,7 @@ JS = r"""([seeds, wantHex]) => {
       return r; };
     const r = oTick.call(this, dt);
     delete this.hurt;
+    if (stage4){ delete this.beat; delete AC.SFX.play; }
     /* THE WARD'S OWN BREAK IS NOT THE ECHO'S WEIGHT. v80 §4 routes the echo
        through `hurt` -- "ward first" -- and `hurt` shatters a ward it empties,
        which bursts, knocks the ATTACKER and sets its own 0.10 hit stop. That
@@ -156,6 +169,24 @@ JS = r"""([seeds, wantHex]) => {
         else inc("inReachNoLand");
       }
       if (hi !== hurts.length) fail(5, `${hurts.length} hurt calls for ${hi} echoes landed`);
+      if (stage4){
+        /* [11] ONE `hit` BEAT PER LANDED ECHO, `fatal` IFF IT KILLED, NONE
+           FOR A MISS -- v80 §4 "The echo files a hit beat", and rule 3. */
+        /* [12] ONE ECHO VOICE PER LANDED ECHO, ONE SNAP PER HEX APPLIED. */
+        const dh2 = f.echoTally.hex - p.hex0;
+        if (sounds.echo !== hi) fail(12, `${sounds.echo} echo voices for ${hi} landed`);
+        else inc("voiceOk", hi);
+        if (sounds.snap !== (u.hex > 0 ? dh2 / u.hex : 0)) fail(12, `${sounds.snap} snaps for ${dh2} hex`);
+        const eb = beats.filter(b => b.echo);
+        if (eb.length !== hi) fail(11, `${eb.length} echo beats for ${hi} landed echoes`);
+        else inc("beatOk", hi);
+        for (const b of eb){
+          if (b.kind !== "hit") fail(11, `echo beat of kind ${b.kind}`);
+          const killed = b.hpAfter <= 0;
+          if (!!b.fatal !== killed) fail(11, `fatal ${b.fatal} but hpAfter ${b.hpAfter}`);
+          if (b.fatal) inc("fatalBeat");
+        }
+      }
       for (const [tgt, vx, vy, x, y] of p.tv)
         if (tgt.vx !== vx || tgt.vy !== vy || tgt.x !== x || tgt.y !== y) fail(5, "an echo moved its target");
       const dh = f.echoTally.hex - p.hex0;
@@ -179,7 +210,7 @@ JS = r"""([seeds, wantHex]) => {
     if (ax.ultEcho && ax.ultEcho.q.length && !m.over) pendingAlive++;
   }
   P.resolveHit = oResolve; P.tickEcho = oTick;
-  return { n, bad, tally, fights, pendingAlive, win: wins / decided };
+  return { n, bad, tally, fights, pendingAlive, win: wins / decided, stage4 };
 }"""
 
 with game(game_path=pathlib.Path(a.game).resolve()) as (page, errors):
@@ -189,6 +220,17 @@ with game(game_path=pathlib.Path(a.game).resolve()) as (page, errors):
         raise SystemExit("no tickEcho in this build -- not a Corollary link")
     seeds = [a.seed0 + 13 * i for i in range(a.seeds)]
     R = page.evaluate(JS, [seeds, a.hex])
+    if R.get("stage4"):
+        # [13] EVERY SHIPPED VOICE, RENDERED ALONE through the shipped chain
+        # (marrowdraw's SFX_JS, as vesper_relic_probe uses it). Spellbreaker's
+        # cast still falls through to the shared rune-crack, so it is the
+        # control that proves Axiom's arm is REACHED and is not rune-crack.
+        from marrowdraw_relic_probe import SFX_JS
+        R["voices"] = {name: page.evaluate(SFX_JS, [kind, p, 2.0]) for name, kind, p in (
+            ("cast", "ult", {"w": "axiom"}),
+            ("echo", "ult", {"w": "axiom-echo", "dmg": 11.6}),
+            ("snap", "hex-snap", {}),
+            ("rune-crack", "ult", {"w": "spellbreaker"}))}
     assert not errors, errors
 
 n, bad, T = R["n"], R["bad"], R["tally"]
@@ -225,6 +267,21 @@ checks = [
     (10, "every echo strikes the foe, Axiom's opponent -- a blow on a shade too",
      n.get("aimedFoe", 0) > 0),
 ]
+if R.get("stage4"):
+    checks.append((11, "stage 4: one hit beat per landed echo, fatal iff it killed, none for a miss",
+                   n.get("beatOk", 0) > 0 and n.get("fatalBeat", 0) > 0))
+    print(f"  echo beats {n.get('beatOk',0)}, of them fatal {n.get('fatalBeat',0)}")
+    checks.append((12, "stage 4: one echo voice per landed echo, one snap per hex applied",
+                   n.get("voiceOk", 0) > 0))
+    V = R.get("voices", {})
+    for k, v in V.items():
+        print(f"  voice {k:<11} peak {v.get('peak', 0):.3f}  audible {v.get('audible', 0):.2f}s"
+              f"{'  THREW ' + v['threw'] if v.get('threw') else ''}")
+    heard = all(not V[k].get("skip") and not V[k].get("threw") and V[k]["peak"] >= 0.01
+                and V[k]["audible"] >= 0.02 for k in ("cast", "echo", "snap")) if V else False
+    not_crack = bool(V) and (V["cast"]["peak"], V["cast"]["audible"]) != (V["rune-crack"]["peak"], V["rune-crack"]["audible"])
+    checks.append((13, "stage 4: cast, echo and snap each render audibly ALONE; the cast is not rune-crack",
+                   heard and not_crack))
 ok = 0
 for k, text, cover in checks:
     fails = n.get(f"x{k}", 0)

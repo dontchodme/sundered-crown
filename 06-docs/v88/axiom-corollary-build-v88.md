@@ -1,4 +1,4 @@
-# v88 — AXIOM / COROLLARY, BUILD. STAGES 1-3 DONE (sim built, blade kept at 7.42); STAGE 4 (picture, voice, beat, field) IN PROGRESS. Claude Code has it.
+# v88 — AXIOM / COROLLARY, BUILD. STAGES 1-4 BUILT AND GATED; THE CLIP IS WITH RICK ("you pick i overrule"). The app pointer waits on him.
 
 Claude Code on **DESKTOP-DERRAFT**, claimed 2026-09-26 22:35 UTC (`CLAIMS.md`, the BUILD
 row under Corollary's). The input is `06-docs/v80/axiom-corollary-redesign-v80.md` §5 with
@@ -11,10 +11,11 @@ sc-leaf.html          the base: the build of record since Rick passed its gate 4
   -> sc-echo.html       stage 1  the echo, no hex     corollary_build --stage 1   96ec0dee4aa16031
   -> sc-corollary.html  stage 2  the echo hexes       corollary_build --stage 2   71d414dc0b098485 (one character)
                         stage 3  the blade            7.42 KEPT, Rick's ruling -- no link
+  -> sc-corollary-fx.html stage 4 picture, voice, beat, field   corollary_build --stage 4   4f6f503cec8072ca
 ```
 
-**The app pointer has not moved** (`app/main.js` reads `sc-leaf`). It moves after stage 4,
-when Rick has seen the clip.
+**The app pointer has not moved** (`app/main.js` reads `sc-leaf`). It moves when Rick has seen
+the stage-4 clip and has nothing to overrule.
 
 ## 0. What this build stands on
 
@@ -219,3 +220,142 @@ rebuilt from scratch:
 Rick, 2026-09-26: **"you pick i overrule"**. Code makes the picture and sound choices v80 §4
 leaves open, picked on measurements, and sends one clip; Rick changes what he wants. The picks
 and the numbers behind them go here.
+
+### 6a. The plumbing (Code's, not art)
+
+`corollary_build.py --stage 4` does these things:
+- **Retires the bolt's art** as two whole spans: drawUltUnder's construction lines (22 lines)
+  and drawUltOver's proof (42 lines). It asserts that nothing in the output keys on
+  `u.w === "axiom"`.
+- **Swaps the field spec in both copies** (`sync_fx`, cindercleave's pattern): `axiom` (the
+  bolt's beam) out, `'axiom-echo'` in, the whole inlined module compared to `src/render/fx.js`
+  before and after, and both stamps re-cut.
+- **Routes every echo through one new method, `echoShown(f, tgt, q, landed)`.** It is called
+  for a landed echo and for one that found the foe out of reach. Everything it does is
+  write-only:
+  - **the beat:** one `hit` beat per landed echo with the number `hurt` was handed,
+    `fatal: true` when it kills, and `echo: true`;
+  - **the kill's flash:** `finisher` on a fatal echo, not `killStop` (v80: "no hit stop");
+  - **the rune motes:** armed on `m.ultFx` ONLY when the slot is free or already Axiom's, so
+    they never erase the opponent's set-piece (open item 25);
+  - the voices and the picture's record (6b, 6c).
+
+**Checked on a plumbing-only build** (voices and picture empty):
+- engine_ab sc-corollary → it, **all 34 relics WITH Axiom, n=4: 2244/2244 identical**. That
+  proves presentation only.
+- corollary_probe 11/11. New check **[11]: one hit beat per landed echo, fatal iff it killed,
+  none for a miss** (2728 beats, 37 fatal).
+
+**What the director does with a fatal echo is its own policy, and it is left alone.** A kill
+cut needs the fatal beat to clear `CINE.floor` 1.90 like any cut. `cineScore` prices a kill on
+closing speed, pace and the winner's remaining hp. On Axiom v Twinshade over seeds 4090-4129
+(plumbing build), the 5 fights won on an ECHO score 1.14-1.67, and the 35 won on an ordinary
+blow score 0.53-2.09, **of which only 2 clear the floor**. The echo's beat carries honest
+kinematics, the same fields the Aegis return and Scour file, and it scores like a blow. So
+seed 4101, which ends on an echo, still has no KILL cut: neither would most blow kills in this
+pairing. The fight now HAS its killing beat (rule 3), and whether the director films it is
+the director's tuning, not this build's.
+
+### 6b. The voices (picked on the numbers; `tools/corollary_voice_lab.py`)
+
+Every render runs through `Sfx.buildChain` in an OfflineAudioContext, scheduled at t=1.0,
+with render.py's deterministic noise, and is judged on the worst of 12 noise draws. "Audible" =
+first to last 5 ms RMS window above 2% of the voice's own loudest. The controls reproduce the
+stage-4 smoke: rune-crack 0.608 / 450 ms; hit at dmg 11.6 (the mean echo) 0.443 / 80 ms.
+- **Cast — "a rune-chime, 0.3s": BAR** (of four). One struck bar: modes 1 : 2.76 : 5.40 on
+  1319 Hz, a 20 ms mallet tick and a body an octave under. Audible 300 ms, peak 0.364 at 7 ms,
+  register 0.35 against rune-crack. It is a new `w === "axiom"` arm placed BEFORE the shared
+  rune-crack fallback, which ten other relics still use unchanged. Runner-up NOTE.
+- **Echo — "the sword's own strike voice, reversed (a rising whoom), quieter": MIRROR** (of
+  five). The `hit` voice's own numbers at the echo's damage, run backwards: its sine RISES
+  46 Hz → the hit's pitch while it swells, peaking 130-171 ms after landing (the 0.15s ghost).
+  A literal buffer reversal is impossible here: it needs an async render, and every clip
+  rebuilds the synth synchronously, so it would be SILENT in every clip. So the swell is built
+  from `_tone` re-struck at the chirp's own cycle starts, which sum to one rising sine. Measured
+  register 0.98 against the hit (the literal reversal: 1.00), energy centre late (0.60), and
+  **-6 dB under the hit** (short-term 0.47-0.53 of it) at every damage from p1 to p99, because
+  it scales with the echo's dmg as the hit scales with a blow's. Runner-up RESTRIKE.
+- **Hex — "its snap": SNAP** (of five). **No hex voice existed anywhere** (v79 and v75 also
+  assume one), so this is a new top-level `kind: "hex-snap"`, the runic SCHOOL's voice, ready
+  for Spellbreaker and Oracle. A finger-snap band (2.6 kHz, 22 ms) on a 1.3 kHz body: audible
+  25 ms, rise under 1 ms, centroid 3.35 kHz (two octaves under the wall tick, the commonest
+  sound in a fight), level between 3x the wall tick and the hit on every draw. It plays on
+  the echo's hex application only, on the same frame as the echo voice. Runner-up CRACK.
+- Calls live in `echoShown` (one echo voice per landed echo, a snap when the echo hexes), with
+  plain-number opts. `SFX.play` is a no-op headless and draws nothing, so the voices cannot move
+  a fight. The 19 reference renders are in `05-reference/v88/*.wav`, which is gitignored with
+  every wav (the lab rebuilds them in ~3 minutes).
+
+### 6c. The picture (picked on the numbers; `05-reference/v88/corollary-picture-sheet.png`)
+
+Measured on real fights, 540x960, post chain on: legibility is mean |dL| over the mark's own
+footprint, from two frames that differ only in the mark. It was taken on a RUNIC foe
+(Spellbreaker, the same hue), a WHITE sanctified foe (Aureole) and an ordinary one
+(Grudgebearer).
+- **The rune: a triangle in a ring** (the charge sigil's own figure; `_glyph` is Unmaking's and
+  would stamp one mark for two ultimates). r 12, **separated by VALUE**: the school-dark outline
+  under a core stroke, not `lighter` (lighter measured a quarter of the legibility on white).
+  **Seated at 20 from the foe's centre**, not the exact hit point, which sits on the rim (median
+  39 against ballR 34): 1.54x the legibility on white.
+- **Pending: a clock runs round it** for the half second, so the flare lands as the ring closes.
+- **The flare: "leave"** — it expands, whitens and goes (0.25s): 0.235 / 0.069 / 0.261,
+  against 0.08 for a plain ring.
+- **The ghost: the real blade through `litWeapon` at alpha 0.5**, in the WORLD pass, drawn over
+  both fighters (drawn with them, the foe's shell clips it exactly where it goes through). Its
+  pivot is a virtual Axiom on the blow's bearing and distance, sweeping a 0.75 half-arc in the
+  blow's own swing direction, which is the smallest arc that goes through the foe every time
+  over 21 real blows.
+- **A miss** (out of reach): the triangle goes and the ring breaks into three arcs that part and
+  drop — no flare, no ghost, no number. It reads as the rune failing, not the picture failing.
+- **The cast: ten rune marks along one inset edge of the blade, held for the window** and fading
+  0.45s after it (Breach's precedent). Once the bolt art is gone, this is the window's only tell.
+- **The motes: `'axiom-echo'` burst, n 200, births spread over 0.25s**, so the field peaks after
+  the ghost has gone. **Bloom** stays under the batch's only floor (Morningstar's: arena lift
+  ≤ +0.02, disc ≤ 0.90). The flare peaks at lift +0.0046 and whitens a white foe's disc to 0.69
+  for 0.25s.
+- **Frame cost (RTX 3070, Electron 44, 453x805, chain on):** the ghost is one more greatsword
+  draw, 3.1-3.9 ms, the same as Axiom's own blade. The peak echo frame is ~4.6 ms against 4.77
+  of headroom, which is why the motes spread their births.
+- Presentation only: no rng, no spawnFx, no Math.random, and nothing the sim reads. The picture
+  lab confirmed 6 whole fights field-for-field identical with the picture in.
+
+### 6d. Stage 4's gates — every one able to fail
+
+`corollary_build.py --stage 4 --src ../02-chain/sc-corollary.html --out ../02-chain/sc-corollary-fx.html`:
+out `4f6f503cec8072ca`, +20731 characters. `src/render/fx.js` stamp `60e2c86423c7de24` →
+`060d6c89f9c3451d` (the page's inlined copy and both stamps with it). The older links keep the
+old stamp, as Starwarden's did.
+- **engine_ab sc-corollary → sc-corollary-fx, ALL 34 relics WITH Axiom, n=6: 3366/3366
+  identical** (`runs/engine_ab_corollary_to_fx_34.txt`). Picture, voice, beat and field move no
+  fight.
+- **corollary_probe --hex: 13/13** (`runs/probe_stage4.txt`):
+  - [11] one hit beat per landed echo, fatal iff it killed (2728 beats, 37 fatal);
+  - [12] one echo voice per landed echo and one snap per hex applied, counted at the call;
+  - [13] each voice rendered ALONE through the shipped chain is audible (cast 0.447, echo 0.217,
+    snap 0.343 peak), and the cast is not rune-crack (Spellbreaker's cast, still rune-crack,
+    renders 0.619).
+- **render_ab**:
+  - the default pairs (no Axiom) print **24/24 frames pixel-identical**;
+  - the control, axiom v lightkeeper 88212 at five frames inside Axiom's windows, prints
+    **0/5 identical**, which is the check failing where it must.
+- **shell_identity on sc-corollary-fx** (`SWB_GAME`, the pointer not moved): **200/200
+  identical**, app Chromium 152 against headless 151. The json was restored to sc-leaf's
+  afterwards, because the pointer has not moved.
+- **chain_audit**:
+  - relic and tip sc-corollary-fx: ALL 23 INSERTS SURVIVE (4 marked by comment text, named);
+  - relic sc-corollary → tip sc-corollary-fx: all 10 stage-1/2 inserts survive (the stage-4 rows
+    are, correctly, not in the stage-2 relic).
+- **tip_audit**: 1, the same as sc-leaf.
+- **verify --n 40: 11/13**, identical to sc-corollary: both reds are the clock bands and Axiom
+  is 33.5%.
+
+### 6e. The clip (Rick's to overrule)
+
+`_corollary_pick.py` (the window scored on the whole sentence: landed, missed, late, hex, kill)
+picked **axiom v lightkeeper, seed 88212**: cast at 74.83, 8 blows, 6 landed, 2 missed, 1 late,
+6 hex, and the fight ends on Axiom's win at 86.07. Filmed with the director on:
+
+    python cinema_clip.py --game ../02-chain/sc-corollary-fx.html --a axiom --b lightkeeper       --seed 88212 --at 73.63 --window 12.43 --fps 60 --w 540 --out ../07-shorts/v88/corollary-window.mp4
+
+15.9s, 953 frames, AAC audio (mean -20.9 dB, max -2.1 dB), sent to Rick 2026-09-26. The mp4 is
+gitignored; this command rebuilds it.

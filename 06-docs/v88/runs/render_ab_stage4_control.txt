@@ -1,0 +1,14 @@
+
+RENDER A/B  1 pairings x 5 frames  540x960
+  a  sc-corollary.html
+  b  sc-corollary-fx.html
+  axiom v lightkeeper seed 88212 t= 20.00  DIFFERS   luma 22.441 -> 22.455   lit 88.45% -> 88.45%
+  axiom v lightkeeper seed 88212 t= 75.40  DIFFERS   luma 21.548 -> 19.950   lit 59.56% -> 59.46%
+  axiom v lightkeeper seed 88212 t= 76.60  DIFFERS   luma 18.705 -> 18.777   lit 60.03% -> 60.03%
+  axiom v lightkeeper seed 88212 t= 78.20  DIFFERS   luma 18.337 -> 18.376   lit 60.01% -> 60.00%
+  axiom v lightkeeper seed 88212 t= 80.10  DIFFERS   luma 17.820 -> 17.933   lit 60.08% -> 60.08%
+
+FAIL  0/5 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

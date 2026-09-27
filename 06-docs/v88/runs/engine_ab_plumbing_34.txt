@@ -1,0 +1,11 @@
+=== ENGINE A/B: 34 relics, 4 seeds x 561 pairings ===
+
+  sc-corollary.html               2244 matches  161.2s
+  plumb4.html                     2244 matches  178.9s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 2244
+  PASS  every match identical field for field  — 2244/2244
+  PASS  the sweep is real  — 34/34 distinct winners, 2244 distinct seeds, 22.0-113.2s
+
+ENGINE A/B PASS — C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/build/plumb4.html does not move the 34-relic roster.

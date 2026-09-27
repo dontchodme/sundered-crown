@@ -159,9 +159,15 @@
     spellbreaker: { mode: 'beam', n: 1200, sp: [40, 200], grav: -40,
                     drag: 1.6, life: [0.25, 0.70], heavy: 0.0,
                     size: [0.6, 1.8], spawn: 0.35, up: 0 },
-    axiom: { mode: 'beam', n: 1200, sp: [40, 190], grav: -40, drag: 1.6,
-             life: [0.28, 0.72], heavy: 0.0, size: [0.6, 1.8],
-             spawn: 0.35, up: 0 },
+    /* COROLLARY'S RUNE MOTES -- ON EACH LANDED ECHO, NOT AT THE CAST (the
+       bolt's beam field is out). A small burst at the rune's seat, drawn at
+       [u.tx, u.ty] because it is a burst without `atSelf`. Its births are
+       SPREAD OVER THE FLARE (spawn 0.50 = 0.25s), so the field peaks after the
+       ghost blade has gone rather than on its frames: that is what keeps the
+       echo's peak frame inside the app's 4.77 ms of headroom. */
+    'axiom-echo': { mode: 'burst', n: 200, sp: [20, 120], grav: -60, drag: 1.8,
+                    life: [0.50, 1.30], heavy: 0.0, size: [0.6, 1.7],
+                    spawn: 0.50, up: 25 },
     /* A VOLLEY IS MANY SHOTS, so it emits across nearly its whole life. */
     ironhail: { mode: 'beam', n: 1300, sp: [50, 240], grav: 140, drag: 1.4,
                 life: [0.22, 0.65], heavy: 0.03, size: [0.6, 1.7],
