@@ -12,28 +12,34 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-ironfall-fx.html     A BRANCH OFF sc-leaf, NOT THE CHAIN TIP (built on
-                                 yert): THE STAFF ROW'S FIRST RELIC, STAGES 1-6
-                                 DONE. CULVERIN / IRONFALL, the dwarven staff
-                                 (06-docs/v96/), and the staff TYPE with it:
-                                 shape "staff" pasted from Cowork's spec (all 21
-                                 heads; dwarven "A" is Code's pick under Rick's
-                                 "you pick i overrule", the other six letters
-                                 owed), the weapon glow sized for a weapon 1.7
-                                 reaches long, the slug (gravity, no new engine
-                                 field), the shells, seven voices picked on the
-                                 PHONE band, drawn embers (no fx.js field: that
-                                 file is shared by both lines). sc-culverin ->
-                                 sc-slug -> sc-ironfall -> sc-ironfall-blade ->
-                                 sc-ironfall-fx. Charge 14 (the lab's 16), blade
-                                 13.5 measured (provisional until the row
-                                 re-prices), verify 11/13 both reds the clock,
-                                 engine_ab 5950/5950 WITH Culverin at stage 6,
-                                 shell_identity 194/194. THE CLIP IS WITH RICK.
-                                 THIS LINE DOES NOT MOVE GAME until it and the
-                                 batch line are carried onto one another
-                                 (culverin_build takes --src and accepts
-                                 either).
+02-chain/sc-cipher-fx.html       THE STAFF BRANCH'S TIP: A BRANCH OFF sc-leaf, NOT
+                                 THE CHAIN TIP (built on yert). THREE STAVES, EACH
+                                 STAGES 1-6, 37 RELICS: CULVERIN / IRONFALL (v96,
+                                 and the staff TYPE with it: shape "staff" pasted
+                                 from Cowork's spec, all 21 heads), BRIARWAND /
+                                 BLOOM (v93) and CIPHER / CONVERGENCE (v94).
+                                 sc-leaf -> sc-culverin ... sc-ironfall-fx ->
+                                 sc-briarwand -> sc-thornburst -> sc-bloom ->
+                                 sc-bloom-blade -> sc-bloom-fx -> sc-cipher ->
+                                 sc-glyph -> sc-converge -> sc-converge-blade ->
+                                 sc-cipher-fx. Charge 14 (the lab's 16) on all
+                                 three. Blades MEASURED wide, both sides, two
+                                 blocks: Culverin 13.5, Briarwand 15.25 (design
+                                 16.5), Cipher 8.875 (design 11) -- the last two
+                                 LOWER because their labs tagged a new shot only
+                                 after its first step, losing Briarwand's side
+                                 thorns and every bolt Cipher loosed into a wall.
+                                 With the lab's tagging put back each build IS its
+                                 lab (Cipher's spell 30.5% against 30.5%). Heads:
+                                 dwarven A, verdant C, runic A (Code's picks under
+                                 "you pick i overrule"). verify 11/13 at each tip,
+                                 both reds the clock (Briarwand 48.7%, Cipher
+                                 50.8%); engine_ab at every stage, each fx link
+                                 WITH its relic (6300/6300, 6660/6660);
+                                 shell_identity at each tip. THE THREE CLIPS ARE
+                                 WITH RICK. THIS LINE DOES NOT MOVE GAME until it
+                                 and the batch line are carried onto one another
+                                 (each builder takes --src).
 02-chain/sc-sunrise-e26.html     A BRANCH OFF sc-zenith, NOT THE CHAIN TIP (built on
                                  yert, Rick's call): DAYBREAK, RICK'S CIRCLE (v99,
                                  sunrise_build.py). The cast puts the sun in the

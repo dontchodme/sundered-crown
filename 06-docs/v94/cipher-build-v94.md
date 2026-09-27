@@ -1,4 +1,4 @@
-# v94 — CIPHER / CONVERGENCE, BUILD. STAGES 1-6 BUILT on the staff branch (`sc-cipher-fx`); blade 8.875, measured; THREE GATES STILL RUNNING when this was written (below). Claude Code on yert.
+# v94 — CIPHER / CONVERGENCE, BUILD. STAGES 1-6 BUILT AND GATED on the staff branch (`sc-cipher-fx`); blade 8.875, measured; the clip is with Rick. Claude Code on yert.
 
 Input: `CIPHER-BUILD-BRIEF.md` + `runic-staff-design-v94.md` (Cowork). Builder `tools/cipher_build.py` (on `tools/staffkit.py`), probe `tools/cipher_probe.py`, voices `tools/cipher_voice_lab.py`, picker `tools/_cipher_pick.py`. Runs in `runs/build/`. Rick: "build them all".
 
@@ -27,8 +27,8 @@ Coarse (288 a point) 7 → 36.5, 8 → 47.9, 9 → 55.6, 10 → 63.5, 11 → 74.
 ## Stage 6 — picture and voices (Rick's "you pick i overrule")
 Voices (`stage6_voice_lab*.txt`, two rounds): cast INHALE (an inhale into an E6 chime, v75's register), wall-stop STONE (replaces the shared "wall" for a glyph the wall STOPS; +5.2 semitones over six hanging), leave PLUCK (least like the tap), hex snap GLINT (pitched by count), close STAGGER — the chime reversed as three narrow-band swells, because one swell from −80 dB is heard for only 0.2s. The runic head stays "A" (the open ring, Rick's ref 3) and lights through the window; a stopping bolt flashes; each rune FLARES off its own fuse against the window clock; flown runes trail with a 0.2s sight-line; a rune's blow flares on the foe and the hex tag prints the count; rune motes drift off the walls (drawn, no fx.js field). **Gates in:** probe 12/12; shipped voices 5/5 inside the renderer's floor; render_ab 24/24 others identical + Cipher's control differs 9/10; shell_identity 195/195; insert audit 27/27; stage 6 rebuilds byte-identical. **Clip:** `07-shorts/v94/convergence-window.mp4` (cipher vs farwarden, seed 4452, 8 hanging at the cast) — nobody has watched it.
 
-## STILL RUNNING when this was committed — read the files before quoting a green
-`runs/build/stage3_engine_ab36.txt` (sc-glyph -> sc-converge, the 36 others), `runs/build/stage6_engine_ab37.txt` (all 37 WITH Cipher — the proof stage 6 is presentation), `runs/build/stage5_verify.txt` (verify --n 40).
+## The three gates that were still running at the first commit — all green
+`stage3_engine_ab36.txt`: sc-glyph -> sc-converge moves none of the 36 others, **6300/6300**. `stage6_engine_ab37.txt`: sc-converge-blade -> sc-cipher-fx over all 37 **WITH Cipher**, **6660/6660** — stage 6 is presentation. `stage5_verify.txt`: **11/13, both reds the clock** (Lightkeeper/Starwarden 98.3s, the known four; overall mean 60.1s against the stale 28-54 band); **Cipher 50.8%**, every relic 30-70% (Heartwood 34.0 .. Gloamwire 65.0, spread 31.0pp — Gloamwire's carry, §0, not this build); "both sides can win every matchup" passes.
 
 ## Open
-CLAIMS row and CLAUDE.md §0 not yet updated for this relic. Rick's eye on the clip. Then Watchlight, Crozier, Bloodwick, Nightglass — **check each lab for the same `fresh()` tagging artifact** (Briarwand's fan and Cipher's wall-stop both had it).
+Rick's eye on the clip. Then Watchlight, Crozier, Bloodwick, Nightglass — **check each lab for the same `fresh()` tagging artifact** (Briarwand's fan and Cipher's wall-stop both had it).

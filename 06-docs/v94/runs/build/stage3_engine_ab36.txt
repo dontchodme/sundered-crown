@@ -1,3 +1,11 @@
 === ENGINE A/B: 36 relics, 10 seeds x 630 pairings ===
 
   sc-glyph.html                   6300 matches  417.0s
+  sc-converge.html                6300 matches  426.1s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 6300
+  PASS  every match identical field for field  — 6300/6300
+  PASS  the sweep is real  — 36/36 distinct winners, 6300 distinct seeds, 15.7-117.9s
+
+ENGINE A/B PASS — ../02-chain/sc-converge.html does not move the 36-relic roster.
