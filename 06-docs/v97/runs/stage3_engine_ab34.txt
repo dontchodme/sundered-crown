@@ -1,0 +1,11 @@
+=== ENGINE A/B: 34 relics, 6 seeds x 561 pairings ===
+
+  sc-dawn.html                    3366 matches  229.9s
+  sc-daybreak-fx.html             3366 matches  214.0s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3366
+  PASS  every match identical field for field  — 3366/3366
+  PASS  the sweep is real  — 34/34 distinct winners, 3366 distinct seeds, 16.8-118.9s
+
+ENGINE A/B PASS — ../02-chain/sc-daybreak-fx.html does not move the 34-relic roster.

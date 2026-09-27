@@ -1,0 +1,25 @@
+  (17 insert(s) found in dawn_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-daybreak-fx.html
+tip    sc-daybreak-fx.html
+17 inserts read out of dawn_build.py
+
+    ok  S1:dawnbringer's ultimate is the dawn relic  1  mid   -  tip  1
+    ok  S1:the fighter carries the dawn's window relic  1  mid   -  tip  1
+    ok  S1:the cast opens the dawn and resolves nothing relic  1  mid   -  tip  1
+    ok  S1:the dawn ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S1:tickDawn raises the sun relic  1  mid   -  tip  1
+    ok  S3:Sfx ult branch: Daybreak’s voices (step 0-7 + close) replace the chord and bell relic  1  mid   -  tip  1
+    ok  S3:tickDawn: steps 1-7 and the close ride the window’s clock relic  1  mid   -  tip  1
+    ok  S3:dawn picture: fighter fields relic  1  mid   -  tip  1
+    ok  S3:dawn picture: its clocks in tickPresentation relic  1  mid   -  tip  1
+    ok  S3:dawn picture: the tag re-arms out of the dawn relic  1  mid   -  tip  1
+    ok  S3:dawn picture: the tick calls dawnShown relic  1  mid   -  tip  1
+    ok  S3:dawn picture: dawnShown relic  1  mid   -  tip  1
+    ok  S3:dawn picture: the draw call relic  1  mid   -  tip  1
+    ok  S3:dawn picture: drawDawn  relic  1  mid   -  tip  1
+    ok  S3:restyle the HUD sigil (shards out) relic  1  mid   -  tip  1
+    ok  S3:retire the banner’s horizon relic  1  mid   -  tip  1
+    ok  S3:the ultFx life map: say what dawnbringer’s entry is now relic  1  mid   -  tip  1
+
+ALL 17 INSERTS SURVIVE to sc-daybreak-fx.html
+(3 of them are marked by COMMENT text -- the code they add is shorter than the floor: S3:restyle the HUD sigil (shards out), S3:retire the banner’s horizon, S3:the ultFx life map: say what dawnbringer’s entry is now)

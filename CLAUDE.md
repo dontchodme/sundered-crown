@@ -12,14 +12,21 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-dawn.html            THE CHAIN TIP. DAWNBRINGER / DAYBREAK stage 1
+02-chain/sc-daybreak-fx.html     THE CHAIN TIP, AWAITING RICK'S EYE. Daybreak stage 3:
+                                 the dawn drawn as a world-pass wash + horizon line
+                                 (bloom share ~0, the balls untouched), the
+                                 sparks-era corona/pool/banner/field retired, a
+                                 C-major swell stepped on the window's clock and
+                                 a held close. engine_ab 3366/3366 WITH Dawnbringer,
+                                 probe 11/11, render_ab 24/24, shell_identity
+                                 200/200. fx.js stamp -> 28fc58641370a1a9. See v97.
+02-chain/sc-dawn.html            the link before it. DAWNBRINGER / DAYBREAK stage 1
                                  (dawn_build.py, v97): a line of light rises
                                  floor to ceiling over 8s; a foe below it is
                                  smitten +1 and takes 2 every 0.5s; the sparks
                                  are out. Charge 14 (the lab's 16), blade 10.4
                                  confirmed: 52.2% against the priced 53.5%.
                                  engine_ab 4224/4224, probe 9/9, verify 10/13.
-                                 The sparks-era ART still plays: stage 3 next.
 02-chain/sc-corollary-c14.html   Corollary stage 6: CHARGE 14, the game's clock
                                  (Rick: "use the game's equivalent"): 40.0%
                                  against the bolt's 40.2%, blade 7.42. See v88 §8.

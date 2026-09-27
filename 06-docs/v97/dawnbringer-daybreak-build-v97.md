@@ -1,4 +1,4 @@
-# v97 — DAWNBRINGER / DAYBREAK, BUILD. IN PROGRESS: stages 1-2 done at charge 14 (blade 10.4 confirmed); stage 3 (picture, voice, field) next. Claude Code has it.
+# v97 — DAWNBRINGER / DAYBREAK, BUILD. STAGES 1-3 BUILT AND GATED; THE CLIP IS WITH RICK ("you pick i overrule"). The app pointer waits on him.
 
 Claude Code on **DESKTOP-DERRAFT**, claimed 2026-09-27 01:35 UTC (`CLAIMS.md`, the BUILD row
 under Daybreak's). The input is `06-docs/v86/dawnbringer-daybreak-redesign-v86.md` §5 with its
@@ -9,6 +9,7 @@ under Daybreak's). The input is `06-docs/v86/dawnbringer-daybreak-redesign-v86.m
 sc-corollary-c14.html   the base: the chain tip (sc-leaf + Axiom / Corollary stages 1-6)
   -> sc-dawn.html          stage 1  the dawn; the sparks out     dawn_build --stage 1   fa8703a2e143f59d
                            stage 2  the blade                    10.4 CONFIRMED at charge 14 -- no link
+  -> sc-daybreak-fx.html   stage 3  picture, voice, the field out   dawn_build --stage 3   1aac87b67fa2a495
 ```
 
 ## 0. What this build stands on
@@ -111,3 +112,114 @@ own "parity with SHIP ±3" does not hold even in its lab on 151: arm B 53.5 agai
 **verify --n 40 on sc-dawn: 10/13** (`runs/verify_dawn.txt`). Dawnbringer 53.8% (54.2% before
 the build); every relic in 30-70% (Heartwood 35.0 .. Gloamwire 63.9). The reds are the two
 clock bands and sc-leaf's own Axiom vs Thornshear 0/40.
+
+## 4. Stage 3: picture, voice, the sparks' field out — `sc-daybreak-fx.html`
+
+Rick, 2026-09-26: **"you pick i overrule"**. Every choice v86 §4 left open was picked on a
+measurement (`tools/dawn_voice_lab.py`; the picture lab's scripts are in the session scratch,
+and its numbers are here). One clip goes to Rick.
+
+`dawn_build.py --stage 3 --src ../02-chain/sc-dawn.html --out ../02-chain/sc-daybreak-fx.html`:
+out `1aac87b67fa2a495`, +8474 characters, 14 anchored edits (2 voice, 12 picture). The sparks'
+field spec came out of BOTH copies of `src/render/fx.js` (stamp `060d6c89f9c3451d` →
+`28fc58641370a1a9`).
+
+### 4a. The picture
+
+- **The wash:** sanctified glow #FFFFFF at alpha 0.10, source-over, from the line to the floor,
+  **drawn in the WORLD pass** right after the arena, under every emissive layer and both balls,
+  and clipped to the live hall.
+- **The line:** a 4-unit band at 0.6 in sanctified core, and a 12-unit linear horizon above it
+  from 0.6 to 0.
+- **The clocks:** the brightening is a 0.3s ease-out at the cast; the close fades over 0.5s, and
+  the same fade runs at match end.
+- **The foe in the dawn:** 12 faint motes drawn with shellHash (not spawnFx) rise from its upper
+  disc under its shell. It gets the ordinary SMITE tag on the FIRST tick of each lit stretch (2.5
+  a window, not the 10-14 ticks), and its own smite bolts carry it between tags.
+- **Why world and not emissive, measured:** the line drawn in the emissive pass read stronger,
+  but its bloom share was +0.018 and it whitened Dawnbringer's disc from 0.644 to 0.802 when the
+  line ran behind the ball. That is §4.1b again.
+
+The numbers (headless Chromium 151, 540x960, chain on):
+- **Legibility:** band luma 0.57-0.64 over a bare floor of 0.07-0.14; the wash +0.084..0.090
+  signed luma, the SAME with the chain off, so none of it is bloom.
+- **THE BLOOM GATE PASSES:** 180 frames at D.t 7.90-7.92, the whole hall lit, six foes, both
+  sides. Arena-mean lift +0.0012 (max +0.0034); Daybreak's own share mean -0.00001, max
+  +0.00001, against the gate's +0.02. Control: the same wash in the emissive pass lifts +0.071,
+  above the Harrowing's +0.0628, and FAILS as it must.
+- **THE BALLS ARE NOT TOUCHED:** disc change max 0.0000 on the foe and on Dawnbringer, the white
+  Aureole included. The white Aureole at 7.9s reads disc 0.819 against its surround 0.581.
+- **Frame cost** (Electron 44, RTX 3070): drawDawn 0.28-0.36 ms.
+- **Sim identity:** 8 fights, a per-step hash compared up to the kill, identical; a control that
+  nudges one velocity fails on all 7 Dawnbringer fights.
+
+**Retired:** the sparks-era pool (drawUltUnder), the corona (drawUltOver), and the old banner
+horizon (it sat 5-170 units from the real line and read brighter than it). **The HUD sigil's
+orbiting shards come out** ("a spark field IS the mechanic", and no longer). **The sparks' cast
+burst comes out of both copies of fx.js, with no replacement.** Measured left in: 1350 particles
+drawn AT THE FOE on the cast frames, whitening its disc to 0.87-0.91. That is §4.1b's erased
+ball, on the foe. The dawn's own motes ride a moving foe for 8s, which the one-slot field cannot
+carry, so they are drawn. The generic ultFx cast record stays (life 1.6) and draws nothing.
+**Kept:** the spark machinery (Lastlight), and `b.w === "dawnbringer"`'s banner letters.
+
+### 4b. The voices
+
+- **Cast and steps: "a slow swell rising over the whole 8s (re-struck tones stepping up a scale,
+  one per second)": HANDOFF** (of five). One octave of C major, C5 → C6 (diatonic to the score's
+  A minor). Step 0 is the cast (fireUlt's own call). **Steps 1-7 are played from `tickDawn` as the
+  WINDOW's clock crosses each second**, so a hit stop holds the note and a death stops the rise.
+  Each step is re-struck in phase and handed to the next degree. The window's seconds run a median
+  1.16s and p99 1.62s of match time (hit stops freeze its clock), and a note that held exactly one
+  second (HELD) passed the nominal case and failed every real window. +9 dB over the eight steps.
+- **Close: "the top note held and released": STOP** (of five). It picks up step 7's strikes in
+  phase, holds 0.5s (the wash's own fade) and releases in 380 ms. It plays only when the window
+  closes by its clock: never on a death, never after the fight is over.
+- **A tick:** "nothing new (smite's)". No smite voice exists, so ticks are silent.
+- **Levels:** step 0 is -16.8 dB under a blow and +3.4 dB over the wall tick; the top step is
+  -8.7 dB under a blow. The cast is QUIET by the spec's own word ("a slow swell" starts low). The
+  lab's level window allows +2.6 dB more if Rick wants it.
+- **Checked:** on 132 real fights the voice row is identical in the sim; steps 1..7 play once
+  each, in order, on their crossing frame, and there is exactly one close per clock close.
+
+**A TOOLKIT FINDING for CLAUDE.md §4.5.** `_tone`'s re-strikes are NOT phase-coherent above
+~500 Hz: it sets the frequency with an event AT the strike, and Chromium starts the oscillator's
+phase from the param's 440 Hz default, up to ±177° off at 1046 Hz. Setting `.frequency.value = f`
+on the returned node puts every strike within one sample. HANDOFF does this; without it (the
+lab's RAW control) the top step is 10 dB down and the swell is gone. Corollary's MIRROR echo
+re-strikes at 46-190 Hz and passed its own gates, but it was not re-measured for this.
+
+### 4c. Stage 3's gates — every one able to fail
+
+- **engine_ab sc-dawn → sc-daybreak-fx, ALL 34 WITH Dawnbringer, n=6: 3366/3366 identical**
+  (`runs/stage3_engine_ab34.txt`). Picture, voice and the removed field move no fight.
+- **dawn_probe: 11/11** (`runs/stage3_probe3.txt`).
+  - [10] steps 1-7 on the window's clock, in order, and one close per clock close, none on a
+    death (8394 step voices, 1081 clock closes).
+  - [11] cast, top step and close each render audibly ALONE, and the old chord and bell is gone
+    from the synth (a check that reads TRUE on sc-dawn).
+- **render_ab:**
+  - the other relics' pairs (paradox:heartwood, twinshade:lastlight, bulwarden:vinesower,
+    axiom:grudgebearer) print **24/24 pixel-identical**;
+  - the control, dawnbringer v grudgebearer 31337 inside a window, prints **0/4 identical**.
+  - render_ab's own default pairs include ironhail:dawnbringer:4412, which now differs by
+    construction.
+- **shell_identity on sc-daybreak-fx** (`SWB_GAME`, the pointer not moved): **200/200**.
+- **chain_audit:**
+  - dawn_build: relic and tip sc-daybreak-fx, 17/17; sc-dawn → sc-daybreak-fx, 6/6;
+  - corollary_build: sc-corollary-c14 → sc-daybreak-fx, all 25 survive.
+- **tip_audit: 1**, as before.
+
+### 4d. The clip (Rick's to overrule)
+
+`_dawn_pick.py` scores a window on the whole of §4. It must close by its clock, which is the only
+way to hear all eight steps and the close, with ticks, lit share and line crossings. The pick:
+**dawnbringer v redflail (Threshmaw), seed 97138**, cast at 15.00, 14 ticks, the foe lit 77% of
+the window and crossing the line 5 times.
+
+    python cinema_clip.py --game ../02-chain/sc-daybreak-fx.html --a dawnbringer --b redflail \
+      --seed 97138 --at 13.80 --window 12.56 --fps 60 --w 540 --out ../07-shorts/v97/daybreak-window.mp4
+
+38.6s (the director's slow motion over a 12.5s window; cinema_clip's "no ending" warning is
+because the fight runs on to 44.4s past the window), AAC mean -22.8 dB, max -0.6 dB. Sent to
+Rick 2026-09-27. Threshmaw's own Bloodmill fills part of the window with red spikes, so the
+sample is busy.

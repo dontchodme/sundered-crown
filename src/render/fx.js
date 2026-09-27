@@ -138,14 +138,6 @@
     nightfell: { mode: 'burst', n: 1100, sp: [200, 700], grav: 40, drag: 3.2,
                  life: [0.22, 0.60], heavy: 0.0, size: [0.6, 1.8],
                  spawn: 0.10, up: 0, atSelf: 1 },
-    /* DAYBREAK RISES, IT DOES NOT DETONATE, and it stays sparse in the middle
-       ON PURPOSE. CLAUDE.md §4.1b is the record of this relic's art blowing
-       out over a body already at 0.892 luma -- "the ball was not lit, it was
-       erased". Piling embers onto that centre would recreate exactly the
-       fault that section exists to prevent. */
-    dawnbringer: { mode: 'burst', n: 1350, sp: [120, 470], grav: -90,
-                   drag: 1.8, life: [0.45, 1.15], heavy: 0.0,
-                   size: [0.7, 2.1], spawn: 0.10, up: 110 },
 
     /* ---- BEAMS AND BOLTS: it travels, so it sheds along its length ---- */
     /* Negative gravity is what stops a beam reading as an explosion pointed

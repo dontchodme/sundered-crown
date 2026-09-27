@@ -1,0 +1,21 @@
+
+DAYBREAK PROBE  sc-daybreak-fx.html  Chromium 151.0.7922.34  396 fights (Dawnbringer both sides x 33 foes x 6 seeds)
+  per cast: ticks 9.88  dmg 19.76  foe lit 58.9% of the window   casts/fight 3.30   Dawnbringer win 55.3%
+  killing ticks 10   wards broken by a tick 212
+  voice cast (step 0)  peak 0.099  audible 3.00s
+  voice step 7         peak 0.077  audible 3.00s
+  voice close          peak 0.077  audible 1.90s
+  step voices 8394, clock closes voiced 1081
+  [1] PASS  every tick lands on a foe below the line H - min(1,t/dur)*H
+  [2] PASS  the lab's cadence: never closer than `tick`, never a missed clear lit frame
+  [3] PASS  each tick: smite +1 (to its cap) and hurt(foe, tickDmg) once
+  [4] PASS  nothing else: no move, no crit, no stop but a ward's own
+  [5] PASS  no beat, except the killing tick's own fatal beat
+  [6] PASS  the caster gets nothing
+  [7] PASS  the window is `dur` long on the window clock
+  [8] PASS  smite's source is a side letter
+  [9] PASS  only Dawnbringer carries ultDawn, and it throws no spark
+  [10] PASS  stage 3: steps 1-7 on the window clock, in order; one close per clock close, none on a death
+  [11] PASS  stage 3: cast, top step and close each render audibly alone; the old chord and bell is gone
+
+  11/11

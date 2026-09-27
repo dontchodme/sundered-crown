@@ -1,0 +1,13 @@
+
+RENDER A/B  1 pairings x 4 frames  540x960
+  a  sc-dawn.html
+  b  sc-daybreak-fx.html
+  dawnbringer v grudgebearer seed 31337 t= 16.50  DIFFERS   luma 26.477 -> 30.465   lit 88.72% -> 88.90%
+  dawnbringer v grudgebearer seed 31337 t= 18.00  DIFFERS   luma 26.630 -> 33.943   lit 89.76% -> 89.95%
+  dawnbringer v grudgebearer seed 31337 t= 20.00  DIFFERS   luma 27.472 -> 38.898   lit 88.19% -> 88.38%
+  dawnbringer v grudgebearer seed 31337 t= 22.00  DIFFERS   luma 26.328 -> 41.270   lit 88.25% -> 88.36%
+
+FAIL  0/4 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

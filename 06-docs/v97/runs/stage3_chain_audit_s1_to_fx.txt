@@ -1,0 +1,25 @@
+  (17 insert(s) found in dawn_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-dawn.html
+tip    sc-daybreak-fx.html
+17 inserts read out of dawn_build.py
+
+    ok  S1:dawnbringer's ultimate is the dawn relic  1  mid   -  tip  1
+    ok  S1:the fighter carries the dawn's window relic  1  mid   -  tip  1
+    ok  S1:the cast opens the dawn and resolves nothing relic  1  mid   -  tip  1
+    ok  S1:the dawn ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S1:tickDawn raises the sun relic  1  mid   -  tip  1
+   ?  S3:Sfx ult branch: Daybreak’s voices (step 0-7 + close) replace the chord and bell not in the relic build either — the marker is wrong, not the chain
+   ?  S3:tickDawn: steps 1-7 and the close ride the window’s clock not in the relic build either — the marker is wrong, not the chain
+   ?  S3:dawn picture: fighter fields not in the relic build either — the marker is wrong, not the chain
+   ?  S3:dawn picture: its clocks in tickPresentation not in the relic build either — the marker is wrong, not the chain
+   ?  S3:dawn picture: the tag re-arms out of the dawn not in the relic build either — the marker is wrong, not the chain
+   ?  S3:dawn picture: the tick calls dawnShown not in the relic build either — the marker is wrong, not the chain
+   ?  S3:dawn picture: dawnShown not in the relic build either — the marker is wrong, not the chain
+   ?  S3:dawn picture: the draw call not in the relic build either — the marker is wrong, not the chain
+    ok  S3:dawn picture: drawDawn  relic  1  mid   -  tip  2
+   ?  S3:restyle the HUD sigil (shards out) not in the relic build either — the marker is wrong, not the chain
+   ?  S3:retire the banner’s horizon not in the relic build either — the marker is wrong, not the chain
+   ?  S3:the ultFx life map: say what dawnbringer’s entry is now not in the relic build either — the marker is wrong, not the chain
+
+ALL 6 INSERTS SURVIVE to sc-daybreak-fx.html
+(11 marker(s) unresolved and reported above)

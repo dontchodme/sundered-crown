@@ -43,6 +43,8 @@ JS = r"""([seeds]) => {
   const fail = (k, msg) => { (bad[k] = bad[k] || []).length < 4 && bad[k].push(msg); n["x" + k] = (n["x" + k] || 0) + 1; };
   const inc = (k, v = 1) => { n[k] = (n[k] || 0) + v; };
   const oTick = P.tickDawn, oSpark = P.spawnSpark;
+  const stage3 = typeof P.dawnShown === "function";
+  const stepSeq = new WeakMap();
   const lastTick = new WeakMap();
   P.spawnSpark = function(f, x, y){
     if (f.w.id === "dawnbringer") fail(9, "Dawnbringer threw a spark");
@@ -65,8 +67,31 @@ JS = r"""([seeds]) => {
     this.hurt = function(tgt, dmg, src){ const s0 = tgt.shield; hurts.push([tgt, dmg]);
       const r = oHurt.call(this, tgt, dmg, src); if (s0 > 0 && tgt.shield <= 0) shattered++; return r; };
     this.beat = function(o){ beats.push(o); return oBeat.call(this, o); };
+    /* STAGE 3: THE VOICE RIDES THE WINDOW'S CLOCK -- counted at the call. */
+    const calls = [], oPlay = AC.SFX.play;
+    if (stage3) AC.SFX.play = function(kind, q){
+      if (kind === "ult" && q && (q.w === "dawnbringer-step" || q.w === "dawnbringer-close")) calls.push(q);
+      return oPlay.call(this, kind, q); };
+    const secs = pre.map(p => ({ p, sec: Math.floor(p.D.t), fAlive: p.f.alive }));
     const r = oTick.call(this, dt);
     delete this.hurt; delete this.beat;
+    if (stage3){
+      delete AC.SFX.play;
+      for (const { p, sec, fAlive } of secs){
+        const { f, D, t1 } = p;
+        const mine = calls;                        /* one dawn caster a match */
+        const closes = mine.filter(q => q.w === "dawnbringer-close").length;
+        const steps = mine.filter(q => q.w === "dawnbringer-step");
+        if (fAlive && t1 >= D.dur){
+          if (closes !== 1 || steps.length) fail(10, `clock close: ${closes} close, ${steps.length} step`); else inc("closeVoice");
+        } else if (fAlive && Math.floor(t1) > sec){
+          const want = Math.floor(t1), prev = stepSeq.get(D) || 0;
+          if (steps.length !== 1 || steps[0].n !== want || closes) fail(10, `second ${want}: ${JSON.stringify(steps)} closes ${closes}`);
+          else if (want !== prev + 1) fail(10, `step ${want} after ${prev}`);
+          else { inc("stepVoice"); stepSeq.set(D, want); }
+        } else if (steps.length || closes) fail(10, `a voice off the clock: ${steps.length} steps, ${closes} closes (caster alive ${fAlive})`);
+      }
+    }
     for (const p of pre){
       const { f, foe, D } = p, u = f.w.ult, H = C.arena.h;
       const closing = p.t1 >= D.dur || !f.alive;
@@ -128,7 +153,8 @@ JS = r"""([seeds]) => {
     if (me.dawnTally) for (const k in T) T[k] += me.dawnTally[k];
   }
   P.tickDawn = oTick; P.spawnSpark = oSpark;
-  return { n, bad, T, fights, win: wins / decided };
+  return { n, bad, T, fights, win: wins / decided, stage3,
+           oldChord: /220 \* Math\.pow\(2, st\/12\)/.test(AC.SFX.play.toString()) };
 }"""
 
 with game(game_path=pathlib.Path(a.game).resolve()) as (page, errors):
@@ -137,6 +163,12 @@ with game(game_path=pathlib.Path(a.game).resolve()) as (page, errors):
         raise SystemExit("no tickDawn in this build -- not a Daybreak link")
     seeds = [a.seed0 + 13 * i for i in range(a.seeds)]
     R = page.evaluate(JS, [seeds])
+    if R.get("stage3"):
+        from marrowdraw_relic_probe import SFX_JS
+        R["voices"] = {name: page.evaluate(SFX_JS, ["ult", q, 3.0]) for name, q in (
+            ("cast (step 0)", {"w": "dawnbringer"}),
+            ("step 7", {"w": "dawnbringer-step", "n": 7}),
+            ("close", {"w": "dawnbringer-close"}))}
     assert not errors, errors
 
 n, bad, T = R["n"], R["bad"], R["T"]
@@ -158,6 +190,17 @@ checks = [
     (8, "smite's source is a side letter", n.get("srcOk", 0) > 0),
     (9, "only Dawnbringer carries ultDawn, and it throws no spark", True),
 ]
+if R.get("stage3"):
+    V = R.get("voices", {})
+    for k, v in V.items():
+        print(f"  voice {k:<14} peak {v.get('peak', 0):.3f}  audible {v.get('audible', 0):.2f}s"
+              f"{'  THREW ' + v['threw'] if v.get('threw') else ''}")
+    print(f"  step voices {n.get('stepVoice',0)}, clock closes voiced {n.get('closeVoice',0)}")
+    checks.append((10, "stage 3: steps 1-7 on the window clock, in order; one close per clock close, none on a death",
+                   n.get("stepVoice", 0) > 0 and n.get("closeVoice", 0) > 0))
+    heard = bool(V) and all(not v.get("threw") and v.get("peak", 0) >= 0.01 and v.get("audible", 0) >= 0.02 for v in V.values())
+    checks.append((11, "stage 3: cast, top step and close each render audibly alone; the old chord and bell is gone",
+                   heard and not R.get("oldChord")))
 ok = 0
 for k, text, cover in checks:
     fails = n.get(f"x{k}", 0)
