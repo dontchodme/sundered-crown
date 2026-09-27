@@ -1,0 +1,99 @@
+
+{
+ "winrate": {
+  "dawnbringer": 0.5522058823529412,
+  "widowmaker": 0.4904411764705882,
+  "grudgebearer": 0.5426470588235294,
+  "thornwake": 0.525,
+  "lastlight": 0.5389705882352941,
+  "gravemourn": 0.5441176470588235,
+  "slagheart": 0.5485294117647059,
+  "spellbreaker": 0.5154411764705882,
+  "ironhail": 0.611764705882353,
+  "lightkeeper": 0.4786764705882353,
+  "farwarden": 0.5779411764705882,
+  "aureole": 0.5411764705882353,
+  "censer": 0.5095588235294117,
+  "emberedge": 0.4426470588235294,
+  "oathwound": 0.39558823529411763,
+  "heartwood": 0.375,
+  "nightfell": 0.44191176470588234,
+  "axiom": 0.4125,
+  "twinshade": 0.5029411764705882,
+  "redflail": 0.513235294117647,
+  "foregone": 0.5183823529411765,
+  "vinesower": 0.4213235294117647,
+  "bulwarden": 0.5404411764705882,
+  "marrowdraw": 0.4713235294117647,
+  "paradox": 0.5448529411764705,
+  "thornshear": 0.43161764705882355,
+  "vesper": 0.5551470588235294,
+  "shroudmaul": 0.4852941176470588,
+  "cindercleave": 0.5470588235294118,
+  "ravelbone": 0.5095588235294117,
+  "gloamwire": 0.6507352941176471,
+  "bloodmirror": 0.525,
+  "duskreave": 0.5441176470588235,
+  "starwarden": 0.47058823529411764,
+  "culverin": 0.22426470588235295
+ },
+ "meanDur": 60.55631050420168,
+ "meanClanks": 19.19168067226891
+}
+=== The Sundered Crown — falsification pass ===
+
+
+# sweep: 23800 matches in 2496.7s (40 seeds x 595 pairings)
+# mean duration 60.6s   mean clanks 19.2
+
+  Gloamwire       65.1%  #################################
+  Ironhail        61.2%  ###############################
+  Farwarden       57.8%  #############################
+  Vesper          55.5%  ############################
+  Dawnbringer     55.2%  ############################
+  Slagheart       54.9%  ###########################
+  Cindercleave    54.7%  ###########################
+  Paradox         54.5%  ###########################
+  Gravemourn      54.4%  ###########################
+  Duskreave       54.4%  ###########################
+  Grudgebearer    54.3%  ###########################
+  Aureole         54.1%  ###########################
+  Bulwarden       54.0%  ###########################
+  Lastlight       53.9%  ###########################
+  Thornwake       52.5%  ##########################
+  Bloodmirror     52.5%  ##########################
+  Foregone        51.8%  ##########################
+  Spellbreaker    51.5%  ##########################
+  Threshmaw       51.3%  ##########################
+  Censer          51.0%  #########################
+  Ravelbone       51.0%  #########################
+  Twinshade       50.3%  #########################
+  Widowmaker      49.0%  #########################
+  Shroudmaul      48.5%  ########################
+  Lightkeeper     47.9%  ########################
+  Marrowdraw      47.1%  ########################
+  Starwarden      47.1%  ########################
+  Emberedge       44.3%  ######################
+  Nightfell       44.2%  ######################
+  Thornshear      43.2%  ######################
+  Vinesower       42.1%  #####################
+  Axiom           41.2%  #####################
+  Goreshard       39.6%  ####################
+  Heartwood       37.5%  ###################
+  Culverin        22.4%  ###########
+
+  PASS  no JS errors or page exceptions
+  PASS  every status and ultimate has viewer-facing text
+  PASS  all 595 pairings ran  — 595 pairings
+  PASS  every match resolved  — 0 pairings had unresolved matches
+  PASS  both sides can win every matchup
+  PASS  timeout rate <= 10%  — 0/23800 = 0.0%
+  FAIL  every relic winrate in 30%-70%  — Culverin 22.4% .. Gloamwire 65.1% (spread 42.6pp)
+  FAIL  every pairing mean duration in 18-70s  — Slagheart/Ironhail 39.1s .. Farwarden/Starwarden 99.7s
+  FAIL  overall mean duration in 28-54s  — 60.6s
+  PASS  every pairing clanks at least once
+  PASS  no pairing resolves on fewer than 6 hits
+  PASS  capture path pins the canvas to 1080x1920  — 1080x1920 k=1
+  PASS  renderer draws a non-blank frame  — 117 distinct sampled colours
+
+10/13 checks passed  (3 FAILED)

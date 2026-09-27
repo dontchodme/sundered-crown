@@ -1,0 +1,4 @@
+culverin on sc-ironfall.html · Chromium 151.0.7922.34 · 34 foes x 15 seeds x sides AB = 1020 fights · seed0 5003 · set dmg=13.75 · stage5 blade
+  win 49.3%   side A 50.2%   side B 48.4%   mean 52.3s   timeouts 0
+  by type  flail 59%  scythe 59%  twinblade 51%  warhammer 51%  bow 50%  greatsword 31%
+  worst    axiom 7%  dawnbringer 23%  lightkeeper 30%   (1020 fights in 168s)

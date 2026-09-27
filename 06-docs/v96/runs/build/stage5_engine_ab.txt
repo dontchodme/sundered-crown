@@ -1,11 +1,11 @@
 === ENGINE A/B: 34 relics, 10 seeds x 561 pairings ===
 
-  sc-culverin.html                5610 matches  307.7s
-  sc-slug.html                    5610 matches  484.7s
+  sc-ironfall.html                5610 matches  666.2s
+  sc-ironfall-blade.html          5610 matches  349.5s
 
   PASS  no page errors on either build
   PASS  same number of matches  — 5610
   PASS  every match identical field for field  — 5610/5610
   PASS  the sweep is real  — 34/34 distinct winners, 5610 distinct seeds, 22.3-123.8s
 
-ENGINE A/B PASS — ../02-chain/sc-slug.html does not move the 34-relic roster.
+ENGINE A/B PASS — ../02-chain/sc-ironfall-blade.html does not move the 34-relic roster.

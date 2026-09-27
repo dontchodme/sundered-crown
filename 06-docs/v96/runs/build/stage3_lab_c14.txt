@@ -1,0 +1,3 @@
+CULVERIN PROBE -- ../02-chain/sc-ironfall.html   660 fights, --lab (side A, the lab's seeds, 33 foes)   68s
+  win 49.7%   casts 2.93 a fight   shells 7.26 a cast   blows 3.16 a window   foe sunder 2.92 on a window frame   blows 16.38 a fight   mean 53.8s
+  the lab's arm U on Chromium 151 (stage 0, block 2207): win 48.5%, casts 2.87, shells 7.33, blows 2.80, sunder 3.11

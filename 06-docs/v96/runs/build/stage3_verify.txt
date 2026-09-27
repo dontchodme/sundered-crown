@@ -1,0 +1,99 @@
+
+{
+ "winrate": {
+  "dawnbringer": 0.55,
+  "widowmaker": 0.47941176470588237,
+  "grudgebearer": 0.5360294117647059,
+  "thornwake": 0.5125,
+  "lastlight": 0.5301470588235294,
+  "gravemourn": 0.5352941176470588,
+  "slagheart": 0.5404411764705882,
+  "spellbreaker": 0.5102941176470588,
+  "ironhail": 0.6044117647058823,
+  "lightkeeper": 0.4772058823529412,
+  "farwarden": 0.5764705882352941,
+  "aureole": 0.5367647058823529,
+  "censer": 0.5044117647058823,
+  "emberedge": 0.4411764705882353,
+  "oathwound": 0.38676470588235295,
+  "heartwood": 0.36617647058823527,
+  "nightfell": 0.4404411764705882,
+  "axiom": 0.40955882352941175,
+  "twinshade": 0.49779411764705883,
+  "redflail": 0.5088235294117647,
+  "foregone": 0.5080882352941176,
+  "vinesower": 0.4161764705882353,
+  "bulwarden": 0.5257352941176471,
+  "marrowdraw": 0.4676470588235294,
+  "paradox": 0.5352941176470588,
+  "thornshear": 0.4264705882352941,
+  "vesper": 0.5455882352941176,
+  "shroudmaul": 0.48161764705882354,
+  "cindercleave": 0.5330882352941176,
+  "ravelbone": 0.5058823529411764,
+  "gloamwire": 0.6419117647058824,
+  "bloodmirror": 0.5169117647058824,
+  "duskreave": 0.5411764705882353,
+  "starwarden": 0.4647058823529412,
+  "culverin": 0.4455882352941177
+ },
+ "meanDur": 60.355201680672266,
+ "meanClanks": 19.13605042016807
+}
+=== The Sundered Crown — falsification pass ===
+
+
+# sweep: 23800 matches in 2514.9s (40 seeds x 595 pairings)
+# mean duration 60.4s   mean clanks 19.1
+
+  Gloamwire       64.2%  ################################
+  Ironhail        60.4%  ##############################
+  Farwarden       57.6%  #############################
+  Dawnbringer     55.0%  ############################
+  Vesper          54.6%  ###########################
+  Duskreave       54.1%  ###########################
+  Slagheart       54.0%  ###########################
+  Aureole         53.7%  ###########################
+  Grudgebearer    53.6%  ###########################
+  Gravemourn      53.5%  ###########################
+  Paradox         53.5%  ###########################
+  Cindercleave    53.3%  ###########################
+  Lastlight       53.0%  ###########################
+  Bulwarden       52.6%  ##########################
+  Bloodmirror     51.7%  ##########################
+  Thornwake       51.2%  ##########################
+  Spellbreaker    51.0%  ##########################
+  Threshmaw       50.9%  #########################
+  Foregone        50.8%  #########################
+  Ravelbone       50.6%  #########################
+  Censer          50.4%  #########################
+  Twinshade       49.8%  #########################
+  Shroudmaul      48.2%  ########################
+  Widowmaker      47.9%  ########################
+  Lightkeeper     47.7%  ########################
+  Marrowdraw      46.8%  #######################
+  Starwarden      46.5%  #######################
+  Culverin        44.6%  ######################
+  Emberedge       44.1%  ######################
+  Nightfell       44.0%  ######################
+  Thornshear      42.6%  #####################
+  Vinesower       41.6%  #####################
+  Axiom           41.0%  ####################
+  Goreshard       38.7%  ###################
+  Heartwood       36.6%  ##################
+
+  PASS  no JS errors or page exceptions
+  PASS  every status and ultimate has viewer-facing text
+  PASS  all 595 pairings ran  — 595 pairings
+  PASS  every match resolved  — 0 pairings had unresolved matches
+  PASS  both sides can win every matchup
+  PASS  timeout rate <= 10%  — 0/23800 = 0.0%
+  PASS  every relic winrate in 30%-70%  — Heartwood 36.6% .. Gloamwire 64.2% (spread 27.6pp)
+  FAIL  every pairing mean duration in 18-70s  — Slagheart/Ironhail 39.1s .. Farwarden/Starwarden 99.7s
+  FAIL  overall mean duration in 28-54s  — 60.4s
+  PASS  every pairing clanks at least once
+  PASS  no pairing resolves on fewer than 6 hits
+  PASS  capture path pins the canvas to 1080x1920  — 1080x1920 k=1
+  PASS  renderer draws a non-blank frame  — 117 distinct sampled colours
+
+11/13 checks passed  (2 FAILED)

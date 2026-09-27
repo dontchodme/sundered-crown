@@ -12,6 +12,24 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
+02-chain/sc-ironfall-blade.html  A BRANCH OFF sc-leaf, NOT THE CHAIN TIP (built on
+                                 yert): THE STAFF ROW'S FIRST RELIC. CULVERIN /
+                                 IRONFALL, the dwarven staff (06-docs/v96/), and
+                                 the staff TYPE with it: shape "staff" pasted from
+                                 Cowork's spec (all 21 heads, RICK'S LETTERS
+                                 OWED), the weapon glow sized for a weapon 1.7
+                                 reaches long, the slug (gravity, no new engine
+                                 field) and the shells. sc-culverin -> sc-slug ->
+                                 sc-ironfall -> sc-ironfall-blade; stages 1-2
+                                 reproduce the lab TO THE FIGHT; charge 14 is the
+                                 lab's 16 in the game's clock, measured; blade
+                                 13.5, measured wide (provisional until the row
+                                 re-prices); verify 11/13, both reds the clock.
+                                 Stage 6 (picture, voice, field) next. The design
+                                 batch's line below also starts at sc-leaf; THIS
+                                 LINE DOES NOT MOVE GAME until one is carried
+                                 onto the other (culverin_build takes --src and
+                                 accepts either).
 02-chain/sc-zenith-fx.html       THE CHAIN TIP, AWAITING RICK'S EYE. 35 RELICS.
                                  Zenith stage 6 (v98 §4): the sun drawn as a gold
                                  ring off the fighter (never ultFx), a faceted gold

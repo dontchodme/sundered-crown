@@ -9,9 +9,9 @@ Built from `06-docs/v96/CULVERIN-BUILD-BRIEF.md` and
 "staff is in the repo. lets build it" -- the row accepted whole.
 
     stage 1   the relic, its ultimate STUBBED, shape "staff"   sc-leaf -> sc-culverin
-    stage 2   the spell: SLUG                                  (not written yet)
-    stage 3   the ultimate: IRONFALL                           (not written yet)
-    stage 5   the blade, wide on 151                           (a link only if it moves)
+    stage 2   the spell: SLUG                                  sc-culverin -> sc-slug
+    stage 3   the ultimate: IRONFALL                           sc-slug -> sc-ironfall
+    stage 5   the blade, wide on 151: 13 -> 13.5               sc-ironfall -> sc-ironfall-blade
     stage 6   picture, voice, field, the carry                 (not written yet)
 
 THE TYPE IS THIS BUILD'S TOO. v89's handoff: "`shape:"staff"` is seven heads on
@@ -42,6 +42,16 @@ RELIC = "culverin"
 BODY = dict(blades="[0]", reach=54, width=9, artW=44, spin=2.8, mode='"ranged"', mass=1.6)
 # Brief §2, stage 1: "stubbed relic at 13". A bracket; stage 5 settles it.
 BLADE = 13
+# STAGE 5 -- THE BLADE, MEASURED WIDE ON 151 (brief §2 stage 5), on
+# sc-ironfall at charge 14: both sides of every pairing, two seed blocks
+# (2207, 5003), 2040 fights a point, all 34 foes, no bisection (v48/v56/v66):
+#     13.0 45.7% (44.8 / 46.7)     13.5  49.4% (48.6 / 50.1)
+#     13.25 47.9% (47.7 / 48.0)    13.75 51.3% (53.2 / 49.3)
+# 13.5 is the measured row nearest 50% whose blocks agree; 13.75's came back
+# 3.9 points apart, a swing larger than the difference being decided. The
+# honest precision is the interval 13.5-13.75. PROVISIONAL BY DESIGN: v89 §8.2
+# re-prices the row against all seven staves before any blade is settled.
+TUNED_BLADE = 13.5
 # Stage 1 fires the BOW's arrow -- arm A, the dwarven bow body at the staff's
 # blade. Copied off Ironhail and asserted.
 BOW_SHOT = dict(cadence=0.34, speed=380, r=24, life=3.4, grav=0, dmgMul=1.0,
@@ -322,6 +332,299 @@ def s2_edits():
     ]
 
 
+# ---------------------------------------------------------------- stage 3 --
+
+# IRONFALL -- design §1, §5 and brief §0. `charge` is the one number that is
+# not the design's as written: the lab's 16 on its own step clock, which counts
+# hit-stop freezes, converted to the engine's clock, which does not (the design
+# batch's ruling, Rick 2026-09-27: "use the game's equivalent"; the staff row
+# was priced on the same harness). Measured for this fighter in the build doc.
+ULT = {"charge": 14, "dur": 8, "every": 1.0, "T": 0.85, "g": 1000,
+       "shellR": 26, "shellMul": 1.3, "popDmg": 8, "popR": 90}
+ULT_KEYS = ["charge", "dur", "every", "T", "g", "shellR", "shellMul", "popDmg", "popR"]
+
+
+def ult_live(U: dict) -> str:
+    return (f'''    ult:{{ name:"{ULT_NAME}", charge:{fnum(U["charge"])}, kind:"{ULT_KIND}", dur:{fnum(U["dur"])}, every:{fnum(U["every"])},
+          T:{fnum(U["T"])}, g:{fnum(U["g"])}, shellR:{fnum(U["shellR"])}, shellMul:{fnum(U["shellMul"])}, popDmg:{fnum(U["popDmg"])}, popR:{fnum(U["popR"])},
+          tip:"{CARD}" }},''')
+
+
+ULT_STUB = f'''    /* IRONFALL. STUBBED AT `charge:1e9` IN STAGE 1 -- the "OFF" every stubbed
+       relic since v55b has used: the clock never reaches it, `fireUlt` never
+       runs, and the relic is measured as a blade, a shot and a channel.
+       `kind:"{ULT_KIND}"` is its own (v89 §6: seven kinds, one a staff). The
+       card is Cowork's (design §6) and in at stage 1, so `tip_audit` measures
+       the real line. */
+    ult:{{ name:"{ULT_NAME}", charge:1e9, kind:"{ULT_KIND}",
+          tip:"{CARD}" }},'''
+
+ULT_NOTE = '''    /* IRONFALL (design §1, §5). For `dur` seconds the staff also looses a
+       SHELL every `every` seconds, lobbed high to come down where the foe will
+       be `T` seconds later: `target = foe + v_foe*T`, `v = (target -
+       caster)/T - (0, g*T/2)`, from the caster's centre, falling at `g`. A
+       shell that strikes the foe in flight hits for `shellMul` of a blow; one
+       that reaches its mark BURSTS -- the engine's own shard pop, Ironbloom's
+       path unchanged: `popDmg` absolute to anything inside `popR`, through
+       `resolveHit`, sundering. Clankable, and a wall kills it.
+
+       THE LEAD IS KEPT BECAUSE IT IS WORSE. Aimed at where the foe IS, the
+       same relic reads 89% (design §3); a shell every 0.7s reads 72% at blade
+       14. Brief §3: do not "fix" either. And the burst prices at +0 -- a shell
+       that reaches its mark has usually missed -- and is kept for the picture:
+       the shell comes down and bursts on the stone.
+
+       CHARGE %CHARGE% IS THE LAB'S 16 IN THE GAME'S CLOCK. The design priced 16
+       seconds of the lab's step clock, which counts hit-stop freezes; the
+       engine charges only in unfrozen time. The design batch's ruling (Rick,
+       2026-09-27: "use the game's equivalent"), measured for this fighter in
+       `06-docs/v96/culverin-build-v96.md`. Nothing waits: the charge rebuilds
+       through the window, as the lab's did. */
+'''
+
+
+def s3_edits(U: dict):
+    return [
+
+("Ironfall is live",
+ ULT_STUB,
+ ULT_NOTE.replace("%CHARGE%", fnum(U["charge"])) + ult_live(U)),
+
+("the slug says which spell it is",
+ f'''dmgMul:{fnum(SLUG["dmgMul"])},
+           tip:"{SLUG["tip"]}" }},''',
+ f'''dmgMul:{fnum(SLUG["dmgMul"])}, spell:"slug",
+           tip:"{SLUG["tip"]}" }},'''),
+
+("spawnShot carries the spell's name onto the shot",
+ '''      seed: f.ultBloom ? (f.ultBloom.left--, true) : false,
+      aff: f.aff, a,
+    });
+''',
+ '''      seed: f.ultBloom ? (f.ultBloom.left--, true) : false,
+      aff: f.aff, a,
+    });
+    /* A STAFF'S SPELL NAMES ITSELF (v89). On a staff the shot block is the
+       SCHOOL's and seven of them look nothing alike, so `drawShots` needs to
+       know which spell a shot is -- and a shot carries no handle on its
+       relic. Set only when the block names one, so every shot any other
+       relic looses is the same object it always was. Read by the renderer
+       and nothing else. */
+    if (S.spell) this.shots[this.shots.length - 1].spell = S.spell;
+'''),
+
+("the fighter carries Ironfall's window",
+ '''    this.deadfallFade = 0;
+''',
+ '''    this.deadfallFade = 0;
+    /* {t, dur, next} while IRONFALL's window is open (v96). null on every
+       other relic and on this one outside its window, which is the
+       zero-burden argument: `tickIronfall` returns after a two-iteration loop
+       that does nothing. `ironTally` is the probe's count, cumulative over the
+       fight; nothing in the simulation reads it. */
+    this.ultIronfall = null;
+    this.ironTally = null;
+'''),
+
+("the cast opens the window and resolves nothing",
+ '''    /* An aimed shot does not resolve in this frame -- it starts a DRAW, and''',
+ '''    if (u.kind === "ironfall"){
+      /* IRONFALL (v96). NOTHING RESOLVES HERE: the cast opens the window and
+         `tickIronfall` looses the shells. `next` starts at zero, so the first
+         shell leaves on the cast's own step, as the lab's left on its cast
+         frame. `m.ultFx` carries the cast's flash and field and nothing else
+         (the life map's fallback): it is ONE SLOT, and the opponent casting
+         anything erases it (open item 25). Nothing in this window needs it --
+         the shells and their rings are SIM OBJECTS in `m.shots`. */
+      f.ultIronfall = { t: 0, dur: u.dur, next: 0 };
+      if (!f.ironTally) f.ironTally = { casts: 0, shells: 0, declined: 0 };
+      f.ironTally.casts++;
+      return;
+    }
+
+    /* An aimed shot does not resolve in this frame -- it starts a DRAW, and'''),
+
+("Ironfall ticks with the window tickers",
+ '''    this.tickWinnow(dt);
+''',
+ '''    this.tickWinnow(dt);
+    /* IRONFALL (v96). With the window tickers and AFTER `tickShots`, so a
+       shell loosed this step first moves on the next -- as the lab's did,
+       pushed after its step. Its clock stops through a hit stop, as theirs do. */
+    this.tickIronfall(dt);
+'''),
+
+("tickIronfall looses the shells",
+ '''  tickWinnow(dt){
+''',
+ '''  /* ================================================== IRONFALL ========
+     v96 §5, and the lab (`overlays/staff_dwarf.js`) where the prose is silent.
+     Every `every` seconds of the window, while both are alive: a shell from
+     the caster's CENTRE with the velocity that puts it on the foe's LEAD
+     point `T` seconds out under `g`, carrying `life T` -- so the engine's own
+     shard pop bursts it exactly at the mark, on the step its life runs out.
+     Everything that happens to a shell after it leaves is `tickShots`, as for
+     every other projectile: the parry, the hit at `shellMul`, the pop, the
+     wall.
+
+     DECLINED AT THE CEILING, NEVER SHIFTED. `spawnShot` makes room by shifting
+     the oldest shot out; this path must not (the fork's reason: a shell is
+     not worth somebody's arrow in flight). The lab tested `m.shots.length <
+     maxLive` and did not advance `next`, so a declined shell leaves on the
+     first step there is room -- built the same way.
+
+     `tx, ty` IS THE MARK, kept on the shell for the probe, which asserts the
+     velocity is the solved one. The renderer does not read it: the landing
+     ring is a pure function of where the shell is, how fast it is going and
+     how long it has left, so it follows the shell that is actually flying.
+
+     THE CLOCK is the window tickers' and stops through a hit stop. The lab's
+     counted every step, freezes included -- the same difference the charge
+     carries, and the reason it is converted. */
+  tickIronfall(dt){
+    for (const f of [this.a, this.b]){
+      const I = f.ultIronfall;
+      if (!I) continue;
+      const foe = f === this.a ? this.b : this.a;
+      if (!f.alive || !foe.alive || this.over){ f.ultIronfall = null; continue; }
+      I.t += dt;
+      if (I.t >= I.dur){ f.ultIronfall = null; continue; }
+      if (I.t < I.next) continue;
+      if (this.shots.length >= CONFIG.shot.maxLive){ f.ironTally.declined++; continue; }
+      const u = f.w.ult, T = u.T, g = u.g;
+      I.next += u.every;
+      const tx = foe.x + foe.vx * T, ty = foe.y + foe.vy * T;
+      const vx = (tx - f.x) / T, vy = (ty - f.y) / T - 0.5 * g * T;
+      this.shots.push({
+        own: f === this.a ? "a" : "b",
+        x: f.x, y: f.y, x0: f.x, y0: f.y, spd0: 0, t0: this.t,   // CINEMA (demo)
+        vx, vy, r: u.shellR, life: T, max: T, grav: g, dmgMul: u.shellMul,
+        seed: false, aff: f.aff, a: Math.atan2(vy, vx),
+        shard: true, pop: u.popDmg, popR: u.popR,
+        shell: true, tx, ty,
+      });
+      f.ironTally.shells++;
+    }
+  }
+
+  tickWinnow(dt){
+'''),
+
+("the slug and the shell are drawn as what they are",
+ '''      if (s.shard){
+        const sp2 = Math.hypot(s.vx, s.vy) || 1;''',
+ '''      /* CULVERIN'S SLUG AND SHELL (v96 §6.1) -- FIRST CUTS, for stage 3's
+         film; the picture is stage 6's and Rick's (rule 2). They are the two
+         projectiles in this game that FALL, so neither may borrow the arrow's
+         streak, which says "straight line", and the shell must not reach the
+         splinter's branch below: it carries `shard` so the engine's own pop
+         bursts it, and without this it would draw as Ironbloom's shrapnel.
+         Everything is DERIVED from the shot's own state -- no stored trail,
+         no spawned mote, no `rng()` -- so it steps with the sim. */
+      if (s.spell === "slug"){
+        /* A dull iron ball: the size IS the hit box (r 28), the body is dark
+           iron with one lit edge from above, and the only heat is a faint
+           shimmer behind it. No trail -- it is heavy, not fast. */
+        const sp = Math.hypot(s.vx, s.vy) || 1, ux = s.vx / sp, uy = s.vy / sp;
+        c.globalAlpha = 0.16;
+        c.fillStyle = s.aff.glow;
+        c.beginPath();
+        c.ellipse(s.x - ux * s.r * 0.9, s.y - uy * s.r * 0.9, s.r * 1.15, s.r * 0.75,
+                  Math.atan2(uy, ux), 0, TAU);
+        c.fill();
+        c.globalCompositeOperation = "source-over";
+        c.globalAlpha = 1;
+        const gi = c.createRadialGradient(s.x - s.r * 0.35, s.y - s.r * 0.4, s.r * 0.1,
+                                          s.x, s.y, s.r);
+        gi.addColorStop(0, "#6E6A66"); gi.addColorStop(0.55, "#34302C");
+        gi.addColorStop(1, "#141210");
+        c.fillStyle = gi;
+        c.beginPath(); c.arc(s.x, s.y, s.r, 0, TAU); c.fill();
+        c.strokeStyle = s.aff.core + "AA"; c.lineWidth = Math.max(1, s.r * 0.08);
+        c.beginPath(); c.arc(s.x, s.y, s.r * 0.96, -2.6, -0.5); c.stroke();
+        c.globalCompositeOperation = "lighter";
+        continue;
+      }
+      if (s.shell){
+        /* THE MARK FIRST: where the shell will come down, for as long as it
+           is in the air -- v75's rune, the viewer sees the landing before it
+           lands. A PURE FUNCTION of the shell's state (ballistic, no drag),
+           drawn at the burst's own radius, so the ring IS the hazard. */
+        const L = Math.max(0, s.life);
+        const mx = s.x + s.vx * L, my = s.y + s.vy * L + 0.5 * s.grav * L * L;
+        const kk = 1 - clamp(s.life / s.max, 0, 1);
+        c.globalAlpha = 0.25;
+        c.strokeStyle = s.aff.glow; c.lineWidth = 3;
+        c.beginPath(); c.arc(mx, my, s.popR, 0, TAU); c.stroke();
+        c.globalAlpha = 0.10 + 0.25 * kk;
+        c.beginPath(); c.arc(mx, my, s.popR * (1 - 0.75 * kk), 0, TAU); c.stroke();
+        /* THE EMBER TRAIL: five sparks laid back along the velocity, derived
+           from the shell's own position and speed, fading with distance. */
+        const sp = Math.hypot(s.vx, s.vy) || 1, ux = s.vx / sp, uy = s.vy / sp;
+        for (let i = 1; i <= 5; i++){
+          c.globalAlpha = 0.55 * (1 - i / 6);
+          c.fillStyle = i < 3 ? "#FFD27A" : s.aff.glow;
+          c.beginPath();
+          c.arc(s.x - ux * s.r * 0.75 * i, s.y - uy * s.r * 0.75 * i, s.r * (0.34 - 0.04 * i), 0, TAU);
+          c.fill();
+        }
+        /* THE SHELL: iron, a hot seam, and a glow that swells as it falls. */
+        const gh = c.createRadialGradient(s.x, s.y, 1, s.x, s.y, s.r * 2.2);
+        gh.addColorStop(0, s.aff.glow + "88"); gh.addColorStop(1, s.aff.glow + "00");
+        c.globalAlpha = 0.5 + 0.4 * kk; c.fillStyle = gh;
+        c.beginPath(); c.arc(s.x, s.y, s.r * 2.2, 0, TAU); c.fill();
+        c.globalCompositeOperation = "source-over";
+        c.globalAlpha = 1;
+        const gi = c.createRadialGradient(s.x - s.r * 0.35, s.y - s.r * 0.4, s.r * 0.1,
+                                          s.x, s.y, s.r);
+        gi.addColorStop(0, "#5C5652"); gi.addColorStop(1, "#16120E");
+        c.fillStyle = gi;
+        c.beginPath(); c.arc(s.x, s.y, s.r, 0, TAU); c.fill();
+        c.strokeStyle = "#FFB347"; c.lineWidth = Math.max(1, s.r * 0.12);
+        c.beginPath(); c.arc(s.x, s.y, s.r * 0.62, 0, TAU); c.stroke();
+        c.globalCompositeOperation = "lighter";
+        continue;
+      }
+      if (s.shard){
+        const sp2 = Math.hypot(s.vx, s.vy) || 1;'''),
+
+    ]
+
+
+# ---------------------------------------------------------------- stage 5 --
+
+S1_BLADE_PARA = f'''     `dmg` {BLADE} IS THE BRIEF'S STAGE-1 NUMBER AND A BRACKET, NOT A TUNE. The
+     design crosses near 13.2 on Chromium 141; stage 5 settles it wide on
+     151, both sides, two blocks, never by bisection (v48/v56/v66).
+'''
+
+S5_BLADE_PARA = f'''     `dmg` {fnum(TUNED_BLADE)} IS MEASURED WIDE ON 151 (brief stage 5): both sides of
+     every pairing, two seed blocks, 2040 fights a point, no bisection --
+     13.0 reads 45.7%, 13.25 47.9%, 13.5 49.4%, 13.75 51.3%. 13.5 is the
+     measured row nearest 50% whose two blocks agree (48.6 / 50.1); 13.75's
+     came back 3.9 points apart. The honest precision is 13.5-13.75, and it
+     is PROVISIONAL: v89 §8.2 re-prices the row against all seven staves
+     before any blade is called settled. The numbers live in
+     `culverin_build.TUNED_BLADE`, never here (CLAUDE.md §4.9).
+'''
+
+
+def s5_edits():
+    b = BODY
+    return [
+
+("the relic's note says the blade is measured",
+ S1_BLADE_PARA, S5_BLADE_PARA),
+
+("Culverin's blade is the measured one",
+ f'''  {{ id:"{RELIC}", name:"Culverin", aff:"dwarven", shape:"staff",
+    blades:{b["blades"]}, reach:{b["reach"]}, width:{b["width"]}, artW:{b["artW"]}, dmg:{fnum(BLADE)}, spin:''',
+ f'''  {{ id:"{RELIC}", name:"Culverin", aff:"dwarven", shape:"staff",
+    blades:{b["blades"]}, reach:{b["reach"]}, width:{b["width"]}, artW:{b["artW"]}, dmg:{fnum(TUNED_BLADE)}, spin:'''),
+
+    ]
+
+
 def check_bow_body(code: str) -> None:
     """v89 §1: the staff's physics are the bow's EXACTLY. Read them off the
     shipped bow rather than trusting the table above."""
@@ -348,7 +651,7 @@ def stage_of(code: str) -> int:
         return 0
     ent = relic_entry(code, RELIC)
     if "charge:1e9" not in ent:
-        return 3
+        return 5 if f"dmg:{fnum(TUNED_BLADE)}," in ent else 3
     if f"grav:{SLUG['grav']}" in ent:
         return 2
     return 1
@@ -356,11 +659,19 @@ def stage_of(code: str) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", choices=["1", "2"], required=True)
+    ap.add_argument("--stage", choices=["1", "2", "3", "5"], required=True)
     ap.add_argument("--src", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--charge", type=float, default=None,
+                    help="stage 3: a charge other than the shipped one, for a "
+                         "MEASUREMENT link written to scratch -- never a link of record")
     A = ap.parse_args()
     stage = int(A.stage)
+    U = dict(ULT)
+    if A.charge is not None:
+        U["charge"] = int(A.charge) if A.charge == int(A.charge) else A.charge
+        if (HERE / A.out).resolve().parent == (HERE / "../02-chain").resolve():
+            raise SystemExit("--charge writes a measurement link; it may not go in 02-chain")
 
     src_p = (HERE / A.src).resolve()
     out_p = (HERE / A.out).resolve()
@@ -386,9 +697,10 @@ def main() -> int:
             else "sc-leaf's line")
     print(f"  base  {line}")
     have = stage_of(code)
-    if have != stage - 1:
+    prev = {1: 0, 2: 1, 3: 2, 5: 3}[stage]
+    if have != prev:
         raise SystemExit(f"this source carries stage {have}; stage {stage} is built "
-                         f"on stage {stage - 1}")
+                         f"on stage {prev}")
     if stage == 1 and ("SHAPES.staff" in code or "const STAFF" in code):
         raise SystemExit("this source already carries a staff -- built")
 
@@ -402,6 +714,10 @@ def main() -> int:
         dmg = re.search(r"dmg:([\d.]+),", relic_entry(code, RELIC)).group(1)
         edits = [(l, o.replace("%DMG%", dmg), n.replace("%DMG%", dmg))
                  for l, o, n in s2_edits()]
+    elif stage == 3:
+        edits = s3_edits(U)
+    elif stage == 5:
+        edits = s5_edits()
     for label, old, new in edits:
         s = one(s, old, new, label)
 
@@ -422,13 +738,33 @@ def main() -> int:
             raise SystemExit(f"REFUSING TO WRITE -- Culverin's shot {k} is not {shot[k]}")
     if f'tip:"{shot["tip"]}"' not in m:
         raise SystemExit("REFUSING TO WRITE -- Culverin's shot tip is not this run's")
-    if stage == 1 and f"dmg:{BLADE}," not in ent:
-        raise SystemExit("REFUSING TO WRITE -- Culverin's blade is not this run's")
+    want_dmg = TUNED_BLADE if stage >= 5 else BLADE
+    if f"dmg:{fnum(want_dmg)}," not in ent:
+        raise SystemExit(f"REFUSING TO WRITE -- Culverin's blade is not {want_dmg}")
     if 'shape:"staff"' not in ent:
         raise SystemExit("REFUSING TO WRITE -- Culverin is not a staff")
     if stage <= 2 and "charge:1e9" not in ent:
         raise SystemExit(f"REFUSING TO WRITE -- stage {stage} must stub the ultimate")
+    if stage >= 3:
+        # v56's failure, verbatim: a stage that LOGS numbers it does not ship.
+        blk = re.search(r"ult:\{[\s\S]*?tip:\"[^\"]*\" \},", ent).group(0)
+        want = strip_comments(ult_live(U)).strip()
+        if blk.strip() != want:
+            raise SystemExit(f"REFUSING TO WRITE -- the shipped ult block is not "
+                             f"what this run printed:\n  {blk}\n  want {want}")
+        for need, why in (('spell:"slug"', "the slug does not name its spell"),
+                          ("tickIronfall(dt){", "no tickIronfall"),
+                          ('u.kind === "ironfall"', "no cast branch")):
+            if need not in out_code:
+                raise SystemExit(f"REFUSING TO WRITE -- {why}")
+        if out_code.count('kind:"ironfall"') != 1:
+            raise SystemExit("REFUSING TO WRITE -- expected exactly one Ironfall")
+        if out_code.count("this.tickIronfall(dt);") != 1:
+            raise SystemExit("REFUSING TO WRITE -- tickIronfall must be called once")
+        print("  ok    ult   " + ", ".join(f"{k} {U[k]}" for k in ULT_KEYS))
     what = "the slug" if stage >= 2 else "the bow's arrow"
+    if A.charge is not None:
+        print(f"  NOTE  --charge {U['charge']}: a MEASUREMENT link, not the link of record")
     print(f"  ok    relic  shape staff, the bow's body, {what}, "
           f"{'ultimate stubbed' if 'charge:1e9' in ent else 'ultimate live'}")
     print(f"  ok    shot  " + ", ".join(f"{k} {shot[k]}" for k in shot if k != "tip")
@@ -438,7 +774,7 @@ def main() -> int:
         raise SystemExit("REFUSING TO WRITE -- this build adds a Math.random")
     for label, _old, new in edits:
         ins = strip_comments(new)
-        if "rng()" in ins or "spawnFx" in ins:
+        if "rng()" in ins or "spawnFx" in ins or "Math.random" in ins:
             raise SystemExit(f"REFUSING TO WRITE -- insert '{label}' draws "
                              "the match RNG")
     if out_code.count('shape:"staff"') != 1:
