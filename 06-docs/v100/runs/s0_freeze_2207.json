@@ -1,0 +1,62 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 8.0,
+  "blade": null,
+  "ramDmg": 0
+ },
+ "arms": {
+  "D": {
+   "win": 0.5515151515151515,
+   "n": 660,
+   "casts": 3.540909090909091,
+   "hitsIn": 5.093939393939394,
+   "hitsOut": 5.836363636363636,
+   "stats": {
+    "banked": 28.913115104835263,
+    "dmg": 16.580667522464697,
+    "f_frozen": 874.7712121212121,
+    "f_shield": 18.39871531531321,
+    "f_steps": 7678.766666666666,
+    "f_wfz": 430.0712121212121,
+    "f_wst": 3123.6257575757577,
+    "rams": 3.6713735558408214
+   },
+   "byFoe": {
+    "dawnbringer": 0.9,
+    "widowmaker": 0.3,
+    "grudgebearer": 0.5,
+    "thornwake": 0.7,
+    "lastlight": 0.6,
+    "slagheart": 0.4,
+    "spellbreaker": 0.6,
+    "ironhail": 0.15,
+    "lightkeeper": 0.85,
+    "farwarden": 0.25,
+    "aureole": 0.4,
+    "censer": 0.65,
+    "emberedge": 0.65,
+    "oathwound": 0.85,
+    "heartwood": 0.8,
+    "nightfell": 0.6,
+    "axiom": 0.65,
+    "twinshade": 0.7,
+    "redflail": 0.3,
+    "foregone": 0.45,
+    "vinesower": 0.55,
+    "bulwarden": 0.65,
+    "marrowdraw": 0.25,
+    "paradox": 0.5,
+    "thornshear": 0.5,
+    "vesper": 0.7,
+    "shroudmaul": 0.5,
+    "cindercleave": 0.5,
+    "ravelbone": 0.6,
+    "gloamwire": 0.15,
+    "bloodmirror": 0.7,
+    "duskreave": 0.7,
+    "starwarden": 0.6
+   }
+  }
+ }
+}

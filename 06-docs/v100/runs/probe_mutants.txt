@@ -1,0 +1,15 @@
+=== mut-noclamp
+  [1] FAIL  the charge: v + unit(foe) x accel x dt, clamped at speedMax; none while pinned   1187 FAIL: ['v -428.22670299476033,-1398.1279916673122 want -380.71415944708787,-1243.003108924711 (pin 0)'
+  8/9
+=== mut-flat10
+  [3] FAIL  each slam: hurt(foe, share x shield) once from the caster; none at zero shield   1769 FAIL: ['hurt [13.575], want [3.575] from the caster', 'hurt [15.075], want [5.075] from the caster', '
+  8/9
+=== mut-noclock
+  [5] FAIL  the bank: min(cap, shield + bank), shieldMax, the ward's clock; banks = slams (none at bank 0)   2059 FAIL: ["the ward's clock was not restarted", "the ward's clock was not restarted", "th
+  8/9
+=== mut-knock
+  [4] FAIL  the knock: `knock` along caster -> foe; the foe's position untouched   1858 FAIL: ['foe v -314.3213743530604,-238.64458714782512 want -309.3260757019907,-238.64458714782512', 'foe v -145.8
+  8/9
+=== mut-fatal
+  [6] FAIL  one hit beat marked `ram` a slam, fatal iff it killed; none otherwise   10 FAIL: ['fatal false, killed true', 'fatal false, killed true', 'fatal false, killed true', 'fatal false, killed t
+  8/9

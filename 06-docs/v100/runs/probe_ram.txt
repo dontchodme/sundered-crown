@@ -1,0 +1,15 @@
+
+ONSLAUGHT PROBE  sc-ram.html  Chromium 151.0.7922.34  432 fights (Portcullis both sides x every foe x 6 seeds)   ult {'charge': 14, 'accel': 600, 'share': 0.25, 'cd': 0.5, 'knock': 500, 'bank': 0}
+  per cast: slams 3.86  dmg 11.28  banked 0.00   shield on a window frame 9.99 (per fight, windowless as 0: 10.01)   casts/fight 3.43   Portcullis win 35.2%
+  slams at zero shield 3211   killing slams 20   wards broken by a slam 62   pinned frames 15659
+  [1] PASS  the charge: v + unit(foe) x accel x dt, clamped at speedMax; none while pinned
+  [2] PASS  a slam only inside 2R + pad, never closer than `cd`, never a missed clear contact
+  [3] PASS  each slam: hurt(foe, share x shield) once from the caster; none at zero shield
+  [4] PASS  the knock: `knock` along caster -> foe; the foe's position untouched
+  [5] PASS  the bank: min(cap, shield + bank), shieldMax, the ward's clock; banks = slams (none at bank 0)
+  [6] PASS  one hit beat marked `ram` a slam, fatal iff it killed; none otherwise
+  [7] PASS  no hit stop but a ward's own shatter
+  [8] PASS  the window is `dur` long on the window clock
+  [9] PASS  only Portcullis carries ultRam
+
+  9/9

@@ -1,0 +1,41 @@
+Portcullis / Onslaught (sc-onslaught-b23: blade 23) win by foe, both sides, relic_rate seed0 2207 + 2317
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks). Pooled: 50.8%
+
+by type  greatsword 69%  scythe 54%  warhammer 51%  twinblade 48%  flail 40%  bow 38%
+
+ironhail        10.0%
+gloamwire       12.5%
+slagheart       27.5%
+redflail        30.0%
+gravemourn      32.5%
+grudgebearer    32.5%
+starwarden      35.0%
+spellbreaker    42.5%
+thornwake       42.5%
+censer          45.0%
+farwarden       45.0%
+paradox         45.0%
+marrowdraw      47.5%
+aureole         50.0%
+bulwarden       50.0%
+duskreave       50.0%
+foregone        50.0%
+thornshear      52.5%
+cindercleave    52.5%
+lastlight       52.5%
+emberedge       55.0%
+nightfell       55.0%
+ravelbone       55.0%
+twinshade       55.0%
+widowmaker      55.0%
+ironwood        60.0%
+bloodmirror     60.0%
+dawnbringer     62.5%
+lightkeeper     62.5%
+shroudmaul      62.5%
+vinesower       62.5%
+morningstar     65.0%
+vesper          67.5%
+axiom           77.5%
+oathwound       82.5%
+heartwood       87.5%

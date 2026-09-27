@@ -1,0 +1,4 @@
+portcullis on sc-onslaught.html · Chromium 151.0.7922.34 · 36 foes x 10 seeds x sides AB = 720 fights · seed0 2317 · set dmg=23
+  win 50.8%   side A 53.3%   side B 48.3%   mean 63.9s   timeouts 0
+  by type  greatsword 65%  scythe 55%  warhammer 49%  twinblade 47%  bow 44%  flail 39%
+  worst    ironhail 5%  redflail 15%  gloamwire 20%   (720 fights in 47s)

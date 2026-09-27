@@ -52,7 +52,15 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built (sc-zenith-fx, then Ironwood
                                  to sc-canopy-w38); the builder re-applies onto
                                  sc-zenith-fx cleanly (tested, scratch).
-02-chain/sc-canopy-w38.html      THE CHAIN TIP. 36 RELICS: IRONWOOD / CANOPY, the
+02-chain/sc-onslaught-b23.html   THE CHAIN TIP. 37 RELICS: PORTCULLIS / ONSLAUGHT, the
+                                 vigil flail (portcullis_build.py stages 1-5, v100).
+                                 For 8s the ball charges the foe (600/s^2 to
+                                 speedMax); a slam (centres within 2R+3, every 0.5s)
+                                 hits for 0.25 x shield, knocks 500 and banks +8
+                                 ward. Charge 14, blade 23: 50.8% both sides. verify
+                                 10/13, Portcullis 52.3%. Art is the donor's: stage 6
+                                 after Ironwood's.
+02-chain/sc-canopy-w38.html      the link under it. 36 RELICS: IRONWOOD / CANOPY, the
                                  verdant warhammer (ironwood_build.py stages 1-5,
                                  v99). For 8s the hammer roots (pin + pinFree), its
                                  reach grows 0.35/s to 2.5, two more boughs sprout at
