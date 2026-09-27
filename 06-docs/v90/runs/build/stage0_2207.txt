@@ -1,0 +1,10 @@
+34 relics · Chromium 151.0.7922.34 · ironhail as bloodsworn:staff · 33 foes x 20 seeds = 660 fights an arm · stage0 151 block 2207
+  charge=16.0 dur=8.0 blade=8.5 home=1.0
+
+  arm       win  casts  hits in/out f_foeStkhitsInWin   lunged  orbited
+  A        4.1%   0.00  0.00/18.00      0.00     0.00     0.00     0.00
+  S       15.5%   3.10  8.65/13.49      0.00     0.00     0.00     0.00
+  V       15.6%   3.16  8.04/13.89      2.36     2.52     0.00    11.65
+  U       45.2%   2.86 15.28/12.91      3.22     5.29     6.98    11.41
+  lifts over A: S +11.4  V +11.5  U +41.1
+  2640 fights in 247s   errors: []

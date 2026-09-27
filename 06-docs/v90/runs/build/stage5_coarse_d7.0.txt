@@ -1,0 +1,4 @@
+bloodwick on sc-gyre.html · Chromium 151.0.7922.34 · 39 foes x 4 seeds x sides AB = 312 fights · seed0 2207 · set dmg=7.0 · coarse d7.0
+  win 39.7%   side A 39.7%   side B 39.7%   mean 54.3s   timeouts 0
+  by type  warhammer 57%  flail 50%  scythe 46%  bow 44%  twinblade 38%  staff 35%  greatsword 16%
+  worst    dawnbringer 0%  lightkeeper 0%  duskreave 0%   (312 fights in 55s)

@@ -1,0 +1,16 @@
+BLOODWICK PROBE -- ../02-chain/sc-gyre.html   156 fights, every foe, both sides   90s
+  win 58.3%   casts 2.73   hits in/out 17.78/11.44   orbited 17.34 a cast   lunged 8.41 a cast   blows 6.51 a window   foe hemorrhage 3.18   blows 29.2 a fight   mean 51.5s
+  PASS  [1] every globule leaves with the spell's numbers and its bend  -- 13115 globules
+  PASS  [2] the cadence is exact  -- 17499 looses
+  PASS  [3] no shot turns more than home*dt a step  -- 821802 shot-steps
+  PASS  [4] blows a fight (the brief's ~22 is the spell's)  -- 29.2
+  PASS  [5] never more than maxOrb orbiters  -- most at once 6
+  PASS  [6] an orbiter sits within 1px of the lane on every window step  -- 126369 orbiter-steps
+  PASS  [7] orbiters are clanked and land  -- clanked 78, landed 124
+  PASS  [8] the close looses every orbiter at the spell's speed and bend  -- 111
+  PASS  [9] a lunge sends every orbiter at 520, homing 8 -- only with the foe inside 230  -- 1453 lunged, 0 lunges with the foe outside
+  PASS  [10] lunged ~7 a cast, blows ~5.3 a window, hemorrhage ~3.2 on a window frame  -- 8.41, 6.51, 3.18
+  PASS  [11] an ult beat a cast and one a lunge  -- 3649 beats for 426 casts and 3223 lunges
+  PASS  [P] the render path is CALLED  --   11926 frames  {'glob': 5342, 'orbit': 1933}
+
+  12/12
