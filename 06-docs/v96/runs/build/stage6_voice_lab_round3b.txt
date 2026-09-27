@@ -1,0 +1,74 @@
+CULVERIN'S VOICES -- ../02-chain/sc-ironfall-blade.html -- Chromium 151.0.7922.34 -- OfflineAudioContext 48 kHz, event at t = 1.0, through Sfx.buildChain, xorshift noise, worst of 4 draws
+
+  control  hit@21.6         peak 0.461  TOP  -17.1 dB @   25 ms  aud   90 ms  cent    134 Hz  low 0.98  low60 0.95  hi20 0.02  PHONE  -31.2
+  control  hit@13.5         peak 0.450  TOP  -18.2 dB @   25 ms  aud   80 ms  cent    149 Hz  low 0.88  low60 0.84  hi20 0.02  PHONE  -30.8
+  control  arrow loose      peak 0.026  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   1027 Hz  low 0.01  low60 0.01  hi20 0.14  PHONE  -48.1
+  control  wall             peak 0.089  TOP  -38.9 dB @   25 ms  aud   25 ms  cent  11829 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -38.9
+  control  rune-crack       peak 0.647  TOP  -17.2 dB @   25 ms  aud  445 ms  cent   1086 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -17.2
+  control  ironbloom blast  peak 0.597  TOP  -11.2 dB @   25 ms  aud  585 ms  cent   4696 Hz  low 0.23  low60 0.00  hi20 0.00  PHONE  -11.4
+  control  nova             peak 0.424  TOP  -16.7 dB @   25 ms  aud  750 ms  cent   1256 Hz  low 0.81  low60 0.72  hi20 0.37  PHONE  -21.7
+
+  rune-crack is what Culverin's cast plays until stage 6 (an id with no arm, the shared fallback).
+  EVERY CANDIDATE IS LEVEL-MATCHED to its voice's target before it is judged, so the pick is on SHAPE.
+
+THE THUD  (loose, spell:"slug")  -- "a deep short thud on leaving (a cannon at a distance)"   -- level-matched to HIT -12 dB
+  THUMP     peak 0.090  TOP  -29.0 dB @   25 ms  aud  100 ms  cent     81 Hz  low 1.00  low60 1.00  hi20 0.00  PHONE  -52.3  vs HIT -12.0 dB  clicks 3  glide +0.0 st
+            REG arrow loose 0.05  REG hit@21.6 0.28
+  FARBOOM   peak 0.081  TOP  -29.0 dB @   25 ms  aud  150 ms  cent     61 Hz  low 1.00  low60 1.00  hi20 0.00  PHONE  -56.8  vs HIT -11.9 dB  clicks 3  glide +1.4 st
+            REG arrow loose 0.05  REG hit@21.6 0.04
+  CHUFF     peak 0.127  TOP  -28.9 dB @   25 ms  aud   75 ms  cent    108 Hz  low 0.97  low60 0.97  hi20 0.00  PHONE  -40.7  vs HIT -11.9 dB  clicks 3  glide +4.4 st
+            REG arrow loose 0.17  REG hit@21.6 0.83
+  PICK  CHUFF
+
+THE CRACK  (slug-land)  -- "a stone crack on landing"   -- level-matched to HIT -16 dB
+  SPLIT2    peak 0.119  TOP  -33.0 dB @   25 ms  aud   75 ms  cent    270 Hz  low 0.91  low60 0.87  hi20 0.55  PHONE  -35.5  vs HIT -16.0 dB  clicks 1  glide -1.0 st
+            REG wall 0.09  REG hit@21.6 0.93
+  SNAP      peak 0.205  TOP  -33.1 dB @   25 ms  aud   45 ms  cent    343 Hz  low 0.29  low60 0.31  hi20 0.32  PHONE  -33.5  vs HIT -16.0 dB  clicks 1  glide -47.2 st
+            REG wall 0.14  REG hit@21.6 0.27
+  SPALL     peak 0.137  TOP  -32.9 dB @   25 ms  aud   65 ms  cent    361 Hz  low 0.83  low60 0.84  hi20 0.31  PHONE  -35.5  vs HIT -15.9 dB  clicks 1  glide +0.0 st
+            REG wall 0.15  REG hit@21.6 0.95
+  PICK  SPLIT2
+
+THE CAST  (ult culverin)  -- "a mechanical ratchet into a low boom, 0.4s"   -- level-matched to HIT +0 dB
+  PAWL      peak 0.300  TOP  -16.9 dB @  305 ms  aud  470 ms  cent     64 Hz  low 0.99  low60 0.06  hi20 0.07  PHONE  -42.5  vs HIT  +0.1 dB  clicks 10  glide -23.7 st
+            REG rune-crack 0.08  REG hit@21.6 0.18
+  CRANK     peak 0.292  TOP  -17.0 dB @  285 ms  aud  465 ms  cent     81 Hz  low 0.93  low60 0.02  hi20 0.05  PHONE  -29.7  vs HIT  +0.1 dB  clicks 8  glide -22.0 st
+            REG rune-crack 0.15  REG hit@21.6 0.24
+  WINDLASS  peak 0.312  TOP  -16.9 dB @  305 ms  aud  445 ms  cent     65 Hz  low 0.99  low60 0.00  hi20 0.11  PHONE  -38.1  vs HIT  +0.2 dB  clicks 8  glide +1.9 st
+            REG rune-crack 0.05  REG hit@21.6 0.24
+  PICK  PAWL
+
+THE SHELL  (ult culverin-shell)  -- "the thud pitched down"   -- level-matched to HIT -8 dB
+  FIFTH     peak 0.177  TOP  -25.2 dB @   25 ms  aud   85 ms  cent     74 Hz  low 0.97  low60 0.97  hi20 0.00  PHONE  -45.3  vs HIT  -8.2 dB  clicks 3  glide -8.7 st
+            REG the thud 0.29
+  OCTAVE    peak 0.173  TOP  -25.2 dB @   25 ms  aud   90 ms  cent     54 Hz  low 0.99  low60 0.99  hi20 0.00  PHONE  -49.3  vs HIT  -8.2 dB  clicks 3  glide +0.0 st
+            REG the thud 0.16
+  PICK  NONE -- no candidate passes the rule
+
+THE WHISTLE  (ult culverin-whistle, dur 0.42)  -- "a whistle on the way down"   -- level-matched to HIT -18 dB
+  SINE      peak 0.034  TOP  -34.8 dB @   25 ms  aud  320 ms  cent   1476 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -34.8  vs HIT -17.8 dB  clicks 8  glide -9.6 st
+            REG hit@21.6 0.03
+  REED      peak 0.040  TOP  -35.0 dB @   25 ms  aud  305 ms  cent   1215 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -35.0  vs HIT -17.9 dB  clicks 1  glide -9.3 st
+            REG hit@21.6 0.03
+  AIR       peak 0.063  TOP  -35.1 dB @   65 ms  aud  200 ms  cent   1978 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -35.1  vs HIT -18.0 dB  clicks 5  glide -5.3 st
+            REG hit@21.6 0.06
+  PICK  SINE
+
+THE BURST  (ult culverin-burst)  -- "a bass hit with a stone rattle"   -- level-matched to HIT +2 dB
+  SLAB2     peak 0.281  TOP  -14.9 dB @   25 ms  aud  560 ms  cent     74 Hz  low 1.00  low60 1.00  hi20 0.00  PHONE  -38.7  vs HIT  +2.1 dB  clicks 17  glide +41.0 st
+            REG ironbloom blast 0.06  REG nova 0.70  REG hit@21.6 0.08
+  QUARRY2   peak 0.519  TOP  -15.0 dB @   25 ms  aud  610 ms  cent    530 Hz  low 0.96  low60 1.00  hi20 0.00  PHONE  -39.1  vs HIT  +2.1 dB  clicks 5  glide +52.9 st
+            REG ironbloom blast 0.10  REG nova 0.75  REG hit@21.6 0.04
+  SHOT2     peak 0.333  TOP  -15.0 dB @   25 ms  aud  505 ms  cent     87 Hz  low 1.00  low60 0.99  hi20 0.01  PHONE  -33.1  vs HIT  +2.0 dB  clicks 12  glide +14.5 st
+            REG ironbloom blast 0.09  REG nova 0.58  REG hit@21.6 0.28
+  PICK  SHOT2
+
+  the cast's RATCHET alone (its boom removed): peak 0.035  TOP  -43.5 dB @  250 ms  aud  285 ms  cent   1261 Hz  low 0.04  low60 0.05  hi20 0.07  PHONE  -43.7  vs HIT -26.5 dB
+
+THE CLOSE  (ult culverin-close)  -- "the ratchet reversed"   -- NOT level-matched: the cast's own ratchet level x 0.7
+  BACK      peak 0.025  TOP  -47.1 dB @   25 ms  aud  285 ms  cent    794 Hz  low 0.02  low60 0.03  hi20 0.04  PHONE  -47.3  vs HIT -30.1 dB  clicks 9  glide -2.4 st
+            REG the cast 0.15
+  RELEASE   peak 0.084  TOP  -30.7 dB @  310 ms  aud  385 ms  cent    187 Hz  low 0.81  low60 0.03  hi20 0.04  PHONE  -44.2  vs HIT -13.6 dB  clicks 10  glide -20.2 st
+            REG the cast 0.53
+  PICK  BACK
+a voice has no pick: shell

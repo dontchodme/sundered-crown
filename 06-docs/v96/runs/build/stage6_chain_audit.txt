@@ -1,0 +1,1 @@
+! no *_NEW inserts found in culverin_build.py — nothing to audit, which is itself a failure

@@ -1,0 +1,7 @@
+
+CULVERIN / IRONFALL -- the insert audit against ../02-chain/sc-ironfall-fx.html
+  ok    stage 1  Culverin joins the roster, its ultimate stubbed: 2 line(s) replaced by a later stage, by design
+  ok    stage 3  spawnShot carries the spell's name onto the shot: 1 line(s) replaced by a later stage, by design
+  ok    stage 3  tickIronfall looses the shells: 1 line(s) replaced by a later stage, by design
+
+  33/33 inserts survive in sc-ironfall-fx.html (3 carry lines a later stage replaced on purpose)

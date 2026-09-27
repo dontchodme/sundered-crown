@@ -1,0 +1,40 @@
+CULVERIN'S VOICES -- ../02-chain/sc-ironfall-blade.html -- Chromium 151.0.7922.34 -- OfflineAudioContext 48 kHz, event at t = 1.0, through Sfx.buildChain, xorshift noise, worst of 4 draws
+
+  control  hit@21.6         peak 0.461  TOP  -17.1 dB @   25 ms  aud   90 ms  cent    134 Hz  low 0.98  low60 0.95  hi20 0.02
+  control  hit@13.5         peak 0.450  TOP  -18.2 dB @   25 ms  aud   80 ms  cent    149 Hz  low 0.88  low60 0.84  hi20 0.02
+  control  arrow loose      peak 0.026  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   1027 Hz  low 0.01  low60 0.01  hi20 0.14
+  control  wall             peak 0.089  TOP  -38.9 dB @   25 ms  aud   25 ms  cent  11829 Hz  low 0.00  low60 0.00  hi20 1.00
+  control  rune-crack       peak 0.647  TOP  -17.2 dB @   25 ms  aud  445 ms  cent   1086 Hz  low 0.00  low60 0.00  hi20 1.00
+  control  ironbloom blast  peak 0.597  TOP  -11.2 dB @   25 ms  aud  585 ms  cent   4696 Hz  low 0.23  low60 0.00  hi20 0.00
+  control  nova             peak 0.424  TOP  -16.7 dB @   25 ms  aud  750 ms  cent   1256 Hz  low 0.81  low60 0.72  hi20 0.37
+
+  rune-crack is what Culverin's cast plays until stage 6 (an id with no arm, the shared fallback).
+  EVERY CANDIDATE IS LEVEL-MATCHED to its voice's target before it is judged, so the pick is on SHAPE.
+
+THE THUD  (loose, spell:"slug")  -- "a deep short thud on leaving (a cannon at a distance)"   -- level-matched to HIT -12 dB
+  THUMP     peak 0.090  TOP  -29.0 dB @   25 ms  aud  100 ms  cent     81 Hz  low 1.00  low60 1.00  hi20 0.00  vs HIT -12.0 dB  clicks 3  glide +0.0 st
+            REG arrow loose 0.05  REG hit@21.6 0.28
+  FARBOOM   peak 0.081  TOP  -29.0 dB @   25 ms  aud  150 ms  cent     61 Hz  low 1.00  low60 1.00  hi20 0.00  vs HIT -11.9 dB  clicks 3  glide +1.4 st
+            REG arrow loose 0.05  REG hit@21.6 0.04
+  CHUFF     peak 0.127  TOP  -28.9 dB @   25 ms  aud   75 ms  cent    108 Hz  low 0.97  low60 0.97  hi20 0.00  vs HIT -11.9 dB  clicks 3  glide +4.4 st
+            REG arrow loose 0.17  REG hit@21.6 0.83
+  PICK  FARBOOM
+
+THE CRACK  (slug-land)  -- "a stone crack on landing"   -- level-matched to HIT -16 dB
+  SPLIT     peak 0.121  TOP  -33.0 dB @   25 ms  aud   60 ms  cent    648 Hz  low 0.94  low60 0.94  hi20 0.17  vs HIT -16.0 dB  clicks 1  glide +0.0 st
+            REG wall 0.16  REG hit@21.6 0.96
+  CHIP      peak 0.103  TOP  -33.1 dB @   25 ms  aud   50 ms  cent    217 Hz  low 0.85  low60 0.89  hi20 0.02  vs HIT -16.0 dB  clicks 2  glide +0.0 st
+            REG wall 0.10  REG hit@21.6 0.96
+  GRIT      peak 0.165  TOP  -33.3 dB @   25 ms  aud   35 ms  cent  11232 Hz  low 0.02  low60 0.05  hi20 0.91  vs HIT -16.2 dB  clicks 2  glide +nan st
+            REG wall 0.93  REG hit@21.6 0.14
+  PICK  NONE -- no candidate passes the rule
+
+THE CAST  (ult culverin)  -- "a mechanical ratchet into a low boom, 0.4s"   -- level-matched to HIT +0 dB
+  PAWL      peak 0.300  TOP  -16.9 dB @  305 ms  aud  470 ms  cent     64 Hz  low 0.99  low60 0.06  hi20 0.07  vs HIT  +0.1 dB  clicks 10  glide -23.7 st
+            REG rune-crack 0.08  REG hit@21.6 0.18
+  CRANK     peak 0.292  TOP  -17.0 dB @  285 ms  aud  465 ms  cent     81 Hz  low 0.93  low60 0.02  hi20 0.05  vs HIT  +0.1 dB  clicks 8  glide -22.0 st
+            REG rune-crack 0.15  REG hit@21.6 0.24
+  WINDLASS  peak 0.312  TOP  -16.9 dB @  305 ms  aud  445 ms  cent     65 Hz  low 0.99  low60 0.00  hi20 0.11  vs HIT  +0.2 dB  clicks 8  glide +1.9 st
+            REG rune-crack 0.05  REG hit@21.6 0.24
+  PICK  PAWL
+a voice has no pick -- the rule or the candidates are wrong; nothing to ship

@@ -197,7 +197,7 @@ DRAW_JS = r"""([rid, seed, secs]) => {
   const cv = document.createElement('canvas'); cv.width = 540; cv.height = 960;
   const ctx = cv.getContext('2d');
   const R = AC.renderer, saved = R.ctx;
-  const seen = { slug: 0, shell: 0, staff: 0 };
+  const seen = { slug: 0, shell: 0, staff: 0, glow: 0 };
   let threw = null, frames = 0;
   try {
     for (const foe of ['emberedge', 'axiom', 'farwarden']){
@@ -210,6 +210,7 @@ DRAW_JS = r"""([rid, seed, secs]) => {
         if (!(step % 7 === 0 || hasShell)) continue;
         R.ctx = ctx;
         R.drawShots(m); R.drawWeapon(m, me);
+        if (R.drawIronfall){ R.drawIronfall(m); if (me.ironfallFade > 0.01) seen.glow++; }
         R.ctx = saved;
         frames++; if (hasSlug) seen.slug++; if (hasShell) seen.shell++; seen.staff++;
       }

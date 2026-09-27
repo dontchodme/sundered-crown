@@ -12,7 +12,7 @@ Built from `06-docs/v96/CULVERIN-BUILD-BRIEF.md` and
     stage 2   the spell: SLUG                                  sc-culverin -> sc-slug
     stage 3   the ultimate: IRONFALL                           sc-slug -> sc-ironfall
     stage 5   the blade, wide on 151: 13 -> 13.5               sc-ironfall -> sc-ironfall-blade
-    stage 6   picture, voice, field, the carry                 (not written yet)
+    stage 6   picture, voice, drawn embers                     sc-ironfall-blade -> sc-ironfall-fx
 
 THE TYPE IS THIS BUILD'S TOO. v89's handoff: "`shape:"staff"` is seven heads on
 one rod, and the rod is the first build's." So stage 1 pastes Cowork's concept
@@ -625,6 +625,400 @@ def s5_edits():
     ]
 
 
+# ---------------------------------------------------------------- stage 6 --
+# THE PICTURE AND THE VOICE (design §6.1-6.2), picked on measurements under
+# Rick's "you pick i overrule" (2026-09-27). PRESENTATION ONLY: every line
+# below is a `SFX.play` (a no-op headless that reads nothing back), a
+# `this.ring` (a presentation list), a render-only field on a shot or a
+# fighter, or drawing code -- no rng, no spawnFx, no Math.random. `engine_ab`
+# over all 35 relics, Culverin included, is the proof.
+#
+# THE VOICES are `culverin_voice_lab.py`'s picks, pasted verbatim (its
+# `--shipped` check renders the built arms against these bodies sample for
+# sample). The lab took four rounds and the rounds are in
+# `06-docs/v96/runs/build/stage6_voice_lab_round*.txt`: level-matching, a
+# crack that opens bright, the PHONE band (the deliverable is watched on phones,
+# and the first thud picked was 57 dB down there), and a cast whose ratchet is
+# audible by itself. `S.` in the lab is `this.` in the engine.
+VOICES = {
+ "thud": """
+  S._burst(t, { freq: 300, q: 0.8, gain: 0.1126, dur: 0.12, type:"lowpass" });
+  S._tone (t, { freq: 118, to: 58, gain: 0.08046, dur: 0.12, type:"triangle" });""",
+ "crack": """
+  S._burst(t, { freq: 2600, q: 0.8, gain: 0.06586, dur: 0.035, type:"highpass" });
+  S._burst(t, { freq: 900, q: 1.2, gain: 0.03952, dur: 0.06, type:"bandpass" });
+  S._tone (t + 0.012, { freq: 120, to: 60, gain: 0.03293, dur: 0.09, type:"sine" });""",
+ "cast": """
+  for (let i = 0; i < 7; i++){
+    const d = i * 0.035, f = 1800 + i * 130;
+    S._burst(t + d, { freq: f, q: 3.0, gain: 0.09691, dur: 0.012, type:"bandpass" });
+    S._tone (t + d, { freq: f * 0.39, gain: 0.03173, dur: 0.020, type:"triangle" });
+  }
+  S._burst(t + 0.26, { freq: 700, q: 1.0, gain: 0.04407, dur: 0.06, type:"bandpass" });
+  S._tone (t + 0.26, { freq: 58, to: 28, gain: 0.1763, dur: 0.38, type:"sine" });
+  S._burst(t + 0.26, { freq: 220, q: 0.6, gain: 0.1058, dur: 0.28, type:"lowpass" });""",
+ "shell": """
+  S._burst(t, { freq: 200.23, q: 0.8, gain: 0.161, dur: 0.15, type:"lowpass" });
+  S._tone (t, { freq: 78.76, to: 38.71, gain: 0.1151, dur: 0.15, type:"triangle" });""",
+ "whistle": """
+  const D = Math.max(0.12, Math.min(0.9, p.dur || 0.42));
+  S._tone(t, { freq: 1900, to: 720, gain: 0.01991, dur: D, type:"sine" });""",
+ "burst": """
+  S._tone (t, { freq: 100, to: 36, gain: 0.20, dur: 0.90, type:"sine" });
+  S._burst(t, { freq: 500, q: 0.8, gain: 0.18, dur: 0.45, type:"bandpass" });
+  [0.07, 0.14, 0.22, 0.31, 0.40, 0.48, 0.55].forEach((d, i) =>
+    S._burst(t + d, { freq: 1800, q: 3.0, gain: 0.050 - i * 0.005, dur: 0.040, type:"bandpass" }));""",
+ "close": """
+  const K = [[0.0, 1721.9], [0.035, 1635.2], [0.07, 1548.4], [0.105, 1461.6], [0.14, 1374.9], [0.175, 1288.1], [0.21, 1201.4]];
+  for (const [d, f] of K){
+    S._burst(t + d, { freq: f, q: 3.0, gain: 0.06784, dur: 0.012, type:"bandpass" });
+    S._tone (t + d, { freq: f * 0.39, gain: 0.02221, dur: 0.020, type:"triangle" });
+  }""",
+}
+VOICE_PICKS = {"thud": "CHUFF", "crack": "SPLIT2", "cast": "CRANK2", "shell": "FIFTH",
+               "whistle": "SINE", "burst": "SHOT2", "close": "BACK"}
+
+
+def arm(key: str, indent: str) -> str:
+    """A picked body as engine code: `S.` -> `this.`, re-indented."""
+    body = VOICES[key].strip("\n").replace("S._", "this._")
+    return "\n".join(indent + l[2:] if l.startswith("  ") else indent + l for l in body.splitlines())
+
+
+def s6_edits():
+    return [
+
+("the slug's release: its own voice in `loose`",
+ '''        } else {
+          this._burst(t, { freq: 380, q: 1.1, gain: 0.055, dur: 0.055, type:"bandpass" });
+        }
+''',
+ '''        } else if (p.spell === "slug"){
+          /* CULVERIN'S SLUG LEAVING -- design §6.2: "a deep short thud on
+             leaving (a cannon at a distance) ... the heaviest basic-attack
+             voice in the game, on purpose (it fires half as often as an
+             arrow)." CHUFF, of three (`culverin_voice_lab.py`, Rick's "you
+             pick i overrule"): a low noise body and a falling triangle, 75 ms,
+             12 dB under the slug's own blow -- a shot leaving must still read
+             quieter than one landing (the comment above) -- and 7 dB over the
+             bow's release ON A PHONE, where the deeper two all but vanished. */
+''' + arm("thud", "          ") + '''
+        } else {
+          this._burst(t, { freq: 380, q: 1.1, gain: 0.055, dur: 0.055, type:"bandpass" });
+        }
+'''),
+
+("the slug's landing: `slug-land`, a stone crack",
+ '''      else if (kind === "wall"){
+''',
+ '''      else if (kind === "slug-land"){
+        /* CULVERIN'S SLUG ON STONE -- design §6.2: "a stone crack on landing".
+           SPLIT2, of six over two rounds (`culverin_voice_lab.py`): a bright
+           split first and the knock of the stone 12 ms behind it, 75 ms, 16 dB
+           under the blow -- it plays about sixty times a fight. Round 1's three
+           let the knock or a bare tick own the first 20 ms. */
+''' + arm("crack", "        ") + '''
+      }
+      else if (kind === "wall"){
+'''),
+
+("Sfx: Ironfall's cast, shell, whistle, burst and close, before the shared rune-crack fallback",
+ '''        } else {                                        // rune-crack
+''',
+ '''        } else if (w === "culverin"){                   // the ratchet, then the boom
+          /* IRONFALL'S CAST -- design §6.2: "a mechanical ratchet into a low
+             boom, 0.4s." CRANK2 (`culverin_voice_lab.py`, round 4): seven
+             pawl clicks climbing 1.8-2.6 kHz, 35 ms apart, and the boom at 260
+             ms with a 700 Hz report on it -- 465 ms, level with the blow, the
+             ratchet ALONE within 12 dB of a hit on a phone. Culverin had no arm
+             and fell through to rune-crack; this goes before that fallback and
+             leaves it alone. */
+''' + arm("cast", "          ") + '''
+        } else if (w === "culverin-shell"){             // a shell leaves
+          /* "The thud pitched down" -- the slug's own CHUFF a fifth down and
+             1.25x as long, 8 dB under the blow: a bigger launch than a slug's.
+             Played by tickIronfall for every shell loosed. */
+''' + arm("shell", "          ") + '''
+        } else if (w === "culverin-whistle"){           // and comes down
+          /* "A whistle on the way down": a sine falling 1900 -> 720 Hz over
+             `p.dur`, the flight the shell has LEFT when its vy turns down --
+             tickIronfall passes it -- so the whistle ends where the shell
+             lands. 18 dB under the blow. */
+''' + arm("whistle", "          ") + '''
+        } else if (w === "culverin-burst"){             // and bursts
+          /* "The burst (a bass hit with a stone rattle)": SHOT2 (round 2 of
+             the burst): a falling bass and a band of noise with a rattle of
+             seven chips over half a second, 505 ms, 2 dB over the blow -- the
+             rarest sound this relic makes (about one shell in fifteen reaches
+             its mark), and neither Ironbloom's blast nor the nova by register.
+             The shard pop was SILENT until now: Ironbloom's splinters never
+             had a voice, and they still do not -- the pop plays this only for
+             a `shell`. */
+''' + arm("burst", "          ") + '''
+        } else if (w === "culverin-close"){             // and the ratchet runs back
+          /* CLOSE -- "the ratchet reversed": the cast's own seven clicks run
+             last-first and a fifth down, at 0.7 of the cast's click level, no
+             boom. Played when the window runs out by its clock, never on a
+             death. */
+''' + arm("close", "          ") + '''
+        } else {                                        // rune-crack
+'''),
+
+("spawnShot: the slug's release names its spell to the voice",
+ '''    SFX.play("loose", { bal: !!f.ultBal });
+''',
+ '''    /* `spell` picks a staff's own release voice (Culverin's thud). Undefined
+       on every bow, which falls through to the string exactly as before. */
+    SFX.play("loose", { bal: !!f.ultBal, spell: S.spell });
+'''),
+
+("spawnShot: a staff's shot remembers where it left, for its puff",
+ '''    if (S.spell) this.shots[this.shots.length - 1].spell = S.spell;
+''',
+ '''    /* AND WHERE IT LEFT (`sx, sy`), for the puff `drawShots` draws there for
+       a fifth of a second (design §6.1: "the slug leaves from the mouth with a
+       puff of 6 dark motes"). Render-only, like `spell`. */
+    if (S.spell){
+      const s = this.shots[this.shots.length - 1];
+      s.spell = S.spell; s.sx = s.x; s.sy = s.y;
+    }
+'''),
+
+("tickShots: a slug on stone cracks and leaves a ring of dust",
+ '''          this.spawnFx(s.x, s.y, s.aff.core, 4, 110, 0.26, 2.2);
+        dead = true;
+      }
+''',
+ '''          this.spawnFx(s.x, s.y, s.aff.core, 4, 110, 0.26, 2.2);
+        /* CULVERIN'S SLUG ON STONE (design §6.1-6.2: "it hits stone with a
+           heavy spawnFx and no bounce" and "a stone crack on landing"). The
+           heavy part is a RING, not more motes: `spawnFx` draws the match rng,
+           so a heavier spray would move every Culverin fight and void the
+           blade. `life > 0` is the wall, not the (unreached) end of its life. */
+        if (s.spell === "slug" && s.life > 0){
+          SFX.play("slug-land");
+          this.ring(s.x, s.y, "#8C7B66", 8, 46, 0.34, 5);
+        }
+        dead = true;
+      }
+'''),
+
+("tickShots: a shell that reaches its mark bursts aloud",
+ '''        this.shake = Math.min(38, this.shake + 5);
+        dead = true;
+      }
+''',
+ '''        this.shake = Math.min(38, this.shake + 5);
+        /* IRONFALL'S BURST (design §6.2). Only a `shell`: Ironbloom's
+           splinters pop through this same branch and have never had a voice. */
+        if (s.shell) SFX.play("ult", { w: "culverin-burst" });
+        dead = true;
+      }
+'''),
+
+("the fighter carries Ironfall's fade",
+ '''    this.ultIronfall = null;
+    this.ironTally = null;
+''',
+ '''    this.ultIronfall = null;
+    this.ironTally = null;
+    /* AND ITS PICTURE'S CLOCK: 1 while the window is open, down over 0.4s
+       after (design §6.1: "the mouth glows ... Close: the mouth dims"). On the
+       FIGHTER, never on `m.ultFx` (one slot: open item 25). Driven in
+       `tickIronfall`, drawn by `drawIronfall`, read by nothing in the sim. */
+    this.ironfallFade = 0;
+'''),
+
+("tickIronfall: the whistle, on the step a shell turns down",
+ '''  tickIronfall(dt){
+    for (const f of [this.a, this.b]){
+''',
+ '''  tickIronfall(dt){
+    /* THE WHISTLE (design §6.2: "a whistle on the way down"), once per shell,
+       on the step its vy turns downward, lasting the flight it has left.
+       Guarded on a Culverin having cast at all, so no other fight walks the
+       shots. `whistled` is render-only. */
+    if (this.a.ironTally || this.b.ironTally)
+      for (const s of this.shots)
+        if (s.shell && !s.whistled && s.vy >= 0){
+          s.whistled = true;
+          SFX.play("ult", { w: "culverin-whistle", dur: s.life });
+        }
+    for (const f of [this.a, this.b]){
+'''),
+
+("tickIronfall: the close, when the window runs out by its clock",
+ '''      if (I.t >= I.dur){ f.ultIronfall = null; continue; }
+''',
+ '''      /* THE CLOSE (design §6.2: "the ratchet reversed"): by the clock only --
+         the death and the end of the match were handled above. */
+      if (I.t >= I.dur){ SFX.play("ult", { w: "culverin-close" }); f.ultIronfall = null; continue; }
+'''),
+
+("tickIronfall: each shell's launch, and the picture's clock",
+ '''      f.ironTally.shells++;
+    }
+  }
+''',
+ '''      f.ironTally.shells++;
+      SFX.play("ult", { w: "culverin-shell" });   // "the thud pitched down"
+    }
+    /* THE PICTURE'S CLOCK. Up instantly, down over 0.4s (Deadfall's shape).
+       On the window tickers' path, so it holds through a hit stop. */
+    for (const f of [this.a, this.b])
+      f.ironfallFade = f.ultIronfall ? 1 : Math.max(0, f.ironfallFade - dt / 0.4);
+  }
+'''),
+
+("drawShots: the slug's puff as it leaves",
+ '''        c.beginPath(); c.arc(s.x, s.y, s.r * 0.96, -2.6, -0.5); c.stroke();
+        c.globalCompositeOperation = "lighter";
+        continue;
+      }
+      if (s.shell){
+''',
+ '''        c.beginPath(); c.arc(s.x, s.y, s.r * 0.96, -2.6, -0.5); c.stroke();
+        /* THE PUFF (design §6.1: "the slug leaves from the mouth with a puff of
+           6 dark motes"): six motes of smoke thrown out around where it left,
+           over a fifth of a second of its own life, derived and not spawned. */
+        const age = s.max - s.life;
+        if (age < 0.22 && s.sx !== undefined){
+          const k = age / 0.22;
+          for (let i = 0; i < 6; i++){
+            const a2 = s.a + (i - 2.5) * 0.62;
+            const rr = 8 + 46 * k * (0.7 + 0.3 * shellHash(9601, i));
+            c.globalAlpha = 0.55 * (1 - k);
+            c.fillStyle = "#3A322B";
+            c.beginPath();
+            c.arc(s.sx + Math.cos(a2) * rr, s.sy + Math.sin(a2) * rr, 7 * (1 - 0.5 * k), 0, TAU);
+            c.fill();
+          }
+          c.globalAlpha = 1;
+        }
+        c.globalCompositeOperation = "lighter";
+        continue;
+      }
+      if (s.shell){
+'''),
+
+("drawShots: the shell's bigger puff at the launch",
+ '''        c.beginPath(); c.arc(s.x, s.y, s.r * 0.62, 0, TAU); c.stroke();
+        c.globalCompositeOperation = "lighter";
+        continue;
+      }
+''',
+ '''        c.beginPath(); c.arc(s.x, s.y, s.r * 0.62, 0, TAU); c.stroke();
+        /* THE LAUNCH (design §6.1: "every shell leaves with a bigger puff"):
+           ten motes of smoke and a flash where it left the caster, over 0.3s
+           of its own life. Derived, not spawned. */
+        const age = s.max - s.life;
+        if (age < 0.3){
+          const k = age / 0.3;
+          c.globalAlpha = 0.6 * (1 - k);
+          for (let i = 0; i < 10; i++){
+            const a2 = i * TAU / 10 + shellHash(9611, i) * 0.5;
+            const rr = 14 + 70 * k * (0.6 + 0.4 * shellHash(9613, i));
+            c.fillStyle = "#3A322B";
+            c.beginPath();
+            c.arc(s.x0 + Math.cos(a2) * rr, s.y0 + Math.sin(a2) * rr, 11 * (1 - 0.5 * k), 0, TAU);
+            c.fill();
+          }
+          c.globalAlpha = 1;
+        }
+        c.globalCompositeOperation = "lighter";
+        if (age < 0.12){
+          c.globalAlpha = 0.7 * (1 - age / 0.12);
+          c.fillStyle = "#FFD27A";
+          c.beginPath(); c.arc(s.x0, s.y0, 22 + 90 * age, 0, TAU); c.fill();
+          c.globalAlpha = 1;
+        }
+        continue;
+      }
+'''),
+
+("drawIronfall: the head glows and sheds embers while the window runs",
+ '''  drawShots(m){
+''',
+ '''  /* IRONFALL ON THE STAFF (design §6.1): "Cast: the mouth glows ...
+     Close: the mouth dims" and "Field: ember motes falling". DRAWN, not an
+     fx.js field: the one `m.ultFx` slot is erased by the opponent's cast (open
+     item 25), and `src/render/fx.js` is shared by both lines of the chain.
+     Off the fighter's own fade, so it survives anything the opponent casts.
+
+     THE HEAD is where Cowork's spec puts the dwarven light: the sphere in the
+     jaws at 0.82 of the staff's drawn length (1.7x the sim's L), out from
+     the ball's edge. Rick's pick for the head is still his to overrule; all
+     three dwarven candidates hold their light within 0.77-0.82 of that
+     length, so the glow sits on the light whichever he keeps.
+
+     PRESENTATION ONLY: no rng, no spawnFx -- the embers are `shellHash` and
+     the match clock, Zenith's construction (v98). */
+  drawIronfall(m){
+    const c = this.ctx, R = CONFIG.physics.ballR;
+    for (const f of [m.a, m.b]){
+      const k = f.ironfallFade;
+      if (!(k > 0.01) || !f.alive) continue;
+      const reach = f.w.reach * m.actMods.reach * f.reachMul;
+      const hd = R - 6 + (reach + 6) * 1.7 * 0.82;
+      const hx = f.x + Math.cos(f.theta) * hd, hy = f.y + Math.sin(f.theta) * hd;
+      const T = m.t;
+      c.save();
+      c.globalCompositeOperation = "lighter";
+      const fl = 0.85 + 0.15 * Math.sin(T * 23) * Math.sin(T * 7.1);
+      const g = c.createRadialGradient(hx, hy, 2, hx, hy, 34);
+      g.addColorStop(0, f.aff.glow + "CC"); g.addColorStop(0.4, f.aff.core + "77");
+      g.addColorStop(1, f.aff.core + "00");
+      c.globalAlpha = 0.75 * k * fl;
+      c.fillStyle = g;
+      c.beginPath(); c.arc(hx, hy, 34, 0, TAU); c.fill();
+      /* THE EMBERS: fourteen, shed off the head and FALLING (they are iron
+         sparks, not Zenith's rising motes), cooling from gold to red. Drawn
+         as SHORT STREAKS with a hot head: the first cut drew 2 px dots and
+         the video's encoder smeared every one of them away -- a falling spark
+         reads by its streak, and the streak lengthens as it falls. */
+      c.lineCap = "round";
+      for (let i = 0; i < 14; i++){
+        const ph = (T * (0.9 + 0.5 * shellHash(9621, i)) + shellHash(9623, i)) % 1;
+        const ox = (shellHash(9625, i) - 0.5) * 18, sway = Math.sin(T * 2.3 + i * 1.7) * 4;
+        const ex = hx + ox + sway * ph + (shellHash(9627, i) - 0.5) * 22 * ph;
+        const ey = hy + (shellHash(9629, i) - 0.5) * 10 + ph * ph * 84;
+        const col = ph < 0.3 ? "#FFE3A0" : (ph < 0.65 ? "#FFA640" : "#C9551C");
+        c.globalAlpha = 0.9 * k * (1 - ph);
+        c.strokeStyle = col; c.lineWidth = 2.6 * (1 - 0.4 * ph);
+        c.beginPath(); c.moveTo(ex, ey - 4 - 14 * ph); c.lineTo(ex, ey); c.stroke();
+        c.fillStyle = col;
+        c.beginPath(); c.arc(ex, ey, 3.2 * (1 - 0.45 * ph), 0, TAU); c.fill();
+      }
+      c.restore();
+    }
+  }
+
+  drawShots(m){
+'''),
+
+("drawIronfall is drawn with the shots",
+ '''    this.drawShots(m);
+''',
+ '''    this.drawShots(m);
+    this.drawIronfall(m);        // IRONFALL on the staff (v96 §6.1)
+'''),
+
+("the staff's dwarven head: Code's pick under Rick's overrule",
+ '''anybody's taste. */
+const STAFF = {
+''',
+ '''anybody's taste. */
+/* THE DWARVEN HEAD IS "A" -- Code's pick for Culverin under Rick's "you pick i
+   overrule" (2026-09-27): the brass jaws holding a dark iron sphere with an
+   ember in it, because the staff whose spell is an iron slug then holds one in
+   its head. B and C stay until he has seen it; the other six schools are the
+   spec's defaults until their own builds pick. */
+const STAFF = {
+'''),
+
+    ]
+
+
 def check_bow_body(code: str) -> None:
     """v89 §1: the staff's physics are the bow's EXACTLY. Read them off the
     shipped bow rather than trusting the table above."""
@@ -651,21 +1045,77 @@ def stage_of(code: str) -> int:
         return 0
     ent = relic_entry(code, RELIC)
     if "charge:1e9" not in ent:
+        if "drawIronfall(m){" in code:
+            return 6
         return 5 if f"dmg:{fnum(TUNED_BLADE)}," in ent else 3
     if f"grav:{SLUG['grav']}" in ent:
         return 2
     return 1
 
 
+def audit(tip_p: pathlib.Path) -> int:
+    """DID EVERY EDIT SURVIVE? `chain_audit.py`'s question, asked of this
+    builder directly: its discovery reads module-level `*_NEW` constants and
+    tuple tables, and this builder makes its tables in functions (they are
+    templated on the spec, the stage's numbers and the voices), so
+    chain_audit reports "no inserts found" -- open item 31's fifth costume.
+    Every stage's edits are replayed here and every line of CODE each edit
+    ADDS (block comments stripped, as chain_audit strips them) must be in the
+    tip, verbatim."""
+    raw = tip_p.read_text(encoding="utf-8")
+    tip = strip_comments(raw)
+    spec_body, spec_sha = staff_code()
+    stages = [("1", s1_edits(spec_body, spec_sha)),
+              ("2", [(l, o.replace("%DMG%", fnum(BLADE)), n.replace("%DMG%", fnum(BLADE)))
+                     for l, o, n in s2_edits()]),
+              ("3", s3_edits(dict(ULT))), ("5", s5_edits()), ("6", s6_edits())]
+    # A LINE A LATER STAGE OF THIS BUILDER REPLACES IS SUPERSEDED, NOT LOST:
+    # it is in that stage's anchor. And the relic's NOTE edits rewrite comment
+    # prose, so they are checked against the tip with its comments kept.
+    flat = [(i, st, e) for i, (st, edits) in enumerate(stages) for e in edits]
+    total = lost = superseded = 0
+    for i, st, (label, old, new) in flat:
+        prose = label.startswith("the relic's note")
+        strip = (lambda x: x) if prose else strip_comments
+        later = set()
+        for j, _st, (_l, o2, _n) in flat:
+            if j > i:
+                later |= set(strip(o2).splitlines())
+        olds = set(strip(old).splitlines())
+        added = [l for l in strip(new).splitlines()
+                 if l not in olds and len(l.strip()) > 6 and l.strip() not in ("}", "});", "},")]
+        body = raw if prose else tip
+        miss = [l for l in added if l not in body and l not in later]
+        sup = [l for l in added if l not in body and l in later]
+        total += 1
+        if sup:
+            superseded += 1
+            print(f"  ok    stage {st}  {label}: {len(sup)} line(s) replaced by a later stage, by design")
+        if miss:
+            lost += 1
+            print(f"  LOST  stage {st}  {label}: {len(miss)} of {len(added)} lines, first {miss[0].strip()[:70]!r}")
+    print(f"\n  {total - lost}/{total} inserts survive in {tip_p.name}"
+          f" ({superseded} carry lines a later stage replaced on purpose)"
+          + ("" if not lost else "  <-- A DOWNSTREAM EDIT ATE SOMETHING"))
+    return 0 if not lost else 1
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", choices=["1", "2", "3", "5"], required=True)
-    ap.add_argument("--src", required=True)
-    ap.add_argument("--out", required=True)
+    ap.add_argument("--stage", choices=["1", "2", "3", "5", "6"])
+    ap.add_argument("--src")
+    ap.add_argument("--out")
+    ap.add_argument("--audit", default=None, metavar="TIP",
+                    help="replay every stage's edits and check each added line is in TIP")
     ap.add_argument("--charge", type=float, default=None,
                     help="stage 3: a charge other than the shipped one, for a "
                          "MEASUREMENT link written to scratch -- never a link of record")
     A = ap.parse_args()
+    if A.audit:
+        print(f"\nCULVERIN / IRONFALL -- the insert audit against {A.audit}")
+        return audit((HERE / A.audit).resolve())
+    if not (A.stage and A.src and A.out):
+        raise SystemExit("--stage, --src and --out are required to build")
     stage = int(A.stage)
     U = dict(ULT)
     if A.charge is not None:
@@ -697,7 +1147,7 @@ def main() -> int:
             else "sc-leaf's line")
     print(f"  base  {line}")
     have = stage_of(code)
-    prev = {1: 0, 2: 1, 3: 2, 5: 3}[stage]
+    prev = {1: 0, 2: 1, 3: 2, 5: 3, 6: 5}[stage]
     if have != prev:
         raise SystemExit(f"this source carries stage {have}; stage {stage} is built "
                          f"on stage {prev}")
@@ -718,6 +1168,8 @@ def main() -> int:
         edits = s3_edits(U)
     elif stage == 5:
         edits = s5_edits()
+    elif stage == 6:
+        edits = s6_edits()
     for label, old, new in edits:
         s = one(s, old, new, label)
 
@@ -762,6 +1214,19 @@ def main() -> int:
         if out_code.count("this.tickIronfall(dt);") != 1:
             raise SystemExit("REFUSING TO WRITE -- tickIronfall must be called once")
         print("  ok    ult   " + ", ".join(f"{k} {U[k]}" for k in ULT_KEYS))
+    if stage >= 6:
+        for w in ("culverin", "culverin-shell", "culverin-whistle", "culverin-burst", "culverin-close"):
+            if out_code.count(f'w === "{w}"') != 1:
+                raise SystemExit(f"REFUSING TO WRITE -- the {w} voice arm is not there exactly once")
+        for need in ('p.spell === "slug"', 'kind === "slug-land"', "this.drawIronfall(m);", "drawIronfall(m){"):
+            if out_code.count(need) != 1:
+                raise SystemExit(f"REFUSING TO WRITE -- {need!r} is not there exactly once")
+        for key, body in VOICES.items():
+            eng = strip_comments(arm(key, "")).split()
+            if " ".join(eng) not in " ".join(out_code.split()):
+                raise SystemExit(f"REFUSING TO WRITE -- the {key} voice shipped is not the picked body")
+        print("  ok    voices  " + ", ".join(f"{k} {VOICE_PICKS[k]}" for k in VOICES)
+              + "  -- every arm the picked body, verbatim")
     what = "the slug" if stage >= 2 else "the bow's arrow"
     if A.charge is not None:
         print(f"  NOTE  --charge {U['charge']}: a MEASUREMENT link, not the link of record")
@@ -772,8 +1237,11 @@ def main() -> int:
     print(f"  ok    card  {len(CARD)} chars  {CARD!r}")
     if out_code.count("Math.random") != code.count("Math.random"):
         raise SystemExit("REFUSING TO WRITE -- this build adds a Math.random")
-    for label, _old, new in edits:
-        ins = strip_comments(new)
+    for label, old, new in edits:
+        # only the lines this insert ADDS: an anchor may carry an existing call
+        # (the spent branch's own spawnFx) that the insert leaves alone
+        added = [l for l in new.splitlines() if l not in old.splitlines()]
+        ins = strip_comments("\n".join(added))
         if "rng()" in ins or "spawnFx" in ins or "Math.random" in ins:
             raise SystemExit(f"REFUSING TO WRITE -- insert '{label}' draws "
                              "the match RNG")

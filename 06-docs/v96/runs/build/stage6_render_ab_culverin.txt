@@ -1,0 +1,16 @@
+
+RENDER A/B  2 pairings x 4 frames  540x960
+  a  sc-ironfall-blade.html
+  b  sc-ironfall-fx.html
+  culverin v heartwood seed 3301 t= 33.00  DIFFERS   luma 25.204 -> 25.780   lit 89.54% -> 89.54%
+  culverin v heartwood seed 3301 t= 35.00  DIFFERS   luma 23.983 -> 24.165   lit 84.52% -> 84.52%
+  culverin v heartwood seed 3301 t= 37.00  DIFFERS   luma 21.949 -> 22.229   lit 81.25% -> 81.25%
+  culverin v farwarden seed 3369 t= 31.50  DIFFERS   luma 23.549 -> 23.791   lit 88.81% -> 88.81%
+  culverin v farwarden seed 3369 t= 33.00  DIFFERS   luma 23.085 -> 23.322   lit 89.47% -> 89.48%
+  culverin v farwarden seed 3369 t= 35.00  DIFFERS   luma 23.139 -> 23.389   lit 84.58% -> 84.59%
+  culverin v farwarden seed 3369 t= 37.00  DIFFERS   luma 23.199 -> 23.416   lit 81.52% -> 81.52%
+
+FAIL  1/8 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

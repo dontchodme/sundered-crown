@@ -1,0 +1,60 @@
+{
+ "T": {
+  "fights": 136,
+  "wins": 58,
+  "dur": 7246.408333333111,
+  "spawned": 7415,
+  "badSpawn": [],
+  "cadSteps": 9918,
+  "badCad": [],
+  "gravSteps": 385265,
+  "frozenSteps": 39194,
+  "badGrav": [],
+  "bounced": 0,
+  "slugHits": 843,
+  "blows": 2115,
+  "slugLanded": 660,
+  "slugWall": 5969,
+  "slugOther": 758,
+  "casts": 394,
+  "ultBeats": 394,
+  "shells": 2873,
+  "declined": 0,
+  "badShell": [],
+  "shellHit": 475,
+  "pops": 177,
+  "popHits": 14,
+  "shellWall": 1594,
+  "shellOther": 610,
+  "winFrames": 392386,
+  "foeStk": 1124106,
+  "winBlows": 1230,
+  "maxWinT": 7.991666666666854,
+  "winDeath": 39,
+  "winClock": 312,
+  "kills": 58,
+  "killsByUlt": 15,
+  "fatalBeatOnUltKill": 15,
+  "overLive": 0,
+  "live": true
+ },
+ "row": {
+  "win": 0.4264705882352941,
+  "castsF": 2.8970588235294117,
+  "shellsC": 7.291878172588833,
+  "blowsW": 3.1218274111675126,
+  "stk": 2.8647963994637933,
+  "blowsF": 15.551470588235293,
+  "dur": 53.28241421568464
+ },
+ "D": {
+  "threw": null,
+  "frames": 5925,
+  "seen": {
+   "slug": 2435,
+   "shell": 3349,
+   "staff": 5925,
+   "glow": 4367
+  }
+ }
+}
