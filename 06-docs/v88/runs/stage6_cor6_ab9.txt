@@ -1,0 +1,20 @@
+=== ENGINE A/B: 9 relics, 8 seeds x 36 pairings ===
+
+  sc-corollary-src.html            288 matches   36.7s
+  sc-corollary-c14.html            288 matches   29.7s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 288
+  FAIL  every match identical field for field  — 64 differ
+          #0
+            control {"seed": 1233799701, "a": "Axiom", "b": "Spellbreaker", "winner": "Spellbreaker", "hp": 259, "duration": 88.18, "reason": "slain", "hits": {"a": 16, "b": 27}, "crits": {"a": 0, "b": 1}, "clanks": 45}
+            variant {"seed": 1233799701, "a": "Axiom", "b": "Spellbreaker", "winner": "Spellbreaker", "hp": 117, "duration": 87.87, "reason": "slain", "hits": {"a": 22, "b": 25}, "crits": {"a": 2, "b": 1}, "clanks": 44}
+          #1
+            control {"seed": 330441002, "a": "Axiom", "b": "Spellbreaker", "winner": "Spellbreaker", "hp": 387, "duration": 78.21, "reason": "slain", "hits": {"a": 12, "b": 27}, "crits": {"a": 1, "b": 4}, "clanks": 41}
+            variant {"seed": 330441002, "a": "Axiom", "b": "Spellbreaker", "winner": "Spellbreaker", "hp": 181, "duration": 85.13, "reason": "slain", "hits": {"a": 18, "b": 28}, "crits": {"a": 5, "b": 3}, "clanks": 36}
+          #2
+            control {"seed": 4184808219, "a": "Axiom", "b": "Spellbreaker", "winner": "Spellbreaker", "hp": 315, "duration": 79.8, "reason": "slain", "hits": {"a": 16, "b": 28}, "crits": {"a": 0, "b": 2}, "clanks": 39}
+            variant {"seed": 4184808219, "a": "Axiom", "b": "Spellbreaker", "winner": "Axiom", "hp": 39, "duration": 84.93, "reason": "slain", "hits": {"a": 29, "b": 25}, "crits": {"a": 0, "b": 1}, "clanks": 46}
+  PASS  the sweep is real  — 9/9 distinct winners, 288 distinct seeds, 38.6-100.1s
+
+ENGINE A/B FAIL

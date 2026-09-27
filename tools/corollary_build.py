@@ -12,6 +12,7 @@ lab (`overlays/corollary.js`) -- see THE READINGS below.
     stage 3   the blade              7.42 KEPT -- Rick, 2026-09-26 (no link)
     stage 4   picture, voice, beat, field   sc-corollary -> sc-corollary-fx.html
     stage 5   the apply contract     sc-corollary-fx -> sc-corollary-src.html
+    stage 6   charge 14, the game's clock   sc-corollary-src -> sc-corollary-c14.html
 
 §1: "For a duration every blow Axiom lands is followed by its corollary: half
 a second later a rune-echo of the same blow strikes the enemy again, for the
@@ -78,8 +79,8 @@ SHIPPED_ULT = '''    ult:{ name:"Corollary", charge:13, kind:"bolt", dmg:18, app
           tip:"Deals 18 damage and applies 3 Hex stacks" },'''
 
 
-def ult_block(hex_: int) -> str:
-    return (f'''    ult:{{ name:"Corollary", charge:{ULT["charge"]}, kind:"echo", dur:{ULT["dur"]},
+def ult_block(hex_: int, charge: int = ULT["charge"]) -> str:
+    return (f'''    ult:{{ name:"Corollary", charge:{charge}, kind:"echo", dur:{ULT["dur"]},
           delay:{ULT["delay"]}, reach:{ULT["reach"]}, hex:{hex_},
           tip:"{TIP}" }},''')
 
@@ -977,6 +978,26 @@ def sync_fx(s: str) -> str:
 SYNC_FX_WRITE: list = []     # written only after every refusal has passed
 
 
+# ---------------------------------------------------------------- stage 6 --
+# THE CHARGE IN THE GAME'S CLOCK. Rick, 2026-09-27, for the whole batch: "Use the
+# game's equivalent." Cowork's harness schedules a cast every `P.charge`
+# seconds of its OWN step clock, hit-stop freezes included; the engine charges
+# an ultimate only in unfrozen time. So the lab's 16 gave ~15% more casts than
+# an engine charge of 16 does. Measured (v88 §8): at charge 14 the built
+# Corollary reads 40.0% against the shipped bolt's 40.2% -- the parity v80
+# priced, with the blade Rick kept at 7.42 untouched.
+CHARGE_GAME = 14
+
+S6 = [
+
+("the charge in the game's clock: the lab's 16 is the engine's 14",
+ f'''    ult:{{ name:"Corollary", charge:{ULT["charge"]}, kind:"echo", dur:{ULT["dur"]},
+''',
+ f'''    ult:{{ name:"Corollary", charge:{CHARGE_GAME}, kind:"echo", dur:{ULT["dur"]},
+'''),
+
+]
+
 # ---------------------------------------------------------------- stage 5 --
 # THE APPLY CONTRACT, KEPT. `Fighter.apply(key, n, src)`'s own comment: "`src`
 # IS 'a' OR 'b' ... A SIDE LETTER AND NOT A FIGHTER. A reference would put a
@@ -1009,7 +1030,7 @@ def axiom_ult(code: str) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", choices=["1", "2", "4", "5"], required=True)
+    ap.add_argument("--stage", choices=["1", "2", "4", "5", "6"], required=True)
     ap.add_argument("--src", required=True)
     ap.add_argument("--out", required=True)
     A = ap.parse_args()
@@ -1061,6 +1082,12 @@ def main() -> int:
         if strip_comments(ult1) in code:
             raise SystemExit("this source already carries stage 2 -- built")
         edits = S2
+    elif A.stage == "6":
+        if 'tgt.apply("hex", u.hex, f === this.a ? "a" : "b")' not in code:
+            raise SystemExit("stage 6 needs stage 5 under it")
+        if f'name:"Corollary", charge:{CHARGE_GAME}, kind:"echo"' in code:
+            raise SystemExit("this source already carries stage 6 -- built")
+        edits = S6
     elif A.stage == "5":
         if "echoShown" not in code:
             raise SystemExit("stage 5 needs stage 4 under it -- no echoShown here")
@@ -1084,7 +1111,7 @@ def main() -> int:
     # WHAT SHIPPED IS WHAT THIS RUN PRINTED (`ult_matches`, the v56 lesson).
     out_code = strip_comments(s)
     blk = axiom_ult(out_code)
-    want = ult0 if A.stage == "1" else ult1
+    want = ult0 if A.stage == "1" else (ult_block(ULT["hex"], CHARGE_GAME) if A.stage == "6" else ult1)
     if strip_comments(want).strip() != blk.strip():
         raise SystemExit(f"REFUSING TO WRITE -- Axiom's ult block is not what "
                          f"this run printed:\n  {blk}")

@@ -12,10 +12,19 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-corollary-src.html   THE CHAIN TIP. Corollary stage 5: the echo's hex
-                                 names its applier by side letter, apply's own
-                                 contract (was the Fighter). engine_ab 3366/3366
-                                 WITH Axiom, probe 14/14. See 06-docs/v88/ §7.
+02-chain/sc-dawn.html            THE CHAIN TIP. DAWNBRINGER / DAYBREAK stage 1
+                                 (dawn_build.py, v97): a line of light rises
+                                 floor to ceiling over 8s; a foe below it is
+                                 smitten +1 and takes 2 every 0.5s; the sparks
+                                 are out. Charge 14 (the lab's 16), blade 10.4
+                                 confirmed: 52.2% against the priced 53.5%.
+                                 engine_ab 4224/4224, probe 9/9, verify 10/13.
+                                 The sparks-era ART still plays: stage 3 next.
+02-chain/sc-corollary-c14.html   Corollary stage 6: CHARGE 14, the game's clock
+                                 (Rick: "use the game's equivalent"): 40.0%
+                                 against the bolt's 40.2%, blade 7.42. See v88 §8.
+02-chain/sc-corollary-src.html   the link before it. Corollary stage 5: the echo's hex
+                                 names its applier by side letter. See v88 §7.
 02-chain/sc-corollary-fx.html    the link before it; NOT THE BUILD OF RECORD, AWAITING
                                  RICK'S EYE. Corollary's stage 4 on top of the
                                  entry below: the bolt's art and field retired,
@@ -486,6 +495,9 @@ short-form video for TikTok and YouTube Shorts.
 > `06-docs/v87/HANDOFF-DESIGN-BATCH-v87.md`.** Rule 0 unchanged: Code builds
 > them from their docs and designs nothing. Every number in v68–v86 is on
 > Chromium 141; every brief's stage 0 is the reproduction on 151.
+> **AND EVERY CHARGE IS CONVERTED TO THE GAME'S CLOCK** (Rick, 2026-09-27): the
+> lab counted hit-stop freezes, the engine does not -- the lab's 16 is the
+> engine's 14, measured per fighter, weapons as designed.
 
 **THE FIGHT IS A MINUTE LONG NOW, AND IT IS THE SAME FIGHT STRETCHED**
 (`pace60_build.py`, 2026-09-02). Rick: *"we also did some work to make fights

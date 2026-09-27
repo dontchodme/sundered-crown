@@ -39,3 +39,5 @@ Stage 0 control on 151 (`--arms A,SHIP,B`). Stage 1 — sparks out (`_burst` and
 
 # 7. Ruled at build time (recorded by Claude Code, not designed)
 **Rick, 2026-09-26:** no vetoes, build all nineteen, and **CHARGE 16** (the window, 8, is stated above). This doc did not state the charge, and 16 is what every run in `runs/` was priced at (`P` in each json). Items 2 and 3 are built as written, with no heal and the full floor-to-ceiling rise, unless Rick flags otherwise before this build starts.
+
+**Rick, 2026-09-27, for the whole batch: THE CHARGE IS THE GAME'S EQUIVALENT — 14.** The lab's 16 counted hit-stop freezes; the engine charges only in unfrozen time. At 16 the built Daybreak read 48.3% (10 under the sparks, 5 under this doc's arm B on 151); at 14 it reads 52.5% against arm B's 53.5%, the blade untouched at 10.4 (v97).

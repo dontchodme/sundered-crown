@@ -1,0 +1,6 @@
+34 relics · Chromium 151.0.7922.34 · dawnbringer (redesign) · 33 foes x 20 seeds = 660 fights an arm · BUILT dawn blade 12.8 seed0 2317
+  charge=16.0 dur=8.0 blade=12.8
+
+  arm       win  casts  hits in/out
+  SHIP    63.3%   0.00  0.00/15.86 
+  660 fights in 57s   errors: []

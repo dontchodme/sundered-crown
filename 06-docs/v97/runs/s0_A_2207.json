@@ -1,0 +1,52 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 8.0,
+  "blade": null
+ },
+ "arms": {
+  "A": {
+   "win": 0.1484848484848485,
+   "n": 660,
+   "casts": 0.0,
+   "hitsIn": 0.0,
+   "hitsOut": 18.836363636363636,
+   "stats": {},
+   "byFoe": {
+    "widowmaker": 0.15,
+    "grudgebearer": 0.2,
+    "thornwake": 0.1,
+    "lastlight": 0.3,
+    "gravemourn": 0.2,
+    "slagheart": 0.1,
+    "spellbreaker": 0.2,
+    "ironhail": 0.25,
+    "lightkeeper": 0.05,
+    "farwarden": 0.15,
+    "aureole": 0.1,
+    "censer": 0.2,
+    "emberedge": 0.05,
+    "oathwound": 0.1,
+    "heartwood": 0.0,
+    "nightfell": 0.0,
+    "axiom": 0.2,
+    "twinshade": 0.0,
+    "redflail": 0.1,
+    "foregone": 0.1,
+    "vinesower": 0.2,
+    "bulwarden": 0.2,
+    "marrowdraw": 0.6,
+    "paradox": 0.1,
+    "thornshear": 0.1,
+    "vesper": 0.3,
+    "shroudmaul": 0.05,
+    "cindercleave": 0.2,
+    "ravelbone": 0.05,
+    "gloamwire": 0.1,
+    "bloodmirror": 0.15,
+    "duskreave": 0.25,
+    "starwarden": 0.05
+   }
+  }
+ }
+}

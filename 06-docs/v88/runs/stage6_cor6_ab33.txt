@@ -1,0 +1,11 @@
+=== ENGINE A/B: 33 relics, 8 seeds x 528 pairings ===
+
+  sc-corollary-src.html           4224 matches  270.1s
+  sc-corollary-c14.html           4224 matches  258.7s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4224
+  PASS  every match identical field for field  — 4224/4224
+  PASS  the sweep is real  — 33/33 distinct winners, 4224 distinct seeds, 14.8-112.4s
+
+ENGINE A/B PASS — ../02-chain/sc-corollary-c14.html does not move the 33-relic roster.

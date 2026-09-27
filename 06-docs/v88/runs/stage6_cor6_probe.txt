@@ -1,0 +1,27 @@
+
+COROLLARY PROBE  sc-corollary-c14.html  Chromium 151.0.7922.34  396 fights (Axiom both sides x 33 foes x 6 seeds)
+  per cast: blows 3.38  echoes 3.30  landed 1.99 (60.4%)  echo dmg 25.12  hex 1.99  crit blows 0.31   casts/fight 4.20
+  late echoes resolved 290, landed 172   in reach but not landed (a dead foe) 0   out of reach 2169   Axiom win 40.7%
+  blows on a shade, echoed onto the foe 45
+  wards broken by an echo 143 (the ward's own shatter: burst, knock on the attacker, 0.10 stop -- not the echo's weight)
+  echo beats 3315, of them fatal 44
+  voice cast        peak 0.426  audible 1.30s
+  voice echo        peak 0.185  audible 1.20s
+  voice snap        peak 0.354  audible 1.05s
+  voice rune-crack  peak 0.621  audible 1.50s
+  [1] PASS  a blow in the window queues exactly one echo; none outside
+  [2] PASS  echo = the blow as dealt; a crit's with critMul out
+  [3] PASS  every echo resolves `delay` after its blow
+  [4] PASS  lands only inside reach + R
+  [5] PASS  hurt(queued dmg) only -- no crit, sunder, knock or hit stop
+  [6] PASS  queued echoes still land after the window closes
+  [7] PASS  stage 2: hex = echoes landed
+  [8] PASS  no relic but Axiom ever carries ultEcho
+  [9] PASS  no echo left unresolved while a fight is still running
+  [10] PASS  every echo strikes the foe, Axiom's opponent -- a blow on a shade too
+  [14] PASS  the echo's hex names its applier by side letter, not a Fighter (apply's contract)
+  [11] PASS  stage 4: one hit beat per landed echo, fatal iff it killed, none for a miss
+  [12] PASS  stage 4: one echo voice per landed echo, one snap per hex applied
+  [13] PASS  stage 4: cast, echo and snap each render audibly ALONE; the cast is not rune-crack
+
+  14/14

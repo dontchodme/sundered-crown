@@ -1,0 +1,20 @@
+=== ENGINE A/B: 9 relics, 8 seeds x 36 pairings ===
+
+  sc-corollary-c14.html            288 matches   27.7s
+  sc-dawn.html                     288 matches   21.3s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 288
+  FAIL  every match identical field for field  — 64 differ
+          #0
+            control {"seed": 1233799701, "a": "Dawnbringer", "b": "Lastlight", "winner": "Lastlight", "hp": 290, "duration": 52.34, "reason": "slain", "hits": {"a": 11, "b": 24}, "crits": {"a": 1, "b": 1}, "clanks": 22}
+            variant {"seed": 1233799701, "a": "Dawnbringer", "b": "Lastlight", "winner": "Lastlight", "hp": 46, "duration": 53.9, "reason": "slain", "hits": {"a": 16, "b": 18}, "crits": {"a": 3, "b": 5}, "clanks": 22}
+          #1
+            control {"seed": 330441002, "a": "Dawnbringer", "b": "Lastlight", "winner": "Dawnbringer", "hp": 38, "duration": 65.12, "reason": "slain", "hits": {"a": 24, "b": 17}, "crits": {"a": 1, "b": 1}, "clanks": 29}
+            variant {"seed": 330441002, "a": "Dawnbringer", "b": "Lastlight", "winner": "Lastlight", "hp": 39, "duration": 57.96, "reason": "slain", "hits": {"a": 16, "b": 18}, "crits": {"a": 3, "b": 2}, "clanks": 22}
+          #2
+            control {"seed": 4184808219, "a": "Dawnbringer", "b": "Lastlight", "winner": "Dawnbringer", "hp": 384, "duration": 57.62, "reason": "slain", "hits": {"a": 23, "b": 6}, "crits": {"a": 1, "b": 0}, "clanks": 23}
+            variant {"seed": 4184808219, "a": "Dawnbringer", "b": "Lastlight", "winner": "Dawnbringer", "hp": 220, "duration": 59.03, "reason": "slain", "hits": {"a": 19, "b": 9}, "crits": {"a": 1, "b": 2}, "clanks": 21}
+  PASS  the sweep is real  — 9/9 distinct winners, 288 distinct seeds, 30.9-107.7s
+
+ENGINE A/B FAIL

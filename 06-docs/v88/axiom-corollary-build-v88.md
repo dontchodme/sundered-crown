@@ -375,3 +375,26 @@ statuses and a damage tick's fatal beat do, and hex has neither), so no fight mo
 
 The chain tip is now `sc-corollary-src`, and Daybreak (v97) builds on it. The picture and
 voices are unchanged from stage 4, so the clip Rick has stands for this link.
+
+## 8. Stage 6: the charge in the game's clock — `sc-corollary-c14.html`
+
+**Rick, 2026-09-27, for the whole batch: "Use the game's equivalent."** Cowork's harness
+casts every `P.charge` seconds of its own step clock, and that clock counts hit-stop freezes.
+The engine charges an ultimate only in unfrozen time. So the lab's 16 gave ~15% more casts than
+an engine charge of 16 does, and that alone is the stage-3 shortfall (§4). It showed on
+Daybreak too (v97).
+
+`corollary_build.py --stage 6`: charge 16 → **14**. Out `3fc6ec27a5298615`, byte-identical to
+the scratch copy that was measured before Rick was asked:
+- **the relic at 7.42, charge 14: 40.3 / 39.7, pooled 40.0%**, against the shipped bolt's
+  40.2%. That is **the parity v80 priced, with the blade Rick kept.** (`runs/c14_cor_*`)
+- **probe 14/14, 4.20 casts a fight**: the lab's own 4.1-4.2. (`runs/stage6_cor6_probe.txt`)
+- **engine_ab sc-corollary-src → sc-corollary-c14, the 33 others, n=8: 4224/4224**; Axiom + 8:
+  64/288 differ (its 8 pairings × 8 seeds).
+- **verify --n 40 on the chain tip (sc-dawn, which carries this link): 10/13.** Axiom 36.9%;
+  every relic in 30-70%. The third red is Axiom vs Thornshear 0/40, which sc-leaf had and v67
+  recorded; it lifted at charge 16, when Axiom was weaker, and returns with the designed
+  strength.
+
+The card chip now reads "14s COOLDOWN". The picture and voices are unchanged, so the clip with
+Rick stands (the window simply comes a little sooner).
