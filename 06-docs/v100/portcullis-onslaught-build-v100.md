@@ -6,15 +6,18 @@ nothing else (rule 0). Builder `tools/portcullis_build.py`, probe `tools/portcul
 in `runs/`. **A NEW relic: the 37th built** (the brief's "39th" counts the cell grid).
 
 ```
-sc-canopy-w38.html      the base: the chain tip (Ironwood stage 5)
-  -> sc-portcullis.html   stage 1  the relic, ult stubbed (charge 1e9)   131b2956dbbcc3fc
-  -> sc-ram.html          stage 2  the charge and the slam (arm C)       4d425f69405aa56e
-  -> sc-onslaught.html    stage 3  the bank, bank 0 -> 8 (arm D)         2d84fc7090a49afa
-  -> sc-onslaught-b23.html stage 5  the blade, 24.03 -> 23                2ebe6e1b8c5c9e00
+sc-canopy-fx.html       the base: the chain tip (Ironwood stage 6)
+  -> sc-portcullis.html   stage 1  the relic, ult stubbed (charge 1e9)   baa42ac9afe5509c
+  -> sc-ram.html          stage 2  the charge and the slam (arm C)       26baece2e0b5f41c
+  -> sc-onslaught.html    stage 3  the bank, bank 0 -> 8 (arm D)         1e35fb5045382352
+  -> sc-onslaught-b23.html stage 5  the blade, 24.03 -> 23                db47cc35a1fe7e98
 ```
 
-When Ironwood's stage 6 lands on the tip, these links are rebuilt on it with the same builder
-(`--src`), and engine_ab against these proves the fights carry (Ironwood's own precedent, v99 §1).
+**Carried onto Ironwood's stage 6.** The links were first built on `sc-canopy-w38` (commit
+eee7ec1: 131b2956dbbcc3fc, 4d425f69405aa56e, 2d84fc7090a49afa, 2ebe6e1b8c5c9e00). When
+`sc-canopy-fx` landed they were rebuilt on it with the same builder, deleted by hand first as the
+builder asks. **engine_ab, the first `sc-onslaught-b23` against the carried one, all 37 relics WITH
+Portcullis, n=6: 3996/3996 identical** (`runs/carry_engine_ab37.txt`). Every number below carries.
 
 ## 0. What this build stands on
 

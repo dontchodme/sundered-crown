@@ -53,7 +53,8 @@ short-form video for TikTok and YouTube Shorts.
                                  to sc-canopy-w38); the builder re-applies onto
                                  sc-zenith-fx cleanly (tested, scratch).
 02-chain/sc-onslaught-b23.html   THE CHAIN TIP. 37 RELICS: PORTCULLIS / ONSLAUGHT, the
-                                 vigil flail (portcullis_build.py stages 1-5, v100).
+                                 vigil flail (portcullis_build.py stages 1-5, v100,
+                                 carried onto sc-canopy-fx: engine_ab 3996/3996).
                                  For 8s the ball charges the foe (600/s^2 to
                                  speedMax); a slam (centres within 2R+3, every 0.5s)
                                  hits for 0.25 x shield, knocks 500 and banks +8
