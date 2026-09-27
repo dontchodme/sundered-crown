@@ -1,0 +1,8 @@
+applied 5 rows: sc-tendril-t3.html 5a6216e3b629fad4 -> sc-portcullis-voice.html 817c69c9dfe9463b (+7188 chars); every anchor still occurs once after
+orig: Chromium 151.0.7922.34, 26 voices rendered, 74 fights, page errors 0
+patched: Chromium 151.0.7922.34, 26 voices rendered, 74 fights, page errors 0
+every other voice, the patched page's own play vs the original page's (26): worst max |diff| 8.9e-08
+the new voices through the patched page's own play vs the lab's candidate text, max |diff|: cast 6.0e-08, bank 0.0e+00, close 3.0e-08, slam@0 6.0e-08, slam@8 1.2e-07, slam@45 8.9e-08, slam@72.5 0.0e+00, slam@90 1.2e-07
+ult/portcullis vs rune-crack on the patched page: 0.727
+fights (seeds [100701], Portcullis both sides x every foe): 74/74 identical; every other voice call identical 74/74; slam voices == slams 74/74 (1081 slams); bank voices == banks 74/74; closes == clock closes 74/74 (221); Onslaught voices on the ORIGINAL page: 0 fights
+END-TO-END: PASS

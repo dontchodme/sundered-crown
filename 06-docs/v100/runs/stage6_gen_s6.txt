@@ -1,0 +1,33 @@
+voice rows 5 (12289 bytes, sha 0dfa1f89cbcf31ef); picture rows 8 (22928 bytes, sha 94c6e2c00b10f88a)
+the labs' reports: every row equal to its row file (label, anchor, mode, code), in order
+base sc-tendril-t3.html 5a6216e3b629fad4 (want 5a6216e3b629fad4)
+picture-only sha de1cf49480a06745 (picture lab's stamp: de1cf49480a06745)
+voice-only sha 817c69c9dfe9463b (voice lab's end-to-end: 817c69c9dfe9463b)
+voice+picture sha ee74fe9ad67e50a6 (the voice lab's combined page: ee74fe9ad67e50a6)
+WIDENED: "tickRam: the ward's bank voice, after the bank's three writes" to 7 lines from '      if (u.bank > 0){'
+13 rows -> 13 edits (0 merged)
+  carry coldiron/ctl-labclock-bind.html: every edit's old text once
+  carry coldiron/ctl-labclock-mass.html: every edit's old text once
+  carry coldiron/ctl-labclock-temper.html: every edit's old text once
+  carry coldiron/sc-coldiron-bind.html: every edit's old text once
+  carry coldiron/sc-coldiron-mass.html: every edit's old text once
+  carry coldiron/sc-coldiron-temper-b93.html: every edit's old text once
+  carry coldiron/sc-coldiron-temper.html: every edit's old text once
+  carry coldiron/sc-coldiron.html: every edit's old text once
+  carry ironhail/sc-ironhail-b14.html: every edit's old text once
+  carry ironhail/sc-ironhail-hail.html: every edit's old text once
+  carry ironhail/sc-ironhail-stub.html: every edit's old text once
+  carry ironhail/sc-ironhail-sunder.html: every edit's old text once
+  carry lightkeeper/sc-lightkeeper-bulwark-b10.html: every edit's old text once
+  carry lightkeeper/sc-lightkeeper-bulwark.html: every edit's old text once
+  carry lightkeeper/sc-lightkeeper-stub.html: every edit's old text once
+  carry lightkeeper/sc-lightkeeper-wall.html: every edit's old text once
+  carry lodestone/sc-lodestone-b21.html: every edit's old text once
+  carry lodestone/sc-lodestone-rebuttal.html: every edit's old text once
+  carry lodestone/sc-lodestone-runes.html: every edit's old text once
+  carry lodestone/sc-lodestone.html: every edit's old text once
+  carry widowmaker/sc-widowmaker-b11.html: every edit's old text once
+  carry widowmaker/sc-widowmaker-drain.html: every edit's old text once
+  carry widowmaker/sc-widowmaker-stub.html: every edit's old text once
+  carry bindweed/bw-final.html: every edit's old text once
+stage 6 written: 13 edits; C:\dev\sundered-crown\tools\portcullis_build.py 53523 chars

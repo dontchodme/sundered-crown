@@ -1,0 +1,40 @@
+77 measured frames on 8 fights; missing: grudgebearer7719b:['full', 'stopHi'], lastlight4242a:['full']
+BLOOM: the picture's share of the chain's arena lift: max +0.0000 min -0.0001 (gate +0.02); raw luma it adds (chain on): max +0.0024 min +0.0002
+CASTER DISC (picture on - off): max +0.0031 min -0.0649; W max 0.936 (>0.90 on 4/77; off: 4); clip max 0.393
+THE ART ON THE DISCS (this picture's number and tag held out): caster -0.0001..+0.0177, foe -0.0018..+0.0161; caster disc with the art max 0.936
+SHELL ON THE DISCS: caster max |d| 0.0008, foe max |d| 0.0024
+  FOE [sanctified] disc on-off max |d| 0.1103; disc 0.584..0.925, contour 0.417..0.842; flash on its disc max 0.0028, sparks 0.0026
+  FOE [umbral] disc on-off max |d| 0.0133; disc 0.327..0.914, contour 0.198..0.530; flash on its disc max 0.0069, sparks 0.0031
+  FOE [dwarven] disc on-off max |d| 0.0018; disc 0.319..0.872, contour 0.195..0.384; flash on its disc max 0.0000, sparks 0.0000
+LEGIBILITY |dL| (mean over the component's own pixels; min..max over frames; peak max; px):
+  shell                  0.054..0.214 (median 0.122), peak up to 0.78, px 2913..5363, n=37
+  shell in a hit stop    0.047..0.152 (median 0.115), peak up to 0.79, px 1740..5358, n=16
+  cast                   0.133..0.254 (median 0.219), peak up to 0.46, px 1054..1693, n=9
+  streak                 0.020..0.166 (median 0.042), peak up to 0.45, px 1..865, n=20
+  streak in a hit stop   0.026..0.116 (median 0.090), peak up to 0.35, px 19..416, n=7
+  flash                  0.076..0.231 (median 0.189), peak up to 0.62, px 1369..2859, n=10
+  flash in a hit stop    0.074..0.168 (median 0.132), peak up to 0.51, px 1547..2417, n=4
+  sparks                 0.116..0.432 (median 0.178), peak up to 0.89, px 19..250, n=11
+  sparks in a hit stop   0.037..0.372 (median 0.115), peak up to 0.74, px 38..248, n=5
+  number                 0.053..0.300 (median 0.215), peak up to 0.71, px 40..152, n=11
+  number in a hit stop   0.181..0.215 (median 0.184), peak up to 0.54, px 56..96, n=5
+  tag                    0.026..0.360 (median 0.229), peak up to 0.94, px 78..1018, n=12
+  tag in a hit stop      0.140..0.482 (median 0.226), peak up to 0.97, px 425..959, n=5
+  debris                 0.103..0.178 (median 0.134), peak up to 0.66, px 2328..5147, n=16
+  head                   0.057..0.198 (median 0.113), peak up to 0.77, px 144..5083, n=61
+  head in a hit stop     0.076..0.125 (median 0.099), peak up to 0.76, px 1374..4690, n=16
+  haft                   0.072..0.191 (median 0.163), peak up to 0.60, px 23..102, n=61
+  haft in a hit stop     0.105..0.186 (median 0.125), peak up to 0.57, px 49..107, n=16
+  [cast] n 8 shell 0.118 shield 0.0 cast-edges 0.225
+  [low] n 8 shell 0.061 shield 0.0
+  [full] n 6 shell 0.156 shield 36.0
+  [charge] n 8 shell 0.078 shield 4.0 streak 0.122
+  [slam] n 8 shell 0.152 shield 8.0 flash 0.185 sparks 0.145 number 0.000 tag 0.261
+  [stop] n 8 shell 0.060 shield 0.0
+  [stopHi] n 7 shell 0.130 shield 30.3
+  [close0] n 8 shell 0.000 shield 2.5 debris 0.139
+  [close] n 8 shell 0.000 shield 2.5 debris 0.126
+FILL (recorded on 4849 drawn window frames): max |alpha - (0.15 + 0.45 x shield/90)| = 0.00e+00; alpha 0.150..0.581, shield 0.0..86.2
+FILL ON THE PIXELS: plate-interior lift vs shield/cap over 44 frames: r = 0.941, slope +0.171 per cap, lift 0.040..0.146 at shield/cap 0.00..0.51
+CONTROL 1 (the fill as a lighter glow disc at 0.6 over the ball, emissive): on 53 window frames dLift max +0.0059 (gate +0.02: FAILS on 0); caster disc max 1.000, > 0.90 on 35 (without it: 4)
+CONTROL 2 (the fill as a lighter glow halo R + 120 at 0.35, emissive): on 53 window frames dLift max +0.0668 (gate +0.02: FAILS on 11); caster disc max 1.000, > 0.90 on 13 (without it: 4)

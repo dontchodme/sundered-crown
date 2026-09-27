@@ -1,0 +1,14 @@
+
+RENDER A/B  1 pairings x 4 frames  540x960
+  a  sc-tendril-t3.html
+  b  sc-onslaught-fx.html
+  portcullis v grudgebearer seed 31337 t=  6.00  DIFFERS   luma 20.764 -> 20.934   lit 88.17% -> 88.16%
+  portcullis v grudgebearer seed 31337 t= 17.00  DIFFERS   luma 22.127 -> 22.657   lit 89.76% -> 89.73%
+  portcullis v grudgebearer seed 31337 t= 19.50  DIFFERS   luma 19.317 -> 19.413   lit 68.32% -> 68.32%
+  portcullis v grudgebearer seed 31337 t= 33.00  DIFFERS   luma 21.304 -> 21.641   lit 87.71% -> 87.70%
+
+FAIL  0/4 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+EXIT 1

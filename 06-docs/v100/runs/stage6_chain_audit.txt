@@ -1,0 +1,28 @@
+  (21 insert(s) found in portcullis_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-onslaught-fx.html
+tip    sc-onslaught-fx.html
+21 inserts read out of portcullis_build.py
+
+    ok  S1:portcullis joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the ram has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the ram's window relic  1  mid   -  tip  1
+    ok  S2:the cast opens the ram and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the ram ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickRam charges, slams and banks relic  2  mid   -  tip  2
+    ok  S3:the bank                relic  1  mid   -  tip  1
+    ok  S5:the blade: at the crossing relic  1  mid   -  tip  1
+    ok  S6:Sfx: Portcullis's cast, slam and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:Sfx: the ward's bank voice -- a new kind, `ward-bank`, before hex-snap relic  1  mid   -  tip  1
+    ok  S6:tickRam: the slam voice, on the slam's frame, carrying the shield it hit for relic  1  mid   -  tip  1
+    ok  S6:tickRam: the ward's bank voice, after the bank's three writes relic  1  mid   -  tip  1
+    ok  S6:tickRam: the close voice, when the window closes by its clock with the caster alive relic  1  mid   -  tip  1
+    ok  S6:onslaught picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:onslaught picture: the presentation clock relic  1  mid   -  tip  1
+    ok  S6:onslaught picture: the ward ring stands down under the shell relic  1  mid   -  tip  1
+    ok  S6:onslaught picture: the banded haft relic  1  mid   -  tip  1
+    ok  S6:onslaught picture: the plated square head relic  1  mid   -  tip  1
+    ok  S6:onslaught picture: the shell's call (world, under both balls) relic  1  mid   -  tip  1
+    ok  S6:onslaught picture: the slam's call (world, over both fighters) relic  1  mid   -  tip  1
+    ok  S6:onslaught picture: drawRam / _drawRamShell / drawRamTop relic  1  mid   -  tip  1
+
+ALL 21 INSERTS SURVIVE to sc-onslaught-fx.html

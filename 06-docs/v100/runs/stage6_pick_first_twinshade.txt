@@ -1,0 +1,21 @@
+
+  sc-onslaught-fx.html  ·  12 foes x 6 seeds  (dawnbringer, lastlight, slagheart, nightfell, twinshade, foregone, marrowdraw, thornshear, cindercleave, gloamwire, duskreave, ironwood)
+
+  foe              seed  cast at  window  clock  slams  nums   peak   lit%  foeUlt  score
+  twinshade      100175    68.47   12.13      1      7     5   74.1    5.2       0   11.3
+  thornshear     100212    63.59    9.80      1      7     4   84.2   12.1       0   11.2
+  slagheart      100175    31.23    8.84      1      6     6   90.0   18.4       1   10.8
+  twinshade      100286    68.47   11.78      1      7     4   46.2   16.4       0   10.5
+  slagheart      100101    31.62    8.77      1      7     4   48.0    9.4       0   10.4
+  dawnbringer    100212    15.27    9.05      1      7     7   45.3   19.0       1   10.3
+  nightfell      100138    46.66    9.62      1      8     5   48.5    5.3       1   10.2
+  marrowdraw     100286    31.36    8.81      1      6     5   90.0    9.0       1   10.2
+  twinshade      100249    51.02    9.47      1      6     5   44.1    7.8       0   10.1
+  duskreave      100138    30.51    8.61      1      7     7   31.1   22.7       1   10.0
+  slagheart      100249    14.11   10.50      1      6     5   60.3   32.1       1   10.0
+  dawnbringer    100249    46.14    9.24      1      6     5   72.5   17.5       1   10.0
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/portcullis/links/sc-onslaught-fx.html --a portcullis --b twinshade --seed 100175 \
+      --at 67.27 --window 15.13 --end-at-window --fps 60 --w 540 --out ../07-shorts/v100/onslaught-window.mp4

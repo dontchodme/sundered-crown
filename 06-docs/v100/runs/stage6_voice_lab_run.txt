@@ -1,0 +1,151 @@
+
+ONSLAUGHT -- THE VOICES   game sc-tendril-t3.html 5a6216e3b629fad4
+  every render: OfflineAudioContext 48 kHz, first event at t = 1.0, through Sfx.buildChain, render.py's xorshift noise;
+  a candidate is rendered from its arm's own text
+  runtime Chromium 151.0.7922.34
+  THE SYNTH'S KINDS TODAY (17): hit, nova, clank, scour-hold, scour-tick, scour-woosh, scour-moo, ult, hex-snap, seal, death, loose, fork, spark, aegis, vine, wall -- no ward or bank voice
+
+CONTROLS -- v88 published rune-crack 0.608 / 450 ms, BAR 0.364 / 300 ms, hit@11.6 0.443 / 80 ms. They must come back.
+  rune-crack   peak 0.608 at    6 ms   audible   450 ms   loudest 50 ms 0.1356   centroid   3158 Hz   low 0.00
+  BAR          peak 0.364 at    7 ms   audible   300 ms   loudest 50 ms 0.1131   centroid   1685 Hz   low 0.00
+  hit@11.6     peak 0.443 at    7 ms   audible    80 ms   loudest 50 ms 0.1173   centroid    233 Hz   low 0.09
+  hit@23       peak 0.473 at    8 ms   audible   100 ms   loudest 50 ms 0.1424   centroid    190 Hz   low 0.25
+  wall         peak 0.097 at    7 ms   audible    25 ms   loudest 50 ms 0.0112   centroid  12322 Hz   low 0.00
+  death        peak 0.501 at    8 ms   audible   620 ms   loudest 50 ms 0.2657   centroid    111 Hz   low 0.91
+  clank        peak 0.585 at    8 ms   audible   210 ms   loudest 50 ms 0.1130   centroid   2295 Hz   low 0.08
+  spark        peak 0.083 at    6 ms   audible   135 ms   loudest 50 ms 0.0275   centroid   1560 Hz   low 0.00
+  shatter      peak 0.566 at    8 ms   audible    90 ms   loudest 50 ms 0.1314   centroid    367 Hz   low 0.14
+  hex-snap     peak 0.394 at    6 ms   audible    25 ms   loudest 50 ms 0.0392   centroid   3350 Hz   low 0.00
+  bulwarden    peak 0.370 at    8 ms   audible   460 ms   loudest 50 ms 0.1746   centroid    260 Hz   low 0.07
+  vesper       peak 0.263 at    7 ms   audible   500 ms   loudest 50 ms 0.1082   centroid    366 Hz   low 0.01
+  starwarden   peak 0.271 at  507 ms   audible  1110 ms   loudest 50 ms 0.0962   centroid    319 Hz   low 0.01
+  gravemourn   peak 0.413 at   49 ms   audible   650 ms   loudest 50 ms 0.1911   centroid    204 Hz   low 0.70
+  slagheart    peak 0.490 at   11 ms   audible   720 ms   loudest 50 ms 0.2657   centroid    691 Hz   low 0.95
+  redflail     peak 0.489 at  307 ms   audible   830 ms   loudest 50 ms 0.1800   centroid    245 Hz   low 0.69
+  paradox      peak 0.589 at    6 ms   audible  1405 ms   loudest 50 ms 0.1157   centroid   1101 Hz   low 0.29
+  morningstar  peak 0.201 at  506 ms   audible   690 ms   loudest 50 ms 0.1032   centroid   1064 Hz   low 0.00
+  reproduction: PASS  all 6 published numbers come back
+  ARE rune-crack today (max |diff| vs ult/spellbreaker): portcullis 6.0e-08, lightkeeper 6.0e-08, farwarden 4.5e-08, bindweed 6.0e-08
+  the hit @ 23 across 12 draws: loudest 50 ms 0.1420-0.1463, peak 0.457-0.527;  the wall tick: 0.0105-0.0118
+
+CAST -- 'a metal-on-stone clang and a low hum settling, 0.4s'. Level-matched: TOP 0.1019 (the centre of 0.0731-0.1420), the hum 6 dB under the clang, AUDIBLE 400 ms
+  cand           g     kh    dh    ks calls     top  aud  note     inh x/c/dB  ring  lead stone   dry  dull  tail  @300 rise   rc bulw vesp star grav slag  thr para morn clnk  dth  hit
+  1 BAR     0.1204 0.4328 0.751  6.07     6  0.1042  400   330  2.76/147/-7   -10.2  -2.6  -9.0 -33.7   458  0.85 -17.2  0.4 0.37 0.38 0.64 0.69 0.54 0.27 0.68 0.71 0.22 0.35 0.49 0.38
+  2 PLATE  0.08886 0.5887 0.751  9.09     7  0.1051  400   330  1.59/402/-3    -9.3  -4.1  -8.9 -34.3   452  0.81 -16.5  0.4 0.21 0.41 0.73 0.66 0.53 0.25 0.68 0.66 0.31 0.41 0.47 0.34
+  3 GRILLE   0.132 0.3916 0.783  6.19     9  0.1045  400   336  2.70/182/-11   -8.3  -2.5  -9.0 -34.4   459  0.84 -16.1  0.4 0.37 0.39 0.65 0.70 0.54 0.27 0.69 0.71 0.21 0.34 0.49 0.38
+  4 LOW      0.116 0.4461 0.689  6.11     6  0.1031  405   165  2.76/145/-8   -10.7  -2.6  -9.0 -42.5   455  0.74 -19.9  0.4 0.19 0.54 0.56 0.70 0.54 0.27 0.74 0.79 0.18 0.53 0.51 0.63
+  5 CLANK   0.1279 0.4069 0.738   5.9     8  0.1040  400   330  2.40/319/-5    -9.8  -3.3  -9.0 -37.7   458  0.80 -17.0  0.4 0.37 0.38 0.61 0.67 0.55 0.26 0.68 0.74 0.50 0.41 0.47 0.38
+  0 BELL    0.1204 0.4328 0.751  6.07     5  0.1015  425   330  2.76/144/-7   -10.2  -2.3-145.3  -5.5 11934  0.88 -18.0  0.4 0.35 0.32 0.57 0.65 0.51 0.25 0.64 0.66 0.15 0.28 0.48 0.35
+  0 NOHUM   0.1204 0.4328 0.751  6.07     4  0.1001  280   330  2.76/147/-7   -10.1  -1.8  -8.1 -40.9   455  0.00 -45.3  0.0 0.40 0.25 0.70 0.74 0.35 0.11 0.41 0.57 0.24 0.26 0.15 0.20
+  0 CLANG   0.1204 0.4328 0.751  6.07     3  0.0592  460   253  1.95/ 43/-4   -16.7 -10.3  -4.0 -62.8   453  0.99 -18.0  0.4 0.22 0.58 0.46 0.49 0.72 0.41 0.88 0.73 0.21 0.50 0.79 0.58
+  0 HELD    0.1204 0.4328 0.751  6.07     6  0.1070  405   330  2.76/147/-7   -10.7  -2.9  -9.2 -32.3   458  0.99  -1.2  0.6 0.27 0.36 0.47 0.51 0.56 0.31 0.78 0.70 0.15 0.33 0.67 0.40
+  0 RC-NOW       0      0     0     0     5  0.1356  450  1581  3.04/ 24/-13  -46.0  -2.7  -5.4 -37.7 13818  0.00 -27.2  0.0 1.00 0.31 0.28 0.35 0.24 0.12 0.29 0.48 0.45 0.42 0.07 0.14
+    1 BAR     an iron bar struck: triangles on E4 and its free-bar modes 2.76 / 5.40 at 0.45 / 0.2
+    2 PLATE   an iron plate struck: sines on E4 and its plate modes 1.59 / 2.14 / 2.65 at 0.7 / 0.5 / 0.35
+    3 GRILLE  two bars 3% apart (E4 and E4 x 1.03), beating: the grille's bars struck together
+    4 LOW     BAR an octave down (E3): the heavier gate
+    5 CLANK   the weapon clank's own partials (1 : 2.41 : 3.83 : 5.17 : 7.02) on E4
+    0 BELL    BAR without the stone -- a control
+    0 NOHUM   BAR without the hum -- a control
+    0 CLANG   BAR's stone and hum, no clang -- a control
+    0 HELD    BAR with its hum held flat and cut at 0.4 s -- a control
+    0 RC-NOW  what ult/portcullis plays today (rune-crack) -- a control
+  RULE  '0.4s': AUDIBLE 330-470 ms; 'a metal ... clang': the note (150 Hz-4 kHz, first 60 ms) is METAL (its strongest peak between 1.5x and 4x lies >= 60 cents from every whole multiple, within 20 dB), RINGS (its third-octave in 100-150 ms within 20 dB of 0-50 ms) and LEADS (that third-octave over 0-50 ms within 10 dB of the whole voice's RMS there); 'on stone': a dry noise impact under the ring -- STONE >= -12 dB, DRY <= -20 dB, DULL <= 1500 Hz (a thunk, not a hiss); 'a low hum': TAIL-LOW >= 0.50 (what is left at the end is under 150 Hz); 'settling': the hum band 300 ms in >= 10 dB under its own loudest, and never rising >= 1 dB after it. Register against rune-crack, the school's casts (Bulwarden, Vesper, Starwarden), the type's (Gravemourn, Slagheart, Threshmaw, Paradox, Morningstar), the clank, the death voice and the hit @ 23 each <= 0.80 (not the fallback it replaces, not a row-mate, not a parry, not a death, not a blow). Level: TOP between 0.5x the hit @ 23's loudest 50 ms on its LOUDEST draw and 1.0x on its QUIETEST (heard like a blow, never over one). Tiebreak: the most distinct register (the highest of those twelve, to 0.05), then the fewest calls.
+  0 BELL (a control) comes back wrong, as it must: stone -145.3 dB < -12; the stone rings (-5.5 dB by 60 ms); the stone is a hiss (centroid 11934 Hz)
+  0 NOHUM (a control) comes back wrong, as it must: audible 280 ms, not 330-470; tail-low 0.00 < 0.50 (no hum left)
+  0 CLANG (a control) comes back wrong, as it must: not metal: its partial at 1.95x is 43 c from a whole multiple, -4 dB; the clang does not lead (-10.3 dB re the attack); register vs redflail 0.88 > 0.80
+  0 HELD (a control) comes back wrong, as it must: the hum -1.2 dB at 300 ms (not settling)
+  0 RC-NOW (a control) comes back wrong, as it must: not metal: its partial at 3.04x is 24 c from a whole multiple, -13 dB; the clang does not ring (-46.0 dB by 100 ms); the stone is a hiss (centroid 13818 Hz)
+  PICK  1 BAR  g 0.1204, kh 0.4328, dh 0.751, ks 6.073; 6 synth calls; TOP 0.1042 = -2.7 dB re the hit @ 23 (quietest draw), +18.9 dB re the wall; the hum -6.2 dB re the clang
+
+SLAM -- 'a heavy gated thud (share below 120 Hz >= 0.45, <= 0.25s), louder with the shield (peak 0.35 -> 0.65 across 0 -> 90)'. Level-matched: g = A + B u + C u^2 solved to PEAK 0.35 / 0.50 / 0.65 at u = 0 / 0.5 / 1
+  cand            A       B       C calls    pk0   pk22   pk45   pk67   pk90   err  errW  lowW  gone  hold  cut rise  pk@     inb  hit  dth   rc cast
+  1 SINE     0.1462  0.2161 0.06481     4  0.350  0.426  0.500  0.574  0.650 0.001 0.011  0.99   210  0.98    5    2    8  0.1191 0.38 0.46 0.05 0.50
+  2 NOISE    0.2274  0.3584  0.1633     4  0.350  0.425  0.500  0.575  0.650 0.000 0.046  0.99   210  0.98    5    1    8  0.1726 0.23 0.17 0.04 0.35
+  3 STACK    0.1759  0.2649 0.06874    14  0.350  0.426  0.500  0.574  0.650 0.001 0.012  0.90   225  0.86   30    1    8  0.0575 0.54 0.55 0.06 0.49
+  4 TOM      0.1366  0.1937 0.04482     4  0.350  0.427  0.500  0.574  0.650 0.002 0.011  0.84   200  0.95   10    1    8  0.1106 0.40 0.40 0.05 0.20
+  0 PLAIN    0.1505  0.2227 0.06484     4  0.350  0.426  0.500  0.574  0.650 0.001 0.011  0.95   205  0.12  175    2    8  0.0508 0.49 0.51 0.06 0.52
+  0 LONG     0.1462  0.2161 0.06481     4  0.350  0.426  0.500  0.574  0.650 0.001 0.011  0.99   360  0.56  155    2    8  0.1191 0.33 0.44 0.05 0.50
+  0 FLAT     0.1462  0.2161 0.06481     4  0.500  0.500  0.500  0.500  0.500 0.150 0.158  0.99   210  0.98    5    2    8  0.1708 0.38 0.46 0.05 0.50
+    1 SINE    a held A1 sine and an A2 triangle at 0.5, cut together at 0.2 s; a 150 -> 55 Hz punch and a contact click
+    2 NOISE   a held A1 sine and a 300 Hz lowpass noise body at 0.6, cut together at 0.2 s (a gated room); punch and click
+    3 STACK   the body RE-STRUCK every two cycles of A1 for 0.2 s (sine + A2 triangle), no stop; punch and click
+    4 TOM     SINE a fifth up: E2 (82.4 Hz) and E3, cut at 16 cycles (0.194 s)
+    0 PLAIN   SINE's body with no gate, each tone decaying over 0.35 s -- a control
+    0 LONG    SINE gated at 0.35 s -- a control
+    0 FLAT    SINE at its shield-45 gain for every shield -- a control
+  gates: in-band at shield 0 >= 0.0128 (2x the score's p90 at A1)
+  RULE  'share below 120 Hz >= 0.45': LOW >= 0.45 on the WORST draw at every shield; '<= 0.25s': GONE <= 250 ms at every shield; 'gated': HOLD >= 0.5 and CUT <= 20 ms at every shield; 'a thud': RISE <= 5 ms, the peak in the first 15 ms; 'peak 0.35 -> 0.65 across 0 -> 90': PEAK within 0.02 of 0.35 + 0.30 x shield / 90 at shields 0, 22.5, 45, 67.5, 90 on render.py's draw and within 0.03 on every draw, rising with every step; heard: at shield 0 its third-octave at its body's pitch >= 2x the score's p90 there. Register against the hit @ 23, the death voice, rune-crack and the picked cast each <= 0.80 (a slam is not a blow, not a death). Tiebreak: the most distinct register (to 0.05), then the fewest calls.
+    2 NOISE   out: peak off the line by 0.046 (worst draw)
+    3 STACK   out: cut 30 ms > 20 (not gated)
+  0 PLAIN (a control) comes back wrong, as it must: hold 0.12 < 0.5 (not gated); cut 175 ms > 20 (not gated)
+  0 LONG (a control) comes back wrong, as it must: gone at 360 ms (> 250); cut 155 ms > 20 (not gated)
+  0 FLAT (a control) comes back wrong, as it must: peak off the line by 0.150 (render.py's draw); peak off the line by 0.158 (worst draw); peak not rising with the shield
+  PICK  4 TOM  g = 0.1366 + 0.1937 u + 0.04482 u^2; peaks 0.350 / 0.427 / 0.500 / 0.574 / 0.650 at shield 0-90; LOW 0.84 worst; gone 200 ms; hold 0.95, cut 10 ms
+
+BANK -- the ward's bank voice: NONE EXISTS, so this is `ward-bank`, new. Level-matched: loudest 50 ms 0.0485 (the centre of 0.0236-0.0994)
+  cand             g calls             top  aud  pitch   over sprk shat clnk hexs   rc slam cast
+  1 LATCH     0.1264     4  0.0485-0.0485    65   2637   13.9 0.21 0.21 0.37 0.48 0.37 0.06 0.19
+  2 CHARGE     0.111     2  0.0485-0.0485    70   1466   15.5 0.55 0.40 0.30 0.45 0.59 0.04 0.19
+  3 PLATE    0.06675     3  0.0485-0.0485   100   1760   15.8 0.82 0.30 0.42 0.46 0.64 0.03 0.18
+  4 SHIMMER   0.3546     1  0.0465-0.0520    75   2031    7.1 0.32 0.21 0.45 0.87 0.53 0.02 0.14
+  0 SPARK       0.05     1  0.0275-0.0275   135   1510   12.7 1.00 0.32 0.36 0.23 0.74 0.02 0.17
+  0 LONG     0.04235     3  0.0485-0.0485   345   1760   16.5 0.82 0.28 0.39 0.40 0.61 0.02 0.15
+    1 LATCH    a latch catching: two quick struck ticks rising a third (C7 then E7, 35 ms apart), each with a bar mode
+    2 CHARGE   a rising glint: a triangle climbing an octave, E6 -> E7, over 0.12 s, a sine an octave over it
+    3 PLATE    a small bright plate ping on A6 (plate modes 1 : 1.59 : 2.14), 0.15 s
+    4 SHIMMER  a noise band sweeping up, 1.5 -> 5 kHz over 0.14 s (the ward filling)
+    0 SPARK    the spark collect itself (n 3), played as the bank: the blessing's chime -- a control
+    0 LONG     PLATE ringing 0.5 s -- a control
+  RULE  No doc number exists for this voice (it is new); the gates are what it must do in play. 'on every slam': OVER-SLAM >= +10 dB (heard on the loudest slam's own frame) and AUDIBLE <= 200 ms (over well before the next slam, >= 0.5 s on); heard: loudest 50 ms between 2x the wall tick's (loudest draw) and 0.7x the hit @ 23's (quietest draw) on every draw; 'the ward's', not another's: register against the spark collect (the blessing's bank), the shatter (the ward breaking), the clank, hex-snap, rune-crack, the picked slam and the picked cast each <= 0.80. Tiebreak: the lowest worst register (to 0.05), then the fewest calls.
+    3 PLATE    out: register vs spark 0.82 > 0.80
+    4 SHIMMER  out: over the slam +7.1 dB < +10; register vs hex-snap 0.87 > 0.80
+  0 SPARK (a control) comes back wrong, as it must: register vs spark 1.00 > 0.80
+  0 LONG (a control) comes back wrong, as it must: audible 345 ms > 200; register vs spark 0.82 > 0.80
+  PICK  1 LATCH  g 0.1264; loudest 50 ms -9.3 dB re the hit @ 23, +12.3 dB re the wall; over the loudest slam +13.9 dB in its band
+
+CLOSE -- 'plates falling -- three short clinks'. Level-matched: loudest 50 ms 0.0485 (the centre of 0.0236-0.0994), each clink audible 50 ms
+  cand             g      D calls       onsets ms          aud               Hz        inh c     top gone     inb clnk  hit   rc bank cast
+  1 FALL     0.09424 0.0769     9       7/106/236     50/50/50   1318/1174/1045  397/396/395  0.0485  285  0.0362 0.45 0.29 0.65 0.62 0.49
+  2 BOUNCE   0.09856 0.0769     9       7/146/236     50/50/55   1318/1318/1317  397/396/396  0.0485  280  0.0375 0.39 0.27 0.47 0.64 0.36
+  3 SCATTER  0.09836 0.0769     9        7/87/216     50/50/50   1174/1397/1045  396/397/395  0.0485  265  0.0372 0.40 0.23 0.67 0.61 0.41
+  0 TWO      0.09424 0.0769     6           7/106        50/50        1318/1174      397/396  0.0485  155  0.0362 0.42 0.29 0.50 0.64 0.40
+  0 RING     0.04931    0.1     98/53/106/147/236/280  210/205/205   1318/1174/1046  397/397/396  0.0485  435  0.0378 0.33 0.20 0.62 0.64 0.36
+  0 TINK      0.1162 0.0833     3       6/106/236     50/50/50   1318/1174/1046  498/498/498  0.0485  285  0.0471 0.26 0.19 0.56 0.22 0.39
+  0 LATE     0.09856 0.0769     9       7/207/466     50/50/50   1318/1174/1045  397/396/396  0.0485  515  0.0375 0.41 0.25 0.63 0.64 0.43
+    1 FALL     three plates, each a step lower (E6, D6, C6: the score's pentatonic down), 0.10 / 0.13 s apart
+    2 BOUNCE   one plate bouncing to rest: E6 three times, 0.14 / 0.09 s apart, each quieter
+    3 SCATTER  three plates landing out of order: D6, F6, C6 at 0 / 0.08 / 0.21 s
+    0 TWO      FALL's first two clinks -- a control
+    0 RING     FALL with every clink ringing 0.3 s -- a control
+    0 TINK     FALL with plain sine clinks (no plate modes) -- a control
+    0 LATE     FALL spread over 0.46 s, past the picture's fall -- a control
+  RULE  'three': exactly three ONSETS in the first 0.5 s; 'short': each clink alone AUDIBLE <= 80 ms and the whole GONE <= 400 ms; 'clinks' (small metal struck): each clink RISE <= 3 ms with its peak in its first 10 ms, its note >= 1 kHz, and METAL (its strongest peak between 1.5x and 4x the note >= 60 cents from every whole multiple, within 20 dB); 'plates falling' inside the picture's 0.3 s fall: the third onset <= 300 ms; heard: loudest 50 ms between 2x the wall tick's and 0.7x the hit @ 23's, and the first clink's third-octave >= 2x the score's p90 there. Register against the clank, the hit @ 23, rune-crack, the picked bank and the picked cast each <= 0.80. Tiebreak: the lowest worst register (to 0.05), then the clinks FALLING ('plates falling': each lower than the last), then the fewest calls.
+  0 TWO (a control) comes back wrong, as it must: 2 onsets, not three
+  0 RING (a control) comes back wrong, as it must: 6 onsets, not three; gone at 435 ms; clink 1 audible 210 ms
+  0 TINK (a control) comes back wrong, as it must: clink 1 not metal: its partial at 1.50x is 498 c from a whole multiple, -45 dB; clink 2 not metal: its partial at 1.50x is 498 c from a whole multiple, -43 dB; clink 3 not metal: its partial at 1.50x is 498 c from a whole multiple, -45 dB
+  0 LATE (a control) comes back wrong, as it must: the third clink at 466 ms (> 300); gone at 515 ms
+  PICK  1 FALL  g 0.09424, D 0.0769; loudest 50 ms -9.3 dB re the hit @ 23, +12.3 dB re the wall
+
+THE SFX ROWS, applied to Sfx.prototype.play's own source and rendered:
+  REPRO -- the render floor: the loudest slam rendered twice from the same text differs by at most 1.2e-07 (three tries); the tolerance is 1e-05
+  the arms vs the picked candidates, max |diff|: cast 6.0e-08, slam@0 4.5e-08, slam@4.5 6.0e-08, slam@11.25 8.9e-08, slam@22.5 8.9e-08, slam@45 8.9e-08, slam@67.5 0.0e+00, slam@81 1.2e-07, slam@90 1.2e-07, slam@120 1.2e-07, slam@-3 6.0e-08, bank 3.0e-08, close 6.0e-08
+  every other voice through the patched play vs the original (125 voices: the hit at 5 weights x crit, spark x3, wall, death, clank x2, seal, nova, hex-snap, aegis x2, vine x4, loose x3, fork, scour x4, and 91 ult ids -- every relic's cast and every sub-voice the ult arm names): worst max |diff| 1e-07 (nova/)
+  ult/portcullis vs rune-crack after the rows: max |diff| 0.727 -- no longer the fallback
+  main-thread cost a call (median of 40, performance.now() at its headless resolution): cast 0.20 ms, slam 0.20 ms, bank 0.10 ms, close 0.30 ms, hit 0.10 ms
+
+THE tickRam ROWS, applied to Match.prototype.tickRam's own source, run beside the original on real fights (the mirror match refused by Match -- not run):
+  148 fights (Portcullis both sides x every foe x seeds [100601, 100602]): 148/148 identical (over, clock, both hp, both shields, both positions and velocities, winner, the whole ramTally); every other voice call identical in order, kind and opts in 148/148
+  windows {'clock': 439, 'death': 16, 'over': 73, 'recast': 0}: 528 casts -> 528 cast voices; 2058 slams -> 2058 slam voices; 2058 banks -> 2058 bank voices (23 at the cap); 439 closes; problems 0
+  the shield a slam carries: 773 of 2058 at 0 (38%), median 8.6, p90 48.2, max 90.0; slams a window: median 4, max 9
+  the control (the rows plus one sim write, the foe nudged 1e-9 on a slam): 3/148 identical -- it fails, as it must
+  THE CLOSE ON A DEATH: 16 windows closed by the caster's death and 73 by the fight's end play no close (checked above); a caster's death ends the fight on the close's own frame and a foe's before any close, so both endings belong to the death voice (Zenith's, Daybreak's and Canopy's rule).
+
+IN A REAL WINDOW -- portcullis v thornwake (side 0), seed 100602, cast at 46.70s, closed by its clock at 56.22s, 9 slams; the fight's own sounds and the score, with and without the slam, bank and close voices
+  each slam over the fight in its own third-octave: +36.8 +7.9 +14.3 +9.7 +57.7 +46.2 +41.9 +23.9 +7.5 dB (shields 0 8 0 8 0 8 0 0 29)
+  each bank: +19.7 +48.1 +20.0 +32.7 +46.1 +39.2 +28.5 +46.5 +24.9 dB;  the close: +31.1 dB
+
+THE PICKS  cast 1 BAR   slam 4 TOM   bank 1 LATCH   close 1 FALL
+WAVS   C:\dev\sundered-crown\05-reference\v100  (47 files, 4896 KB, raw level)
+
+  NOTHING IS IN THE BUILD. The five rows are the edits; all five were applied to the page's own code above.

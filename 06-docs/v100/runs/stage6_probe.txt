@@ -1,0 +1,20 @@
+
+ONSLAUGHT PROBE  sc-onslaught-fx.html  Chromium 151.0.7922.34  444 fights (Portcullis both sides x every foe x 6 seeds)   ult {'charge': 14, 'accel': 600, 'share': 0.25, 'cd': 0.5, 'knock': 500, 'bank': 8}
+  per cast: slams 3.85  dmg 17.38  banked 30.28   shield on a window frame 18.25 (per fight, windowless as 0: 18.47)   casts/fight 3.64   Portcullis win 58.6%
+  slams at zero shield 2382   killing slams 40   wards broken by a slam 110   pinned frames 16003
+  stage 6 voices: casts 1616, slams 6226, banks 6226, clock closes 1328, deaths quiet 32
+  stage 6 picture: presentation ticks unmoved 4966170, draws unmoved 448764, settled fills on the line 2948822
+  [1] PASS  the charge: v + unit(foe) x accel x dt, clamped at speedMax; none while pinned
+  [2] PASS  a slam only inside 2R + pad, never closer than `cd`, never a missed clear contact
+  [3] PASS  each slam: hurt(foe, share x shield) once from the caster; none at zero shield
+  [4] PASS  the knock: `knock` along caster -> foe; the foe's position untouched
+  [5] PASS  the bank: min(cap, shield + bank), shieldMax, the ward's clock; banks = slams (none at bank 0)
+  [6] PASS  one hit beat marked `ram` a slam, fatal iff it killed; none otherwise
+  [7] PASS  no hit stop but a ward's own shatter
+  [8] PASS  the window is `dur` long on the window clock
+  [9] PASS  only Portcullis carries ultRam
+  [10] PASS  stage 6 voices: one a cast; one a slam with the shield it hit for, then one ward-bank; one a clock close and none on a death; none elsewhere; a ram frame's only hit voice a ward's own shatter
+  [11] PASS  stage 6 picture: its tick and its draws move no sim state and draw no rng; every slam seen once; the fill is 0.15 + 0.45 x shield / cap
+
+  11/11
+EXIT 0

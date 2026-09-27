@@ -61,7 +61,14 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-tendril-t3.html      THE CHAIN TIP. 38 RELICS: BINDWEED / TENDRIL, the
+02-chain/sc-onslaught-fx.html    THE CHAIN TIP, AWAITING RICK'S EYE. Portcullis stage 6
+                                 (v100 §5) on sc-tendril-t3: the plated shell (fill
+                                 tracks shield/cap), the slam's flash and number, a new
+                                 ward-bank voice; drawn sparks (no fx.js field). Moves
+                                 no fight (engine_ab 4218/4218). Stage-6 links now go
+                                 on the tip as each lands (the batch is built in
+                                 scratch and carried one relic at a time).
+02-chain/sc-tendril-t3.html      the link under it. 38 RELICS: BINDWEED / TENDRIL, the
                                  verdant flail (bindweed_build.py stages 1-5, v101).
                                  For 8s the chain is a vine: it turns toward the foe
                                  (spin 0), grows to its rim, bites 2 + entangle every

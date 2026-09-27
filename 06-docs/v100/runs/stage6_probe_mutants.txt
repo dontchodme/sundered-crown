@@ -1,0 +1,42 @@
+=== mut-closeondeath
+
+ONSLAUGHT PROBE  mut-closeondeath.html  Chromium 151.0.7922.34  148 fights (Portcullis both sides x every foe x 2 seeds)   ult {'charge': 14, 'accel': 600, 'share': 0.25, 'cd': 0.5, 'knock': 500, 'bank': 8}
+  per cast: slams 3.87  dmg 17.38  banked 30.31   shield on a window frame 17.98 (per fight, windowless as 0: 18.23)   casts/fight 3.61   Portcullis win 64.2%
+  slams at zero shield 818   killing slams 10   wards broken by a slam 30   pinned frames 5465
+  stage 6 voices: casts 534, slams 2068, banks 2068, clock closes 440, deaths quiet 0
+  stage 6 picture: presentation ticks unmoved 1650512, draws unmoved 149533, settled fills on the line 983128
+  [1] PASS  the charge: v + unit(foe) x accel x dt, clamped at speedMax; none while pinned
+  [2] PASS  a slam only inside 2R + pad, never closer than `cd`, never a missed clear contact
+  [3] PASS  each slam: hurt(foe, share x shield) once from the caster; none at zero shield
+  [4] PASS  the knock: `knock` along caster -> foe; the foe's position untouched
+  [5] PASS  the bank: min(cap, shield + bank), shieldMax, the ward's clock; banks = slams (none at bank 0)
+  [6] PASS  one hit beat marked `ram` a slam, fatal iff it killed; none otherwise
+  [7] PASS  no hit stop but a ward's own shatter
+  [8] PASS  the window is `dur` long on the window clock
+  [9] PASS  only Portcullis carries ultRam
+  [10] FAIL  stage 6 voices: one a cast; one a slam with the shield it hit for, then one ward-bank; one a clock close and none on a death; none elsewhere; a ram frame's only hit voice a ward's own shatter   10 FAIL: ["a close voice on the caster's death", "a close voice on the caster's death", "a close voice on the caster's death", "a close voice on the caster's death"]
+  [11] PASS  stage 6 picture: its tick and its draws move no sim state and draw no rng; every slam seen once; the fill is 0.15 + 0.45 x shield / cap
+
+  10/11
+EXIT 1
+=== mut-picsimwrite
+
+ONSLAUGHT PROBE  mut-picsimwrite.html  Chromium 151.0.7922.34  148 fights (Portcullis both sides x every foe x 2 seeds)   ult {'charge': 14, 'accel': 600, 'share': 0.25, 'cd': 0.5, 'knock': 500, 'bank': 8}
+  per cast: slams 3.88  dmg 17.47  banked 30.29   shield on a window frame 17.48 (per fight, windowless as 0: 17.71)   casts/fight 3.61   Portcullis win 58.8%
+  slams at zero shield 805   killing slams 12   wards broken by a slam 39   pinned frames 5313
+  stage 6 voices: casts 534, slams 2070, banks 2070, clock closes 436, deaths quiet 14
+  stage 6 picture: presentation ticks unmoved 1635810, draws unmoved 147799, settled fills on the line 970997
+  [1] PASS  the charge: v + unit(foe) x accel x dt, clamped at speedMax; none while pinned
+  [2] PASS  a slam only inside 2R + pad, never closer than `cd`, never a missed clear contact
+  [3] PASS  each slam: hurt(foe, share x shield) once from the caster; none at zero shield
+  [4] PASS  the knock: `knock` along caster -> foe; the foe's position untouched
+  [5] PASS  the bank: min(cap, shield + bank), shieldMax, the ward's clock; banks = slams (none at bank 0)
+  [6] PASS  one hit beat marked `ram` a slam, fatal iff it killed; none otherwise
+  [7] PASS  no hit stop but a ward's own shatter
+  [8] PASS  the window is `dur` long on the window clock
+  [9] PASS  only Portcullis carries ultRam
+  [10] PASS  stage 6 voices: one a cast; one a slam with the shield it hit for, then one ward-bank; one a clock close and none on a death; none elsewhere; a ram frame's only hit voice a ward's own shatter
+  [11] FAIL  stage 6 picture: its tick and its draws move no sim state and draw no rng; every slam seen once; the fill is 0.15 + 0.45 x shield / cap   2070 FAIL: ['tickPresentation moved the sim (t 15.800)', 'tickPresentation moved the sim (t 16.575)', 'tickPresentation moved the sim (t 18.642)', 'tickPresentation moved the sim (t 20.783)']
+
+  10/11
+EXIT 1

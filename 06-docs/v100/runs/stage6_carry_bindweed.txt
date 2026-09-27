@@ -1,0 +1,40 @@
+THE CARRY, TRIED IN SCRATCH: Bindweed's own stage 6 (bindweed_build.py --stage 6) and Portcullis's, on sc-tendril-t3, in both orders
+
+sc-tendril-t3 -> bindweed --stage 6 -> sc-tendril-fx  5e2cc29a1178bef4
+  -> portcullis --stage 6 -> 5c0492f4ed85595d:
+
+PORTCULLIS / ONSLAUGHT -- stage 6
+  src sc-tendril-fx.html  5e2cc29a1178bef4  (LF text)
+  base  the chain tip (Canopy stage 5, Zenith stage 6); the donor's flail profile, the vigil channel and the vigil head hold
+  ok    Sfx: Portcullis's cast, slam and close arms, before the shared rune-crack fallback
+  ok    Sfx: the ward's bank voice -- a new kind, `ward-bank`, before hex-snap
+  ok    tickRam: the slam voice, on the slam's frame, carrying the shield it hit for
+  ok    tickRam: the ward's bank voice, after the bank's three writes
+  ok    tickRam: the close voice, when the window closes by its clock with the caster alive
+  ok    onslaught picture: fighter fields
+  ok    onslaught picture: the presentation clock
+  ok    onslaught picture: the ward ring stands down under the shell
+  ok    onslaught picture: the banded haft
+  ok    onslaught picture: the plated square head
+  ok    onslaught picture: the shell's call (world, under both balls)
+  ok    onslaught picture: the slam's call (world, over both fighters)
+  ok    onslaught picture: drawRam / _drawRamShell / drawRamTop
+  ok    ult   ult:{ name:"Onslaught", charge:14, kind:"ram", dur:8, accel:600, share:0.25, pad:3, cd:0.5, knoc ...
+  ok    card  71 chars  'The shell charges the foe. Each slam hits for the shield and banks more'
+  ok    one ram ultimate, Portcullis's; no insert draws the RNG, takes the ultFx slot or writes the shared weapon row; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-tendril-fx+onslaught-fx.html  5c0492f4ed85595d   (+23366 chars, written LF)
+
+sc-tendril-t3 -> portcullis --stage 6 -> sc-onslaught-fx ee74fe9ad67e50a6 -> bindweed --stage 6 -> eea0cde5536955b3 (every anchor once, parses)
+
+the two orders: the same lines (sorted, identical); only the order of independent blocks differs (454 lines moved in 8 hunks),
+e.g. the synth's arms before the shared rune-crack fallback:
+7419,7478d7418
+7571a7512,7571
+19817,19820d19816
+19826a19823,19826
+19879a19880,19882
+19885,19887d19887
+20906,21065d20905
+21486a21327,21486

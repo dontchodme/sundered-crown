@@ -1,0 +1,49 @@
+  portcullis v grudgebearer 31337: draws 1512 thrown None windows 4 slams 19 found 19 tags 19 numbers due 14 | shell frames 1282 (in a hit stop 135) close->fade 0 [0.3, 0.35, 0.3] death->0 [0.0167] | fade at kill [0] -> 0 after 0 s | max hits 1 bits 6
+  aureole v portcullis 4101: draws 1355 thrown None windows 3 slams 14 found 14 tags 14 numbers due 8 | shell frames 1152 (in a hit stop 159) close->fade 0 [0.3, 0.3, 0.3] death->0 [] | fade at kill [0] -> 0 after 0 s | max hits 1 bits 6
+  portcullis v gravemourn 2207: draws 929 thrown None windows 2 slams 9 found 9 tags 9 numbers due 6 | shell frames 766 (in a hit stop 111) close->fade 0 [0.3, 0.3] death->0 [] | fade at kill [0.6944444444444455] -> 0 after 0.2167 s | max hits 1 bits 6
+  twinshade v portcullis 5150: draws 1861 thrown None windows 4 slams 17 found 17 tags 16 numbers due 7 | shell frames 1616 (in a hit stop 363) close->fade 0 [0.3, 0.5833, 0.3] death->0 [] | fade at kill [0.9722222222222223] -> 0 after 0.3 s | max hits 1 bits 6
+  portcullis v axiom 7719: draws 2593 thrown None windows 6 slams 32 found 32 tags 31 numbers due 15 | shell frames 2300 (in a hit stop 365) close->fade 0 [0.3, 0.3, 0.35, 0.4167, 0.35] death->0 [] | fade at kill [0.9722222222222223] -> 0 after 0.3 s | max hits 1 bits 6
+  bloodmirror v portcullis 90210: draws 1252 thrown None windows 3 slams 13 found 13 tags 13 numbers due 10 | shell frames 1063 (in a hit stop 149) close->fade 0 [0.3, 0.3] death->0 [] | fade at kill [0.9722222222222223] -> 0 after 0.3 s | max hits 1 bits 6
+  portcullis v morningstar 8888: draws 1594 thrown None windows 4 slams 11 found 11 tags 11 numbers due 9 | shell frames 1375 (in a hit stop 147) close->fade 0 [0.3, 0.3, 0.3] death->0 [] | fade at kill [0.9722222222222223] -> 0 after 0.3 s | max hits 1 bits 6
+  ironwood v portcullis 1234: draws 1510 thrown None windows 4 slams 11 found 11 tags 11 numbers due 4 | shell frames 1282 (in a hit stop 223) close->fade 0 [0.3, 0.3, 0.3] death->0 [] | fade at kill [0.9722222222222223] -> 0 after 0.3 s | max hits 1 bits 6
+  portcullis v lastlight 4242: draws 1245 thrown None windows 3 slams 10 found 10 tags 10 numbers due 3 | shell frames 1054 (in a hit stop 179) close->fade 0 [0.3, 0.3583] death->0 [] | fade at kill [0.9722222222222223] -> 0 after 0.3 s | max hits 1 bits 6
+  portcullis v bindweed 2317: draws 1501 thrown None windows 4 slams 15 found 15 tags 15 numbers due 5 | shell frames 1280 (in a hit stop 196) close->fade 0 [0.3, 0.3, 0.35] death->0 [] | fade at kill [0.9722222222222223] -> 0 after 0.3 s | max hits 1 bits 6
+  axiom v grudgebearer 31337: draws 461 thrown None windows 0 slams 0 found 0 tags 0 numbers due 0 | shell frames 0 (in a hit stop 0) close->fade 0 [] death->0 [] | fade at kill None -> 0 after None s | max hits 0 bits 0
+  morningstar v lastlight 4242: draws 325 thrown None windows 0 slams 0 found 0 tags 0 numbers due 0 | shell frames 0 (in a hit stop 0) close->fade 0 [] death->0 [] | fade at kill None -> 0 after None s | max hits 0 bits 0
+('portcullis', 'grudgebearer', 31337): final        IDENTICAL  steps@kill 7920 hash@kill [3927019511, 3603106895] winner Grudgebearer t 65.9999999999986
+('portcullis', 'grudgebearer', 31337): final drawn  IDENTICAL  steps@kill 7920 hash@kill [3927019511, 3603106895] winner Grudgebearer t 65.9999999999986
+('portcullis', 'grudgebearer', 31337): CONTROL (must differ)  DIFFERS  (control bit)
+('aureole', 'portcullis', 4101): final        IDENTICAL  steps@kill 6903 hash@kill [18078943, 3392691809] winner Portcullis t 57.52499999999738
+('aureole', 'portcullis', 4101): final drawn  IDENTICAL  steps@kill 6903 hash@kill [18078943, 3392691809] winner Portcullis t 57.52499999999738
+('aureole', 'portcullis', 4101): CONTROL (must differ)  DIFFERS  (control bit)
+('portcullis', 'gravemourn', 2207): final        IDENTICAL  steps@kill 4844 hash@kill [3112238177, 3007800615] winner Gravemourn t 40.36666666666502
+('portcullis', 'gravemourn', 2207): final drawn  IDENTICAL  steps@kill 4844 hash@kill [3112238177, 3007800615] winner Gravemourn t 40.36666666666502
+('portcullis', 'gravemourn', 2207): CONTROL (must differ)  DIFFERS  (control bit)
+('twinshade', 'portcullis', 5150): final        IDENTICAL  steps@kill 9403 hash@kill [2577653547, 1843747897] winner Twinshade t 78.35833333334176
+('twinshade', 'portcullis', 5150): final drawn  IDENTICAL  steps@kill 9403 hash@kill [2577653547, 1843747897] winner Twinshade t 78.35833333334176
+('twinshade', 'portcullis', 5150): CONTROL (must differ)  DIFFERS  (control bit)
+('portcullis', 'axiom', 7719): final        IDENTICAL  steps@kill 12607 hash@kill [864681175, 1719644025] winner Axiom t 105.05833333336301
+('portcullis', 'axiom', 7719): final drawn  IDENTICAL  steps@kill 12607 hash@kill [864681175, 1719644025] winner Axiom t 105.05833333336301
+('portcullis', 'axiom', 7719): CONTROL (must differ)  DIFFERS  (control bit)
+('bloodmirror', 'portcullis', 90210): final        IDENTICAL  steps@kill 6445 hash@kill [424077430, 65381748] winner Portcullis t 53.70833333333093
+('bloodmirror', 'portcullis', 90210): final drawn  IDENTICAL  steps@kill 6445 hash@kill [424077430, 65381748] winner Portcullis t 53.70833333333093
+('bloodmirror', 'portcullis', 90210): CONTROL (must differ)  DIFFERS  (control bit)
+('portcullis', 'morningstar', 8888): final        IDENTICAL  steps@kill 8047 hash@kill [3845426749, 2923280935] winner Morningstar t 67.05833333333277
+('portcullis', 'morningstar', 8888): final drawn  IDENTICAL  steps@kill 8047 hash@kill [3845426749, 2923280935] winner Morningstar t 67.05833333333277
+('portcullis', 'morningstar', 8888): CONTROL (must differ)  DIFFERS  (control bit)
+('ironwood', 'portcullis', 1234): final        IDENTICAL  steps@kill 7993 hash@kill [2060134605, 3493862281] winner Ironwood t 66.60833333333241
+('ironwood', 'portcullis', 1234): final drawn  IDENTICAL  steps@kill 7993 hash@kill [2060134605, 3493862281] winner Ironwood t 66.60833333333241
+('ironwood', 'portcullis', 1234): CONTROL (must differ)  DIFFERS  (control bit)
+('portcullis', 'lastlight', 4242): final        IDENTICAL  steps@kill 6443 hash@kill [3981861013, 2611505845] winner Lastlight t 53.69166666666426
+('portcullis', 'lastlight', 4242): final drawn  IDENTICAL  steps@kill 6443 hash@kill [3981861013, 2611505845] winner Lastlight t 53.69166666666426
+('portcullis', 'lastlight', 4242): CONTROL (must differ)  DIFFERS  (control bit)
+('portcullis', 'bindweed', 2317): final        IDENTICAL  steps@kill 7817 hash@kill [1040524324, 971457518] winner Bindweed t 65.14166666666458
+('portcullis', 'bindweed', 2317): final drawn  IDENTICAL  steps@kill 7817 hash@kill [1040524324, 971457518] winner Bindweed t 65.14166666666458
+('portcullis', 'bindweed', 2317): CONTROL (must differ)  DIFFERS  (control bit)
+('axiom', 'grudgebearer', 31337): final        IDENTICAL  steps@kill 9611 hash@kill [3909919743, 3058858543] winner Axiom t 80.09166666667647
+('axiom', 'grudgebearer', 31337): final drawn  IDENTICAL  steps@kill 9611 hash@kill [3909919743, 3058858543] winner Axiom t 80.09166666667647
+('axiom', 'grudgebearer', 31337): CONTROL (must differ)  IDENTICAL  (control bit)
+('morningstar', 'lastlight', 4242): final        IDENTICAL  steps@kill 6348 hash@kill [3422477607, 198002471] winner Lastlight t 52.89999999999764
+('morningstar', 'lastlight', 4242): final drawn  IDENTICAL  steps@kill 6348 hash@kill [3422477607, 198002471] winner Lastlight t 52.89999999999764
+('morningstar', 'lastlight', 4242): CONTROL (must differ)  IDENTICAL  (control bit)
+SIM IDENTITY: PASS | CONTROL: BIT ON EVERY PORTCULLIS FIGHT

@@ -1,0 +1,44 @@
+  (21 insert(s) found in portcullis_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-onslaught-fx.html
+tip    sc-tendril-t3.html
+21 inserts read out of portcullis_build.py
+
+    ok  S1:portcullis joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the ram has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the ram's window relic  1  mid   -  tip  1
+    ok  S2:the cast opens the ram and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the ram ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickRam charges, slams and banks relic  2  mid   -  tip  1
+    ok  S3:the bank                relic  1  mid   -  tip  1
+    ok  S5:the blade: at the crossing relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Portcullis's cast, slam and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'const u = clamp((p.shield || 0) / 90, 0, 1), g = 0.1366 + 0.1937 * u + 0.04482 * u * u, '
+  LOST  S6:Sfx: the ward's bank voice -- a new kind, `ward-bank`, before hex-snap relic  1  mid   -  tip  0
+        'this._tone(t + s, { freq: f * 2.76, gain: g * 0.3, dur: 0.03, type:"sine" });'
+  LOST  S6:tickRam: the slam voice, on the slam's frame, carrying the shield it hit for relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "portcullis-slam", shield: f.shield });'
+  LOST  S6:tickRam: the ward's bank voice, after the bank's three writes relic  1  mid   -  tip  0
+        'SFX.play("ward-bank");'
+  LOST  S6:tickRam: the close voice, when the window closes by its clock with the caster alive relic  1  mid   -  tip  0
+        'if (f.alive && Z.t >= Z.dur) SFX.play("ult", { w: "portcullis-close" });'
+  LOST  S6:onslaught picture: fighter fields relic  1  mid   -  tip  0
+        'this.ramDead = false;'
+  LOST  S6:onslaught picture: the presentation clock relic  1  mid   -  tip  0
+        'if (this.beats[i].ram && this.beats[i].side === side){ B = this.beats[i]; break; }'
+  LOST  S6:onslaught picture: the ward ring stands down under the shell relic  1  mid   -  tip  0
+        'if (f.shield > 0 && !(f.ramFade >= 1)){'
+  LOST  S6:onslaught picture: the banded haft relic  1  mid   -  tip  0
+        'for (const [bw, col] of [[hw * 1.05, pal.dark], [hw * 0.55, pal.core]]){'
+  LOST  S6:onslaught picture: the plated square head relic  1  mid   -  tip  0
+        'c.beginPath(); c.arc(x0 + w * (sx < 0 ? 0.36 : 0.64), y0 + w * (sy < 0 ? 0.36 : 0.64), w'
+  LOST  S6:onslaught picture: the shell's call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawRam(m);'
+  LOST  S6:onslaught picture: the slam's call (world, over both fighters) relic  1  mid   -  tip  0
+        'this.drawRamTop(m);'
+  LOST  S6:onslaught picture: drawRam / _drawRamShell / drawRamTop relic  1  mid   -  tip  0
+        'c.moveTo(ai + 1, -yi * 0.2); c.lineTo(am - 2, yi * 0.25); c.lineTo(am + 3, -yi * 0.15); '
+
+!! 13 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Portcullis's cast, slam and close arms, before the shared rune-crack fallback, S6:Sfx: the ward's bank voice -- a new kind, `ward-bank`, before hex-snap, S6:tickRam: the slam voice, on the slam's frame, carrying the shield it hit for, S6:tickRam: the ward's bank voice, after the bank's three writes, S6:tickRam: the close voice, when the window closes by its clock with the caster alive, S6:onslaught picture: fighter fields, S6:onslaught picture: the presentation clock, S6:onslaught picture: the ward ring stands down under the shell, S6:onslaught picture: the banded haft, S6:onslaught picture: the plated square head, S6:onslaught picture: the shell's call (world, under both balls), S6:onslaught picture: the slam's call (world, over both fighters), S6:onslaught picture: drawRam / _drawRamShell / drawRamTop
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

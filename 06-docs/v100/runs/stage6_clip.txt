@@ -1,0 +1,11 @@
+--at 30.42s: filming a 11.77s window rather than measuring back from the kill
+seed 100101: kill at 51.69s, clip starts at 30.42s
+cut list: 25.6s T2, 51.7s KILL
+  rendering director ON ...
+    the window ends at 42.19s of match time: stopped at 11.8s of video
+    on: 706 frames, 11.8s wall, 138s to render, match ended {'seed': 100101, 't': 30.424999999998914, 'kill': 51.691666666664375}
+    on: FIGHT over=None t=42.1917 clanks=10 hp=[299.65, 190.85]
+
+wrote C:\dev\sundered-crown\07-shorts\v100\onslaught-window.mp4  1.97 MB  (0.0s off + 11.8s on)
+the two halves are the same seed. If the winner differs, the feature is broken.
+EXIT 0

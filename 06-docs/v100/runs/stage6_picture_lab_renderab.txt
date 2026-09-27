@@ -1,0 +1,10 @@
+paradox:heartwood 31337: 4/4 pixel-identical  (window up at [False, False, False, False])
+twinshade:lastlight 4101: 4/4 pixel-identical  (window up at [False, False, False, False])
+bulwarden:vinesower 2207: 4/4 pixel-identical  (window up at [False, False, False, False])
+axiom:grudgebearer 7719: 4/4 pixel-identical  (window up at [False, False, False, False])
+morningstar:censer 1234: 4/4 pixel-identical  (window up at [False, False, False, False])
+shroudmaul:farwarden 90210: 4/4 pixel-identical  (window up at [False, False, False, False])
+ironwood:bindweed 4242: 4/4 pixel-identical  (window up at [False, False, False, False])
+lightkeeper:starwarden 5150: 4/4 pixel-identical  (window up at [False, False, False, False])
+CONTROL portcullis:grudgebearer 31337: 0/4 pixel-identical  (window up at [False, True, True, True])
+OTHER RELICS: 32/32 pixel-identical

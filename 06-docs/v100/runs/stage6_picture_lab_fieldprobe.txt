@@ -1,0 +1,3 @@
+windows 82; the record's life at the cast ['1.5', 'None'] (None: the slot was not Portcullis's on its own cast frame) (half-seconds); slot taken by the opponent's cast inside the window 52/82
+slams 324: landing while the cast's record (and so a field) still lives 24/324 (7.4%); time after the cast median 4.43s (p10 0.98, p90 8.18)
+slam contact from where the field would spawn: median 184 units (p10 63, p90 333); within 60 units 28/324
