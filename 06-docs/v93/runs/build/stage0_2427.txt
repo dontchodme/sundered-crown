@@ -1,0 +1,9 @@
+34 relics · Chromium 151.0.7922.34 · ironhail as verdant:staff · 33 foes x 20 seeds = 660 fights an arm · stage0 151 block 2427
+  charge=16.0 dur=8.0 blade=17 thornMul=0.6 life=1.2 tick=2.5
+
+  arm       win  casts  hits in/out     bite f_foeStkf_inSharehitsInWin   thorns    ticks
+  A       22.3%   0.00  0.00/17.78      0.00     0.00     0.00     0.00     0.00     0.00
+  S       22.9%   3.23 10.45/16.20      0.00     0.00     0.00     0.00    52.78     0.00
+  U       55.8%   3.10 10.09/15.75     30.95     3.67     0.57     3.16    53.32    12.38
+  lifts over A: S +0.6  U +33.5
+  1980 fights in 110s   errors: []

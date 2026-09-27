@@ -1,0 +1,11 @@
+=== ENGINE A/B: 35 relics, 10 seeds x 595 pairings ===
+
+  sc-briarwand.html               5950 matches  405.0s
+  sc-thornburst.html              5950 matches  429.8s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 5950
+  PASS  every match identical field for field  — 5950/5950
+  PASS  the sweep is real  — 35/35 distinct winners, 5950 distinct seeds, 14.4-106.5s
+
+ENGINE A/B PASS — ../02-chain/sc-thornburst.html does not move the 35-relic roster.

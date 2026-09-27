@@ -1,0 +1,7 @@
+36 relics · Chromium 151.0.7922.34 · briarwand (redesign) · 33 foes x 20 seeds = 660 fights an arm · stage1 built, the lab's arm-A seeds
+  charge=16.0 dur=8.0 blade=17
+
+  arm       win  casts  hits in/out
+  A       22.0%   0.00  0.00/18.02 
+  lifts over A: 
+  660 fights in 60s   errors: []

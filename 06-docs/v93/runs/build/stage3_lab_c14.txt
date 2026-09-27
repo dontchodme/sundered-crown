@@ -1,0 +1,3 @@
+BRIARWAND PROBE -- ../02-chain/sc-bloom.html   660 fights, --lab (side A, the lab's seeds and field)   69s
+  win 63.0%   casts 3.06 a fight   bites 11.83 a cast   inside 54% of the window   foe entangle 3.61 on a window frame   blows 27.45 a fight (21.54 thorns)   mean 55.7s
+  the lab's arm U on Chromium 151 (stage 0, block 2207): win 54.7%, casts 3.10, bites 12.47, inside 57%, entangle 3.66

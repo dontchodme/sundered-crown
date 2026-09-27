@@ -1,0 +1,7 @@
+134 Bloom windows
+   32.7  spellbreaker   4401  bites  20  inside 97%  travel  719   --a briarwand --b spellbreaker --seed 4401 --at 61.3 --window 10.4
+   31.3  nightfell      4401  bites  19  inside 91%  travel  719   --a briarwand --b nightfell --seed 4401 --at 47.0 --window 10.6
+   30.8  spellbreaker   4486  bites  19  inside 85%  travel  719   --a briarwand --b spellbreaker --seed 4486 --at 61.0 --window 10.0
+   30.5  ravelbone      4469  bites  19  inside 82%  travel  718   --a briarwand --b ravelbone --seed 4469 --at 30.7 --window 9.8
+   30.3  axiom          4418  bites  19  inside 79%  travel  718   --a briarwand --b axiom --seed 4418 --at 30.2 --window 10.2
+   30.1  nightfell      4486  bites  19  inside 76%  travel  719   --a briarwand --b nightfell --seed 4486 --at 45.6 --window 11.3

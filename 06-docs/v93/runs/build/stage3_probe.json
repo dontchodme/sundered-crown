@@ -1,0 +1,53 @@
+{
+ "T": {
+  "fights": 140,
+  "wins": 92,
+  "dur": 7501.283333333132,
+  "looses": 13537,
+  "badLoose": [],
+  "badCad": [],
+  "thorns": 32348,
+  "badThorn": [],
+  "thornHits": 2988,
+  "blows": 3806,
+  "batted": 2074,
+  "expired": 1257,
+  "walled": 26528,
+  "casts": 409,
+  "ultBeats": 409,
+  "hitBeats": 403,
+  "castsBitten": 404,
+  "fatalBites": 16,
+  "fatalBeats": 16,
+  "cloudSteps": 349634,
+  "badCloud": [],
+  "outside": 0,
+  "winFrames": 402090,
+  "inFrames": 214349,
+  "foeStk": 1457772,
+  "bites": 4776,
+  "badGap": [],
+  "maxWinT": 7.991666666666854,
+  "winClock": 314,
+  "winDeath": 41,
+  "live": true
+ },
+ "row": {
+  "win": 0.6571428571428571,
+  "castsF": 2.9214285714285713,
+  "bitesC": 11.67726161369193,
+  "inShare": 0.53308711979905,
+  "stk": 3.625486831306424,
+  "blowsF": 27.185714285714287,
+  "thornHitsF": 21.34285714285714,
+  "dur": 53.5805952380938
+ },
+ "D": {
+  "threw": null,
+  "frames": 11779,
+  "seen": {
+   "thorn": 7195,
+   "cloud": 10116
+  }
+ }
+}

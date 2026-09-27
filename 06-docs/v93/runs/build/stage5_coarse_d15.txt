@@ -1,0 +1,4 @@
+briarwand on sc-bloom.html · Chromium 151.0.7922.34 · 35 foes x 10 seeds x sides AB = 700 fights · seed0 2207 · set dmg=15 · stage5 coarse
+  win 50.7%   side A 52.9%   side B 48.6%   mean 57.4s   timeouts 0
+  by type  greatsword 71%  flail 61%  warhammer 53%  scythe 47%  twinblade 46%  staff 40%  bow 28%
+  worst    marrowdraw 10%  farwarden 15%  ironhail 20%   (700 fights in 77s)

@@ -1,0 +1,16 @@
+BRIARWAND PROBE -- ../02-chain/sc-bloom.html   140 fights, every foe, both sides   53s
+  win 65.7%   casts 2.92 a fight   bites 11.68 a cast   inside 53% of the window   foe entangle 3.63 on a window frame   blows 27.19 a fight (21.34 thorns)   mean 53.6s
+  PASS  [1] every thorn leaves with the spell's numbers  -- 32348 thorns seen after their first step
+  PASS  [2] every loose is three thorns at theta and +/-0.28  -- 13537 looses
+  PASS  [3] the cadence is exact  -- fireCd moved by cadence - dt on all 13537
+  PASS  [4] clanked, and a thorn at its range simply ends  -- batted/eaten 2074, expired 1257, on a wall 26528
+  PASS  [5] blows a fight, the brief's ~27  -- 27.19 a fight, 21.34 of them thorns
+  PASS  [6] the cloud moves by exactly min(dist, 90 dt), inside the inset  -- 349634 steps; outside 0
+  PASS  [7] the foe inside the cloud, the brief's ~57%  -- 53.3%
+  PASS  [8] bites a cast, the brief's ~12, never under 0.4s apart  -- 11.68
+  PASS  [9] the foe's entangle on a window frame, the brief's ~3.7  -- 3.63
+  PASS  [10] ult beat a cast; a hit beat at a cast's first bite; a fatal one for a killing bite  -- 409 ult beats for 409 casts; 403 first-bite beats for 404 bitten casts; 16 killing bites, 16 fatal beats
+  PASS  [11] the window never outlives dur, and closes on a death  -- longest 7.992s; by the clock 314, by a death or the end 41
+  PASS  [P] the render path is CALLED  --   11779 frames  {'thorn': 7195, 'cloud': 10116}
+
+  12/12
