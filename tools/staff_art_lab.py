@@ -27,6 +27,7 @@ ap.add_argument("--spec", required=True)
 ap.add_argument("--out", required=True)
 ap.add_argument("--zoom", type=float, default=4.5)
 ap.add_argument("--ship", type=float, default=1080/620)
+ap.add_argument("--rot", type=float, default=-0.35, help="facing, radians; the engine lights by world orientation, so a tilt shows the lit face and the dark underside the way play does")
 a = ap.parse_args()
 
 SCHOOLS = ["bloodsworn", "umbral", "vigil", "verdant", "runic", "sanctified", "dwarven"]
@@ -46,14 +47,14 @@ DRAW = r"""(cfg) => {
   const cv = document.getElementById('__staffcv'), c = cv.getContext('2d');
   const L = 60, W = 44, R = CONFIG.physics.ballR, z = cfg.zoom;
   const butt = 4;
-  cv.width = Math.ceil((butt + R*2 + L*2.2) * z) + 24; cv.height = Math.ceil(W*2.4*z) + 24;
+  cv.width = Math.ceil((butt + R*2 + L*2.2) * z) + 24; cv.height = Math.ceil((W*2.4 + L*1.2*Math.abs(Math.sin(cfg.rot)))*z) + 24;
   c.setTransform(1,0,0,1,0,0); c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
   c.fillStyle = cfg.bg; c.fillRect(0, 0, cv.width, cv.height);
   const p = Object.assign({}, AFFINITIES[cfg.key]);
   const ox = 12 + (butt + R)*z, oy = cv.height/2;
   // the weapon FIRST, exactly as drawWeapon places it (at the ball's edge, along the facing) -- drawFighter draws the shell over it
-  c.save(); c.translate(ox, oy); c.scale(z, z); c.translate(R - 6, 0);
-  if (!litWeapon(c, 'staff', L, W, p, 0.5, 0)) SHAPES.staff(c, L, W, p, 0.5);
+  c.save(); c.translate(ox, oy); c.scale(z, z); c.rotate(cfg.rot); c.translate(R - 6, 0);
+  if (!litWeapon(c, 'staff', L, W, p, 0.5, cfg.rot)) SHAPES.staff(c, L, W, p, 0.5);
   c.restore();
   // then the ball: the school's dark with a lit rim, the way the shell reads in the arena
   c.save(); c.translate(ox, oy); c.scale(z, z);
@@ -67,7 +68,7 @@ DRAW = r"""(cfg) => {
   const edge = ox + R*z;
   for (let y = 0; y < cv.height; y++) for (let x = Math.floor(edge); x < cv.width; x++){
     const i = (y*cv.width + x)*4; if (Math.abs(id[i]-cfg.bgc[0]) + Math.abs(id[i+1]-cfg.bgc[1]) + Math.abs(id[i+2]-cfg.bgc[2]) > 24) if (x > maxx) maxx = x; }
-  const reach = (maxx - (ox + (R - 6)*z)) / (L*z);   // in SIM reaches (L = 60), not in the art's own 1.7 L
+  const reach = (maxx - (ox + (R - 6)*z)) / (L*z*Math.cos(cfg.rot));   // in SIM reaches (L = 60), not in the art's own 1.7 L
   return { png: cv.toDataURL('image/png').slice(22), reach };
 }"""
 
@@ -79,8 +80,8 @@ with game(game_path=pathlib.Path(a.game).resolve()) as (page, errors):
     cells = {}
     for key in SCHOOLS:
         for v in "ABC":
-            big = page.evaluate(DRAW, {"key": key, "v": v, "zoom": a.zoom, "bg": BG, "bgc": BGC})
-            small = page.evaluate(DRAW, {"key": key, "v": v, "zoom": a.ship, "bg": BG, "bgc": BGC})
+            big = page.evaluate(DRAW, {"key": key, "v": v, "zoom": a.zoom, "bg": BG, "bgc": BGC, "rot": a.rot})
+            small = page.evaluate(DRAW, {"key": key, "v": v, "zoom": a.ship, "bg": BG, "bgc": BGC, "rot": a.rot})
             cells[(key, v)] = (big, small)
             print(f"  {key:<11} {v}  reach {big['reach']:.2f} L")
     assert not errors, errors

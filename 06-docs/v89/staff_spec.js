@@ -367,45 +367,66 @@ const STAFF = {
     }
   },
 
-  /* DWARVEN — CULVERIN. Iron on wood: the head is a gun. A: a BELL muzzle
-     flaring off a banded barrel, an ember in the bore. B: a MORTAR — a
-     short fat tube strapped to the pole, the bore facing +x. C: a
-     HAMMER-BORE — the school's square iron head with the bore drilled
-     through it, the maker's chevron on the cheek. */
+  /* DWARVEN — CULVERIN. Rick's second round of references (refs 7-9): not a
+     gun -- MACHINERY. Brass and iron, plates and rings, a shaft that is
+     banded and segmented, and a head that is a mechanism holding a sphere.
+     A: DWEMER — two angular brass jaws hold a dark iron sphere, an ember in
+        it, three brass plates on the jaws (ref 8).
+     B: the FORK — two curved iron prongs off a hub, a lit band between
+        them, a segmented shaft with glowing rings (ref 7).
+     C: the COG — a toothed wheel on a bracket, an ember at the hub, an
+        angled plate behind it (ref 9). */
   dwarven(c, L, W, p, v){
-    const S = SHAPES, TAU = STAFF.TAU, iron = S._shade(p.steel, 0.6, 0.2);
-    const bore = (x, ry) => { c.fillStyle = S._ink(p.dark, 9.7); c.beginPath(); c.ellipse(x, 0, ry*0.36, ry*1.12, 0, 0, TAU); c.fill();
-      c.fillStyle = S._ink(p.dark, 3); c.beginPath(); c.ellipse(x, 0, ry*0.30, ry, 0, 0, TAU); c.fill();
-      const g = c.createRadialGradient(x, 0, 0, x, 0, ry*0.6); g.addColorStop(0, p.glow); g.addColorStop(0.5, p.core); g.addColorStop(1, p.core + "00"); c.fillStyle = g; c.beginPath(); c.ellipse(x, 0, ry*0.24, ry*0.6, 0, 0, TAU); c.fill(); };
-    const bands = (xs, h) => { for (const x of xs){ c.fillStyle = S._ink(p.dark, 9.7); c.fillRect(x - W*0.045, -h - 1, W*0.09, 2*h + 2); c.fillStyle = iron; c.fillRect(x - W*0.03, -h, W*0.06, 2*h); c.fillStyle = p.core + "66"; c.fillRect(x - W*0.03, -h, W*0.06, h*0.3); } };
+    const S = SHAPES, TAU = STAFF.TAU;
+    const brass = S._shade(p.glow, 0.62, 0.25), brassDk = S._shade(p.core, 0.75, 0.15), iron = S._shade(p.steel, 0.62, 0.2), ironDk = S._ink(p.dark, 18);
+    const ring = (x, h, wd) => { c.fillStyle = S._ink(p.dark, 9.7); c.fillRect(x - wd/2 - 1, -h - 1, wd + 2, 2*h + 2); c.fillStyle = brass; c.fillRect(x - wd/2, -h, wd, 2*h); c.fillStyle = brassDk; c.fillRect(x - wd/2, h*0.2, wd, h*0.8); };
+    const sphere = (x, r) => { c.fillStyle = S._ink(p.dark, 9.7); c.beginPath(); c.arc(x, 0, r*1.12, 0, TAU); c.fill();
+      const g = c.createRadialGradient(x - r*0.35, -r*0.35, 0, x, 0, r); g.addColorStop(0, S._shade(p.steel, 0.8, 0.2)); g.addColorStop(0.6, ironDk); g.addColorStop(1, S._ink(p.dark, 6)); c.fillStyle = g; c.beginPath(); c.arc(x, 0, r, 0, TAU); c.fill();
+      c.strokeStyle = brass + "AA"; c.lineWidth = Math.max(1, W*0.025); c.beginPath(); c.arc(x, 0, r*0.72, 0, TAU); c.stroke();          // a seam
+      const e = c.createRadialGradient(x + r*0.15, 0, 0, x + r*0.15, 0, r*0.5); e.addColorStop(0, p.glow); e.addColorStop(0.5, p.core); e.addColorStop(1, p.core + "00"); c.fillStyle = e; c.beginPath(); c.arc(x + r*0.15, 0, r*0.5, 0, TAU); c.fill(); };   // the ember, where the slug leaves
+    const plate = (x, y, a, w, h) => { c.save(); c.translate(x, y); c.rotate(a);
+      c.fillStyle = S._ink(p.dark, 9.7); c.fillRect(-w/2 - 1.5, -h/2 - 1.5, w + 3, h + 3); c.fillStyle = brass; c.fillRect(-w/2, -h/2, w, h); c.fillStyle = brassDk; c.fillRect(-w/2, 0, w, h/2);
+      c.fillStyle = S._ink(p.dark, 9.7); c.beginPath(); c.arc(0, 0, Math.min(w, h)*0.14, 0, TAU); c.fill(); c.restore(); };   // a rivet
     if (v === "A"){
-      STAFF.pole(c, L, W, p, { end: 0.50, hw: 0.13, gnarl: 0.08 });
-      const barrel = (g, col) => { c.fillStyle = col; c.beginPath();
-        c.moveTo(L*0.46, -W*0.14 - g); c.lineTo(L*0.80, -W*0.15 - g); c.quadraticCurveTo(L*0.92, -W*0.16 - g, L*1.00 + g, -W*0.40 - g);
-        c.lineTo(L*1.00 + g, W*0.40 + g); c.quadraticCurveTo(L*0.92, W*0.16 + g, L*0.80, W*0.15 + g); c.lineTo(L*0.46, W*0.14 + g); c.closePath(); c.fill(); };
-      barrel(W*0.05, S._ink(p.dark, 9.7)); barrel(0, S._ink(p.dark, 20));
-      c.strokeStyle = iron; c.lineWidth = Math.max(1, W*0.035); c.beginPath(); c.moveTo(L*0.48, -W*0.11); c.lineTo(L*0.80, -W*0.12); c.quadraticCurveTo(L*0.92, -W*0.13, L*0.98, -W*0.36); c.stroke();
-      bands([L*0.52, L*0.68], W*0.17);
-      bore(L*0.99, W*0.36);
+      STAFF.pole(c, L, W, p, { end: 0.60, hw: 0.10, gnarl: 0.0, bend: 0.0, body: ironDk, grip: false });
+      for (const x of [L*0.08, L*0.22, L*0.36, L*0.50]) ring(x, W*0.14, W*0.06);
+      const cx = L*0.82, r = W*0.24;
+      for (const sg of [-1, 1]){                                                  // the jaws: two angular brass arms, pole -> out -> forward -> in past the sphere's equator
+        const jaw = (wd, col) => { c.strokeStyle = col; c.lineWidth = Math.max(1, W*wd); c.lineJoin = "miter"; c.lineCap = "butt"; c.beginPath();
+          c.moveTo(L*0.60, sg*W*0.04); c.lineTo(L*0.66, sg*W*0.34); c.lineTo(cx + r*0.45, sg*W*0.36); c.lineTo(cx + r*1.05, sg*W*0.16); c.stroke(); };
+        jaw(0.20, S._ink(p.dark, 9.7)); jaw(0.12, brass); jaw(0.03, S._shade(p.steel, 1.0, 0.3));
+        c.strokeStyle = brassDk; c.lineWidth = Math.max(1, W*0.04); c.beginPath(); c.moveTo(L*0.66 + W*0.03, sg*W*0.30); c.lineTo(cx + r*0.45, sg*W*0.31); c.stroke();
+      }
+      sphere(cx, r);
+      plate(cx + r*0.9, -W*0.30, 0.5, W*0.12, W*0.09); plate(cx + r*0.9, W*0.30, -0.5, W*0.12, W*0.09); plate(L*0.62, 0, 0, W*0.10, W*0.26);
     } else if (v === "B"){
-      STAFF.pole(c, L, W, p, { end: 0.60, hw: 0.13, gnarl: 0.08 });
-      const x0 = L*0.44, x1 = L*1.00, h = W*0.36;
-      c.fillStyle = S._ink(p.dark, 9.7); c.fillRect(x0 - W*0.05, -h - W*0.05, x1 - x0 + W*0.10, 2*h + W*0.10);
-      c.fillStyle = S._ink(p.dark, 20); c.fillRect(x0, -h, x1 - x0, 2*h);
-      c.fillStyle = iron; c.fillRect(x0, -h, x1 - x0, W*0.05);
-      bands([x0 + W*0.12, x0 + (x1 - x0)*0.5, x1 - W*0.12], h);
-      bore(L*0.98, h*0.82);
+      STAFF.pole(c, L, W, p, { end: 0.62, hw: 0.10, gnarl: 0.0, bend: 0.0, body: ironDk, grip: false });
+      for (const x of [L*0.10, L*0.26, L*0.42]){ c.fillStyle = S._ink(p.dark, 9.7); c.fillRect(x - W*0.05 - 1, -W*0.15 - 1, W*0.10 + 2, W*0.30 + 2); c.fillStyle = iron; c.fillRect(x - W*0.05, -W*0.15, W*0.10, W*0.30); c.fillStyle = p.core; c.fillRect(x - W*0.035, -W*0.12, W*0.07, W*0.24); c.fillStyle = p.glow; c.fillRect(x - W*0.035, -W*0.12, W*0.07, W*0.06); }   // the glowing rings
+      const hx = L*0.66, hr = W*0.14;                                             // the hub
+      c.fillStyle = S._ink(p.dark, 9.7); c.beginPath(); c.arc(hx, 0, hr*1.25, 0, TAU); c.fill(); c.fillStyle = iron; c.beginPath(); c.arc(hx, 0, hr, 0, TAU); c.fill();
+      for (const sg of [-1, 1]){                                                  // two prongs, curving out and forward, flattening at the tips
+        const prong = (wd, col) => { c.strokeStyle = col; c.lineWidth = Math.max(1, W*wd); c.lineCap = "round"; c.beginPath();
+          c.moveTo(hx, sg*hr*0.4); c.quadraticCurveTo(hx + L*0.06, sg*W*0.42, hx + L*0.24, sg*W*0.40); c.quadraticCurveTo(hx + L*0.32, sg*W*0.38, L*1.00, sg*W*0.22); c.stroke(); };
+        prong(0.19, S._ink(p.dark, 9.7)); prong(0.11, ironDk); prong(0.035, iron);
+        c.fillStyle = S._ink(p.dark, 9.7); c.beginPath(); c.moveTo(L*0.98, sg*W*0.22); c.lineTo(L*1.06, sg*W*0.10); c.lineTo(L*0.94, sg*W*0.13); c.closePath(); c.fill();   // a barb at each tip
+      }
+      const g = c.createLinearGradient(0, -W*0.22, 0, W*0.22); g.addColorStop(0, p.core + "00"); g.addColorStop(0.5, p.glow); g.addColorStop(1, p.core + "00");   // the lit band between the prongs
+      c.fillStyle = g; c.fillRect(hx + L*0.20, -W*0.22, W*0.08, W*0.44);
+      sphere(hx + L*0.11, W*0.11);
     } else {
-      STAFF.pole(c, L, W, p, { end: 0.60, hw: 0.13, gnarl: 0.08 });
-      const x0 = L*0.56, x1 = L*1.00, h = W*0.42;
-      const head = (g, col) => { c.fillStyle = col; c.beginPath();
-        c.moveTo(x0 - g, -h*0.5 - g); c.lineTo(x0 + (x1 - x0)*0.22, -h - g); c.lineTo(x1 + g, -h - g); c.lineTo(x1 + g, h + g); c.lineTo(x0 + (x1 - x0)*0.22, h + g); c.lineTo(x0 - g, h*0.5 + g); c.closePath(); c.fill(); };
-      head(W*0.05, S._ink(p.dark, 9.7)); head(0, S._ink(p.dark, 20));
-      c.strokeStyle = iron; c.lineWidth = Math.max(1, W*0.035); c.beginPath(); c.moveTo(x0 + (x1 - x0)*0.26, -h*0.84); c.lineTo(x1 - W*0.04, -h*0.84); c.stroke();
-      c.strokeStyle = p.core + "99"; c.lineWidth = Math.max(1, W*0.04); c.lineJoin = "round";
-      c.beginPath(); c.moveTo(x0 + (x1 - x0)*0.40, -h*0.45); c.lineTo(x0 + (x1 - x0)*0.60, 0); c.lineTo(x0 + (x1 - x0)*0.40, h*0.45); c.stroke();
-      bands([x0 - W*0.05], W*0.20);
-      bore(L*0.98, h*0.66);
+      STAFF.pole(c, L, W, p, { end: 0.64, hw: 0.10, gnarl: 0.0, bend: 0.0, body: S._shade(p.dark, 1.4, 0.05), grip: false });
+      for (const x of [L*0.12, L*0.30, L*0.48]) ring(x, W*0.13, W*0.05);
+      const cx = L*0.82, r = W*0.30;
+      plate(L*0.72, -W*0.12, -0.35, W*0.34, W*0.16);                             // the angled plate behind the wheel
+      const bracket = (g, col) => { c.fillStyle = col; c.beginPath(); c.moveTo(L*0.60, -W*0.07 - g); c.lineTo(L*0.72 + g, -W*0.20 - g); c.lineTo(L*0.72 + g, W*0.20 + g); c.lineTo(L*0.60, W*0.07 + g); c.closePath(); c.fill(); };
+      bracket(W*0.045, S._ink(p.dark, 9.7)); bracket(0, brass);
+      const cog = (g, col) => { c.fillStyle = col; c.beginPath();                  // twelve teeth
+        for (let i = 0; i < 24; i++){ const a = i*TAU/24, rr = (i % 2 ? r : r*0.80) + g; c.lineTo(cx + Math.cos(a)*rr, Math.sin(a)*rr); const a2 = (i + 0.5)*TAU/24; c.lineTo(cx + Math.cos(a2)*rr, Math.sin(a2)*rr); }
+        c.closePath(); c.fill(); };
+      cog(W*0.045, S._ink(p.dark, 9.7)); cog(0, brass);
+      c.fillStyle = brassDk; c.beginPath(); c.arc(cx, 0, r*0.62, 0, TAU); c.fill();
+      c.fillStyle = S._ink(p.dark, 9.7); for (let i = 0; i < 4; i++){ const a = i*TAU/4 + 0.4; c.beginPath(); c.arc(cx + Math.cos(a)*r*0.42, Math.sin(a)*r*0.42, W*0.035, 0, TAU); c.fill(); }   // spoke holes
+      sphere(cx, r*0.32);
     }
   },
 

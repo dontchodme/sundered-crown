@@ -15,7 +15,8 @@ sheet, Code pastes the chosen spec and gates it pixel-identical to the sheet.
   candidates inside it, `STAFF.staff` the dispatcher. **Code pastes this as
   `SHAPES.staff`, sets `STAFF.pick` to Rick's seven letters, deletes the
   losers.** `tools/staff_art_lab.py` re-renders the sheet from it.
-- `06-docs/v89/refs/ref-staff-1..6` — Rick's six references (2026-09-27).
+- `06-docs/v89/refs/ref-staff-1..6` — Rick's six references (2026-09-27); `ref-staff-7..9` — his three for the dwarven redo (a horned iron staff, a Dwemer sphere-in-jaws, a hand-built cog head).
+- **The sheets are drawn at a tilt (−0.35 rad, `--rot`)** because the engine lights a weapon by its world orientation — a horizontal staff's whole underside takes the school's `dark`, and on the near-black hall a brass jaw on the underside vanished. Tilted, the sheet shows what play shows: a lit face and a dark one.
 
 ## The three cuts
 
@@ -79,9 +80,10 @@ CIPHER       A  an open RING holding an orb, the glyph in the orb (ref 3)
 CROZIER      A  the CROOK — a gilt spiral with a bead of light in the curl (refs 2, 6)
              B  a sunburst on a finial
              C  a pierced halo held by two prongs (the bow's monstrance)
-CULVERIN     A  a bell muzzle flaring off a banded barrel, an ember in the bore
-             B  a mortar — a short fat tube strapped to the pole
-             C  a hammer-head with the bore drilled through it, the maker's chevron
+CULVERIN     A  DWEMER: two angular brass jaws hold a dark iron sphere with an ember in it; brass rings down an iron shaft (ref 8)
+             B  the FORK: two curved iron prongs off a hub, a lit band between them, glowing rings on the shaft (ref 7)
+             C  the COG: a toothed brass wheel on a bracket, an ember at the hub, an angled plate behind (ref 9)
+             (the first dwarven round was a cannon — bell, mortar, hammer-bore — and Rick sent it back: "try again on dwarven." Machinery, not guns.)
 ```
 
 ## What Code does with the pick
