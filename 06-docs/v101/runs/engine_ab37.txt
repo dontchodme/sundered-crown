@@ -1,0 +1,11 @@
+=== ENGINE A/B: 37 relics, 6 seeds x 666 pairings ===
+
+  sc-onslaught-b23.html           3996 matches  266.3s
+  sc-tendril-t3.html              3996 matches  288.5s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3996
+  PASS  every match identical field for field  — 3996/3996
+  PASS  the sweep is real  — 37/37 distinct winners, 3996 distinct seeds, 22.1-125.9s
+
+ENGINE A/B PASS — ../02-chain/sc-tendril-t3.html does not move the 37-relic roster.

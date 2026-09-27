@@ -1,0 +1,16 @@
+
+TENDRIL PROBE  sc-bites.html  Chromium 151.0.7922.34  444 fights (Bindweed both sides x every foe x 6 seeds)   ult {'charge': 14, 'turn': 4, 'grow': 0.3, 'growCap': 3, 'biteDmg': 2, 'bitePer': 1, 'rootPer': 0}
+  casts/fight 3.12   blows a fight: in windows 13.57, outside 4.48   growth peak 2.26 (per fight)   Bindweed win 61.5%
+  per cast: bites 6.47  dmg 12.95  root 0.00s   touch 15.8% of window frames   foe stacks on a window frame 3.08   clock closes rooting 0%
+  seek frames stunned 176506 of 1187206   killing bites 15   wards broken by a bite 104   FREEZE CENSUS 16.8% of window steps frozen
+  [1] PASS  the window is `dur` on the window clock, closes on either death; only Bindweed carries ultVine
+  [2] PASS  the seek: theta + clamp(shortest angle, +-turn x dt), stunned or not, drive 0; spin as ever outside
+  [3] PASS  the growth: `grow` x dt toward clamp((d - R)/(reach x mods.reach), 1, cap), both ways; 1 after
+  [4] PASS  every blow the flail's own, rebuilt exactly, in the window and out
+  [5] PASS  a bite only in contact, never closer than biteCd, never a missed clear contact
+  [6] PASS  each bite: hurt(foe, biteDmg, caster) once, entangle +bitePer by side letter; nothing else
+  [7] PASS  a killing bite files one fatal beat; nothing else files one
+  [8] PASS  the root: pin max(pin, rootPer x stacks) at a clock close, Grasp's write, pinFree untouched; none at a death
+  [9] PASS  no cast while a vine hunts or withers; every close leaves `wither`
+
+  9/9

@@ -1,0 +1,42 @@
+Bindweed / Tendril (sc-tendril-t3: turn 3, blade 18) win by foe, both sides, relic_rate seed0 2207 + 2317
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks). Pooled: 48.5%
+
+by type  greatsword 78%  twinblade 53%  warhammer 50%  scythe 45%  flail 38%  bow 23%
+
+aureole         12.5%
+farwarden       15.0%
+gloamwire       17.5%
+ironhail        20.0%
+marrowdraw      20.0%
+twinshade       25.0%
+lastlight       30.0%
+slagheart       30.0%
+gravemourn      35.0%
+grudgebearer    35.0%
+bulwarden       37.5%
+portcullis      37.5%
+redflail        37.5%
+bloodmirror     40.0%
+cindercleave    42.5%
+duskreave       42.5%
+morningstar     42.5%
+paradox         42.5%
+vesper          42.5%
+censer          45.0%
+ravelbone       45.0%
+widowmaker      45.0%
+thornshear      47.5%
+shroudmaul      47.5%
+vinesower       52.5%
+foregone        57.5%
+dawnbringer     62.5%
+emberedge       62.5%
+thornwake       62.5%
+starwarden      70.0%
+nightfell       75.0%
+oathwound       77.5%
+lightkeeper     80.0%
+spellbreaker    80.0%
+ironwood        90.0%
+axiom           92.5%
+heartwood       97.5%

@@ -1,0 +1,17 @@
+=== mut-stunturn
+  [2] FAIL  the seek: theta + clamp(shortest angle, +-turn x dt), stunned or not, drive 0; spin as ever outside   67397 FAIL: ['theta 30.685973391146018 -> 30.685973391146018, want 30.66097339114602 (
+  8/9
+=== mut-srcobj
+  [6] FAIL  each bite: hurt(foe, biteDmg, caster) once, entangle +bitePer by side letter; nothing else   2922 FAIL: ['source a Fighter', 'source a Fighter', 'source a Fighter', 'source a Fighter']
+  8/9
+=== mut-bitecd
+  9/9
+=== mut-grow
+  [3] FAIL  the growth: `grow` x dt toward clamp((d - R)/(reach x mods.reach), 1, cap), both ways; 1 after   273148 FAIL: ['reachMul 1 -> 1.002525, want 1.0025 (target 1.6030567708453995)', 'reachMul 
+  8/9
+=== mut-rootdeath
+  [8] FAIL  the root: pin max(pin, rootPer x stacks) at a clock close, Grasp's write, pinFree untouched; none at a death   15 FAIL: ['a root at a death close', 'a root at a death close', 'a root at a 
+  8/9
+=== mut-bitecd (0.9)
+  [5] FAIL  a bite only in contact, never closer than biteCd, never a missed clear contact   858 FAIL: ['bites 0.275s apart', 'bites 0.283s apart', 'bites 0.275s apart', 'bites 0.275s apart']
+  8/9

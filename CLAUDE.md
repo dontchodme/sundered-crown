@@ -52,7 +52,14 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built (sc-zenith-fx, then Ironwood
                                  to sc-canopy-w38); the builder re-applies onto
                                  sc-zenith-fx cleanly (tested, scratch).
-02-chain/sc-onslaught-b23.html   THE CHAIN TIP. 37 RELICS: PORTCULLIS / ONSLAUGHT, the
+02-chain/sc-tendril-t3.html      THE CHAIN TIP. 38 RELICS: BINDWEED / TENDRIL, the
+                                 verdant flail (bindweed_build.py stages 1-5, v101).
+                                 For 8s the chain is a vine: it turns toward the foe
+                                 (spin 0), grows to its rim, bites 2 + entangle every
+                                 0.3s in contact, and roots 0.3s a stack at the close.
+                                 Charge 14; turn 4 -> 3 (the brief's knob), blade 18:
+                                 48.5% both sides. Art is the donor's: stage 6 next.
+02-chain/sc-onslaught-b23.html   the link under it. 37 RELICS: PORTCULLIS / ONSLAUGHT, the
                                  vigil flail (portcullis_build.py stages 1-5, v100,
                                  carried onto sc-canopy-fx: engine_ab 3996/3996).
                                  For 8s the ball charges the foe (600/s^2 to

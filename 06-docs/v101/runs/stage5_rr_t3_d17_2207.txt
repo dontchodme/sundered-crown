@@ -1,0 +1,4 @@
+bindweed on sc-tendril.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · set dmg=17 ult.turn=3
+  win 46.4%   side A 46.5%   side B 46.2%   mean 59.4s   timeouts 0
+  by type  greatsword 74%  twinblade 60%  warhammer 45%  scythe 39%  flail 32%  bow 28%
+  worst    farwarden 10%  gloamwire 20%  grudgebearer 25%   (740 fights in 48s)
