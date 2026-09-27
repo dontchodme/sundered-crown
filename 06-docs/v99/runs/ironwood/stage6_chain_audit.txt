@@ -1,0 +1,12 @@
+== ironwood_build: relic and tip sc-canopy-fx
+
+ALL 27 INSERTS SURVIVE to sc-canopy-fx.html
+== morningstar_build: sc-zenith-fx -> sc-canopy-fx
+ALL 20 INSERTS SURVIVE to sc-canopy-fx.html
+(1 of them are marked by COMMENT text -- the code they add is shorter than the floor: S6:zenith picture: the match's tick records)
+== dawn_build: sc-daybreak-fx -> sc-canopy-fx
+ALL 17 INSERTS SURVIVE to sc-canopy-fx.html
+(3 of them are marked by COMMENT text -- the code they add is shorter than the floor: S3:restyle the HUD sigil (shards out), S3:retire the banner’s horizon, S3:the ultFx life map: say what dawnbringer’s entry is now)
+== corollary_build: sc-corollary-c14 -> sc-canopy-fx
+ALL 25 INSERTS SURVIVE to sc-canopy-fx.html
+(4 of them are marked by COMMENT text -- the code they add is shorter than the floor: PICTURE_ROWS:picture: Fighter: echoFade, PICTURE_ROWS:picture: Match: echoFx, PICTURE_ROWS:picture: draw: runes + line, emissive pass over the fighters, RETIRE:the bolt's construction lines (drawUltUnder))

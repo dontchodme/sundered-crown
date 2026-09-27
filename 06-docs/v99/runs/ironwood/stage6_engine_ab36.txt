@@ -1,0 +1,11 @@
+=== ENGINE A/B: 36 relics, 8 seeds x 630 pairings ===
+
+  sc-canopy-w38.html              5040 matches  336.8s
+  sc-canopy-fx.html               5040 matches  342.5s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 5040
+  PASS  every match identical field for field  — 5040/5040
+  PASS  the sweep is real  — 36/36 distinct winners, 5040 distinct seeds, 20.6-114.4s
+
+ENGINE A/B PASS — ../02-chain/sc-canopy-fx.html does not move the 36-relic roster.

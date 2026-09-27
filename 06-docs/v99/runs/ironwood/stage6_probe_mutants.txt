@@ -1,0 +1,6 @@
+=== mut-boughalways
+  [11] FAIL  stage 6: one sprout voice a sprout, one wither voice a clock close (none on a death), `bough` on the hit voice exactly while the tree stands   957 FAIL: ['bough 0.38 on a blow (tree false)', 'bough 0.38 on a
+  10/11
+=== mut-witherdeath
+  [11] FAIL  stage 6: one sprout voice a sprout, one wither voice a clock close (none on a death), `bough` on the hit voice exactly while the tree stands   7 FAIL: ['a wither voice on a death', 'a wither voice on a death
+  10/11

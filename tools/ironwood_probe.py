@@ -32,6 +32,10 @@ WHAT WOULD COUNT AS EVIDENCE AGAINST THE BUILD:
   [8] a cast while a tree stands or withers; a close without `wither` seconds
   [9] a window that is not `dur` long on the window clock
   [10] any relic but Ironwood carrying `ultTree` or `bladeSet`
+  STAGE 6 (the voice, sc-canopy-fx):
+  [11] a sprout without exactly one sprout voice, a clock close without exactly
+       one wither voice, either voice on any other frame (a death included), or
+       a blow whose hit voice does not carry `bough` exactly while the tree stands
 """
 from __future__ import annotations
 import argparse, json, pathlib, sys
@@ -52,6 +56,9 @@ JS = r"""([seeds]) => {
   const fail = (k, msg) => { (bad[k] = bad[k] || []).length < 4 && bad[k].push(msg); n["x" + k] = (n["x" + k] || 0) + 1; };
   const inc = (k, v = 1) => { n[k] = (n[k] || 0) + v; };
   const oTick = P.tickTree, oResolve = P.resolveHit, oFire = P.fireUlt, oStep = P.step;
+  const stage6 = /ironwood-sprout/.test(AC.SFX.play.toString());
+  const voices = [], oPlay = AC.SFX.play;
+  if (stage6) AC.SFX.play = function(kind, q){ voices.push([kind, q]); return oPlay.call(this, kind, q); };
   const last = new WeakMap();     // Z -> {x, y, t} of its previous window frame
   const lastApply = new WeakMap();
   const peaks = [];
@@ -80,11 +87,22 @@ JS = r"""([seeds]) => {
     const pre = { dm: self.dmgMul(this.actMods.dmg), dt: foe.dmgTakenMul(), aegis: foe.w && foe.w.id === "bulwarden", curse: foe.stacks("curse") };
     const draws = [], oRng = this.rng;
     this.rng = () => { const v = oRng(); if (draws.length < 2) draws.push(v); return v; };
+    const v0 = voices.length, sh0 = foe.shield;
     let r;
     try { r = oResolve.call(this, self, foe, hx, hy, seg, mul, over); }
     finally { this.rng = oRng; }
     if (self.hits - h0 !== 1) return r;
     if (stands) { inc("blowsIn"); if (per) per.in++; } else { inc("blowsOut"); if (per) per.out++; }
+    if (stage6){
+      /* THE BLOW'S OWN VOICE IS THE LAST: a blow that breaks the foe's ward
+         plays the shatter's hit voice first, inside `hurt` (the ward's rule). */
+      const hv = voices.slice(v0).filter(x => x[0] === "hit"), broke = sh0 > 0 && foe.shield <= 0;
+      const own = hv[hv.length - 1];
+      if (hv.length !== (broke ? 2 : 1)) fail(11, `${hv.length} hit voices on a blow (ward broken ${broke})`);
+      else if (broke && !(hv[0][1].crit === true && hv[0][1].bough === undefined)) fail(11, "the shatter's voice is not the ward's own");
+      else if (stands ? own[1].bough !== u.winDmg : own[1].bough !== undefined) fail(11, `bough ${own[1].bough} on a blow (tree ${stands})`);
+      else inc(stands ? "boughVoice" : "hammerVoice");
+    }
     const D = self.dealt - d0, crit = self.crits > c0;
     const jit = 1 + (draws[1] - 0.5) * jitK;
     const raw = (stands ? self.w.dmg * u.winDmg : self.w.dmg) * pre.dm * jit * pre.dt;
@@ -115,9 +133,11 @@ JS = r"""([seeds]) => {
     const oApply = pre.map(p => { const o = p.foe.apply; p.foe.apply = function(k, nn, src){ applies.push([p.foe, k, nn, src]); return o.call(this, k, nn, src); }; return [p.foe, o]; });
     this.hurt = function(t, d, s){ hurts.push(d); return oHurt.call(this, t, d, s); };
     this.beat = function(o){ beats.push(o); return oBeat.call(this, o); };
+    const v0 = voices.length;
     let r;
     try { r = oTick.call(this, dt); }
     finally { delete this.hurt; delete this.beat; for (const [fo] of oApply) delete fo.apply; }
+    const tv = voices.slice(v0).filter(x => x[0] === "ult" && x[1] && /^ironwood-(sprout|wither)$/.test(x[1].w));
     if (hurts.length) fail(7, `the tree's tick hurt ${hurts.length}x`);
     if (beats.length) fail(7, `the tree's tick filed ${beats.length} beat(s)`);
     for (const p of pre){
@@ -140,6 +160,12 @@ JS = r"""([seeds]) => {
         if (f.treeWither !== u.wither) fail(8, `wither ${f.treeWither} at the close`);
         if (mine.length) fail(7, "an application on the closing frame");
         const pk = last.get(Z); if (pk) peaks.push(pk.peak);
+        if (stage6){
+          const wv = tv.filter(x => x[1].w === "ironwood-wither").length;
+          if (p.alive && p.t1 >= Z.dur){ if (wv !== 1) fail(11, `clock close voiced ${wv}x`); else inc("witherVoice"); }
+          else if (wv) fail(11, "a wither voice on a death");
+          if (tv.some(x => x[1].w === "ironwood-sprout")) fail(11, "a sprout voice on a close");
+        }
         continue;
       }
       /* A WINDOW FRAME */
@@ -156,6 +182,12 @@ JS = r"""([seeds]) => {
       if (f.reachMul !== want) fail(4, `reachMul ${p.rm} -> ${f.reachMul}, want ${want}`); else inc("growOk");
       last.set(Z, { x: f.x, y: f.y, peak: Math.max(L ? L.peak : 1, f.reachMul) });
       /* the sprout */
+      if (stage6){
+        const sv = tv.filter(x => x[1].w === "ironwood-sprout").length, sprouted = u.boughs > 1 && !p.set && f.bladeSet;
+        if (sprouted){ if (sv !== 1) fail(11, `a sprout voiced ${sv}x`); else inc("sproutVoice"); }
+        else if (sv) fail(11, "a sprout voice with no sprout");
+        if (tv.some(x => x[1].w === "ironwood-wither")) fail(11, "a wither voice on a window frame");
+      }
       if (u.boughs > 1 && p.t1 >= u.sprout){
         const s = f.bladeSet;
         const ok = s && s.length === u.boughs && s.every((v, i) => v === i / u.boughs);
@@ -210,7 +242,8 @@ JS = r"""([seeds]) => {
   P.tickTree = oTick; P.resolveHit = oResolve; P.fireUlt = oFire; P.step = oStep;
   const u = AC.WEAPONS.find(w => w.id === "ironwood").ult;
   const pk = peaks.length ? peaks.reduce((s, v) => s + v, 0) / peaks.length : 0;
-  return { n, bad, T, fights, win: wins / decided, blowsIn: blowsIn / fights, blowsOut: blowsOut / fights, peak: pk,
+  if (stage6) AC.SFX.play = oPlay;
+  return { n, bad, T, fights, win: wins / decided, stage6, blowsIn: blowsIn / fights, blowsOut: blowsOut / fights, peak: pk,
            u: { charge: u.charge, boughs: u.boughs, winDmg: u.winDmg, canopy: u.canopy, reachCap: u.reachCap, sprout: u.sprout } };
 }"""
 
@@ -252,6 +285,11 @@ checks = [
     (9, "the window is `dur` long on the window clock", n.get("closes", 0) > 0),
     (10, "only Ironwood carries ultTree / bladeSet", True),
 ]
+if R.get("stage6"):
+    print(f"  stage 6 voices: sprouts {n.get('sproutVoice',0)}, clock closes {n.get('witherVoice',0)}, "
+          f"bough blows {n.get('boughVoice',0)}, hammer blows {n.get('hammerVoice',0)}")
+    checks.append((11, "stage 6: one sprout voice a sprout, one wither voice a clock close (none on a death), `bough` on the hit voice exactly while the tree stands",
+                   n.get("sproutVoice", 0) > 0 and n.get("witherVoice", 0) > 0 and n.get("boughVoice", 0) > 0 and n.get("hammerVoice", 0) > 0))
 ok = 0
 for k, text, cover in checks:
     fails = n.get(f"x{k}", 0)

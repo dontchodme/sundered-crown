@@ -60,7 +60,12 @@ short-form video for TikTok and YouTube Shorts.
                                  ward. Charge 14, blade 23: 50.8% both sides. verify
                                  10/13, Portcullis 52.3%. Art is the donor's: stage 6
                                  after Ironwood's.
-02-chain/sc-canopy-w38.html      the link under it. 36 RELICS: IRONWOOD / CANOPY, the
+02-chain/sc-canopy-fx.html       Ironwood stage 6 (v99 §6), AWAITING RICK'S EYE: bark,
+                                 aerial roots, trunk and burls, the sprout, the leaf
+                                 canopy, the wither; drawn leaves (no fx.js field);
+                                 four voices. Moves no fight (engine_ab 5040/5040).
+                                 Portcullis is carried onto it.
+02-chain/sc-canopy-w38.html      36 RELICS: IRONWOOD / CANOPY, the
                                  verdant warhammer (ironwood_build.py stages 1-5,
                                  v99). For 8s the hammer roots (pin + pinFree), its
                                  reach grows 0.35/s to 2.5, two more boughs sprout at

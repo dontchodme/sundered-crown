@@ -1,0 +1,20 @@
+
+RENDER A/B  4 pairings x 6 frames  540x960
+  a  sc-canopy-w38.html
+  b  sc-canopy-fx.html
+
+PASS  24/24 frames pixel-identical.
+      Same relics, same seeds, same frame indices, one runtime.
+
+RENDER A/B  1 pairings x 4 frames  540x960
+  a  sc-canopy-w38.html
+  b  sc-canopy-fx.html
+  ironwood v grudgebearer seed 31337 t= 16.00  DIFFERS   luma 23.381 -> 24.769   lit 88.71% -> 88.71%
+  ironwood v grudgebearer seed 31337 t= 18.00  DIFFERS   luma 26.217 -> 28.340   lit 89.80% -> 89.76%
+  ironwood v grudgebearer seed 31337 t= 20.00  DIFFERS   luma 28.942 -> 29.929   lit 88.16% -> 88.11%
+  ironwood v grudgebearer seed 31337 t= 22.00  DIFFERS   luma 26.755 -> 27.852   lit 88.16% -> 88.13%
+
+FAIL  0/4 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
