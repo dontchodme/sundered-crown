@@ -1,0 +1,15 @@
+=== mut-fulldmg
+  [6] FAIL  every blow: the hammer's blade x (winDmg while the tree stands), crit and jitter rebuilt exactly   793 FAIL: ['IN the window: dealt 22, want 8 -- FULL DAMAGE', 'IN the window: dealt 34, want 12 -- FULL DAMAGE', 'IN the window: dealt 30, want 10 -- FULL DAMAGE', 'IN the window: dealt 27, want 9 -- FULL DAMAGE']
+  9/10
+=== mut-restv
+  [2] FAIL  released on close: a live caster to rest, a dead one's kill flight untouched   229 FAIL: ['released with v -461.36235742325846,496.0898160238138 pin 0 pinV null pinFree 0', 'released with v -762.5361955358911,-96.8619545779163 pin 0 pinV null pinFree 0', 'released with v 466.30236562231727,1595.7923394131626 pin 0 pinV null pinFree 0', 'released with v -523.4697232988349,-422.6854896097159 pin 0 pinV null pinFree 0']
+  9/10
+=== mut-srcobj
+  [7] FAIL  the canopy: entangle `canopy` inside the reach, the cadence, a side letter; nothing else   1948 FAIL: ['source a Fighter', 'source a Fighter', 'source a Fighter', 'source a Fighter']
+  9/10
+=== mut-sprout
+  [5] FAIL  the boughs sprout at `sprout` as [0, 1/3, 2/3] with ribbons and clear cooldowns, and go on close   2941 FAIL: ['a blade set at 1.408s (sprout 1.5, boughs 3)', 'a blade set at 1.417s (sprout 1.5, boughs 3)', 'a blade set at 1.425s (sprout 1.5, boughs 3)', 'a blade set at 1.433s (sprout 1.5, boughs 3)']
+  9/10
+=== mut-grow
+  [4] FAIL  reachMul rises grow x dt to reachCap on the window clock, and is 1 after   123001 FAIL: ['reachMul 1 -> 1.0029458333333334, want 1.0029166666666667', 'reachMul 1.0029458333333334 -> 1.0058916666666669, want 1.0058625', 'reachMul 1.0058916666666669 -> 1.0088375000000003, want 1.0088083333333335', 'reachMul 1.0088375000000003 -> 1.0117833333333337, want 1.011754166666667']
+  9/10

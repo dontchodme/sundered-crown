@@ -1,0 +1,6 @@
+36 relics · Chromium 151.0.7922.34 · ironwood (redesign) · 33 foes x 20 seeds = 660 fights an arm · 
+  charge=16.0 dur=8.0 blade=23.5
+
+  arm       win  casts  hits in/out
+  SHIP    52.3%   0.00  0.00/25.68 
+  660 fights in 55s   errors: []

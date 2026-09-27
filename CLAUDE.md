@@ -43,10 +43,21 @@ short-form video for TikTok and YouTube Shorts.
                                  16/16, shell_identity 194/194. Picture gates
                                  12/17: every red a design-owned number
                                  (06-docs/v99/daybreak-circle-build-v99.md §4d).
-                                 THE CLIP IS WITH RICK. Zenith's stage 6 is a
-                                 sibling (sc-zenith-fx): the builder re-applies
-                                 onto it cleanly (tested, scratch).
-02-chain/sc-zenith-fx.html       THE CHAIN TIP, AWAITING RICK'S EYE. 35 RELICS.
+                                 THE CLIP IS WITH RICK. The batch line moved on
+                                 while it was built (sc-zenith-fx, then Ironwood
+                                 to sc-canopy-w38); the builder re-applies onto
+                                 sc-zenith-fx cleanly (tested, scratch).
+02-chain/sc-canopy-w38.html      THE CHAIN TIP. 36 RELICS: IRONWOOD / CANOPY, the
+                                 verdant warhammer (ironwood_build.py stages 1-5,
+                                 v99). For 8s the hammer roots (pin + pinFree), its
+                                 reach grows 0.35/s to 2.5, two more boughs sprout at
+                                 1.5s (blows x0.38 while the tree stands), and a foe
+                                 under the canopy is entangled every 0.5s. Charge 14,
+                                 winDmg 0.35 -> 0.38 (the brief's knob), blade 24:
+                                 50.1% both sides. verify 11/13, Ironwood 48.7%. The
+                                 gap to the lab is clocks (v99 §4). Art is the
+                                 hammer's own: stage 6 next.
+02-chain/sc-zenith-fx.html       the link under it, AWAITING RICK'S EYE (the clip).
                                  Zenith stage 6 (v98 §4): the sun drawn as a gold
                                  ring off the fighter (never ultFx), a faceted gold
                                  head, drawn embers (no fx.js field), voices STEP /

@@ -1,0 +1,40 @@
+Ironwood / Canopy (sc-canopy-w38: winDmg 0.38, blade 24) win by foe, both sides, relic_rate seed0 2207 + 2317
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks). Pooled: 50.1%
+
+by type  greatsword 76%  flail 46%  scythe 46%  bow 45%  warhammer 44%  twinblade 36%
+
+bloodmirror      5.0%
+twinshade        7.5%
+cindercleave    25.0%
+farwarden       30.0%
+ravelbone       30.0%
+vesper          32.5%
+aureole         35.0%
+widowmaker      35.0%
+bulwarden       37.5%
+censer          37.5%
+gravemourn      40.0%
+paradox         40.0%
+gloamwire       42.5%
+slagheart       42.5%
+spellbreaker    42.5%
+dawnbringer     47.5%
+ironhail        47.5%
+morningstar     47.5%
+thornshear      47.5%
+starwarden      47.5%
+marrowdraw      50.0%
+thornwake       52.5%
+duskreave       55.0%
+grudgebearer    55.0%
+shroudmaul      57.5%
+foregone        60.0%
+redflail        60.0%
+vinesower       65.0%
+emberedge       67.5%
+nightfell       72.5%
+oathwound       75.0%
+lightkeeper     85.0%
+heartwood       90.0%
+lastlight       90.0%
+axiom           97.5%
