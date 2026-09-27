@@ -1,0 +1,11 @@
+# The row's control that can fail: v75's arm A reproduced before any staff number was taken.
+# python3 ult_overlay.py --game ../02-chain/sc-trunk.html --relic ironhail --cell runic:bow --mech overlays/aim.js --arms A,C --seeds 10 --control 0.3364
+34 relics · Chromium 141.0.7390.37 · ironhail as runic:bow · 33 foes x 10 seeds = 330 fights an arm ·
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/outarrowHits f_foeStk      hex
+  A       33.6%   0.00  0.00/19.87      0.00     0.00     0.00
+  C       74.5%   3.09 12.76/11.58      3.96     2.87     3.96
+  lifts over A: C +40.9
+  CONTROL arm A 33.64% against 33.64%: PASS
+  660 fights in 50s   errors: []
