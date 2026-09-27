@@ -1,0 +1,21 @@
+
+  sc-zenith-fx.html  ·  10 foes x 6 seeds
+
+  foe              seed  cast at  window  clock  ticks   lit%   in  score
+  shroudmaul      98286    60.90    9.74      1     14   55.9    8   14.9
+  paradox         98175    14.92    9.70      1     13   50.6   10   14.7
+  lightkeeper     98286    45.65   10.40      1     13   42.0   10   14.5
+  heartwood       98138    45.93   10.07      1     11   40.9    9   13.9
+  heartwood       98175    14.59    8.97      1     11   38.1    8   13.8
+  shroudmaul      98212    30.48    9.23      1     11   37.6    9   13.8
+  vinesower       98212    45.52    9.84      1     10   47.2    7   13.6
+  heartwood       98249    62.24   10.04      1     11   29.9   13   13.6
+  shroudmaul      98101    45.67    9.09      1     11   25.3   10   13.5
+  shroudmaul      98138    45.87    9.33      1     10   40.6    5   13.4
+  censer          98212    30.68    9.05      1     10   36.4    9   13.3
+  heartwood       98212    61.26   10.21      1     10   32.5   10   13.2
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game ../02-chain/sc-zenith-fx.html --a morningstar --b shroudmaul --seed 98286 \
+      --at 59.70 --window 12.54 --fps 60 --w 540 --out ../07-shorts/v98/zenith-window.mp4

@@ -22,6 +22,13 @@ WHAT WOULD COUNT AS EVIDENCE AGAINST THE BUILD:
   [7] a window that is not `dur` long on the window clock
   [8] smite or blessing applied with a source that is not "a" / "b"
   [9] any relic but Morningstar carrying `ultSun`
+  STAGE 6 (the picture and the voice, sc-zenith-fx):
+  [10] a tick without exactly one chime pitched by the foe's smite stacks and
+       one heal voice (spark collect) pitched by the caster's blessing; a clock
+       close without exactly one close voice; a close voice on a death or on
+       any other frame
+  [11] a tick without exactly one `sunShown` call, or a `sunShown` that moves
+       anything the simulation reads (hp, shield, stacks, position, velocity)
 """
 from __future__ import annotations
 import argparse, json, pathlib, sys
@@ -40,7 +47,7 @@ JS = r"""([seeds]) => {
   const bad = {}, n = {};
   const fail = (k, msg) => { (bad[k] = bad[k] || []).length < 4 && bad[k].push(msg); n["x" + k] = (n["x" + k] || 0) + 1; };
   const inc = (k, v = 1) => { n[k] = (n[k] || 0) + v; };
-  const oTick = P.tickSun;
+  const oTick = P.tickSun, stage6 = typeof P.sunShown === "function";
   const lastTick = new WeakMap();
   P.tickSun = function(dt){
     const pre = [];
@@ -58,13 +65,33 @@ JS = r"""([seeds]) => {
     this.hurt = function(tgt, dmg, src){ const s0 = tgt.shield; hurts.push([tgt, dmg]);
       const r = oHurt.call(this, tgt, dmg, src); if (s0 > 0 && tgt.shield <= 0) shattered++; return r; };
     this.beat = function(o){ beats.push(o); return oBeat.call(this, o); };
+    /* STAGE 6: THE VOICE AND THE PICTURE, counted at the call. */
+    const calls = [], shown = [], oPlay = AC.SFX.play, oShown = this.sunShown;
+    if (stage6){
+      AC.SFX.play = function(kind, q){
+        if ((kind === "ult" && q && /^morningstar-(tick|close)$/.test(q.w)) || (kind === "spark" && q && q.collect)) calls.push([kind, q]);
+        return oPlay.call(this, kind, q); };
+      this.sunShown = function(f, foe){
+        const snap = x => [x.hp, x.shield, x.x, x.y, x.vx, x.vy, JSON.stringify(x.status)].join("|");
+        const s0 = [snap(f), snap(foe)];
+        const r = oShown.call(this, f, foe);
+        shown.push({ f, foe, same: snap(f) === s0[0] && snap(foe) === s0[1] });
+        return r; };
+    }
     const r = oTick.call(this, dt);
     delete this.hurt; delete this.beat;
+    if (stage6){ delete AC.SFX.play; delete this.sunShown; }
     for (const p of pre){
       const { f, foe, Z } = p, u = f.w.ult;
       if (p.t1 >= Z.dur || !p.fAlive){
         if (f.ultSun) fail(7, "window did not close at dur");
         else inc("closeOk");
+        if (stage6){
+          const cl = calls.filter(c => c[1].w === "morningstar-close").length;
+          if (p.fAlive && p.t1 >= Z.dur){ if (cl !== 1) fail(10, `clock close voiced ${cl}x`); else inc("closeVoice"); }
+          else if (cl) fail(10, "a close voice on a death");
+          if (calls.length - cl || shown.length) fail(10, "a tick voice or picture on a closing frame");
+        }
         continue;
       }
       const d = Math.hypot(p.x - p.hx, p.y - p.hy), lit = p.alive && d < u.r + R;
@@ -95,9 +122,20 @@ JS = r"""([seeds]) => {
         const killed = p.fhp > 0 && foe.hp <= 0, fb = beats.filter(b => b.fatal && b.sun);
         if (killed){ if (fb.length !== 1) fail(6, `killing tick filed ${fb.length} fatal beats`); else inc("fatalBeat"); }
         else if (beats.length) fail(6, `a non-killing tick filed ${beats.length} beat(s)`);
+        if (stage6){
+          const ch = calls.filter(c => c[1].w === "morningstar-tick"), hl = calls.filter(c => c[0] === "spark");
+          if (ch.length !== 1 || ch[0][1].n !== foe.stacks("smite")) fail(10, `tick chimes ${JSON.stringify(ch.map(c => c[1]))}, smite ${foe.stacks("smite")}`);
+          else if (u.bless > 0 && (hl.length !== 1 || hl[0][1].n !== f.stacks("blessing"))) fail(10, `heal voices ${JSON.stringify(hl.map(c => c[1]))}, blessing ${f.stacks("blessing")}`);
+          else if (calls.some(c => c[1].w === "morningstar-close")) fail(10, "a close voice on a tick");
+          else inc("tickVoice");
+          if (shown.length !== 1 || shown[0].f !== f || shown[0].foe !== foe) fail(11, `sunShown called ${shown.length}x on a tick`);
+          else if (!shown[0].same) fail(11, "sunShown moved simulation state");
+          else inc("shownOk");
+        }
       } else {
         if (lit && p.cd1 <= 1e-9) fail(2, "lit with the cooldown clear, and no tick");
         if (beats.length) fail(6, "a frame with no tick filed a beat");
+        if (stage6 && (calls.length || shown.length)) fail(10, `a voice or picture on a frame with no tick (${calls.length}, ${shown.length})`);
       }
       inc("frames"); if (lit) inc("litFrames");
     }
@@ -117,7 +155,7 @@ JS = r"""([seeds]) => {
   }
   P.tickSun = oTick;
   const u = AC.WEAPONS.find(w => w.id === "morningstar").ult;
-  return { n, bad, T, fights, win: wins / decided, u: { charge: u.charge, tickDmg: u.tickDmg, bless: u.bless, r: u.r, tick: u.tick } };
+  return { n, bad, T, fights, win: wins / decided, stage6, u: { charge: u.charge, tickDmg: u.tickDmg, bless: u.bless, r: u.r, tick: u.tick } };
 }"""
 
 with game(game_path=pathlib.Path(a.game).resolve()) as (page, errors):
@@ -126,6 +164,14 @@ with game(game_path=pathlib.Path(a.game).resolve()) as (page, errors):
         raise SystemExit("no tickSun in this build -- not a Zenith link (stage 2+)")
     seeds = [a.seed0 + 13 * i for i in range(a.seeds)]
     R = page.evaluate(JS, [seeds])
+    if R.get("stage6"):
+        from marrowdraw_relic_probe import SFX_JS
+        R["voices"] = {name: page.evaluate(SFX_JS, [kind, q, 3.0]) for name, kind, q in (
+            ("cast", "ult", {"w": "morningstar"}),
+            ("tick n=1", "ult", {"w": "morningstar-tick", "n": 1}),
+            ("tick n=4", "ult", {"w": "morningstar-tick", "n": 4}),
+            ("close", "ult", {"w": "morningstar-close"}),
+            ("rune-crack", "ult", {"w": "spellbreaker"}))}
     assert not errors, errors
 
 n, bad, T, U = R["n"], R["bad"], R["T"], R["u"]
@@ -147,6 +193,17 @@ checks = [
     (8, "smite's (and blessing's) source is a side letter", n.get("srcOk", 0) > 0),
     (9, "only Morningstar carries ultSun", True),
 ]
+if R.get("stage6"):
+    V = R.get("voices", {})
+    for k, v in V.items():
+        print(f"  voice {k:<11} peak {v.get('peak', 0):.3f}  audible {v.get('audible', 0):.2f}s"
+              f"{'  THREW ' + v['threw'] if v.get('threw') else ''}")
+    print(f"  tick voices {n.get('tickVoice',0)}, clock closes voiced {n.get('closeVoice',0)}, pictures filed {n.get('shownOk',0)}")
+    rc = V.get("rune-crack", {}).get("peak")
+    heard = all(V.get(k, {}).get("peak", 0) > 0.01 and not V.get(k, {}).get("threw") for k in ("cast", "tick n=1", "tick n=4", "close"))
+    checks.append((10, "stage 6: one chime (by smite) and one heal voice a tick; one close per clock close, none on a death; each voice renders alone",
+                   n.get("tickVoice", 0) > 0 and n.get("closeVoice", 0) > 0 and heard and V.get("cast", {}).get("peak") != rc))
+    checks.append((11, "stage 6: one picture record a tick, filed without touching the simulation", n.get("shownOk", 0) > 0))
 ok = 0
 for k, text, cover in checks:
     fails = n.get(f"x{k}", 0)

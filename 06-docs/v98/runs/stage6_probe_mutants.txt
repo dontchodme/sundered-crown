@@ -1,0 +1,7 @@
+=== mut-closevoice
+  [10] FAIL  stage 6: one chime (by smite) and one heal voice a tick; one close per clock close, none on a death; each voice renders alone   19 FAIL: ['a close voice on a death', 'a close voice on a death', 'a close voic
+  10/11
+=== mut-shownsim
+  [4] FAIL  nothing else: no move, no stop but a ward's own   3605 FAIL: ['a tick moved the foe', 'a tick moved the foe', 'a tick moved the foe', 'a tick moved the foe']
+  [11] FAIL  stage 6: one picture record a tick, filed without touching the simulation   3605 FAIL: ['sunShown moved simulation state', 'sunShown moved simulation state', 'sunShown moved simulation state', 'sunShown move
+  9/11

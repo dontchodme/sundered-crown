@@ -1,0 +1,4 @@
+morningstar on sc-zenith-fx.html · Chromium 151.0.7922.34 · 34 foes x 10 seeds x sides AB = 680 fights · seed0 2207 · set dmg=25.5
+  win 52.9%   side A 57.6%   side B 48.2%   mean 57.7s   timeouts 0
+  by type  greatsword 79%  warhammer 56%  twinblade 55%  scythe 50%  flail 46%  bow 26%
+  worst    farwarden 10%  gloamwire 15%  ironhail 20%   (680 fights in 40s)

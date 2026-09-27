@@ -1,0 +1,5 @@
+[identity] app   Chromium 152.0.7977.54  194 fights
+[identity] build 02-chain/sc-zenith-fx.html
+[identity] headless Chromium 151.0.7922.34
+
+PASS  194/194 identical.
