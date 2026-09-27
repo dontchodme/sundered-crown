@@ -1,0 +1,18 @@
+{
+ "fights": 136,
+ "wins": 24,
+ "spawned": 7728,
+ "badSpawn": [],
+ "cadSteps": 10471,
+ "badCad": [],
+ "gravSteps": 398222,
+ "frozenSteps": 37185,
+ "badGrav": [],
+ "bounced": 0,
+ "slugHits": 978,
+ "blows": 1856,
+ "hitsRemoved": 746,
+ "wallRemoved": 6173,
+ "otherRemoved": 782,
+ "dur": 7640.933333333178
+}

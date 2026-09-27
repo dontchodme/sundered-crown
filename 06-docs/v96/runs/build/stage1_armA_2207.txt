@@ -1,0 +1,7 @@
+35 relics · Chromium 151.0.7922.34 · culverin (redesign) · 33 foes x 20 seeds = 660 fights an arm · stage1 built, the lab's arm-A seeds
+  charge=16.0 dur=8.0 blade=13
+
+  arm       win  casts  hits in/out
+  A       20.2%   0.00  0.00/17.59 
+  lifts over A: 
+  660 fights in 50s   errors: []

@@ -1,0 +1,10 @@
+CULVERIN PROBE -- ../02-chain/sc-slug.html   136 fights (every foe x 2 seeds x both sides)   17s
+  PASS  [1] every slug leaves with the slug's numbers  -- 7728 slugs seen alive after their first step, of 10471 loosed -- the rest were spent on the step they left (a slug loosed into the floor)
+  PASS  [2] the cadence is exact  -- 10471 looses, fireCd moved by cadence - dt on every one
+  PASS  [3] vy grows by grav*dt on every moving step and not on a frozen one  -- 398222 moving slug-steps, 37185 frozen
+  PASS  [4] no slug bounces; a slug at a wall is spent  -- 6173 spent on a wall, 0 changed vx in flight
+  PASS  [5] slugs are clankable  -- 782 gone mid-hall without landing (batted, or eaten by Scour's band)
+  PASS  [6] blows a fight, the brief's ~14  -- 13.65 blows a fight, 7.19 of them slugs; 746 slugs landed
+
+  win 17.6% over the probe's 136 fights (a probe, not a measurement)   mean 56.2s
+  6/6

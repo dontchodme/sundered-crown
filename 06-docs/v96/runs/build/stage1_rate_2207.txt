@@ -1,0 +1,4 @@
+culverin on sc-culverin.html · Chromium 151.0.7922.34 · 34 foes x 10 seeds x sides AB = 680 fights · seed0 2207
+  win 20.4%   side A 19.4%   side B 21.5%   mean 57.6s   timeouts 0
+  by type  flail 35%  warhammer 32%  bow 24%  scythe 20%  twinblade 11%  greatsword 8%
+  worst    dawnbringer 0%  spellbreaker 0%  lightkeeper 0%   (680 fights in 43s)

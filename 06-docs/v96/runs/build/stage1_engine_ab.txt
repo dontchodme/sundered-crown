@@ -1,0 +1,11 @@
+=== ENGINE A/B: 34 relics, 10 seeds x 561 pairings ===
+
+  sc-leaf.html                    5610 matches  266.9s
+  sc-culverin.html                5610 matches  270.2s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 5610
+  PASS  every match identical field for field  — 5610/5610
+  PASS  the sweep is real  — 34/34 distinct winners, 5610 distinct seeds, 22.3-123.8s
+
+ENGINE A/B PASS — ../02-chain/sc-culverin.html does not move the 34-relic roster.

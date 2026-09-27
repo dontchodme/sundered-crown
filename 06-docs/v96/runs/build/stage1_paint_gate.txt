@@ -1,0 +1,38 @@
+THE PAINT GATE -- ../02-chain/sc-culverin.html   pick {'bloodsworn': 'A', 'umbral': 'A', 'vigil': 'A', 'verdant': 'A', 'runic': 'A', 'sanctified': 'A', 'dwarven': 'A'}
+  ok    bloodsworn  A        0 px differ  (max 0)   ink 57151
+  ok    bloodsworn  B        0 px differ  (max 0)   ink 42609
+  ok    bloodsworn  C        0 px differ  (max 0)   ink 47418
+  ok    umbral      A        0 px differ  (max 0)   ink 55667
+  ok    umbral      B        0 px differ  (max 0)   ink 67900
+  ok    umbral      C        0 px differ  (max 0)   ink 44561
+  ok    vigil       A        0 px differ  (max 0)   ink 58793
+  ok    vigil       B        0 px differ  (max 0)   ink 52235
+  ok    vigil       C        0 px differ  (max 0)   ink 53724
+  ok    verdant     A        0 px differ  (max 0)   ink 53815
+  ok    verdant     B        0 px differ  (max 0)   ink 66104
+  ok    verdant     C        0 px differ  (max 0)   ink 37938
+  ok    runic       A        0 px differ  (max 0)   ink 62316
+  ok    runic       B        0 px differ  (max 0)   ink 58339
+  ok    runic       C        0 px differ  (max 0)   ink 41461
+  ok    sanctified  A        0 px differ  (max 0)   ink 50654
+  ok    sanctified  B        0 px differ  (max 0)   ink 44967
+  ok    sanctified  C        0 px differ  (max 0)   ink 56610
+  ok    dwarven     A        0 px differ  (max 0)   ink 63071
+  ok    dwarven     B        0 px differ  (max 0)   ink 56523
+  ok    dwarven     C        0 px differ  (max 0)   ink 45939
+
+  21/21 candidates pixel-identical to the spec
+
+THE GLOW -- share of the staff's glow a sprite of the given length loses (against one sized at 2.6 L)
+  school       at 1.15 L     at 2 L   alpha on the sprite's far edge (1.15 / now)
+  bloodsworn       5.4%       0.0%      6545 / 0
+  umbral           2.8%       0.0%      5340 / 0
+  vigil            8.3%       0.0%     10066 / 0
+  verdant          2.3%       0.0%      4627 / 0
+  runic            4.7%       0.0%      6896 / 0
+  sanctified       2.0%       0.0%      3537 / 0
+  dwarven          5.1%       0.0%      8230 / 0
+  control: the bow at 1.15 L loses 0.00%, far-edge alpha 0
+  ok    the build's sprite holds all of every staff's glow, and the bow's never lost any
+
+  wrote ..\05-reference\v96\staff-spin-stage1.png
