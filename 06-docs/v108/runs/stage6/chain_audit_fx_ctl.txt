@@ -1,0 +1,49 @@
+  (24 insert(s) found in ironhail_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-ironhail-sunder-fx.html
+tip    sc-ironhail-sunder.html
+24 inserts read out of ironhail_build.py
+
+    ok  S1:Quarrelstorm becomes the hail, stubbed relic  1  mid   -  tip  1
+    ok  S1:the nova is retired: kind "volley" was Ironhail's alone relic  1  mid   -  tip  1
+    ok  S2:the hail has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the hail's window relic  1  mid   -  tip  1
+    ok  S2:the match carries the bolts in the air relic  1  mid   -  tip  1
+    ok  S2:the cast opens the hail and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the hail ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickHail drops and lands relic  1  mid   -  tip  1
+    ok  S3:the sunder              relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Ironhail's cast, landing and miss arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'const n = clamp(Math.round(p.n || 1), 1, 6), f = 110 * Math.pow(2, (n - 1) / 12), g = 0.'
+  LOST  S6:tickHail: the landing voice, once per landed bolt, after its hurt and its sunder relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "ironhail-land", n: foe.stacks("sunder") });'
+    ok  S6:tickHail: the miss voice, once per missed bolt, before the miss line relic  2  mid   -  tip  1
+  LOST  S6:quarrelstorm picture: fighter fields relic  1  mid   -  tip  0
+        'this.quarrelSeen = [0, 0];'
+  LOST  S6:quarrelstorm picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickQuarrel(dt);               // QUARRELSTORM'S PICTURE (v83 section 4)"
+  LOST  S6:quarrelstorm picture: tickQuarrel relic  1  mid   -  tip  0
+        'if (!(f.quarrelFade > 0) || f.quarrelOut > 0){ f.quarrelAge = 0; f.quarrelOut = 0; }   /'
+  LOST  S6:quarrelstorm picture: the ground call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawQuarrel(m);'
+  LOST  S6:quarrelstorm picture: the emissive call (over both fighters) relic  1  mid   -  tip  0
+        'this.drawQuarrelGlow(m);'
+  LOST  S6:quarrelstorm picture: the limbs' hook in drawWeapon relic  1  mid   -  tip  0
+        'this._quarrelLimbs(c, reach + 6, f.w.artW, f);'
+  LOST  S6:quarrelstorm picture: the drawing methods relic  1  mid   -  tip  0
+        'const h1 = shellHash(9941 + q.s, q.n * 8 + j), h2 = shellHash(9947 + q.s, q.n * 8 + j);'
+  LOST  S6:quarrelstorm picture: the nova's floor dust retired relic  1  mid   -  tip  0
+        "v108 stage 6). The hail's picture is `drawQuarrel`, off the fighter"
+  LOST  S6:quarrelstorm picture: the nova's release flash retired relic  1  mid   -  tip  0
+        "the mount's kick ring); retired with it (v83, v108 stage 6). The cast"
+  LOST  S6:quarrelstorm picture: the charge rune relic  1  mid   -  tip  0
+        'SG.poly(c, [[x, y + 0.2], [x + 0.13, y - 0.02], [x - 0.13, y - 0.02]], P.core, 0.55 + cf'
+  LOST  S6:quarrelstorm picture: the banner's spread relic  1  mid   -  tip  0
+        "farwarden: 118 }[b.w];   // Quarrelstorm's letters fall: no spread (v108)"
+  LOST  S6:quarrelstorm picture: the banner's letters fall relic  1  mid   -  tip  0
+        'for (const ch of b.text){ const w = c.measureText(ch).width; ws.push(w); tot += w + trac'
+
+!! 14 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Ironhail's cast, landing and miss arms, before the shared rune-crack fallback, S6:tickHail: the landing voice, once per landed bolt, after its hurt and its sunder, S6:quarrelstorm picture: fighter fields, S6:quarrelstorm picture: the presentation call, S6:quarrelstorm picture: tickQuarrel, S6:quarrelstorm picture: the ground call (world, under both balls), S6:quarrelstorm picture: the emissive call (over both fighters), S6:quarrelstorm picture: the limbs' hook in drawWeapon, S6:quarrelstorm picture: the drawing methods, S6:quarrelstorm picture: the nova's floor dust retired, S6:quarrelstorm picture: the nova's release flash retired, S6:quarrelstorm picture: the charge rune, S6:quarrelstorm picture: the banner's spread, S6:quarrelstorm picture: the banner's letters fall
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+exit 1

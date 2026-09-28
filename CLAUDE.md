@@ -82,7 +82,18 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-coldiron-temper-fx.html THE CHAIN TIP, AWAITING RICK'S EYE. 39 RELICS: COLDIRON /
+02-chain/sc-ironhail-fxout.html  THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 39 RELICS:
+                                 IRONHAIL / QUARRELSTORM REDESIGNED (ironhail_build.py
+                                 1, 2, 3, 6 and tools/fx_remove.py, v108), carried onto
+                                 sc-coldiron-temper-fx. The nova is gone: for 8s a bolt
+                                 drops on the foe every 0.4s and lands 0.3s later (r 60,
+                                 4 dmg, sunder 1). Charge 14, blade held at the shipped
+                                 16.23 (the design's target; 50% would be 14, in
+                                 scratch). The nova's SPECS field is out of both fx.js
+                                 copies: fx.js stamp -> 8bf7db5ceb2685a0. engine_ab
+                                 4218/4218 on the carry, shell_identity 185/185, and
+                                 yert's staff_carry holds on it (35/35 stages).
+02-chain/sc-coldiron-temper-fx.html the link under it, AWAITING RICK'S EYE. COLDIRON /
                                  TEMPER, the dwarven twinblade (coldiron_build.py 1-6,
                                  v103), carried onto sc-tendril-fx. For 8s the blades
                                  are cold iron: mass 5.0 (it wins binds), a won bind

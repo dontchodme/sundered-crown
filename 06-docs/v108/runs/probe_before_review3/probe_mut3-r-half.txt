@@ -1,0 +1,20 @@
+
+QUARRELSTORM (HAIL) PROBE  mut3-r-half.html  Chromium 151.0.7922.34  444 fights (Ironhail both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.79   blows a fight: in windows 10.87, outside 5.01   shots loosed: in windows 80.52, outside 40.29 a fight   Ironhail win 50.9%
+  per cast: drops 15.02  landed 2.25  dmg 9.01  sunder 2.25   landed share 15.3%   bolts resolved after the close 0.00 a cast; forced closes 16: 17 bolts resolved after them, 1 landed
+  the bow's fire rebuilt: 1457935 frames in windows, 724676 outside, 381284 skipped (stun / dead / over); asked once on 2563895 unfrozen steps
+  the hail's clock: tickHail asked once on 1282068 unfrozen steps (none on a frozen one), 882035 open-window frames
+  fall on the window clock: {'36': 18673} calls   killing landings 12   wards broken by the hail 40   clock closes 0, death closes 107
+  FREEZE CENSUS 12.4% of window steps frozen   a clock window lasts 0.00s of match time (8s on the window clock)
+  [1] FAIL  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's   1281827 FAIL: ['0 tickHail call(s) on an unfrozen step', '0 tickHail call(s) on an unfrozen step', '0 tickHail call(s) on an unfrozen step', '0 tickHail call(s) on an unfrozen step']
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once; none on a miss (none at sunder 0)
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] PASS  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out
+  [9] FAIL  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window   808 FAIL: ['a cast on an open window', 'a cast on an open window', 'a cast on an open window', 'a cast on an open window']
+
+  7/9
+exit 1

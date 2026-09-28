@@ -1,0 +1,9 @@
+34 relics · Chromium 151.0.7922.34 · ironhail (redesign) · 33 foes x 20 seeds = 660 fights an arm · published base sc-trunk on 151 block 2207
+  charge=16.0 dur=8.0 blade=None fallT=0.3 hitR=60 dropDmg=4
+
+  arm       win  casts  hits in/out      dmg    drops   landed   sunder
+  A       34.7%   0.00  0.00/16.17      0.00     0.00     0.00     0.00
+  SHIP    58.0%   0.00  0.00/17.93      0.00     0.00     0.00     0.00
+  C       63.0%   2.69  5.53/9.25      24.16    19.01     6.04     6.04
+  lifts over A: SHIP +23.3  C +28.3
+  1980 fights in 216s   errors: []

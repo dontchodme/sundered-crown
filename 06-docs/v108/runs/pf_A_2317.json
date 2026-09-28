@@ -1,0 +1,6657 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 8.0,
+  "blade": null,
+  "fallT": 0.3,
+  "hitR": 60,
+  "dropDmg": 4
+ },
+ "arms": {
+  "A": {
+   "win": 0.36666666666666664,
+   "n": 660,
+   "casts": 0.0,
+   "hitsIn": 0.0,
+   "hitsOut": 16.221212121212123,
+   "stats": {},
+   "byFoe": {
+    "dawnbringer": 0.3,
+    "widowmaker": 0.55,
+    "grudgebearer": 0.4,
+    "thornwake": 0.65,
+    "lastlight": 0.25,
+    "slagheart": 0.55,
+    "spellbreaker": 0.25,
+    "lightkeeper": 0.2,
+    "farwarden": 0.25,
+    "aureole": 0.45,
+    "censer": 0.55,
+    "emberedge": 0.15,
+    "oathwound": 0.2,
+    "heartwood": 0.4,
+    "nightfell": 0.25,
+    "axiom": 0.05,
+    "twinshade": 0.3,
+    "redflail": 0.45,
+    "foregone": 0.5,
+    "vinesower": 0.5,
+    "bulwarden": 0.3,
+    "marrowdraw": 0.35,
+    "paradox": 0.25,
+    "thornshear": 0.55,
+    "vesper": 0.15,
+    "shroudmaul": 0.5,
+    "cindercleave": 0.6,
+    "ravelbone": 0.35,
+    "gloamwire": 0.3,
+    "bloodmirror": 0.45,
+    "duskreave": 0.35,
+    "starwarden": 0.35,
+    "gravemourn": 0.4
+   }
+  }
+ },
+ "rows": [
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2317,
+   "win": 0,
+   "dur": 56.275,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2328,
+   "win": 1,
+   "dur": 40.666666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2339,
+   "win": 0,
+   "dur": 55.15,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2350,
+   "win": 0,
+   "dur": 62.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2361,
+   "win": 1,
+   "dur": 47.208333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2372,
+   "win": 0,
+   "dur": 63.3,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2383,
+   "win": 0,
+   "dur": 59.3,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2394,
+   "win": 1,
+   "dur": 50.75833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2405,
+   "win": 0,
+   "dur": 56.81666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2416,
+   "win": 0,
+   "dur": 57.583333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2427,
+   "win": 0,
+   "dur": 64.975,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2438,
+   "win": 0,
+   "dur": 53.18333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2449,
+   "win": 1,
+   "dur": 52.84166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2460,
+   "win": 0,
+   "dur": 62.4,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2471,
+   "win": 1,
+   "dur": 63.13333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2482,
+   "win": 0,
+   "dur": 62.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2493,
+   "win": 1,
+   "dur": 38.358333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2504,
+   "win": 0,
+   "dur": 54.958333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2515,
+   "win": 0,
+   "dur": 49.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "dawnbringer",
+   "seed": 2526,
+   "win": 0,
+   "dur": 59.5,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2317,
+   "win": 0,
+   "dur": 70.83333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2328,
+   "win": 1,
+   "dur": 49.766666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2339,
+   "win": 0,
+   "dur": 60.61666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2350,
+   "win": 1,
+   "dur": 51.375,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2361,
+   "win": 1,
+   "dur": 60.175,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2372,
+   "win": 0,
+   "dur": 68.85,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2383,
+   "win": 1,
+   "dur": 45.05,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2394,
+   "win": 1,
+   "dur": 49.36666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2405,
+   "win": 0,
+   "dur": 63.858333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2416,
+   "win": 0,
+   "dur": 60.00833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2427,
+   "win": 0,
+   "dur": 50.575,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2438,
+   "win": 1,
+   "dur": 60.43333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2449,
+   "win": 0,
+   "dur": 56.28333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2460,
+   "win": 1,
+   "dur": 56.916666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2471,
+   "win": 1,
+   "dur": 60.05,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2482,
+   "win": 1,
+   "dur": 65.3,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2493,
+   "win": 1,
+   "dur": 43.775,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2504,
+   "win": 0,
+   "dur": 55.324999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2515,
+   "win": 1,
+   "dur": 66.85,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "widowmaker",
+   "seed": 2526,
+   "win": 0,
+   "dur": 56.03333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2317,
+   "win": 0,
+   "dur": 36.81666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2328,
+   "win": 0,
+   "dur": 30.491666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2339,
+   "win": 1,
+   "dur": 51.25833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2350,
+   "win": 0,
+   "dur": 53.35,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2361,
+   "win": 0,
+   "dur": 48.75,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2372,
+   "win": 1,
+   "dur": 45.35,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2383,
+   "win": 0,
+   "dur": 43.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2394,
+   "win": 0,
+   "dur": 43.575,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2405,
+   "win": 0,
+   "dur": 43.608333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2416,
+   "win": 1,
+   "dur": 47.99166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2427,
+   "win": 0,
+   "dur": 42.99166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2438,
+   "win": 1,
+   "dur": 45.325,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2449,
+   "win": 0,
+   "dur": 23.083333333333332,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2460,
+   "win": 1,
+   "dur": 55.61666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2471,
+   "win": 1,
+   "dur": 47.1,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2482,
+   "win": 0,
+   "dur": 42.733333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 5
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2493,
+   "win": 1,
+   "dur": 60.49166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2504,
+   "win": 0,
+   "dur": 44.766666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2515,
+   "win": 0,
+   "dur": 44.40833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "grudgebearer",
+   "seed": 2526,
+   "win": 1,
+   "dur": 32.416666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2317,
+   "win": 1,
+   "dur": 53.858333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2328,
+   "win": 1,
+   "dur": 38.61666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2339,
+   "win": 0,
+   "dur": 48.21666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2350,
+   "win": 0,
+   "dur": 37.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2361,
+   "win": 1,
+   "dur": 64.55,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2372,
+   "win": 1,
+   "dur": 35.84166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2383,
+   "win": 1,
+   "dur": 62.208333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2394,
+   "win": 0,
+   "dur": 58,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2405,
+   "win": 1,
+   "dur": 42.675,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2416,
+   "win": 1,
+   "dur": 44.775,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2427,
+   "win": 1,
+   "dur": 44.55833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2438,
+   "win": 1,
+   "dur": 56.36666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2449,
+   "win": 1,
+   "dur": 59.3,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2460,
+   "win": 0,
+   "dur": 45.94166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2471,
+   "win": 1,
+   "dur": 48.958333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2482,
+   "win": 1,
+   "dur": 51.65,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2493,
+   "win": 0,
+   "dur": 51.3,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2504,
+   "win": 1,
+   "dur": 47.61666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2515,
+   "win": 0,
+   "dur": 55.43333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "thornwake",
+   "seed": 2526,
+   "win": 0,
+   "dur": 35.891666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2317,
+   "win": 1,
+   "dur": 54.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2328,
+   "win": 0,
+   "dur": 38.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2339,
+   "win": 0,
+   "dur": 52.983333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2350,
+   "win": 0,
+   "dur": 54.891666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2361,
+   "win": 0,
+   "dur": 52.949999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2372,
+   "win": 0,
+   "dur": 51.125,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2383,
+   "win": 0,
+   "dur": 59.06666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2394,
+   "win": 0,
+   "dur": 53.375,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2405,
+   "win": 0,
+   "dur": 55.833333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2416,
+   "win": 1,
+   "dur": 49.8,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2427,
+   "win": 0,
+   "dur": 54.074999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2438,
+   "win": 0,
+   "dur": 38.46666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 7
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2449,
+   "win": 0,
+   "dur": 49.03333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2460,
+   "win": 0,
+   "dur": 52.4,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2471,
+   "win": 1,
+   "dur": 48.583333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2482,
+   "win": 1,
+   "dur": 42.416666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2493,
+   "win": 0,
+   "dur": 57.18333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2504,
+   "win": 1,
+   "dur": 44.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2515,
+   "win": 0,
+   "dur": 52.666666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "lastlight",
+   "seed": 2526,
+   "win": 0,
+   "dur": 52.05833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2317,
+   "win": 1,
+   "dur": 39.05,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2328,
+   "win": 0,
+   "dur": 49.84166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2339,
+   "win": 0,
+   "dur": 56.699999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2350,
+   "win": 0,
+   "dur": 49.09166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2361,
+   "win": 1,
+   "dur": 58.46666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2372,
+   "win": 1,
+   "dur": 31.491666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2383,
+   "win": 0,
+   "dur": 34.025,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2394,
+   "win": 1,
+   "dur": 54.18333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2405,
+   "win": 0,
+   "dur": 36.21666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2416,
+   "win": 0,
+   "dur": 36.641666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2427,
+   "win": 0,
+   "dur": 43.18333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2438,
+   "win": 1,
+   "dur": 50.175,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2449,
+   "win": 1,
+   "dur": 40.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2460,
+   "win": 0,
+   "dur": 44.9,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2471,
+   "win": 1,
+   "dur": 48.2,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2482,
+   "win": 1,
+   "dur": 40.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2493,
+   "win": 0,
+   "dur": 50.50833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2504,
+   "win": 1,
+   "dur": 39.34166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2515,
+   "win": 1,
+   "dur": 47.541666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "slagheart",
+   "seed": 2526,
+   "win": 1,
+   "dur": 44.25,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2317,
+   "win": 1,
+   "dur": 52.94166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2328,
+   "win": 1,
+   "dur": 67.29166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2339,
+   "win": 0,
+   "dur": 76.05,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2350,
+   "win": 0,
+   "dur": 69.84166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2361,
+   "win": 0,
+   "dur": 68.99166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 7
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2372,
+   "win": 0,
+   "dur": 73.20833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2383,
+   "win": 1,
+   "dur": 70.23333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2394,
+   "win": 0,
+   "dur": 72.5,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2405,
+   "win": 0,
+   "dur": 72.54166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2416,
+   "win": 0,
+   "dur": 73.175,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2427,
+   "win": 1,
+   "dur": 64.95,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2438,
+   "win": 0,
+   "dur": 70.325,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2449,
+   "win": 0,
+   "dur": 71.78333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 5
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2460,
+   "win": 0,
+   "dur": 78.025,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2471,
+   "win": 0,
+   "dur": 76.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2482,
+   "win": 0,
+   "dur": 65.15833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 6
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2493,
+   "win": 1,
+   "dur": 67.55833333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2504,
+   "win": 0,
+   "dur": 78.56666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2515,
+   "win": 0,
+   "dur": 71.71666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "spellbreaker",
+   "seed": 2526,
+   "win": 0,
+   "dur": 73.86666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2317,
+   "win": 0,
+   "dur": 80.2,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2328,
+   "win": 0,
+   "dur": 69.19166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2339,
+   "win": 0,
+   "dur": 64.675,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2350,
+   "win": 0,
+   "dur": 74.2,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2361,
+   "win": 0,
+   "dur": 74.11666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2372,
+   "win": 1,
+   "dur": 61.949999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2383,
+   "win": 0,
+   "dur": 69.74166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2394,
+   "win": 0,
+   "dur": 68.825,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2405,
+   "win": 0,
+   "dur": 67.20833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2416,
+   "win": 0,
+   "dur": 75.51666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2427,
+   "win": 1,
+   "dur": 61.875,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2438,
+   "win": 0,
+   "dur": 71.3,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2449,
+   "win": 1,
+   "dur": 67.04166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2460,
+   "win": 0,
+   "dur": 69.04166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2471,
+   "win": 0,
+   "dur": 74.55833333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2482,
+   "win": 0,
+   "dur": 70.59166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2493,
+   "win": 1,
+   "dur": 35.483333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2504,
+   "win": 0,
+   "dur": 73.39166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2515,
+   "win": 0,
+   "dur": 66.375,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "lightkeeper",
+   "seed": 2526,
+   "win": 0,
+   "dur": 64.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2317,
+   "win": 0,
+   "dur": 52.11666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2328,
+   "win": 0,
+   "dur": 63.199999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2339,
+   "win": 0,
+   "dur": 46.25833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2350,
+   "win": 0,
+   "dur": 44.1,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2361,
+   "win": 0,
+   "dur": 62.38333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 26
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2372,
+   "win": 0,
+   "dur": 56.083333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 27
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2383,
+   "win": 0,
+   "dur": 58.791666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2394,
+   "win": 1,
+   "dur": 66.00833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 24
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2405,
+   "win": 0,
+   "dur": 52.166666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 25
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2416,
+   "win": 0,
+   "dur": 65.98333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 26
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2427,
+   "win": 0,
+   "dur": 54.63333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 26
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2438,
+   "win": 0,
+   "dur": 61.56666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2449,
+   "win": 0,
+   "dur": 66.83333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 24
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2460,
+   "win": 0,
+   "dur": 61.233333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2471,
+   "win": 1,
+   "dur": 39.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2482,
+   "win": 1,
+   "dur": 69.24166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 27
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2493,
+   "win": 0,
+   "dur": 66.54166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2504,
+   "win": 1,
+   "dur": 64.98333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 26
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2515,
+   "win": 1,
+   "dur": 59.38333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 25
+  },
+  {
+   "arm": "A",
+   "foe": "farwarden",
+   "seed": 2526,
+   "win": 0,
+   "dur": 57.25,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2317,
+   "win": 0,
+   "dur": 44.13333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2328,
+   "win": 0,
+   "dur": 47.833333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2339,
+   "win": 1,
+   "dur": 41.74166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2350,
+   "win": 0,
+   "dur": 40.208333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2361,
+   "win": 0,
+   "dur": 46.925,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2372,
+   "win": 1,
+   "dur": 50.266666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2383,
+   "win": 0,
+   "dur": 56.641666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2394,
+   "win": 1,
+   "dur": 44.78333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2405,
+   "win": 0,
+   "dur": 44,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2416,
+   "win": 0,
+   "dur": 44.19166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2427,
+   "win": 1,
+   "dur": 52.233333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2438,
+   "win": 0,
+   "dur": 47.025,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2449,
+   "win": 1,
+   "dur": 53.15833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2460,
+   "win": 1,
+   "dur": 43.166666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2471,
+   "win": 1,
+   "dur": 39.225,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2482,
+   "win": 0,
+   "dur": 53.699999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2493,
+   "win": 1,
+   "dur": 42.016666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2504,
+   "win": 0,
+   "dur": 33.925,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2515,
+   "win": 0,
+   "dur": 37.94166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "aureole",
+   "seed": 2526,
+   "win": 1,
+   "dur": 44.625,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2317,
+   "win": 1,
+   "dur": 40.68333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2328,
+   "win": 0,
+   "dur": 40.15,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2339,
+   "win": 1,
+   "dur": 47.416666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2350,
+   "win": 0,
+   "dur": 55.275,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2361,
+   "win": 1,
+   "dur": 52.06666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2372,
+   "win": 0,
+   "dur": 53.875,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2383,
+   "win": 1,
+   "dur": 62.916666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2394,
+   "win": 1,
+   "dur": 40.166666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2405,
+   "win": 1,
+   "dur": 49.416666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2416,
+   "win": 1,
+   "dur": 47.525,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2427,
+   "win": 1,
+   "dur": 53.34166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2438,
+   "win": 1,
+   "dur": 52,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2449,
+   "win": 1,
+   "dur": 38.916666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2460,
+   "win": 0,
+   "dur": 56.233333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2471,
+   "win": 1,
+   "dur": 48.81666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2482,
+   "win": 0,
+   "dur": 36.31666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 3
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2493,
+   "win": 0,
+   "dur": 39.108333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2504,
+   "win": 0,
+   "dur": 54.475,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2515,
+   "win": 0,
+   "dur": 42.55833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "censer",
+   "seed": 2526,
+   "win": 0,
+   "dur": 50.8,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2317,
+   "win": 0,
+   "dur": 64.975,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2328,
+   "win": 0,
+   "dur": 49.34166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2339,
+   "win": 0,
+   "dur": 55.291666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2350,
+   "win": 1,
+   "dur": 55.666666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2361,
+   "win": 0,
+   "dur": 65.8,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2372,
+   "win": 0,
+   "dur": 58.65833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2383,
+   "win": 0,
+   "dur": 62.9,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2394,
+   "win": 0,
+   "dur": 59.5,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2405,
+   "win": 0,
+   "dur": 62.9,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2416,
+   "win": 0,
+   "dur": 52.733333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2427,
+   "win": 0,
+   "dur": 57.475,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2438,
+   "win": 0,
+   "dur": 61.824999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2449,
+   "win": 1,
+   "dur": 55.05833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2460,
+   "win": 0,
+   "dur": 62.541666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2471,
+   "win": 0,
+   "dur": 50.875,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2482,
+   "win": 0,
+   "dur": 64.33333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2493,
+   "win": 0,
+   "dur": 64.425,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2504,
+   "win": 0,
+   "dur": 58.458333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2515,
+   "win": 0,
+   "dur": 50.9,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "emberedge",
+   "seed": 2526,
+   "win": 1,
+   "dur": 41.78333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2317,
+   "win": 0,
+   "dur": 58.90833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 7
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2328,
+   "win": 0,
+   "dur": 54.975,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2339,
+   "win": 0,
+   "dur": 53.81666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2350,
+   "win": 0,
+   "dur": 57.38333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2361,
+   "win": 0,
+   "dur": 52.333333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2372,
+   "win": 0,
+   "dur": 61.69166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2383,
+   "win": 0,
+   "dur": 62.96666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2394,
+   "win": 0,
+   "dur": 51.641666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2405,
+   "win": 0,
+   "dur": 62.608333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 7
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2416,
+   "win": 0,
+   "dur": 47.93333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 5
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2427,
+   "win": 1,
+   "dur": 44.96666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2438,
+   "win": 0,
+   "dur": 54.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 7
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2449,
+   "win": 0,
+   "dur": 61.1,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2460,
+   "win": 1,
+   "dur": 64.41666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2471,
+   "win": 0,
+   "dur": 48.791666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2482,
+   "win": 0,
+   "dur": 57.233333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2493,
+   "win": 1,
+   "dur": 65.24166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2504,
+   "win": 1,
+   "dur": 54.06666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2515,
+   "win": 0,
+   "dur": 61.81666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "oathwound",
+   "seed": 2526,
+   "win": 0,
+   "dur": 57.99166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2317,
+   "win": 0,
+   "dur": 62.775,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2328,
+   "win": 1,
+   "dur": 67.425,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2339,
+   "win": 1,
+   "dur": 64.33333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2350,
+   "win": 0,
+   "dur": 65.36666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2361,
+   "win": 0,
+   "dur": 65.46666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2372,
+   "win": 1,
+   "dur": 53.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2383,
+   "win": 0,
+   "dur": 69.91666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2394,
+   "win": 1,
+   "dur": 55.68333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2405,
+   "win": 0,
+   "dur": 67.80833333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2416,
+   "win": 1,
+   "dur": 57.824999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2427,
+   "win": 1,
+   "dur": 62.90833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2438,
+   "win": 0,
+   "dur": 79.275,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2449,
+   "win": 0,
+   "dur": 72.55,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2460,
+   "win": 0,
+   "dur": 59.625,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2471,
+   "win": 1,
+   "dur": 46.90833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2482,
+   "win": 0,
+   "dur": 71.45833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2493,
+   "win": 0,
+   "dur": 65.74166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2504,
+   "win": 1,
+   "dur": 58.608333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2515,
+   "win": 0,
+   "dur": 68.06666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "heartwood",
+   "seed": 2526,
+   "win": 0,
+   "dur": 67.1,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2317,
+   "win": 1,
+   "dur": 57.708333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2328,
+   "win": 0,
+   "dur": 57.675,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2339,
+   "win": 1,
+   "dur": 65.14166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2350,
+   "win": 1,
+   "dur": 59.108333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2361,
+   "win": 0,
+   "dur": 65.93333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2372,
+   "win": 1,
+   "dur": 64,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2383,
+   "win": 0,
+   "dur": 58.44166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2394,
+   "win": 0,
+   "dur": 55.858333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2405,
+   "win": 0,
+   "dur": 55.75,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2416,
+   "win": 0,
+   "dur": 65.025,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2427,
+   "win": 0,
+   "dur": 45.31666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2438,
+   "win": 0,
+   "dur": 60.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2449,
+   "win": 0,
+   "dur": 57.3,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 5
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2460,
+   "win": 1,
+   "dur": 56.108333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2471,
+   "win": 0,
+   "dur": 58.18333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2482,
+   "win": 0,
+   "dur": 64.25,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2493,
+   "win": 0,
+   "dur": 60.09166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2504,
+   "win": 0,
+   "dur": 59.858333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2515,
+   "win": 0,
+   "dur": 64.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "nightfell",
+   "seed": 2526,
+   "win": 0,
+   "dur": 67.775,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2317,
+   "win": 0,
+   "dur": 81.71666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2328,
+   "win": 0,
+   "dur": 78.28333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2339,
+   "win": 0,
+   "dur": 80.03333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2350,
+   "win": 0,
+   "dur": 79.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2361,
+   "win": 0,
+   "dur": 81.23333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2372,
+   "win": 0,
+   "dur": 85.79166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2383,
+   "win": 0,
+   "dur": 74.15,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2394,
+   "win": 0,
+   "dur": 71.34166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2405,
+   "win": 0,
+   "dur": 82.30833333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2416,
+   "win": 0,
+   "dur": 77.23333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2427,
+   "win": 1,
+   "dur": 70.65833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2438,
+   "win": 0,
+   "dur": 69.66666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2449,
+   "win": 0,
+   "dur": 83.59166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2460,
+   "win": 0,
+   "dur": 85.225,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2471,
+   "win": 0,
+   "dur": 82.08333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2482,
+   "win": 0,
+   "dur": 78.48333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2493,
+   "win": 0,
+   "dur": 74.4,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2504,
+   "win": 0,
+   "dur": 70.59166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2515,
+   "win": 0,
+   "dur": 81.10833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "axiom",
+   "seed": 2526,
+   "win": 0,
+   "dur": 74.45833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2317,
+   "win": 0,
+   "dur": 68.51666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2328,
+   "win": 0,
+   "dur": 71.95833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2339,
+   "win": 0,
+   "dur": 68.075,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2350,
+   "win": 0,
+   "dur": 61.733333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2361,
+   "win": 0,
+   "dur": 67.55,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2372,
+   "win": 0,
+   "dur": 71.39166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2383,
+   "win": 1,
+   "dur": 63.425,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2394,
+   "win": 0,
+   "dur": 70.65,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2405,
+   "win": 1,
+   "dur": 64.14166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2416,
+   "win": 1,
+   "dur": 60.525,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2427,
+   "win": 0,
+   "dur": 64.33333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2438,
+   "win": 0,
+   "dur": 67.86666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2449,
+   "win": 0,
+   "dur": 70.76666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2460,
+   "win": 0,
+   "dur": 68.05833333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2471,
+   "win": 0,
+   "dur": 70.33333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2482,
+   "win": 1,
+   "dur": 64.58333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2493,
+   "win": 1,
+   "dur": 59.13333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2504,
+   "win": 1,
+   "dur": 69.975,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2515,
+   "win": 0,
+   "dur": 68.475,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "twinshade",
+   "seed": 2526,
+   "win": 0,
+   "dur": 69.74166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2317,
+   "win": 0,
+   "dur": 51.78333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2328,
+   "win": 0,
+   "dur": 57.69166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2339,
+   "win": 1,
+   "dur": 42.8,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2350,
+   "win": 0,
+   "dur": 49.708333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2361,
+   "win": 1,
+   "dur": 44.075,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2372,
+   "win": 1,
+   "dur": 42.266666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2383,
+   "win": 0,
+   "dur": 45.11666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2394,
+   "win": 0,
+   "dur": 41.425,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2405,
+   "win": 1,
+   "dur": 38.19166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2416,
+   "win": 1,
+   "dur": 36.85,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2427,
+   "win": 1,
+   "dur": 46.34166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2438,
+   "win": 0,
+   "dur": 45.416666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2449,
+   "win": 0,
+   "dur": 42.708333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2460,
+   "win": 1,
+   "dur": 51.8,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2471,
+   "win": 0,
+   "dur": 47.28333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2482,
+   "win": 1,
+   "dur": 32.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2493,
+   "win": 0,
+   "dur": 41.13333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2504,
+   "win": 1,
+   "dur": 46.81666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2515,
+   "win": 0,
+   "dur": 51.175,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "redflail",
+   "seed": 2526,
+   "win": 0,
+   "dur": 43.291666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2317,
+   "win": 1,
+   "dur": 42.30833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2328,
+   "win": 1,
+   "dur": 49.80833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2339,
+   "win": 1,
+   "dur": 47.483333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2350,
+   "win": 0,
+   "dur": 57.333333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2361,
+   "win": 0,
+   "dur": 61.083333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2372,
+   "win": 0,
+   "dur": 53.766666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2383,
+   "win": 0,
+   "dur": 54.525,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2394,
+   "win": 0,
+   "dur": 51.824999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2405,
+   "win": 1,
+   "dur": 59.475,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2416,
+   "win": 0,
+   "dur": 56.28333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2427,
+   "win": 1,
+   "dur": 56.65833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2438,
+   "win": 1,
+   "dur": 52.025,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2449,
+   "win": 1,
+   "dur": 49.391666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2460,
+   "win": 1,
+   "dur": 30.7,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2471,
+   "win": 0,
+   "dur": 51.61666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2482,
+   "win": 1,
+   "dur": 31.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2493,
+   "win": 1,
+   "dur": 65.575,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2504,
+   "win": 0,
+   "dur": 54.9,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2515,
+   "win": 0,
+   "dur": 60.00833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "foregone",
+   "seed": 2526,
+   "win": 0,
+   "dur": 55.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2317,
+   "win": 0,
+   "dur": 53.1,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2328,
+   "win": 1,
+   "dur": 47.666666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2339,
+   "win": 0,
+   "dur": 45.30833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2350,
+   "win": 0,
+   "dur": 55.49166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2361,
+   "win": 1,
+   "dur": 38.675,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2372,
+   "win": 0,
+   "dur": 57.15833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2383,
+   "win": 0,
+   "dur": 57.958333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2394,
+   "win": 0,
+   "dur": 61.15833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2405,
+   "win": 0,
+   "dur": 63.55833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2416,
+   "win": 1,
+   "dur": 64.39166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2427,
+   "win": 1,
+   "dur": 55.1,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2438,
+   "win": 0,
+   "dur": 52.38333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2449,
+   "win": 1,
+   "dur": 45.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2460,
+   "win": 1,
+   "dur": 54.00833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2471,
+   "win": 1,
+   "dur": 58.425,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2482,
+   "win": 0,
+   "dur": 55.266666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2493,
+   "win": 1,
+   "dur": 32.44166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2504,
+   "win": 1,
+   "dur": 51.666666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2515,
+   "win": 0,
+   "dur": 57.074999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "vinesower",
+   "seed": 2526,
+   "win": 1,
+   "dur": 42.94166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2317,
+   "win": 1,
+   "dur": 67.14166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 24
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2328,
+   "win": 0,
+   "dur": 67.05,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2339,
+   "win": 0,
+   "dur": 60.68333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2350,
+   "win": 0,
+   "dur": 75.14166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2361,
+   "win": 0,
+   "dur": 67.9,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2372,
+   "win": 0,
+   "dur": 60.4,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2383,
+   "win": 1,
+   "dur": 48.49166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2394,
+   "win": 1,
+   "dur": 59.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2405,
+   "win": 0,
+   "dur": 54.61666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2416,
+   "win": 1,
+   "dur": 69.775,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 24
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2427,
+   "win": 0,
+   "dur": 65.10833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2438,
+   "win": 0,
+   "dur": 65,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2449,
+   "win": 0,
+   "dur": 49.358333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2460,
+   "win": 0,
+   "dur": 64.85833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2471,
+   "win": 0,
+   "dur": 67.85,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 25
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2482,
+   "win": 1,
+   "dur": 62.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2493,
+   "win": 0,
+   "dur": 59.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 25
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2504,
+   "win": 1,
+   "dur": 68.23333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 24
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2515,
+   "win": 0,
+   "dur": 64.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "bulwarden",
+   "seed": 2526,
+   "win": 0,
+   "dur": 69.78333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2317,
+   "win": 1,
+   "dur": 42.28333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2328,
+   "win": 0,
+   "dur": 40.45,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2339,
+   "win": 0,
+   "dur": 38.75,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2350,
+   "win": 1,
+   "dur": 39.44166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2361,
+   "win": 0,
+   "dur": 30.591666666666665,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2372,
+   "win": 0,
+   "dur": 37.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2383,
+   "win": 0,
+   "dur": 53.65833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2394,
+   "win": 1,
+   "dur": 41.775,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2405,
+   "win": 0,
+   "dur": 35.40833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2416,
+   "win": 0,
+   "dur": 43.458333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2427,
+   "win": 0,
+   "dur": 41.475,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2438,
+   "win": 0,
+   "dur": 55.266666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2449,
+   "win": 0,
+   "dur": 43.55,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2460,
+   "win": 1,
+   "dur": 41.35,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2471,
+   "win": 1,
+   "dur": 40.916666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2482,
+   "win": 0,
+   "dur": 41.15,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2493,
+   "win": 0,
+   "dur": 35.25,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2504,
+   "win": 1,
+   "dur": 49.21666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2515,
+   "win": 1,
+   "dur": 37.1,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "marrowdraw",
+   "seed": 2526,
+   "win": 0,
+   "dur": 49.125,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2317,
+   "win": 0,
+   "dur": 43.85,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2328,
+   "win": 0,
+   "dur": 68.8,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2339,
+   "win": 1,
+   "dur": 33.65,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2350,
+   "win": 0,
+   "dur": 62.733333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2361,
+   "win": 0,
+   "dur": 60.449999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2372,
+   "win": 1,
+   "dur": 54.81666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2383,
+   "win": 1,
+   "dur": 53.916666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2394,
+   "win": 0,
+   "dur": 61.925,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2405,
+   "win": 0,
+   "dur": 60.208333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2416,
+   "win": 0,
+   "dur": 51.166666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2427,
+   "win": 1,
+   "dur": 53.233333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2438,
+   "win": 1,
+   "dur": 32.78333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2449,
+   "win": 0,
+   "dur": 57.208333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2460,
+   "win": 0,
+   "dur": 56.31666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2471,
+   "win": 0,
+   "dur": 41.358333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2482,
+   "win": 0,
+   "dur": 68.19166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2493,
+   "win": 0,
+   "dur": 39.11666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2504,
+   "win": 0,
+   "dur": 57.09166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2515,
+   "win": 0,
+   "dur": 47.44166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "paradox",
+   "seed": 2526,
+   "win": 0,
+   "dur": 56.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2317,
+   "win": 1,
+   "dur": 38.96666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2328,
+   "win": 0,
+   "dur": 59.74166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2339,
+   "win": 1,
+   "dur": 65.325,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2350,
+   "win": 0,
+   "dur": 62.21666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2361,
+   "win": 1,
+   "dur": 55.38333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2372,
+   "win": 1,
+   "dur": 72.94166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2383,
+   "win": 1,
+   "dur": 39.65833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2394,
+   "win": 1,
+   "dur": 68.83333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2405,
+   "win": 1,
+   "dur": 62.25,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2416,
+   "win": 0,
+   "dur": 68.85833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2427,
+   "win": 0,
+   "dur": 61.15833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2438,
+   "win": 0,
+   "dur": 65.40833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2449,
+   "win": 1,
+   "dur": 54.233333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2460,
+   "win": 1,
+   "dur": 45.94166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2471,
+   "win": 0,
+   "dur": 60.641666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2482,
+   "win": 1,
+   "dur": 55.625,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2493,
+   "win": 0,
+   "dur": 59.35,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2504,
+   "win": 1,
+   "dur": 65.825,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2515,
+   "win": 0,
+   "dur": 66.75,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "thornshear",
+   "seed": 2526,
+   "win": 0,
+   "dur": 64.06666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2317,
+   "win": 0,
+   "dur": 56.983333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2328,
+   "win": 0,
+   "dur": 56.30833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2339,
+   "win": 1,
+   "dur": 44.15833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2350,
+   "win": 0,
+   "dur": 59.05833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2361,
+   "win": 0,
+   "dur": 52.31666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2372,
+   "win": 0,
+   "dur": 53.63333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2383,
+   "win": 0,
+   "dur": 60.46666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2394,
+   "win": 0,
+   "dur": 52.891666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2405,
+   "win": 0,
+   "dur": 54.041666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2416,
+   "win": 0,
+   "dur": 59.275,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2427,
+   "win": 0,
+   "dur": 57.86666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2438,
+   "win": 0,
+   "dur": 45.108333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2449,
+   "win": 1,
+   "dur": 49.90833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2460,
+   "win": 0,
+   "dur": 59.25,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2471,
+   "win": 0,
+   "dur": 49.208333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2482,
+   "win": 1,
+   "dur": 57.69166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2493,
+   "win": 0,
+   "dur": 58.625,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2504,
+   "win": 0,
+   "dur": 56.483333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2515,
+   "win": 0,
+   "dur": 55.458333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "vesper",
+   "seed": 2526,
+   "win": 0,
+   "dur": 48.1,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2317,
+   "win": 0,
+   "dur": 66.49166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2328,
+   "win": 1,
+   "dur": 62.15,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2339,
+   "win": 1,
+   "dur": 62.925,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2350,
+   "win": 1,
+   "dur": 68.59166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2361,
+   "win": 0,
+   "dur": 60.25,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2372,
+   "win": 0,
+   "dur": 80.74166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2383,
+   "win": 1,
+   "dur": 64.84166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2394,
+   "win": 1,
+   "dur": 43.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2405,
+   "win": 1,
+   "dur": 64.75,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2416,
+   "win": 1,
+   "dur": 61.766666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2427,
+   "win": 0,
+   "dur": 66.35833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2438,
+   "win": 1,
+   "dur": 57.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2449,
+   "win": 1,
+   "dur": 62.49166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2460,
+   "win": 0,
+   "dur": 68.78333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2471,
+   "win": 0,
+   "dur": 49.59166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2482,
+   "win": 0,
+   "dur": 71.99166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2493,
+   "win": 1,
+   "dur": 61.791666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2504,
+   "win": 0,
+   "dur": 59.75833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2515,
+   "win": 0,
+   "dur": 56.025,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "shroudmaul",
+   "seed": 2526,
+   "win": 0,
+   "dur": 64.31666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2317,
+   "win": 1,
+   "dur": 48.125,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2328,
+   "win": 1,
+   "dur": 47.15833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2339,
+   "win": 0,
+   "dur": 59.516666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2350,
+   "win": 1,
+   "dur": 46.375,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2361,
+   "win": 0,
+   "dur": 45.61666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2372,
+   "win": 0,
+   "dur": 46.475,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2383,
+   "win": 1,
+   "dur": 41.425,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2394,
+   "win": 1,
+   "dur": 49.03333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2405,
+   "win": 0,
+   "dur": 40.00833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2416,
+   "win": 1,
+   "dur": 45.666666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2427,
+   "win": 1,
+   "dur": 28.758333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2438,
+   "win": 0,
+   "dur": 43.9,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2449,
+   "win": 0,
+   "dur": 52.199999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2460,
+   "win": 1,
+   "dur": 58.05,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2471,
+   "win": 1,
+   "dur": 45.2,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2482,
+   "win": 1,
+   "dur": 34.791666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2493,
+   "win": 1,
+   "dur": 47.766666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2504,
+   "win": 1,
+   "dur": 44.25833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2515,
+   "win": 0,
+   "dur": 40.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "cindercleave",
+   "seed": 2526,
+   "win": 0,
+   "dur": 52.891666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2317,
+   "win": 0,
+   "dur": 53.85,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2328,
+   "win": 0,
+   "dur": 44.641666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2339,
+   "win": 1,
+   "dur": 37.71666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2350,
+   "win": 0,
+   "dur": 48.733333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2361,
+   "win": 0,
+   "dur": 53.483333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2372,
+   "win": 0,
+   "dur": 36.525,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2383,
+   "win": 0,
+   "dur": 59.40833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2394,
+   "win": 0,
+   "dur": 51.275,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2405,
+   "win": 0,
+   "dur": 48.325,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2416,
+   "win": 1,
+   "dur": 55.025,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2427,
+   "win": 0,
+   "dur": 46.05,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2438,
+   "win": 1,
+   "dur": 56.375,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2449,
+   "win": 1,
+   "dur": 44.725,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2460,
+   "win": 1,
+   "dur": 67.00833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2471,
+   "win": 0,
+   "dur": 41.708333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2482,
+   "win": 1,
+   "dur": 49.325,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2493,
+   "win": 0,
+   "dur": 45.81666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2504,
+   "win": 1,
+   "dur": 46.675,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2515,
+   "win": 0,
+   "dur": 43.25833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 8
+  },
+  {
+   "arm": "A",
+   "foe": "ravelbone",
+   "seed": 2526,
+   "win": 0,
+   "dur": 49.166666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2317,
+   "win": 1,
+   "dur": 42.34166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2328,
+   "win": 0,
+   "dur": 50.325,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2339,
+   "win": 0,
+   "dur": 38.31666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2350,
+   "win": 1,
+   "dur": 49.13333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2361,
+   "win": 0,
+   "dur": 47.11666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2372,
+   "win": 1,
+   "dur": 53.65,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2383,
+   "win": 0,
+   "dur": 54.358333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2394,
+   "win": 0,
+   "dur": 47.733333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2405,
+   "win": 0,
+   "dur": 43.11666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2416,
+   "win": 0,
+   "dur": 42.84166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 6
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2427,
+   "win": 1,
+   "dur": 50.80833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2438,
+   "win": 0,
+   "dur": 38.63333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2449,
+   "win": 0,
+   "dur": 42.825,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2460,
+   "win": 1,
+   "dur": 47.925,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2471,
+   "win": 0,
+   "dur": 38.858333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2482,
+   "win": 0,
+   "dur": 39.325,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 10
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2493,
+   "win": 1,
+   "dur": 47.53333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2504,
+   "win": 0,
+   "dur": 36.525,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2515,
+   "win": 0,
+   "dur": 38.86666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "gloamwire",
+   "seed": 2526,
+   "win": 0,
+   "dur": 51.03333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2317,
+   "win": 1,
+   "dur": 55.59166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2328,
+   "win": 0,
+   "dur": 54.416666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2339,
+   "win": 0,
+   "dur": 50.93333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2350,
+   "win": 1,
+   "dur": 42.425,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2361,
+   "win": 1,
+   "dur": 43.75,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2372,
+   "win": 0,
+   "dur": 55.166666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2383,
+   "win": 0,
+   "dur": 65.075,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2394,
+   "win": 0,
+   "dur": 54.21666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2405,
+   "win": 0,
+   "dur": 53.125,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2416,
+   "win": 0,
+   "dur": 47.38333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2427,
+   "win": 1,
+   "dur": 42.666666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2438,
+   "win": 1,
+   "dur": 30.966666666666665,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2449,
+   "win": 1,
+   "dur": 49,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2460,
+   "win": 1,
+   "dur": 52.775,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2471,
+   "win": 0,
+   "dur": 51.34166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2482,
+   "win": 1,
+   "dur": 39.19166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2493,
+   "win": 1,
+   "dur": 47.05,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2504,
+   "win": 0,
+   "dur": 55.25,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2515,
+   "win": 0,
+   "dur": 53.06666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "bloodmirror",
+   "seed": 2526,
+   "win": 0,
+   "dur": 58.641666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2317,
+   "win": 1,
+   "dur": 56,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2328,
+   "win": 1,
+   "dur": 46.38333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2339,
+   "win": 0,
+   "dur": 54.025,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2350,
+   "win": 0,
+   "dur": 55.59166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2361,
+   "win": 0,
+   "dur": 60.074999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2372,
+   "win": 1,
+   "dur": 55.416666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2383,
+   "win": 0,
+   "dur": 52.28333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 15
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2394,
+   "win": 1,
+   "dur": 46.00833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2405,
+   "win": 1,
+   "dur": 56.78333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2416,
+   "win": 0,
+   "dur": 56.15,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2427,
+   "win": 1,
+   "dur": 49.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2438,
+   "win": 0,
+   "dur": 42.8,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2449,
+   "win": 0,
+   "dur": 55.03333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2460,
+   "win": 0,
+   "dur": 51.275,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2471,
+   "win": 0,
+   "dur": 49.8,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2482,
+   "win": 0,
+   "dur": 60.28333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2493,
+   "win": 0,
+   "dur": 50.416666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2504,
+   "win": 1,
+   "dur": 38.625,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2515,
+   "win": 0,
+   "dur": 57.708333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 13
+  },
+  {
+   "arm": "A",
+   "foe": "duskreave",
+   "seed": 2526,
+   "win": 0,
+   "dur": 53.65833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2317,
+   "win": 0,
+   "dur": 68.29166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2328,
+   "win": 0,
+   "dur": 75.275,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2339,
+   "win": 0,
+   "dur": 69.375,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2350,
+   "win": 1,
+   "dur": 58.949999999999996,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2361,
+   "win": 1,
+   "dur": 73.74166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2372,
+   "win": 0,
+   "dur": 72.09166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 22
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2383,
+   "win": 1,
+   "dur": 55.583333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2394,
+   "win": 0,
+   "dur": 72.54166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2405,
+   "win": 1,
+   "dur": 58.84166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2416,
+   "win": 1,
+   "dur": 69.85833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 24
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2427,
+   "win": 0,
+   "dur": 69.325,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2438,
+   "win": 0,
+   "dur": 63.03333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2449,
+   "win": 0,
+   "dur": 75.06666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2460,
+   "win": 0,
+   "dur": 75,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 21
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2471,
+   "win": 0,
+   "dur": 71.31666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2482,
+   "win": 0,
+   "dur": 61.94166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2493,
+   "win": 1,
+   "dur": 69.16666666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 23
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2504,
+   "win": 0,
+   "dur": 71.49166666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2515,
+   "win": 1,
+   "dur": 70.73333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 20
+  },
+  {
+   "arm": "A",
+   "foe": "starwarden",
+   "seed": 2526,
+   "win": 0,
+   "dur": 71.58333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2317,
+   "win": 0,
+   "dur": 44.583333333333336,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2328,
+   "win": 0,
+   "dur": 51.30833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2339,
+   "win": 0,
+   "dur": 40.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 9
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2350,
+   "win": 1,
+   "dur": 36.55,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2361,
+   "win": 1,
+   "dur": 43.95,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 16
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2372,
+   "win": 1,
+   "dur": 30.28333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2383,
+   "win": 1,
+   "dur": 34.31666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2394,
+   "win": 1,
+   "dur": 51.125,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2405,
+   "win": 0,
+   "dur": 40.358333333333334,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2416,
+   "win": 0,
+   "dur": 45.916666666666664,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2427,
+   "win": 1,
+   "dur": 49.40833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 19
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2438,
+   "win": 0,
+   "dur": 39.55833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2449,
+   "win": 0,
+   "dur": 56.475,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2460,
+   "win": 1,
+   "dur": 37.75,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2471,
+   "win": 0,
+   "dur": 40.38333333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 12
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2482,
+   "win": 1,
+   "dur": 52.5,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 17
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2493,
+   "win": 0,
+   "dur": 45.30833333333333,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 11
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2504,
+   "win": 0,
+   "dur": 43.99166666666667,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 18
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2515,
+   "win": 0,
+   "dur": 59.141666666666666,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  },
+  {
+   "arm": "A",
+   "foe": "gravemourn",
+   "seed": 2526,
+   "win": 0,
+   "dur": 40.925,
+   "casts": 0,
+   "hitsIn": 0,
+   "hitsOut": 14
+  }
+ ]
+}

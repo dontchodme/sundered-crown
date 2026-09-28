@@ -1,0 +1,19 @@
+rows_final.json: 12 rows, 25942 bytes, sha256[:16] of the file f97048b0e0bf1d99, round-trips
+[1] 12 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+[3] STAMP f03b657a1d99d86c  (base 1bedab05b9803465; ih-final.html matches; +14967 chars)
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + ironhail stages 1-3 (1bedab05b9803465, = the base): every anchor once, forward == reverse True, parses (+14967 chars, the same as on the base: True)
+    with Ironhail's 3 voice rows (rows_lab.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on ci-final.html (94bb7580047f01bc) + ironhail stages 1-3 (5495806749a096c6): every anchor once, forward == reverse True, parses (+14967 chars, the same as on the base: True)
+    with Ironhail's 3 voice rows (rows_lab.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on bw-final.html (ef4bd13fe968d99c) + ironhail stages 1-3 (18343d805d3443c3): every anchor once, forward == reverse True, parses (+14967 chars, the same as on the base: True)
+    with Ironhail's 3 voice rows (rows_lab.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on pc-final.html (de1cf49480a06745) + ironhail stages 1-3 (a35821b3d1239a67): every anchor once, forward == reverse True, parses (+14967 chars, the same as on the base: True)
+    with Ironhail's 3 voice rows (rows_lab.json, in progress): voice-then-picture == picture-then-voice True, parses
+[5] CONTROL (an anchor that occurs many times) refused: quarrelstorm picture: fighter fields: anchor found 340x

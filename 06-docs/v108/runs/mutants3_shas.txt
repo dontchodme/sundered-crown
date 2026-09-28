@@ -1,0 +1,4 @@
+r-double 0982fa9aac0a0d8a
+r-half bbb3a75f46ba3837
+r-beatside 0cb2cd0c4c6b0064
+r-beatspot a8f3083fb254a000

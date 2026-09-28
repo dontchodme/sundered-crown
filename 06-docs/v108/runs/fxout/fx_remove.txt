@@ -1,0 +1,12 @@
+
+FX REMOVE -- ironhail's particle field out of both copies
+  src sc-ironhail-sunder-fx.html  b51c2539999dd272
+  the block, removed whole:
+    |     /* A VOLLEY IS MANY SHOTS, so it emits across nearly its whole life. */
+    |     ironhail: { mode: 'beam', n: 1300, sp: [50, 240], grav: 140, drag: 1.4,
+    |                 life: [0.22, 0.65], heavy: 0.03, size: [0.6, 1.7],
+    |                 spawn: 0.80, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 28fc58641370a1a9 -> 8bf7db5ceb2685a0
+  wrote sc-ironhail-fxout.html  4b3775e5900172ea
+  wrote src/render/fx.js  8bf7db5ceb2685a0
+exit 0

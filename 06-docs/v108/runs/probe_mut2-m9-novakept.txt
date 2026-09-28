@@ -1,0 +1,21 @@
+
+QUARRELSTORM (HAIL) PROBE  mut2-m9-novakept.html  Chromium 151.0.7922.34  444 fights (Ironhail both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.50   blows a fight: in windows 8.39, outside 8.35   shots loosed: in windows 42.33, outside 65.26 a fight   Ironhail win 80.6%
+  per cast: drops 17.09  landed 4.50  dmg 18.00  sunder 4.50   landed share 26.6%   bolts resolved after the close 0.00 a cast; forced closes 16: 16 bolts resolved after them, 3 landed
+  the bow's fire rebuilt: 766907 frames in windows, 1176044 outside, 320908 skipped (stun / dead / over); asked once on 2263859 unfrozen steps
+  who is struck: 5096 landing calls whose hurts are exactly [foe, dropDmg, caster]; hp / ward / pool rebuilt exactly on 2263859 hail calls (5096 with a landing, 43 ward bursts on the caster)
+  the hail's clock: tickHail asked once on 2263859 unfrozen steps (none on a frozen one), 922392 open-window frames
+  fall on the window clock: {'36': 19196} calls   killing landings 28   wards broken by the hail 111   clock closes 809, death closes 203
+  FREEZE CENSUS 13.9% of window steps frozen   a clock window lasts 0.00s of match time (8s on the window clock)
+  [1] PASS  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once, nobody else hurt; every hp and ward rebuilt; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once, on the foe only; none on a miss (none at sunder 0)
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] PASS  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out
+  [9] FAIL  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window   1152 FAIL: ['the cast spawned 14 shot(s)', 'the cast spawned 14 shot(s)', 'the cast spawned 14 shot(s)', 'the cast spawned 14 shot(s)']
+
+  8/9
+exit 1

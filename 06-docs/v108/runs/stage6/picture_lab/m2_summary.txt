@@ -1,0 +1,40 @@
+76 frames, 9 fights; missing: dawnbringer 99001a ['over']; aureole 4101b ['over']; gravemourn 99015a ['over']; widowmaker 99001a ['over']; grudgebearer 31337b ['over']
+BLOOM: the picture's share of the chain's arena lift max +0.0006 min -0.0010 (gate +0.02) [worst spellbreaker 99015a fall]; raw luma added max +0.0027; arena clip with max 0.0160 without 0.0151
+  CONTROL ctrl1: dLift max +0.0129, > 0.02 on 0/76; caster disc > 0.90 on 59/63 window frames; foe disc pushed past 0.90 on 0/76 (max caster 1.000, foe 0.949)
+  CONTROL ctrl2: dLift max +0.0874, > 0.02 on 15/76; caster disc > 0.90 on 3/63 window frames; foe disc pushed past 0.90 on 14/76 (max caster 0.941, foe 1.000)
+  CONTROL ctrl3: dLift max +0.0065, > 0.02 on 0/76; caster disc > 0.90 on 0/63 window frames; foe disc pushed past 0.90 on 1/76 (max caster 0.887, foe 0.944)
+DISC me: max |d| 0.0086 (art only, tags out: -0.0086..+0.0007); disc 0.287..0.887; >0.90 with 0 / without 0 of 76; clip with max 0.318 without 0.318
+DISC foe: max |d| 0.0216 (art only, tags out: -0.0031..+0.0216); disc 0.290..0.944; >0.90 with 2 / without 2 of 76; clip with max 0.593 without 0.593
+  foe bloodsworn: n 8 max |d| 0.0000; disc 0.290..0.329, contour 0.185..0.298; >0.90 with 0 without 0
+  foe dwarven   : n 8 max |d| 0.0041; disc 0.320..0.863, contour 0.210..0.409; >0.90 with 0 without 0
+  foe runic     : n 9 max |d| 0.0002; disc 0.390..0.414, contour 0.266..0.527; >0.90 with 0 without 0
+  foe sanctified: n 25 max |d| 0.0060; disc 0.495..0.944, contour 0.378..0.811; >0.90 with 2 without 2
+  foe umbral    : n 26 max |d| 0.0216; disc 0.292..0.866, contour 0.241..0.764; >0.90 with 0 without 0
+LEGIBILITY (median |dL| of the component's own pixels (min..max) [n frames]; out of a stop  /  in one):
+  weaponBase in rest                            : 0.089 (0.052..0.101) [9]  /  -
+  weapon     in rest                            : 0.089 (0.052..0.101) [9]  /  -
+  weaponBase in fall,stop,land2                 : 0.090 (0.054..0.110) [17]  /  0.071 (0.048..0.096) [10]
+  weapon     in fall,stop,land2                 : 0.108 (0.067..0.131) [17]  /  0.085 (0.060..0.113) [10]
+  limbs      in cast,fall,stop,land,land2,miss  : 0.179 (0.066..0.197) [44]  /  0.133 (0.096..0.192) [10]
+  limbs      in close,over                      : 0.146 (0.091..0.163) [9]  /  0.120 (0.090..0.151) [2]
+  rune       in cast,fall,stop                  : 0.117 (0.069..0.148) [16]  /  0.126 (0.103..0.146) [8]
+  ring       in cast,fall,stop                  : 0.172 (0.102..0.233) [18]  /  0.205 (0.149..0.306) [9]
+  streak     in cast,fall,stop                  : 0.215 (0.127..0.246) [18]  /  0.225 (0.116..0.229) [9]
+  dart       in cast,fall,stop                  : 0.154 (0.100..0.319) [18]  /  0.161 (0.051..0.264) [9]
+  splash     in land,land2,miss                 : 0.230 (0.088..0.345) [26]  /  0.214 (0.214..0.214) [1]
+  dust       in land,land2,miss                 : 0.070 (0.049..0.116) [26]  /  0.063 (0.063..0.063) [1]
+  sparks     in land,land2                      : 0.332 (0.027..0.596) [17]  /  0.352 (0.352..0.352) [1]
+  motes      in land,land2,fall,stop            : 0.065 (0.024..0.288) [18]  /  0.168 (0.037..0.317) [4]
+  tag        in land,land2,fall,stop            : 0.163 (0.056..0.206) [19]  /  0.158 (0.115..0.191) [3]
+  ground     in cast,fall,stop,land,land2,miss  : 0.142 (0.071..0.248) [44]  /  0.131 (0.103..0.202) [10]
+  glow       in cast,fall,stop,land,land2       : 0.210 (0.103..0.542) [35]  /  0.206 (0.081..0.288) [10]
+by state (median |dL| of everything the picture draws, the hail's tags included):
+  rest     nan (nan..nan) n 0 of 9
+  cast     0.161 (0.124..0.218) n 9 of 9
+  fall     0.175 (0.099..0.229) n 9 of 9
+  stop     0.173 (0.095..0.192) n 9 of 9
+  land     0.220 (0.125..0.233) n 9 of 9
+  land2    0.155 (0.107..0.190) n 9 of 9
+  miss     0.119 (0.083..0.125) n 9 of 9
+  close    0.121 (0.068..0.128) n 9 of 9
+  over     0.130 (0.097..0.166) n 4 of 4

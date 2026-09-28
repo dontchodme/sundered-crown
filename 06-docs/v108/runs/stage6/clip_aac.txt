@@ -1,0 +1,6 @@
+CLIP AAC  07-shorts/v108/quarrelstorm-window.mp4  2026-09-27 18:26
+[Parsed_volumedetect_0 @ 000001896e8b1680] mean_volume: -23.2 dB
+[Parsed_volumedetect_0 @ 000001896e8b1680] max_volume: -2.5 dB
+    I:         -21.4 LUFS
+    LRA:         1.9 LU
+    Peak:       -2.5 dBFS

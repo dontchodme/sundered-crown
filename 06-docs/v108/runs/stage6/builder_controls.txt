@@ -1,0 +1,10 @@
+BUILDER CONTROLS, STAGE 6  21:59  ironhail_build.py 491643c55a34fa56
+  sim-write                    exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'quarrelstorm picture: tickQuarrel' writes foe.x
+  rng                          exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'quarrelstorm picture: tickQuarrel' draws the RNG or uses the one ultFx slot
+  ultFx                        exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'quarrelstorm picture: tickQuarrel' draws the RNG or uses the one ultFx slot
+  beat                         exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'quarrelstorm picture: tickQuarrel' calls into the simulation
+  splice-bolts                 exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'quarrelstorm picture: tickQuarrel' mutates hail
+  bolt-index-write             exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'quarrelstorm picture: the drawing methods' writes hail[...]
+  tally-write                  exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'quarrelstorm picture: tickQuarrel' writes T.landed
+  math-random                  exit 1  wrote no   | REFUSING TO WRITE -- this build adds a Math.random
+  none (the builder as it is)  exit 0  wrote YES  |   out sc-ironhail-ctl-none.html  b8ff2014a954be3f   (+21147 chars, written LF)

@@ -1,0 +1,20 @@
+PROBE CONTROLS ON THE FINAL LINK (sc-ironhail-sunder, 1bedab05b9803465; probe with the review's [8] fire rebuild)
+tools/mutants2.py -> tmp/mut2-*.html; each breaks ONE sentence; the final itself reads 9/9, Ironhail 61.7% on the probe's 444 fights
+
+mutant         sha16              win        checks    fails (count: first message)
+m1-frozen      17854312cf814e68  66.9%      8/9       [1]FAIL  299412 FAIL: ['tickHail on a frozen step', 'tickHail on a frozen step', 'tickHail on a frozen step', 'ti
+m2-cadence     e642414c90846090  64.2%      8/9       [2]FAIL  24487 FAIL: ['cd 0.36000000000000004 after a drop', 'cd 0.36000000000000004 after a drop', 'cd 0.360000
+m3-fall        120cf9067dd6bf3c  62.8%      8/9       [3]FAIL  21977 FAIL: ['a bolt resolved at fall 0.275 of 0.3', 'a bolt resolved at fall 0.275 of 0.3', 'a bolt re
+m4-sundermul   0cb2d3546a23cf01  65.3%      8/9       [4]FAIL  5362 FAIL: ['hurt [4.44] want [4] from the caster', 'hurt [4.88] want [4] from the caster', 'hurt [5.7
+m5-missund     5203bfe9d3382ad9  65.8%      8/9       [5]FAIL  15922 FAIL: ['a miss that sundered', 'a miss that sundered', 'a miss that sundered', 'a miss that sunde
+m6-stop        f63e69364c8258e5  64.6%      8/9       [6]FAIL  5728 FAIL: ['hitStop -0.0033333333333333184 -> 0.05 without a ward break', 'hitStop -0.008333333333333
+m7-nobeat      614b4742df7f2a82  61.7%      8/9       [7]FAIL  27 FAIL: ['a killing landing filed 0 fatal hail beat(s) of 0', 'a killing landing filed 0 fatal hail
+m8-bowquiet    340fc0e67c75d27e  30.6%      8/9       [8]FAIL  1011393 FAIL: ['IN the window: fireCd 0.06499999999999281 -> 0.06499999999999281 and 0 loosed, want 0.056
+m8b-halfbow    d8fa1deaaa61c092  45.9%      8/9       [8]FAIL  11946 FAIL: ['IN the window: fireCd 0.00666666666665949 -> 0.6783333333333262 and 1 loosed (angle undef
+m9-novakept    adb8427b4c27b3eb  80.6%      8/9       [9]FAIL  1152 FAIL: ['the cast spawned 14 shot(s)', 'the cast spawned 14 shot(s)', 'the cast spawned 14 shot(s)
+
+m7 (no fatal beat) does not change fights (the beat is presentation); kept as coverage of [7]. Every other mutant moves the win.
+EACH FAILS ITS OWN CHECK AND ONLY THAT ONE.
+
+THE REVIEW'S r3-halfbow (a mutant of sc-ironhail-b14: the bow at half cadence in the window):
+  old probe: 9/9 (review-ironhail/runs/probe_r3-halfbow.txt); new probe: 8/9, fails [8]FAIL only (runs/probe_review-r3-halfbow.txt)

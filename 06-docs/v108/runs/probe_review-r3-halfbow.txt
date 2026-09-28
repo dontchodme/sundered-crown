@@ -1,0 +1,21 @@
+
+QUARRELSTORM (HAIL) PROBE  mut-r3-halfbow.html  Chromium 151.0.7922.34  444 fights (Ironhail both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 14}
+  casts/fight 3.02   blows a fight: in windows 5.21, outside 9.60   shots loosed: in windows 28.18, outside 72.63 a fight   Ironhail win 35.1%
+  per cast: drops 18.30  landed 4.92  dmg 19.66  sunder 4.92   landed share 27.0%   bolts resolved after the close 0.00 a cast; forced closes 16: 16 bolts resolved after them, 2 landed
+  the bow's fire rebuilt: 978743 frames in windows, 1333422 outside, 405997 skipped (stun / dead / over); asked once on 2730672 unfrozen steps
+  who is struck: 6741 landing calls whose hurts are exactly [foe, dropDmg, caster]; hp / ward / pool rebuilt exactly on 2730672 hail calls (6741 with a landing, 62 ward bursts on the caster)
+  the hail's clock: tickHail asked once on 2730672 unfrozen steps (none on a frozen one), 1196751 open-window frames
+  fall on the window clock: {'36': 24911} calls   killing landings 18   wards broken by the hail 98   clock closes 1091, death closes 95
+  FREEZE CENSUS 12.0% of window steps frozen   a clock window lasts 9.03s of match time (8s on the window clock)
+  [1] PASS  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once, nobody else hurt; every hp and ward rebuilt; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once, on the foe only; none on a miss (none at sunder 0)
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] FAIL  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out   12510 FAIL: ['IN the window: fireCd 0.0016666666666598738 -> 0.6733333333333266 and 1 loosed (angle undefined), want 0.33333333333332654 and one ordinary shot', 'IN the window: fireCd 0.006666666666659767 -> 0.6783333333333265 and 1 loosed (angle undefined), want 0.33833333333332644 and one ordinary shot', 'IN the window: fireCd 0.003333333333326357 -> 0.674999999999993 and 1 loosed (angle undefined), want 0.334999999999993 and one ordinary shot', 'IN the window: fireCd 0.008333333333326252 -> 0.6799999999999929 and 1 loosed (angle undefined), want 0.3399999999999929 and one ordinary shot']
+  [9] PASS  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window
+
+  8/9
+exit 1

@@ -1,0 +1,35 @@
+CLIP C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/ironhail/s6/clip_audio.wav  11.58s  first frame at match 13.633
+CAST at clip 1.200: the bellows' band (150-300 Hz: 200 / 250 Hz), 0.10-0.50 s after the cast against the 0.4 s before
+   200 Hz  +13.6 dB
+   250 Hz   +3.2 dB
+LANDINGS: the body note for the foe's count (110 x 2^((n-1)/12)) and its iron partial (x 2.76, where a phone hears it),
+          the 60 ms from the landing against the 60 ms before
+  n1 at  1.983s  body  110.0 Hz  +0.3 dB   iron  303.6 Hz +22.8 dB
+  n2 at  3.267s  body  116.5 Hz +33.9 dB   iron  321.7 Hz +44.1 dB
+  n3 at  4.067s  body  123.5 Hz +11.7 dB   iron  340.8 Hz +48.6 dB
+  n4 at  5.267s  body  130.8 Hz  +0.7 dB   iron  361.0 Hz +29.3 dB
+  n5 at  5.667s  body  138.6 Hz +12.4 dB   iron  382.5 Hz +22.7 dB
+  n6 at  6.067s  body  146.8 Hz +27.3 dB   iron  405.3 Hz +28.5 dB
+  n6 at  7.925s  body  146.8 Hz +23.7 dB   iron  405.3 Hz +19.9 dB
+  n6 at  8.325s  body  146.8 Hz +23.5 dB   iron  405.3 Hz  +9.9 dB
+  n6 at  8.833s  body  146.8 Hz +20.2 dB   iron  405.3 Hz +25.3 dB
+MISSES: the miss's note (103.83 Hz) and its iron (286.6 Hz), 60 ms from the miss against the 60 ms before
+  miss at  1.583s  103.8 Hz -13.4 dB   286.6 Hz  +3.8 dB
+  miss at  2.467s  103.8 Hz  +4.3 dB   286.6 Hz +13.6 dB
+  miss at  2.867s  103.8 Hz +14.4 dB   286.6 Hz +35.7 dB
+  miss at  3.667s  103.8 Hz +13.2 dB   286.6 Hz +21.1 dB
+  miss at  4.467s  103.8 Hz +12.0 dB   286.6 Hz +20.0 dB
+  miss at  4.867s  103.8 Hz +12.4 dB   286.6 Hz +18.1 dB
+  miss at  6.567s  103.8 Hz +31.8 dB   286.6 Hz +34.3 dB
+  miss at  6.967s  103.8 Hz +15.2 dB   286.6 Hz +26.0 dB
+  miss at  7.367s  103.8 Hz +17.3 dB   286.6 Hz +17.3 dB
+  miss at  9.233s  103.8 Hz +23.6 dB   286.6 Hz +19.9 dB
+  miss at  9.675s  103.8 Hz +17.1 dB   286.6 Hz +18.1 dB
+CLOSE at clip 9.767 (clock): the design gives it no voice -- the level around it (dBFS, 100 ms spans)
+    9.47-  9.57s   -20.8 dBFS   bellows band 200 Hz  -31.2
+    9.57-  9.67s   -33.1 dBFS   bellows band 200 Hz  -60.6
+    9.67-  9.77s   -26.7 dBFS   bellows band 200 Hz  -53.2
+    9.77-  9.87s   -28.0 dBFS   bellows band 200 Hz  -53.7
+    9.87-  9.97s   -22.7 dBFS   bellows band 200 Hz  -53.9
+    9.97- 10.07s   -26.7 dBFS   bellows band 200 Hz  -43.0
+   10.07- 10.17s   -27.9 dBFS   bellows band 200 Hz  -42.6

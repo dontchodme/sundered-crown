@@ -1,0 +1,27 @@
+Sun Sep 27 18:15:50 PDT 2026
+
+QUARRELSTORM (HAIL) PROBE  sc-ironhail-sunder-fx.html  Chromium 151.0.7922.34  444 fights (Ironhail both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.75   blows a fight: in windows 6.20, outside 9.04   shots loosed: in windows 49.33, outside 69.38 a fight   Ironhail win 61.7%
+  per cast: drops 18.00  landed 4.72  dmg 18.87  sunder 4.72   landed share 26.4%   bolts resolved after the close 0.00 a cast; forced closes 16: 16 bolts resolved after them, 3 landed
+  the bow's fire rebuilt: 893612 frames in windows, 1250779 outside, 364386 skipped (stun / dead / over); asked once on 2508777 unfrozen steps
+  who is struck: 5896 landing calls whose hurts are exactly [foe, dropDmg, caster]; hp / ward / pool rebuilt exactly on 2508777 hail calls (5896 with a landing, 53 ward bursts on the caster)
+  the hail's clock: tickHail asked once on 2508777 unfrozen steps (none on a frozen one), 1072066 open-window frames
+  fall on the window clock: {'36': 22323} calls   killing landings 27   wards broken by the hail 96   clock closes 960, death closes 136
+  FREEZE CENSUS 12.6% of window steps frozen   a clock window lasts 9.09s of match time (8s on the window clock)
+  stage 6 voice: casts 1266  landing thuds 5896 (n 1:323, 2:375, 3:404, 4:386, 5:392, 6:4016; 27 on a killing landing)  miss thuds 16427  ward shatters' own voice 96  silent closes: 996 clock, 140 death   run totals {'ironhail': 1266, 'ironhail-miss': 16427, 'ironhail-land': 5896}
+  stage 6 picture: tickQuarrel calls clean 5381274  limbs up 2298438, cooling 150235  puffs at their bolts 22323 (5896 landed, 16427 missed)  the foe's count tagged 5869  killing landings untagged 27  cooled in the verdict 269  drawn frames 38520 (34632 with the picture up, 4826 of them in a hit stop, 497 in the verdict)
+  [1] PASS  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once, nobody else hurt; every hp and ward rebuilt; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once, on the foe only; none on a miss (none at sunder 0)
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] PASS  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out
+  [9] PASS  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window
+  [10] PASS  stage 6 voice: one cast voice a cast; one landing thud a landed bolt at the foe's count after its sunder, one miss thud a missed bolt, in order; nothing else in tickHail but a ward's own shatter; no close voice; every voice accounted for
+  [11] PASS  stage 6 picture: tickQuarrel writes no sim field and draws no RNG; the limbs up exactly while the window is; one puff a resolved bolt at its spot, hit or miss; the foe's count tagged, a kill untagged; cooled in the verdict; no drawn frame throws, draws the RNG or writes the sim
+
+  11/11
+exit 0
+Sun Sep 27 18:38:11 PDT 2026

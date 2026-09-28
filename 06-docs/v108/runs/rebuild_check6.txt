@@ -1,0 +1,62 @@
+
+IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 1
+  src sc-tendril-t3.html  5a6216e3b629fad4  (LF text)
+  base  Ironhail's shipped body (bow, ranged, sunder 1); hurt / apply / beat / STATUS.sunder; the window tickers stop in a hit stop
+  ok    Quarrelstorm becomes the hail, stubbed
+  ok    the nova is retired: kind "volley" was Ironhail's alone
+  ok    ult   ult:{ name:"Quarrelstorm", charge:1e9, kind:"hail", dur:8, dropCd:0.4, fallT:0.3, hitR:60, dropDmg:4 ...
+  ok    card  68 chars  'Iron hail falls on the foe from above; every bolt that lands sunders'
+  ok    one hail ultimate, Ironhail's; the nova out; no insert draws the RNG or writes the shared weapon; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-ironhail-stub.html  7f9904956105811d   (+480 chars, written LF)
+
+IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 2
+  src sc-ironhail-stub.html  7f9904956105811d  (LF text)
+  base  Ironhail's shipped body (bow, ranged, sunder 1); hurt / apply / beat / STATUS.sunder; the window tickers stop in a hit stop
+  ok    the hail has a charge: the lab's 16 on the game's clock
+  ok    the fighter carries the hail's window
+  ok    the match carries the bolts in the air
+  ok    the cast opens the hail and resolves nothing
+  ok    the hail ticks with the window tickers
+  ok    tickHail drops and lands
+  ok    ult   ult:{ name:"Quarrelstorm", charge:14, kind:"hail", dur:8, dropCd:0.4, fallT:0.3, hitR:60, dropDmg:4, ...
+  ok    card  68 chars  'Iron hail falls on the foe from above; every bolt that lands sunders'
+  ok    one hail ultimate, Ironhail's; the nova out; no insert draws the RNG or writes the shared weapon; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-ironhail-hail.html  d3d9062fd77e6cea   (+4515 chars, written LF)
+
+IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 3
+  src sc-ironhail-hail.html  d3d9062fd77e6cea  (LF text)
+  base  Ironhail's shipped body (bow, ranged, sunder 1); hurt / apply / beat / STATUS.sunder; the window tickers stop in a hit stop
+  ok    the sunder
+  ok    ult   ult:{ name:"Quarrelstorm", charge:14, kind:"hail", dur:8, dropCd:0.4, fallT:0.3, hitR:60, dropDmg:4, ...
+  ok    card  68 chars  'Iron hail falls on the foe from above; every bolt that lands sunders'
+  ok    one hail ultimate, Ironhail's; the nova out; no insert draws the RNG or writes the shared weapon; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-ironhail-sunder.html  1bedab05b9803465   (+0 chars, written LF)
+
+IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 5
+  src sc-ironhail-sunder.html  1bedab05b9803465  (LF text)
+  base  Ironhail's shipped body (bow, ranged, sunder 1); hurt / apply / beat / STATUS.sunder; the window tickers stop in a hit stop
+  ok    the blade: Rick's other choice, 50%
+  ok    ult   ult:{ name:"Quarrelstorm", charge:14, kind:"hail", dur:8, dropCd:0.4, fallT:0.3, hitR:60, dropDmg:4, ...
+  ok    card  68 chars  'Iron hail falls on the foe from above; every bolt that lands sunders'
+  ok    one hail ultimate, Ironhail's; the nova out; no insert draws the RNG or writes the shared weapon; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-ironhail-b14.html  dadb773b6f8d4555   (-3 chars, written LF)
+--- stage 5 without --alt50:
+stage 5: THE BLADE HOLDS at the shipped 16.23 -- the design's target is the shipped rate, and on 151 the redesign reads it there (v108 §4). Stage 3's link is the final; there is nothing to write. (`--stage 5 --alt50` writes Rick's other choice, 50%: blade 14.)
+exit 1
+--- overwrite:
+refusing to overwrite sc-ironhail-sunder.html -- a link is written once. Delete it by hand if this is a rebuild.
+exit 1
+--- shas (rebuilt vs links):
+stub rebuilt 7f9904956105811d link 7f9904956105811d SAME
+hail rebuilt d3d9062fd77e6cea link d3d9062fd77e6cea SAME
+sunder rebuilt 1bedab05b9803465 link 1bedab05b9803465 SAME
+b14 rebuilt dadb773b6f8d4555 link dadb773b6f8d4555 SAME
+builder 13d0df8b674c873d  probe 400e8424f60238c0

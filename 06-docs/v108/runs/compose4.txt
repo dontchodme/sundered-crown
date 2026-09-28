@@ -1,0 +1,9 @@
+sc-tendril-t3 rc=0 lines=105 eb3609089944 relics=38 relics in the roster
+sc-tendril-fx rc=0 lines=105 eb3609089944 relics=38 relics in the roster
+sc-onslaught-fx rc=0 lines=105 eb3609089944 relics=38 relics in the roster
+sc-angelus-b9 rc=0 lines=105 eb3609089944 relics=39 relics in the roster
+sc-oracle-sight rc=0 lines=105 eb3609089944 relics=39 relics in the roster
+sc-coldiron-temper-b93 rc=0 lines=105 eb3609089944 relics=39 relics in the roster
+sc-lightkeeper-bulwark-b9.5 rc=0 lines=105 eb3609089944 relics=38 relics in the roster
+sc-lodestone-b215 rc=0 lines=105 eb3609089944 relics=39 relics in the roster
+sc-widowmaker-b1075 rc=0 lines=105 eb3609089944 relics=38 relics in the roster

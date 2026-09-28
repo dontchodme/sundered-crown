@@ -1,0 +1,16 @@
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-ironhail-sunder.html
+  b  sc-ironhail-sunder-fx.html
+  ironhail v cindercleave seed 108238 t= 15.00  DIFFERS   luma 22.967 -> 23.482   lit 89.64% -> 89.64%
+  ironhail v cindercleave seed 108238 t= 16.50  DIFFERS   luma 19.923 -> 19.977   lit 88.06% -> 88.06%
+  ironhail v cindercleave seed 108238 t= 18.00  DIFFERS   luma 27.513 -> 28.081   lit 88.06% -> 88.01%
+  ironhail v cindercleave seed 108238 t= 19.50  DIFFERS   luma 23.477 -> 23.426   lit 88.06% -> 88.04%
+  ironhail v cindercleave seed 108238 t= 21.00  DIFFERS   luma 25.343 -> 25.403   lit 88.06% -> 88.06%
+  ironhail v cindercleave seed 108238 t= 22.50  DIFFERS   luma 29.851 -> 30.032   lit 88.09% -> 88.06%
+
+FAIL  0/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

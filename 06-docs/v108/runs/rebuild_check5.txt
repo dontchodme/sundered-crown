@@ -1,0 +1,18 @@
+
+  out sc-ironhail-stub.html  7f9904956105811d   (+480 chars, written LF)
+
+  out sc-ironhail-hail.html  d3d9062fd77e6cea   (+4515 chars, written LF)
+
+  out sc-ironhail-sunder.html  1bedab05b9803465   (+0 chars, written LF)
+
+  out sc-ironhail-b14.html  dadb773b6f8d4555   (-3 chars, written LF)
+--- stage 5 without --alt50:
+stage 5: THE BLADE HOLDS at the shipped 16.23 -- the design's target is the shipped rate, and on 151 the redesign reads it there (v108 §4). Stage 3's link is the final; there is nothing to write. (`--stage 5 --alt50` writes Rick's other choice, 50%: blade 14.)
+--- overwrite:
+refusing to overwrite sc-ironhail-sunder.html -- a link is written once. Delete it by hand if this is a rebuild.
+--- shas (rebuilt vs links):
+stub rebuilt 7f9904956105811d link 7f9904956105811d SAME
+hail rebuilt d3d9062fd77e6cea link d3d9062fd77e6cea SAME
+sunder rebuilt 1bedab05b9803465 link 1bedab05b9803465 SAME
+b14 rebuilt dadb773b6f8d4555 link dadb773b6f8d4555 SAME
+builder 13d0df8b674c873d  probe 7140a7f8fee704be

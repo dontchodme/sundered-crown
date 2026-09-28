@@ -1,0 +1,18 @@
+spellbreaker ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  windows 4 landed 21
+    rest  n  90  FRAME off med 52.20 p90 59.80 max 80.6  | rows med 52.00 p90 62.80 max 203.0  || ALONE off 8.00/9.90  rows 7.70/10.60
+    cast  n  80  FRAME off med 57.30 p90 67.60 max 84.8  | rows med 59.40 p90 71.50 max 82.9  || ALONE off 7.20/9.10  rows 7.60/9.50
+    hail  n 288  FRAME off med 49.40 p90 59.20 max 80.6  | rows med 49.10 p90 60.60 max 81.5  || ALONE off 6.30/8.20  rows 6.70/8.30
+    land  n 1234  FRAME off med 51.70 p90 63.20 max 85.2  | rows med 52.10 p90 62.80 max 87.5  || ALONE off 6.50/8.40  rows 7.00/9.00
+    close n  46  FRAME off med 50.30 p90 58.30 max 63.6  | rows med 51.90 p90 61.20 max 71.7  || ALONE off 6.60/8.50  rows 6.60/8.60
+dawnbringer  ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  windows 3 landed 11
+    rest  n  90  FRAME off med 43.30 p90 55.10 max 68.5  | rows med 40.80 p90 49.00 max 182.7  || ALONE off 7.00/9.20  rows 7.10/9.50
+    cast  n  82  FRAME off med 58.00 p90 67.40 max 83.5  | rows med 59.20 p90 72.90 max 95.8  || ALONE off 8.10/10.10  rows 8.70/10.10
+    hail  n 422  FRAME off med 60.40 p90 70.20 max 90.0  | rows med 60.40 p90 70.40 max 92.5  || ALONE off 8.70/11.20  rows 9.10/11.60
+    land  n 1209  FRAME off med 59.80 p90 68.60 max 104.3  | rows med 60.30 p90 71.20 max 130.9  || ALONE off 8.80/11.10  rows 9.20/11.70
+    close n  46  FRAME off med 57.80 p90 63.90 max 68.5  | rows med 58.80 p90 68.90 max 74.3  || ALONE off 8.80/12.90  rows 9.00/12.90
+gravemourn   ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  windows 2 landed 15
+    rest  n  90  FRAME off med 51.10 p90 61.50 max 75.6  | rows med 50.40 p90 60.80 max 532.1  || ALONE off 8.90/12.00  rows 8.60/11.00
+    cast  n  53  FRAME off med 59.90 p90 69.80 max 120.3  | rows med 60.60 p90 72.70 max 84.1  || ALONE off 9.20/11.80  rows 9.80/13.00
+    hail  n 224  FRAME off med 57.20 p90 68.70 max 82.7  | rows med 57.10 p90 67.60 max 96.0  || ALONE off 8.00/10.20  rows 8.30/10.70
+    land  n 849  FRAME off med 57.00 p90 69.60 max 102.5  | rows med 57.10 p90 70.50 max 102.9  || ALONE off 8.00/10.80  rows 8.50/11.30
+    close n  30  FRAME off med 44.80 p90 61.00 max 66.3  | rows med 53.40 p90 65.10 max 66.4  || ALONE off 6.40/9.60  rows 6.70/10.30

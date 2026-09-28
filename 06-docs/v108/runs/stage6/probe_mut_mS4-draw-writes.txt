@@ -1,0 +1,25 @@
+
+QUARRELSTORM (HAIL) PROBE  sc-ironhail-mS4-draw-writes.html  Chromium 151.0.7922.34  74 fights (Ironhail both sides x every foe x 1 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.62   blows a fight: in windows 6.89, outside 9.12   shots loosed: in windows 53.09, outside 83.01 a fight   Ironhail win 74.3%
+  per cast: drops 18.21  landed 4.84  dmg 19.36  sunder 4.84   landed share 26.8%   bolts resolved after the close 0.00 a cast; forced closes 16: 16 bolts resolved after them, 3 landed
+  the bow's fire rebuilt: 160097 frames in windows, 249499 outside, 71763 skipped (stun / dead / over); asked once on 481359 unfrozen steps
+  who is struck: 1083 landing calls whose hurts are exactly [foe, dropDmg, caster]; hp / ward / pool rebuilt exactly on 481359 hail calls (1083 with a landing, 9 ward bursts on the caster)
+  the hail's clock: tickHail asked once on 481359 unfrozen steps (none on a frozen one), 193569 open-window frames
+  fall on the window clock: {'36': 4038} calls   killing landings 5   wards broken by the hail 20   clock closes 151, death closes 22
+  FREEZE CENSUS 13.0% of window steps frozen   a clock window lasts 9.13s of match time (8s on the window clock)
+  stage 6 voice: casts 241  landing thuds 1083 (n 1:48, 2:62, 3:78, 4:70, 5:63, 6:762; 5 on a killing landing)  miss thuds 2955  ward shatters' own voice 20  silent closes: 187 clock, 26 death   run totals {'ironhail': 241, 'ironhail-miss': 2955, 'ironhail-land': 1083}
+  stage 6 picture: tickQuarrel calls clean 1031673  limbs up 416092, cooling 27475  puffs at their bolts 4038 (1083 landed, 2955 missed)  the foe's count tagged 1078  killing landings untagged 5  cooled in the verdict 45  drawn frames 13955 (10067 with the picture up, 1371 of them in a hit stop, 330 in the verdict)
+  [1] PASS  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once, nobody else hurt; every hp and ward rebuilt; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once, on the foe only; none on a miss (none at sunder 0)
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] PASS  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out
+  [9] PASS  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window
+  [10] PASS  stage 6 voice: one cast voice a cast; one landing thud a landed bolt at the foe's count after its sunder, one miss thud a missed bolt, in order; nothing else in tickHail but a ward's own shatter; no close voice; every voice accounted for
+  [11] FAIL  stage 6 picture: tickQuarrel writes no sim field and draws no RNG; the limbs up exactly while the window is; one puff a resolved bolt at its spot, hit or miss; the foe's count tagged, a kill untagged; cooled in the verdict; no drawn frame throws, draws the RNG or writes the sim   24565 FAIL: ['a drawn frame changed the sim: "2316233883532]],[[468.6588044203757,382.3415632455098,0,\\"a\\"]" -> "2316233883532]],[[468.6588044213757,382.3415632455098,0,\\"a\\"]"', 'a drawn frame changed the sim: "2316233883532]],[[468.6588044213757,382.3415632455098,0,\\"a\\"]" -> "2316233883532]],[[468.6588044223757,382.3415632455098,0,\\"a\\"]"', 'a drawn frame changed the sim: "2316233883532]],[[468.6588044223757,382.3415632455098,0.025," -> "2316233883532]],[[468.65880442337567,382.3415632455098,0.025"', 'a drawn frame changed the sim: "2316233883532]],[[468.65880442337567,382.3415632455098,0.075" -> "2316233883532]],[[468.65880442437566,382.3415632455098,0.075"']
+
+  10/11
+exit 1

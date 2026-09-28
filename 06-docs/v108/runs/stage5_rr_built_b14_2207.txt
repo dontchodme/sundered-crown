@@ -1,0 +1,4 @@
+ironhail on sc-ironhail-b14.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · built_b14
+  win 50.0%   side A 49.7%   side B 50.3%   mean 54.0s   timeouts 0
+  by type  flail 64%  warhammer 62%  scythe 55%  bow 44%  twinblade 43%  greatsword 30%
+  worst    farwarden 15%  dawnbringer 20%  emberedge 20%   (740 fights in 132s)

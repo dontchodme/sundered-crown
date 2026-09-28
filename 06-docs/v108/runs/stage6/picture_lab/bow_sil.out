@@ -1,0 +1,11 @@
+ironhail     dwarven    bow n 8  BOW |dL| med 0.093 (min 0.054 max 0.101)  luma 0.199  area 3767 u2
+farwarden    vigil      bow n 8  BOW |dL| med 0.187 (min 0.106 max 0.194)  luma 0.310  area 4927 u2
+aureole      sanctified bow n 8  BOW |dL| med 0.217 (min 0.132 max 0.222)  luma 0.386  area 5925 u2
+vinesower    verdant    bow n 8  BOW |dL| med 0.186 (min 0.112 max 0.198)  luma 0.321  area 5633 u2
+marrowdraw   bloodsworn bow n 8  BOW |dL| med 0.122 (min 0.072 max 0.142)  luma 0.218  area 4574 u2
+gloamwire    umbral     bow n 8  BOW |dL| med 0.099 (min 0.054 max 0.106)  luma 0.206  area 4515 u2
+rank by |dL|: aureole 0.217 > farwarden 0.187 > vinesower 0.186 > marrowdraw 0.122 > gloamwire 0.099 > ironhail 0.093
+  variant v1 (scratch, NOT taken; silv/mk.py): ironhail BOW |dL| med 0.100 luma 0.205
+  variant v2 (scratch, NOT taken; silv/mk.py): ironhail BOW |dL| med 0.106 luma 0.213
+  variant v3 (scratch, NOT taken; silv/mk.py): ironhail BOW |dL| med 0.110 luma 0.218
+  variant v4 (scratch, NOT taken; silv/mk.py): ironhail BOW |dL| med 0.106 luma 0.213

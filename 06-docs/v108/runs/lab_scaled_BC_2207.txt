@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · ironhail (redesign) · 33 foes x 20 seeds = 660 fights an arm · lab, timing in match seconds (x1/(1-0.123)) block 2207
+  charge=16.0 dur=9.12 blade=None fallT=0.342 hitR=60 dropDmg=4 dropCd=0.456
+
+  arm       win  casts  hits in/out      dmg    drops   landed   sunder
+  B       47.1%   2.86  6.67/8.98      19.84    17.94     4.96     0.00
+  C       60.9%   2.73  6.39/8.67      19.31    17.96     4.83     4.83
+  1320 fights in 182s   errors: []

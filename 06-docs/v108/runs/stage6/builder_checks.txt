@@ -1,0 +1,25 @@
+BUILDER CHECKS, STAGE 6  18:41  ironhail_build.py 491643c55a34fa56
+-- stage 6 on the fx link (twice):
+   'tickQuarrel' is already in this source -- stage 6 goes on once
+   exit 1
+-- stage 6 over an existing link (overwrite):
+   refusing to overwrite sc-ironhail-sunder-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+   exit 1
+-- stage 6 on the 50% link (b14):
+   stage 6 goes on the final (stage 3's link, blade 16.23): Ironhail's ult block or blade is not the final's
+   exit 1
+-- stage 6 on stage 2 (hail, sunder 0):
+   stage 6 goes on the final (stage 3's link, blade 16.23): Ironhail's ult block or blade is not the final's
+   exit 1
+-- stage 6 on stage 1 (stub):
+   stage 6 goes on the final (stage 3's link, blade 16.23): Ironhail's ult block or blade is not the final's
+   exit 1
+-- stage 6 on the tip (no stages 1-3):
+   stage 6 needs stage 1 under it
+   exit 1
+-- REBUILD from the real tip, stages 1, 2, 3, 6 (and 5 --alt50 on 3), byte for byte:
+   sc-ironhail-stub: rebuilt 7f9904956105811d  link 7f9904956105811d  IDENTICAL
+   sc-ironhail-hail: rebuilt d3d9062fd77e6cea  link d3d9062fd77e6cea  IDENTICAL
+   sc-ironhail-sunder: rebuilt 1bedab05b9803465  link 1bedab05b9803465  IDENTICAL
+   sc-ironhail-sunder-fx: rebuilt b8ff2014a954be3f  link b8ff2014a954be3f  IDENTICAL
+   sc-ironhail-b14: rebuilt dadb773b6f8d4555  link dadb773b6f8d4555  IDENTICAL

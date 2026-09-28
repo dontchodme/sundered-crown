@@ -1,0 +1,44 @@
+CARD IN PIXELS -- sc-ironhail-b14.html   W 1080   ult bar: 18px Atkinson, wrap width 390px, 2 lines drawn   scrunch: 21px ui-sans, wrap width 467px, 3 lines, shrinks to 15
+  relic          chars one line px bar lines  widest scrunch px lines
+  ironwood          70         609         2     371         21     2
+  farwarden         70         603         2     377         21     2
+  slagheart         71         592         2     362         21     2
+  grudgebearer      69         589         2     378         21     2
+  ravelbone         69         588         2     360         21     2
+  dawnbringer       72         587         2     377         21     2
+  portcullis        71         583         2     362         21     2
+  thornwake         68         571         2     357         21     2
+  bindweed          70         571         2     366         21     2
+  morningstar       69         563         2     376         21     2
+  heartwood         67         562         2     348         21     2
+  starwarden        67         556         2     356         21     2
+  lastlight         68         549         2     386         21     2
+  axiom             68         546         2     389         21     2
+  gloamwire         67         546         2     341         21     2
+  ironhail          68         539         2     382         21     2
+  thornshear        63         518         2     353         21     2
+  paradox           67         513         2     371         21     2
+  redflail          60         504         2     389         21     2
+  spellbreaker      59         500         2     326         21     2
+  foregone          61         498         2     383         21     2
+  emberedge         61         486         2     373         21     2
+  shroudmaul        62         483         2     375         21     2
+  cindercleave      58         475         2     377         21     2
+  widowmaker        53         467         2     304         21     2
+  vinesower         57         464         2     358         21     2
+  vesper            50         438         2     367         21     2
+  bloodmirror       55         438         2     344         21     2
+  gravemourn        51         424         2     378         21     2
+  oathwound         47         419         2     362         21     2
+  nightfell         51         418         2     347         21     2
+  twinshade         50         396         2     326         21     1
+  marrowdraw        47         373         1     373         21     1
+  bulwarden         44         366         1     366         21     1
+  lightkeeper       39         346         1     346         21     1
+  censer            35         307         1     307         21     1
+  aureole           35         283         1     283         21     1
+  duskreave          1           7         1       7         21     1
+  (design) 74ch     74         601         2     365         21     2
+  (design) 68ch     68         539         2     382         21     2
+
+  ironhail's card: 68 chars, 539px on one line, 2 lines in the ult bar (nothing dropped: True), the scrunch at 21px in 2 lines; rank 16 of 38 by width

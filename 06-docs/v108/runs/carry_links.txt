@@ -1,0 +1,5 @@
+sc-coldiron-temper-fx.html  the batch line's tip  67cc3e6e05d5326e
+  stage 1  sc-ironhail-stub.html  f16340749a2465d6  (rebuilt from the tip: f16340749a2465d6, same)
+  stage 2  sc-ironhail-hail.html  4661de4efec62d74  (rebuilt from the tip: 4661de4efec62d74, same)
+  stage 3  sc-ironhail-sunder.html  1833597f1b08d92f  (rebuilt from the tip: 1833597f1b08d92f, same)
+  stage 6  sc-ironhail-sunder-fx.html  b51c2539999dd272  (rebuilt from the tip: b51c2539999dd272, same)

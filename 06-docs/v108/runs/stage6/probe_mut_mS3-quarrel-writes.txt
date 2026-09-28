@@ -1,0 +1,25 @@
+
+QUARRELSTORM (HAIL) PROBE  sc-ironhail-mS3-quarrel-writes.html  Chromium 151.0.7922.34  74 fights (Ironhail both sides x every foe x 1 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.73   blows a fight: in windows 6.91, outside 8.97   shots loosed: in windows 54.59, outside 84.15 a fight   Ironhail win 58.1%
+  per cast: drops 17.89  landed 4.68  dmg 18.73  sunder 4.68   landed share 26.4%   bolts resolved after the close 0.00 a cast; forced closes 16: 16 bolts resolved after them, 3 landed
+  the bow's fire rebuilt: 164256 frames in windows, 253171 outside, 73233 skipped (stun / dead / over); asked once on 490660 unfrozen steps
+  who is struck: 1092 landing calls whose hurts are exactly [foe, dropDmg, caster]; hp / ward / pool rebuilt exactly on 490660 hail calls (1092 with a landing, 11 ward bursts on the caster)
+  the hail's clock: tickHail asked once on 490660 unfrozen steps (none on a frozen one), 197734 open-window frames
+  fall on the window clock: {'36': 4126} calls   killing landings 5   wards broken by the hail 24   clock closes 158, death closes 20
+  FREEZE CENSUS 13.0% of window steps frozen   a clock window lasts 9.14s of match time (8s on the window clock)
+  stage 6 voice: casts 249  landing thuds 1092 (n 1:53, 2:68, 3:76, 4:71, 5:66, 6:758; 5 on a killing landing)  miss thuds 3034  ward shatters' own voice 24  silent closes: 195 clock, 26 death   run totals {'ironhail': 249, 'ironhail-miss': 3034, 'ironhail-land': 1092}
+  stage 6 picture: tickQuarrel calls clean 1051101  limbs up 425074, cooling 28553  puffs at their bolts 4126 (1092 landed, 3034 missed)  the foe's count tagged 1087  killing landings untagged 5  cooled in the verdict 45  drawn frames 0 (0 with the picture up, 0 of them in a hit stop, 0 in the verdict)   (drawn subset OFF)
+  [1] PASS  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once, nobody else hurt; every hp and ward rebuilt; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once, on the foe only; none on a miss (none at sunder 0)
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] PASS  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out
+  [9] PASS  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window
+  [10] PASS  stage 6 voice: one cast voice a cast; one landing thud a landed bolt at the foe's count after its sunder, one miss thud a missed bolt, in order; nothing else in tickHail but a ward's own shatter; no close voice; every voice accounted for
+  [11] FAIL  stage 6 picture: tickQuarrel writes no sim field and draws no RNG; the limbs up exactly while the window is; one puff a resolved bolt at its spot, hit or miss; the foe's count tagged, a kill untagged; cooled in the verdict; no drawn frame throws, draws the RNG or writes the sim   1087 FAIL: ['tickQuarrel changed the sim: "\\\\\\":1,\\\\\\"late\\\\\\":0}\\",306.31612451581316,640.8101883071607,-261." -> "\\\\\\":1,\\\\\\"late\\\\\\":0}\\",306.31612451681315,640.8101883071607,-261."', 'tickQuarrel changed the sim: "\\\\\\":2,\\\\\\"late\\\\\\":0}\\",186.69246255326473,478.60508961413007,164." -> "\\\\\\":2,\\\\\\"late\\\\\\":0}\\",186.69246255426472,478.60508961413007,164."', 'tickQuarrel changed the sim: "\\\\\\":3,\\\\\\"late\\\\\\":0}\\",376.0135184416337,421.32044297487147,205.0" -> "\\\\\\":3,\\\\\\"late\\\\\\":0}\\",376.0135184426337,421.32044297487147,205.0"', 'tickQuarrel changed the sim: "\\\\\\":4,\\\\\\"late\\\\\\":0}\\",463.5927305582107,436.72698186179815,-384." -> "\\\\\\":4,\\\\\\"late\\\\\\":0}\\",463.5927305592107,436.72698186179815,-384."']
+
+  10/11
+exit 1

@@ -1,0 +1,33 @@
+  (24 insert(s) found in ironhail_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-ironhail-sunder-fx.html
+tip    sc-ironhail-sunder-fx.html
+24 inserts read out of ironhail_build.py
+
+    ok  S1:Quarrelstorm becomes the hail, stubbed relic  1  mid   -  tip  1
+    ok  S1:the nova is retired: kind "volley" was Ironhail's alone relic  1  mid   -  tip  1
+    ok  S2:the hail has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the hail's window relic  1  mid   -  tip  1
+    ok  S2:the match carries the bolts in the air relic  1  mid   -  tip  1
+    ok  S2:the cast opens the hail and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the hail ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickHail drops and lands relic  1  mid   -  tip  1
+    ok  S3:the sunder              relic  1  mid   -  tip  1
+    ok  S6:Sfx: Ironhail's cast, landing and miss arms, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:tickHail: the landing voice, once per landed bolt, after its hurt and its sunder relic  1  mid   -  tip  1
+    ok  S6:tickHail: the miss voice, once per missed bolt, before the miss line relic  2  mid   -  tip  2
+    ok  S6:quarrelstorm picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: tickQuarrel relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the ground call (world, under both balls) relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the emissive call (over both fighters) relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the limbs' hook in drawWeapon relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the drawing methods relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the nova's floor dust retired relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the nova's release flash retired relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the charge rune relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the banner's spread relic  1  mid   -  tip  1
+    ok  S6:quarrelstorm picture: the banner's letters fall relic  1  mid   -  tip  1
+
+ALL 24 INSERTS SURVIVE to sc-ironhail-sunder-fx.html
+(4 of them are marked by COMMENT text -- the code they add is shorter than the floor: S1:the nova is retired: kind "volley" was Ironhail's alone, S2:the match carries the bolts in the air, S6:quarrelstorm picture: the nova's floor dust retired, S6:quarrelstorm picture: the nova's release flash retired)
+exit 0

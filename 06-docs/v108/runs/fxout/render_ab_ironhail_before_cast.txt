@@ -1,0 +1,8 @@
+
+RENDER A/B  1 pairings x 4 frames  540x960
+  a  sc-ironhail-sunder-fx.html
+  b  sc-ironhail-fxout.html
+
+PASS  4/4 frames pixel-identical.
+      Same relics, same seeds, same frame indices, one runtime.
+exit 0

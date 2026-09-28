@@ -1,0 +1,4 @@
+ironhail on sc-ironhail-sunder.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · set dmg=16.5 · d16.5
+  win 63.4%   side A 65.4%   side B 61.4%   mean 51.0s   timeouts 0
+  by type  flail 71%  warhammer 70%  twinblade 66%  scythe 66%  bow 59%  greatsword 49%
+  worst    aureole 35%  dawnbringer 40%  nightfell 40%   (740 fights in 46s)

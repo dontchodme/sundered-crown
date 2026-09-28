@@ -1,0 +1,8 @@
+base 1bedab05b9803465 mine 3 rows; picture 12 rows
+  replace  anchor x1 re-emitted x1  Sfx: Ironhail's cast, landing and miss arms, before the shared rune-crack fallback
+  replace  anchor x1 re-emitted x1  tickHail: the landing voice, once per landed bolt, after its hurt and its sunder
+  replace  anchor x1 re-emitted x1  tickHail: the miss voice, once per missed bolt, before the miss line
+voice+picture b8ff2014a954be3f picture+voice b8ff2014a954be3f SAME
+  with bindweed's 1 Sfx row(s): both orders apply; every row's own text present once in both: True
+  with coldiron's 1 Sfx row(s): both orders apply; every row's own text present once in both: True
+  with portcullis's 2 Sfx row(s): both orders apply; every row's own text present once in both: True

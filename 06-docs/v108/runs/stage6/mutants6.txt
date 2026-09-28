@@ -1,0 +1,5 @@
+mS1-land-before-sunder   9992716792f4e047  +0 chars
+mS2-close-voice          f401346e10ca9375  +41 chars
+mS3-quarrel-writes       1c17c29382c06c36  +27 chars
+mS4-draw-writes          c24b90d3c2657aba  +17 chars
+mS5-puff-at-foe          cdf758837b7bc85b  +4 chars

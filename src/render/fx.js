@@ -160,10 +160,6 @@
     'axiom-echo': { mode: 'burst', n: 200, sp: [20, 120], grav: -60, drag: 1.8,
                     life: [0.50, 1.30], heavy: 0.0, size: [0.6, 1.7],
                     spawn: 0.50, up: 25 },
-    /* A VOLLEY IS MANY SHOTS, so it emits across nearly its whole life. */
-    ironhail: { mode: 'beam', n: 1300, sp: [50, 240], grav: 140, drag: 1.4,
-                life: [0.22, 0.65], heavy: 0.03, size: [0.6, 1.7],
-                spawn: 0.80, up: 0 },
     /* ONE AIMED SHOT: sparse and late. An aimedshot holds a DRAW until the
        bow's facing comes round, so almost everything arrives at once. */
     farwarden: { mode: 'beam', n: 900, sp: [60, 260], grav: 120, drag: 1.5,

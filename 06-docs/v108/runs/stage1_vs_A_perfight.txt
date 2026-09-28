@@ -1,0 +1,7 @@
+STAGE 1 (sc-ironhail-stub, SHIP arm = its own stubbed ultimate) AGAINST THE LAB'S ARM A (base), FIGHT BY FIGHT
+(perfight_overlay.py = ult_overlay.py + every fight's row; 33 foes x 20 seeds, Ironhail side A)
+
+block 2207: 660 / 660 fights; wins 235 / 235; fights differing in winner, duration (to the step), blows in/out or casts: 0  -> IDENTICAL FIGHT BY FIGHT
+block 2317: 660 / 660 fights; wins 242 / 242; fights differing in winner, duration (to the step), blows in/out or casts: 0  -> IDENTICAL FIGHT BY FIGHT
+
+STAGE 1 IS ARM A FIGHT BY FIGHT

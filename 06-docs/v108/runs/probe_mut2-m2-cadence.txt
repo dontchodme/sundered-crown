@@ -1,0 +1,21 @@
+
+QUARRELSTORM (HAIL) PROBE  mut2-m2-cadence.html  Chromium 151.0.7922.34  444 fights (Ironhail both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.75   blows a fight: in windows 6.18, outside 8.95   shots loosed: in windows 48.83, outside 69.33 a fight   Ironhail win 64.2%
+  per cast: drops 19.57  landed 5.12  dmg 20.46  sunder 5.12   landed share 26.4%   bolts resolved after the close 0.77 a cast; forced closes 16: 974 bolts resolved after them, 266 landed
+  the bow's fire rebuilt: 884150 frames in windows, 1250186 outside, 359080 skipped (stun / dead / over); asked once on 2493416 unfrozen steps
+  who is struck: 6402 landing calls whose hurts are exactly [foe, dropDmg, caster]; hp / ward / pool rebuilt exactly on 2493416 hail calls (6402 with a landing, 55 ward bursts on the caster)
+  the hail's clock: tickHail asked once on 2493416 unfrozen steps (none on a frozen one), 1062066 open-window frames
+  fall on the window clock: {'36': 24255} calls   killing landings 22   wards broken by the hail 102   clock closes 938, death closes 146
+  FREEZE CENSUS 12.7% of window steps frozen   a clock window lasts 9.10s of match time (8s on the window clock)
+  [1] PASS  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's
+  [2] FAIL  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame   24487 FAIL: ['cd 0.36000000000000004 after a drop', 'cd 0.36000000000000004 after a drop', 'cd 0.36000000000000004 after a drop', 'cd 0.36000000000000004 after a drop']
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once, nobody else hurt; every hp and ward rebuilt; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once, on the foe only; none on a miss (none at sunder 0)
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] PASS  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out
+  [9] PASS  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window
+
+  8/9
+exit 1

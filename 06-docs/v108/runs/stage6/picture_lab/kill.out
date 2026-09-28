@@ -1,0 +1,9 @@
+hail kill: farwarden 108001 a 50.708
+hail kill: morningstar 108001 a 39.267
+hail kill: ironwood 108001 a 55.15
+hail kill: bulwarden 108001 b 53.308
+[1] 4 fights with a killing landing found
+[2] farwarden 108001a: draws 2269 thrown None kill t 50.708 puff [{'hit': True, 'atSpot': True}] tag on the kill frame {'added': 0, 'recount': 0, 'foeHp': 0, 'foeAlive': False} | limbs at the kill 0.9833333333333333 -> 0 after 0.5 s | bolts in the air 0 faded after None s
+[2] morningstar 108001a: draws 1812 thrown None kill t 39.267 puff [{'hit': True, 'atSpot': True}] tag on the kill frame {'added': 0, 'recount': 0, 'foeHp': 0, 'foeAlive': False} | limbs at the kill 0.9833333333333333 -> 0 after 0.5 s | bolts in the air 0 faded after None s
+[2] ironwood 108001a: draws 2446 thrown None kill t 55.15 puff [{'hit': True, 'atSpot': True}] tag on the kill frame {'added': 0, 'recount': 0, 'foeHp': 0, 'foeAlive': False} | limbs at the kill 0.9833333333333333 -> 0 after 0.5 s | bolts in the air 0 faded after None s
+[2] bulwarden 108001b: draws 2373 thrown None kill t 53.308 puff [{'hit': True, 'atSpot': True}] tag on the kill frame {'added': 0, 'recount': 0, 'foeHp': 0, 'foeAlive': False} | limbs at the kill 0.9833333333333333 -> 0 after 0.5 s | bolts in the air 0 faded after None s

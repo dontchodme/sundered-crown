@@ -1,0 +1,20 @@
+
+QUARRELSTORM (HAIL) PROBE  mut2-m8b-halfbow.html  Chromium 151.0.7922.34  444 fights (Ironhail both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.90   blows a fight: in windows 4.90, outside 9.33   shots loosed: in windows 26.91, outside 70.85 a fight   Ironhail win 45.9%
+  per cast: drops 18.22  landed 4.91  dmg 19.65  sunder 4.91   landed share 27.1%   bolts resolved after the close 0.00 a cast; forced closes 16: 16 bolts resolved after them, 3 landed
+  the bow's fire rebuilt: 937091 frames in windows, 1297758 outside, 389892 skipped (stun / dead / over); asked once on 2636687 unfrozen steps
+  the hail's clock: tickHail asked once on 2636687 unfrozen steps (none on a frozen one), 1144898 open-window frames
+  fall on the window clock: {'36': 23838} calls   killing landings 26   wards broken by the hail 83   clock closes 1035, death closes 106
+  FREEZE CENSUS 12.1% of window steps frozen   a clock window lasts 9.03s of match time (8s on the window clock)
+  [1] PASS  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once; none on a miss (none at sunder 0)
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] FAIL  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out   11946 FAIL: ['IN the window: fireCd 0.00666666666665949 -> 0.6783333333333262 and 1 loosed (angle undefined), want 0.33833333333332616 and one ordinary shot', 'IN the window: fireCd 0.003333333333326135 -> 0.6749999999999928 and 1 loosed (angle undefined), want 0.3349999999999928 and one ordinary shot', 'IN the window: fireCd 0.00833333333332603 -> 0.6799999999999927 and 1 loosed (angle undefined), want 0.3399999999999927 and one ordinary shot', 'IN the window: fireCd 0.004999999999992618 -> 0.6766666666666593 and 1 loosed (angle undefined), want 0.3366666666666593 and one ordinary shot']
+  [9] PASS  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window
+
+  8/9
+exit 1

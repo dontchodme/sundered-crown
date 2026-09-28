@@ -1,0 +1,21 @@
+COMPOSITION, STAGE 6  2026-09-27 21:58  ironhail_build.py 491643c55a34fa56
+-- forward: ironhail stages 1, 2, 3, 6 on the real tip and each newest link
+  sc-tendril-t3 (5a6216e3b629fad4): stages 1236 -> 38 relics in the roster, s6 b8ff2014a954be3f (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+  sc-tendril-fx (eea0cde5536955b3): stages 1236 -> 38 relics in the roster, s6 77b7b9b59ab0dd80 (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+  sc-onslaught-fx (ee74fe9ad67e50a6): stages 1236 -> 38 relics in the roster, s6 085693e468a0553a (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+  sc-coldiron-temper-fx (3693eda608b26fa8): stages 1236 -> 39 relics in the roster, s6 e82ca3af80c7fd67 (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+  sc-angelus-b9 (db58100b3aa0092a): stages 1236 -> 39 relics in the roster, s6 587b5a78016c2163 (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+  sc-lightkeeper-bulwark-b9.5 (d60a5c63b785ad04): stages 1236 -> 38 relics in the roster, s6 12cfdc36baefe359 (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+  sc-lodestone-b205 (6d736451a1ffc2df): stages 1236 -> 39 relics in the roster, s6 b6dca23be2c7c0b6 (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+  sc-oracle-sight (1b599fca2040534e): stages 1236 -> 39 relics in the roster, s6 86602b7f377e8bc0 (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+  sc-widowmaker-b1075 (a9977a757d5772b7): stages 1236 -> 38 relics in the roster, s6 bd4aae2278974933 (+21147 chars) s3->s6 509 lines md5 1df1972410f0
+-- reverse: each builder's stages on sc-ironhail-sunder-fx
+  angelus_build.py stages 1 2 3 5: 1 2 3 5 
+  coldiron_build.py stages 1 2 3 4 5 6: 1 2 3 4 5 6 
+  lightkeeper_build.py stages 1 2 3 5: 1 2 3 5 
+  lodestone_build.py stages 1 2 3 5: 1 2 3 5 
+  oracle_build.py stages 1 2 3: 1 2 3 
+  widowmaker_build.py stages 1 2 5: 1 2 5 
+  bindweed_build.py stages 6: 6 
+  portcullis_build.py stages 6: 6 
+done 21:59

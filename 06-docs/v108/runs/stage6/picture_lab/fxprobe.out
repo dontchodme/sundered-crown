@@ -1,0 +1,5 @@
+96 Quarrelstorm windows on 16 foes x 2 seeds (both sides); ultFx life at the cast: [1.3, 1.5, 1.6]; the slot's spawn point is the caster's own spot on 83/96
+  the slot is Ironhail's for a median 0.62s of window clock (max 0.62); lost to: {"opponent's cast": 13, 'expired': 83}
+  a slot-borne field could exist for 7.0% of the window's clock
+  417 landings: window clock median 3.91s (p10 1.11, min 0.30833333333333346); 15 of 417 while the slot was still Ironhail's (a SPECS field would already be spawned: it fires once, at the cast edge)
+  a landing's spot is a median 254 units from the field's spawn point (p10 97, p90 438)

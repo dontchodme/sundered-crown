@@ -1,0 +1,7 @@
+STAGE 1 (sc-ironhail-stub, the new ult stubbed at 1e9, the nova retired) AGAINST THE LAB'S ARM A
+(ult_overlay --relic ironhail --arms SHIP on the stub vs --arms A on the base; 33 foes x 20 seeds, side A)
+
+block 2207: arm A 0.3561  stub 0.3561   blows a fight 16.236364 / 16.236364   33/33 foes' rates identical   -> IDENTICAL
+block 2317: arm A 0.3667  stub 0.3667   blows a fight 16.221212 / 16.221212   33/33 foes' rates identical   -> IDENTICAL
+
+STAGE 1 IS ARM A FIGHT FOR FIGHT

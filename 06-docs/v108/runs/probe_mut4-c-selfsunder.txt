@@ -1,0 +1,21 @@
+
+QUARRELSTORM (HAIL) PROBE  mut4-c-selfsunder.html  Chromium 151.0.7922.34  444 fights (Ironhail both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.57   blows a fight: in windows 5.89, outside 8.57   shots loosed: in windows 45.82, outside 66.70 a fight   Ironhail win 43.7%
+  per cast: drops 17.93  landed 4.60  dmg 18.39  sunder 4.60   landed share 25.9%   bolts resolved after the close 0.00 a cast; forced closes 16: 17 bolts resolved after them, 3 landed
+  the bow's fire rebuilt: 830197 frames in windows, 1202518 outside, 339406 skipped (stun / dead / over); asked once on 2372121 unfrozen steps
+  who is struck: 5366 landing calls whose hurts are exactly [foe, dropDmg, caster]; hp / ward / pool rebuilt exactly on 2372121 hail calls (5366 with a landing, 55 ward bursts on the caster)
+  the hail's clock: tickHail asked once on 2372121 unfrozen steps (none on a frozen one), 997881 open-window frames
+  fall on the window clock: {'36': 20771} calls   killing landings 11   wards broken by the hail 88   clock closes 877, death closes 128
+  FREEZE CENSUS 12.7% of window steps frozen   a clock window lasts 9.09s of match time (8s on the window clock)
+  [1] PASS  the window: dur on the window clock (tickHail once on every unfrozen step, never on a frozen one; dt a call), closes on either death; only Ironhail's
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once, nobody else hurt; every hp and ward rebuilt; a miss nothing
+  [5] FAIL  each landing sunders: apply('sunder', sunder, side letter) once, on the foe only; none on a miss (none at sunder 0)   5366 FAIL: ['the call\'s sunders [["dawnbringer",1,"a"],["ironhail",1,"a"]], want [["dawnbringer",1,"a"]]', 'the call\'s sunders [["dawnbringer",1,"a"],["ironhail",1,"a"]], want [["dawnbringer",1,"a"]]', 'the call\'s sunders [["dawnbringer",1,"a"],["ironhail",1,"a"]], want [["dawnbringer",1,"a"]]', 'the call\'s sunders [["dawnbringer",1,"a"],["ironhail",1,"a"]], want [["dawnbringer",1,"a"]]']
+  [6] PASS  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status
+  [7] PASS  a killing landing files one fatal hail beat (hit, the caster's side, the foe's spot, dropDmg); nothing else files one
+  [8] PASS  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out
+  [9] PASS  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window
+
+  8/9
+exit 1

@@ -1,0 +1,4 @@
+ironhail on sc-tendril-t3.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · shipped
+  win 62.4%   side A 60.8%   side B 64.1%   mean 51.5s   timeouts 0
+  by type  flail 79%  scythe 66%  warhammer 64%  greatsword 58%  twinblade 51%  bow 50%
+  worst    widowmaker 35%  duskreave 35%  ironwood 35%   (740 fights in 80s)

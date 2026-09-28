@@ -1,0 +1,19 @@
+
+QUARRELSTORM (HAIL) PROBE  mut2-m6-stop.html  Chromium 151.0.7922.34  444 fights (Ironhail both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'dropCd': 0.4, 'fallT': 0.3, 'hitR': 60, 'dropDmg': 4, 'sunder': 1, 'blade': 16.23}
+  casts/fight 2.72   blows a fight: in windows 6.62, outside 9.02   shots loosed: in windows 48.73, outside 68.84 a fight   Ironhail win 64.6%
+  per cast: drops 18.05  landed 4.72  dmg 18.88  sunder 4.72   landed share 26.4%   bolts resolved after the close 0.00 a cast; forced closes 16: 16 bolts resolved after them, 3 landed
+  the bow's fire rebuilt: 882151 frames in windows, 1241459 outside, 363129 skipped (stun / dead / over); asked once on 2486739 unfrozen steps
+  fall on the window clock: {'36': 22112} calls   killing landings 24   wards broken by the hail 87   clock closes 943, death closes 150
+  FREEZE CENSUS 15.7% of window steps frozen   a clock window lasts 9.41s of match time (8s on the window clock)
+  [1] PASS  the window: dur on the window clock (dt a call, never on a frozen step), closes on either death; only Ironhail's
+  [2] PASS  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame
+  [3] PASS  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed
+  [4] PASS  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once; a miss nothing
+  [5] PASS  each landing sunders: apply('sunder', sunder, side letter) once; none on a miss (none at sunder 0)
+  [6] FAIL  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status   5728 FAIL: ['hitStop -0.0033333333333333184 -> 0.05 without a ward break', 'hitStop -0.008333333333333309 -> 0.05 without a ward break', 'hitStop -0.0018666666666666606 -> 0.05 without a ward break', 'hitStop -0.008333333333333309 -> 0.05 without a ward break']
+  [7] PASS  a killing landing files one fatal hail beat; nothing else files one
+  [8] PASS  the bow keeps firing: its spin, its fire (asked once a step; cadence rebuilt) and every blow its own, in the window and out
+  [9] PASS  the nova is gone: a cast spawns no shot, opens {t 0, dur, cd 0}, never on an open window
+
+  8/9
+exit 1

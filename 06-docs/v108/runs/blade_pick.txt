@@ -1,0 +1,16 @@
+THE TARGET (v83 §5 stage 3, 'to the shipped rate'): Ironhail as shipped on sc-tendril-t3, relic_rate both sides,
+seed0 2207 + 2317: 917 wins of 1480 = 61.96%  (one SE 1.26 points = 18.7 wins)
+
+blade                                        wins/1480   rate     vs shipped
+  16.23 (shipped blade = sc-ironhail-sunder)   909      61.42%   -8 wins (-0.54)
+  16.5                                         925      62.50%   +8 wins (+0.54)
+  16  (grid)                                   879      59.39%   -38 wins (-2.57)
+  15.5 (grid)                                  836      56.49%   -81 wins (-5.47)
+  14.5                                         801      54.12%   -116 wins (-7.84)
+  15  (grid)                                   779      52.64%   -138 wins (-9.32)
+  14                                           732      49.46%   -185 wins (-12.50)
+  13                                           631      42.64%   -286 wins (-19.32)
+  12                                           479      32.36%   -438 wins (-29.59)
+
+nearest the shipped rate: 16.23 (shipped blade = sc-ironhail-sunder) and 16.5  (AN EXACT TIE, 8 wins off)
+nearest 50% (Rick's other choice): 14  732 of 1480 = 49.46%

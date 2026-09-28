@@ -1,0 +1,6 @@
+the returned rows equal the files: voice 3/3 (== the lab's rows_lab4.json, its final confirmation run), picture 12/12 (the lab's recorded file); the relayed rows' labels, anchors, modes and a line of each relayed body match
+base sc-ironhail-sunder.html 1bedab05b9803465
+picture-only sha f03b657a1d99d86c (the picture lab's stamp: f03b657a1d99d86c)
+15 rows -> 15 edits (0 merged at a shared anchor)
+voice+picture sha b8ff2014a954be3f (both orders identical; 10 edits re-emit their anchor, 5 replace text outright); the voice lab's picture+voice page: b8ff2014a954be3f
+stage 6 written into ironhail_build.py : 15 edits; sha 3c24bc2e4e59326b

@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · ironhail (redesign) · 33 foes x 20 seeds = 660 fights an arm · control ctl-lab-hail block 2207
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    52.6%   0.00  0.00/15.60 
+  660 fights in 101s   errors: []

@@ -1,0 +1,31 @@
+PROBE CONTROLS ON THE FINAL LINK (sc-ironhail-sunder, 1bedab05b9803465) UNDER THE PROBE OF THE THIRD REVIEW
+(ironhail_probe.py sha16 400e8424f60238c0: [1] counts tickHail calls a step; [7] reads the fatal beat's kind, side, spot and dmg;
+ [4] requires the call's hurts to be exactly its landings' [foe, dropDmg, caster] and rebuilds every fighter's hp, ward and pool;
+ [5] requires the call's sunders to be exactly its landings' [foe, sunder, side])
+the final itself: 9/9, Ironhail 61.7% on the probe's 444 fights
+
+mutant           sha16             win    checks  exit  fails (count: first message)
+m1-frozen        17854312cf814e68   66.9%  8/9  exit 1  [1] 598824: 'tickHail on a frozen step'
+m2-cadence       e642414c90846090   64.2%  8/9  exit 1  [2] 24487: 'cd 0.36000000000000004 after a drop'
+m3-fall          120cf9067dd6bf3c   62.8%  8/9  exit 1  [3] 21977: 'a bolt resolved at fall 0.275 of 0.3'
+m4-sundermul     0cb2d3546a23cf01   65.3%  8/9  exit 1  [4] 16119: 'hurt [4.44
+m5-missund       5203bfe9d3382ad9   65.8%  8/9  exit 1  [5] 31844: 'a miss that sundered'
+m6-stop          f63e69364c8258e5   64.6%  8/9  exit 1  [6] 5728: 'hitStop -0.0033333333333333184 -> 0.05 without a ward break'
+m7-nobeat        614b4742df7f2a82   61.7%  8/9  exit 1  [7] 27: 'a killing landing filed 0 fatal hail beat(s) of 0'
+m8-bowquiet      340fc0e67c75d27e   30.6%  8/9  exit 1  [8] 1011393: 'IN the window: fireCd 0.06499999999999281 -> 0.06499999999999281 and 0 loosed, want 0.05666666666665948 and n
+m8b-halfbow      d8fa1deaaa61c092   45.9%  8/9  exit 1  [8] 11946: 'IN the window: fireCd 0.00666666666665949 -> 0.6783333333333262 and 1 loosed (angle undefined), want 0.338333
+m9-novakept      adb8427b4c27b3eb   80.6%  8/9  exit 1  [9] 1152: 'the cast spawned 14 shot(s)'
+
+THE SECOND REVIEW'S MUTANTS (tools/mutants3.py; r-double, r-half, r-beatside byte-identical to the reviewer's files):
+r-double         0982fa9aac0a0d8a   77.5%  8/9  exit 1  [1] 2345525: '2 tickHail call(s) on an unfrozen step'
+r-half           bbb3a75f46ba3837   50.9%  7/9  exit 1  [1] 1281827: '0 tickHail call(s) on an unfrozen step'; [9] 808: 'a cast on an open window'
+r-beatside       0cb2cd0c4c6b0064   61.7%  8/9  exit 1  [7] 27: "the fatal beat says kind hit side 1 at (365.0962277113677, 463.57895517407087) dmg 4; want hit, side 0, the f
+r-beatspot       a8f3083fb254a000   61.7%  8/9  exit 1  [7] 27: "the fatal beat says kind hit side 0 at (232.95370458736735, 648.4817186555977) dmg 4; want hit, side 0, the f
+
+THE THIRD REVIEW'S MUTANTS (tools/mutants4.py; c-caster and c-chip byte-identical to the reviewer's files; c-selfsunder this build's):
+c-caster         89b6245bea9a9422   57.7%  8/9  exit 1  [4] 3138: 'the call\'s hurts [["ironhail",4,"dawnbringer"
+c-chip           4af68581ef39b4cf   60.8%  8/9  exit 1  [4] 5767: 'b (dawnbringer) hp 503 -> 498 ward 0 -> 0 pool 0 -> 0; rebuilt hp 499 ward 0 pool 0'
+c-selfsunder     e1a0a132f65d66e7   43.7%  8/9  exit 1  [5] 5366: 'the call\'s sunders [["dawnbringer",1,"a"
+
+THE FIRST REVIEW'S r3-halfbow (a mutant of sc-ironhail-b14, the bow at half cadence in the window):
+r3-halfbow       6715f0bc15c7f92b   35.1%  8/9  exit 1  [8] 12510: 'IN the window: fireCd 0.0016666666666598738 -> 0.6733333333333266 and 1 loosed (angle undefined), want 0.3333

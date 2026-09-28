@@ -1,0 +1,24 @@
+  cast     match  14.833  clip  1.203  foe sunder 0
+  miss     match  15.217  clip  1.587  foe sunder 0
+  landing  match  15.617  clip  1.987  foe sunder 1
+  miss     match  16.100  clip  2.470  foe sunder 1
+  miss     match  16.500  clip  2.870  foe sunder 1
+  landing  match  16.900  clip  3.270  foe sunder 2
+  miss     match  17.300  clip  3.670  foe sunder 2
+  landing  match  17.700  clip  4.070  foe sunder 3
+  miss     match  18.100  clip  4.470  foe sunder 3
+  miss     match  18.500  clip  4.870  foe sunder 3
+  landing  match  18.900  clip  5.270  foe sunder 4
+  landing  match  19.300  clip  5.670  foe sunder 5
+  landing  match  19.700  clip  6.070  foe sunder 6
+  miss     match  20.200  clip  6.570  foe sunder 6
+  miss     match  20.600  clip  6.970  foe sunder 6
+  miss     match  21.000  clip  7.370  foe sunder 6
+  landing  match  21.558  clip  7.928  foe sunder 6
+  landing  match  21.958  clip  8.328  foe sunder 6
+  landing  match  22.467  clip  8.837  foe sunder 6
+  miss     match  22.867  clip  9.237  foe sunder 6
+  miss     match  23.308  clip  9.678  foe sunder 6
+  close    match  23.400  clip  9.770  foe sunder 6  clock
+  end      match  25.208  clip 11.578  foe sunder 6  on 473 257
+  drops 20, landings 9, misses 11

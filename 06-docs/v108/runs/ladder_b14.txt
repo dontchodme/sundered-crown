@@ -1,0 +1,100 @@
+blade   block 2207   block 2317   pooled   side A   side B   fights   mean dur   (link)
+16.23 SHIPPED (the nova)    61.5     62.4     62.0     62.6     61.4     1480     51.6s   sc-tendril-t3
+12                          29.7     35.0     32.4     32.4     32.3     1480     56.1s   sc-ironhail-sunder --set
+13                          42.7     42.6     42.6     43.6     41.6     1480     55.1s   sc-ironhail-sunder --set
+14                          50.0     48.9     49.5     50.0     48.9     1480     53.9s   sc-ironhail-sunder --set
+14.5                        54.3     53.9     54.1     54.3     53.9     1480     53.2s   sc-ironhail-sunder --set
+15                          49.3     55.9     52.6     52.4     52.8     1480     52.9s   sc-ironhail-sunder --set
+15.5                        54.1     58.9     56.5     55.1     57.8     1480     52.1s   sc-ironhail-sunder --set
+16                          59.6     59.2     59.4     59.1     59.7     1480     51.8s   sc-ironhail-sunder --set
+16.23 (kept)                61.9     60.9     61.4     61.6     61.2     1480     51.6s   sc-ironhail-sunder
+16.5                        63.4     61.6     62.5     63.2     61.8     1480     51.1s   sc-ironhail-sunder --set
+14 BUILT                    50.0     48.9     49.5     50.0     48.9     1480     53.9s   sc-ironhail-b14, no --set
+
+Ironhail / Quarrelstorm, REDESIGNED (sc-ironhail-b14: the hail + sunder, blade 14) win by foe, both sides
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks, relic_rate seed0 2207 + 2317). Pooled: 49.5%
+
+by type  warhammer 63%  flail 57%  scythe 54%  bow 50%  twinblade 43%  greatsword 29%
+
+farwarden        12.5%
+axiom            15.0%
+emberedge        15.0%
+lightkeeper      25.0%
+oathwound        25.0%
+dawnbringer      27.5%
+spellbreaker     32.5%
+marrowdraw       35.0%
+duskreave        37.5%
+starwarden       37.5%
+lastlight        40.0%
+nightfell        40.0%
+widowmaker       42.5%
+gravemourn       45.0%
+twinshade        45.0%
+bulwarden        47.5%
+grudgebearer     47.5%
+foregone         50.0%
+redflail         50.0%
+morningstar      52.5%
+gloamwire        55.0%
+thornwake        55.0%
+cindercleave     57.5%
+heartwood        57.5%
+thornshear       57.5%
+aureole          60.0%
+portcullis       60.0%
+shroudmaul       60.0%
+vesper           60.0%
+ravelbone        62.5%
+slagheart        62.5%
+bindweed         65.0%
+paradox          67.5%
+censer           70.0%
+bloodmirror      80.0%
+vinesower        87.5%
+ironwood         90.0%
+
+by type, redesign at 14 against shipped:  warhammer 63/65  flail 57/77  scythe 54/66  bow 50/55  twinblade 43/50  greatsword 29/53
+
+Ironhail as SHIPPED (sc-tendril-t3: the nova, blade 16.23) win by foe, both sides
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks, relic_rate seed0 2207 + 2317). Pooled: 62.0%
+
+by type  flail 77%  scythe 66%  warhammer 65%  bow 55%  greatsword 53%  twinblade 50%
+
+farwarden        35.0%
+duskreave        40.0%
+spellbreaker     40.0%
+widowmaker       40.0%
+ironwood         42.5%
+gloamwire        42.5%
+axiom            47.5%
+lightkeeper      47.5%
+dawnbringer      47.5%
+emberedge        52.5%
+oathwound        52.5%
+starwarden       52.5%
+nightfell        55.0%
+twinshade        57.5%
+grudgebearer     60.0%
+slagheart        60.0%
+foregone         60.0%
+marrowdraw       60.0%
+aureole          62.5%
+thornshear       62.5%
+cindercleave     65.0%
+censer           67.5%
+shroudmaul       67.5%
+bloodmirror      70.0%
+heartwood        70.0%
+thornwake        72.5%
+vesper           72.5%
+bulwarden        75.0%
+gravemourn       75.0%
+vinesower        75.0%
+paradox          77.5%
+ravelbone        77.5%
+redflail         77.5%
+bindweed         80.0%
+lastlight        80.0%
+morningstar      85.0%
+portcullis       87.5%

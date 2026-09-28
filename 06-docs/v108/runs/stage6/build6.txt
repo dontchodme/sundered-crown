@@ -1,0 +1,26 @@
+
+IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 6
+  src sc-ironhail-sunder.html  1bedab05b9803465  (LF text)
+  base  Ironhail's shipped body (bow, ranged, sunder 1); hurt / apply / beat / STATUS.sunder; the window tickers stop in a hit stop
+  ok    Sfx: Ironhail's cast, landing and miss arms, before the shared rune-crack fallback
+  ok    tickHail: the landing voice, once per landed bolt, after its hurt and its sunder
+  ok    tickHail: the miss voice, once per missed bolt, before the miss line
+  ok    quarrelstorm picture: fighter fields
+  ok    quarrelstorm picture: the presentation call
+  ok    quarrelstorm picture: tickQuarrel
+  ok    quarrelstorm picture: the ground call (world, under both balls)
+  ok    quarrelstorm picture: the emissive call (over both fighters)
+  ok    quarrelstorm picture: the limbs' hook in drawWeapon
+  ok    quarrelstorm picture: the drawing methods
+  ok    quarrelstorm picture: the nova's floor dust retired
+  ok    quarrelstorm picture: the nova's release flash retired
+  ok    quarrelstorm picture: the charge rune
+  ok    quarrelstorm picture: the banner's spread
+  ok    quarrelstorm picture: the banner's letters fall
+  ok    ult   ult:{ name:"Quarrelstorm", charge:14, kind:"hail", dur:8, dropCd:0.4, fallT:0.3, hitR:60, dropDmg:4, ...
+  ok    card  68 chars  'Iron hail falls on the foe from above; every bolt that lands sunders'
+  ok    stage 6: presentation only (no RNG, no ultFx, no call into the sim, writes its own fields); the inlined fx.js untouched; the nova's art out; three voices wired once each
+  ok    one hail ultimate, Ironhail's; the nova out; no insert draws the RNG or writes the shared weapon; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-ironhail-sunder-fx.html  b8ff2014a954be3f   (+21147 chars, written LF)

@@ -1,0 +1,18 @@
+  (9 insert(s) found in ironhail_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-ironhail-sunder.html
+tip    sc-ironhail-sunder.html
+9 inserts read out of ironhail_build.py
+
+    ok  S1:Quarrelstorm becomes the hail, stubbed relic  1  mid   -  tip  1
+    ok  S1:the nova is retired: kind "volley" was Ironhail's alone relic  1  mid   -  tip  1
+    ok  S2:the hail has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the hail's window relic  1  mid   -  tip  1
+    ok  S2:the match carries the bolts in the air relic  1  mid   -  tip  1
+    ok  S2:the cast opens the hail and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the hail ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickHail drops and lands relic  1  mid   -  tip  1
+    ok  S3:the sunder              relic  1  mid   -  tip  1
+
+ALL 9 INSERTS SURVIVE to sc-ironhail-sunder.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: S1:the nova is retired: kind "volley" was Ironhail's alone, S2:the match carries the bolts in the air)
+exit 0

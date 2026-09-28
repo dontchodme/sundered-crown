@@ -1,0 +1,11 @@
+sc-tendril-t3 rc=0 lines=105 eb3609089944 relics=38 relics in the roster
+sc-watchlight-fx rc=1 IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 1   src sc-watchlight-fx.html  0fd579e1cd0df0d3  (LF text) wrong base: no `this.tickTendril(dt);` in step() -- the hail's ticker goes after Tendril's (v68), so this is not the Tendril lineage 
+sc-watchlight rc=1 IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 1   src sc-watchlight.html  d63ea69ef05181ab  (LF text) wrong base: no `this.tickTendril(dt);` in step() -- the hail's ticker goes after Tendril's (v68), so this is not the Tendril lineage 
+sc-wardbolt rc=1 IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 1   src sc-wardbolt.html  af8fed8fe8059b68  (LF text) wrong base: no `this.tickTendril(dt);` in step() -- the hail's ticker goes after Tendril's (v68), so this is not the Tendril lineage 
+sc-beacon rc=1 IRONHAIL / QUARRELSTORM (REDESIGN) -- stage 1   src sc-beacon.html  2026a93e7a1bf509  (LF text) wrong base: no `this.tickTendril(dt);` in step() -- the hail's ticker goes after Tendril's (v68), so this is not the Tendril lineage 
+sc-tendril-fx rc=0 lines=105 eb3609089944 relics=38 relics in the roster
+sc-onslaught-fx rc=0 lines=105 eb3609089944 relics=38 relics in the roster
+sc-coldiron-temper-b93 rc=0 lines=105 eb3609089944 relics=39 relics in the roster
+sc-lightkeeper-bulwark-b9.5 rc=0 lines=105 eb3609089944 relics=38 relics in the roster
+sc-lodestone-b215 rc=0 lines=105 eb3609089944 relics=39 relics in the roster
+sc-widowmaker-b1075 rc=0 lines=105 eb3609089944 relics=38 relics in the roster

@@ -1,0 +1,21 @@
+PROBE CONTROLS: scratch mutants of sc-ironhail-b14 (tools: runs/mutants.py), each breaking ONE sentence of v83 sections 1 and 4
+in a way that changes fights (Ironhail's win on the probe's 444 fights; b14 itself reads 50.7%). Each must fail its own check and only that one.
+
+=== mut-m2-cadence: [2] a bolt every 0.36s (cd = dropCd x 0.9)   (Ironhail win 52.0%)
+  [2] FAIL  a bolt every dropCd (cd - dt <= 0, then cd = dropCd) at the foe's (x, y), the first on the cast frame   26275 FAIL: ['cd 0.36000000000000004
+  8/9
+=== mut-m3-fall: [3] a bolt lands at 0.27s (fallT x 0.9)   (Ironhail win 51.4%)
+  [3] FAIL  each bolt falls dt a call and resolves on the call its fall reaches fallT, the window open or closed   23323 FAIL: ['a bolt resolved at fall
+  8/9
+=== mut-m4-sundermul: [4] a landing multiplied by the foe's sunder (dmgTakenMul)   (Ironhail win 56.5%)
+  [4] FAIL  struck iff a live foe within hitR + R of the spot: hurt(foe, dropDmg, caster) once; a miss nothing   5723 FAIL: ['hurt [4.44] want [4] from 
+  8/9
+=== mut-m5-missund: [5] a miss sunders too   (Ironhail win 52.5%)
+  [5] FAIL  each landing sunders: apply('sunder', sunder, side letter) once; none on a miss (none at sunder 0)   16919 FAIL: ['a miss that sundered', 'a
+  8/9
+=== mut-m6-stop: [6] a landing stops the world 0.05s   (Ironhail win 51.1%)
+  [6] FAIL  nothing else: no move, no push, no stop but a ward's own shatter, no rng, no shot, no other status   5989 FAIL: ['hitStop -0.003333333333333
+  8/9
+=== mut-m8-bowquiet: [8] the bow stops firing in the window   (Ironhail win 23.9%)
+  [8] FAIL  the bow keeps firing: its spin and every blow its own, in the window and out; shots loosed in windows   1 FAIL: ['the bow loosed nothing in 
+  8/9
