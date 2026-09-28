@@ -1,0 +1,20 @@
+CAST at 1.20: the ring's partials, 1.28-1.78 against 0.60-1.10 (before the cast)
+   110.0 Hz   +8.3 dB
+   303.6 Hz  +12.0 dB
+   594.0 Hz  +31.3 dB
+   982.3 Hz  +22.9 dB
+ANVILS: the note for the loser's count (A5 x 2^((n-1)/12)), 100 ms from the bind against the 100 ms before
+  n2   932.3 Hz at  1.950s: +44.2 dB
+  n4  1046.5 Hz at  3.267s: +37.9 dB
+  n6  1174.7 Hz at  4.083s: +52.7 dB
+  n8  1318.5 Hz at  6.142s: +58.2 dB
+  n9  1396.9 Hz at  7.833s: +71.1 dB
+  n9  1396.9 Hz at  9.908s: +48.0 dB
+CLOSE at 11.075 (clock): its 303.6 Hz mode against its neighbours (260 / 350 Hz), 250 ms spans
+  10.30-10.55s  303.6 Hz  -63.8 dBFS   neighbours  -69.6   tone over neighbours  +5.8 dB
+  10.55-10.80s  303.6 Hz  -49.3 dBFS   neighbours  -58.7   tone over neighbours  +9.5 dB
+  10.80-11.05s  303.6 Hz  -45.6 dBFS   neighbours  -56.8   tone over neighbours +11.2 dB
+  11.05-11.30s  303.6 Hz  -47.0 dBFS   neighbours  -76.2   tone over neighbours +29.2 dB
+  11.30-11.55s  303.6 Hz  -48.4 dBFS   neighbours  -56.6   tone over neighbours  +8.2 dB
+  11.55-11.80s  303.6 Hz  -48.1 dBFS   neighbours  -55.3   tone over neighbours  +7.2 dB
+  11.80-12.05s  303.6 Hz  -74.2 dBFS   neighbours  -72.5   tone over neighbours  -1.7 dB

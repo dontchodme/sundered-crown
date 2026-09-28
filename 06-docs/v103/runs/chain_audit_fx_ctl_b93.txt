@@ -1,0 +1,53 @@
+  (29 insert(s) found in coldiron_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-coldiron-temper-fx.html
+tip    sc-coldiron-temper-b93.html
+29 inserts read out of coldiron_build.py
+
+    ok  S1:coldiron joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the iron has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the iron, its mass and the sunder ceiling relic  1  mid   -  tip  1
+    ok  S2:sunder reads the fighter's own ceiling relic  1  mid   -  tip  1
+    ok  S2:the hit stop's gravity carries the iron's mass relic  1  mid   -  tip  1
+    ok  S2:the liquid feels the gravity the ball feels relic  1  mid   -  tip  1
+    ok  S2:move's gravity carries the iron's mass relic  1  mid   -  tip  1
+    ok  S2:the clank weighs the iron relic  1  mid   -  tip  1
+    ok  S2:a bind the iron wins sunders the loser relic  1  mid   -  tip  1
+    ok  S2:the cast forges the iron and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the iron ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickTemper keeps the window and the ceiling relic  1  mid   -  tip  1
+    ok  S3:sunder on a won bind    relic  1  mid   -  tip  1
+    ok  S4:the cap                 relic  1  mid   -  tip  1
+    ok  S5:the blade: at the crossing relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Coldiron's cast, anvil and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'this._tone(t + 0.08, { freq: F * r, gain: g * kr * k, dur: D * d, type:"sine" }).frequen'
+  LOST  S6:resolveClank: the anvil voice on a won bind, after the loser's sunder, carrying its count relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "coldiron-anvil", n: temperL.stacks("sunder") });'
+  LOST  S6:tickTemper: the close voice, when the window closes by its clock with both alive relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur && f.alive && foe.alive) SFX.play("ult", { w: "coldiron-close" });'
+  LOST  S6:temper picture: fighter fields relic  1  mid   -  tip  0
+        'this.ironSparks = [];'
+  LOST  S6:temper picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickIron(dt);                  // TEMPER'S PICTURE (v73 section 6.1)"
+  LOST  S6:temper picture: tickIron relic  1  mid   -  tip  0
+        'if (!(f.ironFade > 0) || f.ironOut > 0){ f.ironAge = 0; f.ironOut = 0; }   // a cast: th'
+  LOST  S6:temper picture: a sunder tag past 6 in the forge's glow relic  1  mid   -  tip  0
+        'c: aff ? ((key === "sunder" && val > STATUS.sunder.maxStacks) ? aff.glow : aff.core)'
+  LOST  S6:temper picture: the blade's sunder tag carries its count in the window relic  1  mid   -  tip  0
+        ': (k === "sunder" && foe.sunderCap > STATUS.sunder.maxStacks)'
+  LOST  S6:temper picture: sunder past 6 on the ball relic  1  mid   -  tip  0
+        'if (f.stacks("sunder") > STATUS.sunder.maxStacks) this._stSunderPast(m, f, R, f.stacks("'
+  LOST  S6:temper picture: the dwarven twinblade, two broad riveted cleavers relic  1  mid   -  tip  0
+        'outline(); c.clip();                                       // everything inside the blad'
+  LOST  S6:temper picture: the iron palette relic  1  mid   -  tip  0
+        'const IRONF = aff.dark, IRONE = SHAPES._shade(aff.steel, 0.80, 0.6), IRONB = SHAPES._sha'
+  LOST  S6:temper picture: drawWeapon's iron hook relic  1  mid   -  tip  0
+        'if (f.ironFade > 0 && this.drawIronWeapon(m, f, reach, dim)) return;'
+  LOST  S6:temper picture: the over-fighter call (world) relic  1  mid   -  tip  0
+        'this.drawIronTop(m);'
+  LOST  S6:temper picture: drawIronWeapon / drawIronTop / _stSunderPast relic  2  mid   -  tip  0
+        'c.beginPath(); c.moveTo(q.x + ct * r0, q.y + st * r0); c.lineTo(q.x + ct * r1, q.y + st '
+
+!! 14 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Coldiron's cast, anvil and close arms, before the shared rune-crack fallback, S6:resolveClank: the anvil voice on a won bind, after the loser's sunder, carrying its count, S6:tickTemper: the close voice, when the window closes by its clock with both alive, S6:temper picture: fighter fields, S6:temper picture: the presentation call, S6:temper picture: tickIron, S6:temper picture: a sunder tag past 6 in the forge's glow, S6:temper picture: the blade's sunder tag carries its count in the window, S6:temper picture: sunder past 6 on the ball, S6:temper picture: the dwarven twinblade, two broad riveted cleavers, S6:temper picture: the iron palette, S6:temper picture: drawWeapon's iron hook, S6:temper picture: the over-fighter call (world), S6:temper picture: drawIronWeapon / drawIronTop / _stSunderPast
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

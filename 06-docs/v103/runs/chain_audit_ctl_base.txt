@@ -1,0 +1,40 @@
+  (15 insert(s) found in coldiron_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-coldiron-temper-b93.html
+tip    sc-tendril-t3.html
+15 inserts read out of coldiron_build.py
+
+  LOST  S1:coldiron joins the roster, its ultimate stubbed relic  1  mid   -  tip  0
+        'blurb:"A twinblade forged into cold iron: it wins every bind it takes, and every bind it'
+  LOST  S2:the iron has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  0
+        'ult:{ name:"Temper", charge:14, kind:"temper", dur:8,   // v73 stage 2: the blades turn '
+  LOST  S2:the fighter carries the iron, its mass and the sunder ceiling relic  1  mid   -  tip  0
+        'this.sunderCap = STATUS.sunder.maxStacks;'
+  LOST  S2:sunder reads the fighter's own ceiling relic  1  mid   -  tip  0
+        'const cap = key === "hemorrhage" ? this.bleedCap : key === "sunder" ? this.sunderCap :'
+  LOST  S2:the hit stop's gravity carries the iron's mass relic  1  mid   -  tip  0
+        'f.vy += HP.gravity * Math.pow((f.w.mass * f.massMul + f.burden * f.burdenMass)'
+  LOST  S2:the liquid feels the gravity the ball feels relic  1  mid   -  tip  0
+        '(f.w.mass * f.massMul + f.burden * f.burdenMass) / _P.massRef, _P.massWeight));   // mas'
+  LOST  S2:move's gravity carries the iron's mass relic  1  mid   -  tip  0
+        'f.vy += P.gravity * Math.pow((f.w.mass * f.massMul + f.burden * f.burdenMass)'
+  LOST  S2:the clank weighs the iron relic  1  mid   -  tip  0
+        'const mA = A.w.mass * A.massMul, mB = B.w.mass * B.massMul;'
+  LOST  S2:a bind the iron wins sunders the loser relic  1  mid   -  tip  0
+        'const temperL = temperW === A ? B : A, T = temperW.temperTally, u = temperW.w.ult;'
+  LOST  S2:the cast forges the iron and resolves nothing relic  1  mid   -  tip  0
+        'if (!f.temperTally) f.temperTally = { casts: 0, frames: 0, won: 0, applied: 0 };'
+  LOST  S2:the iron ticks with the window tickers relic  1  mid   -  tip  0
+        'this.tickTemper(dt);                // TEMPER (v73)'
+  LOST  S2:tickTemper keeps the window and the ceiling relic  1  mid   -  tip  0
+        'f.sunderCap = foe.ultTemper ? foe.w.ult.cap : STATUS.sunder.maxStacks;'
+  LOST  S3:sunder on a won bind    relic  1  mid   -  tip  0
+        'bind:2,          // v73: sunder on a won bind (stage 3)'
+  LOST  S4:the cap                 relic  1  mid   -  tip  0
+        "cap:9,          // v73: the foe's sunder cap while the iron holds (stage 4)"
+  LOST  S5:the blade: at the crossing relic  1  mid   -  tip  0
+        'blades:[0,0.5], reach:62, width:8, artW:30, dmg:9.3,'
+
+!! 15 INSERT(S) DID NOT SURVIVE THE CHAIN: S1:coldiron joins the roster, its ultimate stubbed, S2:the iron has a charge: the lab's 16 on the game's clock, S2:the fighter carries the iron, its mass and the sunder ceiling, S2:sunder reads the fighter's own ceiling, S2:the hit stop's gravity carries the iron's mass, S2:the liquid feels the gravity the ball feels, S2:move's gravity carries the iron's mass, S2:the clank weighs the iron, S2:a bind the iron wins sunders the loser, S2:the cast forges the iron and resolves nothing, S2:the iron ticks with the window tickers, S2:tickTemper keeps the window and the ceiling, S3:sunder on a won bind, S4:the cap, S5:the blade: at the crossing
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

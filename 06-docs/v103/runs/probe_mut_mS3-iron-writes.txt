@@ -1,0 +1,24 @@
+coldiron_probe.py --game s6/mut/mut-mS3-iron-writes.html   probe db6a380e135e49d5   2026-09-27 17:29:34
+
+TEMPER PROBE  mut-mS3-iron-writes.html  Chromium 151.0.7922.34  456 fights (Coldiron both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'mass': 5, 'bind': 2, 'cap': 9}
+  casts/fight 3.54   blows a fight: in windows 12.26, outside 9.45   Coldiron win 55.5%
+  per cast: binds 3.80  won 3.16  deadlocked 0.65  lost 0.00   sunder from binds 6.31   foe stack peak 8.00
+  foe stacks on a window frame 6.44 (the lab's per-fight mean f_foeStk 6.45)   the control, outside windows: 12.20 binds a fight, 0 won
+  gravity x1.366 of the config's in the window, x0.641 outside (x2.13); design: (5/2.68)^0.5 = 1.366
+  a window: 960 ticks on the window clock, 9.37s of match time (mean, clock and death closes)   FREEZE CENSUS 16.0% of window steps frozen
+  the window clock: held on 267000 frozen steps, dt on 1405905 live ones   1616 casts: 1332 closed on the clock, 32 on a death (a kill flight), 252 still set at `over` (an ordinary kill), 0 at the 160s limit
+  above 6: 997972 fighter-steps in a window, 743934 outside (held, never rising); 1099 closes left the foe above 6: 298 ran out after 4.44s on average, 801 still above 6 at the next cast or the end (6.10s)   blows at >6 stacks 5660   deadlocks against a non-hammer 0   liquid hooked True
+  stage 6 voice: casts 1616  anvils 5099 on won binds (n 2:259, 3:227, 4:254, 5:246, 6:261, 7:239, 8:259, 9:3354)  plain clanks 6607  closes 1332 on 1332 clock closes  silent: 32 death closes, 252 windows set at `over`   run totals {'coldiron': 1616, 'coldiron-anvil': 5099, 'coldiron-close': 1332}
+  stage 6 picture: tickIron calls clean 6663636  iron up 3078742, cooling 143918  won binds seen 5099: rings at the contact 5099, the foe's count on a tag 5099 (3878 past 6)  sunder tags coloured right 14830 (7102 past 6)  windows cooled at the verdict 252 (to 0 by 0.5s: 252)  drawn frames 70909 (67791 with the picture up, 10952 of them in a hit stop, 706 in the verdict)
+  [1] PASS  the window is `dur` on the window clock (held through every freeze, dt a live step), closes on a death while the match runs; only Coldiron carries ultTemper; no cast under a window
+  [2] PASS  massMul = mass / w.mass on the window and 1 everywhere else; every clank the mass rule from w.mass x massMul
+  [3] PASS  a bind the iron wins: apply(sunder, bind, side letter) on the loser, the ceiling's rule; nothing on any other bind
+  [4] PASS  sunderCap = cap on the foe of an open window, 6 otherwise; never above the cap; above 6 only by the clock, never trimmed
+  [5] PASS  every blow the twinblade's own, rebuilt exactly, in the window and out (sunder included)
+  [6] PASS  gravity from w.mass x massMul: move, the hit stop and the liquid, exactly, on every fighter
+  [7] PASS  nothing else: the cast resolves nothing; tickTemper moves, draws, hurts, applies, stops and files nothing; a clank its own beat
+  [8] PASS  stage 6 voice: one cast voice a cast; one anvil a won bind at the loser's count, none on another clank, the clank's own voice always; one close a clock close, none on a death; nothing else sounds; every voice accounted for
+  [9] FAIL  stage 6 picture: tickIron writes no sim field and draws no RNG; the iron up exactly while the window is; one ring a won bind at its contact and the foe's count tagged; past 6 in the glow; cooled at the verdict; no drawn frame throws, draws the RNG or writes the sim   5099 FAIL: ['tickIron changed the sim: "685.4029155394101,467.4289603522702,-478.70034366977916,479," -> "685.4029155394101,467.4289603532702,-478.70034366977916,479,"', 'tickIron changed the sim: "41.1854848010645,-311.9787757831916,509.70354607690524,466,0" -> "41.1854848010645,-311.97877578219163,509.70354607690524,466,"', 'tickIron changed the sim: "566.8619386033051,354.60998274129474,51.332023744715116,453," -> "566.8619386033051,354.60998274229473,51.332023744715116,453,"', 'tickIron changed the sim: "2.2944381379074,-1726.636135755513,189.30971404142372,437,0," -> "2.2944381379074,-1726.636135754513,189.30971404142372,437,0,"']
+
+  8/9
+exit 1

@@ -1,0 +1,6 @@
+CLIP AAC  07-shorts/v103/temper-window.mp4  2026-09-27 14:10
+  mean_volume: -21.7 dB
+  max_volume: -1.5 dB
+  I:         -19.5 LUFS
+  LRA:         0.8 LU
+  Peak:       -1.3 dBFS

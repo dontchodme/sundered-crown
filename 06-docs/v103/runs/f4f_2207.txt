@@ -1,0 +1,6 @@
+STAGE 1 v ARM A, FIGHT FOR FIGHT  block 2207  Chromium 151.0.7922.34  660 fights (33 foes x 20 seeds)
+  lab A 0.3515   fights differing (winner, steps, blows in, blows out): 0 of 660
+  mean steps 7853.87 / 7853.87   blows a fight 18.684848 / 18.684848
+  CONTROL (built paired one seed off): 627 of 627 differ -> the comparison can fail
+  IDENTICAL, FIGHT FOR FIGHT   152s
+exit 0

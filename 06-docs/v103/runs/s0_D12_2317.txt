@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker as dwarven:twinblade · 33 foes x 20 seeds = 660 fights an arm · s0 D at the lab default cap 12, blade 11.95
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out    binds f_foeStk   stacks  stkPeak      won
+  D       75.6%   3.26  8.82/9.41       3.08     6.75     5.20     9.44     2.60
+  660 fights in 61s   errors: []

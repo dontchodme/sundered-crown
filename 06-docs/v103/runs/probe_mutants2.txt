@@ -1,0 +1,38 @@
+=== mut-m2b-clank-sideA
+
+TEMPER PROBE  mut-m2b-clank-sideA.html  Chromium 151.0.7922.34  456 fights (Coldiron both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'mass': 5, 'bind': 2, 'cap': 9}
+  casts/fight 3.51   blows a fight: in windows 11.43, outside 9.42   Coldiron win 38.2%
+  per cast: binds 3.77  won 1.54  deadlocked 0.65  lost 1.58   sunder from binds 3.08   foe stack peak 6.39
+  foe stacks on a window frame 5.03 (the lab's per-fight mean f_foeStk 5.05)   the control, outside windows: 12.23 binds a fight, 0 won
+  gravity x1.366 of the config's in the window, x0.641 outside (x2.13); design: (5/2.68)^0.5 = 1.366
+  a window: 960 ticks on the window clock, 9.29s of match time (mean, clock and death closes)   FREEZE CENSUS 16.0% of window steps frozen
+  above 6: 676100 fighter-steps in a window, 473885 outside (held, never rising); 723 closes left the foe above 6: 188 ran out after 4.30s on average, 535 still above 6 at the next cast or the end (5.88s)   blows at >6 stacks 3815   deadlocks against a non-hammer 523   liquid hooked True
+  [1] PASS  the window is `dur` on the window clock, closes on either death; only Coldiron carries ultTemper; no cast under a window
+  [2] FAIL  massMul = mass / w.mass on the window and 1 everywhere else; every clank the mass rule from w.mass x massMul   3055 FAIL: ['IN the window, twinshade (1.1) v coldiron (5): knock/stun not the mass rule', 'IN the window, twinshade (1.1) v coldiron (5): knock/stun not the mass rule', 'IN the window, twinshade (1.1) v coldiron (5): knock/stun not the mass rule', 'IN the window, twinshade (1.1) v coldiron (5): knock/stun not the mass rule']
+  [3] PASS  a bind the iron wins: apply(sunder, bind, side letter) on the loser, the ceiling's rule; nothing on any other bind
+  [4] PASS  sunderCap = cap on the foe of an open window, 6 otherwise; never above the cap; above 6 only by the clock, never trimmed
+  [5] PASS  every blow the twinblade's own, rebuilt exactly, in the window and out (sunder included)
+  [6] PASS  gravity from w.mass x massMul: move, the hit stop and the liquid, exactly, on every fighter
+  [7] PASS  nothing else: the cast resolves nothing; tickTemper moves, draws, hurts, applies, stops and files nothing; a clank its own beat
+
+  6/7
+exit 1
+=== mut-m7b-close-stop
+
+TEMPER PROBE  mut-m7b-close-stop.html  Chromium 151.0.7922.34  456 fights (Coldiron both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'mass': 5, 'bind': 2, 'cap': 9}
+  casts/fight 3.55   blows a fight: in windows 11.99, outside 9.64   Coldiron win 53.7%
+  per cast: binds 3.74  won 3.10  deadlocked 0.64  lost 0.00   sunder from binds 6.19   foe stack peak 7.92
+  foe stacks on a window frame 6.36 (the lab's per-fight mean f_foeStk 6.37)   the control, outside windows: 12.43 binds a fight, 0 won
+  gravity x1.366 of the config's in the window, x0.641 outside (x2.13); design: (5/2.68)^0.5 = 1.366
+  a window: 960 ticks on the window clock, 9.35s of match time (mean, clock and death closes)   FREEZE CENSUS 15.8% of window steps frozen
+  above 6: 978322 fighter-steps in a window, 742828 outside (held, never rising); 1075 closes left the foe above 6: 281 ran out after 4.52s on average, 794 still above 6 at the next cast or the end (6.21s)   blows at >6 stacks 5549   deadlocks against a non-hammer 0   liquid hooked True
+  [1] PASS  the window is `dur` on the window clock, closes on either death; only Coldiron carries ultTemper; no cast under a window
+  [2] PASS  massMul = mass / w.mass on the window and 1 everywhere else; every clank the mass rule from w.mass x massMul
+  [3] PASS  a bind the iron wins: apply(sunder, bind, side letter) on the loser, the ceiling's rule; nothing on any other bind
+  [4] PASS  sunderCap = cap on the foe of an open window, 6 otherwise; never above the cap; above 6 only by the clock, never trimmed
+  [5] PASS  every blow the twinblade's own, rebuilt exactly, in the window and out (sunder included)
+  [6] PASS  gravity from w.mass x massMul: move, the hit stop and the liquid, exactly, on every fighter
+  [7] FAIL  nothing else: the cast resolves nothing; tickTemper moves, draws, hurts, applies, stops and files nothing; a clank its own beat   1361 FAIL: ['tickTemper: moved false, rng 0, hurts 0, beats 0, applies 0, stop -0.008333333333333309 -> 0.1', 'tickTemper: moved false, rng 0, hurts 0, beats 0, applies 0, stop -0.006599999999999972 -> 0.1', 'tickTemper: moved false, rng 0, hurts 0, beats 0, applies 0, stop -0.0009333333333333173 -> 0.1', 'tickTemper: moved false, rng 0, hurts 0, beats 0, applies 0, stop -0.008333333333333309 -> 0.1']
+
+  6/7
+exit 1

@@ -1,0 +1,8 @@
+39 relics · Chromium 151.0.7922.34 · coldiron (redesign) · 33 foes x 20 seeds = 660 fights an arm · built sc-coldiron
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  A       35.2%   0.00  0.00/18.68 
+  SHIP    35.2%   0.00  0.00/18.68 
+  lifts over A: SHIP +0.0
+  1320 fights in 169s   errors: []

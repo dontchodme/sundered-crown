@@ -1,0 +1,12 @@
+COLDIRON LADDER at blade 9.3 (sc-coldiron-temper-b93): relic_rate, both sides, blocks 2207 + 2317, 40 fights a foe
+  whole 48.4%   side A 50.4%   side B 46.3%   mean 64.8s
+  by type   greatsword 65%  bow 56%  twinblade 48%  scythe 45%  flail 45%  warhammer 30%
+  by foe (worst first):
+    ironwood 17.5  shroudmaul 20.0  bloodmirror 25.0  ravelbone 27.5  twinshade 32.5  cindercleave 32.5
+    bulwarden 35.0  bindweed 35.0  spellbreaker 37.5  censer 37.5  redflail 37.5  thornwake 40.0
+    morningstar 40.0  gloamwire 42.5  gravemourn 42.5  dawnbringer 45.0  grudgebearer 45.0  ironhail 45.0
+    foregone 45.0  paradox 47.5  slagheart 50.0  widowmaker 52.5  vesper 52.5  duskreave 52.5
+    aureole 55.0  starwarden 57.5  emberedge 60.0  thornshear 60.0  portcullis 60.0  farwarden 62.5
+    nightfell 62.5  marrowdraw 62.5  axiom 65.0  lastlight 67.5  vinesower 67.5  lightkeeper 72.5
+    heartwood 72.5  oathwound 75.0
+  spread 57.5pp (worst ironwood, best oathwound)

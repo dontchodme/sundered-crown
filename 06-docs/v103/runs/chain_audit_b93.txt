@@ -1,0 +1,22 @@
+  (15 insert(s) found in coldiron_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-coldiron-temper-b93.html
+tip    sc-coldiron-temper-b93.html
+15 inserts read out of coldiron_build.py
+
+    ok  S1:coldiron joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the iron has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the iron, its mass and the sunder ceiling relic  1  mid   -  tip  1
+    ok  S2:sunder reads the fighter's own ceiling relic  1  mid   -  tip  1
+    ok  S2:the hit stop's gravity carries the iron's mass relic  1  mid   -  tip  1
+    ok  S2:the liquid feels the gravity the ball feels relic  1  mid   -  tip  1
+    ok  S2:move's gravity carries the iron's mass relic  1  mid   -  tip  1
+    ok  S2:the clank weighs the iron relic  1  mid   -  tip  1
+    ok  S2:a bind the iron wins sunders the loser relic  1  mid   -  tip  1
+    ok  S2:the cast forges the iron and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the iron ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickTemper keeps the window and the ceiling relic  1  mid   -  tip  1
+    ok  S3:sunder on a won bind    relic  1  mid   -  tip  1
+    ok  S4:the cap                 relic  1  mid   -  tip  1
+    ok  S5:the blade: at the crossing relic  1  mid   -  tip  1
+
+ALL 15 INSERTS SURVIVE to sc-coldiron-temper-b93.html

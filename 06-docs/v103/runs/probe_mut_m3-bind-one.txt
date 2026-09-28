@@ -1,0 +1,19 @@
+
+TEMPER PROBE  mut-m3-bind-one.html  Chromium 151.0.7922.34  456 fights (Coldiron both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'mass': 5, 'bind': 2, 'cap': 9}
+  casts/fight 3.56   blows a fight: in windows 12.15, outside 9.64   Coldiron win 53.5%
+  per cast: binds 3.76  won 3.12  deadlocked 0.64  lost 0.00   sunder from binds 0.00   foe stack peak 7.38
+  foe stacks on a window frame 5.78 (the lab's per-fight mean f_foeStk 5.80)   the control, outside windows: 12.24 binds a fight, 0 won
+  gravity x1.366 of the config's in the window, x0.641 outside (x2.13); design: (5/2.68)^0.5 = 1.366
+  a window: 960 ticks on the window clock, 9.31s of match time (mean, clock and death closes)   FREEZE CENSUS 15.8% of window steps frozen
+  the window clock: held on 266317 frozen steps, dt on 1416977 live ones   1623 casts: 1342 closed on the clock, 36 on a death (a kill flight), 245 still set at `over` (an ordinary kill), 0 at the 160s limit
+  above 6: 826438 fighter-steps in a window, 639518 outside (held, never rising); 943 closes left the foe above 6: 225 ran out after 4.46s on average, 718 still above 6 at the next cast or the end (6.03s)   blows at >6 stacks 4947   deadlocks against a non-hammer 0   liquid hooked True
+  [1] PASS  the window is `dur` on the window clock (held through every freeze, dt a live step), closes on a death while the match runs; only Coldiron carries ultTemper; no cast under a window
+  [2] PASS  massMul = mass / w.mass on the window and 1 everywhere else; every clank the mass rule from w.mass x massMul
+  [3] FAIL  a bind the iron wins: apply(sunder, bind, side letter) on the loser, the ceiling's rule; nothing on any other bind   5057 FAIL: ['a won bind applied [["dawnbringer","sunder",1]], want [[dawnbringer, sunder, 2]]', 'a won bind applied [["dawnbringer","sunder",1]], want [[dawnbringer, sunder, 2]]', 'a won bind applied [["dawnbringer","sunder",1]], want [[dawnbringer, sunder, 2]]', 'a won bind applied [["dawnbringer","sunder",1]], want [[dawnbringer, sunder, 2]]']
+  [4] PASS  sunderCap = cap on the foe of an open window, 6 otherwise; never above the cap; above 6 only by the clock, never trimmed
+  [5] PASS  every blow the twinblade's own, rebuilt exactly, in the window and out (sunder included)
+  [6] PASS  gravity from w.mass x massMul: move, the hit stop and the liquid, exactly, on every fighter
+  [7] PASS  nothing else: the cast resolves nothing; tickTemper moves, draws, hurts, applies, stops and files nothing; a clank its own beat
+
+  6/7
+exit 1

@@ -1,0 +1,19 @@
+
+TEMPER PROBE  mut-q3-iron-hits-harder.html  Chromium 151.0.7922.34  456 fights (Coldiron both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'mass': 5, 'bind': 2, 'cap': 9}
+  casts/fight 3.53   blows a fight: in windows 11.45, outside 9.50   Coldiron win 58.8%
+  per cast: binds 3.71  won 3.06  deadlocked 0.65  lost 0.00   sunder from binds 6.12   foe stack peak 7.93
+  foe stacks on a window frame 6.38 (the lab's per-fight mean f_foeStk 6.39)   the control, outside windows: 12.43 binds a fight, 0 won
+  gravity x1.366 of the config's in the window, x0.641 outside (x2.13); design: (5/2.68)^0.5 = 1.366
+  a window: 960 ticks on the window clock, 9.28s of match time (mean, clock and death closes)   FREEZE CENSUS 15.7% of window steps frozen
+  the window clock: held on 258964 frozen steps, dt on 1385553 live ones   1609 casts: 1309 closed on the clock, 38 on a death (a kill flight), 262 still set at `over` (an ordinary kill), 0 at the 160s limit
+  above 6: 965795 fighter-steps in a window, 738238 outside (held, never rising); 1067 closes left the foe above 6: 281 ran out after 4.34s on average, 786 still above 6 at the next cast or the end (6.28s)   blows at >6 stacks 2116   deadlocks against a non-hammer 0   liquid hooked True
+  [1] PASS  the window is `dur` on the window clock (held through every freeze, dt a live step), closes on a death while the match runs; only Coldiron carries ultTemper; no cast under a window
+  [2] PASS  massMul = mass / w.mass on the window and 1 everywhere else; every clank the mass rule from w.mass x massMul
+  [3] PASS  a bind the iron wins: apply(sunder, bind, side letter) on the loser, the ceiling's rule; nothing on any other bind
+  [4] PASS  sunderCap = cap on the foe of an open window, 6 otherwise; never above the cap; above 6 only by the clock, never trimmed
+  [5] FAIL  every blow the twinblade's own, rebuilt exactly, in the window and out (sunder included)   5014 FAIL: ['IN the window: dealt 12, want 11 (0 sunder)', 'IN the window: dealt 15, want 13 (3 sunder)', 'IN the window: dealt 15, want 13 (6 sunder)', 'IN the window: dealt 43, want 39 (9 sunder)']
+  [6] PASS  gravity from w.mass x massMul: move, the hit stop and the liquid, exactly, on every fighter
+  [7] PASS  nothing else: the cast resolves nothing; tickTemper moves, draws, hurts, applies, stops and files nothing; a clank its own beat
+
+  6/7
+exit 1

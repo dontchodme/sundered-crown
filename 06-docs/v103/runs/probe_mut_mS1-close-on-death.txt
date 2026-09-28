@@ -1,0 +1,24 @@
+coldiron_probe.py --game s6/mut/mut-mS1-close-on-death.html   2026-09-27 16:56:04
+
+TEMPER PROBE  mut-mS1-close-on-death.html  Chromium 151.0.7922.34  456 fights (Coldiron both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'mass': 5, 'bind': 2, 'cap': 9}
+  casts/fight 3.54   blows a fight: in windows 12.15, outside 9.42   Coldiron win 52.2%
+  per cast: binds 3.76  won 3.11  deadlocked 0.65  lost 0.00   sunder from binds 6.22   foe stack peak 7.99
+  foe stacks on a window frame 6.44 (the lab's per-fight mean f_foeStk 6.46)   the control, outside windows: 12.23 binds a fight, 0 won
+  gravity x1.366 of the config's in the window, x0.641 outside (x2.13); design: (5/2.68)^0.5 = 1.366
+  a window: 960 ticks on the window clock, 9.35s of match time (mean, clock and death closes)   FREEZE CENSUS 15.9% of window steps frozen
+  the window clock: held on 266752 frozen steps, dt on 1411474 live ones   1613 casts: 1342 closed on the clock, 26 on a death (a kill flight), 245 still set at `over` (an ordinary kill), 0 at the 160s limit
+  above 6: 1002766 fighter-steps in a window, 742147 outside (held, never rising); 1103 closes left the foe above 6: 301 ran out after 4.35s on average, 802 still above 6 at the next cast or the end (6.09s)   blows at >6 stacks 5590   deadlocks against a non-hammer 0   liquid hooked True
+  stage 6 voice: casts 1613  anvils 5018 on won binds (n 2:259, 3:225, 4:253, 5:253, 6:251, 7:249, 8:268, 9:3260)  plain clanks 6621  closes 1342 on 1342 clock closes  silent: 0 death closes, 245 windows set at `over`   run totals {'coldiron': 1613, 'coldiron-anvil': 5018, 'coldiron-close': 1368}
+  stage 6 picture: tickIron calls clean 6683441  iron up 3089632, cooling 143273  won binds seen 5018: rings at the contact 5018, the foe's count on a tag 5018 (3805 past 6)  sunder tags coloured right 14735 (7015 past 6)  windows cooled at the verdict 245 (to 0 by 0.5s: 245)  drawn frames 70884 (67706 with the picture up, 10810 of them in a hit stop, 701 in the verdict)
+  [1] PASS  the window is `dur` on the window clock (held through every freeze, dt a live step), closes on a death while the match runs; only Coldiron carries ultTemper; no cast under a window
+  [2] PASS  massMul = mass / w.mass on the window and 1 everywhere else; every clank the mass rule from w.mass x massMul
+  [3] PASS  a bind the iron wins: apply(sunder, bind, side letter) on the loser, the ceiling's rule; nothing on any other bind
+  [4] PASS  sunderCap = cap on the foe of an open window, 6 otherwise; never above the cap; above 6 only by the clock, never trimmed
+  [5] PASS  every blow the twinblade's own, rebuilt exactly, in the window and out (sunder included)
+  [6] PASS  gravity from w.mass x massMul: move, the hit stop and the liquid, exactly, on every fighter
+  [7] PASS  nothing else: the cast resolves nothing; tickTemper moves, draws, hurts, applies, stops and files nothing; a clank its own beat
+  [8] FAIL  stage 6 voice: one cast voice a cast; one anvil a won bind at the loser's count, none on another clank, the clank's own voice always; one close a clock close, none on a death; nothing else sounds; every voice accounted for   27 FAIL: ['1 close voice(s) on a tick with 0 clock close(s) and 1 death close(s)', '1 close voice(s) on a tick with 0 clock close(s) and 1 death close(s)', '1 close voice(s) on a tick with 0 clock close(s) and 1 death close(s)', '1 close voice(s) on a tick with 0 clock close(s) and 1 death close(s)']
+  [9] PASS  stage 6 picture: tickIron writes no sim field and draws no RNG; the iron up exactly while the window is; one ring a won bind at its contact and the foe's count tagged; past 6 in the glow; cooled at the verdict; no drawn frame throws, draws the RNG or writes the sim
+
+  8/9
+exit (not captured: the loop that started this probe was stopped at 17:15 to split the rest over two browsers; the probe ran to its end, its summary above)

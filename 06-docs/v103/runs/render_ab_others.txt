@@ -1,0 +1,9 @@
+render_ab.py --a <b93> --b <fx> --pairs paradox:heartwood:25064,twinshade:lastlight:991,bulwarden:vinesower:70707,axiom:grudgebearer:31337  (frames: the default 0.5,6,12,22,31,40)   2026-09-27 17:11:39
+
+RENDER A/B  4 pairings x 6 frames  540x960
+  a  sc-coldiron-temper-b93.html
+  b  sc-coldiron-temper-fx.html
+
+PASS  24/24 frames pixel-identical.
+      Same relics, same seeds, same frame indices, one runtime.
+exit 0

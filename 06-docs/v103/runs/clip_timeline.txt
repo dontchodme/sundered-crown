@@ -1,0 +1,24 @@
+  cast      match  15.500  clip -15.350  foe sunder 5
+  won bind  match  15.667  clip -15.183  foe sunder 7
+  past 6    match  15.667  clip -15.183  foe sunder 7
+  blow      match  16.225  clip -14.625  foe sunder 8
+  blow      match  17.033  clip -13.817  foe sunder 9
+  won bind  match  17.142  clip -13.708  foe sunder 9
+  won bind  match  18.133  clip -12.717  foe sunder 9
+  blow      match  20.392  clip -10.458  foe sunder 9
+  blow      match  23.675  clip -7.175  foe sunder 9
+  won bind  match  24.775  clip -6.075  foe sunder 9
+  close     match  25.175  clip -5.675  foe sunder 9  clock
+  cast      match  32.050  clip  1.200  foe sunder 0
+  won bind  match  32.800  clip  1.950  foe sunder 2
+  won bind  match  34.117  clip  3.267  foe sunder 4
+  won bind  match  34.933  clip  4.083  foe sunder 6
+  won bind  match  36.992  clip  6.142  foe sunder 8
+  blow      match  37.308  clip  6.458  foe sunder 9
+  blow      match  38.508  clip  7.658  foe sunder 9
+  won bind  match  38.683  clip  7.833  foe sunder 9
+  blow      match  40.267  clip  9.417  foe sunder 9
+  won bind  match  40.758  clip  9.908  foe sunder 9
+  close     match  41.925  clip 11.075  foe sunder 9  clock
+  end       match  44.008  clip 13.158  foe sunder 9  on 326 284
+exit 0

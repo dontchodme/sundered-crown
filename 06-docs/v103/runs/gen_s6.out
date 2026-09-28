@@ -1,0 +1,6 @@
+the returned rows equal the files: voice 3/3 (== the lab's rows_lab.json, reproduced by its confirmation run), picture 11/11 (the lab's recorded file); the relayed rows' labels, anchors, modes and a line of each body match
+base sc-coldiron-temper-b93.html 324b42d5b36fac98
+picture-only sha 94bb7580047f01bc (the picture lab's stamp: 94bb7580047f01bc)
+14 rows -> 14 edits (0 merged at a shared anchor)
+voice+picture sha 3693eda608b26fa8 (both orders identical; 11 edits re-emit their anchor, 3 replace text outright)
+stage 6 written into coldiron_build.py : 14 edits; sha 1def68ac25637c8a

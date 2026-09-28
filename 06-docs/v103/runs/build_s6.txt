@@ -1,0 +1,25 @@
+
+COLDIRON / TEMPER -- stage 6
+  src sc-coldiron-temper-b93.html  324b42d5b36fac98  (LF text)
+  base  the clank's mass rule, the per-fighter ceiling, the not-trimmed apply, STATUS.sunder, Widowmaker's physical profile and the dwarven twinblade art hold; every mass read is declared
+  ok    Sfx: Coldiron's cast, anvil and close arms, before the shared rune-crack fallback
+  ok    resolveClank: the anvil voice on a won bind, after the loser's sunder, carrying its count
+  ok    tickTemper: the close voice, when the window closes by its clock with both alive
+  ok    temper picture: fighter fields
+  ok    temper picture: the presentation call
+  ok    temper picture: tickIron
+  ok    temper picture: a sunder tag past 6 in the forge's glow
+  ok    temper picture: the blade's sunder tag carries its count in the window
+  ok    temper picture: sunder past 6 on the ball
+  ok    temper picture: the dwarven twinblade, two broad riveted cleavers
+  ok    temper picture: the iron palette
+  ok    temper picture: drawWeapon's iron hook
+  ok    temper picture: the over-fighter call (world)
+  ok    temper picture: drawIronWeapon / drawIronTop / _stSunderPast
+  ok    ult   ult:{ name:"Temper", charge:14, kind:"temper", dur:8, mass:5.0, bind:2, cap:9, tip:"Blades of cold i ...
+  ok    card  69 chars  'Blades of cold iron: it wins binds, and each win sunders past the cap'
+  ok    massMul at all 5 w.mass reads (the clank x2, move, the hit stop, the liquid); apply reads sunderCap
+  ok    one temper ultimate, Coldiron's; no insert draws the RNG, uses the ultFx slot or writes the shared weapon or a global ceiling; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-coldiron-temper-fx.html  3693eda608b26fa8   (+23057 chars, written LF)

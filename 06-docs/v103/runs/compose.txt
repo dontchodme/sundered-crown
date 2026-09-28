@@ -1,0 +1,22 @@
+COMPOSITION  2026-09-27 08:28  coldiron_build.py c5b8ecf7016fc829
+-- forward: coldiron stages 1-5 on each newest scratch link
+  sc-angelus-b9 (db58100b3aa0092a): stages 12345  -> 40 relics in the roster
+  sc-tendril-fx (5e2cc29a1178bef4): stages 12345  -> 39 relics in the roster
+  sc-ironhail-b14 (dadb773b6f8d4555): stages 12345  -> 39 relics in the roster
+  sc-lightkeeper-bulwark-b9.5 (d60a5c63b785ad04): stages 12345  -> 39 relics in the roster
+  sc-lodestone-b215 (d5df2416d9e07a37): stages 12345  -> 40 relics in the roster
+  sc-oracle-aim (8bfe5968101e10de): stages 12345  -> 40 relics in the roster
+  sc-onslaught-fx (ee74fe9ad67e50a6): stages 12345  -> 39 relics in the roster
+  sc-widowmaker-b1075 (18e927591b54ebc3): stages 12345  -> 39 relics in the roster
+-- reverse: each builder's stages on sc-coldiron-temper-b93
+  angelus_build.py stages 1 2 3 5: 1 2 3 5 
+  ironhail_build.py stages 1 2 3 5: 1 2 3 [5 REFUSED: ]
+  lightkeeper_build.py stages 1 2 3 5: 1 2 3 5 
+  lodestone_build.py stages 1 2 3 5: 1 2 3 5 
+  oracle_build.py stages 1 2 3 5: 1 2 3 [5 REFUSED: ]
+  widowmaker_build.py stages 1 2 5: 1 2 5 
+  bindweed_build.py stages 6: 6 
+  portcullis_build.py stages 6: 6 
+  (ironhail_build.py stage 5 writes nothing by design: "THE BLADE HOLDS at the shipped 16.23 ... Stage 3's link is the final";
+   oracle_build.py stage 5: "stage 5 is not measured yet (TUNED is None)" -- both refusals are their builders' own, not an anchor)
+  ironhail_build.py --stage 5 --alt50 on its stage 3 on b93: written

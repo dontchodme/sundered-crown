@@ -1,0 +1,6 @@
+REBUILD OF RECORD  2026-09-27 12:13  coldiron_build.py 155eec593ce9e6c2  from sc-tendril-t3 5a6216e3b629fad4; each link deleted by hand first
+  stage 1  sc-coldiron.html  d4e88ca41e384ab8  the hash gated
+  stage 2  sc-coldiron-mass.html  5c0b491fa04e3040  the hash gated
+  stage 3  sc-coldiron-bind.html  5da2971c7018c7bc  the hash gated
+  stage 4  sc-coldiron-temper.html  231801282154c302  the hash gated
+  stage 5  sc-coldiron-temper-b93.html  324b42d5b36fac98  the hash gated

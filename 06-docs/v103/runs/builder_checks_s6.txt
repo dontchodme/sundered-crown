@@ -1,0 +1,17 @@
+== refuses to overwrite
+refusing to overwrite sc-coldiron-temper-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+exit 1
+== refuses to run twice (stage 6 on the fx link)
+  base  the clank's mass rule, the per-fighter ceiling, the not-trimmed apply, STATUS.sunder, Widowmaker's physical profile and the dwarven twinblade art hold; every mass read is declared
+'tickIron' is already in this source -- stage 6 goes on once
+exit 1
+== refuses stage 6 on stage 4
+stage 6 goes on stage 5: Coldiron's ult block or blade is not stage 5's
+exit 1
+== rebuild stages 1-5 with the stage-6 builder
+  stage 1 sc-coldiron rebuilt d4e88ca41e384ab8  link d4e88ca41e384ab8  identical
+  stage 2 sc-coldiron-mass rebuilt 5c0b491fa04e3040  link 5c0b491fa04e3040  identical
+  stage 3 sc-coldiron-bind rebuilt 5da2971c7018c7bc  link 5da2971c7018c7bc  identical
+  stage 4 sc-coldiron-temper rebuilt 231801282154c302  link 231801282154c302  identical
+  stage 5 sc-coldiron-temper-b93 rebuilt 324b42d5b36fac98  link 324b42d5b36fac98  identical
+  stage 6 sc-coldiron-temper-fx rebuilt 3693eda608b26fa8  link 3693eda608b26fa8  identical

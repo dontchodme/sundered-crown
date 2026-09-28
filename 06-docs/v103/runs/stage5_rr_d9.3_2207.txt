@@ -1,0 +1,4 @@
+coldiron on sc-coldiron-temper.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 2207 · set dmg=9.3 · d9.3
+  win 46.8%   side A 48.7%   side B 45.0%   mean 64.8s   timeouts 0
+  by type  greatsword 62%  bow 54%  twinblade 49%  scythe 44%  flail 43%  warhammer 28%
+  worst    shroudmaul 20%  ravelbone 20%  bloodmirror 20%   (760 fights in 139s)

@@ -1,0 +1,16 @@
+render_ab.py --a <b93> --b <fx> --pairs coldiron:vinesower:103349 --frames 33,35,37,39,41  (inside the clip's window, cast 32.05, clock close 41.92)   2026-09-27 17:11:49
+
+RENDER A/B  1 pairings x 5 frames  540x960
+  a  sc-coldiron-temper-b93.html
+  b  sc-coldiron-temper-fx.html
+  coldiron v vinesower seed 103349 t= 33.00  DIFFERS   luma 24.858 -> 24.880   lit 89.51% -> 89.51%
+  coldiron v vinesower seed 103349 t= 35.00  DIFFERS   luma 27.238 -> 27.187   lit 87.59% -> 87.59%
+  coldiron v vinesower seed 103349 t= 37.00  DIFFERS   luma 22.984 -> 23.199   lit 84.89% -> 84.88%
+  coldiron v vinesower seed 103349 t= 39.00  DIFFERS   luma 23.180 -> 23.221   lit 79.68% -> 79.68%
+  coldiron v vinesower seed 103349 t= 41.00  DIFFERS   luma 22.775 -> 22.938   lit 77.22% -> 77.18%
+
+FAIL  0/5 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

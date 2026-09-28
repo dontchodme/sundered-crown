@@ -1,0 +1,11 @@
+CARRY DRY RUN, STAGE 6  coldiron_build.py 1def68ac25637c8a on 02-chain/sc-tendril-fx.html (eea0cde5536955b3)
+  stage 1 ok  689a0ab8d366fd55
+  stage 2 ok  8937a1f5b0ad1598
+  stage 3 ok  86f36d046222f8b7
+  stage 4 ok  a13d08d7162f6405
+  stage 5 ok  79949e14c617cd93
+  stage 6 ok  67cc3e6e05d5326e
+  the stage-5 file is the one runs/carry_dry_tipfx.txt recorded: True
+  each of stage 6's 14 edits' text is in both, exactly once: True
+  the lines stage 6 adds and removes on the tip (416 +, 17 -) are line for line b93 -> fx's: True
+  chars added: tip +23057, b93 -> fx +23057

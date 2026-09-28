@@ -62,7 +62,14 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-tendril-fx.html      THE CHAIN TIP, AWAITING RICK'S EYE. Bindweed stage 6
+02-chain/sc-coldiron-temper-fx.html THE CHAIN TIP, AWAITING RICK'S EYE. 39 RELICS: COLDIRON /
+                                 TEMPER, the dwarven twinblade (coldiron_build.py 1-6,
+                                 v103), carried onto sc-tendril-fx. For 8s the blades
+                                 are cold iron: mass 5.0 (it wins binds), a won bind
+                                 sunders 2, the foe's sunder cap 9. Charge 14, blade 9.3
+                                 (48.4% both sides); verify 11/13, Coldiron 50.5%.
+                                 engine_ab 4446/4446 on the carry.
+02-chain/sc-tendril-fx.html      the link under it, AWAITING RICK'S EYE. Bindweed stage 6
                                  (v101) on sc-onslaught-fx: the vine drawn and voiced,
                                  the root's shoots (runic hexagon skipped for it), drawn
                                  leaf motes. Moves no fight (engine_ab 4218/4218).

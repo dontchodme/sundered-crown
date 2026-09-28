@@ -1,0 +1,12 @@
+
+COLDIRON / TEMPER -- stage 4
+  src sc-coldiron-bind.html  5da2971c7018c7bc  (LF text)
+  base  the clank's mass rule, the per-fighter ceiling, the not-trimmed apply, STATUS.sunder, Widowmaker's physical profile and the dwarven twinblade art hold; every mass read is declared
+  ok    the cap
+  ok    ult   ult:{ name:"Temper", charge:14, kind:"temper", dur:8, mass:5.0, bind:2, cap:9, tip:"Blades of cold i ...
+  ok    card  69 chars  'Blades of cold iron: it wins binds, and each win sunders past the cap'
+  ok    massMul at all 5 w.mass reads (the clank x2, move, the hit stop, the liquid); apply reads sunderCap
+  ok    one temper ultimate, Coldiron's; no insert draws the RNG, uses the ultFx slot or writes the shared weapon or a global ceiling; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-coldiron-temper.html  231801282154c302   (+0 chars, written LF)

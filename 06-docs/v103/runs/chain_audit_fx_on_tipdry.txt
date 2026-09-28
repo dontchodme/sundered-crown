@@ -1,0 +1,36 @@
+  (29 insert(s) found in coldiron_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-coldiron-temper-fx.html
+tip    s6.html
+29 inserts read out of coldiron_build.py
+
+    ok  S1:coldiron joins the roster, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the iron has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the iron, its mass and the sunder ceiling relic  1  mid   -  tip  1
+    ok  S2:sunder reads the fighter's own ceiling relic  1  mid   -  tip  1
+    ok  S2:the hit stop's gravity carries the iron's mass relic  1  mid   -  tip  1
+    ok  S2:the liquid feels the gravity the ball feels relic  1  mid   -  tip  1
+    ok  S2:move's gravity carries the iron's mass relic  1  mid   -  tip  1
+    ok  S2:the clank weighs the iron relic  1  mid   -  tip  1
+    ok  S2:a bind the iron wins sunders the loser relic  1  mid   -  tip  1
+    ok  S2:the cast forges the iron and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the iron ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickTemper keeps the window and the ceiling relic  1  mid   -  tip  1
+    ok  S3:sunder on a won bind    relic  1  mid   -  tip  1
+    ok  S4:the cap                 relic  1  mid   -  tip  1
+    ok  S5:the blade: at the crossing relic  1  mid   -  tip  1
+    ok  S6:Sfx: Coldiron's cast, anvil and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:resolveClank: the anvil voice on a won bind, after the loser's sunder, carrying its count relic  1  mid   -  tip  1
+    ok  S6:tickTemper: the close voice, when the window closes by its clock with both alive relic  1  mid   -  tip  1
+    ok  S6:temper picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:temper picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:temper picture: tickIron relic  1  mid   -  tip  1
+    ok  S6:temper picture: a sunder tag past 6 in the forge's glow relic  1  mid   -  tip  1
+    ok  S6:temper picture: the blade's sunder tag carries its count in the window relic  1  mid   -  tip  1
+    ok  S6:temper picture: sunder past 6 on the ball relic  1  mid   -  tip  1
+    ok  S6:temper picture: the dwarven twinblade, two broad riveted cleavers relic  1  mid   -  tip  1
+    ok  S6:temper picture: the iron palette relic  1  mid   -  tip  1
+    ok  S6:temper picture: drawWeapon's iron hook relic  1  mid   -  tip  1
+    ok  S6:temper picture: the over-fighter call (world) relic  1  mid   -  tip  1
+    ok  S6:temper picture: drawIronWeapon / drawIronTop / _stSunderPast relic  2  mid   -  tip  2
+
+ALL 29 INSERTS SURVIVE to s6.html

@@ -1,0 +1,18 @@
+COMPOSITION, STAGE 6  2026-09-27 14:07  coldiron_build.py 1def68ac25637c8a
+-- forward: coldiron stages 1-6 on the real tip and each newest scratch link
+  sc-tendril-fx (eea0cde5536955b3): stages 123456  -> 39 relics in the roster, s6 67cc3e6e05d5326e (+23057 chars)
+  sc-angelus-b9 (db58100b3aa0092a): stages 123456  -> 40 relics in the roster, s6 e6e400c3f679bef1 (+23057 chars)
+  sc-ironhail-b14 (dadb773b6f8d4555): stages 123456  -> 39 relics in the roster, s6 a906363750fa35a1 (+23057 chars)
+  sc-lightkeeper-bulwark-b9.5 (d60a5c63b785ad04): stages 123456  -> 39 relics in the roster, s6 dfa97c297903344f (+23057 chars)
+  sc-lodestone-b205 (6d736451a1ffc2df): stages 123456  -> 40 relics in the roster, s6 59fed32c3d556cf9 (+23057 chars)
+  sc-oracle-aim (8bfe5968101e10de): stages 123456  -> 40 relics in the roster, s6 4dc26f58141986ae (+23057 chars)
+  sc-widowmaker-b1075 (a9977a757d5772b7): stages 123456  -> 39 relics in the roster, s6 a277afe1653f740b (+23057 chars)
+-- reverse: each builder's stages on sc-coldiron-temper-fx
+  angelus_build.py stages 1 2 3 5: 1 2 3 5 
+  ironhail_build.py stages 1 2 3: 1 2 3 
+  lightkeeper_build.py stages 1 2 3 5: 1 2 3 5 
+  lodestone_build.py stages 1 2 3 5: 1 2 3 5 
+  oracle_build.py stages 1 2 3: 1 2 3 
+  widowmaker_build.py stages 1 2 5: 1 2 5 
+  bindweed_build.py stages 6: 6 
+  portcullis_build.py stages 6: 6 

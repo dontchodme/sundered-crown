@@ -1,0 +1,22 @@
+
+  sc-coldiron-temper-fx.html  ·  12 foes x 6 seeds (+ spellbreaker:99015)  ·  Coldiron side A
+
+  foe              seed  cast at  window clock  won          counts heard past 6 at peak blows  score
+  vinesower      103349    32.05    9.87     1    6             2 4 6 8 9     36.99    9     3  18.60
+  heartwood      103386    15.20    9.92     1    7               4 6 8 9     19.10    9     3  18.10
+  twinshade      103312    15.41   10.79     1    6               3 5 6 9     22.08    9     5  18.00
+  dawnbringer    103238    31.58    9.80     1    6               2 5 8 9     31.58    9     7  17.90
+  dawnbringer    103349    30.83    9.37     1    7               4 6 8 9     33.81    9     2  17.90
+  heartwood      103275    31.09    9.63     1    7               3 5 7 9     34.16    9     2  17.90
+  twinshade      103275    52.21   10.77     1    7                 5 8 9     55.01    9     7  17.90
+  paradox        103386    14.97    9.62     1    7               2 4 7 9     19.19    9     2  17.90
+  starwarden     103275    46.56    9.67     1    7               2 5 7 9     49.95    9     2  17.90
+  dawnbringer    103386    30.27    9.68     1    6               2 4 8 9     35.79    9     4  17.80
+  lightkeeper    103349    14.92    9.52     1    7               3 5 7 9     17.46    9     1  17.70
+  spellbreaker    99015    15.83    9.32     1    6             2 4 6 8 9     20.72    9     1  17.70
+  heartwood      103201    15.06    9.73     1    6               2 4 7 9     19.13    9     3  17.60
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/coldiron/links/sc-coldiron-temper-fx.html --a coldiron --b vinesower --seed 103349 \
+      --at 30.85 --window 12.87 --end-at-window --fps 60 --w 540 --out ../07-shorts/v103/temper-window.mp4

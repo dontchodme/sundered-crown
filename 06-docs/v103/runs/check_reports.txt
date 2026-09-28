@@ -1,0 +1,5 @@
+voice: report 3 rows == rows_final.json (ca982fff987f77fc) on label/anchor/mode/code; 'why' equal on 3/3
+picture: report 11 rows == rows_final.json (2c035026c727a316) on label/anchor/mode/code; 'why' equal on 11/11
+picture rows alone on b93: 94bb7580047f01bc (the report's stamp 94bb7580047f01bc) OK
+voice then picture 3693eda608b26fa8, picture then voice 3693eda608b26fa8; the built fx link 3693eda608b26fa8: IDENTICAL
+coldiron_build.py S6: 14 edits, == the report rows as (label, anchor, new) in order: True

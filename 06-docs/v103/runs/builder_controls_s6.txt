@@ -1,0 +1,12 @@
+== mut_builder_write
+REFUSING TO WRITE -- stage 6 insert 'temper picture: tickIron' writes foe.vx
+exit 1
+== mut_builder_rng
+REFUSING TO WRITE -- stage 6 insert 'temper picture: the presentation call' draws the RNG or uses the one ultFx slot
+exit 1
+== mut_builder_ultfx
+REFUSING TO WRITE -- stage 6 insert 'temper picture: tickIron' draws the RNG or uses the one ultFx slot
+exit 1
+== mut_builder_beat
+REFUSING TO WRITE -- stage 6 insert 'temper picture: tickIron' calls into the simulation
+exit 1

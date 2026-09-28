@@ -1,0 +1,22 @@
+
+COLDIRON / TEMPER -- stage 2
+  src sc-coldiron.html  d4e88ca41e384ab8  (LF text)
+  base  the clank's mass rule, the per-fighter ceiling, the not-trimmed apply, STATUS.sunder, Widowmaker's physical profile and the dwarven twinblade art hold; every mass read is declared
+  ok    the iron has a charge: the lab's 16 on the game's clock
+  ok    the fighter carries the iron, its mass and the sunder ceiling
+  ok    sunder reads the fighter's own ceiling
+  ok    the hit stop's gravity carries the iron's mass
+  ok    the liquid feels the gravity the ball feels
+  ok    move's gravity carries the iron's mass
+  ok    the clank weighs the iron
+  ok    a bind the iron wins sunders the loser
+  ok    the cast forges the iron and resolves nothing
+  ok    the iron ticks with the window tickers
+  ok    tickTemper keeps the window and the ceiling
+  ok    ult   ult:{ name:"Temper", charge:14, kind:"temper", dur:8, mass:5.0, bind:0, cap:6, tip:"Blades of cold i ...
+  ok    card  69 chars  'Blades of cold iron: it wins binds, and each win sunders past the cap'
+  ok    massMul at all 5 w.mass reads (the clank x2, move, the hit stop, the liquid); apply reads sunderCap
+  ok    one temper ultimate, Coldiron's; no insert draws the RNG, uses the ultFx slot or writes the shared weapon or a global ceiling; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-coldiron-mass.html  5c0b491fa04e3040   (+4855 chars, written LF)

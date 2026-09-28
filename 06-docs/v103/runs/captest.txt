@@ -1,0 +1,2 @@
+s2-foocap.html | old whole-line post-check: REFUSE | new clause post-check: accept
+sc-coldiron-mass.html | old whole-line post-check: accept | new clause post-check: accept

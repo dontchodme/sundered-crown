@@ -1,0 +1,19 @@
+
+TEMPER PROBE  mut-m6-move-light.html  Chromium 151.0.7922.34  456 fights (Coldiron both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'mass': 5, 'bind': 2, 'cap': 9}
+  casts/fight 3.69   blows a fight: in windows 11.32, outside 10.04   Coldiron win 54.6%
+  per cast: binds 3.51  won 2.88  deadlocked 0.63  lost 0.00   sunder from binds 5.77   foe stack peak 7.63
+  foe stacks on a window frame 6.08 (the lab's per-fight mean f_foeStk 6.10)   the control, outside windows: 12.78 binds a fight, 0 won
+  gravity x0.000 of the config's in the window, x0.641 outside (x0.00); design: (5/2.68)^0.5 = 1.366
+  a window: 960 ticks on the window clock, 9.24s of match time (mean, clock and death closes)   FREEZE CENSUS 14.8% of window steps frozen
+  the window clock: held on 255933 frozen steps, dt on 1474175 live ones   1683 casts: 1396 closed on the clock, 25 on a death (a kill flight), 262 still set at `over` (an ordinary kill), 0 at the 160s limit
+  above 6: 953067 fighter-steps in a window, 697813 outside (held, never rising); 1032 closes left the foe above 6: 293 ran out after 4.12s on average, 739 still above 6 at the next cast or the end (6.25s)   blows at >6 stacks 5225   deadlocks against a non-hammer 0   liquid hooked True
+  [1] PASS  the window is `dur` on the window clock (held through every freeze, dt a live step), closes on a death while the match runs; only Coldiron carries ultTemper; no cast under a window
+  [2] PASS  massMul = mass / w.mass on the window and 1 everywhere else; every clank the mass rule from w.mass x massMul
+  [3] PASS  a bind the iron wins: apply(sunder, bind, side letter) on the loser, the ceiling's rule; nothing on any other bind
+  [4] PASS  sunderCap = cap on the foe of an open window, 6 otherwise; never above the cap; above 6 only by the clock, never trimmed
+  [5] PASS  every blow the twinblade's own, rebuilt exactly, in the window and out (sunder included)
+  [6] FAIL  gravity from w.mass x massMul: move, the hit stop and the liquid, exactly, on every fighter   1460436 FAIL: ["move's gravity base [0.41044776119402987], want 1.8656716417910446", "move's gravity base [0.41044776119402987], want 1.8656716417910446", "move's gravity base [0.41044776119402987], want 1.8656716417910446", "move's gravity base [0.41044776119402987], want 1.8656716417910446"]
+  [7] PASS  nothing else: the cast resolves nothing; tickTemper moves, draws, hurts, applies, stops and files nothing; a clank its own beat
+
+  6/7
+exit 1

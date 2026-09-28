@@ -1,0 +1,12 @@
+== builder new (f194fa06), stage 2 with the insert '      f.sunderCap = foe.ultTemper ? foe.w.ult.cap : STATUS.sunder.maxStacks; f.w.artW *= 1.4;'
+REFUSING TO WRITE -- insert 'tickTemper keeps the window and the ceiling' writes the shared weapon
+exit 1
+== builder new (f194fa06), stage 2 with the insert '      f.sunderCap = foe.ultTemper ? foe.w.ult.cap : STATUS.sunder.maxStacks; f.w.ult.cap = 9;'
+REFUSING TO WRITE -- insert 'tickTemper keeps the window and the ceiling' writes the shared weapon
+exit 1
+== builder old (1def68ac), stage 2 with the insert '      f.sunderCap = foe.ultTemper ? foe.w.ult.cap : STATUS.sunder.maxStacks; f.w.artW *= 1.4;'
+  out out_old_fwartW.html  f1a02d876ecaa71b   (+4872 chars, written LF)
+exit 0
+== builder old (1def68ac), stage 2 with the insert '      f.sunderCap = foe.ultTemper ? foe.w.ult.cap : STATUS.sunder.maxStacks; f.w.ult.cap = 9;'
+  out out_old_fwultcap.html  48d3b1d401d5f579   (+4872 chars, written LF)
+exit 0

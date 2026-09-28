@@ -1,0 +1,7 @@
+CARRY DRY RUN  2026-09-27 12:04  coldiron_build.py 155eec593ce9e6c2  on 02-chain/sc-tendril-fx.html eea0cde5536955b3 (the chain tip, CLAUDE.md §0)
+  stage 1 ok  689a0ab8d366fd55  39 relics in the roster
+  stage 2 ok  8937a1f5b0ad1598  39 relics in the roster
+  stage 3 ok  86f36d046222f8b7  39 relics in the roster
+  stage 4 ok  a13d08d7162f6405  39 relics in the roster
+  stage 5 ok  79949e14c617cd93  39 relics in the roster
+  the stage-5 inserts on the tip are line for line the inserts of sc-coldiron-temper-b93 on sc-tendril-t3

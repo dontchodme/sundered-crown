@@ -1,0 +1,8 @@
+REBUILD OF RECORD CHECK  coldiron_build.py f194fa06f46454c9  2026-09-27 16:57:08
+  base sc-tendril-t3 5a6216e3b629fad4
+  stage 1 sc-coldiron rebuilt d4e88ca41e384ab8  link d4e88ca41e384ab8  identical
+  stage 2 sc-coldiron-mass rebuilt 5c0b491fa04e3040  link 5c0b491fa04e3040  identical
+  stage 3 sc-coldiron-bind rebuilt 5da2971c7018c7bc  link 5da2971c7018c7bc  identical
+  stage 4 sc-coldiron-temper rebuilt 231801282154c302  link 231801282154c302  identical
+  stage 5 sc-coldiron-temper-b93 rebuilt 324b42d5b36fac98  link 324b42d5b36fac98  identical
+  stage 6 sc-coldiron-temper-fx rebuilt 3693eda608b26fa8  link 3693eda608b26fa8  identical
