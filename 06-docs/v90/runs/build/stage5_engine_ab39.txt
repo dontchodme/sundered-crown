@@ -1,0 +1,11 @@
+=== ENGINE A/B: 39 relics, 10 seeds x 741 pairings ===
+
+  sc-gyre.html                    7410 matches  591.7s
+  sc-gyre-blade.html              7410 matches  566.4s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 7410
+  PASS  every match identical field for field  — 7410/7410
+  PASS  the sweep is real  — 39/39 distinct winners, 7410 distinct seeds, 21.3-156.0s
+
+ENGINE A/B PASS — ../02-chain/sc-gyre-blade.html does not move the 39-relic roster.
