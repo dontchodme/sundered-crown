@@ -389,7 +389,42 @@ def arm(key: str, indent: str) -> str:
     return "\n".join(lines)
 
 
-def s6_edits():
+# THE CARRY (staff_carry.py, 2026-09-27). On the design batch's line Coldiron
+# (v103) gave the status tag's value expression a SUNDER clause after the
+# hemorrhage one, so there the hex clause goes in between them; on the staff
+# branch the expression still ends at the hemorrhage clause. The same hex
+# clause either way -- and the staff branch's form is untouched, so this
+# builder still reproduces every link it wrote there.
+SUNDER_TAG = '                   : (k === "sunder" && foe.sunderCap > STATUS.sunder.maxStacks)'
+HEX_CLAUSE = '''                   /* AND A RUNE'S BLOW PRINTS THE COUNT (v94 §6.1: "the hex
+                      tag ticks by two") -- a sigil or a flown rune, never the
+                      bolt's own hex 1. */
+                   : (k === "hex" && this._cineShot && this._cineShot.spell === "glyph"
+                      && (this._cineShot.sigil || this._cineShot.flown))
+'''
+
+
+def hex_tag_edit(carried: bool):
+    if not carried:
+        return ("the hex tag counts a rune's two",
+                '''                   : (k === "hemorrhage"
+                      && foe.bleedCap > STATUS.hemorrhage.maxStacks)
+                     ? foe.stacks("hemorrhage") : 0);
+''',
+                '''                   : (k === "hemorrhage"
+                      && foe.bleedCap > STATUS.hemorrhage.maxStacks)
+                     ? foe.stacks("hemorrhage")
+''' + HEX_CLAUSE + '''                     ? foe.stacks("hex") : 0);
+''')
+    return ("the hex tag counts a rune's two",
+            '''                     ? foe.stacks("hemorrhage")
+                   /* AND SUNDER CARRIES ITS COUNT''',
+            '''                     ? foe.stacks("hemorrhage")
+''' + HEX_CLAUSE + '''                     ? foe.stacks("hex")
+                   /* AND SUNDER CARRIES ITS COUNT''')
+
+
+def s6_edits(carried: bool = False):
     s3 = {l: n for l, o, n in s3_edits(dict(ULT))}
     first_cut = s3["the glyph, the sigil and the flown rune are drawn (first cuts)"]
     return [
@@ -528,21 +563,7 @@ def s6_edits():
         /* Along the BOLT's travel, not away from the shooter. A shot that
 '''),
 
-("the hex tag counts a rune's two",
- '''                   : (k === "hemorrhage"
-                      && foe.bleedCap > STATUS.hemorrhage.maxStacks)
-                     ? foe.stacks("hemorrhage") : 0);
-''',
- '''                   : (k === "hemorrhage"
-                      && foe.bleedCap > STATUS.hemorrhage.maxStacks)
-                     ? foe.stacks("hemorrhage")
-                   /* AND A RUNE'S BLOW PRINTS THE COUNT (v94 §6.1: "the hex
-                      tag ticks by two") -- a sigil or a flown rune, never the
-                      bolt's own hex 1. */
-                   : (k === "hex" && this._cineShot && this._cineShot.spell === "glyph"
-                      && (this._cineShot.sigil || this._cineShot.flown))
-                     ? foe.stacks("hex") : 0);
-'''),
+hex_tag_edit(carried),
 
 ("the staff's runic head: Code's pick, and why",
  '''   ... the bud opens"). A and B stay until Rick has seen it. */
@@ -696,8 +717,8 @@ def stage_of(code: str) -> int:
     return 2 if "sigilLife:" in ent else 1
 
 
-def all_stages():
-    return [("1", s1_edits()), ("2", s2_edits(fnum(BLADE))), ("3", s3_edits(dict(ULT))), ("5", s5_edits()), ("6", s6_edits())]
+def all_stages(carried: bool = False):
+    return [("1", s1_edits()), ("2", s2_edits(fnum(BLADE))), ("3", s3_edits(dict(ULT))), ("5", s5_edits()), ("6", s6_edits(carried))]
 
 
 def main() -> int:
@@ -708,7 +729,8 @@ def main() -> int:
     A = ap.parse_args()
     if A.audit:
         print(f"\nCIPHER / CONVERGENCE -- the insert audit against {A.audit}")
-        return audit(all_stages(), (HERE / A.audit).resolve())
+        tip_p = (HERE / A.audit).resolve()
+        return audit(all_stages(SUNDER_TAG in tip_p.read_text(encoding="utf-8")), tip_p)
     if not (A.stage and A.src and A.out):
         raise SystemExit("--stage, --src and --out are required to build")
     stage = int(A.stage)
@@ -733,7 +755,7 @@ def main() -> int:
     elif stage == 5:
         edits = s5_edits()
     else:
-        edits = s6_edits()
+        edits = s6_edits(SUNDER_TAG in s0)
     for label, old, new in edits:
         s = one(s, old, new, label)
     out = strip_comments(s)

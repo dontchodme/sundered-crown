@@ -1,0 +1,7 @@
+culverin      31/33 inserts survive in sc-staves-coldiron.html (3 carry lines a later stage replaced on purpose)  <-- A DOWNSTREAM EDIT ATE SOMETHING
+briarwand     26/26 inserts survive in sc-staves-coldiron.html (4 carry lines a later stage replaced on purpose)
+cipher        27/27 inserts survive in sc-staves-coldiron.html (2 carry lines a later stage replaced on purpose)
+watchlight    24/24 inserts survive in sc-staves-coldiron.html (5 carry lines a later stage replaced on purpose)
+crozier       26/26 inserts survive in sc-staves-coldiron.html (3 carry lines a later stage replaced on purpose)
+bloodwick     28/28 inserts survive in sc-staves-coldiron.html (4 carry lines a later stage replaced on purpose)
+nightglass    29/29 inserts survive in sc-staves-coldiron.html (5 carry lines a later stage replaced on purpose)

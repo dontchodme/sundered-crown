@@ -1,0 +1,5 @@
+[identity] app   Chromium 152.0.7977.54  195 fights
+[identity] build 02-chain/sc-nightglass-fx.html
+[identity] headless Chromium 151.0.7922.34
+
+PASS  195/195 identical.

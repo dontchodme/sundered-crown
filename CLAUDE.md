@@ -12,8 +12,12 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-nightglass-fx.html   THE STAFF BRANCH'S TIP: A BRANCH OFF sc-leaf, NOT
-                                 THE CHAIN TIP (built on yert). THE STAFF ROW IS
+02-chain/sc-nightglass-fx.html   BUILD OF RECORD  <- app/main.js GAME, since
+                                 2026-09-27: RICK, OFF THE SEVEN STAFF CLIPS,
+                                 "looks good get it in the game". sc-leaf (the
+                                 record before it) plus the staff row, and
+                                 NOTHING ELSE: a branch off sc-leaf, NOT THE
+                                 CHAIN TIP (built on yert). THE STAFF ROW IS
                                  BUILT: SEVEN STAVES, EACH STAGES 1-6, 41 RELICS:
                                  CULVERIN / IRONFALL (v96, and the staff TYPE with
                                  it), BRIARWAND / BLOOM (v93), CIPHER /
@@ -45,10 +49,18 @@ short-form video for TikTok and YouTube Shorts.
                                  12/32, Rick's. engine_ab at every stage, each
                                  fx link WITH its relic; shell_identity at each
                                  tip.
-                                 SEVEN CLIPS ARE WITH RICK. THIS LINE DOES NOT
-                                 MOVE GAME until it and the batch line are
-                                 carried onto one another (each builder takes
-                                 --src).
+                                 SEVEN CLIPS PASSED BY RICK. shell_identity on the
+                                 moved pointer: see 06-docs/v89/staff-carry-v89.md.
+                                 THE DESIGN BATCH'S LINE IS NOT IN THE GAME, ON
+                                 PURPOSE: its tip carries the Daybreak LINE
+                                 ("does not ship", CLAIMS) and clips still with
+                                 Rick. WHEN RICK PASSES IT, ITS GAME MOVE MUST
+                                 CARRY THE STAVES: `python tools/staff_carry.py
+                                 --src <batch tip> --out <link>` re-runs all seven
+                                 builders, every stage -- dry run on
+                                 sc-coldiron-temper-fx: all 35 stages hold, every
+                                 builder's audit passes. A GAME move to the batch
+                                 tip WITHOUT it takes the staves out of the game.
 02-chain/sc-sunrise-e26.html     A BRANCH OFF sc-zenith, NOT THE CHAIN TIP (built on
                                  yert, Rick's call): DAYBREAK, RICK'S CIRCLE (v99,
                                  sunrise_build.py). The cast puts the sun in the
@@ -176,8 +188,9 @@ short-form video for TikTok and YouTube Shorts.
                                  4224/4224 on the 33 others, probe 10/10, verify
                                  11/13 (both reds the clock; Axiom 33.5%, the
                                  roster's lowest, in band).
-02-chain/sc-leaf.html            BUILD OF RECORD  <- app/main.js GAME, since
-                                 2026-09-26: RICK PASSED GATE 4 ("I approve the
+02-chain/sc-leaf.html            the staff row's base; BUILD OF RECORD from
+                                 2026-09-26 until 2026-09-27 (sc-nightglass-fx
+                                 took it): RICK PASSED GATE 4 ("I approve the
                                  Thornshear fix"), the pointer moved, and
                                  shell_identity 200/200 on sc-leaf (app
                                  Chromium 152 vs headless 151). The design
