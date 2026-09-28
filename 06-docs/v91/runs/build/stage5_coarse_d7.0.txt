@@ -1,0 +1,4 @@
+nightglass on sc-backlash.html · Chromium 151.0.7922.34 · 40 foes x 4 seeds x sides AB = 320 fights · seed0 2207 · set dmg=7.0 · coarse d7.0
+  win 67.8%   side A 67.5%   side B 68.1%   mean 52.1s   timeouts 0
+  by type  warhammer 85%  scythe 80%  flail 75%  bow 69%  staff 62%  greatsword 55%  twinblade 50%
+  worst    starwarden 0%  lightkeeper 12%  farwarden 25%   (320 fights in 59s)

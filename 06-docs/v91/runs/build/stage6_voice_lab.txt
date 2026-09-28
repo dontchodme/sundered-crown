@@ -1,0 +1,34 @@
+NIGHTGLASS'S VOICES -- ../02-chain/sc-backlash-blade.html -- Chromium 151.0.7922.34 -- the method of culverin_voice_lab
+
+  control  hit@10       peak 0.423  TOP  -18.8 dB @   25 ms  aud   80 ms  cent    154 Hz  low 0.82  low60 0.77  hi20 0.02  PHONE  -30.6
+  control  arrow loose  peak 0.026  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   1027 Hz  low 0.01  low60 0.01  hi20 0.14  PHONE  -48.1
+  control  wall         peak 0.089  TOP  -38.9 dB @   25 ms  aud   25 ms  cent  11829 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -38.9
+  control  rune-crack   peak 0.647  TOP  -17.2 dB @   25 ms  aud  445 ms  cent   1086 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -17.2
+  (hit@10 is a typical blow thrown back: half of a foe's ~20)
+
+THE CAST  -- "a reversed cymbal into a low glass tone, 0.4s"   -- level-matched to HIT -6 dB
+  REVCYM       peak 0.141  TOP  -24.9 dB @  195 ms  aud  430 ms  cent   1431 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -25.0  vs HIT  -6.0 dB  clicks 8
+               REG rune-crack 0.15
+  SUCK         peak 0.146  TOP  -24.8 dB @  230 ms  aud  475 ms  cent   1785 Hz  low 0.02  low60 0.00  hi20 1.00  PHONE  -31.0  vs HIT  -6.0 dB  clicks 12
+               REG rune-crack 0.15
+  GLASSRISE    peak 0.142  TOP  -24.9 dB @  175 ms  aud  420 ms  cent    259 Hz  low 0.01  low60 0.00  hi20 0.98  PHONE  -31.0  vs HIT  -6.0 dB  clicks 8
+               REG rune-crack 0.12
+  PICK  REVCYM
+
+THE ECHO  -- "a dark echo of it (the same voice, an octave down, filtered)"   -- level-matched to HIT -6 dB
+  ECHO         peak 0.181  TOP  -24.7 dB @   25 ms  aud   85 ms  cent     75 Hz  low 0.99  low60 0.99  hi20 0.01  PHONE  -33.7  vs HIT  -5.9 dB  clicks 2
+               REG hit 0.09
+  DARK         peak 0.230  TOP  -25.1 dB @   25 ms  aud   85 ms  cent    172 Hz  low 0.72  low60 0.63  hi20 0.03  PHONE  -31.3  vs HIT  -6.2 dB  clicks 2
+               REG hit 0.98
+  HOLLOW       peak 0.298  TOP  -25.1 dB @   25 ms  aud   55 ms  cent    933 Hz  low 0.00  low60 0.00  hi20 0.80  PHONE  -25.1  vs HIT  -6.2 dB  clicks 3
+               REG hit 0.07
+  PICK  DARK
+
+THE CLOSE  -- "the glass tone fading up and out"   -- level-matched to HIT -10 dB
+  SWELL        peak 0.106  TOP  -28.9 dB @   95 ms  aud  170 ms  cent    269 Hz  low 0.00  low60 0.00  hi20 0.02  PHONE  -29.0  vs HIT -10.0 dB  clicks 8
+               REG the cast 0.97
+  STAGGER      peak 0.106  TOP  -28.9 dB @  200 ms  aud  275 ms  cent    280 Hz  low 0.00  low60 0.00  hi20 0.01  PHONE  -29.0  vs HIT -10.0 dB  clicks 9
+               REG the cast 0.95
+  PICK  STAGGER
+
+THE PICKS: cast REVCYM, echo DARK, close STAGGER

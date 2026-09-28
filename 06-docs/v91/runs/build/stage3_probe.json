@@ -1,0 +1,48 @@
+{
+ "T": {
+  "fights": 160,
+  "wins": 100,
+  "dur": 8135.816666666442,
+  "looses": 18807,
+  "badCad": [],
+  "bolts": 18268,
+  "badBolt": [],
+  "bounces": 26453,
+  "blows": 5970,
+  "blowsTaken": 2669,
+  "reflected": 2632,
+  "badBack": [],
+  "outside": 0,
+  "nested": 0,
+  "mirrorFights": 12,
+  "mirrorRefl": 275,
+  "winFrames": 456781,
+  "foeStk": 1370343,
+  "bigBack": 1631,
+  "bigBeat": 1631,
+  "fatalBack": 22,
+  "fatalBeat": 22,
+  "casts": 453,
+  "ultBeats": 453,
+  "tally": 453,
+  "live": true
+ },
+ "row": {
+  "win": 0.625,
+  "castsF": 2.83125,
+  "bounce16": 52.022804512558054,
+  "blowsF": 37.3125,
+  "stk": 3.0,
+  "reflC": 5.810154525386314,
+  "takenC": 5.891832229580574,
+  "dur": 50.84885416666526
+ },
+ "D": {
+  "threw": null,
+  "frames": 11812,
+  "seen": {
+   "bolt": 10993,
+   "shroud": 10058
+  }
+ }
+}

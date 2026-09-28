@@ -1,0 +1,3 @@
+NIGHTGLASS PROBE -- ../02-chain/sc-backlash.html   660 fights, --lab (side A, the lab's seeds and field)  --labtag   136s
+  win 48.5%   casts 2.92   bounces 37.3 a cast-equivalent   blows 34.5 a fight   blows taken in a window 5.5 a cast, thrown back 5.4   foe curse 3.00   mean 55.0s
+  against stage 0 on 151 (runs/build/stage0_*.txt)

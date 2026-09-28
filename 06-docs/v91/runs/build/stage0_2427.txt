@@ -1,0 +1,9 @@
+34 relics · Chromium 151.0.7922.34 · ironhail as umbral:staff · 33 foes x 20 seeds = 660 fights an arm · stage0 151 block 2427
+  charge=16.0 dur=8.0 blade=7.3
+
+  arm       win  casts  hits in/out     back  bounces f_foeStkhitsInWin    taken
+  A        0.0%   0.00  0.00/17.66      0.00     0.00     0.00     0.00     0.00
+  S       15.9%   3.11 14.25/22.04      0.00    43.18     0.00     0.00     0.00
+  U       43.6%   2.98 13.27/21.06     35.17    43.58     3.00     4.40    67.62
+  lifts over A: S +15.9  U +43.6
+  1980 fights in 184s   errors: []

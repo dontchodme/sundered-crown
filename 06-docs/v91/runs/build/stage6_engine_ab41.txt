@@ -1,0 +1,11 @@
+=== ENGINE A/B: 41 relics, 10 seeds x 820 pairings ===
+
+  sc-backlash-blade.html          8200 matches  565.8s
+  sc-nightglass-fx.html           8200 matches  417.6s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 8200
+  PASS  every match identical field for field  — 8200/8200
+  PASS  the sweep is real  — 41/41 distinct winners, 8200 distinct seeds, 16.8-142.7s
+
+ENGINE A/B PASS — ../02-chain/sc-nightglass-fx.html does not move the 41-relic roster.

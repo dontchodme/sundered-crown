@@ -1,0 +1,15 @@
+NIGHTGLASS PROBE -- ../02-chain/sc-backlash.html   160 fights, every foe, both sides   49s
+  win 62.5%   casts 2.83   bounces 52.0 a cast-equivalent   blows 37.3 a fight   blows taken in a window 5.9 a cast, thrown back 5.8   foe curse 3.00   mean 50.8s
+  PASS  [1] every bolt leaves with the spell's numbers and its two bounces  -- 18268 bolts
+  PASS  [2] the cadence is exact  -- 18807 looses
+  PASS  [3] bounces a cast-equivalent (the brief's ~43)  -- 52.0
+  PASS  [4] blows a fight (the brief's ~37)  -- 37.3
+  PASS  [5] every blow landing on the shroud is thrown back at round(0.5 x what landed)  -- 2669 landings, 2632 thrown back
+  PASS  [6] nothing is thrown back outside a window  -- 0
+  PASS  [7] a reflected blow never reflects again, mirror matches included  -- 0 nested; 12 staged mirror fights (the engine refuses a real one), 275 reflections in them
+  PASS  [8] the foe's curse on a window frame (the brief's ~3.0)  -- 3.00
+  PASS  [9] a reflected blow of 4+ files a hit beat; a fatal one always  -- 1631 of 1631; fatal 22 of 22
+  PASS  [10] an ult beat a cast  -- 453 beats for 453 casts (mirrors included)
+  PASS  [P] the render path is CALLED  --   11812 frames  {'bolt': 10993, 'shroud': 10058}
+
+  11/11

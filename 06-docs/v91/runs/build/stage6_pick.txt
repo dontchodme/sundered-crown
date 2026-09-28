@@ -1,0 +1,7 @@
+118 Backlash windows
+   40.0  slagheart      4435  thrown back  2  biggest  66  total   99   --a nightglass --b slagheart --seed 4435 --at 32.0 --window 10.4
+   38.0  redflail       4401  thrown back 19  biggest  28  total   99   --a nightglass --b redflail --seed 4401 --at 15.7 --window 11.3
+   37.8  grudgebearer   4418  thrown back  3  biggest  59  total  105   --a nightglass --b grudgebearer --seed 4418 --at 31.4 --window 10.7
+   34.5  redflail       4418  thrown back 21  biggest  19  total   81   --a nightglass --b redflail --seed 4418 --at 31.3 --window 11.2
+   34.5  redflail       4452  thrown back 24  biggest  12  total   91   --a nightglass --b redflail --seed 4452 --at 15.0 --window 12.2
+   34.0  grudgebearer   4435  thrown back  1  biggest  60  total   60   --a nightglass --b grudgebearer --seed 4435 --at 14.5 --window 10.6

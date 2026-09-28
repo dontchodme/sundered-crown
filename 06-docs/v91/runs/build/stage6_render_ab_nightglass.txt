@@ -1,0 +1,19 @@
+
+RENDER A/B  2 pairings x 5 frames  540x960
+  a  sc-backlash-blade.html
+  b  sc-nightglass-fx.html
+  nightglass v emberedge seed 7011 t=  5.00  DIFFERS   luma 18.147 -> 18.148   lit 68.34% -> 68.34%
+  nightglass v emberedge seed 7011 t= 17.00  DIFFERS   luma 20.745 -> 20.929   lit 88.16% -> 88.06%
+  nightglass v emberedge seed 7011 t= 19.00  DIFFERS   luma 21.001 -> 22.205   lit 88.18% -> 88.04%
+  nightglass v emberedge seed 7011 t= 22.00  DIFFERS   luma 20.825 -> 21.136   lit 88.18% -> 88.05%
+  nightglass v emberedge seed 7011 t= 30.00  DIFFERS   luma 24.224 -> 24.254   lit 91.22% -> 91.22%
+  nightglass v axiom seed 7012 t=  5.00  DIFFERS   luma 18.434 -> 18.470   lit 68.38% -> 68.38%
+  nightglass v axiom seed 7012 t= 17.00  DIFFERS   luma 21.908 -> 22.064   lit 88.39% -> 88.27%
+  nightglass v axiom seed 7012 t= 19.00  DIFFERS   luma 21.318 -> 21.450   lit 88.38% -> 88.26%
+  nightglass v axiom seed 7012 t= 22.00  DIFFERS   luma 21.672 -> 21.667   lit 88.39% -> 88.30%
+  nightglass v axiom seed 7012 t= 30.00  DIFFERS   luma 24.958 -> 24.985   lit 90.02% -> 90.02%
+
+FAIL  0/10 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

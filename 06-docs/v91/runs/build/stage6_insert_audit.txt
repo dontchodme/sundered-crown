@@ -1,0 +1,9 @@
+
+NIGHTGLASS / BACKLASH -- the insert audit against ../02-chain/sc-nightglass-fx.html
+  ok    stage 1  Nightglass joins the roster, its ultimate stubbed: 2 line(s) replaced by a later stage, by design
+  ok    stage 2  the shadebolt is drawn (first cut): 3 line(s) replaced by a later stage, by design
+  ok    stage 3  hurt(): the shroud throws half of it back: 1 line(s) replaced by a later stage, by design
+  ok    stage 3  tickShroud and shroudBack: the window, and the blow thrown back: 2 line(s) replaced by a later stage, by design
+  ok    stage 3  the shroud is drawn (first cut): 6 line(s) replaced by a later stage, by design
+
+  29/29 inserts survive in sc-nightglass-fx.html (5 carry lines a later stage replaced on purpose)

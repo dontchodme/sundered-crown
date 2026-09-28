@@ -1,0 +1,15 @@
+NIGHTGLASS PROBE -- ../02-chain/sc-nightglass-fx.html   160 fights, every foe, both sides   100s
+  win 47.5%   casts 2.99   bounces 52.4 a cast-equivalent   blows 39.9 a fight   blows taken in a window 5.8 a cast, thrown back 5.7   foe curse 3.00   mean 53.2s
+  PASS  [1] every bolt leaves with the spell's numbers and its two bounces  -- 19195 bolts
+  PASS  [2] the cadence is exact  -- 19738 looses
+  PASS  [3] bounces a cast-equivalent (the brief's ~43)  -- 52.4
+  PASS  [4] blows a fight (the brief's ~37)  -- 39.9
+  PASS  [5] every blow landing on the shroud is thrown back at round(0.5 x what landed)  -- 2788 landings, 2748 thrown back
+  PASS  [6] nothing is thrown back outside a window  -- 0
+  PASS  [7] a reflected blow never reflects again, mirror matches included  -- 0 nested; 12 staged mirror fights (the engine refuses a real one), 267 reflections in them
+  PASS  [8] the foe's curse on a window frame (the brief's ~3.0)  -- 3.00
+  PASS  [9] a reflected blow of 4+ files a hit beat; a fatal one always  -- 1689 of 1689; fatal 19 of 19
+  PASS  [10] an ult beat a cast  -- 478 beats for 478 casts (mirrors included)
+  PASS  [P] the render path is CALLED  --   12504 frames  {'bolt': 11230, 'shroud': 10725}
+
+  11/11
