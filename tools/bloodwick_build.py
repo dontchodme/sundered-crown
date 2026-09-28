@@ -9,6 +9,8 @@ input and the only input (CLAUDE.md §3 rule 0). Rick: "build them all".
     stage 2   the spell: BLOODSEEKER (the bend)        sc-bloodwick -> sc-seeker
     stage 3   the ultimate's orbit (arm V, no lunge)   sc-seeker -> sc-orbit
     stage 4   the lunge: GYRE whole (arm U)            sc-orbit -> sc-gyre
+    stage 5   the blade, wide on 151: 8.5 -> 7.75        sc-gyre -> sc-gyre-blade
+    stage 6   picture, voices                          sc-gyre-blade -> sc-bloodwick-fx
 
 THE BASE is the staff branch's tip (Culverin, Briarwand, Cipher, Watchlight,
 Crozier); several anchors are those builds' own lines.
@@ -37,6 +39,10 @@ from staffkit import (BODY, HERE, one, strip_comments, relic_entry, fnum, shot_j
 
 RELIC, BUILDER = "bloodwick", "bloodwick_build.py"
 BLADE = 8.5                    # brief §2 stage 1: "stubbed relic at 8.5"; stage 5 settles it
+# Stage 5, measured wide on 151 (both sides, 1560 fights a block, no bisection):
+# 7.5 48.8%, 7.75 50.3% (three blocks: 47.6 / 51.5 / 51.8), 8.0 52.1% (three
+# blocks), 8.25 56.0% (06-docs/v90/runs/build/stage5_*).
+TUNED_BLADE = 7.75
 BOW_SHOT = dict(cadence=0.34, speed=380, r=24, life=3.4, grav=0, dmgMul=1.0,
                 tip="Fires along its facing · shots can be clanked")
 SPELL = dict(cadence=0.34, speed=300, r=22, life=3.0, grav=0, dmgMul=1.0, home=1.0,
@@ -344,22 +350,279 @@ def s4_edits():
     ]
 
 
+# ---------------------------------------------------------------- stage 5 --
+S5_BLADE_PARA = f'''     `dmg` {fnum(TUNED_BLADE)} IS MEASURED WIDE ON 151 (brief stage 5): both sides of every
+     pairing, 1560 fights a seed block, no bisection -- 7.5 reads 48.8%, 7.75
+     50.3% over three blocks (47.6 / 51.5 / 51.8: the third settled a swing
+     larger than the step), 8.0 52.1%. 0.75 UNDER THE DESIGN'S 8.5: a globule
+     bends and joins the orbit from the barrel (§5), where the lab did both a
+     step late -- with that put back the spell IS arm S (15.5%) -- and the lab
+     refused orbit joins while a globule that had just died still held its
+     slot. Provisional until the row re-prices (v89 §8.2). The number lives in
+     `bloodwick_build.TUNED_BLADE`. */'''
+
+
+def s5_edits():
+    b = BODY
+    return [
+("the relic's note says the blade is measured", S1_BLADE_PARA, S5_BLADE_PARA),
+("Bloodwick's blade is the measured one",
+ f'''  {{ id:"{RELIC}", name:"Bloodwick", aff:"bloodsworn", shape:"staff",
+    blades:{b["blades"]}, reach:{b["reach"]}, width:{b["width"]}, artW:{b["artW"]}, dmg:{fnum(BLADE)}, spin:''',
+ f'''  {{ id:"{RELIC}", name:"Bloodwick", aff:"bloodsworn", shape:"staff",
+    blades:{b["blades"]}, reach:{b["reach"]}, width:{b["width"]}, artW:{b["artW"]}, dmg:{fnum(TUNED_BLADE)}, spin:'''),
+    ]
+
+
+# THE PICKED VOICES, from bloodwick_voice_lab.py (runs/build/stage6_voice_lab.json), verbatim.
+VOICES = {
+    'cast': '\n  S._sweep(t, { f0: 180, f1: 90, q: 0.8, gain: 0.1207, dur: 0.14, atk: 0.02, type:"lowpass" });\n  S._tone (t, { freq: 110, to: 60, gain: 0.1055, dur: 0.12, type:"sine" });\n  S._sweep(t + 0.06, { f0: 3500, f1: 7000, q: 0.7, gain: 0.04523, dur: 0.42, atk: 0.09, type:"highpass" });',
+    'slot': '\n  S._burst(t, { freq: 2400, q: 4.0, gain: 0.08765, dur: 0.015, type:"bandpass" });\n  S._tone (t, { freq: 1400, gain: 0.02922, dur: 0.03, type:"sine" });',
+    'crack': '\n  const n = Math.max(1, Math.min(6, p.n | 0)), k = Math.pow(2, (n - 1) / 12);\n  S._burst(t, { freq: 1800 * k, q: 1.5, gain: 0.2552, dur: 0.04, type:"bandpass" });\n  S._tone (t, { freq: 300 * k, to: 120, gain: 0.1914, dur: 0.08, type:"sawtooth" });',
+    'close': '\n  S._sweep(t, { f0: 3500, f1: 7000, q: 0.7, gain: 0.0754, dur: 0.14, atk: 0.03, type:"highpass" });',
+}
+VOICE_PICKS = {'cast': 'FLARE', 'slot': 'TICK', 'crack': 'CRACK', 'close': 'SHORT'}
+
+
+# ---------------------------------------------------------------- stage 6 --
+# THE PICTURE AND THE VOICE (design §6.1-6.2), picked on measurements under
+# Rick's "you pick i overrule". PRESENTATION ONLY: SFX.play (a no-op headless),
+# this.ring and this.shake (read by the renderer and the capture alone),
+# render-only fields, drawing code -- no rng, no spawnFx. engine_ab over all
+# 40, Bloodwick included, is the proof. The voices are
+# `bloodwick_voice_lab.py`'s picks (two rounds), pasted verbatim; each arm
+# opens `const S = this;`.
+
+
+def arm(key: str, indent: str) -> str:
+    body = VOICES[key].strip("\n")
+    lines = [indent + "const S = this;"] + [indent + (l[2:] if l.startswith("  ") else l) for l in body.splitlines()]
+    return "\n".join(lines)
+
+
+def s6_edits():
+    s2 = {l: n for l, o, n in s2_edits(fnum(BLADE))}
+    s3 = {l: n for l, o, n in s3_edits(dict(ULT))}
+    glob_cut = s2["the globule is drawn (first cut)"]
+    glob_cut = glob_cut[:glob_cut.index("      /* CROZIER'S LANCE ON SCREEN (v95 §6.1).")]
+    lane_cut = s3["the orbit's lane is drawn (first cut)"]
+    lane_cut = lane_cut[lane_cut.index("    /* GYRE's lane -- FIRST CUT"):]
+    return [
+
+("Sfx: Gyre's cast, the slot, the crack and the close",
+ '''        } else if (w === "crozier"){                    // the choir rises
+''',
+ '''        } else if (w === "bloodwick"){                  // the wick catches
+          /* GYRE'S CAST -- design §6.2: "a wet ignition -- a low whump into a
+             candle-hiss, 0.35s". FLARE (`bloodwick_voice_lab.py`, two rounds,
+             Rick's "you pick i overrule"): a lowpass sweep and a sine for the
+             whump, a highpassed hiss rising out of it, 6 dB under a globule's
+             blow, audible 310 ms. Bloodwick fell through to the rune-crack. */
+''' + arm("cast", "          ") + '''
+        } else if (w === "bloodwick-slot"){             // a drop takes its slot
+          /* "Nothing continuous ... a soft tick as each drop takes its slot":
+             TICK, a bandpassed 2.4 kHz tick and a faint sine, 25 ms, 22 dB
+             under a blow. */
+''' + arm("slot", "          ") + '''
+        } else if (w === "bloodwick-crack"){            // the orbit lunges
+          /* THE LUNGE -- "one sharp wet crack (the release)", pitched by how
+             many lunged (`p.n`, a semitone a globule): CRACK, a bandpassed
+             burst and a falling sawtooth, 45 ms, 6 dB under a blow and the
+             least like the hit voice that follows it on every landing. */
+''' + arm("crack", "          ") + '''
+        } else if (w === "bloodwick-close"){            // the hiss cut short
+          /* CLOSE -- "the hiss cut short": the cast's own hiss, alone, stopped
+             at 0.14s. Played by `tickGyre` when the window runs out by its
+             clock, never on a death. */
+''' + arm("close", "          ") + '''
+        } else if (w === "crozier"){                    // the choir rises
+'''),
+
+("a drop taking its slot ticks",
+ '''        s.orb = true; s.home = 0; f.ultGyre.orb.push(s); f.gyreTally.orbited++;
+''',
+ '''        s.orb = true; s.home = 0; f.ultGyre.orb.push(s); f.gyreTally.orbited++;
+        SFX.play("ult", { w: "bloodwick-slot" });   // "a soft tick as each drop takes its slot" (§6.2)
+'''),
+
+("the lunge is seen and heard, scaled by how many lunged",
+ '''        f.gyreTally.lunges++;
+''',
+ '''        f.gyreTally.lunges++;
+        /* THE LUNGE, SEEN AND HEARD (§6.1-6.2): "shake 8, a bloodsworn ring at
+           the caster" and "one sharp wet crack", pitched by how many lunged.
+           The shake and the ring SCALE with that count -- 91% of lunges carry
+           one globule (v90 build §4), and eight of shake for each would be a
+           quake seven times a window; a full orbit gets the design's 8. Code's
+           reading under "you pick i overrule". `shake` and `ring` are read by
+           the renderer alone. */
+        const nl = G.orb.length;
+        this.shake = Math.min(38, this.shake + 3 + (nl - 1));
+        this.ring(f.x, f.y, f.aff.core, 14, 60 + 10 * nl, 0.32, 3);
+        SFX.play("ult", { w: "bloodwick-crack", n: nl });
+'''),
+
+("the window running out by its clock is heard",
+ '''      if (G.t >= G.dur){ this.gyreLoose(f, foe); f.ultGyre = null; continue; }
+''',
+ '''      if (G.t >= G.dur){ SFX.play("ult", { w: "bloodwick-close" }); this.gyreLoose(f, foe); f.ultGyre = null; continue; }
+'''),
+
+("the picture keeps its own clock",
+ '''  /* THE CLOSE (v90 §5): "whatever is still orbiting is loosed as ordinary
+     seekers" -- at the foe, at the spell's own speed, with its own bend. */''',
+ '''  /* THE PICTURE'S CLOCK (v90 §6.1): 1 while the window runs, down over 0.3s
+     after it ("the lane fades 0.3s"), and the window's age for the flame and
+     the motes. Kept by `tickGyre`'s caller loop below; read by `drawGyre`
+     alone. */
+  gyrePicture(dt){
+    for (const f of [this.a, this.b]){
+      const G = f.ultGyre;
+      if (G){ f.gyreFade = 1; f.gyreAge = G.t; }
+      else f.gyreFade = Math.max(0, f.gyreFade - dt / 0.3);
+    }
+  }
+
+  /* THE CLOSE (v90 §5): "whatever is still orbiting is loosed as ordinary
+     seekers" -- at the foe, at the spell's own speed, with its own bend. */'''),
+
+("the picture's clock ticks with the window",
+ '''    this.tickGyre(dt);                  // GYRE (v90): the blood circles
+''',
+ '''    this.tickGyre(dt);                  // GYRE (v90): the blood circles
+    this.gyrePicture(dt);               // ...and the lane's and the flame's light
+'''),
+
+("the fighter carries the flame's light",
+ '''    this.gyreTally = null;
+''',
+ '''    this.gyreTally = null;
+    /* THE FLAME AND THE LANE (v90 §6.1): their fade and the window's age.
+       Render-only. */
+    this.gyreFade = 0;
+    this.gyreAge = 0;
+'''),
+
+("the staff's bloodsworn head: Code's pick, and why",
+ '''   sanctified core bead in the curl" -- which is A to the word. B and C stay
+   until Rick has seen it. */
+''',
+ '''   sanctified core bead in the curl" -- which is A to the word. B and C stay
+   until Rick has seen it. */
+/* THE BLOODSWORN HEAD IS "A" -- Code's pick for Bloodwick, the same ruling: the
+   CLAW holding a blood-glass orb with a flame standing off it, because design
+   §6.1 asks for "a head of red glass in which a flame gutters", and GYRE
+   flares exactly that flame. B and C stay until Rick has seen it. */
+'''),
+
+("the globule: a fat drop of blood with its tail",
+ glob_cut,
+ '''      /* BLOODWICK'S GLOBULE ON SCREEN (v90 §6.1): "a fat drop of blood, r 22,
+         with a short trailing tail drawn from its velocity; it visibly curves"
+         -- the tail is the homing code's own ring buffer of real positions
+         where it has one, so a bending drop draws its bend; an orbiter's tail
+         lies along its lane ("drops circling the ball at the lane, each with
+         its tail"). A dark rim keeps a red drop legible on a red foe. Off the
+         shot's own state; no rng. */
+      if (s.spell === "bloodseeker"){
+        const pal = s.aff, sp = Math.hypot(s.vx, s.vy) || 1, ux = s.vx / sp, uy = s.vy / sp;
+        c.save();
+        c.lineCap = "round"; c.lineJoin = "round";
+        c.globalAlpha = 0.55; c.strokeStyle = pal.core; c.lineWidth = s.r * 0.7;
+        c.beginPath();
+        if (s.trail && s.trail.length >= 4){
+          c.moveTo(s.trail[0], s.trail[1]);
+          for (let j = 2; j < s.trail.length; j += 2) c.lineTo(s.trail[j], s.trail[j + 1]);
+          c.lineTo(s.x, s.y);
+        } else { c.moveTo(s.x - ux * s.r * 1.8, s.y - uy * s.r * 1.8); c.lineTo(s.x, s.y); }
+        c.stroke();
+        c.globalAlpha = 1; c.fillStyle = pal.dark;
+        c.beginPath(); c.arc(s.x, s.y, s.r * 0.8, 0, TAU); c.fill();
+        c.fillStyle = pal.core;
+        c.beginPath(); c.arc(s.x, s.y, s.r * 0.68, 0, TAU); c.fill();
+        c.fillStyle = pal.glow; c.globalAlpha = 0.8;
+        c.beginPath(); c.arc(s.x - s.r * 0.22, s.y - s.r * 0.22, s.r * 0.2, 0, TAU); c.fill();
+        c.restore();
+        continue;
+      }
+'''),
+
+("drawGyre replaces the first-cut lane",
+ lane_cut,
+ '''    this.drawGyre(m);            // GYRE's lane, flame and motes (v90 §6.1)
+'''),
+
+("drawGyre: the lane, the flame at twice its size, the motes",
+ '''  /* RADIANCE ON SCREEN (v95 §6.1):''',
+ '''  /* GYRE ON SCREEN (v90 §6.1): "Cast: the flame flares to twice its size for
+     the window; a thin ring at r 95 (`glow`, alpha 0.35) shows the orbit's
+     lane ... Close: the flame drops back, the lane fades 0.3s ... Field: red
+     motes drifting inward along the lane." DRAWN, not an fx.js field (the one
+     `m.ultFx` slot is erased by the opponent's cast, and `src/render/fx.js` is
+     shared by both chain lines) -- off the fighter's own `gyreFade`.
+
+     THE FLAME is bloodsworn head "A"'s own (STAFF.bloodsworn): it stands off
+     the orb at 0.80 of the drawn staff plus 0.234 of the drawn width, 0.18 of
+     the drawn staff long and 0.16 of the width high (1.7x the sim's L, 1.3x
+     artW); for the window it is drawn again at twice that. No rng. */
+  drawGyre(m){
+    const c = this.ctx, R = CONFIG.physics.ballR;
+    for (const f of [m.a, m.b]){
+      const k = f.gyreFade;
+      if (!(k > 0.01) || !f.alive) continue;
+      const pal = f.aff, u = f.w.ult, T = f.gyreAge;
+      c.save();
+      /* the lane */
+      c.globalAlpha = 0.35 * k; c.strokeStyle = pal.glow; c.lineWidth = 1.5;
+      c.beginPath(); c.arc(f.x, f.y, u.orbitR, 0, TAU); c.stroke();
+      /* the motes drifting inward along it */
+      c.fillStyle = pal.core;
+      for (let i = 0; i < 12; i++){
+        const ph = (T * (0.35 + 0.2 * shellHash(9951, i)) + shellHash(9953, i)) % 1;
+        const a = TAU * shellHash(9955, i) + T * 0.8, rr = u.orbitR * (1.25 - 0.5 * ph);
+        c.globalAlpha = 0.5 * k * Math.sin(ph * Math.PI);
+        c.beginPath(); c.arc(f.x + Math.cos(a) * rr, f.y + Math.sin(a) * rr, 2.1, 0, TAU); c.fill();
+      }
+      /* the flame at twice its size, dropping back as the lane fades */
+      const reach = f.w.reach * m.actMods.reach * f.reachMul;
+      const Lq = (reach + 6) * 1.7, Wq = f.w.artW * 1.3;
+      const fx = Lq * 0.80 + Wq * 0.234, fl = Lq * 0.18 * (1 + k), fh = Wq * 0.16 * (1 + k);
+      c.translate(f.x, f.y); c.rotate(f.theta); c.translate(R - 6, 0);
+      c.globalCompositeOperation = "lighter";
+      c.globalAlpha = 0.9 * k; c.fillStyle = pal.core;
+      c.beginPath(); c.moveTo(fx, -fh); c.quadraticCurveTo(fx + fl * 0.55, -fh * 1.1, fx + fl, 0);
+      c.quadraticCurveTo(fx + fl * 0.55, fh * 1.1, fx, fh); c.closePath(); c.fill();
+      c.globalAlpha = 0.8 * k; c.fillStyle = pal.glow;
+      c.beginPath(); c.moveTo(fx, -fh * 0.45); c.quadraticCurveTo(fx + fl * 0.4, -fh * 0.5, fx + fl * 0.6, 0);
+      c.quadraticCurveTo(fx + fl * 0.4, fh * 0.5, fx, fh * 0.45); c.closePath(); c.fill();
+      c.restore();
+    }
+  }
+
+  /* RADIANCE ON SCREEN (v95 §6.1):'''),
+    ]
+
+
 def stage_of(code: str) -> int:
     if f'id:"{RELIC}"' not in code:
         return 0
     ent = relic_entry(code, RELIC)
     if "charge:1e9" not in ent:
+        if "gyreFade" in code:
+            return 6
+        if f"dmg:{fnum(TUNED_BLADE)}," in ent:
+            return 5
         return 4 if "gyreTally.lunges++" in code else 3
     return 2 if "home:" in re.search(r"shot:\{([^}]*)\}", ent).group(1) else 1
 
 
 def all_stages():
-    return [("1", s1_edits()), ("2", s2_edits(fnum(BLADE))), ("3", s3_edits(dict(ULT))), ("4", s4_edits())]
+    return [("1", s1_edits()), ("2", s2_edits(fnum(BLADE))), ("3", s3_edits(dict(ULT))), ("4", s4_edits()), ("5", s5_edits()), ("6", s6_edits())]
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--stage", choices=["1", "2", "3", "4"])
+    ap.add_argument("--stage", choices=["1", "2", "3", "4", "5", "6"])
     ap.add_argument("--src"); ap.add_argument("--out")
     ap.add_argument("--audit", default=None, metavar="TIP")
     A = ap.parse_args()
@@ -378,7 +641,7 @@ def main() -> int:
         raise SystemExit("wrong base: no Crozier stage 6 -- build on the staff branch's tip")
     print("  base  the staff branch, Culverin, Briarwand, Cipher, Watchlight and Crozier in it")
     have = stage_of(code)
-    want = {1: 0, 2: 1, 3: 2, 4: 3}[stage]
+    want = {1: 0, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5}[stage]
     if have != want:
         raise SystemExit(f"this source carries stage {have}; stage {stage} is built on stage {want}")
     if stage == 1:
@@ -387,13 +650,17 @@ def main() -> int:
         edits = s2_edits(re.search(r"dmg:([\d.]+),", relic_entry(code, RELIC)).group(1))
     elif stage == 3:
         edits = s3_edits(dict(ULT))
-    else:
+    elif stage == 4:
         edits = s4_edits()
+    elif stage == 5:
+        edits = s5_edits()
+    else:
+        edits = s6_edits()
     for label, old, new in edits:
         s = one(s, old, new, label)
     out = strip_comments(s)
     shot = SPELL if stage >= 2 else BOW_SHOT
-    ent = check_entry(out, RELIC, shot, BLADE, stubbed=(stage <= 2))
+    ent = check_entry(out, RELIC, shot, TUNED_BLADE if stage >= 5 else BLADE, stubbed=(stage <= 2))
     if "onHit:{ hemorrhage:2 }" not in ent:
         raise SystemExit(f"REFUSING TO WRITE -- {RELIC} does not hemorrhage 2 on hit")
     if len(CARD) > 72:

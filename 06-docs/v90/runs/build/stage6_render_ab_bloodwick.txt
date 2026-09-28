@@ -1,0 +1,18 @@
+
+RENDER A/B  2 pairings x 5 frames  540x960
+  a  sc-gyre-blade.html
+  b  sc-bloodwick-fx.html
+  bloodwick v emberedge seed 7011 t=  5.00  DIFFERS   luma 18.626 -> 18.633   lit 76.01% -> 76.01%
+  bloodwick v emberedge seed 7011 t= 17.00  DIFFERS   luma 20.575 -> 20.596   lit 87.94% -> 87.94%
+  bloodwick v emberedge seed 7011 t= 19.00  DIFFERS   luma 19.537 -> 19.744   lit 88.03% -> 88.03%
+  bloodwick v emberedge seed 7011 t= 22.00  DIFFERS   luma 19.147 -> 19.328   lit 88.04% -> 88.04%
+  bloodwick v emberedge seed 7011 t= 30.00  DIFFERS   luma 22.625 -> 22.630   lit 91.52% -> 91.52%
+  bloodwick v axiom seed 7012 t=  5.00  DIFFERS   luma 21.179 -> 21.197   lit 88.25% -> 88.25%
+  bloodwick v axiom seed 7012 t= 17.00  DIFFERS   luma 20.298 -> 20.492   lit 88.25% -> 88.25%
+  bloodwick v axiom seed 7012 t= 19.00  DIFFERS   luma 20.542 -> 20.763   lit 88.24% -> 88.24%
+  bloodwick v axiom seed 7012 t= 22.00  DIFFERS   luma 20.916 -> 21.126   lit 88.20% -> 88.20%
+
+FAIL  1/10 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

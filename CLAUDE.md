@@ -12,34 +12,35 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-watchlight-fx.html   THE STAFF BRANCH'S TIP: A BRANCH OFF sc-leaf, NOT
-                                 THE CHAIN TIP (built on yert). FOUR STAVES, EACH
-                                 STAGES 1-6, 38 RELICS: CULVERIN / IRONFALL (v96,
-                                 and the staff TYPE with it: shape "staff" pasted
-                                 from Cowork's spec, all 21 heads), BRIARWAND /
-                                 BLOOM (v93), CIPHER / CONVERGENCE (v94) and
-                                 WATCHLIGHT / BEACON (v92). sc-leaf -> sc-culverin
-                                 ... sc-ironfall-fx -> sc-briarwand ... sc-bloom-fx
-                                 -> sc-cipher ... sc-cipher-fx -> sc-watchlight ->
-                                 sc-wardbolt -> sc-beacon -> sc-watchlight-fx.
-                                 Charge 14 (the lab's 16) on all four. Blades
-                                 MEASURED wide, both sides, two blocks: Culverin
-                                 13.5, Briarwand 15.25 (design 16.5), Cipher 8.875
-                                 (design 11), Watchlight 9.3 (the design's). The
-                                 labs tagged a new shot one step late: Briarwand
-                                 lost side thorns, Cipher every bolt loosed into a
-                                 wall, Watchlight the shove on a first-step
-                                 landing. With the lab's tagging put back each
-                                 build IS its lab. Heads: dwarven A, verdant C,
-                                 runic A, vigil A (Code's picks under "you pick i
-                                 overrule"). verify at each tip, reds the clock
-                                 bands (Watchlight's tip also 'both sides can
-                                 win': Starwarden 40/0, the design's worst);
-                                 engine_ab at every stage, each fx link WITH its
-                                 relic; shell_identity at each tip. THE FOUR CLIPS
-                                 ARE WITH RICK. THIS LINE DOES NOT MOVE GAME until
-                                 it and the batch line are carried onto one
-                                 another (each builder takes --src).
+02-chain/sc-bloodwick-fx.html    THE STAFF BRANCH'S TIP: A BRANCH OFF sc-leaf, NOT
+                                 THE CHAIN TIP (built on yert). SIX STAVES, EACH
+                                 STAGES 1-6, 40 RELICS: CULVERIN / IRONFALL (v96,
+                                 and the staff TYPE with it), BRIARWAND / BLOOM
+                                 (v93), CIPHER / CONVERGENCE (v94), WATCHLIGHT /
+                                 BEACON (v92), CROZIER / RADIANCE (v95) and
+                                 BLOODWICK / GYRE (v90). Each relic's links run
+                                 from the one before's -fx link; the tip is
+                                 sc-bloodwick-fx. Charge 14 (the lab's 16) on all.
+                                 Blades MEASURED wide, both sides, two or three
+                                 blocks: Culverin 13.5, Briarwand 15.25 (design
+                                 16.5), Cipher 8.875 (11), Watchlight 9.3 (the
+                                 design's), Crozier 12.75 (14.5), Bloodwick 7.75
+                                 (8.5). EVERY staff lab tagged a new shot one
+                                 step late; with that put back each build IS its
+                                 lab. Crozier's pierce is the engine's where the
+                                 lab faked one. BLOODWICK'S LUNGE, AS WRITTEN,
+                                 FIRES ON ONE GLOBULE 91% OF THE TIME -- for Rick.
+                                 Heads: dwarven A, verdant C, runic A, vigil A,
+                                 sanctified A, bloodsworn A (Code's picks under
+                                 "you pick i overrule"). verify at each tip, reds
+                                 the clock bands and 'both sides can win' on
+                                 pairings the new relic does not move; engine_ab
+                                 at every stage, each fx link WITH its relic;
+                                 shell_identity at each tip. SIX CLIPS ARE WITH
+                                 RICK. NIGHTGLASS (v91) IS THE ROW'S LAST. THIS
+                                 LINE DOES NOT MOVE GAME until it and the batch
+                                 line are carried onto one another (each builder
+                                 takes --src).
 02-chain/sc-sunrise-e26.html     A BRANCH OFF sc-zenith, NOT THE CHAIN TIP (built on
                                  yert, Rick's call): DAYBREAK, RICK'S CIRCLE (v99,
                                  sunrise_build.py). The cast puts the sun in the

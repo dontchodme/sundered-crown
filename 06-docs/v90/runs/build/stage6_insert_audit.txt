@@ -1,0 +1,8 @@
+
+BLOODWICK / GYRE -- the insert audit against ../02-chain/sc-bloodwick-fx.html
+  ok    stage 1  Bloodwick joins the roster, its ultimate stubbed: 2 line(s) replaced by a later stage, by design
+  ok    stage 2  the globule is drawn (first cut): 4 line(s) replaced by a later stage, by design
+  ok    stage 3  tickGyre: the ring turns, and the close looses it: 1 line(s) replaced by a later stage, by design
+  ok    stage 3  the orbit's lane is drawn (first cut): 4 line(s) replaced by a later stage, by design
+
+  28/28 inserts survive in sc-bloodwick-fx.html (4 carry lines a later stage replaced on purpose)

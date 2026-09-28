@@ -1,0 +1,43 @@
+BLOODWICK'S VOICES -- ../02-chain/sc-gyre-blade.html -- Chromium 151.0.7922.34 -- the method of culverin_voice_lab
+
+  control  hit@7.8      peak 0.415  TOP  -19.2 dB @   25 ms  aud   75 ms  cent    159 Hz  low 0.76  low60 0.72  hi20 0.02  PHONE  -30.4
+  control  arrow loose  peak 0.026  TOP  -48.0 dB @   25 ms  aud   30 ms  cent   1027 Hz  low 0.01  low60 0.01  hi20 0.14  PHONE  -48.1
+  control  wall         peak 0.089  TOP  -38.9 dB @   25 ms  aud   25 ms  cent  11829 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -38.9
+  control  rune-crack   peak 0.647  TOP  -17.2 dB @   25 ms  aud  445 ms  cent   1086 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -17.2
+  (hit@7.8 is a globule landing: blade 7.75 x 1.0)
+
+THE CAST  -- "a wet ignition -- a low whump into a candle-hiss, 0.35s"   -- level-matched to HIT -6 dB
+  WHUMP        peak 0.149  TOP  -25.2 dB @   25 ms  aud  290 ms  cent  12398 Hz  low 0.02  low60 1.00  hi20 0.00  PHONE  -33.3  vs HIT  -5.9 dB  clicks 10
+               REG rune-crack 0.11  
+  IGNITE       peak 0.206  TOP  -25.5 dB @   25 ms  aud  285 ms  cent  12286 Hz  low 0.00  low60 0.98  hi20 0.00  PHONE  -30.1  vs HIT  -6.2 dB  clicks 10
+               REG rune-crack 0.14  
+  FLARE        peak 0.159  TOP  -25.3 dB @   25 ms  aud  310 ms  cent  12989 Hz  low 0.00  low60 0.99  hi20 0.00  PHONE  -29.8  vs HIT  -6.0 dB  clicks 9
+               REG rune-crack 0.10  
+  PICK  FLARE
+
+THE SLOT  -- "a soft tick as each drop takes its slot"   -- level-matched to HIT -22 dB
+  TICK         peak 0.057  TOP  -41.3 dB @   25 ms  aud   25 ms  cent   1418 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -41.3  vs HIT -22.1 dB  clicks 1
+               REG the release 0.29  
+  DRIP         peak 0.042  TOP  -41.1 dB @   25 ms  aud   35 ms  cent   1224 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -41.1  vs HIT -21.9 dB  clicks 2
+               REG the release 0.26  
+  PLINK        peak 0.047  TOP  -41.4 dB @   25 ms  aud   40 ms  cent   1820 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -41.4  vs HIT -22.1 dB  clicks 1
+               REG the release 0.21  
+  PICK  TICK
+
+THE CRACK  -- "one sharp wet crack (the release) ... pitched by count"   -- level-matched to HIT -6 dB
+  CRACK        peak 0.301  TOP  -25.5 dB @   25 ms  aud   45 ms  cent    793 Hz  low 0.00  low60 0.00  hi20 0.18  PHONE  -25.6  vs HIT  -6.2 dB  clicks 2
+               REG hit 0.07  rise 4.74
+  SPLAT        peak 0.277  TOP  -25.4 dB @   25 ms  aud   45 ms  cent    494 Hz  low 0.04  low60 0.10  hi20 0.05  PHONE  -30.3  vs HIT  -6.2 dB  clicks 2
+               REG hit 0.60  rise 1.10
+  WHIP         peak 0.303  TOP  -25.4 dB @   25 ms  aud   40 ms  cent   2659 Hz  low 0.00  low60 0.00  hi20 0.58  PHONE  -26.0  vs HIT  -6.2 dB  clicks 2
+               REG hit 0.21  rise 4.29
+  PICK  CRACK
+
+THE CLOSE  -- "the hiss cut short"   -- level-matched to HIT -10 dB
+  SHORT        peak 0.181  TOP  -29.3 dB @   30 ms  aud   85 ms  cent  13355 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -29.3  vs HIT -10.0 dB  clicks 3
+               REG the cast 0.99  
+  SHORT_SNAP   peak 0.151  TOP  -29.4 dB @   30 ms  aud  125 ms  cent  13113 Hz  low 0.00  low60 0.00  hi20 1.00  PHONE  -29.4  vs HIT -10.2 dB  clicks 4
+               REG the cast 0.99  
+  PICK  SHORT
+
+THE PICKS: cast FLARE, slot TICK, crack CRACK, close SHORT

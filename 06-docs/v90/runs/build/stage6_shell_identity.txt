@@ -1,0 +1,5 @@
+[identity] app   Chromium 152.0.7977.54  200 fights
+[identity] build 02-chain/sc-bloodwick-fx.html
+[identity] headless Chromium 151.0.7922.34
+
+PASS  200/200 identical.

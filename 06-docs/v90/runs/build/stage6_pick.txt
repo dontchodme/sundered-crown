@@ -1,0 +1,7 @@
+126 Gyre windows
+   18.7  cindercleave   4401  biggest lunge 4  3+ orbiting  0.7s  lunged landings 12   --a bloodwick --b cindercleave --seed 4401 --at 14.7 --window 11.4
+   16.9  emberedge      4486  biggest lunge 4  3+ orbiting  1.9s  lunged landings  6   --a bloodwick --b emberedge --seed 4486 --at 15.5 --window 10.0
+   16.6  farwarden      4435  biggest lunge 4  3+ orbiting  0.6s  lunged landings  8   --a bloodwick --b farwarden --seed 4435 --at 14.3 --window 10.0
+   16.1  farwarden      4401  biggest lunge 3  3+ orbiting  0.1s  lunged landings 14   --a bloodwick --b farwarden --seed 4401 --at 32.1 --window 11.0
+   15.5  ironhail       4486  biggest lunge 3  3+ orbiting  0.0s  lunged landings 13   --a bloodwick --b ironhail --seed 4486 --at 14.9 --window 10.8
+   14.8  cindercleave   4452  biggest lunge 3  3+ orbiting  0.3s  lunged landings 11   --a bloodwick --b cindercleave --seed 4452 --at 30.8 --window 10.9

@@ -1,0 +1,56 @@
+{
+ "T": {
+  "fights": 156,
+  "wins": 74,
+  "dur": 8193.133333333113,
+  "looses": 17800,
+  "badCad": [],
+  "globs": 13382,
+  "badGlob": [],
+  "blows": 4726,
+  "turnChecked": 837135,
+  "badTurn": [],
+  "maxOrb": 6,
+  "laneChecked": 131874,
+  "badLane": [],
+  "orbClanked": 65,
+  "orbLanded": 125,
+  "loosedChecked": 124,
+  "badLoose": [],
+  "lungedChecked": 1565,
+  "badLunge": [],
+  "lungeFar": 0,
+  "casts": 441,
+  "ultBeats": 3861,
+  "lunges": 3420,
+  "lunged": 3813,
+  "orbited": 7618,
+  "winFrames": 442120,
+  "foeStk": 1445400,
+  "winBlows": 2904,
+  "tally": 441,
+  "labCasts": 437,
+  "live": true,
+  "lungeLive": true
+ },
+ "row": {
+  "win": 0.47435897435897434,
+  "castsF": 2.826923076923077,
+  "orbC": 17.27437641723356,
+  "lungedC": 8.646258503401361,
+  "winBlowC": 6.585034013605442,
+  "stk": 3.2692481679182124,
+  "inF": 18.615384615384617,
+  "outF": 11.679487179487179,
+  "blowsF": 30.294871794871796,
+  "dur": 52.520085470084055
+ },
+ "D": {
+  "threw": null,
+  "frames": 12286,
+  "seen": {
+   "glob": 5747,
+   "orbit": 2163
+  }
+ }
+}

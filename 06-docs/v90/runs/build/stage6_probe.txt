@@ -1,0 +1,16 @@
+BLOODWICK PROBE -- ../02-chain/sc-bloodwick-fx.html   156 fights, every foe, both sides   67s
+  win 47.4%   casts 2.83   hits in/out 18.62/11.68   orbited 17.27 a cast   lunged 8.65 a cast   blows 6.59 a window   foe hemorrhage 3.27   blows 30.3 a fight   mean 52.5s
+  PASS  [1] every globule leaves with the spell's numbers and its bend  -- 13382 globules
+  PASS  [2] the cadence is exact  -- 17800 looses
+  PASS  [3] no shot turns more than home*dt a step  -- 837135 shot-steps
+  PASS  [4] blows a fight (the brief's ~22 is the spell's)  -- 30.3
+  PASS  [5] never more than maxOrb orbiters  -- most at once 6
+  PASS  [6] an orbiter sits within 1px of the lane on every window step  -- 131874 orbiter-steps
+  PASS  [7] orbiters are clanked and land  -- clanked 65, landed 125
+  PASS  [8] the close looses every orbiter at the spell's speed and bend  -- 124
+  PASS  [9] a lunge sends every orbiter at 520, homing 8 -- only with the foe inside 230  -- 1565 lunged, 0 lunges with the foe outside
+  PASS  [10] lunged ~7 a cast, blows ~5.3 a window, hemorrhage ~3.2 on a window frame  -- 8.65, 6.59, 3.27
+  PASS  [11] an ult beat a cast and one a lunge  -- 3861 beats for 441 casts and 3420 lunges
+  PASS  [P] the render path is CALLED  --   12286 frames  {'glob': 5747, 'orbit': 2163}
+
+  12/12
