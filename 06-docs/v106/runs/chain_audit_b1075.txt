@@ -1,0 +1,16 @@
+  (8 insert(s) found in widowmaker_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-widowmaker-b1075.html
+tip    sc-widowmaker-b1075.html
+8 inserts read out of widowmaker_build.py
+
+    ok  S1:Exsanguinate's nova block out, the drain's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the drain has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the drain's window relic  1  mid   -  tip  1
+    ok  S2:the foe's bleed drains into her, in tickStatus's dps branch relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickDrain keeps the window's clock relic  1  mid   -  tip  1
+    ok  S5:the blade: to the shipped win rate relic  1  mid   -  tip  1
+
+ALL 8 INSERTS SURVIVE to sc-widowmaker-b1075.html
+exit 0

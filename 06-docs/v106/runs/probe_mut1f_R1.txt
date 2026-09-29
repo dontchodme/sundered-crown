@@ -1,0 +1,27 @@
+
+EXSANGUINATE PROBE  mut1f.html  Chromium 151.0.7922.34  222 fights (Widowmaker both sides x every foe x 3 seeds, seed0 101001)   ult {'charge': 14, 'dur': 8, 'kind': 'drain'}  blade 10.75
+  pinned from the builder: window 8s, charge 14, the twinblade reach 62 width 8 spin 5.7 mass 1.1 blades [0.0, 0.5] onHit +2, blade 11.95 or 10.75
+  casts/fight 3.79   blows a fight: in windows 8.73, outside 11.57   Widowmaker win 45.9%
+  per cast: drained 20.17 hp (the tally; hp deltas 20.17)   drain ticks 504   foe stacks on a window frame 2.21   ticks at the cap 3.2%
+  window: 960 steps of the window clock (8.000s); match time a window 8.01s (a clock close)   FREEZE CENSUS 14.4% of window steps frozen
+  the window clock: held on 1343 frozen steps, moved by dt on 649526 live steps (659 of them closing)
+  841 windows: 743 closed by the clock, 16 on a death tickDrain saw, 82 still set at `over` (a kill after tickDrain in the last step), 0 at the timeout, 0 at the probe's cap
+  the charge: 841 casts each exactly 1681 steps of her live clock after the last (14.008s); 222 fights ended owing none
+  bleed ticks that drained nothing: 560697 window shut, 10474 a shade's, 0 a dead foe's   blows on a cursed foe or Bulwarden's wall, rebuilt with their rules 61
+  her blade: turned by the definition on 526950 live steps in windows and 783916 outside (289121 stunned, held); held on 233760 frozen steps; segments rebuilt 1853900 in / 2747862 out
+             hit test and cooldowns rebuilt on 657099 tickHits in windows and 966040 outside (108 skipped with one down); knock 4506, foe hitstun 4506, stop 4506 of her blows; clanks 2533 in / 3343 out
+  the foe's bleed ceiling (hemorrhage's 4): held after 759135 steps in windows and 1074612 outside; blows where it bound 947 in windows, 1077 outside; onHit +2 where it could not bind 2417
+  her only heal: 410788 hp rises, all inside another fighter's status tick; no Blessing or lifesteal after 759135 steps in windows and 1074612 outside; 4506 blows of hers healed nothing; 120 of her deaths clamped to 0 by checkEnd
+  [1] FAIL  the window is the build's 8 s on the window tickers' clock: held on every frozen step, dt on every live one; closes on a death tickDrain sees; every window accounted for; only Widowmaker carries ultDrain   108184 FAIL: ['a frozen step moved the window: t 0.008333333333333333 -> 0.016666666666666666', 'a frozen step moved the window: t 0.016666666666666666 -> 0.025', 'a frozen step moved the window: t 0.025 -> 0.03333333333333333', 'a frozen step moved the window: t 0.03333333333333333 -> 0.041666666666666664']
+  [2] PASS  every hemorrhage tick on her live foe in the window heals her by exactly d, rebuilt from the engine's loop
+  [3] PASS  capped at maxHp (§2): a tick that would carry her past it leaves her exactly at maxHp; maxHp never moves
+  [4] PASS  nothing drains with the window shut, from a shade or a corpse; the foe's own tick untouched
+  [5] PASS  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank
+  [6] PASS  the cast moves nothing on either fighter but her window: no damage, knock, stun or status, no RNG, no new object, the common 0.08 stop and ult beat only; a window {t 0, dur}
+  [7] PASS  a drain tick: no beat but the fatal tick's own, no stop, no float, no status on her
+  [8] PASS  the build's charge 14 on her live clock: every cast exactly then, none owed at the end, none while her window is open
+  [9] PASS  the drain lifts no cap (§6.3): the foe's bleed ceiling is hemorrhage's own 4 after every step and at every blow, and a blow at the ceiling stops there
+  [10] PASS  the drain is her only heal (§3 no lifesteal, §4 no Blessing): her hp rises only in another fighter's status tick; no Blessing or lifesteal on her after any step or at any blow
+
+  9/10
+

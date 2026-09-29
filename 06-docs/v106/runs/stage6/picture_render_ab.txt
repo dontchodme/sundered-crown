@@ -1,0 +1,12 @@
+oathwound:spellbreaker 31337: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+redflail:twinshade 4101: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+marrowdraw:thornshear 2207: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+ravelbone:starwarden 7719: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+bloodmirror:grudgebearer 1234: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+thornwake:gravemourn 90210: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+bindweed:portcullis 4242: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+morningstar:ironwood 99001: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+aureole:lastlight 5150: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical [True, True, True, True, True, True])
+CONTROL widowmaker:spellbreaker 99015: 2/6 pixel-identical  (window up at [False, True, True, True, True, True]; identical [True, False, False, False, True, False])
+CONTROL gravemourn:widowmaker 5150: 2/6 pixel-identical  (window up at [False, True, True, True, True, True]; identical [True, False, False, False, False, True])
+OTHER RELICS: 54/54 pixel-identical

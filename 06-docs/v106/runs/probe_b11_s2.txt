@@ -1,0 +1,16 @@
+
+EXSANGUINATE PROBE  sc-widowmaker-b11.html  Chromium 151.0.7922.34  888 fights (Widowmaker both sides x every foe x 12 seeds)   ult {'charge': 14, 'dur': 8, 'kind': 'drain'}  blade 11
+  casts/fight 3.79   blows a fight: in windows 10.14, outside 9.89   Widowmaker win 46.8%
+  per cast: drained 23.34 hp (the tally; hp deltas 23.34)   drain ticks 572   foe stacks on a window frame 2.18   ticks at the cap 1.7%
+  window: 960 steps of the window clock (8.000s); match time a window 9.27s (a clock close)   closes: 2808 by the clock, 117 on a death   FREEZE CENSUS 14.5% of window steps frozen
+  bleed ticks that drained nothing: 1914551 window shut, 39411 a shade's, 0 a dead foe's   blows exempt (aegis/curse) 236
+  [1] PASS  the window is `dur` on the window clock, closes on either death; only Widowmaker carries ultDrain
+  [2] PASS  every hemorrhage tick on her live foe in the window heals her by exactly d, rebuilt from the engine's loop
+  [3] PASS  capped at maxHp: a tick that would carry her past it leaves her exactly at maxHp
+  [4] PASS  nothing drains with the window shut, from a shade or a corpse; the foe's own tick untouched
+  [5] PASS  every blow the twinblade's own, rebuilt exactly, in the window and out; onHit hemorrhage +2
+  [6] PASS  the cast: no damage, knock, stun or status; the common 0.08 stop only; a window {t 0, dur}
+  [7] PASS  a drain tick: no beat but the fatal tick's own, no stop, no float, no status on her
+  [8] PASS  no cast while her window is open
+
+  8/8

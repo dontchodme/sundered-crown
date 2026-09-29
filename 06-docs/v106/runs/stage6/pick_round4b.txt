@@ -1,0 +1,22 @@
+
+  sc-widowmaker-b1075-fx.html  ·  31 foes x 8 seeds (left out: bloodmirror, marrowdraw, oathwound, ravelbone, redflail, twinshade)  ·  the best window of each fight: 248, of which 6 show everything
+
+  foe              seed  cast at  window clock snap all drained   +n  n2  n4   up% back stops blows foe ult card snap d  score
+  bulwarden      106038    78.15    9.77     1    1   1    41.4   42   1  41  90.2    1   213     4       0    0    176  26.41
+  grudgebearer   106038    47.02    9.08     1    1   1    41.0   41   6  35  96.6    1   131     3       0    0    359  26.40
+  spellbreaker   106149    46.42    9.65     1    1   1    25.1   25  19   6  95.2    3   199     2       0    0    210  26.23
+  spellbreaker   106223    47.22    9.41     1    1   1    29.1   29   8  21  80.9    1   142     4       0    0    255  25.99
+  slagheart      106149    45.42    9.08     1    1   1    29.4   29   8  21  78.1    1   131     3       0    0    449  25.75
+  spellbreaker   106260    31.57    8.98     1    1   1    31.8   32   2  30  70.8    1    90     3       0    0    473  25.62
+  grudgebearer   106223    31.12    9.29     1    1   0    33.4   34   2  32  71.0    0   127     6       0    0    186  15.83
+  portcullis     106149    46.71    9.87     1    1   0    45.0   45   1  44  96.2    1   225     7       1    0    168  15.19
+  lastlight      106149    31.77    9.27     1    1   0    39.1   40   7  33  94.9    2   154     5       1    0    323  15.15
+  lightkeeper    106149    64.67   10.51     1    1   0    41.4   42   1  41  87.7    1   302     8       1    0    177  15.13
+  heartwood      106112    63.21   10.60     1    1   0    46.5   47   2  45  96.1    1   313     6       1    0    337  14.98
+  cindercleave   106186    47.03    9.92     1    1   0    36.3   37   7  30  86.8    1   216     7       1    0    258  14.90
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/widowmaker/links/sc-widowmaker-b1075-fx.html --a widowmaker --b bulwarden --seed 106038 \
+      --at 76.95 --window 12.77 --end-at-window --fps 60 --w 540 --out ../07-shorts/v106/exsanguinate-window.mp4
+exit 0

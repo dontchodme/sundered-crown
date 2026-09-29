@@ -1,0 +1,9 @@
+v106 compose check: widowmaker_build.py re-applied on a LATER tip carrying other new relics (scratch, not the chain)
+tip = sc-tendril-t3.html 5a6216e3b629fad4
+  + lodestone_build.py stage 1 -> sc-lodestone.html        219cc73b0460ddf0
+  + lodestone_build.py stage 2 -> sc-lodestone-runes.html  f6b9d99345d7bd52
+  + ironhail_build.py stage 1  -> sc-ironhail-stub.html    63ef5a3eb8e71709
+  + ironhail_build.py stage 2  -> sc-ironhail-hail.html    70fd55fe31373f20
+widowmaker stages 1 / 2 / 5 on that tip: 6e6523f0b26b57b7 / e4203848e1dc18ff / c39c48dca1d1230d, every anchor found once
+the build's lines on the base: +66 -2; on the later tip: +66 -2; the same lines, in the same order: True
+also on a scratch tip with a dummy relic's inserts at the same five anchors (sc-foo-tip): stub/drain/b11 a6c0f533f1c643f6 / 530af26cf9a4f947 / cbcc2279d754ae49; diff against the chain-tip links = exactly the dummy's lines

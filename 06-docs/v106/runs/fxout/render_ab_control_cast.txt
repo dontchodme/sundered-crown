@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 5 frames  540x960
+  a  sc-widowmaker-b1075-fx.html
+  b  sc-widowmaker-fxout.html
+  widowmaker v spellbreaker seed 106223 t= 47.25  DIFFERS   luma 20.959 -> 20.848   lit 69.80% -> 69.80%
+  widowmaker v spellbreaker seed 106223 t= 47.35  DIFFERS   luma 22.383 -> 21.185   lit 69.89% -> 69.78%
+  widowmaker v spellbreaker seed 106223 t= 47.45  DIFFERS   luma 21.796 -> 21.439   lit 69.54% -> 69.07%
+  widowmaker v spellbreaker seed 106223 t= 47.55  DIFFERS   luma 22.620 -> 22.574   lit 69.41% -> 69.03%
+  widowmaker v spellbreaker seed 106223 t= 47.65  DIFFERS   luma 23.066 -> 23.064   lit 69.09% -> 69.04%
+
+FAIL  0/5 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

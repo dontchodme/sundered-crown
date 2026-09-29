@@ -1,0 +1,12 @@
+[0] CONTROL: the stage-6 link unmutated                            fights changed   0/148   probe 12/12  fails []   CLEAN: PASS
+[11a] the drip on every drain tick, not once per whole hp            fights changed   0/148   probe 11/12  fails [11]   OWN CHECK ONLY: PASS   stage-5 probe 10/10 (blind, as it must be)
+    [11] FAIL  stage 6 voices: one inhale a cast, one drip per whole hp drained (n = the foe's stacks), none anywhere else -- no voice on a close, a death or the verdict   306532 FAIL: ['a drain tick played 1 drips, want 0 (her drained total 0 -> 0.050000000000011
+[11b] a close voice, on a death only                                 fights changed   0/148   probe 11/12  fails [11]   OWN CHECK ONLY: PASS   stage-5 probe 10/10 (blind, as it must be)
+    [11] FAIL  stage 6 voices: one inhale a cast, one drip per whole hp drained (n = the foe's stacks), none anywhere else -- no voice on a close, a death or the verdict   17 FAIL: ['a drip (n 4) played in a close (tickDrain)', 'a drip (n 4) played in a close (tic
+[12a] the picture's hook writes the sim (foe.vx += 1e-9 on a '+n')   fights changed 141/148   probe 11/12  fails [12]   OWN CHECK ONLY: PASS   stage-5 probe 10/10 (blind, as it must be)
+    [12] FAIL  stage 6 picture: tickSiphon writes nothing of the simulation's and draws no RNG; one "+n" per whole hp drained; the flush on every cast; the thread up only in an open window, snapping at its close   13110 FAIL: ['the picture wrote the simulation: vx
+[12b] the thread left up past its close (no snap)                    fights changed   0/148   probe 11/12  fails [12]   OWN CHECK ONLY: PASS   stage-5 probe 10/10 (blind, as it must be)
+    [12] FAIL  stage 6 picture: tickSiphon writes nothing of the simulation's and draws no RNG; one "+n" per whole hp drained; the flush on every cast; the thread up only in an open window, snapping at its close   1054350 FAIL: ['the thread is up (1) with the wind
+
+5/5 as they must be (the control clean; every mutant fails its own check alone, and the stage-5 probe passes it)
+exit 0

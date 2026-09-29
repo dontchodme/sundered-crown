@@ -1,0 +1,60 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 9.3,
+  "blade": null,
+  "liveOnly": 1
+ },
+ "arms": {
+  "B": {
+   "win": 0.5681818181818182,
+   "n": 660,
+   "casts": 3.6712121212121214,
+   "hitsIn": 9.762121212121212,
+   "hitsOut": 9.453030303030303,
+   "stats": {
+    "drained": 23.1581565552348,
+    "f_foeStk": 2.2098727785114365,
+    "f_frozen": 993.1530303030303,
+    "f_steps": 7990.036363636364,
+    "f_wfz": 521.9045454545454,
+    "f_wst": 3750.5924242424244
+   },
+   "byFoe": {
+    "dawnbringer": 0.65,
+    "grudgebearer": 0.5,
+    "thornwake": 0.45,
+    "lastlight": 0.7,
+    "slagheart": 0.5,
+    "spellbreaker": 0.45,
+    "ironhail": 0.75,
+    "lightkeeper": 0.4,
+    "farwarden": 0.85,
+    "aureole": 0.55,
+    "censer": 0.8,
+    "emberedge": 0.5,
+    "oathwound": 0.45,
+    "heartwood": 0.45,
+    "nightfell": 0.7,
+    "axiom": 0.7,
+    "twinshade": 0.35,
+    "redflail": 0.5,
+    "foregone": 0.45,
+    "vinesower": 0.65,
+    "bulwarden": 0.8,
+    "marrowdraw": 0.8,
+    "paradox": 0.35,
+    "thornshear": 0.75,
+    "vesper": 0.5,
+    "shroudmaul": 0.45,
+    "cindercleave": 0.5,
+    "ravelbone": 0.55,
+    "gloamwire": 0.25,
+    "bloodmirror": 0.75,
+    "duskreave": 0.8,
+    "starwarden": 0.55,
+    "gravemourn": 0.35
+   }
+  }
+ }
+}

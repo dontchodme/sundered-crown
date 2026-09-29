@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker (redesign) · 33 foes x 20 seeds = 660 fights an arm · control: the lab's window (dur 8), drain only on live steps
+  charge=16.0 dur=8.0 blade=None liveOnly=1
+
+  arm       win  casts  hits in/out  drained f_foeStk f_frozen  f_steps    f_wfz    f_wst
+  B       55.0%   3.66  8.36/10.75     20.17     2.21   988.35  7970.29   453.32  3254.91
+  660 fights in 72s   errors: []

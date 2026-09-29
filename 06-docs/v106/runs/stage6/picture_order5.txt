@@ -1,0 +1,35 @@
+rows_final.json: 10 rows, 20015 bytes, sha256[:16] of the file 42121c10265e101c, round-trips; all ASCII: True
+[1] 10 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+[3] STAMP 518477d4537ec077  (base a9977a757d5772b7; wm-final.html matches; +11443 chars)
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + widowmaker stages 1/2/5 (a9977a757d5772b7, = the base): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    == the stamp page: True
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-tendril-fx.html (eea0cde5536955b3) + widowmaker stages 1/2/5 (8188f2249c2c774b): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] watchlight-fx (sc-watchlight-fx.html): widowmaker_build stage 1 REFUSED/FAILED: WIDOWMAKER / EXSANGUINATE -- stage 1
+  src sc-watchlight-fx.html  0fd579e1cd0df0d3  (LF text)
+wrong base: anchor 'if (u.kind === "tendril"){' is not there exactly once
+[4] on ci-final.html (94bb7580047f01bc) + widowmaker stages 1/2/5 (6d9d0217fb597001): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on ih-final.html (f03b657a1d99d86c) + widowmaker stages 1/2/5 (01bef0e8ae79aedf): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on pc-final.html (de1cf49480a06745) + widowmaker stages 1/2/5 (5dde1882fd5e19bd): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on bw-final.html (ef4bd13fe968d99c) + widowmaker stages 1/2/5 (ceaccefc2c326db5): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on ld-final.html (b40d52b7561c45f2) + widowmaker stages 1/2/5 (08b80ea2307f932c): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-coldiron-temper-fx.html (67cc3e6e05d5326e) + widowmaker stages 1/2/5 (757599e4c0057360): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-ironhail-sunder-fx.html (b51c2539999dd272) + widowmaker stages 1/2/5 (1607dd640de2e0b7): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-ironhail-fxout.html (4b3775e5900172ea) + widowmaker stages 1/2/5 (857dd89e21b247d9): every anchor once, forward == reverse True, parses (+11443 chars, the same as on the base: True)
+    with Widowmaker's 2 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[5] CONTROL (an anchor that occurs many times) refused: exsanguinate picture: fighter fields: anchor found 340x

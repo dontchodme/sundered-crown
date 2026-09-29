@@ -1,0 +1,24 @@
+
+WIDOWMAKER / EXSANGUINATE -- stage 6
+  src sc-widowmaker-b1075.html  a9977a757d5772b7  (LF text)
+  base  Widowmaker's shipped row, the hemorrhage tick, the source contract and the four anchors hold; the nova's tail kept, untouched, for lightkeeper, censer
+  ok    Sfx: Exsanguinate's inhale and drain arms, replacing the nova's wet slice
+  ok    tickStatus: the drain's drip, once per whole hp drained, after the gain is booked
+  ok    exsanguinate picture: fighter fields
+  ok    exsanguinate picture: the presentation call
+  ok    exsanguinate picture: tickSiphon
+  ok    exsanguinate picture: the thread's call (world, under both balls)
+  ok    exsanguinate picture: the flush's call (world, over both fighters)
+  ok    exsanguinate picture: the drawing methods
+  ok    exsanguinate picture: the nova's burst retired
+  ok    exsanguinate picture: the ultFx life entry retired to the cast's record
+  ok    exsanguinate picture: the banner's spread
+  ok    exsanguinate picture: the banner's letters fill
+  ok    ult   ult:{ name:"Exsanguinate", charge:14, kind:"drain", dur:8, tip:"Her foe's bleeding drains into her:  ...
+  ok    card  62 chars  "Her foe's bleeding drains into her: every tick of it heals her"
+  ok    blade 10.75
+  ok    stage 6: presentation only (no RNG, no ultFx, no call into the sim, writes its own fields; the drip voice its one line on the sim path, the "+n" filed in tickSiphon); the inlined fx.js untouched; the nova's burst, slice, fan and spread out; the inhale, the drip, the thread, the flush wired once each
+  ok    one drain ultimate, Widowmaker's; 2 other nova row(s) left as they were; no insert draws the RNG, writes the shared weapon, or applies, beats, stops, floats or knocks; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-widowmaker-b1075-fx.html  a253d1d3816d0c85   (+16068 chars, written LF)

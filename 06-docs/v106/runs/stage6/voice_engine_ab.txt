@@ -1,0 +1,12 @@
+=== ENGINE A/B: 38 relics, 2 seeds x 703 pairings ===
+
+  sc-widowmaker-b1075.html        1406 matches  260.9s
+  wm-voice.html                   1406 matches  295.6s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 1406
+  PASS  every match identical field for field  — 1406/1406
+  PASS  the sweep is real  — 38/38 distinct winners, 1406 distinct seeds, 22.8-106.4s
+
+ENGINE A/B PASS — C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/widowmaker/stage6-voice/wm-voice.html does not move the 38-relic roster.
+exit 0

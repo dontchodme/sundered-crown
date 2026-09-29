@@ -1,0 +1,5 @@
+  with the NOVAS header (fx_remove's spec_block): module sha -> 024d7a84c2a43f42
+  the three lines only: module sha -> f710f845485543b6
+  the picture lab's removal: f710f845485543b6 (its report)
+  lines moved: 7 (4 of them stamps)
+  wrote sc-widowmaker-b1075-fx-specout.html 3d16bbc543e74c18   module 28fc58641370a1a9 -> f710f845485543b6

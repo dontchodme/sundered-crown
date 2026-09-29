@@ -1,0 +1,20 @@
+# Two sittings of one script (drawn_ident.py): the first was cut off by a usage limit after fight 4 of 6;
+# fights 5-6 were run on the same link with the script's index argument (drawn_ident.py <link> 4,5).
+# The link is a253d1d3816d0c85 in both sittings.
+
+== sitting 1 (fights 1-4)
+DRAWN SIM IDENTITY on sc-widowmaker-b1075-fx.html: 6 fights, each run undrawn, drawn and drawn+control in one page
+    widowmaker v aureole       106038  drawn IDENTICAL  (3785 draws, 0 thrown)   control DIFFERS   kill at step 7331, winner widowmaker, her tally [3, 88.75000000000523, 2352]
+   dawnbringer v widowmaker     99001  drawn IDENTICAL  (3801 draws, 0 thrown)   control DIFFERS   kill at step 7363, winner dawnbringer, her tally [3, 49.149999999999054, 1153]
+    widowmaker v gravemourn      5150  drawn IDENTICAL  (3988 draws, 0 thrown)   control DIFFERS   kill at step 7737, winner widowmaker, her tally [4, 65.15000000001362, 2485]
+  spellbreaker v widowmaker     99015  drawn IDENTICAL  (4732 draws, 0 thrown)   control DIFFERS   kill at step 9224, winner spellbreaker, her tally [4, 65.17499999998908, 1781]
+
+== sitting 2 (fights 5-6)
+DRAWN SIM IDENTITY on sc-widowmaker-b1075-fx.html: 2 fights, each run undrawn, drawn and drawn+control in one page
+    widowmaker v lightkeeper    99008  drawn IDENTICAL  (5354 draws, 0 thrown)   control DIFFERS   kill at step 10469, winner lightkeeper, her tally [5, 132.79999999999572, 3239]
+     oathwound v widowmaker    106112  drawn IDENTICAL  (3998 draws, 0 thrown)   control DIFFERS   kill at step 7756, winner widowmaker, her tally [3, 85.80000000000146, 2152]
+
+DRAWN SIM IDENTITY PASS: 2/2 identical drawn, control differs on 2/2  (sc-widowmaker-b1075-fx.html)
+exit 0
+
+TOTAL: DRAWN SIM IDENTITY PASS: 6/6 identical drawn, control differs on 6/6 (3 fights with her as a, 3 as b; 25658 draws, 0 thrown)

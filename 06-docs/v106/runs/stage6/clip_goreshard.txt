@@ -1,0 +1,11 @@
+--at 44.99s: filming a 12.35s window rather than measuring back from the kill
+seed 106112: kill at 73.81s, clip starts at 44.99s
+cut list: 32.0s T3, 56.2s T3, 66.3s T3, 73.8s KILL
+  rendering director ON ...
+    the window ends at 57.34s of match time: stopped at 13.0s of video
+    on: 781 frames, 13.0s wall, 163s to render, match ended {'seed': 106112, 't': 44.991666666664756, 'kill': 73.80833333333814}
+    on: FIGHT over=None t=57.3417 clanks=25 hp=[209.625, 295.25]
+
+wrote C:\dev\sundered-crown\07-shorts\v106\exsanguinate-window.mp4  2.56 MB  (0.0s off + 13.0s on)
+the two halves are the same seed. If the winner differs, the feature is broken.
+exit 0

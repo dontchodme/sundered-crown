@@ -1,0 +1,12 @@
+REAL BUILDER:
+  REFUSED  twice                  rc 1  'tickSiphon' is already in this source -- stage 6 goes on once
+  REFUSED  on-stage2              rc 1  wrong base: Widowmaker's row (twinblade, stage 5's 10.75, hemorrhage 2) has moved
+MUTATED S6 ROWS (scratch copies of the builder):
+  REFUSED  siphon-writes-sim      rc 1  REFUSING TO WRITE -- stage 6 insert 'exsanguinate picture: tickSiphon' writes foe.vx
+  REFUSED  drip-floats            rc 1  REFUSING TO WRITE -- stage 6 insert 'tickStatus: the drain's drip, once per whole hp drained, after the gain is booked' floats a number outside tickSiphon (the drain files none)
+  REFUSED  siphon-rng             rc 1  REFUSING TO WRITE -- stage 6 insert 'exsanguinate picture: tickSiphon' draws the RNG or uses the one ultFx slot
+  REFUSED  close-voice            rc 1  REFUSING TO WRITE -- stage 6 insert 'exsanguinate picture: tickSiphon' plays a voice outside tickStatus's drain block
+  REFUSED  slice-kept             rc 1  REFUSING TO WRITE -- the nova's wet slice is still here
+
+7/7 refused as they must
+CONTROL (the unmutated builder bf8dff45e6870fa4 copied to scratch, same call): writes a253d1d3816d0c85 (= the link a253d1d3816d0c85: yes)

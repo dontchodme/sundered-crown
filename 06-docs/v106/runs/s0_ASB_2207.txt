@@ -1,0 +1,9 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker (redesign) · 33 foes x 20 seeds = 660 fights an arm · v106 stage 0 block 2207
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out  drained f_foeStk
+  A       40.2%   0.00  0.00/18.12      0.00     0.00
+  SHIP    47.0%   0.00  0.00/17.38      0.00     0.00
+  B       57.6%   3.66  8.43/10.96     24.51     2.23
+  lifts over A: SHIP +6.8  B +17.4
+  1980 fights in 246s   errors: []

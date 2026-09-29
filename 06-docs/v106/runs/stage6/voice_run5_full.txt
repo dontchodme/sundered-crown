@@ -1,0 +1,178 @@
+
+EXSANGUINATE -- THE VOICES   game sc-widowmaker-b1075.html a9977a757d5772b7
+  every render: OfflineAudioContext 48 kHz, first event at t = 1.0, through Sfx.buildChain, render.py's xorshift noise;
+  a candidate is rendered from its arm's own text
+  runtime Chromium 151.0.7922.34
+  Widowmaker: blade 10.75, ult Exsanguinate kind drain dur 8 charge 14; hemorrhage cap 4
+  THE BLEED'S OWN VOICE: tickStatus plays 0 SFX call(s); arms named for a bleed or a drip: none  -- so the lab MAKES the drip (see the docstring)
+  the school's casts (bloodsworn, with an arm): redflail, marrowdraw, ravelbone, bloodmirror;  the type's (twinblade): twinshade, thornshear, starwarden
+  THE SYNTH'S KINDS (17): hit, nova, clank, scour-hold, scour-tick, scour-woosh, scour-moo, ult, hex-snap, seal, death, loose, fork, spark, aegis, vine, wall
+
+CONTROLS -- v88 published rune-crack 0.608 / 450 ms, BAR 0.364 / 300 ms, hit@11.6 0.443 / 80 ms. They must come back.
+  rune-crack    peak 0.608 at    6 ms   audible   450 ms   loudest 50 ms 0.1356   centroid   3158 Hz   low 0.00
+  BAR           peak 0.364 at    7 ms   audible   300 ms   loudest 50 ms 0.1131   centroid   1685 Hz   low 0.00
+  hit@11.6      peak 0.443 at    7 ms   audible    80 ms   loudest 50 ms 0.1173   centroid    233 Hz   low 0.09
+  hit@10.75     peak 0.440 at    7 ms   audible    80 ms   loudest 50 ms 0.1152   centroid    236 Hz   low 0.09
+  wall          peak 0.097 at    7 ms   audible    25 ms   loudest 50 ms 0.0112   centroid  12322 Hz   low 0.00
+  death         peak 0.501 at    8 ms   audible   620 ms   loudest 50 ms 0.2657   centroid    111 Hz   low 0.91
+  loose         peak 0.015 at   11 ms   audible    40 ms   loudest 50 ms 0.0025   centroid    878 Hz   low 0.01
+  woosh         peak 0.079 at  206 ms   audible   415 ms   loudest 50 ms 0.0185   centroid   2482 Hz   low 0.01
+  spark         peak 0.081 at    6 ms   audible   135 ms   loudest 50 ms 0.0275   centroid   1446 Hz   low 0.00
+  fork          peak 0.136 at    7 ms   audible    85 ms   loudest 50 ms 0.0329   centroid   1140 Hz   low 0.00
+  hex-snap      peak 0.394 at    6 ms   audible    25 ms   loudest 50 ms 0.0392   centroid   3350 Hz   low 0.00
+  zenith-tick   peak 0.204 at    7 ms   audible    55 ms   loudest 50 ms 0.0412   centroid   3037 Hz   low 0.00
+  slice         peak 0.469 at    8 ms   audible   275 ms   loudest 50 ms 0.0922   centroid   2117 Hz   low 0.00
+  redflail      peak 0.489 at  307 ms   audible   830 ms   loudest 50 ms 0.1800   centroid    245 Hz   low 0.69
+  marrowdraw    peak 0.619 at    9 ms   audible  1060 ms   loudest 50 ms 0.2269   centroid    353 Hz   low 0.56
+  ravelbone     peak 0.377 at   17 ms   audible   850 ms   loudest 50 ms 0.1836   centroid    193 Hz   low 0.63
+  bloodmirror   peak 0.357 at    8 ms   audible   260 ms   loudest 50 ms 0.1141   centroid    710 Hz   low 0.00
+  twinshade     peak 0.456 at  627 ms   audible  1045 ms   loudest 50 ms 0.2209   centroid    563 Hz   low 0.59
+  thornshear    peak 0.365 at    6 ms   audible  1170 ms   loudest 50 ms 0.0775   centroid   2401 Hz   low 0.00
+  starwarden    peak 0.271 at  507 ms   audible  1110 ms   loudest 50 ms 0.0962   centroid    319 Hz   low 0.01
+  reproduction: PASS  all 6 published numbers come back
+  ARE rune-crack today (12 relics with no arm; max |diff| vs ult/spellbreaker): lastlight 6.0e-08, spellbreaker 6.0e-08, ironhail 0.0e+00, lightkeeper 6.0e-08, farwarden 6.0e-08, aureole 6.0e-08, censer 6.0e-08, oathwound 4.5e-08, heartwood 6.0e-08, gloamwire 4.5e-08, portcullis 6.0e-08, bindweed 6.0e-08
+  ult/widowmaker today vs the anchor's own three lines rendered as a body: max |diff| 0.0e+00 -- the anchor IS what plays
+  the hit @ 10.75 across 12 draws: loudest 50 ms 0.1135-0.1193;  the wall tick 0.0105-0.0118;  PHONE: the blow 0.0284 (quietest draw), the bowstring 0.00262 (loudest draw) = -20.7 dB re the blow
+
+CAST -- 'a low inhale, 0.4s'. Level-matched: TOP 0.0823 (the centre of 0.0597-0.1135), the time scale solved to AUDIBLE 400 ms (capped where a 0.58 s sweep runs out). 'heard' over its audible span, at or above 200 Hz
+  cand             g     s calls             top  aud @top place brise dips regr tonal  t50  in c    centroid  heard   rc redf marr rave bloo twin thor star woos loos  hit  dth
+  1 SIP       0.6958 0.994     2  0.0794-0.1073   395  350  0.38    77    0  0.0   2.1  3.4  +993   213-257    +22.9 0.28 0.81 0.70 0.77 0.64 0.65 0.26 0.80 0.43 0.67 0.70 0.51
+  2 THROAT    0.6169 0.995     2  0.0793-0.0886   395  350  0.37    77    0  0.0   3.4  3.9  +646   847-975    +28.9 0.61 0.57 0.41 0.50 0.85 0.44 0.70 0.73 0.83 0.96 0.42 0.23
+  3 TEETH      0.678 0.994     3  0.0785-0.1045   410  350  0.37    77    0  0.0   2.3  3.6 +2561   332-433    +27.1 0.39 0.82 0.69 0.78 0.67 0.66 0.38 0.80 0.57 0.72 0.72 0.50
+  4 GRAIN      0.414 0.998     6  0.0682-0.0854   405  530  0.68   223    0  0.0  18.3  3.6 +1810   404-542    +27.0 0.44 0.69 0.51 0.65 0.81 0.51 0.51 0.72 0.65 0.85 0.54 0.37
+  5 GRAIN-T   0.4199 0.993     7  0.0678-0.0845   400  525  0.68   220    0  0.0  19.2  3.4 +2208   437-622    +26.9 0.44 0.70 0.53 0.65 0.83 0.52 0.54 0.72 0.68 0.85 0.54 0.37
+  6 OPEN      0.5928 0.994     2  0.0776-0.1009   390  345  0.37    80    0  0.0   2.4  3.3 +1006   268-327    +23.2 0.33 0.77 0.65 0.72 0.71 0.60 0.33 0.80 0.50 0.75 0.63 0.46
+  7 OPEN-T    0.5879 0.994     3  0.0771-0.0988   400  350  0.38    80    0  0.0   2.4  3.4 +2024   353-440    +25.5 0.40 0.78 0.65 0.73 0.73 0.61 0.41 0.81 0.59 0.79 0.64 0.45
+  8 AIRY      0.4546 0.972     2  0.0691-0.0874   400  345  0.36    73    0  0.0   2.4  3.6 +1032   332-409    +24.4 0.39 0.73 0.58 0.68 0.79 0.56 0.43 0.77 0.57 0.83 0.55 0.39
+  9 VOWEL     0.6503 0.994     2  0.0805-0.1088   410  350  0.37    77    0  0.0   2.1  3.3 +1074   221-263    +23.6 0.28 0.79 0.69 0.75 0.65 0.64 0.25 0.81 0.43 0.69 0.69 0.49
+  10 GRAIN-J  0.3742  0.99     6  0.0694-0.0833   390  530  0.71   227    0  0.0   8.4  3.2 +1869   490-632    +29.5 0.52 0.68 0.51 0.64 0.80 0.53 0.62 0.68 0.73 0.87 0.49 0.34
+  11 MID      0.5386 0.994     2  0.0756-0.0962   400  345  0.36    80    0  0.0   2.4  3.3 +1011   301-366    +22.8 0.36 0.75 0.62 0.70 0.74 0.58 0.38 0.79 0.54 0.79 0.59 0.43
+  12 HUSH     0.5429 0.991     3  0.0755-0.0974   390  350  0.37    76    0  0.0   2.4  3.6 +2924   466-655    +28.4 0.39 0.77 0.63 0.72 0.73 0.62 0.44 0.81 0.60 0.80 0.64 0.45
+  13 MID-H    0.4866 0.971     3  0.0723-0.0932   385  345  0.38    73    0  0.0   2.4  4.0 +2619   471-634    +27.4 0.40 0.75 0.62 0.71 0.77 0.59 0.46 0.78 0.61 0.81 0.59 0.41
+  14 SIP-H    0.6183 0.992     3  0.0774-0.0992   375  350  0.35    76    0  0.0   2.6  3.5 +3409   488-697    +29.7 0.36 0.80 0.68 0.76 0.67 0.64 0.40 0.79 0.57 0.72 0.72 0.48
+  0 EXHALE    0.4739     1     3  0.0775-0.0921   345  350  0.43    82    0  0.0   2.6  3.6 -1842   399-494    +25.0 0.40 0.74 0.62 0.69 0.77 0.60 0.45 0.80 0.61 0.82 0.63 0.42
+  0 TICK      0.6373 0.711     2  0.0625-0.0867   395  255  0.63   232    1  0.0   2.6  3.3 +1122   266-364    +20.3 0.32 0.77 0.65 0.73 0.75 0.58 0.36 0.78 0.52 0.80 0.64 0.47
+  0 WHISTLE    2.187     1     2  0.0373-0.1124   325  350  0.38    67    0  0.0   4.4 10.0  +806   311-403    +29.2 0.33 0.43 0.34 0.38 0.67 0.33 0.27 0.76 0.43 0.73 0.30 0.13
+  0 HISS      0.2338 0.887     2  0.0788-0.0902   390  320  0.38    75    0  0.0   2.7  3.6 +1018  1609-1860   +36.4 0.69 0.47 0.29 0.44 0.66 0.35 0.84 0.46 0.95 0.79 0.35 0.21
+  0 RUMBLE     1.217     1     2  0.0756-0.1165   390  365  0.41    64    0  0.1   2.1  3.4  +481    70-91     +11.2 0.08 0.88 0.77 0.84 0.24 0.65 0.08 0.44 0.22 0.24 0.67 0.72
+  0 SLICE-NOW      0     0     3  0.0906-0.0992   275   30  0.09     3    0 14.7  10.6 27.2 -1170  2047-2150   +33.0 0.62 0.33 0.15 0.28 0.70 0.29 0.87 0.32 0.92 0.75 0.17 0.08
+  0 WOOSH          0     0     3  0.0180-0.0211   415  205  0.24    59    0 17.9   3.5  4.0  +100  2234-2493   +22.8 0.75 0.47 0.29 0.41 0.69 0.37 0.91 0.45 1.00 0.81 0.31 0.17
+    1 SIP       a low breath drawn through an open throat: a swell (lowpass 150 -> 400 Hz) and the draw on its top (lowpass 300 -> 800 Hz), both bands rising
+    2 THROAT    SIP in two bandpass bands (q 0.9): 180 -> 420 Hz and 320 -> 900 Hz
+    3 TEETH     SIP with the air past the teeth on the draw: a thin band rising 1600 -> 2800 Hz (q 2) at 0.25
+    4 GRAIN     six lowpass sweeps 40 ms apart, cutoffs climbing 150 -> 800 Hz, levels 0.3 -> 1: the top on the last
+    5 GRAIN-T   GRAIN with the teeth band (1600 -> 2800 Hz, q 2, 0.25) on its last sweep
+    6 OPEN      round 2: SIP a major third up: lowpass 188 -> 500 Hz and 375 -> 1000 Hz
+    7 OPEN-T    round 2: OPEN with the teeth band on the draw (1600 -> 2800 Hz, q 2, 0.25)
+    8 AIRY      round 2: SIP a minor sixth up: lowpass 240 -> 640 Hz and 480 -> 1280 Hz
+    9 VOWEL     round 2: SIP with its lowpass Q at 2 -- a 2 dB resonance at the cutoff (a lowpass's Q is in dB in Web Audio): the throat's formant climbing with the breath
+    10 GRAIN-J  round 2: GRAIN a major third up, its gaps 40 ms x (1 + 0.35 sin 2.4i): irregular, against the comb
+    11 MID      round 3: SIP a tritone up: lowpass 210 -> 560 Hz and 420 -> 1120 Hz
+    12 HUSH     round 3: OPEN with the drawn breath's hiss on the draw: a band rising 3000 -> 4500 Hz (q 1) at 0.15
+    13 MID-H    round 3: MID with the hiss
+    14 SIP-H    round 3: SIP with the hiss
+    0 EXHALE    TEETH's breath run DOWN: the swell falling 800 -> 300 Hz, the draw 400 -> 150, the teeth 2800 -> 1600 on the swell -- a breath let out -- a control
+    0 TICK      SIP's bands as fixed-filter `_burst`s (instant attack): a strike, not a breath -- a control
+    0 WHISTLE   SIP's bands as a bandpass at q 14: a note gliding, not air -- a control
+    0 HISS      SIP three octaves up (1.2 -> 6.4 kHz): not low -- a control
+    0 RUMBLE    SIP an octave and a half down (50 -> 267 Hz): a rumble -- a control
+    0 SLICE-NOW what ult/widowmaker plays today (the nova's wet slice) -- a control
+    0 WOOSH     `scour-woosh` (the tornado) played as the cast -- a control
+  RULE  '0.4s': AUDIBLE 330-470 ms; 'an inhale' (a breath drawn IN): air, TONAL <= 10 dB over its audible span and (round 3) TONAL-50 <= 10 dB in every 50 ms of it; one breath, no DIP on the way up and no REGROW >= 2 dB after its top; it swells, BREATH-RISE >= 40 ms and the loudest 50 ms centred >= 80 ms in; DRAWN IN, its band RISES: DRAWN-IN >= +300 cents; 'low': the power CENTROID 150-1000 Hz on every draw, and heard on a phone: HEARD (its loudest third-octave at or above 200 Hz, over its whole audible span) >= +6 dB over the score's p90. Register against rune-crack, the school's casts and the type's (read off the page), the tornado's woosh, the bowstring, the hit @ 10.75 and the death voice each <= 0.80. Level: TOP between 0.5x the hit @ 10.75's loudest 50 ms on its LOUDEST draw and 1.0x on its QUIETEST, on every draw (heard like a blow, never over one). Tiebreak: the most distinct register (to 0.05), then the LATER top (an inhale fills to its end: TOP-PLACE, to 0.1), then the fewest calls.
+    1 SIP       out: register vs redflail 0.81 > 0.80; register vs starwarden 0.80 > 0.80
+    2 THROAT    out: register vs bloodmirror 0.85 > 0.80; register vs woosh 0.83 > 0.80; register vs loose 0.96 > 0.80
+    3 TEETH     out: register vs redflail 0.82 > 0.80; register vs starwarden 0.80 > 0.80
+    4 GRAIN     out: tonal 18.3 dB > 10 (a note); register vs bloodmirror 0.81 > 0.80; register vs loose 0.85 > 0.80
+    5 GRAIN-T   out: tonal 19.2 dB > 10 (a note); register vs bloodmirror 0.83 > 0.80; register vs loose 0.85 > 0.80
+    6 OPEN      out: register vs starwarden 0.80 > 0.80
+    7 OPEN-T    out: register vs starwarden 0.81 > 0.80
+    8 AIRY      out: register vs loose 0.83 > 0.80
+    9 VOWEL     out: register vs starwarden 0.81 > 0.80
+    10 GRAIN-J  out: register vs bloodmirror 0.80 > 0.80; register vs loose 0.87 > 0.80
+    12 HUSH     out: register vs starwarden 0.81 > 0.80; register vs loose 0.80 > 0.80
+    13 MID-H    out: register vs loose 0.81 > 0.80
+  0 EXHALE (a control) comes back wrong, as it must: drawn-in -1842 cents < +300 (not drawn in); register vs starwarden 0.80 > 0.80; register vs loose 0.82 > 0.80
+  0 TICK (a control) comes back wrong, as it must: 1 dip(s) on the way up (not one breath)
+  0 WHISTLE (a control) comes back wrong, as it must: audible 325 ms, not 330-470; tonal-50 10.0 dB > 10 (a note in some 50 ms); top 0.0373 < 0.0597 (quietest draw)
+  0 HISS (a control) comes back wrong, as it must: centroid 1609-1860 Hz, not 150-1000 (not low); register vs thornshear 0.84 > 0.80; register vs woosh 0.95 > 0.80
+  0 RUMBLE (a control) comes back wrong, as it must: centroid 70-91 Hz, not 150-1000 (not low); register vs redflail 0.88 > 0.80; register vs ravelbone 0.84 > 0.80
+  0 SLICE-NOW (a control) comes back wrong, as it must: audible 275 ms, not 330-470; tonal 10.6 dB > 10 (a note); tonal-50 27.2 dB > 10 (a note in some 50 ms)
+  0 WOOSH (a control) comes back wrong, as it must: regrows 17.9 dB after its top (not one breath); drawn-in +100 cents < +300 (not drawn in); centroid 2234-2493 Hz, not 150-1000 (not low)
+  PICK  11 MID  g 0.5386, s 0.994; 2 synth calls; TOP -3.5 to -1.4 dB re the hit @ 10.75 (quietest draw), top-place 0.36, drawn in +1011 cents
+
+DRAIN -- 'the bleed's own drip voice reversed and pitched by the foe's stack count, quiet'. Level-matched: TOP 0.0309 at count 2 (the centre of 0.0236-0.0403: 2x the wall tick's loudest draw .. 9 dB under the blow's quietest). Notes: A minor pentatonic from each candidate's root, counts 1-4
+  cand             g calls             top      aud late last5 fall c  corr dips tonal   land Hz (count 1-4)  err step  heard hit@1  wall spark  fork hex-s zenit rune-  cast
+  1 DROP     0.08014   126  0.0309-0.0332   80-80   0.76  0.86   -288  0.96    0  21.2    908/1081/1212/1357   56  196  +17.8  0.06  0.04  0.34  0.25  0.16  0.06  0.49  0.18
+              phone +21.4 dB re the bowstring's; heard per count +17.8@1008 +19.6@1008 +22.2@1270 +22.5@1270; the fall per count -295/-291/-289/-288 c
+  2 SLURP    0.08011   127  0.0308-0.0332   80-80   0.76  0.86   -286  0.96    0  21.3    908/1079/1213/1356   56  193  +17.9  0.06  0.05  0.34  0.25  0.17  0.06  0.50  0.18
+              phone +21.4 dB re the bowstring's; heard per count +17.9@1008 +19.6@1008 +22.2@1270 +22.5@1270; the fall per count -295/-293/-289/-286 c
+  3 LOW       0.0935    61  0.0304-0.0326   80-80   0.79  0.86   -290  0.91    0  19.4       451/540/607/679   56  196   +8.2  0.11  0.02  0.08  0.38  0.09  0.05  0.18  0.55
+              phone +21.0 dB re the bowstring's; heard per count +8.2@504 +10.0@504 +10.1@635 +10.8@635; the fall per count -297/-296/-294/-290 c
+  4 WIDE     0.07674   141  0.0296-0.0317   80-80   0.77  0.86   -491  0.96    0  12.2    927/1102/1236/1389   90  200  +18.0  0.07  0.05  0.48  0.28  0.18  0.07  0.52  0.19
+              phone +21.0 dB re the bowstring's; heard per count +18.0@1008 +19.1@1008 +21.9@1270 +21.4@1270; the fall per count -501/-499/-491/-491 c
+  5 TRI      0.09989   122  0.0308-0.0332   75-80   0.78  0.86   -284  0.95    0  23.8    906/1081/1214/1358   57  193  +17.8  0.07  0.08  0.33  0.27  0.25  0.08  0.51  0.18
+              phone +21.4 dB re the bowstring's; heard per count +17.8@1008 +19.5@1008 +22.1@1270 +22.5@1270; the fall per count -290/-287/-285/-284 c
+  0 FORWARD  0.05872     1  0.0309-0.0309   80-80   0.13  0.05   +300 -0.55    0  22.0    834/1009/1142/1291   93  211  +18.4  0.08  0.04  0.40  0.32  0.16  0.06  0.53  0.25
+              phone +21.4 dB re the bowstring's; heard per count +18.4@1008 +19.4@1008 +21.9@1270 +21.6@1270; the fall per count +300/+300/+300/+300 c
+  0 FLAT     0.08014    84  0.0310-0.0310   80-80   0.76  0.86   -295  0.95    0  21.7       908/908/908/908  645   -0  +17.8  0.07  0.04  0.10  0.39  0.14  0.07  0.41  0.26
+              phone +21.4 dB re the bowstring's; heard per count +17.8@1008 +17.8@1008 +17.8@1008 +17.8@1008; the fall per count -295/-295/-295/-295 c
+  0 LOUD      0.3754   100  0.1121-0.1186   70-75   0.74  0.84   -262  0.30    0  22.5    907/1082/1211/1359   58  195  +29.1  0.06  0.04  0.31  0.24  0.15  0.06  0.49  0.18
+              phone +32.6 dB re the bowstring's; heard per count +29.1@1008 +30.8@1008 +33.3@1270 +33.6@1270; the fall per count -267/-262/-262/-265 c
+  0 SPARK          0     1  0.0275-0.0275  130-135  0.13  0.03     +0  0.45    0  77.4   1262/1375/1487/1598  625  125  +21.0  0.08  0.11  1.00  0.35  0.23  0.08  0.44  0.15
+              phone +20.4 dB re the bowstring's; heard per count +21.2@1270 +21.0@1270 +23.9@1600 +23.9@1600; the fall per count +0/+0/+0/+0 c
+  0 NOISE     0.4842     1  0.0178-0.0347   35-45   0.51  0.58    -64 -0.64    0   2.6   1289/1288/1434/1434  660   -1  +15.9  0.13  0.33  0.84  0.58  0.51  0.31  0.73  0.26
+              phone +16.6 dB re the bowstring's; heard per count +15.9@1270 +19.2@1270 +20.1@1600 +22.3@1600; the fall per count -575/-64/-631/-633 c
+  0 RAW      0.08014   126  0.0127-0.0168   75-85   0.77  0.83   +260  0.91    0  19.1     913/1094/824/1366  613 -491   +9.2  0.22  0.05  0.34  0.58  0.19  0.08  0.60  0.53
+              phone +12.0 dB re the bowstring's; heard per count +11.5@1008 +10.0@1008 +9.2@1270 +9.6@1600; the fall per count -288/+260/-347/-331 c
+    1 DROP     a drop that rings up a fifth over 0.12 s, reversed: a sine sliding down a fifth onto the note as it swells, and stopping
+    2 SLURP    DROP with the drop's contact, reversed, at its end: a 6 ms 3.5 kHz tick where it stops
+    3 LOW      DROP an octave down (A4 -> E5): a thicker drop, half the strikes
+    4 WIDE     DROP whose drip rings up an OCTAVE: the reverse slides down an octave
+    5 TRI      DROP with a triangle body: its odd harmonics over the note
+    0 FORWARD  DROP's drip itself, not reversed (the drip as the bleed would play it) -- a control
+    0 FLAT     DROP at count 1's note for every count -- a control
+    0 LOUD     DROP at the blow's level (its TOP at the hit @ 10.75's quietest draw) -- a control
+    0 SPARK    the house's heal voice, `spark {collect, n}` at n = the count, as it plays -- a control
+    0 NOISE    a reversed noise swell: a bandpass `_sweep` (q 3) falling 1.5 f -> f, its top at 0.6 of 80 ms -- a control
+    0 RAW      DROP without `.frequency.value = f` on its strikes, at DROP's own gain -- a control
+  RULE  'a drip': TONAL >= 15 dB over 300 Hz-8 kHz across its audible span (a pitched drop, not air) and AUDIBLE 25-120 ms at every count (a drop, gone before the next at the cap's 6 a second); 'reversed': its loudest 5 ms in the last 30% of its audible span (LAST5 >= 0.70) and LATE >= 0.55 at every count, its pitch FALLING >= 100 cents from the first third of its audible span to the last (the drip's rising chirp, run backwards) at every count, ENV-CORR5 >= 0.85 against LITERAL (its own drip's samples reversed) at count 2, and SMOOTH -- no drop of 3 dB under E5's running top on the way up, at every count (a swell, not a flutter); 'pitched by the foe's stack count': at counts 1-4 the note it lands on (LAND) within 100 cents of its declared note, and rising >= 150 cents with every count; 'quiet': its loudest 50 ms at every count on every draw at most 9 dB under the hit @ 10.75's QUIETEST draw and at least 2x the wall tick's LOUDEST; still heard: HEARD (at or above 200 Hz) >= +6 dB over the score's p90 at every count, and PHONE >= the bowstring's (loudest draw) at every count on every draw. Register (count 2) against the hit @ 10.75, the wall tick, the heal (spark collect n 2), the fork, the hex snap, Zenith's tick (n 2), rune-crack and the picked cast each <= 0.80. Tiebreak: the most distinct register (to 0.05), then the fewest synth calls at count 4, then the order listed.
+    4 WIDE     out: tonal 12.2 dB < 15 (not a pitched drop)
+  0 FORWARD (a control) comes back wrong, as it must: loudest 5 ms at 0.05 of its span (< 0.70: not reversed); LATE 0.13 < 0.55 (not reversed); pitch moves +300 cents (does not fall >= 100)
+  0 FLAT (a control) comes back wrong, as it must: a count lands 645 cents off its note; the smallest step between counts is -0 cents (< 150)
+  0 LOUD (a control) comes back wrong, as it must: ENV-CORR5 0.30 < 0.85 against the drip reversed; top 0.1186 > 0.0403 (not quiet)
+  0 SPARK (a control) comes back wrong, as it must: audible 130-135 ms, not 25-120; loudest 5 ms at 0.03 of its span (< 0.70: not reversed); LATE 0.13 < 0.55 (not reversed)
+  0 NOISE (a control) comes back wrong, as it must: tonal 2.6 dB < 15 (not a pitched drop); loudest 5 ms at 0.58 of its span (< 0.70: not reversed); LATE 0.51 < 0.55 (not reversed)
+  0 RAW (a control) comes back wrong, as it must: pitch moves +260 cents (does not fall >= 100); a count lands 613 cents off its note; the smallest step between counts is -491 cents (< 150)
+  PICK  5 TRI  g 0.09989; lands 906.2 / 1081.4 / 1214.2 / 1357.7 Hz; loudest 50 ms -11.3 to -10.7 dB re the hit @ 10.75 (quietest draw), +8.3 dB or more re the wall; 122 strikes at count 4
+
+THE SFX ROW, applied to Sfx.prototype.play's own source and rendered:
+  REPRO -- the render floor: the top drip rendered twice from the same text differs by at most 3.0e-08 (three tries); the tolerance is 1e-05
+  the arms vs the picked candidates, max |diff| (render.py's draw and a second): cast 0.0e+00, drain@-1 3.0e-08, drain@0 4.5e-08, drain@1 2.2e-08, drain@2 2.2e-08, drain@3 3.7e-08, drain@4 3.0e-08, drain@7 2.2e-08, drain@None 2.2e-08, cast' 0.0e+00, drain@-1' 3.0e-08, drain@0' 4.5e-08, drain@1' 2.2e-08, drain@2' 2.2e-08, drain@3' 2.2e-08, drain@4' 3.0e-08, drain@7' 3.0e-08, drain@None' 2.2e-08
+  every other voice through the patched play vs the original (125 voices: the hit at 5 weights x crit, spark x3, wall, death, clank x2, seal, nova, hex-snap, aegis x2, vine x4, loose x3, fork, scour x4, and 91 ult ids -- every relic's cast and every sub-voice the ult arm names): worst max |diff| 1e-07 (nova/)
+  ult/widowmaker vs the wet slice after the row: max |diff| 0.469 -- the slice is retired
+  main-thread cost a call (median of 40, performance.now() at its headless resolution): cast 0.10 ms, drain n1 3.00 ms, drain n4 4.70 ms, hit 0.10 ms
+  WITH Coldiron's 1 Sfx row(s) (arms coldiron, coldiron-anvil, coldiron-close): both orders render every arm alike (max |diff| 4.5e-08); these arms unchanged by them (2.2e-08); register of the cast / drain against its voices at most 0.88 (coldiron-anvil) -- printed, not gated
+  WITH Ironhail's 1 Sfx row(s) (arms ironhail, ironhail-land, ironhail-miss): both orders render every arm alike (max |diff| 6.0e-08); these arms unchanged by them (3.0e-08); register of the cast / drain against its voices at most 0.93 (ironhail) -- printed, not gated
+
+THE tickStatus ROW, applied to Match.prototype.tickStatus's own source, run beside the original on real fights (the mirror match is refused by Match -- 'A relic cannot fight itself'):
+  148 fights (Widowmaker both sides x every foe x seeds [106601, 106602]): 148/148 identical (over, clock, both hp, shields, positions, velocities, charges, both hemorrhage counts, winner, her whole drainTally and ultDrain); every other voice call identical in order, kind and opts in 148/148
+  windows {'clock': 479, 'death': 19, 'over': 60, 'recast': 0}: 558 casts -> 558 cast voices; 13120 hp drained -> 13040 whole-hp crossings -> 13040 drips (1 on the bleed's killing tick); problems 0
+  the count a drip carries (the bleeding foe's hemorrhage stacks): 1: 0, 2: 2629, 3: 0, 4: 10411 (80% at the cap);  drips a window (median) 23; the gap between drips in a window: min 158 ms, p5 167 ms, median 167 ms (match time, hit stops included); 410 drips inside a cast's first 0.4 s
+  the control (the row plus one sim write, her x nudged 1e-9 on a drip): 0/148 identical -- it fails, as it must
+  THE CLOSE: 479 windows closed by their clock, 19 by a death and 60 by the fight's end -- none plays anything (v76 §4: 'close -- nothing'; no row touches tickDrain)
+  synth calls the drain adds: 122 a drip at count 4; about 10749 a fight (the bed schedules ~1700 nodes a match)
+
+IN A REAL WINDOW (a check on the picks, not a rule a candidate is picked on): the fight's own sounds and the score with and without the two voices; the cast >= +6 dB over the rest in its loudest third-octave at or above 200 Hz over 0.4 s; the MEDIAN drip >= +3 dB over the rest in its landing note's third-octave over its own span (a quiet trickle under a fight is heard as a stream), every drip printed with what shares its span.
+IN A REAL WINDOW -- widowmaker v axiom (side 1), seed 106601, cast at 63.32s, closed by its clock at 73.34s, 35 drips; the fight's own sounds and the score, with and without the two voices
+  each drip over the fight in its landing note's third-octave over its own span: +22.5 +14.0 +20.2 +15.1 +28.2 +26.3 +16.5 +25.4 +16.2 +31.3 +23.7 +23.6 +21.0 +24.7 +19.9 +12.8 +20.7 +15.6 +45.5 +27.1 +11.7 +25.6 +31.6 +20.7 +23.5 +15.7 +20.8 +29.9 +13.2 +17.8 +21.7 +28.8 +24.8 +15.8 +23.7 dB (median +21.7; counts 22444444444444444444444444444444444);  the cast (400 Hz, 0.4 s): +15.5 dB
+
+END TO END -- the two rows applied as text: sc-widowmaker-b1075.html a9977a757d5772b7 -> 373f16b7e0a85770 (+4625 chars), loaded in a fresh browser
+  the two voices through the patched page's own SFX.play vs the lab's candidate text, max |diff|: cast 0.0e+00, drain n1 2.2e-08, drain n2 2.2e-08, drain n3 3.0e-08, drain n4 2.2e-08
+  every other voice (46), the patched page vs the original page: worst max |diff| 1.5e-07
+  74 fights: 74/74 identical to the original page's, every other SFX call identical in 74/74; per fight -- cast voices = casts 74, drips = whole hp drained (n the foe's count) 74 (of 74); totals {'casts': 281, 'drips': 6523, 'castV': 281, 'dripV': 6523}; the original page played 0 drips; page errors 0
+
+THE PICKS  cast 11 MID   drain 5 TRI
+WAVS   C:\dev\sundered-crown\05-reference\v106  (44 files, 5231 KB, raw level)
+
+  NOTHING IS IN THE BUILD. The two rows are the edits; both were applied to the page's own code above, and as text to a copy of the page.
+exit 0

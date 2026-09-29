@@ -1,0 +1,10 @@
+THE GATES (stage 6 picture; base sc-widowmaker-b1075 a9977a757d5772b7 -> rows 518477d4537ec077; + SPECS.widowmaker out of fx.js 93e8955ef03be732; Chromium 151, Electron 44 on the RTX 3070)
+  BLOOM      the picture's share of the arena-mean lift max +0.0002 (gate +0.02), 9 fights x 101 frames; CONTROL a 120-unit white beam in its place: > 0.02 on 6/101, the foe's disc past 0.90 on 46/101 (the gate can fail)
+  DISCS      no disc brightened: foe discs moved at most 0.006 (white sanctified, dark umbral, dwarven, runic); her own disc only darkens (the flush, -0.04..-0.34), never past 0.90
+  LEGIBILITY median |dL| out of a hit stop / in one: thread 0.142/0.141, beads 0.119/0.121, flush 0.086/0.118, '+n' 0.115/0.108, snap 0.145/0.083, banner 0.157/0.059
+  FRAME COST Electron, interleaved A/B, 3 fights: the picture's own calls 0.2-0.5 ms median (0.3-0.8 p90) against 0.0/0.1 hidden; the whole frame no different in any phase (the PC busy: ~55-80 ms both arms)
+  SIM        engine_ab stage 5 -> 6, all 38 relics INCLUDING widowmaker: 4218/4218 identical; every step hashed on 15 fights (13 hers) undrawn and drawn: identical; a 1e-9 sim write in the '+n' branch differs on 13/13 of hers
+  PROBE      widowmaker_probe 10/10 on the delivered page, every number equal to stage 5's; Electron vs headless 36/36 fights identical (a sim-write control differs on 27/33 of hers)
+  DRAWN      23 whole fights through the kill and 3s of verdict, 25,475 draws, nothing thrown; one '+n' per whole hp (1,756 floats, sum == floor(drained) every step), none in a status tick; 76 casts, 76 flushes;
+             the thread never up with the window shut, never after the verdict; 53 snaps (47 on the clock, 6 at the verdict), each gone 0.29-0.58s later (0.3s of the presentation clock); the shared weapon row never written
+  ROWS       10 rows, each anchor once, 62 orders byte-identical, node --check; carry onto sc-tendril-t3 and the batch line's newest link sc-ironhail-fxout; chain_audit 10/10 survive (control: 10 LOST)

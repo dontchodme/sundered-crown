@@ -1,0 +1,20 @@
+
+EXSANGUINATE PROBE  sc-widowmaker-drain.html  Chromium 151.0.7922.34  444 fights (Widowmaker both sides x every foe x 6 seeds, seed0 101001)   ult {'charge': 14, 'dur': 8, 'kind': 'drain'}  blade 11.95
+  casts/fight 3.73   blows a fight: in windows 9.77, outside 9.81   Widowmaker win 54.7%
+  per cast: drained 23.46 hp (the tally; hp deltas 23.46)   drain ticks 576   foe stacks on a window frame 2.18   ticks at the cap 2.0%
+  window: 960 steps of the window clock (8.000s); match time a window 9.26s (a clock close)   FREEZE CENSUS 14.5% of window steps frozen
+  the window clock: held on 245124 frozen steps, moved by dt on 1450614 live steps (1453 of them closing)
+  1655 windows: 1388 closed by the clock, 65 on a death tickDrain saw, 202 still set at `over` (a kill after tickDrain in the last step), 0 at the timeout, 0 at the probe's cap
+  bleed ticks that drained nothing: 937089 window shut, 21413 a shade's, 0 a dead foe's   blows exempt (aegis/curse) 116
+  the foe's bleed ceiling (hemorrhage's 4): held after 1695940 steps in windows and 1898226 outside; blows where it bound 2172 in windows, 1735 outside; onHit +2 where it could not bind 4658
+  [1] PASS  the window is `dur` on the window tickers' clock: held on every frozen step, dt on every live one; closes on a death tickDrain sees; every window accounted for; only Widowmaker carries ultDrain
+  [2] PASS  every hemorrhage tick on her live foe in the window heals her by exactly d, rebuilt from the engine's loop
+  [3] PASS  capped at maxHp (§2): a tick that would carry her past it leaves her exactly at maxHp; maxHp never moves
+  [4] PASS  nothing drains with the window shut, from a shade or a corpse; the foe's own tick untouched
+  [5] PASS  every blow the twinblade's own, rebuilt exactly from the definitions, in the window and out; onHit +2 where the ceiling cannot bind
+  [6] PASS  the cast: no damage, knock, stun or status; the common 0.08 stop only; a window {t 0, dur}
+  [7] PASS  a drain tick: no beat but the fatal tick's own, no stop, no float, no status on her
+  [8] PASS  no cast while her window is open
+  [9] PASS  the drain lifts no cap (§6.3): the foe's bleed ceiling is hemorrhage's own 4 after every step and at every blow, and a blow at the ceiling stops there
+
+  9/9

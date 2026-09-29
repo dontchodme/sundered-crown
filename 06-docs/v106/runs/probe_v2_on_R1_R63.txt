@@ -1,0 +1,6 @@
+mutant [1f] the window also ticks in a hit stop (R1)         fights changed 111/148   probe 8/8  fails []   FAIL
+    
+mutant [9] the foe's bleed ceiling 8 in the window (R63, §6.3) fights changed 141/148   probe 8/8  fails []   FAIL
+    
+
+0/2 mutants fail their own check and only that one, and change fights

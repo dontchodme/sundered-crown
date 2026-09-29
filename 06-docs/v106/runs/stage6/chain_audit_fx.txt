@@ -1,0 +1,29 @@
+  (20 insert(s) found in widowmaker_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-widowmaker-b1075-fx.html
+tip    sc-widowmaker-b1075-fx.html
+20 inserts read out of widowmaker_build.py
+
+    ok  S1:Exsanguinate's nova block out, the drain's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the drain has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the drain's window relic  1  mid   -  tip  1
+    ok  S2:the foe's bleed drains into her, in tickStatus's dps branch relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickDrain keeps the window's clock relic  1  mid   -  tip  1
+    ok  S5:the blade: to the shipped win rate relic  1  mid   -  tip  1
+    ok  S6:Sfx: Exsanguinate's inhale and drain arms, replacing the nova's wet slice relic  1  mid   -  tip  1
+    ok  S6:tickStatus: the drain's drip, once per whole hp drained, after the gain is booked relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: tickSiphon relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: the thread's call (world, under both balls) relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: the flush's call (world, over both fighters) relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: the drawing methods relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: the nova's burst retired relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: the ultFx life entry retired to the cast's record relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: the banner's spread relic  1  mid   -  tip  1
+    ok  S6:exsanguinate picture: the banner's letters fill relic  1  mid   -  tip  1
+
+ALL 20 INSERTS SURVIVE to sc-widowmaker-b1075-fx.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: S6:exsanguinate picture: the nova's burst retired, S6:exsanguinate picture: the ultFx life entry retired to the cast's record)
+exit 0

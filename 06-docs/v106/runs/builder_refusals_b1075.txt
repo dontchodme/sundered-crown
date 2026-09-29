@@ -1,0 +1,10 @@
+widowmaker_build.py sha16 a3b2d26d581735c7
+[REFUSED] overwrite an existing link :: refusing to overwrite sc-widowmaker-b1075.html -- a link is written once. Delete it by hand if this is a rebuild.
+[REFUSED] a link not named sc-widowmaker* :: a link of this build is named sc-widowmaker*: sc-other.html
+[REFUSED] stage 2 on the base (skips stage 1) :: stage 2 goes on stage 1
+[REFUSED] stage 5 on stage 1 :: stage 5 goes on stage 2, once
+[REFUSED] stage 1 on a built link :: 'ultDrain' is already in the base
+[REFUSED] stage 2 twice :: stage 2 goes on stage 1
+[REFUSED] stage 5 twice :: wrong base: Widowmaker's shipped row (twinblade, 11.95, hemorrhage 2) has moved
+[REFUSED] a name already on the chain :: a link of this build is named sc-widowmaker*: sc-tendril-t3.html
+all refuse: True

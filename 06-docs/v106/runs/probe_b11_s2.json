@@ -1,0 +1,47 @@
+{
+ "n": {
+  "blowOutOk": 8635,
+  "onHitOk": 17540,
+  "footTickOk": 4337954,
+  "shutBleedOk": 1914551,
+  "castOk": 3366,
+  "castClean": 3366,
+  "drainTicks": 1923802,
+  "drainCalls": 1923802,
+  "drainOk": 1890220,
+  "drained": 78570.03566850793,
+  "nothingElseOk": 1923802,
+  "winFrames": 2942128,
+  "winSteps": 3440202,
+  "winFrozen": 498515,
+  "openNoTick": 2430,
+  "blowInOk": 8909,
+  "closes": 2925,
+  "clockOk": 2808,
+  "clockMatchSteps": 3123417,
+  "deathClose": 117,
+  "cappedTicks": 33582,
+  "capOk": 33582,
+  "shadeBleedOk": 39411,
+  "blowExempt": 236
+ },
+ "bad": {},
+ "T": {
+  "casts": 3366,
+  "frames": 2942128,
+  "foeStk": 6400164,
+  "ticks": 1923802,
+  "drained": 78570.03566666723
+ },
+ "fights": 888,
+ "win": 0.46846846846846846,
+ "blowsIn": 10.13626126126126,
+ "blowsOut": 9.88626126126126,
+ "nClock": 960,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "kind": "drain"
+ },
+ "blade": 11
+}

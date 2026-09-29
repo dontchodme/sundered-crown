@@ -1,0 +1,22 @@
+mutant [1d] the row's window 9, not the build's 8            fights changed 106/148   probe 9/9  fails []   FAIL
+    
+mutant [5s] her blades spin 10% faster in the window (SPIN)  fights changed 148/148   probe 9/9  fails []   FAIL
+    
+mutant [5k] her blow's knock x1.2 in the window              fights changed 144/148   probe 9/9  fails []   FAIL
+    
+mutant [5w] her blades' reach +10% in the window             fights changed 148/148   probe 9/9  fails []   FAIL
+    
+mutant [5c] her mass x3 in a clank in the window             fights changed 148/148   probe 9/9  fails []   FAIL
+    
+mutant [5p] the row's reach 66, not the twinblade's 62       fights changed 148/148   probe 9/9  fails []   FAIL
+    
+mutant [6h] the cast stuns her 0.3 s                         fights changed 148/148   probe 9/9  fails []   FAIL
+    
+mutant [8c] the lab's charge 16, unconverted                 fights changed 148/148   probe 9/9  fails []   FAIL
+    
+mutant [10l] lifesteal 0.35 in the window: arm D, rejected (LS) fights changed 142/148   probe 9/9  fails []   FAIL
+    
+mutant [10b] Blessing 3 on her at the cast (BLESS)            fights changed 146/148   probe 9/9  fails []   FAIL
+    
+
+0/10 mutants fail their own check and only that one, and change fights

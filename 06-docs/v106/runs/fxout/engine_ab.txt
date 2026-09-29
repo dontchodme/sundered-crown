@@ -1,0 +1,12 @@
+=== ENGINE A/B: 40 relics, 6 seeds x 780 pairings ===
+
+  sc-widowmaker-b1075-fx.html     4680 matches  615.1s
+  sc-widowmaker-fxout.html        4680 matches  606.4s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4680
+  PASS  every match identical field for field  — 4680/4680
+  PASS  the sweep is real  — 40/40 distinct winners, 4680 distinct seeds, 16.2-113.5s
+
+ENGINE A/B PASS — ../02-chain/sc-widowmaker-fxout.html does not move the 40-relic roster.
+exit 0

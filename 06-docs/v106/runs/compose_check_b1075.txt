@@ -1,0 +1,20 @@
+v106 compose check, round 3 (the builder after the review-3 docstring edit, sha16 a3b2d26d581735c7): widowmaker_build.py re-applied on LATER tips (scratch, not the chain)
+base = sc-tendril-t3.html 5a6216e3b629fad4
+  on the base: stages 1 / 2 / 5 f2de7bed898799f6 / a5b403ceeafb2efa / a9977a757d5772b7; +70 -2 lines
+  == the links in links/: [True, True, True]
+(a) + lodestone_build.py 1,2 + ironhail_build.py 1,2 -> sc-ironhail-hail.html 70fd55fe31373f20
+    stages 1 / 2 / 5: 6e6523f0b26b57b7 / 193a79b75b766d86 / d6644a60b1c229dc; every anchor found once
+    +70 -2; the same lines in the same order as on the base: True
+    builder: base  Widowmaker's shipped row, the hemorrhage tick, the source contract and the four anchors hold; the nova's tail kept, untouched, for lightkeeper, censer
+(b) + lightkeeper_build.py 1,2,3,5 (Bulwark: Lightkeeper off the nova) -> sc-lightkeeper-bulwark-b9.5.html d60a5c63b785ad04
+    stages 1 / 2 / 5: b44c7630a9b6812a / 4d41a3aa364f1a71 / 1038dc4c0314eaea; every anchor found once
+    +70 -2; the same lines in the same order as on the base: True
+    builder: base  Widowmaker's shipped row, the hemorrhage tick, the source contract and the four anchors hold; the nova's tail kept, untouched, for censer
+(c) (b) with Censer's nova row renamed in scratch (NO other relic a nova) -> sc-nonova-tip.html 4a29862d2f692435
+    stages 1 / 2 / 5: 4afe14ce5324c3bc / ca74321bf201a5e2 / ee3955e7d465385a; every anchor found once
+    +70 -2; the same lines in the same order as on the base: True
+    builder: base  Widowmaker's shipped row, the hemorrhage tick, the source contract and the four anchors hold; the nova's tail kept, untouched, for no other relic
+(d) THE REAL CHAIN TIP now (Bindweed stage 6, read only) -> sc-tendril-fx.html eea0cde5536955b3
+    stages 1 / 2 / 5: 2023d41ab9348163 / 762793406432d98c / 8188f2249c2c774b; every anchor found once
+    +70 -2; the same lines in the same order as on the base: True
+    builder: base  Widowmaker's shipped row, the hemorrhage tick, the source contract and the four anchors hold; the nova's tail kept, untouched, for lightkeeper, censer

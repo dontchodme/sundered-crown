@@ -1,0 +1,4 @@
+widowmaker on sc-tendril-t3.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · the shipped relic (nova, 11.95) on the base
+  win 45.3%   side A 45.7%   side B 44.9%   mean 63.6s   timeouts 0
+  by type  flail 52%  warhammer 48%  twinblade 46%  greatsword 45%  bow 44%  scythe 37%
+  worst    redflail 25%  cindercleave 25%  bloodmirror 25%   (740 fights in 89s)

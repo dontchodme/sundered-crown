@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker (redesign) · 33 foes x 20 seeds = 660 fights an arm · v106 census, arm B, block 2317
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out  drainFz  drained f_foeStk f_frozen  f_steps    f_wfz    f_wst
+  B       58.6%   3.67  8.47/10.88      3.94    24.16     2.22   996.73  8007.78   456.51  3270.31
+  660 fights in 78s   errors: []

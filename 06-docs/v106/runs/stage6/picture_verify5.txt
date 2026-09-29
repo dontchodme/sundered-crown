@@ -1,0 +1,116 @@
+  [base] re-used from base.json (page a9977a757d5772b7, 15 fights)
+  [final] re-used from final.json (page 518477d4537ec077, 15 fights)
+  [final-fx] re-used from final-fx.json (page 93e8955ef03be732, 15 fights)
+  [final-fx drawn] 0 fights kept, 15 to run (page 93e8955ef03be732)
+  [final-fx drawn] widowmaker v spellbreaker 99015: draws 960 thrown None casts 5 windows 5 | floats filed 41 (sum n [41] vs floor(drained) of [41.1]) bad [] in a status tick 0 | flush 5 bad [] | thread up while shut 0 [], full 1327 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.2917] | thread after over 0 | thread frames 548 (stop 104) | w written False
+  [final-fx drawn] dawnbringer v widowmaker 99001: draws 818 thrown None casts 3 windows 3 | floats filed 49 (sum n [49] vs floor(drained) of [49.15]) bad [] in a status tick 0 | flush 3 bad [] | thread up while shut 0 [], full 1329 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.3417] | thread after over 0 | thread frames 516 (stop 93) | w written False
+  [final-fx drawn] widowmaker v gravemourn 99015: draws 924 thrown None casts 2 windows 2 | floats filed 75 (sum n [75] vs floor(drained) of [75.12]) bad [] in a status tick 0 | flush 2 bad [] | thread up while shut 0 [], full 2009 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.3833] | thread after over 0 | thread frames 733 (stop 99) | w written False
+  [final-fx drawn] twinshade v widowmaker 99008: draws 1177 thrown None casts 4 windows 4 | floats filed 67 (sum n [67] vs floor(drained) of [67.05]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 2145 short [] | snaps {'clock': 3, 'death': 0, 'over': 1} bad [] gone after [0.2917, 0.575, 0.2917, 0.2917] | thread after over 0 | thread frames 836 (stop 244) | w written False
+  [final-fx drawn] widowmaker v grudgebearer 31337: draws 1146 thrown None casts 3 windows 3 | floats filed 90 (sum n [90] vs floor(drained) of [90.8]) bad [] in a status tick 0 | flush 3 bad [] | thread up while shut 0 [], full 2568 short [] | snaps {'clock': 1, 'death': 0, 'over': 0} bad [] gone after [0.2917] | thread after over 0 | thread frames 911 (stop 167) | w written False
+  [final-fx drawn] aureole v widowmaker 4101: draws 1426 thrown None casts 4 windows 4 | floats filed 106 (sum n [106] vs floor(drained) of [106.9]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 3054 short [] | snaps {'clock': 3, 'death': 0, 'over': 1} bad [] gone after [0.2917, 0.2917, 0.2917, 0.2917] | thread after over 0 | thread frames 1170 (stop 171) | w written False
+  [final-fx drawn] widowmaker v ironhail 99001: draws 1229 thrown None casts 3 windows 3 | floats filed 108 (sum n [108] vs floor(drained) of [108.93]) bad [] in a status tick 0 | flush 3 bad [] | thread up while shut 0 [], full 2788 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.2917] | thread after over 0 | thread frames 1002 (stop 154) | w written False
+  [final-fx drawn] ironwood v widowmaker 1234: draws 1261 thrown None casts 4 windows 4 | floats filed 73 (sum n [73] vs floor(drained) of [73.25]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 2501 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.2917] | thread after over 0 | thread frames 938 (stop 164) | w written False
+  [final-fx drawn] widowmaker v bindweed 2317: draws 1223 thrown None casts 3 windows 3 | floats filed 99 (sum n [99] vs floor(drained) of [99.05]) bad [] in a status tick 0 | flush 3 bad [] | thread up while shut 0 [], full 2683 short [] | snaps {'clock': 3, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.2917, 0.2917] | thread after over 0 | thread frames 973 (stop 179) | w written False
+  [final-fx drawn] morningstar v widowmaker 8888: draws 1403 thrown None casts 4 windows 4 | floats filed 126 (sum n [126] vs floor(drained) of [126.3]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 3043 short [] | snaps {'clock': 3, 'death': 0, 'over': 0} bad [] gone after [0.375, 0.2917, 0.375] | thread after over 0 | thread frames 1109 (stop 159) | w written False
+  [final-fx drawn] widowmaker v lightkeeper 99008: draws 1796 thrown None casts 5 windows 5 | floats filed 132 (sum n [132] vs floor(drained) of [132.8]) bad [] in a status tick 0 | flush 5 bad [] | thread up while shut 0 [], full 3993 short [] | snaps {'clock': 3, 'death': 0, 'over': 1} bad [] gone after [0.2917, 0.2917, 0.35, 0.2917] | thread after over 0 | thread frames 1490 (stop 341) | w written False
+  [final-fx drawn] lastlight v widowmaker 4242: draws 971 thrown None casts 4 windows 4 | floats filed 61 (sum n [61] vs floor(drained) of [61.15]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 1668 short [] | snaps {'clock': 2, 'death': 0, 'over': 1} bad [] gone after [0.2917, 0.35, 0.2917] | thread after over 0 | thread frames 665 (stop 148) | w written False
+  [final-fx drawn] oathwound v widowmaker 5150: draws 1414 thrown None casts 4 windows 4 | floats filed 120 (sum n [120] vs floor(drained) of [120.05]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 3129 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.2917] | thread after over 0 | thread frames 1128 (stop 170) | w written False
+  [final-fx drawn] axiom v grudgebearer 31337: draws 461 thrown None casts 0 windows 0 | floats filed 0 (sum n [] vs floor(drained) of []) bad [] in a status tick 0 | flush 0 bad [] | thread up while shut 0 [], full 0 short [] | snaps {'clock': 0, 'death': 0, 'over': 0} bad [] gone after [] | thread after over 0 | thread frames 0 (stop 0) | w written False
+  [final-fx drawn] morningstar v lastlight 4242: draws 325 thrown None casts 0 windows 0 | floats filed 0 (sum n [] vs floor(drained) of []) bad [] in a status tick 0 | flush 0 bad [] | thread up while shut 0 [], full 0 short [] | snaps {'clock': 0, 'death': 0, 'over': 0} bad [] gone after [] | thread after over 0 | thread frames 0 (stop 0) | w written False
+  [final-fx drawn] arm done, saved (page 93e8955ef03be732)
+  [final drawn] 0 fights kept, 8 to run (page 518477d4537ec077)
+  [final drawn] widowmaker v spellbreaker 99015: draws 960 thrown None casts 5 windows 5 | floats filed 41 (sum n [41] vs floor(drained) of [41.1]) bad [] in a status tick 0 | flush 5 bad [] | thread up while shut 0 [], full 1327 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.2917] | thread after over 0 | thread frames 548 (stop 104) | w written False
+  [final drawn] dawnbringer v widowmaker 99001: draws 818 thrown None casts 3 windows 3 | floats filed 49 (sum n [49] vs floor(drained) of [49.15]) bad [] in a status tick 0 | flush 3 bad [] | thread up while shut 0 [], full 1329 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.3417] | thread after over 0 | thread frames 516 (stop 93) | w written False
+  [final drawn] widowmaker v gravemourn 99015: draws 924 thrown None casts 2 windows 2 | floats filed 75 (sum n [75] vs floor(drained) of [75.12]) bad [] in a status tick 0 | flush 2 bad [] | thread up while shut 0 [], full 2009 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.3833] | thread after over 0 | thread frames 733 (stop 99) | w written False
+  [final drawn] twinshade v widowmaker 99008: draws 1177 thrown None casts 4 windows 4 | floats filed 67 (sum n [67] vs floor(drained) of [67.05]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 2145 short [] | snaps {'clock': 3, 'death': 0, 'over': 1} bad [] gone after [0.2917, 0.575, 0.2917, 0.2917] | thread after over 0 | thread frames 836 (stop 244) | w written False
+  [final drawn] widowmaker v grudgebearer 31337: draws 1146 thrown None casts 3 windows 3 | floats filed 90 (sum n [90] vs floor(drained) of [90.8]) bad [] in a status tick 0 | flush 3 bad [] | thread up while shut 0 [], full 2568 short [] | snaps {'clock': 1, 'death': 0, 'over': 0} bad [] gone after [0.2917] | thread after over 0 | thread frames 911 (stop 167) | w written False
+  [final drawn] aureole v widowmaker 4101: draws 1426 thrown None casts 4 windows 4 | floats filed 106 (sum n [106] vs floor(drained) of [106.9]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 3054 short [] | snaps {'clock': 3, 'death': 0, 'over': 1} bad [] gone after [0.2917, 0.2917, 0.2917, 0.2917] | thread after over 0 | thread frames 1170 (stop 171) | w written False
+  [final drawn] widowmaker v ironhail 99001: draws 1229 thrown None casts 3 windows 3 | floats filed 108 (sum n [108] vs floor(drained) of [108.93]) bad [] in a status tick 0 | flush 3 bad [] | thread up while shut 0 [], full 2788 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.2917] | thread after over 0 | thread frames 1002 (stop 154) | w written False
+  [final drawn] ironwood v widowmaker 1234: draws 1261 thrown None casts 4 windows 4 | floats filed 73 (sum n [73] vs floor(drained) of [73.25]) bad [] in a status tick 0 | flush 4 bad [] | thread up while shut 0 [], full 2501 short [] | snaps {'clock': 2, 'death': 0, 'over': 0} bad [] gone after [0.2917, 0.2917] | thread after over 0 | thread frames 938 (stop 164) | w written False
+  [final drawn] arm done, saved (page 518477d4537ec077)
+  [CONTROL (must differ)] 0 fights kept, 15 to run (page 175e427825487520)
+  [CONTROL (must differ)] widowmaker v spellbreaker 99015: steps@kill 10567
+  [CONTROL (must differ)] dawnbringer v widowmaker 99001: steps@kill 7744
+  [CONTROL (must differ)] widowmaker v gravemourn 99015: steps@kill 5663
+  [CONTROL (must differ)] twinshade v widowmaker 99008: steps@kill 8703
+  [CONTROL (must differ)] widowmaker v grudgebearer 31337: steps@kill 5490
+  [CONTROL (must differ)] aureole v widowmaker 4101: steps@kill 7912
+  [CONTROL (must differ)] widowmaker v ironhail 99001: steps@kill 7206
+  [CONTROL (must differ)] ironwood v widowmaker 1234: steps@kill 9122
+  [CONTROL (must differ)] widowmaker v bindweed 2317: steps@kill 7660
+  [CONTROL (must differ)] morningstar v widowmaker 8888: steps@kill 8900
+  [CONTROL (must differ)] widowmaker v lightkeeper 99008: steps@kill 9922
+  [CONTROL (must differ)] lastlight v widowmaker 4242: steps@kill 8231
+  [CONTROL (must differ)] oathwound v widowmaker 5150: steps@kill 8284
+  [CONTROL (must differ)] axiom v grudgebearer 31337: steps@kill 9611
+  [CONTROL (must differ)] morningstar v lastlight 4242: steps@kill 6348
+  [CONTROL (must differ)] arm done, saved (page 175e427825487520)
+('widowmaker', 'spellbreaker', 99015): final          IDENTICAL  steps@kill 10082 hash@kill [2781449772, 3421210560] winner Spellbreaker t 84.0166666666796
+('widowmaker', 'spellbreaker', 99015): final-fx       IDENTICAL  steps@kill 10082 hash@kill [2781449772, 3421210560] winner Spellbreaker t 84.0166666666796
+('widowmaker', 'spellbreaker', 99015): final-fx drawn IDENTICAL  steps@kill 10082 hash@kill [2781449772, 3421210560] winner Spellbreaker t 84.0166666666796
+('widowmaker', 'spellbreaker', 99015): final drawn    IDENTICAL  steps@kill 10082 hash@kill [2781449772, 3421210560] winner Spellbreaker t 84.0166666666796
+('widowmaker', 'spellbreaker', 99015): CONTROL (must differ)  DIFFERS  drained 41.10 (control bit)
+('dawnbringer', 'widowmaker', 99001): final          IDENTICAL  steps@kill 7363 hash@kill [1520287595, 4247953583] winner Dawnbringer t 61.35833333333049
+('dawnbringer', 'widowmaker', 99001): final-fx       IDENTICAL  steps@kill 7363 hash@kill [1520287595, 4247953583] winner Dawnbringer t 61.35833333333049
+('dawnbringer', 'widowmaker', 99001): final-fx drawn IDENTICAL  steps@kill 7363 hash@kill [1520287595, 4247953583] winner Dawnbringer t 61.35833333333049
+('dawnbringer', 'widowmaker', 99001): final drawn    IDENTICAL  steps@kill 7363 hash@kill [1520287595, 4247953583] winner Dawnbringer t 61.35833333333049
+('dawnbringer', 'widowmaker', 99001): CONTROL (must differ)  DIFFERS  drained 49.15 (control bit)
+('widowmaker', 'gravemourn', 99015): final          IDENTICAL  steps@kill 5334 hash@kill [1331325715, 2574681685] winner Gravemourn t 44.44999999999812
+('widowmaker', 'gravemourn', 99015): final-fx       IDENTICAL  steps@kill 5334 hash@kill [1331325715, 2574681685] winner Gravemourn t 44.44999999999812
+('widowmaker', 'gravemourn', 99015): final-fx drawn IDENTICAL  steps@kill 5334 hash@kill [1331325715, 2574681685] winner Gravemourn t 44.44999999999812
+('widowmaker', 'gravemourn', 99015): final drawn    IDENTICAL  steps@kill 5334 hash@kill [1331325715, 2574681685] winner Gravemourn t 44.44999999999812
+('widowmaker', 'gravemourn', 99015): CONTROL (must differ)  DIFFERS  drained 75.12 (control bit)
+('twinshade', 'widowmaker', 99008): final          IDENTICAL  steps@kill 9396 hash@kill [1801049400, 288212058] winner Twinshade t 78.30000000000838
+('twinshade', 'widowmaker', 99008): final-fx       IDENTICAL  steps@kill 9396 hash@kill [1801049400, 288212058] winner Twinshade t 78.30000000000838
+('twinshade', 'widowmaker', 99008): final-fx drawn IDENTICAL  steps@kill 9396 hash@kill [1801049400, 288212058] winner Twinshade t 78.30000000000838
+('twinshade', 'widowmaker', 99008): final drawn    IDENTICAL  steps@kill 9396 hash@kill [1801049400, 288212058] winner Twinshade t 78.30000000000838
+('twinshade', 'widowmaker', 99008): CONTROL (must differ)  DIFFERS  drained 67.05 (control bit)
+('widowmaker', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 6951 hash@kill [1770870278, 1204464304] winner Widowmaker t 57.924999999997354
+('widowmaker', 'grudgebearer', 31337): final-fx       IDENTICAL  steps@kill 6951 hash@kill [1770870278, 1204464304] winner Widowmaker t 57.924999999997354
+('widowmaker', 'grudgebearer', 31337): final-fx drawn IDENTICAL  steps@kill 6951 hash@kill [1770870278, 1204464304] winner Widowmaker t 57.924999999997354
+('widowmaker', 'grudgebearer', 31337): final drawn    IDENTICAL  steps@kill 6951 hash@kill [1770870278, 1204464304] winner Widowmaker t 57.924999999997354
+('widowmaker', 'grudgebearer', 31337): CONTROL (must differ)  DIFFERS  drained 90.80 (control bit)
+('aureole', 'widowmaker', 4101): final          IDENTICAL  steps@kill 8334 hash@kill [2833420675, 3151191847] winner Widowmaker t 69.45000000000134
+('aureole', 'widowmaker', 4101): final-fx       IDENTICAL  steps@kill 8334 hash@kill [2833420675, 3151191847] winner Widowmaker t 69.45000000000134
+('aureole', 'widowmaker', 4101): final-fx drawn IDENTICAL  steps@kill 8334 hash@kill [2833420675, 3151191847] winner Widowmaker t 69.45000000000134
+('aureole', 'widowmaker', 4101): final drawn    IDENTICAL  steps@kill 8334 hash@kill [2833420675, 3151191847] winner Widowmaker t 69.45000000000134
+('aureole', 'widowmaker', 4101): CONTROL (must differ)  DIFFERS  drained 106.90 (control bit)
+('widowmaker', 'ironhail', 99001): final          IDENTICAL  steps@kill 6997 hash@kill [4074008760, 3324957568] winner Widowmaker t 58.308333333330665
+('widowmaker', 'ironhail', 99001): final-fx       IDENTICAL  steps@kill 6997 hash@kill [4074008760, 3324957568] winner Widowmaker t 58.308333333330665
+('widowmaker', 'ironhail', 99001): final-fx drawn IDENTICAL  steps@kill 6997 hash@kill [4074008760, 3324957568] winner Widowmaker t 58.308333333330665
+('widowmaker', 'ironhail', 99001): final drawn    IDENTICAL  steps@kill 6997 hash@kill [4074008760, 3324957568] winner Widowmaker t 58.308333333330665
+('widowmaker', 'ironhail', 99001): CONTROL (must differ)  DIFFERS  drained 108.93 (control bit)
+('ironwood', 'widowmaker', 1234): final          IDENTICAL  steps@kill 9122 hash@kill [1442572353, 3640952299] winner Widowmaker t 76.01666666667323
+('ironwood', 'widowmaker', 1234): final-fx       IDENTICAL  steps@kill 9122 hash@kill [1442572353, 3640952299] winner Widowmaker t 76.01666666667323
+('ironwood', 'widowmaker', 1234): final-fx drawn IDENTICAL  steps@kill 9122 hash@kill [1442572353, 3640952299] winner Widowmaker t 76.01666666667323
+('ironwood', 'widowmaker', 1234): final drawn    IDENTICAL  steps@kill 9122 hash@kill [1442572353, 3640952299] winner Widowmaker t 76.01666666667323
+('ironwood', 'widowmaker', 1234): CONTROL (must differ)  DIFFERS  drained 73.25 (control bit)
+('widowmaker', 'bindweed', 2317): final          IDENTICAL  steps@kill 7444 hash@kill [626410215, 3636220785] winner Bindweed t 62.033333333330454
+('widowmaker', 'bindweed', 2317): final-fx       IDENTICAL  steps@kill 7444 hash@kill [626410215, 3636220785] winner Bindweed t 62.033333333330454
+('widowmaker', 'bindweed', 2317): final-fx drawn IDENTICAL  steps@kill 7444 hash@kill [626410215, 3636220785] winner Bindweed t 62.033333333330454
+('widowmaker', 'bindweed', 2317): CONTROL (must differ)  DIFFERS  drained 99.05 (control bit)
+('morningstar', 'widowmaker', 8888): final          IDENTICAL  steps@kill 8972 hash@kill [2329024080, 1123310088] winner Widowmaker t 74.76666666667224
+('morningstar', 'widowmaker', 8888): final-fx       IDENTICAL  steps@kill 8972 hash@kill [2329024080, 1123310088] winner Widowmaker t 74.76666666667224
+('morningstar', 'widowmaker', 8888): final-fx drawn IDENTICAL  steps@kill 8972 hash@kill [2329024080, 1123310088] winner Widowmaker t 74.76666666667224
+('morningstar', 'widowmaker', 8888): CONTROL (must differ)  DIFFERS  drained 126.30 (control bit)
+('widowmaker', 'lightkeeper', 99008): final          IDENTICAL  steps@kill 10469 hash@kill [805234499, 635164521] winner Lightkeeper t 87.24166666668216
+('widowmaker', 'lightkeeper', 99008): final-fx       IDENTICAL  steps@kill 10469 hash@kill [805234499, 635164521] winner Lightkeeper t 87.24166666668216
+('widowmaker', 'lightkeeper', 99008): final-fx drawn IDENTICAL  steps@kill 10469 hash@kill [805234499, 635164521] winner Lightkeeper t 87.24166666668216
+('widowmaker', 'lightkeeper', 99008): CONTROL (must differ)  DIFFERS  drained 132.80 (control bit)
+('lastlight', 'widowmaker', 4242): final          IDENTICAL  steps@kill 8008 hash@kill [3864084870, 3234456012] winner Widowmaker t 66.73333333333251
+('lastlight', 'widowmaker', 4242): final-fx       IDENTICAL  steps@kill 8008 hash@kill [3864084870, 3234456012] winner Widowmaker t 66.73333333333251
+('lastlight', 'widowmaker', 4242): final-fx drawn IDENTICAL  steps@kill 8008 hash@kill [3864084870, 3234456012] winner Widowmaker t 66.73333333333251
+('lastlight', 'widowmaker', 4242): CONTROL (must differ)  DIFFERS  drained 61.15 (control bit)
+('oathwound', 'widowmaker', 5150): final          IDENTICAL  steps@kill 8834 hash@kill [678617819, 2362052317] winner Widowmaker t 73.61666666667132
+('oathwound', 'widowmaker', 5150): final-fx       IDENTICAL  steps@kill 8834 hash@kill [678617819, 2362052317] winner Widowmaker t 73.61666666667132
+('oathwound', 'widowmaker', 5150): final-fx drawn IDENTICAL  steps@kill 8834 hash@kill [678617819, 2362052317] winner Widowmaker t 73.61666666667132
+('oathwound', 'widowmaker', 5150): CONTROL (must differ)  DIFFERS  drained 120.05 (control bit)
+('axiom', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 9611 hash@kill [703810764, 878464216] winner Axiom t 80.09166666667647
+('axiom', 'grudgebearer', 31337): final-fx       IDENTICAL  steps@kill 9611 hash@kill [703810764, 878464216] winner Axiom t 80.09166666667647
+('axiom', 'grudgebearer', 31337): final-fx drawn IDENTICAL  steps@kill 9611 hash@kill [703810764, 878464216] winner Axiom t 80.09166666667647
+('axiom', 'grudgebearer', 31337): CONTROL (must differ)  IDENTICAL  drained 0.00 (control bit)
+('morningstar', 'lastlight', 4242): final          IDENTICAL  steps@kill 6348 hash@kill [377892506, 2633061206] winner Lastlight t 52.89999999999764
+('morningstar', 'lastlight', 4242): final-fx       IDENTICAL  steps@kill 6348 hash@kill [377892506, 2633061206] winner Lastlight t 52.89999999999764
+('morningstar', 'lastlight', 4242): final-fx drawn IDENTICAL  steps@kill 6348 hash@kill [377892506, 2633061206] winner Lastlight t 52.89999999999764
+('morningstar', 'lastlight', 4242): CONTROL (must differ)  IDENTICAL  drained 0.00 (control bit)
+SIM IDENTITY: PASS | CONTROL: BIT ON EVERY WIDOWMAKER FIGHT WITH A FLOAT

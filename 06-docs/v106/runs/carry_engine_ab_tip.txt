@@ -1,0 +1,11 @@
+=== ENGINE A/B: 39 relics, 6 seeds x 741 pairings ===
+
+  sc-lodestone-b205-fx.html       4446 matches  900.9s
+  sc-widowmaker-b1075-fx.html     4446 matches  624.3s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4446
+  PASS  every match identical field for field  — 4446/4446
+  PASS  the sweep is real  — 39/39 distinct winners, 4446 distinct seeds, 21.7-124.9s
+
+ENGINE A/B PASS — C:\dev\sundered-crown\02-chain\sc-widowmaker-b1075-fx.html does not move the 39-relic roster.

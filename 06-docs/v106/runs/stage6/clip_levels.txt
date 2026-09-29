@@ -1,0 +1,28 @@
+== exsanguinate-window.mp4 (the stage-6 link, a253d1d3816d0c85)
+stream|codec_name=h264|width=540|height=960|r_frame_rate=60/1|
+stream|codec_name=aac|sample_rate=48000|channels=2|r_frame_rate=0/0
+format|duration=13.421354|size=2938768
+[Parsed_volumedetect_0 @ 00000215c285ee80] mean_volume: -22.6 dB
+[Parsed_volumedetect_0 @ 00000215c285ee80] max_volume: -2.7 dB
+  Integrated loudness:
+    I:         -20.8 LUFS
+    Threshold: -30.9 LUFS
+
+== the drip's band (1000-1450 Hz: C6 lands 1081, E6 1358), RMS by stretch of the clip
+  lead(before  0-1.1 s: mean -40.4 dB
+  the  2.0-10.5 s: mean -39.6 dB
+  tail(after  12.0-13.4 s: mean -40.9 dB
+DRIP AUDIT clip_fx.wav  cast at 1.2s, close at 11.58s of video
+  count 4, E6 1358 Hz: onsets before the cast 0 (0.00/s), in the window 41 (3.95/s), after the close 3
+  count 2, C6 1081 Hz: onsets before the cast 4 (3.33/s), in the window 21 (2.02/s), after the close 3
+
+== exsanguinate-window-specout.mp4 (the delivered look: the stage-6 link with SPECS.widowmaker's three lines out, 3d16bbc543e74c18)
+stream|codec_name=h264|width=540|height=960|r_frame_rate=60/1|
+stream|codec_name=aac|sample_rate=48000|channels=2|r_frame_rate=0/0
+format|duration=13.421354|size=2878824
+[Parsed_volumedetect_0 @ 00000161c41e3880] mean_volume: -22.6 dB
+[Parsed_volumedetect_0 @ 00000161c41e3880] max_volume: -0.4 dB
+    I:         -20.8 LUFS
+DRIP AUDIT clip_specout.wav  cast at 1.2s, close at 11.58s of video
+  count 4, E6 1358 Hz: onsets before the cast 0 (0.00/s), in the window 38 (3.66/s), after the close 0
+  count 2, C6 1081 Hz: onsets before the cast 4 (3.33/s), in the window 20 (1.93/s), after the close 3

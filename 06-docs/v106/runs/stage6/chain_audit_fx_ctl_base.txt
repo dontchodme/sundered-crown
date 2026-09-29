@@ -1,0 +1,43 @@
+  (20 insert(s) found in widowmaker_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-widowmaker-b1075-fx.html
+tip    sc-widowmaker-b1075.html
+20 inserts read out of widowmaker_build.py
+
+    ok  S1:Exsanguinate's nova block out, the drain's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the drain has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the drain's window relic  1  mid   -  tip  1
+    ok  S2:the foe's bleed drains into her, in tickStatus's dps branch relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickDrain keeps the window's clock relic  1  mid   -  tip  1
+    ok  S5:the blade: to the shipped win rate relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Exsanguinate's inhale and drain arms, replacing the nova's wet slice relic  1  mid   -  tip  0
+        'const o = this._tone(t + u - u0, { freq: fu, to: fu * Math.pow(R, -d / D), gain: a, dur:'
+  LOST  S6:tickStatus: the drain's drip, once per whole hp drained, after the gain is booked relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "widowmaker-drain", n: f.stacks("hemorrhage") });'
+  LOST  S6:exsanguinate picture: fighter fields relic  1  mid   -  tip  0
+        'this.siphonSnap = null;'
+  LOST  S6:exsanguinate picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickSiphon(dt);               // EXSANGUINATE'S PICTURE (v76 section 4)"
+  LOST  S6:exsanguinate picture: tickSiphon relic  1  mid   -  tip  0
+        'if (open && foe.stacks("hemorrhage") > 0) f.siphonFade = Math.min(1, f.siphonFade + dt /'
+  LOST  S6:exsanguinate picture: the thread's call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawSiphon(m);'
+  LOST  S6:exsanguinate picture: the flush's call (world, over both fighters) relic  1  mid   -  tip  0
+        'this.drawSiphonTop(m);'
+  LOST  S6:exsanguinate picture: the drawing methods relic  1  mid   -  tip  0
+        'if (!(a.siphonFade > 0) && !(b.siphonFade > 0) && !a.siphonSnap && !b.siphonSnap) return'
+  LOST  S6:exsanguinate picture: the nova's burst retired relic  1  mid   -  tip  0
+        'v106): the fang ring, its 300-unit sweep and the threads pulled back'
+  LOST  S6:exsanguinate picture: the ultFx life entry retired to the cast's record relic  1  mid   -  tip  0
+        'Its window is drawn off the fighter (`drawSiphon`, `drawSiphonTop`),'
+  LOST  S6:exsanguinate picture: the banner's spread relic  1  mid   -  tip  0
+        'const spread = { thornwake: 64, gravemourn: 30,'
+  LOST  S6:exsanguinate picture: the banner's letters fill relic  1  mid   -  tip  0
+        'for (const ch of b.text){ const w = c.measureText(ch).width; ws.push(w); tot += w + trac'
+
+!! 12 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Exsanguinate's inhale and drain arms, replacing the nova's wet slice, S6:tickStatus: the drain's drip, once per whole hp drained, after the gain is booked, S6:exsanguinate picture: fighter fields, S6:exsanguinate picture: the presentation call, S6:exsanguinate picture: tickSiphon, S6:exsanguinate picture: the thread's call (world, under both balls), S6:exsanguinate picture: the flush's call (world, over both fighters), S6:exsanguinate picture: the drawing methods, S6:exsanguinate picture: the nova's burst retired, S6:exsanguinate picture: the ultFx life entry retired to the cast's record, S6:exsanguinate picture: the banner's spread, S6:exsanguinate picture: the banner's letters fill
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+exit 1

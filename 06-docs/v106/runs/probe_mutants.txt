@@ -1,0 +1,14 @@
+mutant [1] the window 10% long                      fights changed 109/148   probe fails [1]   OWN CHECK ONLY: PASS
+    [1] FAIL  the window is `dur` on the window clock, closes on either death; only Widowmaker carries ultDrain   67879 FAIL: ['the window did not close', 'the window did not close', 'the window did not close', 'the window did not clo
+mutant [2] the drain 1% over the tick               fights changed  84/148   probe fails [2]   OWN CHECK ONLY: PASS
+    [2] FAIL  every hemorrhage tick on her live foe in the window heals her by exactly d, rebuilt from the engine's loop   469141 FAIL: ['drain: her hp 445.4500000000178 -> 445.4752500000178, rebuilt 445.47500000001776', 'drain: her h
+mutant [3] the drain lifts her cap (v76 6.3, left out) fights changed  11/148   probe fails [3]   OWN CHECK ONLY: PASS
+    [3] FAIL  capped at maxHp: a tick that would carry her past it leaves her exactly at maxHp   21378 FAIL: ['her maxHp 520 -> 520.025 in a status tick (the cap does not lift)', 'a capped drain: her hp 520 -> 520.025, maxHp 520', 'he
+mutant [4] the drain with the window shut           fights changed 146/148   probe fails [4]   OWN CHECK ONLY: PASS
+    [4] FAIL  nothing drains with the window shut, from a shade or a corpse; the foe's own tick untouched   431333 FAIL: ['her hp 507.887500000001 -> 507.912500000001 in a shut window', 'her hp 507.900000000001 -> 507.925000000001 in 
+mutant [6] the nova's 3 hemorrhage kept at the cast fights changed 147/148   probe fails [6]   OWN CHECK ONLY: PASS
+    [6] FAIL  the cast: no damage, knock, stun or status; the common 0.08 stop only; a window {t 0, dur}   820 FAIL: ['the cast moved the foe\'s st: [["hemorrhage",2,2.041666666666671]] -> [["hemorrhage",4,3.2]]', 'the cast moved the 
+mutant [7] a drain tick stops the world             fights changed 148/148   probe fails [7]   OWN CHECK ONLY: PASS
+    [7] FAIL  a drain tick: no beat but the fatal tick's own, no stop, no float, no status on her   374901 FAIL: ['hitStop -0.0033333333333333184 -> 0.02', 'hitStop -0.004999999999999999 -> 0.02', 'hitStop -0.004999999999999999 -> 0.0
+
+6/6 mutants fail their own check and only that one, and change fights

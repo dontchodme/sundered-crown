@@ -1,0 +1,31 @@
+
+EXSANGUINATE PROBE  sc-widowmaker-mut-clankmass.html  Chromium 151.0.7922.34  78 fights (Widowmaker both sides x every foe x 1 seeds, seed0 101001)   ult {'charge': 14, 'dur': 8, 'kind': 'drain'}  blade 10.75
+  pinned from the builder: window 8s, charge 14, the twinblade reach 62 width 8 spin 5.7 mass 1.1 blades [0.0, 0.5] onHit +2, blade 11.95 or 10.75
+  casts/fight 3.86   blows a fight: in windows 10.22, outside 10.15   Widowmaker win 57.7%
+  per cast: drained 23.35 hp (the tally; hp deltas 23.35)   drain ticks 577   foe stacks on a window frame 2.18   ticks at the cap 0.9%
+  window: 960 steps of the window clock (8.000s); match time a window 9.25s (a clock close)   FREEZE CENSUS 14.3% of window steps frozen
+  the window clock: held on 43616 frozen steps, moved by dt on 261045 live steps (264 of them closing)
+  301 windows: 251 closed by the clock, 13 on a death tickDrain saw, 37 still set at `over` (a kill after tickDrain in the last step), 0 at the timeout, 0 at the probe's cap
+  the charge: 301 casts each exactly 1681 steps of her live clock after the last (14.008s); 78 fights ended owing none
+  bleed ticks that drained nothing: 182257 window shut, 3224 a shade's, 0 a dead foe's   blows on a cursed foe or Bulwarden's wall, rebuilt with their rules 23
+  her blade: turned by the definition on 207859 live steps in windows and 253877 outside (102372 stunned, held); held on 81647 frozen steps; segments rebuilt 741288 in / 880556 out
+             hit test and cooldowns rebuilt on 263413 tickHits in windows and 307327 outside (38 skipped with one down); knock 1589, foe hitstun 1589, stop 1589 of her blows; clanks 0 in / 0 out
+  the foe's bleed ceiling (hemorrhage's 4): held after 304698 steps in windows and 341057 outside; blows where it bound 407 in windows, 292 outside; onHit +2 where it could not bind 875
+  her only heal: 172242 hp rises, all inside another fighter's status tick; no Blessing or lifesteal after 304698 steps in windows and 341057 outside; 1589 blows of hers healed nothing; 33 of her deaths clamped to 0 by checkEnd
+  stage 6 voices: 301 casts each one inhale; 6990 drain ticks crossing a whole hp each one drip (n = the foe's stacks: 2: 1552, 4: 5438), 165252 paying less than a whole hp none; closes silent: 251 by the clock, 13 on a death; 37 windows set at `over` silent through 2 s of the verdict
+  stage 6 picture: tickSiphon 1247303 calls, 1247303 writing nothing of the simulation's and drawing no RNG; 301 flushes for 301 casts; 6990 "+n" floats; the thread up on 388918 calls; snaps 159 at a clock close, 48 at `over`; 78 fights end with every whole hp floated and the thread down
+  [1] PASS  the window is the build's 8 s on the window tickers' clock: held on every frozen step, dt on every live one; closes on a death tickDrain sees; every window accounted for; only Widowmaker carries ultDrain
+  [2] PASS  every hemorrhage tick on her live foe in the window heals her by exactly d, rebuilt from the engine's loop
+  [3] PASS  capped at maxHp (§2): a tick that would carry her past it leaves her exactly at maxHp; maxHp never moves
+  [4] PASS  nothing drains with the window shut, from a shade or a corpse; the foe's own tick untouched
+  [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   2062 FAIL: ['a clank out of the window: her stun 0 -> 0.3949397607028173 (want 0.4170008742561539), vx -181.59809584989762 -> -346.5838180742678 (want -355.7998279948539), vy 655.7439966774248 -> 122.85933253797543 (want 93.09269403722908)', 'a clank out of the window: her stun 0.04493976070281688 -> 0.32056987311113017 (want 0.3384767264497206), vx -423.0868252975627 -> -386.46974732859604 (want -384.424337887857), vy 324.5368809721293 -> -378.20671142721676 (want -417.4615744048331)', 'a clank out of the window: her stun 0 -> 0.37033779181537074 (want 0.39102465318327095), vx -112.43425919189485 -> 456.85714565444925 (want 488.657444274431), vy -593.802666601142 -> -782.0459042615703 (want -792.5610659517587)', 'a clank out of the window: her stun 0 -> 0.36341726329925017 (want 0.383717547825225), vx 299.28131189204424 -> 274.8829499076997 (want 273.5200710896891), vy 544.2212662735704 -> -67.66704112987145 (want -101.84677883864038)']
+  [6] PASS  the cast moves nothing on either fighter but her window: no damage, knock, stun or status, no RNG, no new object, the common 0.08 stop and ult beat only; a window {t 0, dur}
+  [7] PASS  a drain tick: no beat but the fatal tick's own, no stop, no float, no status on her
+  [8] PASS  the build's charge 14 on her live clock: every cast exactly then, none owed at the end, none while her window is open
+  [9] PASS  the drain lifts no cap (§6.3): the foe's bleed ceiling is hemorrhage's own 4 after every step and at every blow, and a blow at the ceiling stops there
+  [10] PASS  the drain is her only heal (§3 no lifesteal, §4 no Blessing): her hp rises only in another fighter's status tick; no Blessing or lifesteal on her after any step or at any blow
+  [11] PASS  stage 6 voices: one inhale a cast, one drip per whole hp drained (n = the foe's stacks), none anywhere else -- no voice on a close, a death or the verdict
+  [12] PASS  stage 6 picture: tickSiphon writes nothing of the simulation's and draws no RNG; one "+n" per whole hp drained; the flush on every cast; the thread up only in an open window, snapping at its close
+
+  11/12
+exit 1

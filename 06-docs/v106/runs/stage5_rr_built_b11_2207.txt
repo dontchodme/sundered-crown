@@ -1,0 +1,4 @@
+widowmaker on sc-widowmaker-b11.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · the built stage-5 link, no knob set
+  win 48.8%   side A 51.9%   side B 45.7%   mean 68.1s   timeouts 0
+  by type  bow 57%  warhammer 52%  greatsword 48%  scythe 46%  flail 46%  twinblade 41%
+  worst    thornwake 30%  lightkeeper 30%  nightfell 30%   (740 fights in 129s)

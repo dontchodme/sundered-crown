@@ -1,0 +1,2 @@
+electron (ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x000024) vs headless (151.0.7922.34), wm-final-fx.html: 36/36 fights identical field for field (36 distinct summaries)
+CONTROL (electron on wm-control.html vs headless on the page): identical on 6/33 Widowmaker fights (must be ~0), 3/3 without her (must be all)

@@ -1,0 +1,11 @@
+
+FX REMOVE -- widowmaker's particle field out of both copies
+  src sc-widowmaker-b1075-fx.html  94875b2b314c5625
+  the block, removed whole:
+    |     widowmaker: { mode: 'burst', n: 1620, sp: [240, 620], grav: 90, drag: 2.6,
+    |                   life: [0.30, 0.75], heavy: 0.05, size: [0.8, 2.2],
+    |                   spawn: 0.05, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 8bf7db5ceb2685a0 -> bb57bd38ca475650
+  wrote sc-widowmaker-fxout.html  04fdd2e2daa17c26
+  wrote src/render/fx.js  bb57bd38ca475650
+exit 0

@@ -1,0 +1,16 @@
+=== the four stages on 02-chain/sc-tendril-t3.html (5a6216e3b629fad4)
+  out sc-widowmaker-sc-tendril-t3-1.html  f2de7bed898799f6   (+193 chars, written LF)
+  out sc-widowmaker-sc-tendril-t3-2.html  a5b403ceeafb2efa   (+3439 chars, written LF)
+  out sc-widowmaker-sc-tendril-t3-5.html  a9977a757d5772b7   (+0 chars, written LF)
+  ok    one drain ultimate, Widowmaker's; 2 other nova row(s) left as they were; no insert draws the RNG, writes the shared weapon, or applies, beats, stops, floats or knocks; 38 relics in the roster
+  out sc-widowmaker-sc-tendril-t3-6.html  a253d1d3816d0c85   (+16068 chars, written LF)
+=== the four stages on 02-chain/sc-ironhail-fxout.html (4b3775e5900172ea)
+  out sc-widowmaker-sc-ironhail-fxout-1.html  0c24bb9e9e1f4897   (+193 chars, written LF)
+  out sc-widowmaker-sc-ironhail-fxout-2.html  e69f3b09fd0c4c72   (+3439 chars, written LF)
+  out sc-widowmaker-sc-ironhail-fxout-5.html  857dd89e21b247d9   (+0 chars, written LF)
+  ok    one drain ultimate, Widowmaker's; 2 other nova row(s) left as they were; no insert draws the RNG, writes the shared weapon, or applies, beats, stops, floats or knocks; 39 relics in the roster
+  out sc-widowmaker-sc-ironhail-fxout-6.html  e1c2875e791ff02d   (+16068 chars, written LF)
+=== t3 stage 5 == links/sc-widowmaker-b1075.html: IDENTICAL
+=== t3 stage 6 == links/sc-widowmaker-b1075-fx.html: IDENTICAL
+=== stage 5 -> 6 on sc-tendril-t3: +343 -58 lines sig b25c08e7db8459fd
+=== stage 5 -> 6 on sc-ironhail-fxout: +343 -58 lines sig b25c08e7db8459fd

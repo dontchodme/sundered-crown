@@ -1,0 +1,46 @@
+mutant [1] the window 10% long                              fights changed 102/148   probe 9/10  fails [1]   OWN CHECK ONLY: PASS
+    [1] FAIL  the window is the build's 8 s on the window tickers' clock: held on every frozen step, dt on every live one; closes on a death tickDrain sees; every window accounted for; only Widowmaker carries ultDrain   69194 FAIL: ['
+mutant [1f] the window also ticks in a hit stop (R1)         fights changed 111/148   probe 9/10  fails [1]   OWN CHECK ONLY: PASS
+    [1] FAIL  the window is the build's 8 s on the window tickers' clock: held on every frozen step, dt on every live one; closes on a death tickDrain sees; every window accounted for; only Widowmaker carries ultDrain   108184 FAIL: [
+mutant [2] the drain 1% over the tick                       fights changed  74/148   probe 9/10  fails [2]   OWN CHECK ONLY: PASS
+    [2] FAIL  every hemorrhage tick on her live foe in the window heals her by exactly d, rebuilt from the engine's loop   485116 FAIL: ['drain: her hp 415.62499999999613 -> 415.67549999999613, rebuilt 415.67499999999615', 'drain: her
+mutant [3] the heal past maxHp (§2's cap lifted)            fights changed   8/148   probe 9/10  fails [3]   OWN CHECK ONLY: PASS
+    [3] FAIL  capped at maxHp (§2): a tick that would carry her past it leaves her exactly at maxHp; maxHp never moves   28542 FAIL: ['her maxHp 520 -> 520.025 in a status tick (the heal is capped at maxHp; nothing lifts it)', 'a capp
+mutant [4] the drain with the window shut                   fights changed 147/148   probe 9/10  fails [4]   OWN CHECK ONLY: PASS
+    [4] FAIL  nothing drains with the window shut, from a shade or a corpse; the foe's own tick untouched   433187 FAIL: ['her hp 507.887500000001 -> 507.912500000001 in a shut window', 'her hp 507.900000000001 -> 507.925000000001 in 
+mutant [4t] the foe's bleed 10% harder in the window (RFT)   fights changed 131/148   probe 9/10  fails [4]   OWN CHECK ONLY: PASS
+    [4] FAIL  nothing drains with the window shut, from a shade or a corpse; the foe's own tick untouched   495024 FAIL: ["the foe's tick: hp 429.07500000000607 -> 429.02000000000606, rebuilt 429.02500000000606", "the foe's tick: hp 4
+mutant [5d] blades +5% in the window, via dmgMul             fights changed 148/148   probe 9/10  fails [5]   OWN CHECK ONLY: PASS
+    [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   1747 FAIL: ['IN
+mutant [5r] blades +5% in the window, in resolveHit          fights changed 148/148   probe 9/10  fails [5]   OWN CHECK ONLY: PASS
+    [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   1747 FAIL: ['IN
+mutant [5o] her onHit bleed 3, not 2, in the window (ROH)    fights changed 148/148   probe 9/10  fails [5]   OWN CHECK ONLY: PASS
+    [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   659 FAIL: ['onH
+mutant [6] the nova's 3 hemorrhage kept at the cast         fights changed 148/148   probe 9/10  fails [6]   OWN CHECK ONLY: PASS
+    [6] FAIL  the cast moves nothing on either fighter but her window: no damage, knock, stun or status, no RNG, no new object, the common 0.08 stop and ult beat only; a window {t 0, dur}   835 FAIL: ['the cast moved the foe\'s status
+mutant [7] a drain tick stops the world                     fights changed 148/148   probe 9/10  fails [7]   OWN CHECK ONLY: PASS
+    [7] FAIL  a drain tick: no beat but the fatal tick's own, no stop, no float, no status on her   385288 FAIL: ['hitStop -0.0033333333333333184 -> 0.02', 'hitStop -0.004999999999999999 -> 0.02', 'hitStop -0.004999999999999999 -> 0.0
+mutant [9] the foe's bleed ceiling 8 in the window (R63, §6.3) fights changed 141/148   probe 9/10  fails [9]   OWN CHECK ONLY: PASS
+    [9] FAIL  the drain lifts no cap (§6.3): the foe's bleed ceiling is hemorrhage's own 4 after every step and at every blow, and a blow at the ceiling stops there   852801 FAIL: ["the foe's bleed ceiling is 8 after a step (her windo
+mutant [1d] the row's window 9, not the build's 8            fights changed 106/148   probe 9/10  fails [1]   OWN CHECK ONLY: PASS
+    [1] FAIL  the window is the build's 8 s on the window tickers' clock: held on every frozen step, dt on every live one; closes on a death tickDrain sees; every window accounted for; only Widowmaker carries ultDrain   704 FAIL: ["th
+mutant [5s] her blades spin 10% faster in the window (SPIN)  fights changed 148/148   probe 9/10  fails [5]   OWN CHECK ONLY: PASS
+    [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   597568 FAIL: ['
+mutant [5k] her blow's knock x1.2 in the window              fights changed 144/148   probe 9/10  fails [5]   OWN CHECK ONLY: PASS
+    [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   2280 FAIL: ["IN
+mutant [5w] her blades' reach +10% in the window             fights changed 148/148   probe 9/10  fails [5]   OWN CHECK ONLY: PASS
+    [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   2119592 FAIL: [
+mutant [5c] her mass x3 in a clank in the window             fights changed 148/148   probe 9/10  fails [5]   OWN CHECK ONLY: PASS
+    [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   2926 FAIL: ['a 
+mutant [5p] the row's reach 66, not the twinblade's 62       fights changed 148/148   probe 9/10  fails [5]   OWN CHECK ONLY: PASS
+    [5] FAIL  her blades unchanged, the whole blade from its definition, in the window and out: the row, the turn, the segments, the hit test and cooldown, the blow (damage, onHit +2, knock, hitstun, stop), the clank   4519580 FAIL: [
+mutant [6h] the cast stuns her 0.3 s                         fights changed 148/148   probe 9/10  fails [6]   OWN CHECK ONLY: PASS
+    [6] FAIL  the cast moves nothing on either fighter but her window: no damage, knock, stun or status, no RNG, no new object, the common 0.08 stop and ult beat only; a window {t 0, dur}   835 FAIL: ['the cast moved her stun: 0 -> 0.
+mutant [8c] the lab's charge 16, unconverted                 fights changed 148/148   probe 9/10  fails [8]   OWN CHECK ONLY: PASS
+    [8] FAIL  the build's charge 14 on her live clock: every cast exactly then, none owed at the end, none while her window is open   737 FAIL: ["the row's charge is 16, the build's 14", 'a cast after 1921 steps of her live clock, wan
+mutant [10l] lifesteal 0.35 in the window: arm D, rejected (LS) fights changed 142/148   probe 9/10  fails [10]   OWN CHECK ONLY: PASS
+    [10] FAIL  the drain is her only heal (§3 no lifesteal, §4 no Blessing): her hp rises only in another fighter's status tick; no Blessing or lifesteal on her after any step or at any blow   913256 FAIL: ['she carries lifesteal 0.35
+mutant [10b] Blessing 3 on her at the cast (BLESS)            fights changed 146/148   probe 9/10  fails [10]   OWN CHECK ONLY: PASS
+    [10] FAIL  the drain is her only heal (§3 no lifesteal, §4 no Blessing): her hp rises only in another fighter's status tick; no Blessing or lifesteal on her after any step or at any blow   1277507 FAIL: ['she carries Blessing x3 a
+
+22/22 mutants fail their own check and only that one, and change fights

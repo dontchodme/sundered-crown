@@ -1,0 +1,46 @@
+Widowmaker / Exsanguinate (sc-widowmaker-b11: the drain, blade 11) win by foe, both sides, relic_rate seed0 2207 + 2317
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks). Pooled: 49.2%.  Beside it: the SHIPPED relic (the nova, 11.95)
+on the base, pooled 46.7%, and the drain at 10.75 (the blade that holds the shipped rate), pooled 47.0%.
+
+by type   bow 60%  warhammer 52%  greatsword 49%  scythe 48%  flail 45%  twinblade 39%
+shipped   bow 44%  warhammer 50%  greatsword 50%  scythe 44%  flail 48%  twinblade 44%
+at 10.75  bow 53%  warhammer 55%  greatsword 47%  scythe 46%  flail 42%  twinblade 36%
+
+foe           shape        drain 11  shipped   move  at 10.75
+lightkeeper   greatsword      30.0%    37.5%   -7.5     35.0%
+spellbreaker  twinblade       32.5%    32.5%   +0.0     27.5%
+twinshade     twinblade       32.5%    30.0%   +2.5     20.0%
+gravemourn    flail           35.0%    50.0%  -15.0     45.0%
+foregone      scythe          37.5%    47.5%  -10.0     45.0%
+gloamwire     bow             37.5%    32.5%   +5.0     50.0%
+paradox       flail           37.5%    37.5%   +0.0     42.5%
+starwarden    twinblade       37.5%    52.5%  -15.0     47.5%
+vesper        scythe          37.5%    45.0%   -7.5     35.0%
+cindercleave  scythe          40.0%    27.5%  +12.5     35.0%
+nightfell     greatsword      40.0%    42.5%   -2.5     40.0%
+redflail      flail           40.0%    25.0%  +15.0     30.0%
+shroudmaul    warhammer       40.0%    42.5%   -2.5     45.0%
+bindweed      flail           42.5%    42.5%   +0.0     45.0%
+dawnbringer   greatsword      42.5%    27.5%  +15.0     45.0%
+emberedge     greatsword      42.5%    50.0%   -7.5     47.5%
+slagheart     flail           42.5%    57.5%  -15.0     35.0%
+bulwarden     warhammer       47.5%    47.5%   -0.0     42.5%
+grudgebearer  warhammer       47.5%    45.0%   +2.5     50.0%
+ironhail      bow             47.5%    47.5%   +0.0     47.5%
+duskreave     scythe          50.0%    35.0%  +15.0     60.0%
+thornwake     scythe          50.0%    52.5%   -2.5     40.0%
+thornshear    twinblade       52.5%    60.0%   -7.5     50.0%
+aureole       bow             55.0%    32.5%  +22.5     60.0%
+lastlight     scythe          55.0%    60.0%   -5.0     50.0%
+morningstar   flail           55.0%    52.5%   +2.5     42.5%
+oathwound     greatsword      55.0%    62.5%   -7.5     55.0%
+ironwood      warhammer       57.5%    62.5%   -5.0     57.5%
+portcullis    flail           60.0%    67.5%   -7.5     52.5%
+ravelbone     warhammer       60.0%    37.5%  +22.5     57.5%
+bloodmirror   scythe          62.5%    42.5%  +20.0     60.0%
+censer        warhammer       62.5%    65.0%   -2.5     77.5%
+heartwood     greatsword      62.5%    60.0%   +2.5     60.0%
+farwarden     bow             67.5%    45.0%  +22.5     47.5%
+axiom         greatsword      70.0%    67.5%   +2.5     47.5%
+marrowdraw    bow             70.0%    52.5%  +17.5     67.5%
+vinesower     bow             85.0%    52.5%  +32.5     45.0%

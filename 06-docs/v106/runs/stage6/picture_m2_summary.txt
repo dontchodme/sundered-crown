@@ -1,0 +1,33 @@
+101 frames, 9 fights; missing: dawnbringer 99001a ['grow']; gravemourn 99015a ['over']; gravemourn 5150b ['over']; spellbreaker 99015a ['over']; grudgebearer 31337b ['over']; lastlight 4242a ['snap']; ironhail 99001b ['over']
+BLOOM: the picture's share of the chain's arena lift max +0.0002 min -0.0003 (gate +0.02) [worst aureole 4101b cast]; raw luma added max +0.0005 min -0.0029; arena clip with max 0.0132 without 0.0132
+  CONTROL ctrl1: dLift max +0.0114, > 0.02 on 0/101; caster disc pushed past 0.90 on 66/71 window/cast frames; foe disc pushed past 0.90 on 0/101 (max caster 1.000, foe 0.940)
+  CONTROL ctrl2: dLift max +0.0290, > 0.02 on 6/101; caster disc pushed past 0.90 on 47/71 window/cast frames; foe disc pushed past 0.90 on 46/101 (max caster 0.997, foe 0.990)
+  CONTROL ctrl3: dLift max +0.0102, > 0.02 on 0/101; caster disc pushed past 0.90 on 15/71 window/cast frames; foe disc pushed past 0.90 on 0/101 (max caster 1.000, foe 0.940)
+DISC me: d -0.3513..+0.0011 (art only, floats out: -0.3513..+0.0001); disc 0.166..0.894; >0.90 with 0 / without 2 of 101; clip with max 0.239 without 0.383
+DISC foe: d -0.0060..+0.0001 (art only, floats out: -0.0000..+0.0000); disc 0.219..0.940; >0.90 with 2 / without 2 of 101; clip with max 0.660 without 0.660
+  foe dwarven   : n 22 d +0.0000..+0.0000; disc 0.305..0.894, contour 0.203..0.485; >0.90 with 0 without 0
+  foe runic     : n 11 d -0.0000..+0.0000; disc 0.366..0.752, contour 0.253..0.339; >0.90 with 0 without 0
+  foe sanctified: n 34 d -0.0000..+0.0001; disc 0.472..0.940, contour 0.375..0.959; >0.90 with 2 without 2
+  foe umbral    : n 34 d -0.0060..+0.0000; disc 0.219..0.814, contour 0.154..0.529; >0.90 with 0 without 0
+FLUSH on her disc (cast frames): -0.3445..-0.0412; flush's effect on the foe's disc max |0.0000|
+LEGIBILITY (median |dL| of the component's own pixels (min..max) [n frames]; out of a stop  /  in one):
+  cord     in grow,thread,thread2,stop,thin   : 0.133 (0.056..0.150) [27]  /  0.137 (0.058..0.154) [17]
+  beads    in thread,thread2,stop             : 0.119 (0.050..0.143) [18]  /  0.121 (0.095..0.152) [9]
+  thread   in grow,thread,thread2,stop,thin   : 0.142 (0.059..0.156) [27]  /  0.141 (0.070..0.157) [17]
+  flush    in cast,cast2                      : 0.086 (0.082..0.216) [9]  /  0.118 (0.109..0.386) [9]
+  snap     in snap,over                       : 0.145 (0.076..0.159) [8]  /  0.083 (0.047..0.098) [4]
+  plus     in plus,thread,thread2,stop        : 0.115 (0.080..0.232) [23]  /  0.108 (0.097..0.237) [9]
+  banner   in cast,cast2                      : 0.157 (0.150..0.244) [9]  /  0.059 (0.053..0.111) [9]
+by state (median |dL| of everything the picture draws, its floats included):
+  rest     nan (nan..nan) n 0 of 9; area med 0 u2
+  cast     0.118 (0.112..0.386) n 9 of 9; area med 3704 u2
+  cast2    0.088 (0.085..0.216) n 9 of 9; area med 3362 u2
+  grow     0.135 (0.117..0.369) n 8 of 8; area med 3795 u2
+  thread   0.131 (0.068..0.146) n 9 of 9; area med 680 u2
+  thread2  0.114 (0.077..0.128) n 9 of 9; area med 1145 u2
+  stop     0.123 (0.108..0.139) n 9 of 9; area med 797 u2
+  thin     0.125 (0.091..0.148) n 9 of 9; area med 1046 u2
+  snap     0.125 (0.080..0.155) n 8 of 8; area med 1033 u2
+  plus     0.139 (0.095..0.157) n 9 of 9; area med 918 u2
+  close    0.108 (0.088..0.114) n 8 of 9; area med 445 u2
+  over     0.145 (0.103..0.196) n 4 of 4; area med 954 u2

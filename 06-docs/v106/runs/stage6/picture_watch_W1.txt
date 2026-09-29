@@ -1,0 +1,2 @@
+W1: windows (steps) [[1794, 2857], [3645, 4750], [5526, 6597], [7457, 8334]] over at 8334 winner Widowmaker thrown None frames 267
+montages: ['W1_all_0.png', 'W1_all_1.png', 'W1_all_2.png', 'W1_all_3.png', 'W1_all_4.png', 'W1_kill_0.png', 'W1_win_0.png', 'W1_win_1.png', 'W1_win_2.png', 'W1_win_3.png']

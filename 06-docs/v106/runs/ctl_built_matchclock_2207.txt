@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker (redesign) · 33 foes x 20 seeds = 660 fights an arm · control: the built drain with its window on MATCH time (8s incl. frozen steps, the lab's window)
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    53.2%   0.00  0.00/19.19 
+  660 fights in 77s   errors: []

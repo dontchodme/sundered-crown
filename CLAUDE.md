@@ -82,7 +82,17 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-lodestone-b205-fx.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 40 RELICS:
+02-chain/sc-widowmaker-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 40 RELICS:
+                                 WIDOWMAKER / EXSANGUINATE REDESIGNED (widowmaker_build.py
+                                 1, 2, 5, 6 and fx_remove.py, v106), carried onto
+                                 sc-lodestone-b205-fx. The nova is gone: for 8s every
+                                 bleed tick on the foe heals her by as much. Charge 14,
+                                 blade 10.75, the shipped rate (47.0%; 50% is 11, Rick's).
+                                 fx.js stamp -> bb57bd38ca475650 (the NOVAS header kept).
+                                 Carry proved against scratch and the tip; probe 12/12
+                                 (it now reads Coldiron's clank mass); shell_identity
+                                 200/200.
+02-chain/sc-lodestone-b205-fx.html the link under it, AWAITING RICK'S EYE. 40 RELICS:
                                  LODESTONE / REBUTTAL, the runic warhammer
                                  (lodestone_build.py 1, 2, 3, 5, 6, v102), carried onto
                                  sc-ironhail-fxout. For 8s the walls are runed: a foe

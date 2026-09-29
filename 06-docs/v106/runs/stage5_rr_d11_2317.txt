@@ -1,0 +1,4 @@
+widowmaker on sc-widowmaker-drain.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · set dmg=11
+  win 49.6%   side A 49.2%   side B 50.0%   mean 68.2s   timeouts 0
+  by type  bow 63%  warhammer 52%  greatsword 50%  scythe 49%  flail 44%  twinblade 36%
+  worst    spellbreaker 20%  twinshade 25%  redflail 25%   (740 fights in 84s)

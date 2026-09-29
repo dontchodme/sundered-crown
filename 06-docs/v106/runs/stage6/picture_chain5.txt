@@ -1,0 +1,72 @@
+=== chain_tip_t3.html
+(10 insert(s) found in wm_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  wm-final-fx.html
+tip    chain_tip_t3.html
+10 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\widowmaker\stage6-picture\wm_table.py
+
+    ok  ROWS:exsanguinate picture: fighter fields relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the presentation call relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: tickSiphon relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the thread's call (world, under both balls) relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the flush's call (world, over both fighters) relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the drawing methods relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the nova's burst retired relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the ultFx life entry retired to the cast's record relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the banner's spread relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the banner's letters fill relic  1  mid   -  tip  1
+
+ALL 10 INSERTS SURVIVE to chain_tip_t3.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: ROWS:exsanguinate picture: the nova's burst retired, ROWS:exsanguinate picture: the ultFx life entry retired to the cast's record)
+exit 0
+=== chain_tip_ihfxout.html
+(10 insert(s) found in wm_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  wm-final-fx.html
+tip    chain_tip_ihfxout.html
+10 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\widowmaker\stage6-picture\wm_table.py
+
+    ok  ROWS:exsanguinate picture: fighter fields relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the presentation call relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: tickSiphon relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the thread's call (world, under both balls) relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the flush's call (world, over both fighters) relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the drawing methods relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the nova's burst retired relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the ultFx life entry retired to the cast's record relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the banner's spread relic  1  mid   -  tip  1
+    ok  ROWS:exsanguinate picture: the banner's letters fill relic  1  mid   -  tip  2
+
+ALL 10 INSERTS SURVIVE to chain_tip_ihfxout.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: ROWS:exsanguinate picture: the nova's burst retired, ROWS:exsanguinate picture: the ultFx life entry retired to the cast's record)
+exit 0
+=== CONTROL (must report LOST): sc-widowmaker-b1075.html
+(10 insert(s) found in wm_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  wm-final-fx.html
+tip    sc-widowmaker-b1075.html
+10 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\widowmaker\stage6-picture\wm_table.py
+
+  LOST  ROWS:exsanguinate picture: fighter fields relic  1  mid   -  tip  0
+        'this.siphonSnap = null;'
+  LOST  ROWS:exsanguinate picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickSiphon(dt);               // EXSANGUINATE'S PICTURE (v76 section 4)"
+  LOST  ROWS:exsanguinate picture: tickSiphon relic  1  mid   -  tip  0
+        'if (open && foe.stacks("hemorrhage") > 0) f.siphonFade = Math.min(1, f.siphonFade + dt /'
+  LOST  ROWS:exsanguinate picture: the thread's call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawSiphon(m);'
+  LOST  ROWS:exsanguinate picture: the flush's call (world, over both fighters) relic  1  mid   -  tip  0
+        'this.drawSiphonTop(m);'
+  LOST  ROWS:exsanguinate picture: the drawing methods relic  1  mid   -  tip  0
+        'if (!(a.siphonFade > 0) && !(b.siphonFade > 0) && !a.siphonSnap && !b.siphonSnap) return'
+  LOST  ROWS:exsanguinate picture: the nova's burst retired relic  1  mid   -  tip  0
+        'v106): the fang ring, its 300-unit sweep and the threads pulled back'
+  LOST  ROWS:exsanguinate picture: the ultFx life entry retired to the cast's record relic  1  mid   -  tip  0
+        'Its window is drawn off the fighter (`drawSiphon`, `drawSiphonTop`),'
+  LOST  ROWS:exsanguinate picture: the banner's spread relic  1  mid   -  tip  0
+        'const spread = { thornwake: 64, gravemourn: 30,'
+  LOST  ROWS:exsanguinate picture: the banner's letters fill relic  1  mid   -  tip  0
+        'for (const ch of b.text){ const w = c.measureText(ch).width; ws.push(w); tot += w + trac'
+
+!! 10 INSERT(S) DID NOT SURVIVE THE CHAIN: ROWS:exsanguinate picture: fighter fields, ROWS:exsanguinate picture: the presentation call, ROWS:exsanguinate picture: tickSiphon, ROWS:exsanguinate picture: the thread's call (world, under both balls), ROWS:exsanguinate picture: the flush's call (world, over both fighters), ROWS:exsanguinate picture: the drawing methods, ROWS:exsanguinate picture: the nova's burst retired, ROWS:exsanguinate picture: the ultFx life entry retired to the cast's record, ROWS:exsanguinate picture: the banner's spread, ROWS:exsanguinate picture: the banner's letters fill
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+exit 1

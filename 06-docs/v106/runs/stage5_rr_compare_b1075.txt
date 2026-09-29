@@ -1,0 +1,2 @@
+block 2207: rate 46.6 (A 47.3, B 45.9), mean 68.23s; differs from --set dmg=10.75 in nothing; from the pre-round-2 bytes in nothing; keys compared 14
+block 2317: rate 47.4 (A 47.6, B 47.3), mean 68.47s; differs from --set dmg=10.75 in nothing; from the pre-round-2 bytes in nothing; keys compared 14

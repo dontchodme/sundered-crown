@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker (redesign) · 33 foes x 20 seeds = 660 fights an arm · v106 stage 0 at the stage-5 blade: the lab's arm B at blade 10.75
+  charge=16.0 dur=8.0 blade=10.75
+
+  arm       win  casts  hits in/out  drained f_foeStk
+  B       48.3%   3.78  8.71/11.50     24.30     2.23
+  660 fights in 81s   errors: []

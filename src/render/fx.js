@@ -117,9 +117,6 @@
                  spawn: 0.12, up: 0 },
 
     /* ---- NOVAS: a burst that does NOT fall --------------------------- */
-    widowmaker: { mode: 'burst', n: 1620, sp: [240, 620], grav: 90, drag: 2.6,
-                  life: [0.30, 0.75], heavy: 0.05, size: [0.8, 2.2],
-                  spawn: 0.05, up: 0 },
     lightkeeper: { mode: 'burst', n: 1500, sp: [210, 560], grav: 70,
                    drag: 2.5, life: [0.35, 0.85], heavy: 0.03,
                    size: [0.8, 2.2], spawn: 0.05, up: 0 },
