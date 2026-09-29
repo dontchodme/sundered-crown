@@ -1,0 +1,4 @@
+censer on sc-tendril-t3.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · shipped-nova
+  win 49.5%   side A 50.0%   side B 48.9%   mean 54.2s   timeouts 0
+  by type  greatsword 63%  warhammer 56%  scythe 50%  twinblade 49%  bow 40%  flail 39%
+  worst    gloamwire 10%  portcullis 20%  farwarden 30%   (740 fights in 66s)

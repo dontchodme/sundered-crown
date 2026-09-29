@@ -1,0 +1,17 @@
+  (10 insert(s) found in censer_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-censer-consecration-b25.5.html
+tip    sc-censer-consecration-b25.5.html
+10 inserts read out of censer_build.py
+
+    ok  S1:Consecration's nova out, the holy ground's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the ground has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the window relic  1  mid   -  tip  1
+    ok  S2:the match carries the holy ground and its clock relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:a blow in the window consecrates the ground where it landed relic  1  mid   -  tip  1
+    ok  S2:the ground ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickHolyGround ages the ground, smites the foe on it and heals the caster relic  1  mid   -  tip  1
+    ok  S3:the heal                relic  1  mid   -  tip  1
+    ok  S5:the blade: the shipped rate relic  1  mid   -  tip  1
+
+ALL 10 INSERTS SURVIVE to sc-censer-consecration-b25.5.html

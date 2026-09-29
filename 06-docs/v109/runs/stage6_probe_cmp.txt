@@ -1,0 +1,10 @@
+THE PROBE'S [1]-[9], BEFORE AND AFTER STAGE 6's EXTENSION (censer_probe 5d78670c3787524e -> c588b606b1fc7741)
+  b25.5 under the stage 1-5 probe (runs/probe_b25.5.txt): ['  9/9']
+  b25.5 under the stage-6 probe, --drawn 0 (stage6_probe_b25.5.txt): ['  9/9']
+  fx link under the stage-6 probe, drawn subset on (stage6_probe_fx.txt): ['  11/11']
+  b25.5 old vs new probe: every mechanism and [1]-[9] line identical: True
+  b25.5 (old probe) vs the fx link: every mechanism and [1]-[9] line identical: True
+  the new probe on the b25.5 prints: ['stage 6: not on this link (no disc bell in the synth, no tickConsecration) -- [10]-[11] not run']
+  json: every counter of the old probe's b25.5 run (34) equal in the new probe's b25.5 run: True; in the fx run: True; T equal: True; win equal: True
+  counters only the fx run has (stage 6's and the drawn subset's): ['bellN1', 'bellN2', 'bellN3', 'bellN4', 'bellN5', 'bellN6', 'bellOk', 'bellOnKill', 'blessUntagged', 'blowQuietOk', 'castVoiceOk', 'chimeN1', 'chimeN2', 'chimeN3', 'chimeN4', 'chimeN5', 'chimeOk', 'closeQuietClock', 'closeQuietDeath', 'consCalls', 'consClean', 'discsMirrorOk', 'discsSeen', 'drawOk', 'drawPic', 'drawPicStop', 'drawVerdict', 'drawnFights', 'endGoneLit', 'endGoneOk', 'endGoneOpen', 'offOk', 'onFoeOk', 'onSelfOk', 'picCasts', 'picCloseClock', 'picCloseDeath', 'picCloseOver', 'picCloseOverOpen', 'picClosedOk', 'pulseOk', 'tagBOk', 'tagSOk', 'tickQuiet', 'tickUntagged', 'upOk', 'v_censer', 'v_censer-disc', 'v_chime', 'v_chimeOther', 'verdictQuiet', 'verdictQuietOpen']
+  counters the new probe adds on the b25.5: []

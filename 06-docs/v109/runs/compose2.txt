@@ -1,0 +1,62 @@
+# compose 03:19 builders: censer 78501578c5773570 lightkeeper a559dc47824545e9 widowmaker bf8dff45e6870fa4 aureole f28b8dcae7fa0883 coldiron f194fa06f46454c9 ironhail 491643c55a34fa56 lodestone c74cd4a4508bfcf5 oracle ae5d6f4e641a2b16 angelus 0e4e2fc3ff5813de 
+ok   censer 1,2,3,5 on sc-tendril-t3 alone reach sc-censer-consecration-b25.5.html (the last stage)
+ok   the builder rebuilds sc-censer-stub byte for byte
+ok   the builder rebuilds sc-censer-ground byte for byte
+ok   the builder rebuilds sc-censer-consecration byte for byte
+ok   the builder rebuilds sc-censer-consecration-b25.5 byte for byte
+--   lightkeeper alone on the base reaches sc-lightkeeper-bulwark-b9.5.html (its last)
+ok   censer 1,2,3,5 on lightkeeper's sc-lightkeeper-bulwark-b9.5.html: reach sc-censer-consecration-b25.5.html (the last stage)
+ok   lightkeeper's stages on censer's b25.5 reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+--   widowmaker alone on the base reaches sc-widowmaker-s5.html (its last)
+ok   censer 1,2,3,5 on widowmaker's sc-widowmaker-s5.html: reach sc-censer-consecration-b25.5.html (the last stage)
+ok   widowmaker's stages on censer's b25.5 reach sc-widowmaker-s5.html (the last stage)
+--   aureole alone on the base reaches sc-aureole-s5.html (its last)
+ok   censer 1,2,3,5 on aureole's sc-aureole-s5.html: reach sc-censer-consecration-b25.5.html (the last stage)
+ok   aureole's stages on censer's b25.5 reach sc-aureole-s5.html (the last stage)
+--   coldiron alone on the base reaches sc-coldiron-s6.html (its last)
+ok   censer 1,2,3,5 on coldiron's sc-coldiron-s6.html: reach sc-censer-consecration-b25.5.html (the last stage)
+ok   coldiron's stages on censer's b25.5 reach sc-coldiron-s6.html (the last stage)
+--   ironhail alone on the base reaches sc-ironhail-s6.html (its last)
+ok   censer 1,2,3,5 on ironhail's sc-ironhail-s6.html: reach sc-censer-consecration-b25.5.html (the last stage)
+ok   ironhail's stages on censer's b25.5 reach sc-ironhail-s6.html (the last stage)
+--   lodestone alone on the base reaches sc-lodestone-s5.html (its last)
+ok   censer 1,2,3,5 on lodestone's sc-lodestone-s5.html: reach sc-censer-consecration-b25.5.html (the last stage)
+ok   lodestone's stages on censer's b25.5 reach sc-lodestone-s5.html (the last stage)
+--   oracle alone on the base reaches sc-oracle-s5.html (its last)
+ok   censer 1,2,3,5 on oracle's sc-oracle-s5.html: reach sc-censer-consecration-b25.5.html (the last stage)
+ok   oracle's stages on censer's b25.5 reach sc-oracle-s5.html (the last stage)
+--   angelus alone on the base reaches sc-angelus-s5.html (its last)
+ok   censer 1,2,3,5 on angelus's sc-angelus-s5.html: reach sc-censer-consecration-b25.5.html (the last stage)
+ok   angelus's stages on censer's b25.5 reach sc-angelus-s5.html (the last stage)
+ok   stack1: coldiron's stages reach sc-coldiron-s6.html (the last stage)
+ok   stack1: angelus's stages reach sc-angelus-s5.html (the last stage)
+ok   stack1: oracle's stages reach sc-oracle-s5.html (the last stage)
+ok   stack1: widowmaker's stages reach sc-widowmaker-s5.html (the last stage)
+ok   stack1: lightkeeper's stages reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   stack1: ironhail's stages reach sc-ironhail-s6.html (the last stage)
+ok   stack1: lodestone's stages reach sc-lodestone-s5.html (the last stage)
+ok   stack1: censer's stages reach sc-censer-consecration-b25.5.html (the last stage)
+ok   stack1: aureole's stages reach sc-aureole-s5.html (the last stage)
+ok   stack2: coldiron's stages reach sc-coldiron-s6.html (the last stage)
+ok   stack2: angelus's stages reach sc-angelus-s5.html (the last stage)
+ok   stack2: oracle's stages reach sc-oracle-s5.html (the last stage)
+ok   stack2: widowmaker's stages reach sc-widowmaker-s5.html (the last stage)
+ok   stack2: lightkeeper's stages reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   stack2: ironhail's stages reach sc-ironhail-s6.html (the last stage)
+ok   stack2: lodestone's stages reach sc-lodestone-s5.html (the last stage)
+ok   stack2: aureole's stages reach sc-aureole-s5.html (the last stage)
+ok   stack2: censer 1,2,3,5 last, on the others stacked (sc-aureole-s5.html): reach sc-censer-consecration-b25.5.html (the last stage)
+  base  the window tickers' anchors, the blow count, the smite and blessing statuses; Censer's shipped profile; the nova's tail kept, untouched, for no other relic
+ok   censer 1,2,3,5 on sc-tendril-fx (eea0cde5536955b3): reach sc-censer-consecration-b25.5.html (the last stage)
+ok   the change set on sc-tendril-fx is line for line the change set on sc-tendril-t3 (98dc422a898f5043); b25.5 there ce2c6f7770498bb2
+ok   censer 1,2,3,5 on sc-coldiron-temper-fx (67cc3e6e05d5326e): reach sc-censer-consecration-b25.5.html (the last stage)
+ok   the change set on sc-coldiron-temper-fx is line for line the change set on sc-tendril-t3 (98dc422a898f5043); b25.5 there 9365348bf0837d4d
+ok   censer 1,2,3,5 on sc-ironhail-fxout (4b3775e5900172ea): reach sc-censer-consecration-b25.5.html (the last stage)
+ok   the change set on sc-ironhail-fxout is line for line the change set on sc-tendril-t3 (98dc422a898f5043); b25.5 there ce032269fe6bde55
+ok   censer 1,2,3,5 on sc-lodestone-b205-fx (4568c2995d06f696): reach sc-censer-consecration-b25.5.html (the last stage)
+ok   the change set on sc-lodestone-b205-fx is line for line the change set on sc-tendril-t3 (98dc422a898f5043); b25.5 there 4d3956246fffb479
+ok   censer 1,2,3,5 on sc-widowmaker-b1075-fx (94875b2b314c5625): reach sc-censer-consecration-b25.5.html (the last stage)
+ok   the change set on sc-widowmaker-b1075-fx is line for line the change set on sc-tendril-t3 (98dc422a898f5043); b25.5 there 4d5404a0a2aad434
+ok   censer 1,2,3,5 on sc-widowmaker-fxout (04fdd2e2daa17c26): reach sc-censer-consecration-b25.5.html (the last stage)
+ok   the change set on sc-widowmaker-fxout is line for line the change set on sc-tendril-t3 (98dc422a898f5043); b25.5 there 83f67e73d1afba19
+# 0 FAIL

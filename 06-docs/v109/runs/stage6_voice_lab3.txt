@@ -1,0 +1,148 @@
+
+CONSECRATION -- THE VOICES   game sc-censer-consecration-b25.5.html 56c49ad3f0ccb3aa
+  every render: OfflineAudioContext 48 kHz, first event at t = 1.0, through Sfx.buildChain, render.py's xorshift noise;
+  a candidate is rendered from its arm's own text
+  runtime Chromium 151.0.7922.34
+  the row: dmg 25.5, sanctified warhammer, kind holyground, groundR 90, groundLife 8 s, bless 1, mass 5; blessing cap 5
+  THE SYNTH'S KINDS TODAY (17): aegis, clank, death, fork, hex-snap, hit, loose, nova, scour-hold, scour-moo, scour-tick, scour-woosh, seal, spark, ult, vine, wall
+
+CONTROLS -- v88 published rune-crack 0.608 / 450 ms and hit@11.6 0.443 / 80 ms. They must come back.
+  relics falling through to rune-crack today (11 besides Censer): lastlight, spellbreaker, ironhail, lightkeeper, farwarden, aureole, oathwound, heartwood, gloamwire, portcullis, bindweed
+  with a voice of their own -- the school (sanctified): dawnbringer, morningstar; the type (warhammer): grudgebearer, bulwarden, shroudmaul, ravelbone, ironwood
+  ult/censer today vs the fallback: max |diff| 6.0e-08 -- it IS rune-crack
+  rune-crack  peak 0.608 at    6 ms   audible   450 ms   loudest 50 ms 0.1356   centroid   3158 Hz
+  hit@11.6    peak 0.443 at    7 ms   audible    80 ms   loudest 50 ms 0.1173   centroid    233 Hz
+  hit         peak 0.482 at    8 ms   audible   100 ms   loudest 50 ms 0.1482   centroid    181 Hz
+  hit@45      peak 0.539 at    8 ms   audible   120 ms   loudest 50 ms 0.1893   centroid    117 Hz
+  wall        peak 0.097 at    7 ms   audible    25 ms   loudest 50 ms 0.0112   centroid  12322 Hz
+  death       peak 0.501 at    8 ms   audible   620 ms   loudest 50 ms 0.2657   centroid    111 Hz
+  seal        peak 0.315 at  103 ms   audible   660 ms   loudest 50 ms 0.1207   centroid    360 Hz
+  clank       peak 0.612 at    8 ms   audible   210 ms   loudest 50 ms 0.1155   centroid   2159 Hz
+  spark3      peak 0.083 at    6 ms   audible   135 ms   loudest 50 ms 0.0275   centroid   1560 Hz
+  zt2         peak 0.204 at    7 ms   audible    55 ms   loudest 50 ms 0.0412   centroid   3037 Hz
+  reproduction: PASS  all 4 published numbers come back
+  the hit @ 25.5 across 12 draws: loudest 50 ms 0.1474-0.1523;  the hit @ 45: 0.1878-0.1919 (its loudest draw: seed #7);  the wall tick: 0.0105-0.0118
+  the batch line's other voices, from --peer-rows (30): angelus, angelus-close, angelus-land, angelus-shaft, lodestone, lodestone-close, lodestone-touch, lightkeeper, lightkeeper-fold, lightkeeper-gong, lightkeeper-tink, widowmaker, widowmaker-drain, oracle, oracle-close, oracle-hex, oracle-sigil, portcullis, portcullis-close, portcullis-slam, coldiron, coldiron-anvil, coldiron-close, ironhail, ironhail-land, ironhail-miss, bindweed, bindweed-bite, bindweed-root, bindweed-wither
+
+CAST -- 'a thurible swing (a chain-rattle into a low bell, 0.5s)'. Level-matched: TOP 0.1059 (the centre of 0.0761-0.1474), the rattle 6 dB under the bell, AUDIBLE 500 ms
+  cand             g     kr     D calls  aud strk  bell ons r cen r und r hrd  b pk b lo  inh b hrd  top lo  top hi phone
+  1 CHURCH     0.115   1.68  0.41    33  505  206  -0.5   9  5012   5.6  31.6   110 0.99  315  13.9  0.1032  0.1058  -1.3  worst reg 0.69 (peer:ironhail)
+  2 DEEP      0.1159   1.67 0.412    33  505  206   0.2   9  5012   5.7  31.6    82 1.00  316  19.0  0.1034  0.1056  -4.3  worst reg 0.76 (peer:lightkeeper-gong)
+  3 BRONZE     0.117   1.66 0.411    36  505  206  -0.8   9  5011   5.6  31.6   110 0.95  315  13.8  0.1035  0.1052  -1.3  worst reg 0.69 (peer:ironhail)
+  4 JINGLE    0.1083   8.73 0.415    15  495  206  -0.4   9  4852   5.8  32.9   110 0.99  315  14.1  0.1022  0.1056  -1.3  worst reg 0.69 (peer:ironhail)
+  5 SWING     0.1116   1.32 0.412    33  495  206  -0.4   8  5009   5.7  31.6   110 0.99  315  14.0  0.1039  0.1061  -1.3  worst reg 0.72 (peer:ironhail)
+    1 CHURCH   nine pinged links (two sines, 1 : 1.47, and a tick of noise) rising in level, then a church bell on A: hum A2, prime A3, tierce, quint, nominal A4
+    2 DEEP     CHURCH with the bell on E: prime E3 (164.8 Hz), nominal E4
+    3 BRONZE   CHURCH with the bell's upper partials too (2.5, 3 and 4x its prime): a brighter bronze
+    4 JINGLE   CHURCH with each link a ringing band of noise (Q 6, 30 ms) instead of pinged sines
+    5 SWING    CHURCH with the links quickening (36 ms apart to 12) as the censer swings down into the bell
+    registers (rune-crack, dawnbringer, morningstar, grudgebearer, bulwarden, shroudmaul, ravelbone, ironwood, seal, death, clank, hit, angelus, angelus-close, angelus-land, angelus-shaft, lodestone, lodestone-close, lodestone-touch, lightkeeper, lightkeeper-fold, lightkeeper-gong, lightkeeper-tink, widowmaker, widowmaker-drain, oracle, oracle-close, oracle-hex, oracle-sigil, portcullis, portcullis-close, portcullis-slam, coldiron, coldiron-anvil, coldiron-close, ironhail, ironhail-land, ironhail-miss, bindweed, bindweed-bite, bindweed-root, bindweed-wither):
+    1 CHURCH   0.42 0.22 0.11 0.29 0.49 0.52 0.55 0.45 0.55 0.46 0.50 0.44 0.34 0.53 0.40 0.39 0.46 0.41 0.57 0.50 0.51 0.46 0.42 0.67 0.11 0.33 0.13 0.47 0.08 0.46 0.37 0.24 0.63 0.19 0.48 0.69 0.51 0.62 0.51 0.14 0.62 0.52
+    2 DEEP     0.33 0.08 0.09 0.33 0.41 0.59 0.56 0.46 0.50 0.28 0.53 0.46 0.34 0.44 0.47 0.38 0.29 0.23 0.65 0.37 0.39 0.76 0.42 0.63 0.11 0.32 0.13 0.46 0.08 0.49 0.33 0.61 0.55 0.18 0.38 0.69 0.52 0.52 0.64 0.13 0.62 0.51
+    3 BRONZE   0.44 0.22 0.17 0.30 0.50 0.54 0.56 0.46 0.55 0.46 0.54 0.44 0.39 0.56 0.40 0.39 0.51 0.47 0.57 0.53 0.54 0.46 0.43 0.69 0.12 0.34 0.13 0.47 0.08 0.47 0.40 0.25 0.64 0.22 0.49 0.69 0.51 0.62 0.53 0.18 0.63 0.53
+    4 JINGLE   0.41 0.22 0.10 0.29 0.50 0.53 0.56 0.46 0.57 0.48 0.50 0.44 0.35 0.55 0.41 0.38 0.46 0.42 0.57 0.51 0.52 0.48 0.38 0.69 0.10 0.29 0.12 0.41 0.08 0.47 0.36 0.25 0.61 0.17 0.49 0.69 0.52 0.64 0.48 0.14 0.63 0.48
+    5 SWING    0.41 0.23 0.11 0.30 0.51 0.54 0.57 0.47 0.58 0.49 0.50 0.45 0.36 0.56 0.42 0.34 0.47 0.43 0.58 0.53 0.54 0.49 0.37 0.71 0.10 0.29 0.12 0.42 0.07 0.48 0.38 0.26 0.61 0.17 0.50 0.72 0.53 0.65 0.49 0.14 0.63 0.46
+  RULE  '0.5s': AUDIBLE 415-585 ms (v100's +/-17.5%); 'a chain-rattle': before the bell's STRIKE at least 5 ONSETS (a rattle of links, not one knock), its centroid >= 2500 Hz (small metal), its loudest 50 ms 3-12 dB under the bell's (heard, and leading into it) and its best third-octave over the 100 ms before the strike >= 2x the score's p90 there; 'into a low bell': a bell there (the voice low-passed at 600 Hz peaks within 12 dB of the voice), STRUCK at 150-280 ms, after every onset of the rattle; LOW: its strongest peak (strike + 20-200 ms) <= 500 Hz and >= 0.5 of its power (strike to end) under 500 Hz; a BELL: a peak within 20 dB of its strongest lies >= 60 cents off every whole multiple of its lowest (a harmonic tone is not a bell); heard: its best third-octave at or above 200 Hz over the strike's first 100 ms >= 2x the score's p90 there (a phone plays it). Level: TOP between 0.5x the blow's (hit @ 25.5) loudest 50 ms on its loudest draw and 1.0x on its quietest, on every noise draw. Register against rune-crack, the school's and the type's casts with a voice of their own, the seal, the death voice, the clank, the blow and every peer voice (--peer-rows) each <= 0.80. Tiebreak: the lowest worst register (to 0.05), then the fewest synth calls, then the order listed.
+  PICK  4 JINGLE  g 0.1083, kr 8.734, D 0.415; 15 synth calls; TOP 0.1050 = -2.9 dB re the hit @ 25.5 (quietest draw), +19.0 dB re the wall
+  0 BELL      0.1083   8.73 0.415     6  295  206  -0.5   1     0  99.0-180.0   110 0.99  315  14.2  0.1063  0.1072  -1.3  worst reg 0.83 (peer:ironhail)
+  0 RATTLE    0.1083   8.73 0.415     9  185   48 -39.8   2  4959  99.0  30.1  3962 0.00  677  30.3  0.0473  0.0610  -0.0  worst reg 0.86 (peer:bindweed-wither)
+  0 HIGH      0.1083   8.73 0.415    15  510  205  -6.9   9  4852   5.7  32.9   440 0.26  316  30.4  0.1009  0.1033  -0.0  worst reg 0.84 (rune-crack)
+  0 HARM      0.1083   8.73 0.415    15  495  206  -0.4   9  4852   7.3  32.9   220 0.99    1  14.1  0.1209  0.1242  -1.0  worst reg 0.68 (peer:ironhail)
+  0 LONG      0.1083   8.73  1.81    15 1540  206  -0.4   9  4852   8.5  32.9   220 1.00  315  20.7  0.1391  0.1419  -0.9  worst reg 0.72 (peer:ironhail)
+  0 AFTER     0.1083   8.73 0.415    15  385    6  -0.5   0     0  99.0 -99.0   110 0.69  315  14.2  0.1063  0.1072  -1.3  worst reg 0.70 (peer:ironhail)
+  0 RC-NOW         0      0     0     5  450  166  -9.1   1  5154  -2.3  21.2  1676 0.33  169  32.1  0.1322  0.1360  -0.0  worst reg 1.00 (rune-crack)
+    0 BELL     the pick's bell alone, no rattle -- a control
+    0 RATTLE   the pick's rattle alone, no bell -- a control
+    0 HIGH     the pick with its bell two octaves up -- a control
+    0 HARM     the pick with its bell's partials on whole multiples of its lowest -- a control
+    0 LONG     the pick's bell ringing 1.5 s -- a control
+    0 AFTER    the pick's bell struck first, its rattle after it -- a control
+    0 RC-NOW   what ult/censer plays today (rune-crack) -- a control
+  0 BELL (a control) comes back wrong on its own gate, as it must: no rattle: 1 onsets before the strike (< 5)
+  0 RATTLE (a control) comes back wrong on its own gate, as it must: no bell (under 600 Hz it peaks -39.8 dB re the voice); not low: the bell's strongest peak 3962 Hz > 500; not low: 0.00 of its power under 500 Hz
+  0 HIGH (a control) comes back wrong on its own gate, as it must: not low: 0.26 of its power under 500 Hz
+  0 HARM (a control) comes back wrong on its own gate, as it must: not a bell: every peak within 1 c of a harmonic
+  0 LONG (a control) comes back wrong on its own gate, as it must: audible 1540 ms, not 415-585
+  0 AFTER (a control) comes back wrong on its own gate, as it must: the strike at 6 ms, not 150-280; no rattle: 0 onsets before the strike (< 5); 9 rattle onsets after the strike (not 'into')
+  0 RC-NOW (a control) comes back wrong on its own gate, as it must: no rattle: 1 onsets before the strike (< 5); the rattle -2.3 dB under the bell, not 3-12; not low: the bell's strongest peak 1676 Hz > 500; not low: 0.33 of its power under 500 Hz; register vs rune-cr
+
+DISC -- 'a soft bell tone, pitch by disc count'. Level-matched: loudest 50 ms 0.0417 at count 3 (the centre of 0.0236-0.0737), AUDIBLE 400 ms at count 3; over the blow: the hit @ 45 on its loudest draw
+  cand             g     D calls       aud  inh  noise cenx  top lo  top hi  err  step  hrd1 oblow sparkzenith  wallhex-sn   hitrune-c  cast
+  1 CHAPEL   0.03757 0.525     5  390-415   315 -145.6 1.04  0.0415  0.0417    0   200  12.7  11.4  0.31  0.13  0.04  0.17  0.13  0.53  0.38  peers 0.85 (angelus)
+  2 BOWL     0.04177 0.612     2  400-400   176 -180.0 1.10  0.0416  0.0417    0   200  14.0  13.0  0.27  0.27  0.06  0.15  0.08  0.24  0.26  peers 0.66 (angelus)
+  3 CUP      0.04161 0.611     3  400-400   257 -148.8 1.10  0.0417  0.0418    0   200  14.0  13.0  0.29  0.28  0.06  0.20  0.08  0.24  0.27  peers 0.68 (angelus)
+  4 LOW        0.038 0.514     5  375-400   315 -145.6 1.04  0.0417  0.0420    0   200  13.6  11.4  0.31  0.10  0.04  0.17  0.17  0.53  0.60  peers 0.85 (angelus)
+  5 HIGH     0.03759 0.536     5  395-405   315 -145.4 1.04  0.0417  0.0420    0   200  13.3  11.5  0.92  0.30  0.08  0.25  0.11  0.61  0.22  peers 0.91 (widowmaker-drain)
+    1 CHAPEL   a small church bell (hum, prime, tierce, quint, nominal) on C5 D5 E5 G5 A5 for counts 1-5
+    2 BOWL     a struck bowl (sines on 1 : 2.71), C5-A5
+    3 CUP      a cup bell (sines on 1 : 2.32 : 3.9), C5-A5
+    4 LOW      CHAPEL a third down: A4 C5 D5 E5 G5
+    5 HIGH     CHAPEL a third up: E5 G5 A5 C6 D6
+  RULE  At EVERY count 1-5: 'a ... bell tone': a BELL (a peak within 20 dB of the strongest >= 60 cents off every whole multiple of the lowest, 5-150 ms) that rings (AUDIBLE 250-600 ms); 'soft': pure (the noise part <= -30 dB re the whole: no clack), mellow (the centroid <= 2x the note), and quiet: its loudest 50 ms <= 0.5x the blow's (hit @ 25.5) on its quietest draw and >= 2x the wall tick's on its loudest; 'pitch by disc count': each count's note (the strongest peak 300-2000 Hz, 5-100 ms) within 30 cents of its declared degree, and every step n -> n + 1 >= 150 cents up; heard: at count 1 the note's third-octave over 0-100 ms >= 2x the score's p90 there, and at every count OVER the heaviest blow's voice (hit @ 45, its loudest draw) on the same frame, both through the chain: the note's third-octave over 0-200 ms >= +6 dB over the blow alone. Register (the worst count, the median over noise draws) against the heal chime (spark collect n 1-5), Zenith's tick (n 0-4), the wall tick, hex-snap, the blow, rune-crack, the picked cast and every peer voice each <= 0.80. Tiebreak: the lowest worst register (to 0.05), then the fewest calls, then the order listed.
+    1 CHAPEL   out: register vs peer:angelus 0.85 > 0.80
+    4 LOW      out: register vs peer:angelus 0.85 > 0.80; register vs peer:lightkeeper 0.82 > 0.80; register vs peer:lightkeeper-fold 0.80 > 0.80
+    5 HIGH     out: register vs spark 0.92 > 0.80; register vs peer:angelus 0.85 > 0.80; register vs peer:widowmaker-drain 0.91 > 0.80; register vs peer:bindweed-bite 0.89 > 0.80
+  PICK  2 BOWL  g 0.04177, D 0.612; notes 523 587 659 784 880 Hz at counts 1-5; loudest 50 ms -11.0 dB re the hit @ 25.5, +11.0 dB re the wall; over the heaviest blow +17.7 +15.7 +17.8 +13.0 +13.6 dB (counts 1-5); with a crit (counts 1, 5) +19.9 +13.4; over the median blow (@ 33) +19.7 +17.5
+  0 FLAT     0.04177 0.612     2  400-400   176 -180.0 1.10  0.0416  0.0416    0     0  14.0  17.7  0.27  0.06  0.02  0.09  0.08  0.19  0.26  peers 0.63 (lodestone)
+  0 LOUD      0.1042 0.612     2  345-350   176 -180.0 1.09  0.1006  0.1008    0   200  21.6  19.7  0.26  0.26  0.06  0.16  0.08  0.24  0.27  peers 0.66 (angelus)
+  0 HARM     0.04177 0.612     2  400-400     0 -180.0 1.11  0.0417  0.0417    0   200  14.0  13.0  0.27  0.26  0.06  0.16  0.08  0.25  0.26  peers 0.66 (angelus)
+  0 TICK     0.041770.0522     2   40-40    139 -180.0 1.08  0.0154  0.0154    0   200   3.3   2.3  0.28  0.28  0.08  0.22  0.18  0.34  0.42  peers 0.81 (lodestone)
+  0 CLANG    0.04177 0.612     5  365-370   144  -25.6 2.44  0.0545  0.0547    0   200  14.0  12.7  0.52  0.55  0.31  0.47  0.11  0.47  0.35  peers 0.61 (lodestone)
+  0 SPARK          0     0     1  130-135     0 -180.0 1.03  0.0275  0.0275    0   114  21.2   7.0  1.00  0.24  0.14  0.23  0.09  0.74  0.11  peers 0.99 (widowmaker-drain)
+    0 FLAT     the pick at count 1's note for every count -- a control
+    0 LOUD     the pick 3 dB over its quiet bound -- a control
+    0 HARM     the pick's partials on whole multiples of its lowest -- a control
+    0 TICK     the pick dying in 40 ms -- a control
+    0 CLANG    the pick on a bar's bright modes (2.76, 5.40, 8.93) with a click -- a control
+    0 SPARK    the heal chime itself played as the disc -- a control
+  0 FLAT (a control) comes back wrong on its own gate, as it must: a step of +0 cents (< 150)
+  0 LOUD (a control) comes back wrong on its own gate, as it must: too loud: loudest 50 ms 0.1008 > 0.0737
+  0 HARM (a control) comes back wrong on its own gate, as it must: not a bell (worst count: every peak within 0 c of a harmonic)
+  0 TICK (a control) comes back wrong on its own gate, as it must: audible 40-40 ms, not 250-600 (it does not ring as a bell)
+  0 CLANG (a control) comes back wrong on its own gate, as it must: not pure: a noise part of -25.6 dB (a clack); not mellow: the centroid 2.44x the note
+  0 SPARK (a control) comes back wrong on its own gate, as it must: not a bell (worst count: every peak within 0 c of a harmonic); register vs spark 1.00 > 0.80
+
+HEAL -- 'the `spark collect` voice, reused': unchanged, n = the blessing Censer carries after the apply.
+  spark collect n 1: 1290 Hz, audible 135 ms, loudest 50 ms 0.0275 (+7.3 dB re the wall), heard +21.2 dB re the score's p90
+  spark collect n 3: 1510 Hz, audible 135 ms, loudest 50 ms 0.0275 (+7.3 dB re the wall), heard +23.9 dB re the score's p90
+  spark collect n 5: 1730 Hz, audible 135 ms, loudest 50 ms 0.0275 (+7.3 dB re the wall), heard +23.9 dB re the score's p90
+  the disc bell (n 3) and the heal chime (n 3) on one frame: the bell's note band moves +0.00 dB, the chime's -0.03 dB -- printed (the survey: 3 of 1063 heals within 0.1 s of a disc)
+
+THE SFX ROW (mode `before`, its anchor the fallback line), applied to Sfx.prototype.play's own source and rendered:
+  the arms vs the picked candidates, max |diff|: cast 8.9e-08, cast@5 6.0e-08, disc@-1 0.0e+00, disc@0 0.0e+00, disc@1 0.0e+00, disc@2 0.0e+00, disc@3 0.0e+00, disc@4 0.0e+00, disc@5 0.0e+00, disc@6 0.0e+00, disc@9 0.0e+00, disc@None 0.0e+00
+  every other voice through the patched play vs the original (132 voices: the hit at 5 weights x crit and the bough, the heal chime at n 0-6, spark arm and burn, wall, death, clank x2, seal, nova, hex-snap, aegis x2, vine x4, loose x3, fork, scour x4, every other kind, and 91 ult ids -- every relic's cast and every sub-voice the ult arm names): worst max |diff| 2e-07 (nova/)
+  ult/censer vs rune-crack after the row: max |diff| 0.682 -- no longer the fallback
+  main-thread cost a call (median of 40, performance.now() at its headless resolution): cast 0.40 ms, disc 0.00 ms, heal 0.00 ms, hit 0.00 ms
+  WITH Angelus's 1 Sfx row(s) (arms angelus, angelus-close, angelus-land, angelus-shaft): both orders render every arm alike (max |diff| 1.2e-07); these arms unchanged by them (8.9e-08)
+  WITH Lodestone's 1 Sfx row(s) (arms lodestone, lodestone-close, lodestone-touch): both orders render every arm alike (max |diff| 6.0e-08); these arms unchanged by them (8.9e-08)
+  WITH Lightkeeper's 1 Sfx row(s) (arms lightkeeper, lightkeeper-fold, lightkeeper-gong, lightkeeper-tink): both orders render every arm alike (max |diff| 8.9e-08); these arms unchanged by them (6.0e-08)
+  WITH Widowmaker's 1 Sfx row(s) (arms widowmaker, widowmaker-drain): both orders render every arm alike (max |diff| 8.9e-08); these arms unchanged by them (6.0e-08)
+  WITH Oracle's 1 Sfx row(s) (arms oracle, oracle-close, oracle-hex, oracle-sigil): both orders render every arm alike (max |diff| 6.0e-08); these arms unchanged by them (6.0e-08)
+  WITH Portcullis's 2 Sfx row(s) (arms portcullis, portcullis-close, portcullis-slam): both orders render every arm alike (max |diff| 1.2e-07); these arms unchanged by them (8.9e-08)
+  WITH Coldiron's 1 Sfx row(s) (arms coldiron, coldiron-anvil, coldiron-close): both orders render every arm alike (max |diff| 8.9e-08); these arms unchanged by them (8.9e-08)
+  WITH Ironhail's 1 Sfx row(s) (arms ironhail, ironhail-land, ironhail-miss): both orders render every arm alike (max |diff| 1.8e-07); these arms unchanged by them (8.9e-08)
+  WITH Bindweed's 1 Sfx row(s) (arms bindweed, bindweed-bite, bindweed-root, bindweed-wither): both orders render every arm alike (max |diff| 6.0e-08); these arms unchanged by them (6.0e-08)
+
+THE resolveHit AND tickHolyGround ROWS, applied to their prototypes' own source, run beside the originals on real fights:
+  148 fights (Censer both sides x every foe x seeds [109601, 109602]): 148/148 identical (over, the clock, the ground's clock and every disc, both fighters' hp, shield, position, velocity, stun, blows, damage, smite and blessing counts and holyTally, the winner); every other voice call identical in order, kind and opts in 148/148
+  456 casts -> 456 cast voices; 716 discs -> 716 disc bells (32 on a killing blow); 1063 blessings -> 1063 heal chimes; problems 0
+  the count a disc bell carries: {1: 329, 2: 224, 3: 109, 4: 43, 5: 9, 6: 2}; the count a heal chime carries: {1: 325, 2: 260, 3: 199, 4: 135, 5: 144}
+  the control (the rows plus one sim write, the foe nudged 1e-9 on a disc): 4/148 identical -- it fails, as it must
+
+IN A REAL WINDOW -- censer v farwarden (side B), seed 109602, cast at 61.22s, 3 discs and 8 heals by 69.68s (counts 2 3 3); the fight's own sounds and the score, with and without the new voices
+  each disc bell over the fight in its note's third-octave, 0-200 ms: +5.2 +15.3 +10.2 dB
+  each heal chime over the fight in its own third-octave, 0-100 ms (printed; the chime is reused): +20.6 +30.4 +30.8 +30.6 +33.2 +10.3 +25.1 +31.5 dB
+  the cast over the fight without it: the bell +37.0 dB in its best third-octave at or above 200 Hz (400 Hz) over the strike's 150 ms (its hum, 110 Hz, +4.8 dB: the score's bass shares that band); the rattle +17.3 dB at 5080 Hz over the 100 ms before the strike
+
+END TO END -- the three rows applied as text: sc-censer-consecration-b25.5.html 56c49ad3f0ccb3aa -> 6af8bc7cac4bf257 (+4588 chars), loaded in a fresh browser
+  the new voices through the patched page's own SFX.play vs the lab's candidate text in that page, max |diff|: cast 6.0e-08, disc@1 0.0e+00, disc@5 0.0e+00
+  every other voice (132), the patched page vs the original page: worst max |diff| 1.5e-07;  ult/censer vs rune-crack on the patched page 0.682
+  74 fights: 74/74 identical to the original page's, every other SFX call identical in 74/74; per fight -- cast voices = casts 74, disc bells = discs (with the count) 74, heal chimes = blessings (with the count) 74, every voice where it belongs 74 (of 74); totals {'casts': 232, 'discs': 350, 'blessings': 575, 'castV': 232, 'discV': 350, 'healV': 575}; the original page played 0 disc bells or heal chimes; page errors 0
+
+THE PICKS  cast 4 JINGLE   disc 2 BOWL   heal: the spark collect, unchanged   smite tick: silent (no voice exists; 'nothing new')
+WAVS   C:\dev\sundered-crown\05-reference\v109  (40 files, 5219 KB, raw level)
+
+THE ROWS AS TEXT: 3 rows (before, after, after) give sc-censer-consecration-b25.5.html sha256[:16] 6af8bc7cac4bf257
+
+  NOTHING IS IN THE BUILD. The three rows are the edits; all three were applied to the page's own code above, and as text to a copy of the page.
+exit 0

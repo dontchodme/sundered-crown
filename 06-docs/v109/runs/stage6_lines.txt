@@ -1,0 +1,34 @@
+LINES (grep -nF) in the fx link (links/sc-censer-consecration-b25.5-fx.html) and the b25.5 (links/sc-censer-consecration-b25.5.html)
+fireUlt(f, foe){                                                   fx 16468        b25.5 16280
+SFX.play("ult", { w: f.w.id });                                    fx 10236,16495  b25.5 10144,16307
+if (u.kind === "holyground"){                                      fx 16871        b25.5 16683
+f.ultHoly = { t: 0, dur: u.dur, cd: 0, bcd: 0 };                   fx 16877        b25.5 16689
+this.holyGround.push({ x: foe.x, y: foe.y, t0: this.holyT,         fx 14817        b25.5 14640
+self.holyTally.discs++;                                            fx 14819        b25.5 14642
+SFX.play("ult", { w: "censer-disc", n: n_ });                      fx 14830        b25.5 
+this.tickHolyGround(dt);                                           fx 9043         b25.5 8952
+tickHolyGround(dt){                                                fx 13755        b25.5 13663
+if (this.holyT - d.t0 >= o.w.ult.groundLife) G.splice(i, 1);       fx 13760        b25.5 13668
+if (Z.t >= Z.dur || !f.alive || !foe.alive){ f.ultHoly = null; c   fx 13767        b25.5 13675
+T.foeOn++;                                                         fx 13781        b25.5 13689
+foe.apply("smite", u.smite, side);                                 fx 13492,13784  b25.5 13400,13692
+T.selfOn++;                                                        fx 13789        b25.5 13697
+f.apply("blessing", u.bless, side);                                fx 13493,13792  b25.5 13401,13700
+T.bless++;                                                         fx 13793        b25.5 13701
+} else if (w === "censer"){                                        fx 7434         b25.5 
+} else if (w === "censer-disc"){                                   fx 7461         b25.5 
+} else {                                        // rune-crack      fx 7481         b25.5 7427
+this.tickConsecration(dt);                                         fx 9085         b25.5 
+tickConsecration(dt){                                              fx 13827        b25.5 
+if (__world) this.drawConsecration(m);                             fx 19577        b25.5 
+this.drawConsecrationTop(m);                                       fx 19653        b25.5 
+drawConsecration(m){                                               fx 20680        b25.5 
+drawConsecrationTop(m){                                            fx 20828        b25.5 
+censer(c, t, cf, P){                                               fx 639          b25.5 637
+this.consFade = 0;                                                 fx 7784         b25.5 
+aureole: 1.6,                                                      fx 16587        b25.5 16399
+u.w === "censer"                                                   fx              b25.5 21273,22171
+censer: { mode:                                                    fx 32692        b25.5 32326
+
+the life map line in the fx link:
+16587:              aureole: 1.6, $

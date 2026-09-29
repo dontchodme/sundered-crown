@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-censer-consecration-b25.5.html    36 matches    2.5s
+  sc-censer-mP1-picwrite.html       36 matches    2.6s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Censer", "b": "Farwarden", "winner": "Farwarden", "hp": 75, "duration": 77.13, "reason": "slain", "hits": {"a": 16, "b": 25}, "crits": {"a": 1, "b": 5}, "clanks": 19}
+            variant {"seed": 1233799701, "a": "Censer", "b": "Farwarden", "winner": "Farwarden", "hp": 23, "duration": 67.65, "reason": "slain", "hits": {"a": 19, "b": 23}, "crits": {"a": 1, "b": 4}, "clanks": 15}
+          #1
+            control {"seed": 330441002, "a": "Censer", "b": "Farwarden", "winner": "Farwarden", "hp": 196, "duration": 72.86, "reason": "slain", "hits": {"a": 14, "b": 32}, "crits": {"a": 1, "b": 3}, "clanks": 17}
+            variant {"seed": 330441002, "a": "Censer", "b": "Farwarden", "winner": "Censer", "hp": 86, "duration": 78.04, "reason": "slain", "hits": {"a": 14, "b": 27}, "crits": {"a": 2, "b": 2}, "clanks": 16}
+          #2
+            control {"seed": 4184808219, "a": "Censer", "b": "Farwarden", "winner": "Farwarden", "hp": 271, "duration": 40.18, "reason": "slain", "hits": {"a": 11, "b": 17}, "crits": {"a": 0, "b": 3}, "clanks": 6}
+            variant {"seed": 4184808219, "a": "Censer", "b": "Farwarden", "winner": "Farwarden", "hp": 27, "duration": 67.38, "reason": "slain", "hits": {"a": 19, "b": 24}, "crits": {"a": 0, "b": 3}, "clanks": 12}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 40.2-98.0s
+
+ENGINE A/B FAIL

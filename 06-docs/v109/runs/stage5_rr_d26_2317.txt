@@ -1,0 +1,4 @@
+censer on sc-censer-consecration.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · set dmg=26 · stage5
+  win 52.6%   side A 53.8%   side B 51.4%   mean 57.1s   timeouts 0
+  by type  greatsword 76%  scythe 54%  flail 51%  warhammer 48%  twinblade 44%  bow 36%
+  worst    gloamwire 10%  ironhail 20%  redflail 20%   (740 fights in 126s)

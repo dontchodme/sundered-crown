@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · censer (redesign) · 33 foes x 20 seeds = 660 fights an arm · lab-all-clocks-x1.148
+  charge=16.0 dur=9.18 blade=None tickDmg=0 groundLife=9.18 tickCd=0.574 blessCd=1.148
+
+  arm       win  casts  hits in/out    bless    discs      dmgf_foeOnPct f_foeStk    ticks
+  B       51.2%   2.85  4.41/5.42       0.00     1.46     0.00    21.71     2.04     4.55
+  C       63.8%   2.96  4.63/5.65       3.13     1.47     0.00    21.98     2.06     4.62
+  1320 fights in 148s   errors: []

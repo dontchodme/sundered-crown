@@ -1,0 +1,17 @@
+farwarden:spellbreaker 31337: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, None, None, None, None])
+aureole:axiom 4101: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, None, None, None, None])
+vinesower:paradox 2207: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, 'vinesower:0.23/3.3200000000000003', 'paradox:2.82/19', 'paradox:5.82/19', None])
+marrowdraw:foregone 7719: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, 'foregone:1.98/10.8', 'foregone:6.98/10.8', 'foregone:9.38/10.8', 'foregone:1.47/10.8'])
+gloamwire:ironhail 1234: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, 'ironhail:0.46/1.3', None, None, None, None])
+ironwood:heartwood 90210: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, 'ironwood:0.70/1.5', 'ironwood:1.50/1.5', 'heartwood:1.73/2.2', None, None, None])
+bindweed:portcullis 4242: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, 'portcullis:0.83/1.5', None, None, None, None, None])
+morningstar:dawnbringer 99001: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, 'dawnbringer:0.03/1.6', 'dawnbringer:0.61/1.6', None, None, None, None])
+twinshade:grudgebearer 5150: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, None, 'grudgebearer:0.34/4.4', 'grudgebearer:2.41/4.4', None])
+lightkeeper:lastlight 2317: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, 'lastlight:0.92/5.3', 'lastlight:0.49/1.7', None, None])
+aureole:morningstar 8888: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, None, None, None, None])
+grudgebearer:bulwarden 2207: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, 'bulwarden:0.23/19', 'grudgebearer:0.60/4.4', 'grudgebearer:3.50/4.4', None])
+shroudmaul:ravelbone 1234: 7/7 pixel-identical  (window up at [False, False, False, False, False, False, False]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, None, None, None, None, None, 'shroudmaul:0.09/1.8'])
+CONTROL censer:spellbreaker 99015: 0/7 pixel-identical  (window up at [False, True, True, True, True, True, True]; discs [0, 0, 0, 0, 1, 1, 1]; ultFx [None, 'censer:0.33/1.5', 'censer:1.13/1.5', None, None, None, None])
+CONTROL gravemourn:censer 5150: 0/7 pixel-identical  (window up at [False, True, True, True, True, True, True]; discs [0, 0, 0, 0, 0, 0, 0]; ultFx [None, 'censer:0.53/1.5', 'censer:1.33/1.5', None, 'gravemourn:4.57/17.4', 'gravemourn:7.57/17.4', None])
+OTHER RELICS: 91/91 pixel-identical; CONTROLS differ
+EXIT 0

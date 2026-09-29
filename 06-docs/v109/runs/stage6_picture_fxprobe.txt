@@ -1,0 +1,6 @@
+101 Consecration windows on 16 foes x 2 seeds (both sides); ultFx life at the cast: ['1.3', '1.5', '1.6']
+  the slot is Censer's for a median 0.68s of window clock (max 0.72; window 8s); lost to: {"opponent's cast": 14, 'expired': 87}
+  a slot-borne field could exist for 7.8% of the window's clock
+  163 discs planted in these windows (17 windows plant none), planted a median 4.33s into the window (p10 0.98); 10 of 163 planted while the slot was still Censer's
+  a disc is a median 203 units from where the field is drawn (the foe at the cast; p10 67, p90 369); more than the disc's own radius (90) away on 84%
+EXIT 0

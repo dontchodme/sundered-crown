@@ -1,0 +1,26 @@
+    29.492  TAG SMITE 0
+    31.225  CAST (window opens); voices: censer
+    31.692  disc #4 planted (standing 1); TAG SMITE 0; voices: censer-disc n1
+    31.833  smite tick (foe smite 3); blessing (Censer 1); TAG SMITE 3; TAG BLESSING 1; voices: chime n1
+    33.333  blessing (Censer 2); TAG BLESSING 2; voices: chime n2
+    33.708  disc #5 planted (standing 2); TAG SMITE 0; voices: censer-disc n2
+    33.850  smite tick (foe smite 4); TAG SMITE 4
+    34.508  smite tick (foe smite 4); TAG SMITE 4
+    35.425  smite tick (foe smite 4); TAG SMITE 4
+    35.517  blessing (Censer 3); TAG BLESSING 3; voices: chime n3
+    36.708  disc #6 planted (standing 3); TAG SMITE 0; voices: censer-disc n3
+    36.850  smite tick (foe smite 4); TAG SMITE 4
+    36.950  blessing (Censer 4); TAG BLESSING 4; voices: chime n4
+    37.083  TAG SUNDER 0
+    37.642  smite tick (foe smite 4); TAG SMITE 4
+    37.825  disc #7 planted (standing 4); TAG SMITE 0; voices: censer-disc n4
+    38.425  smite tick (foe smite 4); TAG SMITE 4
+    38.533  blessing (Censer 5); TAG BLESSING 5; voices: chime n5
+    38.550  TAG SUNDER 0
+    40.242  TAG SUNDER 0
+    40.383  smite tick (foe smite 4); TAG SMITE 4
+    40.683  blessing (Censer 5); TAG BLESSING 5; voices: chime n5
+    40.883  smite tick (foe smite 4); TAG SMITE 4
+    41.017  CLOSE by the clock, discs standing 4
+    41.358  TAG SMITE 0
+end: {'t': 42.825, 'over': False, 'hp': [46.35, 24.96], 'clanks': 16, 'discs': 3}

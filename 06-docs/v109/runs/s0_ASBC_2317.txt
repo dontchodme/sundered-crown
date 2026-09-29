@@ -1,0 +1,10 @@
+38 relics · Chromium 151.0.7922.34 · censer (redesign) · 33 foes x 20 seeds = 660 fights an arm · stage0 v78 holyground
+  charge=16.0 dur=8.0 blade=None tickDmg=0
+
+  arm       win  casts  hits in/out    bless    discs      dmgf_foeOnPct f_foeStk    ticks
+  A       39.8%   0.00  0.00/10.30      0.00     0.00     0.00     0.00     0.00     0.00
+  SHIP    49.8%   0.00  0.00/9.80       0.00     0.00     0.00     0.00     0.00     0.00
+  B       52.0%   2.86  3.94/6.03       0.00     1.31     0.00    19.69     1.88     4.01
+  C       59.7%   2.97  4.16/6.18       2.66     1.32     0.00    19.95     1.89     4.07
+  lifts over A: SHIP +10.0  B +12.1  C +19.8
+  2640 fights in 512s   errors: []

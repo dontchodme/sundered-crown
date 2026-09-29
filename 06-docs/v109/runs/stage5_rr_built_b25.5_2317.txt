@@ -1,0 +1,4 @@
+censer on sc-censer-consecration-b25.5.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · built-b25.5-noset
+  win 49.7%   side A 52.2%   side B 47.3%   mean 57.4s   timeouts 0
+  by type  greatsword 71%  twinblade 51%  scythe 47%  warhammer 45%  flail 45%  bow 37%
+  worst    gloamwire 20%  ironhail 30%  aureole 30%   (740 fights in 75s)

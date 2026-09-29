@@ -1,0 +1,9 @@
+38 relics · Chromium 151.0.7922.34 · censer (redesign) · 33 foes x 20 seeds = 660 fights an arm · census
+  charge=16.0 dur=8.0 blade=None tickDmg=0
+
+  arm       win  casts  hits in/out    bless    discs      dmgf_foeOnPct f_foeStk    ticks
+  B       48.8%   2.88  4.03/5.96       0.00     1.32     0.00    19.64     1.91     3.96
+      census B: frozen 0.1093 of lab steps, 0.1236 inside windows, 0.1002 outside; lab 16 -> engine 14.25 (round 14)
+  C       57.4%   2.98  4.19/6.16       2.67     1.33     0.00    19.79     1.90     4.00
+      census C: frozen 0.1108 of lab steps, 0.1254 inside windows, 0.1013 outside; lab 16 -> engine 14.23 (round 14)
+  1320 fights in 212s   errors: []

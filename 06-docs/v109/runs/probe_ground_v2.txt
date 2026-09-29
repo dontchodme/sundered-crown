@@ -1,0 +1,17 @@
+
+CONSECRATION PROBE  sc-censer-ground.html  Chromium 151.0.7922.34  444 fights (Censer both sides x every foe x 6 seeds)   blade 28.77   ult {'charge': 14, 'dur': 8, 'groundR': 90, 'groundLife': 8, 'tickCd': 0.5, 'smite': 1, 'blessCd': 1, 'bless': 0}
+  casts/fight 2.92   per cast: discs 1.55  smites 4.41  blessings 0.00   foe on the ground 20.20% of window frames (a fight's mean; pooled 19.68%)   foe smite stacks on a window frame 2.02   Censer win 53.8%
+  blows a fight: in windows 4.53, outside 5.39   window frames a cast 866.0 (dur x 120 = 960)   caster's centre on the ground 12.95% of window frames   closes: clock 1042, death 75
+  discs expired 1342   casts with its own ground still standing 303 (339 discs; window frames with an older window's disc 34987)   discs at a shade 23   FREEZE CENSUS 12.8% of window steps frozen (a window is ~9.17s of match time)
+  whole-state diffs clean: 1124365 ground frames, 1297 casts, 444 fights' shared tables   frozen steps unchanged 318771   blows rebuilt 1981 in / 2371 out (52 into Bulwarden's wall exempt)   turns 1123068 in / 1427373 out   hit tests 2550441   blessing heals 0
+  [1] PASS  the window: `dur` on the window clock (live +dt, frozen untouched, the ground and holyT too), closes on either death; no cast under a window; only Censer
+  [2] PASS  every blow in the window plants exactly one disc {x, y, t0, side} at the struck ball; none outside; no other disc
+  [3] PASS  the ground lasts: discs do not move, go exactly at groundLife on holyT, nothing else removes one
+  [4] PASS  the smite: the foe within groundR + R of a live disc, cd clear -> apply("smite", smite, side) exactly; cd tickCd; none else
+  [5] PASS  the heal: the caster's centre within groundR, bcd clear -> apply("blessing", bless, side) exactly (none at bless 0); no other heal
+  [6] PASS  nothing else on a ground frame: no hurt, beat, rng draw or hit stop; whole-state diff (fighters, match, shades, shared tables)
+  [7] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0, bcd 0} and writes nothing else (from the prologue's end)
+  [8] PASS  the hammer swings as ever: the turn, the hit test, and every blow (damage, knock, hitstun, stop, onHit) rebuilt, in the window and out
+  [9] PASS  the charge: +dt a tick, a cast exactly at 14 (the lab's 16 on the game's clock)
+
+  9/9

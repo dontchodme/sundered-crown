@@ -1,0 +1,12 @@
+no killing blow on this seed (timeout finish); using the last cut
+--at 30.02s: filming a 12.79s window rather than measuring back from the kill
+seed 109149: kill at 36.71s, clip starts at 30.02s
+cut list: 36.7s T3
+  rendering director ON ...
+    the window ends at 42.81s of match time: stopped at 14.6s of video
+    on: 877 frames, 14.6s wall, 144s to render, match ended {'seed': 109149, 't': 30.024999999998936, 'kill': None}
+    on: FIGHT over=None t=42.8167 clanks=16 hp=[46.35, 24.962]
+
+wrote C:\dev\sundered-crown\07-shorts\v109\consecration-window.mp4  3.73 MB  (0.0s off + 14.6s on)
+the two halves are the same seed. If the winner differs, the feature is broken.
+rc 0

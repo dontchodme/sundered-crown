@@ -1,0 +1,10 @@
+m1-window  mut-m1-window.html       3f76a11106b435e5
+m2-plant   mut-m2-plant.html        706535e5016b63ce
+m3-life    mut-m3-life.html         40e3b58173e2ce3e
+m4-smite   mut-m4-smite.html        8b8edb51c9464000
+m5-heal    mut-m5-heal.html         2e698abff28b8333
+m6-dmg     mut-m6-dmg.html          dd1c25d5439f558b
+m7-nova    mut-m7-nova.html         a8b7c3fdcc0bf5fa
+m8-blade   mut-m8-blade.html        16679c359aa2c29b
+m9-charge  mut-m9-charge.html       d7da52d52df12fa3
+m10-clock  mut-m10-clock.html       a260fb1bb397e97b

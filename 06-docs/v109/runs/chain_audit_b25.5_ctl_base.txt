@@ -1,0 +1,30 @@
+  (10 insert(s) found in censer_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-censer-consecration-b25.5.html
+tip    sc-tendril-t3.html
+10 inserts read out of censer_build.py
+
+  LOST  S1:Consecration's nova out, the holy ground's block in, stubbed relic  1  mid   -  tip  0
+        'tip:"Its blows make holy ground: foes on it are smitten, and it heals there" },'
+  LOST  S2:the ground has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  0
+        'ult:{ name:"Consecration", charge:14, kind:"holyground", dur:8,   // v78 stage 2: the gr'
+  LOST  S2:the fighter carries the window relic  1  mid   -  tip  0
+        'this.holyTally = null;'
+  LOST  S2:the match carries the holy ground and its clock relic  1  mid   -  tip  0
+        'this.holyGround = [];'
+  LOST  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  0
+        'f.holyTally = { casts: 0, frames: 0, discs: 0, foeOn: 0, ticks: 0,'
+  LOST  S2:a blow in the window consecrates the ground where it landed relic  1  mid   -  tip  0
+        'this.holyGround.push({ x: foe.x, y: foe.y, t0: this.holyT,'
+  LOST  S2:the ground ticks with the window tickers relic  1  mid   -  tip  0
+        'this.tickHolyGround(dt);            // CONSECRATION (v78)'
+  LOST  S2:tickHolyGround ages the ground, smites the foe on it and heals the caster relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur || !f.alive || !foe.alive){ f.ultHoly = null; continue; }'
+  LOST  S3:the heal                relic  1  mid   -  tip  0
+        'bless:1,          // v78: the heal (stage 3)'
+  LOST  S5:the blade: the shipped rate relic  1  mid   -  tip  0
+        'blades:[0], reach:76, width:26, artW:54, dmg:25.5,'
+
+!! 10 INSERT(S) DID NOT SURVIVE THE CHAIN: S1:Consecration's nova out, the holy ground's block in, stubbed, S2:the ground has a charge: the lab's 16 on the game's clock, S2:the fighter carries the window, S2:the match carries the holy ground and its clock, S2:the cast opens the window and resolves nothing, S2:a blow in the window consecrates the ground where it landed, S2:the ground ticks with the window tickers, S2:tickHolyGround ages the ground, smites the foe on it and heals the caster, S3:the heal, S5:the blade: the shipped rate
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

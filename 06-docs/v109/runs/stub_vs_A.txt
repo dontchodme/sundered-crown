@@ -1,0 +1,6 @@
+      A win 0.3818  hits 0.0000/10.2939  casts 0.000  n 660
+   SHIP win 0.3818  hits 0.0000/10.2939  casts 0.000  n 660
+  every foe's rate identical: True   blows identical: True   foes differing: []
+      A win 0.3985  hits 0.0000/10.3030  casts 0.000  n 660
+   SHIP win 0.3985  hits 0.0000/10.3030  casts 0.000  n 660
+  every foe's rate identical: True   blows identical: True   foes differing: []

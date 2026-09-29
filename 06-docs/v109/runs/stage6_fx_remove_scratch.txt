@@ -1,0 +1,10 @@
+
+FX REMOVE -- censer's particle field out of both copies
+  src sc-censer-consecration-b25.5-fx.html  3d68c7648a9cb3a8
+  the block, removed whole:
+    |     censer: { mode: 'burst', n: 1500, sp: [180, 540], grav: 40, drag: 2.2,
+    |               life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
+    |               spawn: 0.08, up: 20 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 28fc58641370a1a9 -> 2bc829dc324f0040
+  wrote sc-censer-consecration-b25.5-fxout.html  8af05d81c8d72f29
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\censer\s6\fxout\fx.js  2bc829dc324f0040

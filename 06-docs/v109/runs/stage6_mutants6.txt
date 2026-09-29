@@ -1,0 +1,4 @@
+mV1-closevoice   892ea594bd11da00  sc-censer-mV1-closevoice.html
+mP1-picwrite     c44e145b67091a40  sc-censer-mP1-picwrite.html
+mT1-tagevery     3aebbac40f5d9d99  sc-censer-mT1-tagevery.html
+mD1-drawwrite    034efa632e41c21e  sc-censer-mD1-drawwrite.html

@@ -1,0 +1,10 @@
+34 relics · Chromium 151.0.7922.34 · censer (redesign) · 33 foes x 10 seeds = 330 fights an arm · repro sc-trunk 151 (holyground_base)
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out    bless    discs      dmgf_foeOnPct f_foeStk    ticks
+  A       37.9%   0.00  0.00/10.35      0.00     0.00     0.00     0.00     0.00     0.00
+  SHIP    51.5%   0.00  0.00/9.88       0.00     0.00     0.00     0.00     0.00     0.00
+  B       51.2%   2.84  3.92/5.78       0.00     1.31     7.83    19.61     1.91     3.92
+  C       60.0%   2.93  4.02/6.07       2.60     1.29     7.75    19.58     1.90     3.87
+  lifts over A: SHIP +13.6  B +13.3  C +22.1
+  1320 fights in 197s   errors: []

@@ -1,0 +1,73 @@
+{
+ "n": {
+  "turnOutOk": 1501263,
+  "chargeOk": 2720458,
+  "liteOk": 1499873,
+  "hitTestOk": 2721886,
+  "liveTicks": 2721886,
+  "frozenOk": 346137,
+  "noPlantOutOk": 2436,
+  "blowOutOk": 2397,
+  "castOk": 1390,
+  "castOnCharge": 1390,
+  "stateOk": 1222013,
+  "frames": 1220794,
+  "noSmiteOk": 1214289,
+  "noBlessOk": 1217175,
+  "winFrozen": 184114,
+  "winLive": 1220623,
+  "turnInOk": 1220623,
+  "plantOk": 2244,
+  "blowInOk": 2214,
+  "purgeOk": 1114062,
+  "smiteOk": 6505,
+  "blessOk": 3619,
+  "blessHealOk": 1054119,
+  "closes": 1219,
+  "clockCloses": 1149,
+  "expiredOk": 1545,
+  "deathCloses": 70,
+  "rowOk": 444,
+  "castsWithGround": 292,
+  "discsCarried": 336,
+  "framesWithOldDisc": 34924,
+  "shadeDiscs": 21,
+  "blowExempt": 67,
+  "x8": 2,
+  "winLen": 960
+ },
+ "bad": {
+  "8": [
+   "out of the window: the hitstun; hit stop 0.10880000000000001, want 0.10880000000000006",
+   "out of the window: the hitstun; hit stop 0.11320000000000001, want 0.11320000000000006"
+  ]
+ },
+ "T": {
+  "casts": 1390,
+  "frames": 1220794,
+  "discs": 2244,
+  "foeOn": 258563,
+  "ticks": 6505,
+  "selfOn": 169314,
+  "bless": 3619,
+  "foeStk": 2427538
+ },
+ "fights": 444,
+ "win": 0.5045045045045045,
+ "blowsIn": 5.054054054054054,
+ "blowsOut": 5.486486486486487,
+ "f_foeOnPct": 21.28567259602307,
+ "f_foeStk": 2.0172599375413895,
+ "f_selfOnPct": 13.933845768122104,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "groundR": 90,
+  "groundLife": 8,
+  "tickCd": 0.5,
+  "smite": 1,
+  "blessCd": 1,
+  "bless": 1
+ },
+ "dmg": 25.5
+}

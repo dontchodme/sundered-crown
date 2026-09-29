@@ -1,0 +1,44 @@
+  (22 insert(s) found in censer_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-censer-consecration-b25.5-fx.html
+tip    sc-censer-consecration-b25.5.html
+22 inserts read out of censer_build.py
+
+    ok  S1:Consecration's nova out, the holy ground's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the ground has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the window relic  1  mid   -  tip  1
+    ok  S2:the match carries the holy ground and its clock relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:a blow in the window consecrates the ground where it landed relic  1  mid   -  tip  1
+    ok  S2:the ground ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickHolyGround ages the ground, smites the foe on it and heals the caster relic  1  mid   -  tip  1
+    ok  S3:the heal                relic  1  mid   -  tip  1
+    ok  S5:the blade: the shipped rate relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Censer's cast (the thurible swing) and disc-bell arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'for (const [r, k, d] of [[0.5, 0.5, 1.5], [1, 0.7, 1], [1.2, 0.55, 0.8], [1.5, 0.3, 0.6]'
+  LOST  S6:resolveHit: the disc bell, once per disc planted, with the caster's discs standing relic  1  mid   -  tip  0
+        'for (const d_ of this.holyGround) if (d_.side === sd_) n_++;'
+    ok  S6:tickHolyGround: the heal chime (spark collect, unchanged), once per blessing, with the count relic  3  mid   -  tip  2
+  LOST  S6:consecration picture: fighter fields relic  1  mid   -  tip  0
+        'this.consSeen = [0, 0, 0, 0, 0];'
+  LOST  S6:consecration picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickConsecration(dt);          // CONSECRATION'S PICTURE (v78 section 4)"
+  LOST  S6:consecration picture: tickConsecration relic  1  mid   -  tip  0
+        'for (let i = P.length - 1; i >= 0; i--) if (G.indexOf(P[i].d) < 0) P.splice(i, 1);'
+  LOST  S6:consecration picture: the floor call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawConsecration(m);'
+  LOST  S6:consecration picture: the head's light (emissive, over both fighters) relic  1  mid   -  tip  0
+        'this.drawConsecrationTop(m);'
+  LOST  S6:consecration picture: the drawing methods relic  1  mid   -  tip  0
+        'for (const [px, py, pr] of [[0.755, -0.62, 0.19], [0.755, 0.62, 0.19], [0.875, -0.36, 0.'
+  LOST  S6:consecration picture: the nova's glyph ring retired relic  1  mid   -  tip  0
+        "the cast's record now carries the CAST only and nothing draws from it. */"
+  LOST  S6:consecration picture: the nova's smoke retired relic  1  mid   -  tip  0
+        'stage 6). The cast is the hammer head lighting (`drawConsecrationTop`)'
+  LOST  S6:consecration picture: the charge rune relic  1  mid   -  tip  0
+        'SG.poly(c, [[bx - 0.24, by], [bx + 0.24, by], [bx + 0.16, by + 0.36], [bx - 0.16, by + 0'
+
+!! 11 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Censer's cast (the thurible swing) and disc-bell arms, before the shared rune-crack fallback, S6:resolveHit: the disc bell, once per disc planted, with the caster's discs standing, S6:consecration picture: fighter fields, S6:consecration picture: the presentation call, S6:consecration picture: tickConsecration, S6:consecration picture: the floor call (world, under both balls), S6:consecration picture: the head's light (emissive, over both fighters), S6:consecration picture: the drawing methods, S6:consecration picture: the nova's glyph ring retired, S6:consecration picture: the nova's smoke retired, S6:consecration picture: the charge rune
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+rc 1

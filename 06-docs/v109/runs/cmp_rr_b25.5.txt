@@ -1,0 +1,2 @@
+stage5_rr_built_b25.5_2207.json (set []) vs stage5_rr_d25.5_2207.json (set ['dmg=25.5']): rate 49.46 / 49.46  A 49.73 / 49.73  B 49.19 / 49.19  dur 56.9946 / 56.9946  foes 37  IDENTICAL
+stage5_rr_built_b25.5_2317.json (set []) vs stage5_rr_d25.5_2317.json (set ['dmg=25.5']): rate 49.73 / 49.73  A 52.16 / 52.16  B 47.30 / 47.30  dur 57.4221 / 57.4221  foes 37  IDENTICAL

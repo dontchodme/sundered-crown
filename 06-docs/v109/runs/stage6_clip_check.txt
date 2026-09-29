@@ -1,0 +1,17 @@
+CLIP  07-shorts/v109/consecration-window.mp4  sha256[:16] ce22f4b273fb92df  3,916,207 bytes (3.73 MB)
+  python cinema_clip.py --game <scratch>/batch/censer/links/sc-censer-consecration-b25.5-fx.html --a censer --b slagheart
+    --seed 109149 --at 30.02 --window 12.79 --end-at-window --fps 60 --w 540 --out ../07-shorts/v109/consecration-window.mp4
+  h264 540x960 60 fps, 877 frames, 14.64 s; AAC 48 kHz stereo
+  the director: no kill on the seed inside the clip; its T3 cut at 36.7 s slows the play from there (12.79 s of match -> 14.6 s)
+  end state: t 42.8167, hp [46.35, 24.962], 16 clanks (cinema_clip) == headless at 42.825 [46.35, 24.96] (clip_timeline.txt)
+AUDIO (ffmpeg volumedetect / ebur128): mean -23.1 dB, max -2.5 dB; integrated -21.4 LUFS, LRA 4.6 LU, true peak -2.5 dBFS
+FIVE FRAMES through the pipeline (post chain, director), matched to the fight by the HUD clock -> 05-reference/v109/consecration-clip-5frames.png
+  (2700x960, 002705a450472840):
+  1.30 s (HUD 31.3): the cast, 0.08 s after it (31.225): the banner, the head's hot gold core; the white spray round the foe is the
+                     NOVA's SPECS.censer burst, still in this link's fx.js copy until the carry's fx_remove.py
+  2.25 s (HUD 32.3): the first disc (31.692, its bell n1) standing, lattice and rim; SMITE 3 where the foe was smitten (31.833) and
+                     BLESSING 1 on Censer (the same step)
+  4.30 s (HUD 34.3): two discs (the second at 33.708, its bell n2), the foe on the second: SMITE 4 (33.850)
+  9.60 s (HUD 38.5): four discs (the fourth at 37.825, bell n4), Censer on them: BLESSING 5 (38.533) and the head lit; SMITE 4 on the foe
+  13.40 s (HUD 41.6): after the clock close (41.017, 4 discs standing): the ground inert (0.07), the head cooled; the hammer's own
+                     onHit SMITE on a blow (41.358)

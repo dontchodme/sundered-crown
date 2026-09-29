@@ -1,0 +1,17 @@
+
+CONSECRATION PROBE  mut-m1-window.html  Chromium 151.0.7922.34  222 fights (Censer both sides x every foe x 3 seeds)   blade 25.5   ult {'charge': 14, 'dur': 9, 'groundR': 90, 'groundLife': 8, 'tickCd': 0.5, 'smite': 1, 'blessCd': 1, 'bless': 1}
+  casts/fight 3.18   per cast: discs 1.73  smites 5.37  blessings 3.04   foe on the ground 22.99% of window frames (a fight's mean; pooled 22.59%)   foe smite stacks on a window frame 2.18   Censer win 56.8%
+  blows a fight: in windows 5.50, outside 5.05   window frames a cast 962.0 (dur x 120 = 1080)   caster's centre on the ground 15.65% of window frames   closes: clock 558, death 42
+  discs expired 825   casts with its own ground still standing 199 (239 discs; window frames with an older window's disc 35163)   discs at a shade 13   FREEZE CENSUS 13.1% of window steps frozen (a window is ~10.36s of match time)
+  whole-state diffs clean: 678785 ground frames, 705 casts, 222 fights' shared tables   frozen steps unchanged 173267   blows rebuilt 1203 in / 1107 out (33 into Bulwarden's wall exempt)   turns 678080 in / 686778 out   hit tests 1364858   blessing heals 593531
+  [1] FAIL  the window: `dur` on the window clock (live +dt, frozen untouched, the ground and holyT too), closes on either death; no cast under a window; only Censer   678185 FAIL: ["the window's dur 9, the builder's 8", "the window's dur 9, the builder's 8", "the window's dur 9, the builder's 8", "the window's dur 9, the builder's 8"]
+  [2] PASS  every blow in the window plants exactly one disc {x, y, t0, side} at the struck ball; none outside; no other disc
+  [3] PASS  the ground lasts: discs do not move, go exactly at groundLife on holyT, nothing else removes one
+  [4] PASS  the smite: the foe within groundR + R of a live disc, cd clear -> apply("smite", smite, side) exactly; cd tickCd; none else
+  [5] PASS  the heal: the caster's centre within groundR, bcd clear -> apply("blessing", bless, side) exactly (none at bless 0); no other heal
+  [6] PASS  nothing else on a ground frame: no hurt, beat, rng draw or hit stop; whole-state diff (fighters, match, shades, shared tables)
+  [7] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0, bcd 0} and writes nothing else (from the prologue's end)
+  [8] PASS  the hammer swings as ever: the turn, the hit test, and every blow (damage, knock, hitstun, stop, onHit) rebuilt, in the window and out
+  [9] PASS  the charge: +dt a tick, a cast exactly at 14 (the lab's 16 on the game's clock)
+
+  8/9

@@ -1,0 +1,24 @@
+voice rows   rows_final.json 63c842fa690c5f02
+picture rows rows_final.json 5133d7afb3acb9e9
+voice: relayed report 4999 chars (rows 3); equal to the row file's for 4999 chars -> PREFIX OK
+   control (one char changed half way): prefix fails, as it must
+picture: relayed report 7000 chars (rows 10); equal to the row file's for 7000 chars -> PREFIX OK
+   control (one char changed half way): prefix fails, as it must
+picture rows alone -> b3f790861677e2bd  (the picture lab's stamp: b3f790861677e2bd)
+voice rows alone   -> 6af8bc7cac4bf257  (the voice lab's page:  6af8bc7cac4bf257)
+both sets, either order -> 3d68c7648a9cb3a8 (identical; the picture lab's co-apply 3d68c7648a9cb3a8)
+13 rows -> 13 edits (0 merged on a shared anchor); edits reproduce 3d68c7648a9cb3a8
+anchors NOT re-emitted by their edit (4): ["consecration picture: the nova's glyph ring retired", "consecration picture: the nova's smoke retired", 'consecration picture: the charge rune', "consecration picture: the cast record's life"]
+25 names: free on the base, all in the page
+sim-path lines: {
+ "resolveHit: the disc bell, once per disc planted, with the caster's discs standing": [
+  "{ const sd_ = self === this.a ? \"a\" : \"b\";",
+  "let n_ = 0;",
+  "for (const d_ of this.holyGround) if (d_.side === sd_) n_++;",
+  "SFX.play(\"ult\", { w: \"censer-disc\", n: n_ }); }"
+ ],
+ "tickHolyGround: the heal chime (spark collect, unchanged), once per blessing, with the count": [
+  "SFX.play(\"spark\", { collect: true, n: f.stacks(\"blessing\") });"
+ ]
+}
+stage 6 written into censer_build.py: 13 edits; builder now 6ecae1196c6ec4ca

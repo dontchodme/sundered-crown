@@ -1,0 +1,22 @@
+
+CONSECRATION PROBE  sc-censer-consecration-b25.5-fx.html  Chromium 151.0.7922.34  444 fights (Censer both sides x every foe x 6 seeds)   blade 25.5   ult {'charge': 14, 'dur': 8, 'groundR': 90, 'groundLife': 8, 'tickCd': 0.5, 'smite': 1, 'blessCd': 1, 'bless': 1}
+  casts/fight 3.13   per cast: discs 1.61  smites 4.68  blessings 2.60   foe on the ground 21.29% of window frames (a fight's mean; pooled 21.18%)   foe smite stacks on a window frame 2.02   Censer win 50.5%
+  blows a fight: in windows 5.05, outside 5.49   window frames a cast 878.3 (dur x 120 = 960)   caster's centre on the ground 13.93% of window frames   closes: clock 1149, death 70
+  discs expired 1545   casts with its own ground still standing 292 (336 discs; window frames with an older window's disc 34924)   discs at a shade 21   FREEZE CENSUS 13.1% of window steps frozen (a window is ~9.21s of match time)
+  whole-state diffs clean: 1222013 ground frames, 1390 casts, 444 fights' shared tables   frozen steps unchanged 346137   blows rebuilt 2214 in / 2399 out (67 into Bulwarden's wall exempt)   turns 1220623 in / 1501263 out   hit tests 2721886   blessing heals 1054119
+  stage 6 voices: 1390 casts each one cast voice (of 1390); 2244 discs each one bell (n 1-6: 1045/711/325/116/34/13; 80 on a killing blow); 2436 other blows silent; 3619 blessings each one heal chime (n 1-5: 1067/852/671/493/536); 6194 smite-tick frames silent; closes silent: 1149 by the clock, 70 by a death; silent through 2 s of the verdict: 171 fights with the window open, 273 with it shut; the run's own: 1390 cast voices, 2244 bells, 3619 chimes in the ticker, 270 other relics' chimes in their spark tickers
+  stage 6 picture: tickConsecration 6003029 calls, 6003029 writing nothing of the simulation's, drawing no RNG and playing nothing; the head lit on 2625224 calls in an open window (1389 casts); closes 1149 by the clock, 2 on Censer's death and 0 on the foe's (in the kill flight), 238 at `over` (171 of them with the sim's window still open), 1389 out in 0.6 of its clock (0.3 s); the discs mirrored on 4452456 calls (2244 discs, each bloom clock exact); on the ground: foe 569461, Censer 212519, neither 1843244 window calls; 6505 smite ticks flashed; tags: SMITE 5036 (+1469 ticks inside a tagged stretch), BLESSING 3589 (+30); after 2 s of the verdict the picture gone in 444 fights, 245 of them lit at `over` (171 with the sim's window still open)
+  drawn subset: 74 fights drawn every 6th step while the picture shows (every 60th otherwise): 57774 frames clean, 54522 with the picture up (8455 in a hit stop), 2445 in the verdict; the renderer's memos taken into [6]'s start: ['_facetCache', '_fxc', '_inkCache', '_shadeCache', '_t']
+  [1] PASS  the window: `dur` on the window clock (live +dt, frozen untouched, the ground and holyT too), closes on either death; no cast under a window; only Censer
+  [2] PASS  every blow in the window plants exactly one disc {x, y, t0, side} at the struck ball; none outside; no other disc
+  [3] PASS  the ground lasts: discs do not move, go exactly at groundLife on holyT, nothing else removes one
+  [4] PASS  the smite: the foe within groundR + R of a live disc, cd clear -> apply("smite", smite, side) exactly; cd tickCd; none else
+  [5] PASS  the heal: the caster's centre within groundR, bcd clear -> apply("blessing", bless, side) exactly (none at bless 0); no other heal
+  [6] PASS  nothing else on a ground frame: no hurt, beat, rng draw or hit stop; whole-state diff (fighters, match, shades, shared tables)
+  [7] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0, bcd 0} and writes nothing else (from the prologue's end)
+  [8] PASS  the hammer swings as ever: the turn, the hit test, and every blow (damage, knock, hitstun, stop, onHit) rebuilt, in the window and out
+  [9] PASS  the charge: +dt a tick, a cast exactly at 14 (the lab's 16 on the game's clock)
+  [10] PASS  stage 6 voices: one cast voice a cast (in fireUlt), one bell a disc planted (n = the caster's discs standing), one heal chime a blessing (n = Censer's blessing); none on a close, by the clock or a death, nor on a smite tick, a foe's cast, the picture or the verdict; every one accounted for
+  [11] PASS  stage 6 picture: tickConsecration writes nothing of the simulation's, draws no RNG, plays nothing; the head lit while the window is open and a 0.3 s close at any close; the discs the sim's; on the ground the ticker's own answer; a flash a smite tick; SMITE / BLESSING on each stretch's first; gone after the verdict; the drawn subset clean
+
+  11/11

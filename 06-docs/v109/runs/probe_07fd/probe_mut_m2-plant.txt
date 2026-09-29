@@ -1,0 +1,17 @@
+
+CONSECRATION PROBE  mut-m2-plant.html  Chromium 151.0.7922.34  222 fights (Censer both sides x every foe x 3 seeds)   blade 25.5   ult {'charge': 14, 'dur': 8, 'groundR': 90, 'groundLife': 8, 'tickCd': 0.5, 'smite': 1, 'blessCd': 1, 'bless': 1}
+  casts/fight 3.21   per cast: discs 1.58  smites 4.12  blessings 2.98   foe on the ground 18.45% of window frames (a fight's mean; pooled 18.13%)   foe smite stacks on a window frame 1.95   Censer win 51.4%
+  blows a fight: in windows 5.09, outside 5.43   window frames a cast 867.1 (dur x 120 = 960)   caster's centre on the ground 17.18% of window frames   closes: clock 580, death 36
+  discs expired 793   casts with its own ground still standing 149 (178 discs; window frames with an older window's disc 0)   discs at a shade 0   FREEZE CENSUS 13.1% of window steps frozen (a window is ~9.21s of match time)
+  whole-state diffs clean: 618849 ground frames, 713 casts, 222 fights' shared tables   frozen steps unchanged 176091   blows rebuilt 1115 in / 1188 out (32 into Bulwarden's wall exempt)   turns 618136 in / 761205 out   hit tests 1379341   blessing heals 592886
+  [1] PASS  the window: `dur` on the window clock (live +dt, frozen untouched, the ground and holyT too), closes on either death; no cast under a window; only Censer
+  [2] FAIL  every blow in the window plants exactly one disc {x, y, t0, side} at the struck ball; none outside; no other disc   2260 FAIL: ['the disc {"x":271.5781942738637,"y":619.9547028829836,"t0":14.016666666666511,"side":"a"}, want {"x":399.21291120901765,"y":622.6361452112674,"t0":14.016666666666511,"side":"a"}', '1 disc(s) appeared outside a blow', 'the disc {"x":95.97331767186783,"y":575.3452646080544,"t0":14.724999999999804,"side":"a"}, want {"x":144.35141668950308,"y":640.3429215366016,"t0":14.724999999999804,"side":"a"}', '1 disc(s) appeared outside a blow']
+  [3] PASS  the ground lasts: discs do not move, go exactly at groundLife on holyT, nothing else removes one
+  [4] PASS  the smite: the foe within groundR + R of a live disc, cd clear -> apply("smite", smite, side) exactly; cd tickCd; none else
+  [5] PASS  the heal: the caster's centre within groundR, bcd clear -> apply("blessing", bless, side) exactly (none at bless 0); no other heal
+  [6] PASS  nothing else on a ground frame: no hurt, beat, rng draw or hit stop; whole-state diff (fighters, match, shades, shared tables)
+  [7] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0, bcd 0} and writes nothing else (from the prologue's end)
+  [8] PASS  the hammer swings as ever: the turn, the hit test, and every blow (damage, knock, hitstun, stop, onHit) rebuilt, in the window and out
+  [9] PASS  the charge: +dt a tick, a cast exactly at 14 (the lab's 16 on the game's clock)
+
+  8/9

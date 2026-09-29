@@ -1,0 +1,31 @@
+# compose6 10:32 builders: censer 3e2a19d64f97c39e aureole c7641c026661b686 heartwood 04567e2ed899524a spellbreaker 463b49d265b3258c 
+ok   censer 1,2,3,5,6 on sc-tendril-t3 alone reach sc-censer-consecration-b25.5-fx.html
+ok   the builder rebuilds sc-censer-stub byte for byte
+ok   the builder rebuilds sc-censer-ground byte for byte
+ok   the builder rebuilds sc-censer-consecration byte for byte
+ok   the builder rebuilds sc-censer-consecration-b25.5 byte for byte
+ok   the builder rebuilds sc-censer-consecration-b25.5-fx byte for byte
+--   on t3: change set of stages 1-5 98dc422a898f5043, of stage 6 alone bc494860e7c77ee9
+ok   stages 1-5 change set on t3 is compose2's 98dc422a898f5043
+--   aureole alone on the base reaches sc-aureole-b12.5.html (its last today)
+ok   censer 1-6 on aureole's sc-aureole-b12.5.html: stage 6's change set is t3's (bc494860e7c77ee9)
+ok   aureole's stages on censer's fx link reach sc-aureole-b12.5.html
+--   heartwood alone on the base reaches sc-heartwood-rootfast.html (its last today)
+ok   censer 1-6 on heartwood's sc-heartwood-rootfast.html: stage 6's change set is t3's (bc494860e7c77ee9)
+ok   heartwood's stages on censer's fx link reach sc-heartwood-rootfast.html
+--   spellbreaker alone on the base reaches sc-spellbreaker-unmaking.html (its last today)
+ok   censer 1-6 on spellbreaker's sc-spellbreaker-unmaking.html: stage 6's change set is t3's (bc494860e7c77ee9)
+ok   spellbreaker's stages on censer's fx link reach sc-spellbreaker-unmaking.html
+ok   stack1 (censer first): aureole reaches sc-aureole-b12.5.html
+ok   stack1 (censer first): heartwood reaches sc-heartwood-rootfast.html
+ok   stack1 (censer first): spellbreaker reaches sc-spellbreaker-unmaking.html
+ok   stack2: censer 1-6 last on the other three (sc-spellbreaker-unmaking.html), stage 6 change set t3's
+ok   on sc-widowmaker-fxout (04fdd2e2daa17c26): stages 1-5 98dc422a898f5043, stage 6 bc494860e7c77ee9 -- t3's both; fx there b4c478b1fe55a5bc
+  base  the window tickers' anchors, the blow count, the smite and blessing statuses; Censer's shipped profile; the nova's tail kept, untouched, for lightkeeper
+ok   on sc-oracle-fx (15cf62f96f72653a): stages 1-5 98dc422a898f5043, stage 6 bc494860e7c77ee9 -- t3's both; fx there 313340a2c853d3b1
+  base  the window tickers' anchors, the blow count, the smite and blessing statuses; Censer's shipped profile; the nova's tail kept, untouched, for lightkeeper
+ok   on sc-angelus-b9-fx (85b8af63055d1108): stages 1-5 98dc422a898f5043, stage 6 bc494860e7c77ee9 -- t3's both; fx there 6298706cda95f349
+  base  the window tickers' anchors, the blow count, the smite and blessing statuses; Censer's shipped profile; the nova's tail kept, untouched, for lightkeeper
+ok   on sc-lightkeeper-fxout (088189f3517b6f11): stages 1-5 98dc422a898f5043, stage 6 bc494860e7c77ee9 -- t3's both; fx there ae411af7b64ba742
+  base  the window tickers' anchors, the blow count, the smite and blessing statuses; Censer's shipped profile; the nova's tail kept, untouched, for no other relic
+# 0 FAIL

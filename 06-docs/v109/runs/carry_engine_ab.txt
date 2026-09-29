@@ -1,0 +1,11 @@
+=== ENGINE A/B: 35 relics, 6 seeds x 595 pairings ===
+
+  sc-censer-consecration-b25.5-fx.html  3570 matches  249.0s
+  sc-censer-consecration-b25.5-fx.html  3570 matches  302.6s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3570
+  PASS  every match identical field for field  — 3570/3570
+  PASS  the sweep is real  — 35/35 distinct winners, 3570 distinct seeds, 22.2-112.9s
+
+ENGINE A/B PASS — C:\dev\sundered-crown\02-chain\sc-censer-consecration-b25.5-fx.html does not move the 35-relic roster.

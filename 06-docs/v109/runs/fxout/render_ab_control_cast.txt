@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 5 frames  540x960
+  a  sc-censer-consecration-b25.5-fx.html
+  b  sc-censer-fxout.html
+  censer v slagheart seed 109149 t= 31.25  DIFFERS   luma 27.647 -> 27.130   lit 88.46% -> 88.44%
+  censer v slagheart seed 109149 t= 31.35  DIFFERS   luma 32.410 -> 29.957   lit 88.38% -> 88.36%
+  censer v slagheart seed 109149 t= 31.45  DIFFERS   luma 30.188 -> 28.630   lit 88.35% -> 88.35%
+  censer v slagheart seed 109149 t= 31.55  DIFFERS   luma 29.337 -> 28.925   lit 88.33% -> 88.33%
+  censer v slagheart seed 109149 t= 31.65  DIFFERS   luma 29.230 -> 29.176   lit 88.35% -> 88.35%
+
+FAIL  0/5 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

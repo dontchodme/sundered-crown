@@ -1,0 +1,4 @@
+voice: relayed report 4999 chars (rows 3); equal to the row file's for 4999 chars -> PREFIX OK
+   control (one char changed half way): prefix fails, as it must
+picture: relayed report 7000 chars (rows 10); equal to the row file's for 7000 chars -> PREFIX OK
+   control (one char changed half way): prefix fails, as it must

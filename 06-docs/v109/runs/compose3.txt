@@ -1,0 +1,4 @@
+sc-oracle-fx 15cf62f96f72653a: rc 0; change set 98dc422a898f5043 (t3 98dc422a898f5043); b25.5 there 83929d827b2301a1
+  base  the window tickers' anchors, the blow count, the smite and blessing statuses; Censer's shipped profile; the nova's tail kept, untouched, for lightkeeper
+sc-angelus-b9-fx 85b8af63055d1108: rc 0; change set 98dc422a898f5043 (t3 98dc422a898f5043); b25.5 there a62e93cd6c681e18
+  base  the window tickers' anchors, the blow count, the smite and blessing statuses; Censer's shipped profile; the nova's tail kept, untouched, for lightkeeper

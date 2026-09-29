@@ -117,9 +117,6 @@
                  spawn: 0.12, up: 0 },
 
     /* ---- NOVAS: a burst that does NOT fall --------------------------- */
-    censer: { mode: 'burst', n: 1500, sp: [180, 540], grav: 40, drag: 2.2,
-              life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
-              spawn: 0.08, up: 20 },
     /* DEADFALL DISCHARGES, AND `atSelf` IS A FLAG NO OTHER SPEC CARRIES.
        A `burst` is drawn at the FOE -- right for the four novas above it,
        which are cast AT somebody, and wrong for a window that opens on its

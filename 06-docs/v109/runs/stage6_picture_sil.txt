@@ -1,0 +1,9 @@
+censer       sanctified warhammer n 8  HAMMER |dL| med 0.286 (min 0.100 max 0.304)  luma 0.431  area 7324 u2
+grudgebearer dwarven    warhammer n 8  HAMMER |dL| med 0.125 (min 0.046 max 0.136)  luma 0.224  area 4813 u2
+bulwarden    vigil      warhammer n 8  HAMMER |dL| med 0.214 (min 0.061 max 0.245)  luma 0.339  area 4944 u2
+shroudmaul   umbral     warhammer n 8  HAMMER |dL| med 0.145 (min 0.057 max 0.158)  luma 0.246  area 5421 u2
+ravelbone    bloodsworn warhammer n 8  HAMMER |dL| med 0.174 (min 0.036 max 0.201)  luma 0.276  area 4896 u2
+ironwood     verdant    warhammer n 8  HAMMER |dL| med 0.216 (min 0.087 max 0.227)  luma 0.348  area 5508 u2
+lodestone    runic      warhammer n 8  HAMMER |dL| med 0.252 (min 0.057 max 0.273)  luma 0.374  area 5215 u2
+rank by |dL|: censer 0.286 > lodestone 0.252 > ironwood 0.216 > bulwarden 0.214 > ravelbone 0.174 > shroudmaul 0.145 > grudgebearer 0.125
+EXIT 0

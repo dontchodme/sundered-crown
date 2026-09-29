@@ -1,0 +1,8 @@
+  ok    consecration picture: the cast record's life
+  ok    ult   ult:{ name:"Consecration", charge:14, kind:"holyground", dur:8, groundR:90, groundLife:8, tickCd:0.5, smite:1, ...
+  ok    card  70 chars  'Its blows make holy ground: foes on it are smitten, and it heals there'
+  ok    stage 6: presentation only (no RNG, no ultFx, no call into the sim, writes its own fields; the disc's bell and the heal chime its two lines on the sim path); the inlined fx.js untouched; the rune-crack fallback kept; the nova's art gone; every arm, call and pass once
+  ok    one holyground ultimate, Censer's; the nova gone from its row; no insert draws the RNG, writes the shared weapon or a shared table, beats, stops, hurts, knocks, moves, heals directly, stuns, pins or lays a status but smite and blessing; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-censer-consecration-b25.5-fx.html  3d68c7648a9cb3a8   (+21148 chars, written LF)

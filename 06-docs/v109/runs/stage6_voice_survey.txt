@@ -1,0 +1,14 @@
+Chromium 151.0.7922.34; fights 148; casts 456 (3.08/fight); discs 716 (1.57/cast); heals 1063
+  live : dist [0, 329, 224, 109, 43, 9, 2]  median 2 p95 4 max 6
+  win  : dist [0, 358, 202, 103, 42, 9, 2]  median 2 p95 4 max 6
+  cum  : dist [0, 146, 139, 125, 104, 79, 56, 31, 19, 10, 4, 1, 1, 1]  median 3 p95 7 max 13
+  gaps between a caster's discs (s): min 0.508 p5 0.720 p25 1.685 median 3.892; <0.3 s 0  <0.5 s 0  <1 s 78
+  discs on a killing blow: 32; with the fight over after the step: 32; more than one disc in one step: 0
+  voices on a disc's step: {'hit': 787, 'death': 32, 'wall': 14, 'loose': 2, 'ult': 8, 'clank': 2, 'aegis': 19, 'scour-hold': 2, 'vine': 1, 'scour-tick': 1}
+  the hit calls on disc steps (first 8): ['hit:{"dmg":25,"crit":false}', 'hit:{"dmg":38,"crit":false}', 'hit:{"dmg":38,"crit":false}', 'hit:{"dmg":32,"crit":false}', 'hit:{"dmg":52,"crit":false}', 'hit:{"dmg":25,"crit":false}', 'hit:{"dmg":52,"crit":false}', 'hit:{"dmg":29,"crit":false}']
+  crits on disc steps: 137 of 787
+  heal gaps (s): min 1.008 p5 1.008 median 1.592
+  heal after the caster's last disc (s): min 0.000 p5 0.125 median 1.658; <0.1 s 3 <0.3 s 227
+  heal counts n: [0, 325, 260, 199, 135, 144]
+  voices on a heal's step (before the new row): {'ult': 39, 'wall': 44, 'hit': 6, 'clank': 10, 'vine': 1, 'scour-hold': 1, 'scour-woosh': 1}
+  score p90 per third-octave (200 Hz - 8 kHz): 200:152.1718 252:29.8179 317:15.4057 400:24.5862 504:22.0211 635:21.6158 800:8.7472 1008:7.4454 1270:5.7635 1600:4.2277 2016:3.7719 2540:3.3449 3200:2.9878 4032:2.6710 5080:2.4029 6400:2.1584

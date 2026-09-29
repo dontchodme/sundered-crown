@@ -1,0 +1,22 @@
+
+  sc-censer-consecration-b25.5-fx.html  ·  32 foes x 12 seeds (left out: aureole, dawnbringer, lastlight, morningstar, twinshade)  ·  the best window of each fight: 384, of which 4 show everything
+
+  foe              seed  cast at  window clock all discs pitch ticks heals   on% stand stops other card kill  score
+  slagheart      109149    31.22    9.79     1   1     4  1234     9     6  29.7     4   216     0    0    0  26.09
+  grudgebearer   109408    31.35    9.02     1   1     3   123     9     4  35.5     3   124     0    0    0  24.62
+  grudgebearer   109556    30.98    9.13     1   1     2    12     7     5  22.9     2   137     0    0    0  22.82
+  spellbreaker   109556    47.50    9.34     1   1     2    12     5     3  22.9     2   162     0    0    0  21.42
+  lightkeeper    109482    46.17   10.47     1   0     6 12345    14     7  55.6     6   298     1    0    0  16.30
+  bloodmirror    109260    31.17    9.87     1   0     6 12345    11     7  44.6     6   226     1    0    0  16.09
+  portcullis     109556    15.19    9.30     1   0     5 12345    12     6  54.0     5   157     1    0    0  15.80
+  bulwarden      109408    46.97   10.10     1   0     6  2345    11     8  40.3     6   253     1    0    0  15.51
+  vesper         109334    45.27    9.31     1   0     5 12345    10     6  35.8     5   158     1    0    0  15.23
+  portcullis     109519    46.34    8.98     1   0     5 12345    13     5  42.9     5   119     1    0    0  15.11
+  duskreave      109149    45.32    9.57     1   0     4  1234    15     6  57.6     4   190     1    0    0  14.90
+  cindercleave   109186    30.77    9.49     1   0     5  2345    11     6  35.0     5   180     1    0    0  14.80
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/censer/links/sc-censer-consecration-b25.5-fx.html --a censer --b slagheart --seed 109149 \
+      --at 30.02 --window 12.79 --end-at-window --fps 60 --w 540 --out ../07-shorts/v109/consecration-window.mp4
+rc 0

@@ -1,0 +1,45 @@
+Censer / Consecration (blade 25.5) win by foe, both sides,
+relic_rate seed0 2207 + 2317 (40 fights a foe: 10 seeds x 2 sides x 2 blocks). Beside it, the SHIPPED nova on the base
+(sc-tendril-t3, blade 28.77, the same seeds). Pooled: Consecration 49.6%   shipped nova 50.1%
+
+by type   greatsword 70%  flail 50%  twinblade 48%  warhammer 46%  scythe 45%  bow 35%
+shipped   greatsword 65%  warhammer 55%  twinblade 50%  scythe 48%  flail 44%  bow 39%
+
+foe           type        Consecration  shipped    move
+gloamwire     bow            22.5%    20.0%   +2.5
+ironhail      bow            27.5%    35.0%   -7.5
+aureole       bow            32.5%    32.5%   +0.0
+farwarden     bow            32.5%    32.5%   +0.0
+lastlight     scythe         35.0%    50.0%  -15.0
+starwarden    twinblade      35.0%    50.0%  -15.0
+marrowdraw    bow            37.5%    42.5%   -5.0
+vesper        scythe         37.5%    47.5%  -10.0
+cindercleave  scythe         40.0%    45.0%   -5.0
+grudgebearer  warhammer      40.0%    45.0%   -5.0
+ravelbone     warhammer      40.0%    47.5%   -7.5
+redflail      flail          40.0%    35.0%   +5.0
+gravemourn    flail          42.5%    32.5%  +10.0
+morningstar   flail          45.0%    45.0%   +0.0
+spellbreaker  twinblade      45.0%    55.0%  -10.0
+ironwood      warhammer      47.5%    67.5%  -20.0
+shroudmaul    warhammer      47.5%    65.0%  -17.5
+twinshade     twinblade      47.5%    47.5%   +0.0
+widowmaker    twinblade      47.5%    45.0%   +2.5
+duskreave     scythe         47.5%    47.5%   +0.0
+foregone      scythe         50.0%    47.5%   +2.5
+portcullis    flail          50.0%    37.5%  +12.5
+slagheart     flail          50.0%    55.0%   -5.0
+thornwake     scythe         50.0%    52.5%   -2.5
+bloodmirror   scythe         52.5%    47.5%   +5.0
+bulwarden     warhammer      55.0%    50.0%   +5.0
+vinesower     bow            55.0%    70.0%  -15.0
+dawnbringer   greatsword     60.0%    52.5%   +7.5
+emberedge     greatsword     60.0%    57.5%   +2.5
+paradox       flail          60.0%    37.5%  +22.5
+bindweed      flail          62.5%    67.5%   -5.0
+lightkeeper   greatsword     62.5%    55.0%   +7.5
+thornshear    twinblade      67.5%    50.0%  +17.5
+nightfell     greatsword     70.0%    62.5%   +7.5
+oathwound     greatsword     70.0%    75.0%   -5.0
+heartwood     greatsword     82.5%    77.5%   +5.0
+axiom         greatsword     87.5%    72.5%  +15.0

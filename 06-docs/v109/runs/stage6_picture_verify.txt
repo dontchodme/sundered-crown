@@ -1,0 +1,77 @@
+  [final-fx drawn] censer v spellbreaker 99015: draws 2204 thrown None windows 4 discs 4 (max 2 at once) pic!=ground 0 | ticks 10 SMITE tags 9/9 | blessings 9 BLESSING tags 9/9 | bad [] | picture frames 2030 (stop 260) close->0 [0.2917, 0.3333, 0.2917, 0.375] death->0 [] | at kill [[0, 0, False, False]] -> gone after 0 s | w written False
+  [final-fx drawn] dawnbringer v censer 99001: draws 1735 thrown None windows 3 discs 7 (max 3 at once) pic!=ground 0 | ticks 15 SMITE tags 12/12 | blessings 7 BLESSING tags 7/7 | bad [] | picture frames 1656 (stop 301) close->0 [0.375, 0.2917] death->0 [] | at kill [[0.9722222222222222, 2, True, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] censer v gravemourn 99015: draws 1406 thrown None windows 3 discs 6 (max 3 at once) pic!=ground 0 | ticks 19 SMITE tags 17/17 | blessings 11 BLESSING tags 11/11 | bad [] | picture frames 1317 (stop 260) close->0 [0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, 1, True, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] twinshade v censer 99008: draws 1919 thrown None windows 3 discs 7 (max 5 at once) pic!=ground 0 | ticks 10 SMITE tags 8/8 | blessings 7 BLESSING tags 7/7 | bad [] | picture frames 1841 (stop 461) close->0 [0.375, 0.575] death->0 [] | at kill [[0.9722222222222222, 1, True, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] censer v grudgebearer 31337: draws 1651 thrown None windows 3 discs 4 (max 2 at once) pic!=ground 0 | ticks 9 SMITE tags 9/9 | blessings 6 BLESSING tags 6/6 | bad [] | picture frames 1533 (stop 311) close->0 [0.2917, 0.2917, 0.3583] death->0 [] | at kill [[0, 1, False, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] aureole v censer 4101: draws 1120 thrown None windows 2 discs 2 (max 1 at once) pic!=ground 0 | ticks 8 SMITE tags 7/7 | blessings 5 BLESSING tags 5/5 | bad [] | picture frames 947 (stop 84) close->0 [0.425, 0.3417] death->0 [] | at kill [[0, 0, False, False]] -> gone after 0 s | w written False
+  [final-fx drawn] censer v ironhail 99001: draws 1136 thrown None windows 3 discs 4 (max 3 at once) pic!=ground 0 | ticks 10 SMITE tags 9/9 | blessings 5 BLESSING tags 5/5 | bad [] | picture frames 996 (stop 216) close->0 [0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, 3, True, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] ironwood v censer 1234: draws 1249 thrown None windows 2 discs 5 (max 4 at once) pic!=ground 0 | ticks 27 SMITE tags 2/2 | blessings 9 BLESSING tags 9/9 | bad [] | picture frames 1105 (stop 219) close->0 [0.2917, 0.3167] death->0 [] | at kill [[0, 0, True, False]] -> gone after 0 s | w written False
+  [final-fx drawn] censer v bindweed 2317: draws 1674 thrown None windows 3 discs 7 (max 3 at once) pic!=ground 0 | ticks 23 SMITE tags 15/15 | blessings 16 BLESSING tags 15/15 | bad [] | picture frames 1564 (stop 311) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0, 2, True, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] morningstar v censer 8888: draws 2031 thrown None windows 4 discs 8 (max 4 at once) pic!=ground 0 | ticks 27 SMITE tags 23/23 | blessings 16 BLESSING tags 16/16 | bad [] | picture frames 1937 (stop 177) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, 1, False, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] censer v portcullis 5150: draws 1607 thrown None windows 3 discs 11 (max 5 at once) pic!=ground 0 | ticks 26 SMITE tags 20/20 | blessings 14 BLESSING tags 14/14 | bad [] | picture frames 1504 (stop 270) close->0 [0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, 5, True, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] lastlight v censer 4242: draws 1842 thrown None windows 3 discs 6 (max 3 at once) pic!=ground 0 | ticks 20 SMITE tags 17/17 | blessings 13 BLESSING tags 13/13 | bad [] | picture frames 1772 (stop 335) close->0 [0.4083, 0.3583] death->0 [] | at kill [[0.9722222222222222, 2, False, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] censer v heartwood 2207: draws 1830 thrown None windows 4 discs 3 (max 2 at once) pic!=ground 0 | ticks 7 SMITE tags 6/6 | blessings 6 BLESSING tags 6/6 | bad [] | picture frames 1652 (stop 246) close->0 [0.2917, 0.2917, 0.375] death->0 [] | at kill [[0.9722222222222222, 0, False, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] axiom v grudgebearer 31337: draws 461 thrown None windows 0 discs 0 (max 0 at once) pic!=ground 0 | ticks 0 SMITE tags 0/0 | blessings 0 BLESSING tags 0/0 | bad [] | picture frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> gone after None s | w written False
+  [final-fx drawn] morningstar v lastlight 4242: draws 325 thrown None windows 0 discs 0 (max 0 at once) pic!=ground 0 | ticks 0 SMITE tags 0/0 | blessings 0 BLESSING tags 0/0 | bad [] | picture frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> gone after None s | w written False
+('censer', 'spellbreaker', 99015): final          IDENTICAL  steps@kill 8811 hash@kill [2487606299, 171534719] winner Spellbreaker t 73.4250000000045 windows 4
+('censer', 'spellbreaker', 99015): final-fx       IDENTICAL  steps@kill 8811 hash@kill [2487606299, 171534719] winner Spellbreaker t 73.4250000000045 windows 4
+('censer', 'spellbreaker', 99015): final-fx drawn IDENTICAL  steps@kill 8811 hash@kill [2487606299, 171534719] winner Spellbreaker t 73.4250000000045 windows 4
+('censer', 'spellbreaker', 99015): CONTROL (must differ)  DIFFERS  SMITE tags 9 (control bit)
+('dawnbringer', 'censer', 99001): final          IDENTICAL  steps@kill 6528 hash@kill [2608596089, 937429949] winner Censer t 54.399999999997554 windows 3
+('dawnbringer', 'censer', 99001): final-fx       IDENTICAL  steps@kill 6528 hash@kill [2608596089, 937429949] winner Censer t 54.399999999997554 windows 3
+('dawnbringer', 'censer', 99001): final-fx drawn IDENTICAL  steps@kill 6528 hash@kill [2608596089, 937429949] winner Censer t 54.399999999997554 windows 3
+('dawnbringer', 'censer', 99001): CONTROL (must differ)  DIFFERS  SMITE tags 12 (control bit)
+('censer', 'gravemourn', 99015): final          IDENTICAL  steps@kill 5765 hash@kill [3966697963, 4030383787] winner Censer t 48.04166666666458 windows 3
+('censer', 'gravemourn', 99015): final-fx       IDENTICAL  steps@kill 5765 hash@kill [3966697963, 4030383787] winner Censer t 48.04166666666458 windows 3
+('censer', 'gravemourn', 99015): final-fx drawn IDENTICAL  steps@kill 5765 hash@kill [3966697963, 4030383787] winner Censer t 48.04166666666458 windows 3
+('censer', 'gravemourn', 99015): CONTROL (must differ)  DIFFERS  SMITE tags 17 (control bit)
+('twinshade', 'censer', 99008): final          IDENTICAL  steps@kill 7046 hash@kill [563749694, 2915610164] winner Censer t 58.716666666663976 windows 3
+('twinshade', 'censer', 99008): final-fx       IDENTICAL  steps@kill 7046 hash@kill [563749694, 2915610164] winner Censer t 58.716666666663976 windows 3
+('twinshade', 'censer', 99008): final-fx drawn IDENTICAL  steps@kill 7046 hash@kill [563749694, 2915610164] winner Censer t 58.716666666663976 windows 3
+('twinshade', 'censer', 99008): CONTROL (must differ)  DIFFERS  SMITE tags 8 (control bit)
+('censer', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 7056 hash@kill [3633018810, 2413412376] winner Grudgebearer t 58.799999999997304 windows 3
+('censer', 'grudgebearer', 31337): final-fx       IDENTICAL  steps@kill 7056 hash@kill [3633018810, 2413412376] winner Grudgebearer t 58.799999999997304 windows 3
+('censer', 'grudgebearer', 31337): final-fx drawn IDENTICAL  steps@kill 7056 hash@kill [3633018810, 2413412376] winner Grudgebearer t 58.799999999997304 windows 3
+('censer', 'grudgebearer', 31337): CONTROL (must differ)  DIFFERS  SMITE tags 9 (control bit)
+('aureole', 'censer', 4101): final          IDENTICAL  steps@kill 5566 hash@kill [3652327840, 2471039896] winner Aureole t 46.38333333333134 windows 2
+('aureole', 'censer', 4101): final-fx       IDENTICAL  steps@kill 5566 hash@kill [3652327840, 2471039896] winner Aureole t 46.38333333333134 windows 2
+('aureole', 'censer', 4101): final-fx drawn IDENTICAL  steps@kill 5566 hash@kill [3652327840, 2471039896] winner Aureole t 46.38333333333134 windows 2
+('aureole', 'censer', 4101): CONTROL (must differ)  DIFFERS  SMITE tags 7 (control bit)
+('censer', 'ironhail', 99001): final          IDENTICAL  steps@kill 5993 hash@kill [319976064, 1109032154] winner Censer t 49.941666666664474 windows 3
+('censer', 'ironhail', 99001): final-fx       IDENTICAL  steps@kill 5993 hash@kill [319976064, 1109032154] winner Censer t 49.941666666664474 windows 3
+('censer', 'ironhail', 99001): final-fx drawn IDENTICAL  steps@kill 5993 hash@kill [319976064, 1109032154] winner Censer t 49.941666666664474 windows 3
+('censer', 'ironhail', 99001): CONTROL (must differ)  DIFFERS  SMITE tags 9 (control bit)
+('ironwood', 'censer', 1234): final          IDENTICAL  steps@kill 5309 hash@kill [4130227669, 726124123] winner Censer t 44.2416666666648 windows 2
+('ironwood', 'censer', 1234): final-fx       IDENTICAL  steps@kill 5309 hash@kill [4130227669, 726124123] winner Censer t 44.2416666666648 windows 2
+('ironwood', 'censer', 1234): final-fx drawn IDENTICAL  steps@kill 5309 hash@kill [4130227669, 726124123] winner Censer t 44.2416666666648 windows 2
+('ironwood', 'censer', 1234): CONTROL (must differ)  DIFFERS  SMITE tags 2 (control bit)
+('censer', 'bindweed', 2317): final          IDENTICAL  steps@kill 6983 hash@kill [3520408799, 357859553] winner Censer t 58.191666666664005 windows 3
+('censer', 'bindweed', 2317): final-fx       IDENTICAL  steps@kill 6983 hash@kill [3520408799, 357859553] winner Censer t 58.191666666664005 windows 3
+('censer', 'bindweed', 2317): final-fx drawn IDENTICAL  steps@kill 6983 hash@kill [3520408799, 357859553] winner Censer t 58.191666666664005 windows 3
+('censer', 'bindweed', 2317): CONTROL (must differ)  DIFFERS  SMITE tags 15 (control bit)
+('morningstar', 'censer', 8888): final          IDENTICAL  steps@kill 7734 hash@kill [583195125, 4269562199] winner Morningstar t 64.44999999999736 windows 4
+('morningstar', 'censer', 8888): final-fx       IDENTICAL  steps@kill 7734 hash@kill [583195125, 4269562199] winner Morningstar t 64.44999999999736 windows 4
+('morningstar', 'censer', 8888): final-fx drawn IDENTICAL  steps@kill 7734 hash@kill [583195125, 4269562199] winner Morningstar t 64.44999999999736 windows 4
+('morningstar', 'censer', 8888): CONTROL (must differ)  DIFFERS  SMITE tags 23 (control bit)
+('censer', 'portcullis', 5150): final          IDENTICAL  steps@kill 6643 hash@kill [2351460193, 109361315] winner Censer t 55.35833333333083 windows 3
+('censer', 'portcullis', 5150): final-fx       IDENTICAL  steps@kill 6643 hash@kill [2351460193, 109361315] winner Censer t 55.35833333333083 windows 3
+('censer', 'portcullis', 5150): final-fx drawn IDENTICAL  steps@kill 6643 hash@kill [2351460193, 109361315] winner Censer t 55.35833333333083 windows 3
+('censer', 'portcullis', 5150): CONTROL (must differ)  DIFFERS  SMITE tags 20 (control bit)
+('lastlight', 'censer', 4242): final          IDENTICAL  steps@kill 6652 hash@kill [3213030327, 2129477865] winner Lastlight t 55.43333333333083 windows 3
+('lastlight', 'censer', 4242): final-fx       IDENTICAL  steps@kill 6652 hash@kill [3213030327, 2129477865] winner Lastlight t 55.43333333333083 windows 3
+('lastlight', 'censer', 4242): final-fx drawn IDENTICAL  steps@kill 6652 hash@kill [3213030327, 2129477865] winner Lastlight t 55.43333333333083 windows 3
+('lastlight', 'censer', 4242): CONTROL (must differ)  DIFFERS  SMITE tags 17 (control bit)
+('censer', 'heartwood', 2207): final          IDENTICAL  steps@kill 7916 hash@kill [1619111957, 495466293] winner Heartwood t 65.96666666666523 windows 4
+('censer', 'heartwood', 2207): final-fx       IDENTICAL  steps@kill 7916 hash@kill [1619111957, 495466293] winner Heartwood t 65.96666666666523 windows 4
+('censer', 'heartwood', 2207): final-fx drawn IDENTICAL  steps@kill 7916 hash@kill [1619111957, 495466293] winner Heartwood t 65.96666666666523 windows 4
+('censer', 'heartwood', 2207): CONTROL (must differ)  DIFFERS  SMITE tags 6 (control bit)
+('axiom', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 9611 hash@kill [2154605675, 3011474843] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): final-fx       IDENTICAL  steps@kill 9611 hash@kill [2154605675, 3011474843] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): final-fx drawn IDENTICAL  steps@kill 9611 hash@kill [2154605675, 3011474843] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): CONTROL (must differ)  IDENTICAL  SMITE tags 0 (control bit)
+('morningstar', 'lastlight', 4242): final          IDENTICAL  steps@kill 6348 hash@kill [2356695550, 1502114264] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): final-fx       IDENTICAL  steps@kill 6348 hash@kill [2356695550, 1502114264] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): final-fx drawn IDENTICAL  steps@kill 6348 hash@kill [2356695550, 1502114264] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): CONTROL (must differ)  IDENTICAL  SMITE tags 0 (control bit)
+SIM IDENTITY: PASS | DRAWN: PASS (nothing thrown, pic == ground, tag rule exact, row unwritten) | CONTROL: BIT ON EVERY CENSER FIGHT WITH A TAGGED SMITE TICK
+EXIT 0

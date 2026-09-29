@@ -1,0 +1,48 @@
+rows_final.json: 10 rows, 26469 bytes, sha256[:16] of the file 5133d7afb3acb9e9, round-trips; ASCII: True
+[1] 10 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+    the page after: 'censer: 1.6' 0x, 'u.w === "censer"' 0x, 'censer(c, t, cf, P)' 1x, SPECS.censer text 1x (the orchestrator's)
+[3] STAMP b3f790861677e2bd  (base 56c49ad3f0ccb3aa; ce-final.html matches; +16560 chars)
+[4] on the base with Censer's 3 voice rows (rows_final.json, 63c842fa690c5f02): voice-then-picture == picture-then-voice True, parses, 3d68c7648a9cb3a8
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + censer stages 1-5 (56c49ad3f0ccb3aa, = the base): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-ironhail-fxout.html (4b3775e5900172ea) + censer stages 1-5 (ce032269fe6bde55): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-lodestone-b205-fx.html (4568c2995d06f696) + censer stages 1-5 (4d3956246fffb479): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-widowmaker-fxout.html (04fdd2e2daa17c26) + censer stages 1-5 (83f67e73d1afba19): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-oracle-fx.html (15cf62f96f72653a) + censer stages 1-5 (83929d827b2301a1): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-angelus-b9-fx.html (85b8af63055d1108) + censer stages 1-5 (a62e93cd6c681e18): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-lightkeeper-fxout.html (088189f3517b6f11) + censer stages 1-5 (73b396f225784f45): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on bw-final.html (ef4bd13fe968d99c) + censer stages 1-5 (d94d7934e7e6e289): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on pc-final.html (de1cf49480a06745) + censer stages 1-5 (8634285c2108b1f4): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on ci-final.html (94bb7580047f01bc) + censer stages 1-5 (e64cf72eac1e6a09): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on ih-final-fx.html (4463f003dd5230b8) + censer stages 1-5 (83162a5d45ecc288): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on lk-final-fx.html (5acd4d78b30b6914) + censer stages 1-5 (2583d55b001a9104): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on ld-final.html (b40d52b7561c45f2) + censer stages 1-5 (e4abd6fecc546eef): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on an-final-v5.html (32d61ac685db232f) + censer stages 1-5 (2f0e07a9b464be53): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on wm-final-fx.html (93e8955ef03be732) + censer stages 1-5 (2278902f1ba6e610): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on or-final.html (1bdec440699e6fd7) + censer stages 1-5 (2e72bbb2ec03254c): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] on au-final-fx.html (a213880cc8e38ffe) + censer stages 1-5 (6626b006423ef727): every anchor once, forward == reverse True, parses (+16560 chars, the same as on the base: True); SPECS.censer text 1x
+    with Censer's 3 voice rows: voice-then-picture == picture-then-voice True, parses
+[4] 17 carries clean
+[5] CONTROL (an anchor that occurs many times) refused: consecration picture: fighter fields: anchor found 340x

@@ -1,0 +1,43 @@
+builder censer_build.py 3e2a19d64f97c39e
+A. the five links from the bare tip
+  ok    stage 1 -> sc-censer-stub.html 56626e03654f3daf (want 56626e03654f3daf; LF)
+  ok       == links/sc-censer-stub.html byte for byte
+  ok    stage 2 -> sc-censer-ground.html 9da88c11cb87a3a2 (want 9da88c11cb87a3a2; LF)
+  ok       == links/sc-censer-ground.html byte for byte
+  ok    stage 3 -> sc-censer-consecration.html 2ce681c11f5d4183 (want 2ce681c11f5d4183; LF)
+  ok       == links/sc-censer-consecration.html byte for byte
+  ok    stage 5 -> sc-censer-consecration-b25.5.html 56c49ad3f0ccb3aa (want 56c49ad3f0ccb3aa; LF)
+  ok       == links/sc-censer-consecration-b25.5.html byte for byte
+  ok    stage 6 -> sc-censer-consecration-b25.5-fx.html 3d68c7648a9cb3a8 (want 3d68c7648a9cb3a8; LF)
+  ok       == links/sc-censer-consecration-b25.5-fx.html byte for byte
+B. the refusals
+  ok    stage 6 twice (on the fx link): refused, nothing written -- 'tickConsecration' is already in this source -- stage 6 goes on once
+  ok    stage 6 on stage 3 (28.77): refused, nothing written -- Censer's warhammer profile has moved -- not the shipped relic this builder redesigns
+  ok    stage 6 on stage 2: refused, nothing written -- Censer's warhammer profile has moved -- not the shipped relic this builder redesigns
+  ok    stage 6 on stage 1: refused, nothing written -- Censer's warhammer profile has moved -- not the shipped relic this builder redesigns
+  ok    stage 6 on the bare tip: refused, nothing written -- Censer's warhammer profile has moved -- not the shipped relic this builder redesigns
+  ok    stage 6 over an existing link: refused, nothing written -- refusing to overwrite sc-censer-consecration-b25.5-fx.html -- a link is written once. Delete it by hand if thi
+  ok    stage 6 to a name not sc-censer*: refused, nothing written -- refusing sc-other-fx.html: this relic's links are named sc-censer*
+  ok    stage 5 on the fx link: refused, nothing written -- Censer's warhammer profile has moved -- not the shipped relic this builder redesigns
+C. negative guards on a scratch copy (one forbidden thing in a stage-6 insert each)
+  ok    a sim write in tickConsecration (the foe nudged): REFUSED -- REFUSING TO WRITE -- insert 'consecration picture: tickConsecration' moves, heals, stuns, pins, burdens or charges a fig
+  ok    the RNG in a draw method: REFUSED -- REFUSING TO WRITE -- insert 'consecration picture: the drawing methods' draws the RNG or uses the one ultFx slot
+  ok    the one ultFx slot in tickConsecration: REFUSED -- REFUSING TO WRITE -- insert 'consecration picture: tickConsecration' draws the RNG or uses the one ultFx slot
+  ok    a beat in tickConsecration: REFUSED -- REFUSING TO WRITE -- insert 'consecration picture: tickConsecration' files a beat, a hit stop, damage or a knock (the gr
+  ok    a hurt in the heal row: REFUSED -- REFUSING TO WRITE -- insert 'tickHolyGround: the heal chime (spark collect, unchanged), once per blessing, with the coun
+  ok    a status laid (stun) in tickConsecration: REFUSED -- REFUSING TO WRITE -- insert 'consecration picture: tickConsecration' lays a status other than smite and blessing: ['stun
+  ok    a splice of the sim's discs: REFUSED -- REFUSING TO WRITE -- stage 6 insert 'consecration picture: tickConsecration' mutates G
+  ok    an index write into the sim's discs: REFUSED -- REFUSING TO WRITE -- stage 6 insert 'consecration picture: tickConsecration' writes G[...]
+  ok    a write to the tally: REFUSED -- REFUSING TO WRITE -- stage 6 insert 'consecration picture: tickConsecration' writes T.ticks
+  ok    Math.random in a draw method: REFUSED -- REFUSING TO WRITE -- this build adds a Math.random
+  ok    a shared table through an alias: REFUSED -- REFUSING TO WRITE -- insert 'consecration picture: tickConsecration' writes a shared module table (STATUS / CONFIG / AFF
+  ok    the shared weapon (w.reach): REFUSED -- REFUSING TO WRITE -- insert 'consecration picture: the drawing methods' writes the shared weapon
+  ok    a sim write in a draw method (the match's clock): REFUSED -- REFUSING TO WRITE -- stage 6 insert 'consecration picture: the drawing methods' writes m.t
+  ok    the disc bell's line changed (n + 1): REFUSED -- SFX.play("ult", { w: "censer-disc", n: n_ + 1 }); }
+  ok    a voice in the picture's fields row: REFUSED -- REFUSING TO WRITE -- stage 6 insert 'consecration picture: fighter fields' plays a voice outside the disc's bell and the
+  ok    a sim write in the fighter-fields row: REFUSED -- REFUSING TO WRITE -- insert 'consecration picture: fighter fields' moves, heals, stuns, pins, burdens or charges a fight
+  ok    the synth struck outside the Sfx row: REFUSED -- REFUSING TO WRITE -- stage 6 insert 'consecration picture: tickConsecration' plays a voice outside the disc's bell and t
+  ok    a clean edit in the Sfx arm (a local; must still WRITE its page, a different one): rc 0, 76c3cc317194c445
+  ok    the unmutated copy writes 3d68c7648a9cb3a8 (the fx link 3d68c7648a9cb3a8)
+
+0 FAIL
