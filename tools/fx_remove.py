@@ -5,7 +5,8 @@
     python fx_remove.py --relic ironhail --src ../02-chain/<tip>.html --out ../02-chain/<new>.html
 
 It is dawn_build.py's `sync_fx_remove` (v97), lifted out of the builder:
-  - the spec is the entry `<relic>: { ... },` in SPECS, with the one comment directly above it;
+  - the spec is the entry `<relic>: { ... },` in SPECS, with the one comment directly above it
+    (never a section header like `/* ---- NOVAS ... */`, which heads a group of entries);
   - it must be exactly once in src/render/fx.js AND in the inlined copy, and the inlined copy (header
     to THE ULT FIELDS) must equal src/render/fx.js before anything is written;
   - both stamps are re-cut (the full sha256 and its 16-char prefix, wherever the page prints them);
@@ -43,12 +44,15 @@ def spec_block(mod, relic):
     end = mod.index("},\n", m.end()) + 3
     if "{" in mod[m.end():end - 3]:
         raise SystemExit(f"{relic!r}'s entry nests a brace -- read it by hand")
-    # the comment directly above, if the line before the entry closes one
+    # the comment directly above, if the line before the entry closes one -- but never a SECTION
+    # HEADER (`/* ---- NOVAS: ... ---- */`): that heads a group of entries, not this one (v106: it
+    # sits over Widowmaker, Lightkeeper and Censer, and goes with none of them)
     before = mod[:start]
     if before.rstrip(" ").endswith("*/\n"):
         c = before.rfind("/*")
         line0 = before.rfind("\n", 0, c) + 1
-        if before[line0:c].strip() == "" and "*/" not in before[c:-4]:
+        if (before[line0:c].strip() == "" and "*/" not in before[c:-4]
+                and not re.match(r"/\* -{2,}", before[c:])):
             start = line0
     return mod[start:end]
 
@@ -59,14 +63,20 @@ def main():
     ap.add_argument("--src", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--dry", action="store_true", help="check everything, write nothing")
+    ap.add_argument("--fxjs", default=None,
+                    help="a COPY of fx.js to read and rewrite instead of src/render/fx.js (tests in "
+                         "scratch: a scratch link built on an older tip carries an older fx.js)")
     A = ap.parse_args()
+    fx_js = pathlib.Path(A.fxjs).resolve() if A.fxjs else FX_JS
+    if A.fxjs and fx_js == FX_JS.resolve():
+        raise SystemExit("--fxjs is for a copy; leave it off to use src/render/fx.js")
     src_p, out_p = (HERE / A.src).resolve(), (HERE / A.out).resolve()
     if out_p.name == PROTECTED:
         raise SystemExit("refusing to write the live build")
     if out_p.exists():
         raise SystemExit(f"refusing to overwrite {out_p.name} -- a link is written once")
     s0 = src_p.read_text(encoding="utf-8")
-    mod = FX_JS.read_text(encoding="utf-8")
+    mod = fx_js.read_text(encoding="utf-8")
     print(f"\nFX REMOVE -- {A.relic}'s particle field out of both copies")
     print(f"  src {src_p.name}  {hashlib.sha256(s0.encode()).hexdigest()[:16]}")
 
@@ -113,8 +123,8 @@ def main():
         return 0
     out_p.write_text(s, encoding="utf-8", newline="\n")
     print(f"  wrote {out_p.name}  {hashlib.sha256(s.encode()).hexdigest()[:16]}")
-    FX_JS.write_text(mod2, encoding="utf-8", newline="\n")
-    print(f"  wrote src/render/fx.js  {new_sha[:16]}")
+    fx_js.write_text(mod2, encoding="utf-8", newline="\n")
+    print(f"  wrote {'src/render/fx.js' if fx_js == FX_JS else fx_js}  {new_sha[:16]}")
     return 0
 
 
