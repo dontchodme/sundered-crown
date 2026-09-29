@@ -1,0 +1,58 @@
+  [final drawn] lodestone v spellbreaker 99015: draws 1934 thrown None windows 5 touches 44 (kill step 0) found 44 bad [] spot 44 bad [] walls 44 bad [] (corners 0) tag 44 bad [] | bar frames/touch @60fps phase0 {'1': 44} phase1 {'1': 44} drawn {'1': 44} | lode frames 1677 (stop 206) close->0 [0.4, 0.5333, 0.4, 0.4] death->0 [] | at kill [[0.9791666666666666, True, True]] -> 0 after 0.4 s | max records 1 | w written False
+  [final drawn] dawnbringer v lodestone 99001: draws 1475 thrown None windows 4 touches 29 (kill step 0) found 29 bad [] spot 29 bad [] walls 29 bad [] (corners 0) tag 29 bad [] | bar frames/touch @60fps phase0 {'1': 29} phase1 {'1': 29} drawn {'1': 29} | lode frames 1252 (stop 192) close->0 [0.4, 0.4, 0.4] death->0 [] | at kill [[0.9791666666666666, True, True]] -> 0 after 0.4 s | max records 1 | w written False
+  [final drawn] lodestone v gravemourn 99015: draws 1201 thrown None windows 3 touches 25 (kill step 0) found 25 bad [] spot 25 bad [] walls 25 bad [] (corners 0) tag 25 bad [] | bar frames/touch @60fps phase0 {'1': 25} phase1 {'1': 25} drawn {'1': 25} | lode frames 1009 (stop 132) close->0 [0.475, 0.4] death->0 [] | at kill [[0.9791666666666666, True, True]] -> 0 after 0.4 s | max records 1 | w written False
+  [final drawn] twinshade v lodestone 99008: draws 1639 thrown None windows 4 touches 35 (kill step 0) found 35 bad [] spot 35 bad [] walls 35 bad [] (corners 0) tag 35 bad [] | bar frames/touch @60fps phase0 {'1': 35} phase1 {'1': 35} drawn {'1': 35} | lode frames 1384 (stop 261) close->0 [0.4, 0.7833, 0.4] death->0 [] | at kill [[0.9166666666666666, False, True]] -> 0 after 0.1 s | max records 1 | w written False
+  [final drawn] lodestone v grudgebearer 31337: draws 1226 thrown None windows 3 touches 26 (kill step 0) found 26 bad [] spot 26 bad [] walls 26 bad [] (corners 0) tag 26 bad [] | bar frames/touch @60fps phase0 {'1': 26} phase1 {'1': 26} drawn {'1': 26} | lode frames 1029 (stop 147) close->0 [0.4333, 0.45] death->0 [0] | at kill [[0, False, False]] -> 0 after 0 s | max records 1 | w written False
+  [final drawn] aureole v lodestone 4101: draws 1072 thrown None windows 3 touches 15 (kill step 0) found 15 bad [] spot 15 bad [] walls 15 bad [] (corners 0) tag 15 bad [] | bar frames/touch @60fps phase0 {'1': 15} phase1 {'1': 15} drawn {'1': 15} | lode frames 877 (stop 126) close->0 [0.4167, 0.4] death->0 [] | at kill [[0.9166666666666666, False, False]] -> 0 after 0.1 s | max records 1 | w written False
+  [final drawn] lodestone v shroudmaul 2207: draws 1725 thrown None windows 4 touches 38 (kill step 0) found 38 bad [] spot 38 bad [] walls 38 bad [] (corners 0) tag 38 bad [] | bar frames/touch @60fps phase0 {'1': 38} phase1 {'1': 38} drawn {'1': 38} | lode frames 1504 (stop 156) close->0 [0.475, 0.4, 0.4] death->0 [] | at kill [[0.9791666666666666, True, True]] -> 0 after 0.4 s | max records 1 | w written False
+  [final drawn] ironwood v lodestone 1234: draws 2008 thrown None windows 5 touches 0 (kill step 0) found 0 bad [] spot 0 bad [] walls 0 bad [] (corners 0) tag 0 bad [] | bar frames/touch @60fps phase0 {} phase1 {} drawn {} | lode frames 1757 (stop 290) close->0 [0.45, 0.4, 0.4, 0.4] death->0 [] | at kill [[0.9791666666666666, True, True]] -> 0 after 0.4 s | max records 0 | w written False
+  [final drawn] lodestone v bindweed 2317: draws 1548 thrown None windows 4 touches 33 (kill step 0) found 33 bad [] spot 33 bad [] walls 33 bad [] (corners 1) tag 33 bad [] | bar frames/touch @60fps phase0 {'1': 33} phase1 {'1': 33} drawn {'1': 33} | lode frames 1330 (stop 188) close->0 [0.4417, 0.45, 0.4] death->0 [] | at kill [[0.9166666666666666, False, True]] -> 0 after 0.1 s | max records 1 | w written False
+  [final drawn] morningstar v lodestone 8888: draws 1209 thrown None windows 3 touches 30 (kill step 0) found 30 bad [] spot 30 bad [] walls 30 bad [] (corners 0) tag 30 bad [] | bar frames/touch @60fps phase0 {'1': 30} phase1 {'1': 30} drawn {'1': 30} | lode frames 1016 (stop 76) close->0 [0.4, 0.4] death->0 [] | at kill [[0.9166666666666666, False, False]] -> 0 after 0.1 s | max records 1 | w written False
+  [final drawn] lodestone v paradox 5150: draws 1371 thrown None windows 3 touches 33 (kill step 0) found 33 bad [] spot 33 bad [] walls 33 bad [] (corners 0) tag 33 bad [] | bar frames/touch @60fps phase0 {'1': 33} phase1 {'1': 33} drawn {'1': 33} | lode frames 1145 (stop 106) close->0 [0.4, 0.4333, 0.4] death->0 [] | at kill [[0, False, False]] -> 0 after 0 s | max records 1 | w written False
+  [final drawn] gloamwire v lodestone 4242: draws 1011 thrown None windows 3 touches 19 (kill step 0) found 19 bad [] spot 19 bad [] walls 19 bad [] (corners 0) tag 19 bad [] | bar frames/touch @60fps phase0 {'1': 19} phase1 {'1': 19} drawn {'1': 19} | lode frames 810 (stop 91) close->0 [0.4, 0.4] death->0 [] | at kill [[0.9166666666666666, False, True]] -> 0 after 0.1 s | max records 1 | w written False
+  [final drawn] axiom v grudgebearer 31337: draws 461 thrown None windows 0 touches 0 (kill step 0) found 0 bad [] spot 0 bad [] walls 0 bad [] (corners 0) tag 0 bad [] | bar frames/touch @60fps phase0 {} phase1 {} drawn {} | lode frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> 0 after None s | max records 0 | w written False
+  [final drawn] morningstar v lastlight 4242: draws 325 thrown None windows 0 touches 0 (kill step 0) found 0 bad [] spot 0 bad [] walls 0 bad [] (corners 0) tag 0 bad [] | bar frames/touch @60fps phase0 {} phase1 {} drawn {} | lode frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> 0 after None s | max records 0 | w written False
+('lodestone', 'spellbreaker', 99015): final          IDENTICAL  steps@kill 9818 hash@kill [2883805295, 667210693] winner Lodestone t 81.81666666667785 touches 44
+('lodestone', 'spellbreaker', 99015): final drawn    IDENTICAL  steps@kill 9818 hash@kill [2883805295, 667210693] winner Lodestone t 81.81666666667785 touches 44
+('lodestone', 'spellbreaker', 99015): CONTROL (must differ)  DIFFERS  touches 44 (control bit)
+('dawnbringer', 'lodestone', 99001): final          IDENTICAL  steps@kill 7722 hash@kill [4021813694, 3351348290] winner Lodestone t 64.34999999999728 touches 29
+('dawnbringer', 'lodestone', 99001): final drawn    IDENTICAL  steps@kill 7722 hash@kill [4021813694, 3351348290] winner Lodestone t 64.34999999999728 touches 29
+('dawnbringer', 'lodestone', 99001): CONTROL (must differ)  DIFFERS  touches 29 (control bit)
+('lodestone', 'gravemourn', 99015): final          IDENTICAL  steps@kill 6256 hash@kill [2290490428, 1961378006] winner Lodestone t 52.13333333333102 touches 25
+('lodestone', 'gravemourn', 99015): final drawn    IDENTICAL  steps@kill 6256 hash@kill [2290490428, 1961378006] winner Lodestone t 52.13333333333102 touches 25
+('lodestone', 'gravemourn', 99015): CONTROL (must differ)  DIFFERS  touches 25 (control bit)
+('twinshade', 'lodestone', 99008): final          IDENTICAL  steps@kill 8819 hash@kill [508575420, 2712269466] winner Twinshade t 73.49166666667122 touches 35
+('twinshade', 'lodestone', 99008): final drawn    IDENTICAL  steps@kill 8819 hash@kill [508575420, 2712269466] winner Twinshade t 73.49166666667122 touches 35
+('twinshade', 'lodestone', 99008): CONTROL (must differ)  DIFFERS  touches 35 (control bit)
+('lodestone', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 6299 hash@kill [603999882, 622595146] winner Grudgebearer t 52.49166666666433 touches 26
+('lodestone', 'grudgebearer', 31337): final drawn    IDENTICAL  steps@kill 6299 hash@kill [603999882, 622595146] winner Grudgebearer t 52.49166666666433 touches 26
+('lodestone', 'grudgebearer', 31337): CONTROL (must differ)  DIFFERS  touches 26 (control bit)
+('aureole', 'lodestone', 4101): final          IDENTICAL  steps@kill 5870 hash@kill [713491412, 612103738] winner Aureole t 48.91666666666453 touches 15
+('aureole', 'lodestone', 4101): final drawn    IDENTICAL  steps@kill 5870 hash@kill [713491412, 612103738] winner Aureole t 48.91666666666453 touches 15
+('aureole', 'lodestone', 4101): CONTROL (must differ)  DIFFERS  touches 15 (control bit)
+('lodestone', 'shroudmaul', 2207): final          IDENTICAL  steps@kill 8420 hash@kill [1702810352, 2358304526] winner Lodestone t 70.16666666666858 touches 38
+('lodestone', 'shroudmaul', 2207): final drawn    IDENTICAL  steps@kill 8420 hash@kill [1702810352, 2358304526] winner Lodestone t 70.16666666666858 touches 38
+('lodestone', 'shroudmaul', 2207): CONTROL (must differ)  DIFFERS  touches 38 (control bit)
+('ironwood', 'lodestone', 1234): final          IDENTICAL  steps@kill 9987 hash@kill [2943155659, 1736793825] winner Lodestone t 83.2250000000123 touches 0
+('ironwood', 'lodestone', 1234): final drawn    IDENTICAL  steps@kill 9987 hash@kill [2943155659, 1736793825] winner Lodestone t 83.2250000000123 touches 0
+('ironwood', 'lodestone', 1234): CONTROL (must differ)  IDENTICAL  touches 0 (control bit)
+('lodestone', 'bindweed', 2317): final          IDENTICAL  steps@kill 7781 hash@kill [2091534767, 3333338349] winner Bindweed t 64.84166666666434 touches 33
+('lodestone', 'bindweed', 2317): final drawn    IDENTICAL  steps@kill 7781 hash@kill [2091534767, 3333338349] winner Bindweed t 64.84166666666434 touches 33
+('lodestone', 'bindweed', 2317): CONTROL (must differ)  DIFFERS  touches 33 (control bit)
+('morningstar', 'lodestone', 8888): final          IDENTICAL  steps@kill 6173 hash@kill [2327529346, 3233543942] winner Morningstar t 51.44166666666439 touches 30
+('morningstar', 'lodestone', 8888): final drawn    IDENTICAL  steps@kill 6173 hash@kill [2327529346, 3233543942] winner Morningstar t 51.44166666666439 touches 30
+('morningstar', 'lodestone', 8888): CONTROL (must differ)  DIFFERS  touches 30 (control bit)
+('lodestone', 'paradox', 5150): final          IDENTICAL  steps@kill 7320 hash@kill [3643499213, 3543630691] winner Paradox t 60.99999999999718 touches 33
+('lodestone', 'paradox', 5150): final drawn    IDENTICAL  steps@kill 7320 hash@kill [3643499213, 3543630691] winner Paradox t 60.99999999999718 touches 33
+('lodestone', 'paradox', 5150): CONTROL (must differ)  DIFFERS  touches 33 (control bit)
+('gloamwire', 'lodestone', 4242): final          IDENTICAL  steps@kill 5806 hash@kill [3393515377, 1695778405] winner Gloamwire t 48.38333333333123 touches 19
+('gloamwire', 'lodestone', 4242): final drawn    IDENTICAL  steps@kill 5806 hash@kill [3393515377, 1695778405] winner Gloamwire t 48.38333333333123 touches 19
+('gloamwire', 'lodestone', 4242): CONTROL (must differ)  DIFFERS  touches 19 (control bit)
+('axiom', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 9611 hash@kill [2065555202, 4039011390] winner Axiom t 80.09166666667647 touches 0
+('axiom', 'grudgebearer', 31337): final drawn    IDENTICAL  steps@kill 9611 hash@kill [2065555202, 4039011390] winner Axiom t 80.09166666667647 touches 0
+('axiom', 'grudgebearer', 31337): CONTROL (must differ)  IDENTICAL  touches 0 (control bit)
+('morningstar', 'lastlight', 4242): final          IDENTICAL  steps@kill 6348 hash@kill [3943458650, 4132663170] winner Lastlight t 52.89999999999764 touches 0
+('morningstar', 'lastlight', 4242): final drawn    IDENTICAL  steps@kill 6348 hash@kill [3943458650, 4132663170] winner Lastlight t 52.89999999999764 touches 0
+('morningstar', 'lastlight', 4242): CONTROL (must differ)  IDENTICAL  touches 0 (control bit)
+SIM IDENTITY: PASS | CONTROL: BIT ON EVERY LODESTONE FIGHT WITH A TOUCH
+EXIT 0

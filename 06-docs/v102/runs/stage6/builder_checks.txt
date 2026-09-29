@@ -1,0 +1,28 @@
+BUILDER CHECKS, STAGE 6  2026-09-28 02:27  lodestone_build.py c74cd4a4508bfcf5
+-- stage 6 on the fx link (twice):
+   'tickLode' is already in this source -- stage 6 goes on once
+   exit 1
+-- stage 6 over an existing link (overwrite):
+   refusing to overwrite sc-lodestone-b205-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+   exit 1
+-- stage 6 on stage 3 (blade 23.5, not the final):
+   stage 6 goes on the final (stage 5's link, blade 20.5): Lodestone's ult block or blade is not the final's
+   exit 1
+-- stage 6 on stage 2 (hurl 0):
+   stage 6 goes on the final (stage 5's link, blade 20.5): Lodestone's ult block or blade is not the final's
+   exit 1
+-- stage 6 on stage 1 (stub):
+   stage 6 goes on the final (stage 5's link, blade 20.5): Lodestone's ult block or blade is not the final's
+   exit 1
+-- stage 6 on the tip (no stages 1-5):
+   stage 6 needs stage 1 under it
+   exit 1
+-- stage 5 on the fx link:
+   stage 5 goes on stage 3, once
+   exit 1
+-- REBUILD from the real tip, stages 1, 2, 3, 5, 6, byte for byte:
+   sc-lodestone: rebuilt 32736d26461e3061  link 32736d26461e3061  IDENTICAL
+   sc-lodestone-runes: rebuilt f779b5be09d8ae4e  link f779b5be09d8ae4e  IDENTICAL
+   sc-lodestone-rebuttal: rebuilt d48dd38d92e55bd0  link d48dd38d92e55bd0  IDENTICAL
+   sc-lodestone-b205: rebuilt 6d736451a1ffc2df  link 6d736451a1ffc2df  IDENTICAL
+   sc-lodestone-b205-fx: rebuilt 7a095b143d66fbdb  link 7a095b143d66fbdb  IDENTICAL

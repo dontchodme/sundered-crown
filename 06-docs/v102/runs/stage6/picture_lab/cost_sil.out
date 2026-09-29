@@ -1,0 +1,7 @@
+spellbreaker ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00
+    rest WEAPON square med 11.160 p90 14.180 | conjured med 12.660 p90 15.000   || FRAME square med 75.90 p90 90.00 | conjured med 77.00 p90 87.80  (n 160)
+    lit  WEAPON square med 8.760 p90 10.700 | conjured med 9.960 p90 11.820   || FRAME square med 66.90 p90 76.90 | conjured med 69.60 p90 79.20  (n 160)
+dawnbringer  ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00
+    rest WEAPON square med 9.340 p90 11.020 | conjured med 10.560 p90 12.240   || FRAME square med 53.80 p90 61.70 | conjured med 55.80 p90 64.10  (n 160)
+    lit  WEAPON square med 8.820 p90 10.500 | conjured med 9.860 p90 11.260   || FRAME square med 54.20 p90 61.70 | conjured med 56.20 p90 63.20  (n 160)
+EXIT 0

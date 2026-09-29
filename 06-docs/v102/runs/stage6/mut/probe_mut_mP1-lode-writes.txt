@@ -1,0 +1,25 @@
+
+REBUTTAL PROBE  sc-lodestone-mP1-lode-writes.html  Chromium 151.0.7922.34  76 fights (Lodestone both sides x every foe x 1 seeds)   ult {'charge': 14, 'dur': 8, 'pad': 1.5, 'cd': 0.5, 'hex': 1, 'hurl': 700, 'dmg': 20.5}
+  casts/fight 3.72   blows a fight: in windows 9.34, outside 7.66   Lodestone win 63.2%
+  per cast: touches 8.50  hexes 8.50  hurls 8.50   foe hex stacks on a window frame 4.03   touches on a closed-in hall 1735 of 2405
+  hurl speed 700.000000 .. 700.000000   caster on a wall 8827 window frames (its touches do nothing)   wall frames under the cooldown 5107   caster frames under a rune hurt 0
+  closes on a death: the caster's 6, the foe's 0 (unreachable: Lodestone kills only in tickHits, after tickRunes)   fights ending with the walls STILL LIT 42 of 76 (Lodestone won 32, lost 10); still lit 240 verdict steps on 42
+  window: 959 window frames a clock close (235 clock closes, 6 on a death); 9.15s of match time a clock-closed window   FREEZE CENSUS 13.1% of window steps frozen
+  whole-state reads: the foe 246358, the caster 246358, the Match 246358 rune ticks unchanged; recorded by identity only (never walked): nothing; arrays read as length + last 16: caster.lodeFx, caster.tips, caster.trail, foe.tips, foe.trail, foe.treeLeaves, foe.ultTrace, match.beats, match.drains, match.events, match.fx, match.motes, match.shades, match.shots
+  stage 6 voice: casts 283  touch snaps + hex-snaps 2405 (n 1:130, 2:167, 3:198, 4:181, 5:1729)  close voices 235 (clock closes, both alive)  silent death closes 6  windows lit at the verdict 42 (silent)   run totals {'lodestone': 283, 'lodestone-touch': 2405, 'lodestone-close': 235}
+  stage 6 picture: tickLode calls clean 1162178  walls lit 529336, going dark 26016  touch records at the touch 2405 (19 at a corner, 1735 in a closed-in hall)  the foe's count tagged 2405 (676 under the cap)  kill-step touches undrawn 0  dark in the verdict 50  drawn frames 0 (0 with the picture up, 0 of them in a hit stop, 0 in the verdict)   (drawn subset OFF)
+  [0] PASS  the numbers: charge 14 (16 converted), dur 8, pad 1.5, cd 0.5, hex 1, hurl 0 (stage 2) or 700
+  [1] PASS  the window is `dur` on the window clock (never ticks frozen), closes on the caster's death; only Lodestone carries it
+  [2] PASS  a touch only with the foe's centre within inset + R + pad of a side of the CURRENT hall, alive, unpinned
+  [3] PASS  once per `cd` on the window clock; never a missed clear touch
+  [4] PASS  each touch: apply('hex', hex) on the foe once, by side letter; nothing on any other frame
+  [5] PASS  the hurl: the foe's velocity ASSIGNED hurl x unit(caster - foe), 700 +-1; untouched otherwise (and at hurl 0)
+  [6] PASS  no damage, no resolveHit, no beat, no hit stop; nothing else on the foe (its whole state but vx, vy, status.hex) or the Match
+  [7] PASS  the caster's own touches do nothing: the tick never changes the caster (its whole state but ultRunes, runeTally)
+  [8] PASS  every blow the hammer's own, rebuilt exactly, in the window and out
+  [9] PASS  no cast while the walls are lit; no cast held back
+  [10] PASS  stage 6 voice: one cast voice a cast; a touch = its snap at the foe's count after its hex, then the hex-snap, in order; a close voice only on a clock close with both alive, none on a death or at the verdict; nothing else in tickRunes; every voice accounted for
+  [11] FAIL  stage 6 picture: tickLode writes no sim field and draws no RNG; the walls lit exactly while the window is; one record a touch at its spot and walls; the foe's count tagged; a kill-step touch undrawn; dark in the verdict; no drawn frame throws, draws the RNG or writes the sim   2405 FAIL: ['tickLode changed the sim: ":1,\\\\\\"foeStk\\\\\\":0}\\",380.2144323914819,765.0207965344507,-274.4" -> ":1,\\\\\\"foeStk\\\\\\":0}\\",380.2144323924819,765.0207965344507,-274.4"', 'tickLode changed the sim: "\\"hurls\\\\\\":2,\\\\\\"foeStk\\\\\\":111}\\",34,729.3902934549648,667.4563464" -> "\\"hurls\\\\\\":2,\\\\\\"foeStk\\\\\\":111}\\",34.000000001,729.3902934549648,6"', 'tickLode changed the sim: ",\\\\\\"foeStk\\\\\\":303}\\",192.76447698670532,766,607.7349202540228,-" -> ",\\\\\\"foeStk\\\\\\":303}\\",192.7644769877053,766,607.7349202540228,-3"', 'tickLode changed the sim: "\\"hurls\\\\\\":4,\\\\\\"foeStk\\\\\\":667}\\",34,612.979942372494,699.34997898" -> "\\"hurls\\\\\\":4,\\\\\\"foeStk\\\\\\":667}\\",34.000000001,612.979942372494,69"']
+
+  11/12
+EXIT 1

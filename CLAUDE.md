@@ -82,7 +82,16 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-ironhail-fxout.html  THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 39 RELICS:
+02-chain/sc-lodestone-b205-fx.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 40 RELICS:
+                                 LODESTONE / REBUTTAL, the runic warhammer
+                                 (lodestone_build.py 1, 2, 3, 5, 6, v102), carried onto
+                                 sc-ironhail-fxout. For 8s the walls are runed: a foe
+                                 that touches one is hexed 1 and hurled back at 700.
+                                 Charge 14, blade 20.5 (49.0% both sides; 21 is Rick's
+                                 other choice); verify 11/13. Carry proved against
+                                 scratch (4218/4218 without Ironhail) and against the
+                                 tip (4446/4446); shell_identity 200/200.
+02-chain/sc-ironhail-fxout.html  the link under it, AWAITING RICK'S EYE. 39 RELICS:
                                  IRONHAIL / QUARRELSTORM REDESIGNED (ironhail_build.py
                                  1, 2, 3, 6 and tools/fx_remove.py, v108), carried onto
                                  sc-coldiron-temper-fx. The nova is gone: for 8s a bolt

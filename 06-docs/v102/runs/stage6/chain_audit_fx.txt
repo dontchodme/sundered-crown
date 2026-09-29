@@ -1,0 +1,29 @@
+  (20 insert(s) found in lodestone_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-lodestone-b205-fx.html
+tip    sc-lodestone-b205-fx.html
+20 inserts read out of lodestone_build.py
+
+    ok  S1:lodestone joins the roster at the end of the array, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the runes have a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the runed walls relic  1  mid   -  tip  1
+    ok  S2:the cast runes the walls and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the runes tick with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickRunes touches, hexes and hurls relic  1  mid   -  tip  1
+    ok  S3:the hurl                relic  1  mid   -  tip  1
+    ok  S5:the blade: the measured point whose pooled rate is nearest 50% relic  1  mid   -  tip  1
+    ok  S6:Sfx: Lodestone's cast, touch and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:tickRunes: the touch voice and the hex-snap under it, once per touch, after its hex relic  1  mid   -  tip  1
+    ok  S6:tickRunes: the close, when the window runs out by its clock with both fighters alive relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: the hall's loop relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: tickLode relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: the world call (under both balls) relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: the world call (over both fighters) relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: the head's rune in drawWeapon relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: the drawing methods relic  1  mid   -  tip  1
+    ok  S6:rebuttal picture: the runic warhammer, a rune-etched square head on a dark haft relic  1  mid   -  tip  1
+
+ALL 20 INSERTS SURVIVE to sc-lodestone-b205-fx.html
+(1 of them are marked by COMMENT text -- the code they add is shorter than the floor: S6:rebuttal picture: fighter fields)
+exit 0

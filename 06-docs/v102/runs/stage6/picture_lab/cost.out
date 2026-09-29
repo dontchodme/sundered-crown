@@ -1,0 +1,19 @@
+spellbreaker ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  page ld-final.html windows 4 touches 29
+    rest  n  90  FRAME off med 71.80 p90 86.80 max 106.6  | rows med 73.10 p90 85.50 max 216.0  || ALONE off 11.60/14.60  rows 11.30/14.60  || WEAPON 10.300/11.960
+    cast  n  62  FRAME off med 71.20 p90 85.50 max 102.3  | rows med 72.90 p90 82.40 max 101.4  || ALONE off 9.40/12.50  rows 10.90/13.00  || WEAPON 8.640/9.340
+    lit   n 834  FRAME off med 68.20 p90 79.60 max 99.2  | rows med 70.00 p90 81.00 max 103.3  || ALONE off 9.20/11.50  rows 10.90/13.30  || WEAPON 8.660/9.900
+    touch n 709  FRAME off med 68.70 p90 80.30 max 145.7  | rows med 71.80 p90 83.00 max 114.5  || ALONE off 9.40/11.70  rows 11.50/13.90  || WEAPON 8.640/10.320
+    close n  80  FRAME off med 72.90 p90 84.50 max 98.1  | rows med 73.60 p90 86.70 max 97.1  || ALONE off 9.60/11.80  rows 11.00/14.00  || WEAPON 9.140/11.240
+dawnbringer  ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  page ld-final.html windows 3 touches 23
+    rest  n  90  FRAME off med 47.80 p90 56.30 max 63.6  | rows med 47.90 p90 55.70 max 158.4  || ALONE off 8.40/10.40  rows 8.40/10.70  || WEAPON 7.320/8.680
+    cast  n  60  FRAME off med 60.00 p90 73.10 max 121.8  | rows med 61.70 p90 78.10 max 87.6  || ALONE off 9.00/11.00  rows 10.70/13.80  || WEAPON 8.540/9.600
+    lit   n 755  FRAME off med 59.10 p90 68.90 max 86.8  | rows med 60.90 p90 70.00 max 90.8  || ALONE off 9.00/11.40  rows 10.90/13.10  || WEAPON 8.600/10.000
+    touch n 580  FRAME off med 58.50 p90 67.70 max 85.9  | rows med 60.60 p90 69.50 max 100.4  || ALONE off 8.90/11.10  rows 10.90/13.10  || WEAPON 8.360/9.840
+    close n  55  FRAME off med 63.30 p90 77.80 max 89.1  | rows med 63.60 p90 70.60 max 80.6  || ALONE off 10.10/12.90  rows 11.70/14.80  || WEAPON 9.800/11.740
+gravemourn   ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  page ld-final.html windows 3 touches 25
+    rest  n  90  FRAME off med 54.30 p90 60.90 max 77.2  | rows med 53.60 p90 59.80 max 357.6  || ALONE off 9.80/12.00  rows 9.50/11.60  || WEAPON 8.800/10.160
+    cast  n  68  FRAME off med 51.60 p90 56.90 max 91.4  | rows med 53.60 p90 62.10 max 72.7  || ALONE off 7.40/9.90  rows 8.60/11.20  || WEAPON 6.900/8.600
+    lit   n 732  FRAME off med 53.10 p90 62.00 max 91.2  | rows med 54.80 p90 64.00 max 87.1  || ALONE off 8.00/10.40  rows 9.40/12.30  || WEAPON 7.300/9.120
+    touch n 597  FRAME off med 53.50 p90 62.40 max 77.9  | rows med 56.30 p90 65.70 max 84.1  || ALONE off 8.00/10.40  rows 9.90/12.50  || WEAPON 7.280/9.020
+    close n  52  FRAME off med 51.30 p90 57.20 max 61.8  | rows med 52.70 p90 58.50 max 84.1  || ALONE off 7.50/9.70  rows 9.20/11.70  || WEAPON 7.280/8.560
+EXIT 0

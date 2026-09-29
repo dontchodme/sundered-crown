@@ -1,0 +1,19 @@
+
+REBUTTAL PROBE  sc-lodestone-rebuttal.html  Chromium 151.0.7922.34  456 fights (Lodestone both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'pad': 1.5, 'cd': 0.5, 'hex': 1, 'hurl': 700, 'dmg': 23.5}
+  casts/fight 3.51   blows a fight: in windows 8.35, outside 6.86   Lodestone win 57.2%
+  per cast: touches 8.56  hexes 8.56  hurls 8.56   foe hex stacks on a window frame 3.97   touches on a closed-in hall 9774 of 13691
+  hurl speed 700.000000 .. 700.000000   caster on a wall 47784 window frames (its touches do nothing)   wall frames under the cooldown 31318   caster frames under a rune hurt 0
+  closes on a death: the caster's 36, the foe's 0 (unreachable: Lodestone kills only in tickHits, after tickRunes)   fights ending with the walls STILL LIT 243 of 456 (Lodestone won 165, lost 78); still lit 240 verdict steps on 243
+  window: 959 window frames a clock close (1320 clock closes, 36 on a death); 9.17s of match time a clock-closed window   FREEZE CENSUS 13.3% of window steps frozen
+  [0] PASS  the numbers: charge 14 (16 converted), dur 8, pad 1.5, cd 0.5, hex 1, hurl 0 (stage 2) or 700
+  [1] PASS  the window is `dur` on the window clock (never ticks frozen), closes on the caster's death; only Lodestone carries it
+  [2] PASS  a touch only with the foe's centre within inset + R + pad of a side of the CURRENT hall, alive, unpinned
+  [3] PASS  once per `cd` on the window clock; never a missed clear touch
+  [4] PASS  each touch: apply('hex', hex) on the foe once, by side letter; nothing on any other frame
+  [5] PASS  the hurl: the foe's velocity ASSIGNED hurl x unit(caster - foe), 700 +-1; untouched otherwise (and at hurl 0)
+  [6] PASS  no damage, no resolveHit, no beat, no hit stop; the foe's position, hp, stun, pin and other statuses untouched
+  [7] PASS  the caster's own touches do nothing: the tick never changes the caster
+  [8] PASS  every blow the hammer's own, rebuilt exactly, in the window and out
+  [9] PASS  no cast while the walls are lit; no cast held back
+
+  10/10

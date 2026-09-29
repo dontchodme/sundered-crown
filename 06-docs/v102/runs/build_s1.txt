@@ -1,0 +1,11 @@
+
+LODESTONE / REBUTTAL -- stage 1
+  src sc-tendril-t3.html  5a6216e3b629fad4  (LF text)
+  base  by content: the window tickers' slot, the anchors, the five hammers' profile, the runic channel, the runic hammer head, hex, the wall clamp
+  ok    lodestone joins the roster at the end of the array, its ultimate stubbed
+  ok    ult   ult:{ name:"Rebuttal", charge:1e9, kind:"runes", dur:8, pad:1.5, cd:0.5, hex:1, hurl:0, tip:"The wal ...
+  ok    card  68 chars  'The walls are runed: a foe that touches one is hexed and hurled back'
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (last in the array: lodestone)
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-lodestone.html  32736d26461e3061   (+921 chars, written LF)

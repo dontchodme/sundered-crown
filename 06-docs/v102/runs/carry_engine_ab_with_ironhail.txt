@@ -1,0 +1,20 @@
+=== ENGINE A/B: 39 relics, 6 seeds x 741 pairings ===
+
+  sc-lodestone-b205-fx.html       4446 matches  864.7s
+  sc-lodestone-b205-fx.html       4446 matches  676.6s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4446
+  FAIL  every match identical field for field  — 228 differ
+          #42
+            control {"seed": 1582175859, "a": "Dawnbringer", "b": "Ironhail", "winner": "Dawnbringer", "hp": 49, "duration": 52.92, "reason": "slain", "hits": {"a": 18, "b": 15}, "crits": {"a": 3, "b": 0}, "clanks": 17}
+            variant {"seed": 1582175859, "a": "Dawnbringer", "b": "Ironhail", "winner": "Ironhail", "hp": 153, "duration": 46, "reason": "slain", "hits": {"a": 13, "b": 15}, "crits": {"a": 1, "b": 1}, "clanks": 14}
+          #43
+            control {"seed": 2181613872, "a": "Dawnbringer", "b": "Ironhail", "winner": "Ironhail", "hp": 338, "duration": 34.32, "reason": "slain", "hits": {"a": 7, "b": 18}, "crits": {"a": 0, "b": 0}, "clanks": 9}
+            variant {"seed": 2181613872, "a": "Dawnbringer", "b": "Ironhail", "winner": "Dawnbringer", "hp": 230, "duration": 51.97, "reason": "slain", "hits": {"a": 20, "b": 8}, "crits": {"a": 0, "b": 1}, "clanks": 18}
+          #44
+            control {"seed": 3593107881, "a": "Dawnbringer", "b": "Ironhail", "winner": "Dawnbringer", "hp": 97, "duration": 53.42, "reason": "slain", "hits": {"a": 19, "b": 16}, "crits": {"a": 3, "b": 2}, "clanks": 23}
+            variant {"seed": 3593107881, "a": "Dawnbringer", "b": "Ironhail", "winner": "Dawnbringer", "hp": 133, "duration": 54.78, "reason": "slain", "hits": {"a": 19, "b": 12}, "crits": {"a": 2, "b": 1}, "clanks": 14}
+  PASS  the sweep is real  — 39/39 distinct winners, 4446 distinct seeds, 20.3-118.1s
+
+ENGINE A/B FAIL

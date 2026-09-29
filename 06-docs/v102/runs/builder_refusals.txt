@@ -1,0 +1,19 @@
+# overwrite
+refusing to overwrite sc-lodestone.html -- a link is written once. Delete it by hand if this is a rebuild.
+# a base without Tendril (sc-onslaught-b23)
+wrong base: no tickTendril -- the window tickers' slot this builder follows is not there
+# stage 1 twice
+'kind:"runes"' is already in the base
+# stage 2 on the base
+stage 2 needs stage 1 under it
+# stage 3 on stage 3
+stage 3 goes on stage 2, once
+# stage 5 on stage 2
+stage 5 goes on stage 3, once
+# stage 5 on stage 5
+stage 5 goes on stage 3, once
+# stage 2 twice
+this source already carries stage 2 -- built
+# the live build
+refusing to write the live build
+# files written: 0

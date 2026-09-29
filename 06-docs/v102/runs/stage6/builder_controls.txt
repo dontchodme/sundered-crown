@@ -1,0 +1,11 @@
+  sim-write                    exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'rebuttal picture: tickLode' writes foe.x
+  rng                          exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'rebuttal picture: tickLode' draws the RNG or uses the one ultFx slot
+  ultFx                        exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'rebuttal picture: tickLode' draws the RNG or uses the one ultFx slot
+  beat                         exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'rebuttal picture: tickLode' calls into the simulation
+  apply                        exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'rebuttal picture: tickLode' calls into the simulation
+  tally-write                  exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'rebuttal picture: tickLode' writes T.touches
+  window-write                 exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'tickRunes: the touch voice and the hex-snap under it, once per touch, after its hex
+  tags-splice                  exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'rebuttal picture: the drawing methods' mutates tags
+  beats-index-write            exit 1  wrote no   | REFUSING TO WRITE -- stage 6 insert 'rebuttal picture: the drawing methods' writes beats[...]
+  math-random                  exit 1  wrote no   | REFUSING TO WRITE -- this build adds a Math.random
+  none (the builder as it is)  exit 0  wrote YES 7a095b143d66fbdb  |   out sc-lodestone-ctl-none.html  7a095b143d66fbdb   (+29141 chars, written LF)

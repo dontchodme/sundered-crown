@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · grudgebearer as runic:warhammer · 33 foes x 20 seeds = 660 fights an arm · lab C at blade 20.5, the engine's window
+  charge=16.0 dur=9.2 blade=20.5
+
+  arm       win  casts  hits in/out f_foeStk   flings   stacks
+  C       50.8%   3.58  9.12/7.09       4.15     9.65     9.65
+  660 fights in 65s   errors: []

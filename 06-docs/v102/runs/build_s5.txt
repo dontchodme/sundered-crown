@@ -1,0 +1,11 @@
+
+LODESTONE / REBUTTAL -- stage 5
+  src sc-lodestone-rebuttal.html  d48dd38d92e55bd0  (LF text)
+  base  by content: the window tickers' slot, the anchors, the five hammers' profile, the runic channel, the runic hammer head, hex, the wall clamp
+  ok    the blade: the measured point whose pooled rate is nearest 50%
+  ok    ult   ult:{ name:"Rebuttal", charge:14, kind:"runes", dur:8, pad:1.5, cd:0.5, hex:1, hurl:700, tip:"The wa ...
+  ok    card  68 chars  'The walls are runed: a foe that touches one is hexed and hurled back'
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (last in the array: lodestone)
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-lodestone-b205.html  6d736451a1ffc2df   (+0 chars, written LF)

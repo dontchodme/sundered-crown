@@ -1,0 +1,4 @@
+lodestone on sc-lodestone-rebuttal.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 2207 · set dmg=22 · stage 5 blade 22
+  win 52.5%   side A 53.2%   side B 51.8%   mean 64.5s   timeouts 0
+  by type  greatsword 74%  bow 57%  scythe 49%  flail 46%  twinblade 44%  warhammer 40%
+  worst    ironwood 10%  twinshade 20%  lastlight 30%   (760 fights in 108s)

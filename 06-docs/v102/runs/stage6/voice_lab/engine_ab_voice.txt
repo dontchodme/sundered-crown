@@ -1,0 +1,12 @@
+=== ENGINE A/B: 39 relics, 6 seeds x 741 pairings ===
+
+  sc-lodestone-b205.html          4446 matches  552.2s
+  sc-lodestone-voice.html         4446 matches  593.0s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4446
+  PASS  every match identical field for field  — 4446/4446
+  PASS  the sweep is real  — 39/39 distinct winners, 4446 distinct seeds, 20.3-118.1s
+
+ENGINE A/B PASS — C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/lodestone/stage6-voice/sc-lodestone-voice.html does not move the 39-relic roster.
+EXIT 0

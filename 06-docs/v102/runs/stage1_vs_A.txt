@@ -1,0 +1,2 @@
+lab arm A 0.2015 n 660 hits 0.0000/11.7152  |  built SHIP 0.2015 n 660 hits 0.0000/11.7152  casts 0.000/0.000  |  foes differing 0 of 33  IDENTICAL, foe for foe and blow for blow
+lab arm A 0.2242 n 660 hits 0.0000/11.9409  |  built SHIP 0.2242 n 660 hits 0.0000/11.9409  casts 0.000/0.000  |  foes differing 0 of 33  IDENTICAL, foe for foe and blow for blow

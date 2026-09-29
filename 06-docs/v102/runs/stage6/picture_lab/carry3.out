@@ -1,0 +1,4 @@
+sc-coldiron-temper-fx.html (67cc3e6e05d5326e) + lodestone 1,2,3,5 (382dae86e75febb9): every anchor once, forward == reverse True, parses, +22788 chars (base +22788: True); with the 3 voice rows both orders equal True, parses
+sc-ironhail-sunder-fx.html (b51c2539999dd272) + lodestone 1,2,3,5 (65b67fee1c902307): every anchor once, forward == reverse True, parses, +22788 chars (base +22788: True); with the 3 voice rows both orders equal True, parses
+sc-ironhail-fxout.html (4b3775e5900172ea) + lodestone 1,2,3,5 (e3ae46f68b371113): every anchor once, forward == reverse True, parses, +22788 chars (base +22788: True); with the 3 voice rows both orders equal True, parses
+CARRY3 PASS

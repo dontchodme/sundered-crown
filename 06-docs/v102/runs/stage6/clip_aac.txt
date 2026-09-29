@@ -1,0 +1,19 @@
+CLIP AAC  07-shorts/v102/rebuttal-window.mp4  2026-09-28 03:19
+[Parsed_volumedetect_0 @ 000001e1a6f94a00] mean_volume: -22.0 dB
+[Parsed_volumedetect_0 @ 000001e1a6f94a00] max_volume: -2.8 dB
+[Parsed_ebur128_0 @ 00000259021757c0] Summary:
+
+  Integrated loudness:
+    I:         -19.9 LUFS
+    Threshold: -30.2 LUFS
+
+  Loudness range:
+    LRA:         1.3 LU
+    Threshold: -40.1 LUFS
+    LRA low:   -20.7 LUFS
+    LRA high:  -19.4 LUFS
+
+  True peak:
+    Peak:       -2.1 dBFS
+[out#0/null @ 00000259006f8100] video:0KiB audio:2368KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:12.62 bitrate=N/A speed= 154x elapsed=0:00:00.08    

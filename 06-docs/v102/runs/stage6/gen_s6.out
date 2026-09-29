@@ -1,0 +1,7 @@
+the returned rows equal the files: voice 3/3 (== the lab's rows_lab5.json, its final confirmation run), picture 9/9 (the lab's recorded file); the relayed rows' labels, anchors, modes and lines of each relayed body match
+base sc-lodestone-b205.html 6d736451a1ffc2df
+picture-only sha b40d52b7561c45f2 (the picture lab's stamp: b40d52b7561c45f2)
+voice-only sha 8921a39052799d17 (the voice lab's voice page: 8921a39052799d17)
+12 rows -> 12 edits (0 merged at a shared anchor)
+voice+picture sha 7a095b143d66fbdb (both orders identical; 11 edits re-emit their anchor, 1 replace text outright); the voice lab's picture+voice page: 7a095b143d66fbdb
+stage 6 written into lodestone_build.py : 12 edits; sha c74cd4a4508bfcf5

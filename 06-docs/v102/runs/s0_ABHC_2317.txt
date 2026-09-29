@@ -1,0 +1,10 @@
+38 relics · Chromium 151.0.7922.34 · grudgebearer as runic:warhammer · 33 foes x 20 seeds = 660 fights an arm · stage 0 block 2317
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out f_foeStk   flings   stacks
+  A       22.4%   0.00  0.00/11.94      0.00     0.00     0.00
+  B       28.2%   3.17  6.22/6.44       1.06     8.18     0.00
+  H       52.1%   3.68  6.25/8.02       3.95     8.35     8.35
+  C       58.5%   3.42  7.41/7.52       3.99     8.41     8.41
+  lifts over A: B +5.8  H +29.7  C +36.1
+  2640 fights in 306s   errors: []

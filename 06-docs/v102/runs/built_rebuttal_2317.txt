@@ -1,0 +1,6 @@
+39 relics · Chromium 151.0.7922.34 · lodestone (redesign) · 33 foes x 20 seeds = 660 fights an arm · built rebuttal
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    60.3%   0.00  0.00/15.08 
+  660 fights in 86s   errors: []

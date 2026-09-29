@@ -1,0 +1,8 @@
+lodestone    runic      n 5  WEAPON |dL| med 0.239 (min 0.165 max 0.263)  luma 0.367 area 4361 u2 | HEAD |dL| med 0.317 (min 0.193) luma 0.422 area 3101 u2
+grudgebearer dwarven    n 5  WEAPON |dL| med 0.126 (min 0.097 max 0.130)  luma 0.206 area 4377 u2 | HEAD |dL| med 0.142 (min 0.106) luma 0.219 area 3519 u2
+censer       sanctified n 3  WEAPON |dL| med 0.163 (min 0.153 max 0.286)  luma 0.309 area 5990 u2 | HEAD |dL| med 0.189 (min 0.188) luma 0.308 area 4206 u2
+bulwarden    vigil      n 5  WEAPON |dL| med 0.219 (min 0.145 max 0.230)  luma 0.314 area 4489 u2 | HEAD |dL| med 0.251 (min 0.169) luma 0.333 area 3484 u2
+shroudmaul   umbral     n 5  WEAPON |dL| med 0.140 (min 0.095 max 0.148)  luma 0.219 area 4970 u2 | HEAD |dL| med 0.148 (min 0.104) luma 0.223 area 3974 u2
+ravelbone    bloodsworn n 4  WEAPON |dL| med 0.186 (min 0.110 max 0.187)  luma 0.279 area 4138 u2 | HEAD |dL| med 0.225 (min 0.119) luma 0.319 area 3479 u2
+ironwood     verdant    n 6  WEAPON |dL| med 0.211 (min 0.070 max 0.224)  luma 0.338 area 5422 u2 | HEAD |dL| med 0.239 (min 0.078) luma 0.348 area 3545 u2
+EXIT 0

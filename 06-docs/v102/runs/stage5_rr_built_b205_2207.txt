@@ -1,0 +1,4 @@
+lodestone on sc-lodestone-b205.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 2207 · built b205 (round 3), no set
+  win 48.8%   side A 49.7%   side B 47.9%   mean 65.6s   timeouts 0
+  by type  greatsword 79%  bow 49%  flail 44%  twinblade 42%  scythe 41%  warhammer 33%
+  worst    ironwood 5%  bulwarden 15%  lastlight 20%   (760 fights in 78s)

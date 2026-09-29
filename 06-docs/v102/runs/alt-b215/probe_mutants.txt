@@ -1,0 +1,38 @@
+PROBE CONTROLS on sc-lodestone-b215 (d5df2416d9e07a37): seven scratch mutants (runs/make_ctl.py), one edit each; lodestone_probe.py, 456 fights each
+final link: 9/9, Lodestone win 49.8%, in windows 8.81, outside 6.94
+
+== mut-dur  ed94922569e14d0f   Z.t += dt * 0.9;
+casts/fight 3.63   blows a fight: in windows 9.90, outside 6.43   Lodestone win 59.2%
+  [1] FAIL  the window is `dur` on the window clock (never ticks frozen), closes on either death; only Lodestone carries it   146836 FAIL: ['the window did not close', 'the window did not close', 'the window did not close', 'the w
+  8/9
+
+== mut-pad  ff6ae5d6c0ad33d5   const R = CONFIG.physics.ballR, A = CONFIG.arena, n = this.inset, e = u.pad + 4.5;
+casts/fight 3.62   blows a fight: in windows 9.00, outside 7.16   Lodestone win 56.1%
+  [2] FAIL  a touch only with the foe's centre within inset + R + pad of a side of the CURRENT hall, alive, unpinned   12133 FAIL: ['a touch off the wall: (161.06, 761.14) inset 0.00', 'a touch off the wall: (482.08, 665.29) inset
+  8/9
+
+== mut-cd  908ad4ee084ef50b   Z.cd = u.cd * 0.8;
+casts/fight 3.57   blows a fight: in windows 9.25, outside 6.94   Lodestone win 52.9%
+  [3] FAIL  once per `cd` on the window clock; never a missed clear touch   3679 FAIL: ['touches 0.4750s apart on the window clock', 'touches 0.4333s apart on the window clock', 'touches 0.4667s apart on the window clock', 'touche
+  8/9
+
+== mut-hex2  159a325bd490895c   foe.apply("hex", u.hex + 1, f === this.a ? "a" : "b");
+casts/fight 3.68   blows a fight: in windows 9.20, outside 7.11   Lodestone win 54.8%
+  [4] FAIL  each touch: apply('hex', hex) on the foe once, by side letter; nothing on any other frame   14393 FAIL: ['applies [["hex",2]], want [["hex",1]]', 'applies [["hex",2]], want [["hex",1]]', 'applies [["hex",2]], want [["h
+  8/9
+
+== mut-impulse  85d8d61193d942c8   foe.vx += dx / d * u.hurl;
+foe.vy += dy / d * u.hurl;
+casts/fight 3.81   blows a fight: in windows 8.39, outside 7.29   Lodestone win 55.5%
+  [5] FAIL  the hurl: the foe's velocity ASSIGNED hurl x unit(caster - foe), 700 +-1; untouched otherwise (and at hurl 0)   15075 FAIL: ['v (-608.17, 59.12) want (-274.49, -643.94) from (-333.68, 703.05)', 'v (1285.67, 96.57) want
+  8/9
+
+== mut-bite  fd5fd83154bee83a   this.hurt(foe, 4, f);
+casts/fight 3.33   blows a fight: in windows 7.75, outside 6.28   Lodestone win 67.5%
+  [6] FAIL  no damage, no resolveHit, no beat, no hit stop; the foe's position, hp, stun, pin and other statuses untouched   25333 FAIL: ['the runes hurt 1x', "the tick changed the foe's position, hp, shield, stun, pin or a status
+  8/9
+
+== mut-self  e580fb782a19789b   if (f.x <= this.inset + CONFIG.physics.ballR + u.pad) f.vx += 200;
+casts/fight 3.66   blows a fight: in windows 8.97, outside 7.36   Lodestone win 55.7%
+  [7] FAIL  the caster's own touches do nothing: the tick never changes the caster   12846 FAIL: ['the tick changed the caster (v dawnbringer)', 'the tick changed the caster (v dawnbringer)', 'the tick changed the caster (v dawnbr
+  8/9

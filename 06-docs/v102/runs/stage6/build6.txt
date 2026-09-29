@@ -1,0 +1,23 @@
+
+LODESTONE / REBUTTAL -- stage 6
+  src sc-lodestone-b205.html  6d736451a1ffc2df  (LF text)
+  base  by content: the window tickers' slot, the anchors, the five hammers' profile, the runic channel, the runic hammer head, hex, the wall clamp
+  ok    Sfx: Lodestone's cast, touch and close arms, before the shared rune-crack fallback
+  ok    tickRunes: the touch voice and the hex-snap under it, once per touch, after its hex
+  ok    tickRunes: the close, when the window runs out by its clock with both fighters alive
+  ok    rebuttal picture: fighter fields
+  ok    rebuttal picture: the presentation call
+  ok    rebuttal picture: the hall's loop
+  ok    rebuttal picture: tickLode
+  ok    rebuttal picture: the world call (under both balls)
+  ok    rebuttal picture: the world call (over both fighters)
+  ok    rebuttal picture: the head's rune in drawWeapon
+  ok    rebuttal picture: the drawing methods
+  ok    rebuttal picture: the runic warhammer, a rune-etched square head on a dark haft
+  ok    ult   ult:{ name:"Rebuttal", charge:14, kind:"runes", dur:8, pad:1.5, cd:0.5, hex:1, hurl:700, tip:"The wa ...
+  ok    card  68 chars  'The walls are runed: a foe that touches one is hexed and hurled back'
+  ok    stage 6: presentation only (no RNG, no ultFx, no call into the sim, writes its own fields); the inlined fx.js untouched; three voices and the picture's four hooks wired once each
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (last in the array: lodestone)
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-lodestone-b205-fx.html  7a095b143d66fbdb   (+29141 chars, written LF)

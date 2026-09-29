@@ -1,0 +1,15 @@
+  (8 insert(s) found in lodestone_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-lodestone-b205.html
+tip    sc-lodestone-b205.html
+8 inserts read out of lodestone_build.py
+
+    ok  S1:lodestone joins the roster at the end of the array, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the runes have a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the runed walls relic  1  mid   -  tip  1
+    ok  S2:the cast runes the walls and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the runes tick with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickRunes touches, hexes and hurls relic  1  mid   -  tip  1
+    ok  S3:the hurl                relic  1  mid   -  tip  1
+    ok  S5:the blade: the measured point nearest the crossing relic  1  mid   -  tip  1
+
+ALL 8 INSERTS SURVIVE to sc-lodestone-b205.html

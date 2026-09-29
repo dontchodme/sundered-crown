@@ -1,0 +1,17 @@
+
+REBUTTAL PROBE  mut-impulse.html  Chromium 151.0.7922.34  456 fights (Lodestone both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'pad': 1.5, 'cd': 0.5, 'hex': 1, 'hurl': 700, 'dmg': 21.5}
+  casts/fight 3.81   blows a fight: in windows 8.39, outside 7.29   Lodestone win 55.5%
+  per cast: touches 8.67  hexes 8.67  hurls 8.67   foe hex stacks on a window frame 3.98   touches on a closed-in hall 11270 of 15075
+  hurl speed 0.000000 .. 0.000000   caster on a wall 58435 window frames (its touches do nothing)   wall frames under the cooldown 35204   caster frames under a rune hurt 0
+  window: 959 window frames a clock close (1456 clock closes, 34 on a death); 9.07s of match time a clock-closed window   FREEZE CENSUS 12.4% of window steps frozen
+  [1] PASS  the window is `dur` on the window clock (never ticks frozen), closes on either death; only Lodestone carries it
+  [2] PASS  a touch only with the foe's centre within inset + R + pad of a side of the CURRENT hall, alive, unpinned
+  [3] PASS  once per `cd` on the window clock; never a missed clear touch
+  [4] PASS  each touch: apply('hex', hex) on the foe once, by side letter; nothing on any other frame
+  [5] FAIL  the hurl: the foe's velocity ASSIGNED hurl x unit(caster - foe), 700 +-1; untouched otherwise (and at hurl 0)   15075 FAIL: ['v (-608.17, 59.12) want (-274.49, -643.94) from (-333.68, 703.05)', 'v (1285.67, 96.57) want (641.43, 280.29) from (644.24, -183.72)', 'v (-325.39, 508.43) want (-611.99, 339.80) from (286.60, 168.63)', 'v (-897.83, 697.08) want (-673.16, -191.99) from (-224.67, 889.07)']
+  [6] PASS  no damage, no resolveHit, no beat, no hit stop; the foe's position, hp, stun, pin and other statuses untouched
+  [7] PASS  the caster's own touches do nothing: the tick never changes the caster
+  [8] PASS  every blow the hammer's own, rebuilt exactly, in the window and out
+  [9] PASS  no cast while the walls are lit; no cast held back
+
+  8/9

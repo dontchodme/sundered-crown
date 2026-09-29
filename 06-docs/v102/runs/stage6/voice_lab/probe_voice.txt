@@ -1,0 +1,21 @@
+
+REBUTTAL PROBE  sc-lodestone-voice.html  Chromium 151.0.7922.34  456 fights (Lodestone both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'pad': 1.5, 'cd': 0.5, 'hex': 1, 'hurl': 700, 'dmg': 20.5}
+  casts/fight 3.72   blows a fight: in windows 8.96, outside 7.20   Lodestone win 43.0%
+  per cast: touches 8.55  hexes 8.55  hurls 8.55   foe hex stacks on a window frame 4.00   touches on a closed-in hall 10620 of 14518
+  hurl speed 700.000000 .. 700.000000   caster on a wall 53221 window frames (its touches do nothing)   wall frames under the cooldown 30587   caster frames under a rune hurt 0
+  closes on a death: the caster's 49, the foe's 0 (unreachable: Lodestone kills only in tickHits, after tickRunes)   fights ending with the walls STILL LIT 236 of 456 (Lodestone won 127, lost 109); still lit 240 verdict steps on 236
+  window: 959 window frames a clock close (1413 clock closes, 49 on a death); 9.16s of match time a clock-closed window   FREEZE CENSUS 13.3% of window steps frozen
+  whole-state reads: the foe 1487433, the caster 1487433, the Match 1487433 rune ticks unchanged; recorded by identity only (never walked): nothing; arrays read as length + last 16: caster.tips, caster.trail, foe.tips, foe.trail, foe.treeLeaves, foe.ultTrace, match.beats, match.drains, match.events, match.fx, match.motes, match.shades, match.shots
+  [0] PASS  the numbers: charge 14 (16 converted), dur 8, pad 1.5, cd 0.5, hex 1, hurl 0 (stage 2) or 700
+  [1] PASS  the window is `dur` on the window clock (never ticks frozen), closes on the caster's death; only Lodestone carries it
+  [2] PASS  a touch only with the foe's centre within inset + R + pad of a side of the CURRENT hall, alive, unpinned
+  [3] PASS  once per `cd` on the window clock; never a missed clear touch
+  [4] PASS  each touch: apply('hex', hex) on the foe once, by side letter; nothing on any other frame
+  [5] PASS  the hurl: the foe's velocity ASSIGNED hurl x unit(caster - foe), 700 +-1; untouched otherwise (and at hurl 0)
+  [6] PASS  no damage, no resolveHit, no beat, no hit stop; nothing else on the foe (its whole state but vx, vy, status.hex) or the Match
+  [7] PASS  the caster's own touches do nothing: the tick never changes the caster (its whole state but ultRunes, runeTally)
+  [8] PASS  every blow the hammer's own, rebuilt exactly, in the window and out
+  [9] PASS  no cast while the walls are lit; no cast held back
+
+  10/10
+EXIT 0

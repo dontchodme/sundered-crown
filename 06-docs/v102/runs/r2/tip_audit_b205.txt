@@ -1,0 +1,42 @@
+STATUS TIPS -- C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/lodestone/links/sc-lodestone-b205.html
+  the surface is `_tagFirst`, the first-application reminder: ONE line, 25px,
+  no wrap, no clip, no measurement. Box 760px, text budget 700px, in
+  the BUNDLED 'Atkinson Hyperlegible Next'. The scrunch panel wraps to three
+  lines, shrinks, and is not the gate.
+
+  Smite        37ch  444px  "Deals 1.5 damage per second per stack"
+
+  Hemorrhage   37ch  444px  "Deals 1.5 damage per second per stack"
+
+  Entangle     35ch  431px  "Slows swing 13%, move 6%, per stack"
+
+  Hex          38ch  447px  "0.2s weapon stun, more often per stack"
+      omitted  stunEvery = 1.15   BY DESIGN
+                 1.15s is the interval at ONE stack; the clock is advanced by
+                 dt*stacks, so the real interval is 1.15/n. Printing 'every 1.15s'
+                 would be true only for the first stack and wrong for every other.
+                 'more often per stack' carries the direction without a number that
+                 expires.
+
+  Curse        57ch  654px  "Hits reflect 8% of the damage that cursed, stacks 3 times"
+
+  Sunder       39ch  474px  "Increases damage taken by 11% per stack"
+
+  Blessing     33ch  381px  "Heals 1.2 hp per second per stack"
+
+  Burn         38ch  460px  "Deals 0.14 damage per second per stack"
+      MISSING  feed = 1   (feed)
+
+  Ward         40ch  461px  "Hits bank a shield; 40% blast on a break"
+      omitted  bank = 0.55   BY DESIGN
+                 0.55 is scaled by the relic's own onSelf.ward value — resolveHit
+                 does `dmg * W.bank * n`, and n is 1 on Lightkeeper but 2.5 on
+                 Farwarden. STATUS tips are SHARED across every relic carrying the
+                 status, so a flat '55%' here would be correct for one relic and
+                 wrong for the other.
+
+  1 effect fields the tips never mention.
+
+  Remember what this cannot see: Hex's OLD tip contained 0.2 and would
+  have passed clean. 'faster per stack' was a true word attached to the
+  wrong noun. Completeness is checkable; clarity is not.

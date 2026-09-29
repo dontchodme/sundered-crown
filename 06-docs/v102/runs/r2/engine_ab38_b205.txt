@@ -1,0 +1,11 @@
+=== ENGINE A/B: 38 relics, 6 seeds x 703 pairings ===
+
+  sc-tendril-t3.html              4218 matches  395.3s
+  sc-lodestone-b205.html          4218 matches  415.7s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4218
+  PASS  every match identical field for field  — 4218/4218
+  PASS  the sweep is real  — 38/38 distinct winners, 4218 distinct seeds, 22.7-114.9s
+
+ENGINE A/B PASS — C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/lodestone/links/sc-lodestone-b205.html does not move the 38-relic roster.

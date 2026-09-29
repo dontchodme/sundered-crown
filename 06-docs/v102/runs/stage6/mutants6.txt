@@ -1,0 +1,5 @@
+mV1-close-on-death       1cd7abe5d4884aea  +2 chars
+mV2-touch-before-hex     6229371e221611d4  +0 chars
+mP1-lode-writes          b9f3bd7ad4aaec42  +23 chars
+mP2-draw-writes          e27232d59af4b51f  +40 chars
+mP3-ungated              37ed2d8f47845f1b  -33 chars

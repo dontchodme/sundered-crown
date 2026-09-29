@@ -1,0 +1,38 @@
+CLIP clip_audio.wav  12.63s  first frame at match 46.625
+CAST at clip 1.192: each of A C E A (440 / 523 / 659 / 880 Hz) at its own onset, a note every 125 ms --
+  its band in the 60 ms from its onset against the 60 ms before
+  note 1   440.0 Hz at  1.192s  +33.6 dB
+  note 2   523.3 Hz at  1.317s  +15.9 dB
+  note 3   659.3 Hz at  1.442s  +14.4 dB
+  note 4   880.0 Hz at  1.567s  +38.7 dB
+TOUCHES: the snap's note for the count it was played at (220 x the pentatonic step), and the hex-snap's
+         2.6 kHz band, the 60 ms from the touch against the 60 ms before
+  n1 at  1.292s  note  220.0 Hz  -4.4 dB   its square's 3rd  660.0 Hz +17.1 dB   hex-snap 2600 Hz +29.0 dB   walls floor
+  n2 at  2.033s  note  261.6 Hz +15.8 dB   its square's 3rd  784.9 Hz +23.3 dB   hex-snap 2600 Hz +10.3 dB   walls floor
+  n3 at  2.750s  note  293.7 Hz +40.6 dB   its square's 3rd  881.0 Hz +46.1 dB   hex-snap 2600 Hz +37.0 dB   walls floor+left
+  n4 at  3.692s  note  329.6 Hz +32.8 dB   its square's 3rd  988.9 Hz +34.8 dB   hex-snap 2600 Hz +23.7 dB   walls right
+  n5 at  4.508s  note  392.0 Hz +13.4 dB   its square's 3rd 1176.0 Hz +31.2 dB   hex-snap 2600 Hz  +9.9 dB   walls right
+  n5 at  5.233s  note  392.0 Hz +15.4 dB   its square's 3rd 1176.0 Hz +26.1 dB   hex-snap 2600 Hz +12.9 dB   walls floor
+  n5 at  6.383s  note  392.0 Hz +17.7 dB   its square's 3rd 1176.0 Hz +32.1 dB   hex-snap 2600 Hz +29.4 dB   walls left
+  n5 at  7.033s  note  392.0 Hz +38.6 dB   its square's 3rd 1176.0 Hz +39.9 dB   hex-snap 2600 Hz  +7.3 dB   walls floor
+  n5 at  7.975s  note  392.0 Hz +21.6 dB   its square's 3rd 1176.0 Hz +28.1 dB   hex-snap 2600 Hz +13.1 dB   walls right
+  n5 at  8.883s  note  392.0 Hz +41.0 dB   its square's 3rd 1176.0 Hz +41.4 dB   hex-snap 2600 Hz +28.9 dB   walls left
+  n5 at  9.417s  note  392.0 Hz +39.7 dB   its square's 3rd 1176.0 Hz +35.2 dB   hex-snap 2600 Hz +30.0 dB   walls right
+  n5 at 10.425s  note  392.0 Hz +23.9 dB   its square's 3rd 1176.0 Hz +25.5 dB   hex-snap 2600 Hz +13.9 dB   walls left
+CLOSE at clip 10.800 (clock): MIRROR -- the notes swell and drop out top first, the root last (it cuts ~0.60s
+  after the close). Each note's band over the last 0.1 s of its swell (up to its cut), against the 0.3 s before the close:
+  note 1   440.0 Hz  11.303-11.403s   +3.9 dB
+  note 2   523.3 Hz  11.178-11.278s  +20.0 dB
+  note 3   659.3 Hz  11.053-11.153s  +31.6 dB
+  note 4   880.0 Hz  10.928-11.028s  +30.7 dB
+  the level around it (dBFS, 100 ms spans):
+     10.60- 10.70s   -21.0 dBFS   440 Hz  -45.6
+     10.70- 10.80s   -21.6 dBFS   440 Hz  -48.1
+     10.80- 10.90s   -24.2 dBFS   440 Hz  -75.0
+     10.90- 11.00s   -30.1 dBFS   440 Hz  -56.0
+     11.00- 11.10s   -30.5 dBFS   440 Hz  -56.2
+     11.10- 11.20s   -31.5 dBFS   440 Hz  -73.4
+     11.20- 11.30s   -33.3 dBFS   440 Hz  -57.4
+     11.30- 11.40s   -37.4 dBFS   440 Hz  -43.3
+     11.40- 11.50s   -32.2 dBFS   440 Hz  -39.3
+     11.50- 11.60s   -23.2 dBFS   440 Hz  -61.0

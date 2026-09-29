@@ -1,0 +1,5 @@
+relic_rate on sc-lodestone-b205.html (6d736451a1ffc2df) with no --set, against --set dmg=20.5 on sc-lodestone-rebuttal.html (the sweep, run on round 2's stage 3, 0dac0cefbff88ead; round 3's d48dd38d92e55bd0 differs only in a comment)
+seed0 2207: --set 0.4882 A 0.4974 B 0.4789 dur 65.614632  |  built, no set 0.4882 A 0.4974 B 0.4789 dur 65.614632
+   every foe's rate identical: True (38 foes); by type identical: True; rates identical: True; mean duration identical: True  ->  REPRODUCED EXACTLY
+seed0 2317: --set 0.4921 A 0.5211 B 0.4632 dur 65.733987  |  built, no set 0.4921 A 0.5211 B 0.4632 dur 65.733987
+   every foe's rate identical: True (38 foes); by type identical: True; rates identical: True; mean duration identical: True  ->  REPRODUCED EXACTLY

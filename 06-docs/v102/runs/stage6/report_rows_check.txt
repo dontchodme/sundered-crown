@@ -1,0 +1,3 @@
+voice: rows_final.json sha16 b6f01158a986b7e1, 3 rows; the report's rows: 3; equal as data: True; report rows_file ['stage6-voice', 'rows_final.json']
+picture: rows_final.json sha16 1ab82ea2383e20de, 9 rows; the report's rows: 9; equal as data: True; report rows_file ['stage6-picture', 'rows_final.json']
+  report stamp b40d52b7561c45f2 ; fx_spec starts: NONE. No lodestone entry goes into SPECS

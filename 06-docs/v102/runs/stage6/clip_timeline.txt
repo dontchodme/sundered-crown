@@ -1,0 +1,20 @@
+(the match's two earlier windows, 18 touches, are before the clip and not listed)
+lodestone v heartwood 102238, the clip from match 46.62 for 12.61s
+  cast         match  47.817  clip  1.197  foe hex 0
+  touch        match  47.917  clip  1.297  snap n 1  walls floor  hex-snap  inset 75
+  touch        match  48.658  clip  2.038  snap n 2  walls floor  hex-snap  inset 77
+  touch        match  49.375  clip  2.755  snap n 3  walls floor+left  hex-snap  inset 80
+  touch        match  50.317  clip  3.697  snap n 4  walls right  hex-snap  inset 84
+  touch        match  51.133  clip  4.513  snap n 5  walls right  hex-snap  inset 86
+  touch        match  51.858  clip  5.238  snap n 5  walls floor  hex-snap  inset 88
+  touch        match  53.008  clip  6.388  snap n 5  walls left  hex-snap  inset 92
+  touch        match  53.658  clip  7.038  snap n 5  walls floor  hex-snap  inset 95
+  touch        match  54.600  clip  7.980  snap n 5  walls right  hex-snap  inset 98
+  touch        match  55.508  clip  8.888  snap n 5  walls left  hex-snap  inset 101
+  touch        match  56.042  clip  9.422  snap n 5  walls right  hex-snap  inset 104
+  touch        match  57.050  clip 10.430  snap n 5  walls left  hex-snap  inset 107
+  close-voice  match  57.425  clip 10.805  foe hex 5
+  close        match  57.425  clip 10.805  foe hex 5  clock
+  end          match  59.233  clip 12.613  foe hex 5  on 193 214
+  touches 12
+exit 0

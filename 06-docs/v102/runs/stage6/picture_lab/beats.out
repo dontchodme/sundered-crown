@@ -1,0 +1,7 @@
+32 Lodestone fights (8 foes x 2 seeds x both sides) on ld-final: 125 casts, 1083 touches, 2142 beats {'hit': 1085, 'clank': 781, 'ult': 276}
+  [1] PASS  every Lodestone cast files exactly one beat, kind 'ult' (fireUlt: 125 casts -> 125 beats)
+  [2] PASS  a touch files nothing: beats filed inside tickRunes 0, hit-stop raises inside it 0 (1083 touches)
+  [3] PASS  every fight's beat list (kind @ t) identical to the base b205's
+  errors final 0 base 0
+BEATS PASS
+EXIT 0

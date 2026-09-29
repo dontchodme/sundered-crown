@@ -1,0 +1,83 @@
+{
+ "n": {
+  "chargeOk": 3514964,
+  "blowOutOk": 3601,
+  "castOk": 1861,
+  "wholeMatchOk": 1657911,
+  "casterOk": 1657911,
+  "wholeFoeOk": 1657911,
+  "frames": 1656264,
+  "stkFrames": 6592682,
+  "nothingElseOk": 1656264,
+  "winFrozen": 203889,
+  "winLive": 1656050,
+  "touches": 15895,
+  "wallOk": 15895,
+  "cadenceOk": 15895,
+  "hexOk": 15895,
+  "x5": 15895,
+  "wallCdFrames": 61406,
+  "blowInOk": 3240,
+  "casterWallFrames": 73297,
+  "closes": 1647,
+  "clockCloses": 1606,
+  "clockOk": 1606,
+  "winSteps": 1722682,
+  "insetTouches": 12192,
+  "deathCloses": 41,
+  "casterDeathCloses": 41,
+  "litAtVerdict": 214,
+  "litWin": 103,
+  "litThroughVerdict": 214,
+  "litLoss": 111,
+  "blowExempt": 77,
+  "x0": 0
+ },
+ "bad": {
+  "5": [
+   "v (274.49, 643.94) want (-274.49, -643.94) from (-333.68, 703.05)",
+   "v (-267.05, 647.06) want (267.05, -647.06) from (-612.01, 484.12)",
+   "v (-595.10, 368.58) want (595.10, -368.58) from (362.97, -384.86)",
+   "v (607.77, 347.29) want (-607.77, -347.29) from (685.50, -362.18)"
+  ],
+  "0": []
+ },
+ "T": {
+  "casts": 1861,
+  "frames": 1656264,
+  "touches": 15895,
+  "hexes": 15895,
+  "hurls": 15895,
+  "foeStk": 6592682
+ },
+ "fights": 456,
+ "win": 0.40789473684210525,
+ "blowsIn": 7.192982456140351,
+ "blowsOut": 7.978070175438597,
+ "blind": [],
+ "tailed": [
+  "caster.tips",
+  "caster.trail",
+  "foe.tips",
+  "foe.trail",
+  "foe.treeLeaves",
+  "foe.ultTrace",
+  "match.beats",
+  "match.drains",
+  "match.events",
+  "match.fx",
+  "match.motes",
+  "match.shades",
+  "match.shots"
+ ],
+ "closeTicks": 960,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "pad": 1.5,
+  "cd": 0.5,
+  "hex": 1,
+  "hurl": 700,
+  "dmg": 20.5
+ }
+}

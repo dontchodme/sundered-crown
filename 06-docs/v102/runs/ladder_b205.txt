@@ -1,0 +1,43 @@
+Lodestone / Rebuttal (blade 20.5, sc-lodestone-b205 = --set dmg=20.5 on sc-lodestone-rebuttal) win by foe, both sides, relic_rate seed0 2207 + 2317
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks). Pooled: 49.0%   side A 50.9%   side B 47.1%   mean 65.7s
+
+by type  greatsword 77%  bow 54%  twinblade 44%  scythe 42%  flail 42%  warhammer 33%
+
+ironwood         10.0%
+bulwarden        17.5%
+lastlight        20.0%
+foregone         22.5%
+portcullis       22.5%
+twinshade        25.0%
+paradox          30.0%
+morningstar      30.0%
+bloodmirror      32.5%
+gloamwire        32.5%
+ravelbone        32.5%
+starwarden       32.5%
+censer           35.0%
+shroudmaul       35.0%
+bindweed         37.5%
+duskreave        40.0%
+slagheart        40.0%
+cindercleave     42.5%
+gravemourn       47.5%
+ironhail         47.5%
+widowmaker       50.0%
+dawnbringer      52.5%
+thornshear       52.5%
+farwarden        55.0%
+thornwake        55.0%
+aureole          57.5%
+spellbreaker     57.5%
+vinesower        60.0%
+lightkeeper      62.5%
+grudgebearer     67.5%
+marrowdraw       70.0%
+oathwound        72.5%
+emberedge        82.5%
+vesper           82.5%
+redflail         85.0%
+nightfell        87.5%
+axiom            90.0%
+heartwood        90.0%

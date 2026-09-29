@@ -1,0 +1,2 @@
+the new probe (36f3bf08321637f0) on sc-lodestone-b205 vs runs/probe_b205.txt (the stage-5 probe, 85b2d01e7897d0c7), line endings ignored (that file is CRLF):
+diff exit 0 (0 = every line identical)

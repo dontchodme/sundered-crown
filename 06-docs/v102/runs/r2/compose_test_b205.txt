@@ -1,0 +1,58 @@
+=== on sc-tendril-fx (eea0cde5536955b3)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-tendril-fx-1.html  15ddbe52c623d621   (+914 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-tendril-fx-2.html  c637ce9112be360c   (+3063 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-tendril-fx-3.html  27e8adc1f86d7475   (+2 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-tendril-fx-5.html  fea0cba483b75088   (+0 chars, written LF)
+  the composed diff is the base->b205 diff, line for line: True (79 +/- lines)
+  chain_audit: ALL 8 INSERTS SURVIVE to sc-tendril-fx-5.html rc=0
+=== on sc-onslaught-fx (ee74fe9ad67e50a6)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-onslaught-fx-1.html  fc82f83824f643f1   (+914 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-onslaught-fx-2.html  573b568474acf656   (+3063 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-onslaught-fx-3.html  3eee9e62a74c363b   (+2 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-onslaught-fx-5.html  c5b804f6a6406b31   (+0 chars, written LF)
+  the composed diff is the base->b205 diff, line for line: True (79 +/- lines)
+  chain_audit: ALL 8 INSERTS SURVIVE to sc-onslaught-fx-5.html rc=0
+=== on sc-coldiron-temper-b93 (324b42d5b36fac98)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-coldiron-temper-b93-1.html  02336c8e574832f4   (+914 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-coldiron-temper-b93-2.html  330a2f2148799d45   (+3063 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-coldiron-temper-b93-3.html  870e88c726ef359c   (+2 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-coldiron-temper-b93-5.html  82d17b7cf8f93210   (+0 chars, written LF)
+  the composed diff is the base->b205 diff, line for line: True (79 +/- lines)
+  chain_audit: ALL 8 INSERTS SURVIVE to sc-coldiron-temper-b93-5.html rc=0
+=== on sc-ironhail-b14 (dadb773b6f8d4555)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-ironhail-b14-1.html  719fef3d1b1aaf57   (+914 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-ironhail-b14-2.html  1d18a3d4b0458404   (+3063 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-ironhail-b14-3.html  3322b14aa85d9d80   (+2 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-ironhail-b14-5.html  88e8ab958769ca4d   (+0 chars, written LF)
+  the composed diff is the base->b205 diff, line for line: True (79 +/- lines)
+  chain_audit: ALL 8 INSERTS SURVIVE to sc-ironhail-b14-5.html rc=0
+=== on sc-lightkeeper-bulwark-b9.5 (d60a5c63b785ad04)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-lightkeeper-bulwark-b9.5-1.html  97331d788187a427   (+914 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-lightkeeper-bulwark-b9.5-2.html  3a4817b654c75b15   (+3063 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-lightkeeper-bulwark-b9.5-3.html  cb70b4709bb4f79a   (+2 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-lightkeeper-bulwark-b9.5-5.html  d4e7c8a53e67c876   (+0 chars, written LF)
+  the composed diff is the base->b205 diff, line for line: True (79 +/- lines)
+  chain_audit: ALL 8 INSERTS SURVIVE to sc-lightkeeper-bulwark-b9.5-5.html rc=0
+=== on sc-widowmaker-b1075 (18e927591b54ebc3)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-widowmaker-b1075-1.html  8f13d6c29d570a32   (+914 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-widowmaker-b1075-2.html  b62839377500c34c   (+3063 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-widowmaker-b1075-3.html  96c7eca68fc7b0b3   (+2 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 reli | out sc-widowmaker-b1075-5.html  1c5e0b6e0edbb6c5   (+0 chars, written LF)
+  the composed diff is the base->b205 diff, line for line: True (79 +/- lines)
+  chain_audit: ALL 8 INSERTS SURVIVE to sc-widowmaker-b1075-5.html rc=0
+=== on sc-angelus-b9 (db58100b3aa0092a)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-angelus-b9-1.html  c54bcec70b514d75   (+914 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-angelus-b9-2.html  099e73ff2c6c2d15   (+3063 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-angelus-b9-3.html  5c8a1edce43197db   (+2 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-angelus-b9-5.html  c3133ed0a25ccd0b   (+0 chars, written LF)
+  the composed diff is the base->b205 diff, line for line: True (79 +/- lines)
+  chain_audit: ALL 8 INSERTS SURVIVE to sc-angelus-b9-5.html rc=0
+=== on sc-oracle-sight (1b599fca2040534e)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-oracle-sight-1.html  f75c202b346d9b59   (+914 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-oracle-sight-2.html  ef4831c8c265a49a   (+3063 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-oracle-sight-3.html  ae264dc31ee965c9   (+2 chars, written LF)
+  ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 reli | out sc-oracle-sight-5.html  1de143a50e78b296   (+0 chars, written LF)
+  the composed diff is the base->b205 diff, line for line: True (79 +/- lines)
+  chain_audit: ALL 8 INSERTS SURVIVE to sc-oracle-sight-5.html rc=0
+
+ALL COMPOSE

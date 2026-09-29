@@ -1,0 +1,5 @@
+relic_rate on sc-lodestone-b215 (d5df2416d9e07a37) with no --set, against --set dmg=21.5 on sc-lodestone-rebuttal (0dac0cefbff88ead)
+seed0 2207: --set 0.5145 A 0.5026 B 0.5263 dur 64.515039  |  built, no set 0.5145 A 0.5026 B 0.5263 dur 64.515039
+   every foe's rate identical: True (38 foes); by type identical: True; mean duration identical: True  ->  REPRODUCED EXACTLY
+seed0 2317: --set 0.5579 A 0.5632 B 0.5526 dur 64.520184  |  built, no set 0.5579 A 0.5632 B 0.5526 dur 64.520184
+   every foe's rate identical: True (38 foes); by type identical: True; mean duration identical: True  ->  REPRODUCED EXACTLY

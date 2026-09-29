@@ -1,0 +1,6 @@
+built_runes_2207.json: SHIP 0.5621/0.5621 identical   IDENTICAL TO ROUND 2
+built_runes_2317.json: SHIP 0.5485/0.5485 identical   IDENTICAL TO ROUND 2
+built_rebuttal_2207.json: SHIP 0.5788/0.5788 identical   IDENTICAL TO ROUND 2
+built_rebuttal_2317.json: SHIP 0.6030/0.6030 identical   IDENTICAL TO ROUND 2
+built_b205_2207.json: SHIP 0.5242/0.5242 identical   IDENTICAL TO ROUND 2
+built_b205_2317.json: SHIP 0.5197/0.5197 identical   IDENTICAL TO ROUND 2

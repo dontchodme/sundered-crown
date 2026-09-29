@@ -1,0 +1,15 @@
+ld-final.html: 24 fights, 12 END LIT (ultRunes set at the kill; caster alive in 6); verdict frames 3360, with the panel up 2352; panel frames with a rune drawn 0; panel frames that differ from the picture hidden 0; the panel first up 1.075s after the kill; the last rune drawn 0.375s after it (lit fights: [0.075, 0.1, 0.125, 0.175, 0.375]...)
+ld-ungated.html: 24 fights, 12 END LIT (ultRunes set at the kill; caster alive in 6); verdict frames 3360, with the panel up 2352; panel frames with a rune drawn 1176; panel frames that differ from the picture hidden 1176; the panel first up 1.075s after the kill; the last rune drawn 3.500s after it (lit fights: [3.5]...)
+    spellbreaker 102001a: lit True alive False panel 98 rune frames 98 pix 98
+    spellbreaker 102101b: lit True alive True panel 98 rune frames 98 pix 98
+    dawnbringer 102002a: lit True alive True panel 98 rune frames 98 pix 98
+    dawnbringer 102102b: lit True alive False panel 98 rune frames 98 pix 98
+    aureole 102105b: lit True alive False panel 98 rune frames 98 pix 98
+    twinshade 102006a: lit True alive False panel 98 rune frames 98 pix 98
+    twinshade 102106b: lit True alive False panel 98 rune frames 98 pix 98
+    widowmaker 102007a: lit True alive True panel 98 rune frames 98 pix 98
+    axiom 102008a: lit True alive True panel 98 rune frames 98 pix 98
+    paradox 102009a: lit True alive False panel 98 rune frames 98 pix 98
+    shroudmaul 102011a: lit True alive True panel 98 rune frames 98 pix 98
+    shroudmaul 102111b: lit True alive True panel 98 rune frames 98 pix 98
+EXIT 0

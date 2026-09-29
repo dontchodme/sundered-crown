@@ -1,0 +1,9 @@
+38 relics · Chromium 151.0.7922.34 · grudgebearer as runic:warhammer · 33 foes x 20 seeds = 660 fights an arm · census block 2207
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out f_foeStk   flings   stacks
+  H       51.5%   3.67  6.25/7.92       3.95     8.32     8.32
+      census H: frozen 0.1038 of lab steps (547563 of 5277425), 0.1107 inside windows, 0.0989 outside; lab 16 -> engine 14.34; window 8 lab-s = 7.11 engine window-s
+  C       60.6%   3.43  7.55/7.49       4.01     8.39     8.39
+      census C: frozen 0.1107 of lab steps (546371 of 4934683), 0.1315 inside windows, 0.0966 outside; lab 16 -> engine 14.23; window 8 lab-s = 6.95 engine window-s
+  1320 fights in 112s   errors: []

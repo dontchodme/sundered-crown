@@ -1,0 +1,8 @@
+  (the slot was not Lodestone's on the cast's own step in 17 windows: no spawn point; held by ['aureole|b|beam', 'axiom|b|echo', 'dawnbringer|b|dawn', 'morningstar|b|sun', 'widowmaker|b|nova'])
+118 Rebuttal windows on 16 foes x 2 seeds (both sides); ultFx life at the cast: [1.5] (half-seconds); radius [300]; the slot's spawn point is the caster's own spot on 101/118
+  the slot is Lodestone's for a median 0.66s of window clock (max 0.72); lost to: {"opponent's cast": 17, 'expired': 99, 'match ended in the window': 2}
+  a slot-borne field could exist for 7.9% of the window's clock
+  the caster stands a median 87 units from its nearest wall at the cast (p10 37, p90 172)
+  the share of the lit walls' length within the slot's spawn radius of the cast point: median 36% (p10 27%, p90 63%)
+  1034 wall points touched: window clock median 3.62s (p10 0.60); 103 of 1034 while the slot was still Lodestone's (a SPECS field would already be spawned: it fires once, at the cast edge)
+  a touched wall point is a median 263 units from the field's spawn point (p10 124, p90 456)

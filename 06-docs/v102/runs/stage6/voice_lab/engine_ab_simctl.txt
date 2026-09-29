@@ -1,0 +1,21 @@
+=== ENGINE A/B: 8 relics, 6 seeds x 28 pairings ===
+
+  sc-lodestone-b205.html           168 matches   17.1s
+  sc-lodestone-voice-simctl.html   168 matches   19.0s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 168
+  FAIL  every match identical field for field  — 42 differ
+          #0
+            control {"seed": 1233799701, "a": "Lodestone", "b": "Aureole", "winner": "Aureole", "hp": 133, "duration": 55.56, "reason": "slain", "hits": {"a": 14, "b": 18}, "crits": {"a": 1, "b": 2}, "clanks": 16}
+            variant {"seed": 1233799701, "a": "Lodestone", "b": "Aureole", "winner": "Aureole", "hp": 32, "duration": 59.73, "reason": "slain", "hits": {"a": 17, "b": 18}, "crits": {"a": 1, "b": 1}, "clanks": 18}
+          #1
+            control {"seed": 330441002, "a": "Lodestone", "b": "Aureole", "winner": "Aureole", "hp": 21, "duration": 67.57, "reason": "slain", "hits": {"a": 18, "b": 17}, "crits": {"a": 1, "b": 1}, "clanks": 11}
+            variant {"seed": 330441002, "a": "Lodestone", "b": "Aureole", "winner": "Lodestone", "hp": 116, "duration": 68.4, "reason": "slain", "hits": {"a": 19, "b": 12}, "crits": {"a": 2, "b": 1}, "clanks": 15}
+          #2
+            control {"seed": 4184808219, "a": "Lodestone", "b": "Aureole", "winner": "Aureole", "hp": 278, "duration": 58.05, "reason": "slain", "hits": {"a": 12, "b": 19}, "crits": {"a": 1, "b": 1}, "clanks": 10}
+            variant {"seed": 4184808219, "a": "Lodestone", "b": "Aureole", "winner": "Aureole", "hp": 315, "duration": 47.96, "reason": "slain", "hits": {"a": 11, "b": 18}, "crits": {"a": 1, "b": 2}, "clanks": 6}
+  PASS  the sweep is real  — 8/8 distinct winners, 168 distinct seeds, 40.9-91.4s
+
+ENGINE A/B FAIL
+EXIT 1

@@ -1,0 +1,16 @@
+
+RENDER A/B  4 pairings x 6 frames  540x960
+  a  sc-lodestone-b205.html
+  b  sc-lodestone-voice.html
+
+PASS  24/24 frames pixel-identical.
+      Same relics, same seeds, same frame indices, one runtime.
+EXIT 0
+
+RENDER A/B  1 pairings x 8 frames  540x960
+  a  sc-lodestone-b205.html
+  b  sc-lodestone-voice.html
+
+PASS  8/8 frames pixel-identical.
+      Same relics, same seeds, same frame indices, one runtime.
+EXIT 0

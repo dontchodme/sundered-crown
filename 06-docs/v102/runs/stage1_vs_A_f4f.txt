@@ -1,0 +1,4 @@
+block 2207:
+lab arm A 660 fights (win 0.2015) | stage 1 SHIP 660 fights (win 0.2015) | 16 fields a fight | fights differing in any field: 0   IDENTICAL, FIGHT FOR FIGHT
+block 2317:
+lab arm A 660 fights (win 0.2242) | stage 1 SHIP 660 fights (win 0.2242) | 16 fields a fight | fights differing in any field: 0   IDENTICAL, FIGHT FOR FIGHT

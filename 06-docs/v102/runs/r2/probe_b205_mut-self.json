@@ -1,0 +1,68 @@
+{
+ "n": {
+  "chargeOk": 3189414,
+  "blowOutOk": 3270,
+  "castOk": 1684,
+  "casterOk": 1463447,
+  "frames": 1475497,
+  "stkFrames": 5910482,
+  "nothingElseOk": 1475497,
+  "winFrozen": 227112,
+  "winLive": 1475256,
+  "touches": 14532,
+  "wallOk": 14532,
+  "cadenceOk": 14532,
+  "hexOk": 14532,
+  "hurlOk": 14532,
+  "spMin": 699.9999999999998,
+  "spMax": 700.0000000000002,
+  "casterWallFrames": 53471,
+  "wallCdFrames": 30328,
+  "blowInOk": 4177,
+  "x7": 13493,
+  "closes": 1443,
+  "clockCloses": 1395,
+  "clockOk": 1395,
+  "winSteps": 1536497,
+  "insetTouches": 10561,
+  "litAtVerdict": 241,
+  "litLoss": 94,
+  "litThroughVerdict": 241,
+  "deathCloses": 48,
+  "casterDeathCloses": 48,
+  "litWin": 147,
+  "blowExempt": 71,
+  "x0": 0
+ },
+ "bad": {
+  "7": [
+   "the tick changed the caster (v dawnbringer)",
+   "the tick changed the caster (v dawnbringer)",
+   "the tick changed the caster (v dawnbringer)",
+   "the tick changed the caster (v dawnbringer)"
+  ],
+  "0": []
+ },
+ "T": {
+  "casts": 1684,
+  "frames": 1475497,
+  "touches": 14532,
+  "hexes": 14532,
+  "hurls": 14532,
+  "foeStk": 5910482
+ },
+ "fights": 456,
+ "win": 0.5131578947368421,
+ "blowsIn": 9.239035087719298,
+ "blowsOut": 7.24780701754386,
+ "closeTicks": 960,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "pad": 1.5,
+  "cd": 0.5,
+  "hex": 1,
+  "hurl": 700,
+  "dmg": 20.5
+ }
+}

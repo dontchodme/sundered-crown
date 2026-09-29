@@ -1,0 +1,35 @@
+rows_final.json: 9 rows, 28923 bytes, sha256[:16] of the file 1ab82ea2383e20de, round-trips; all ASCII: True
+[1] 9 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+[3] STAMP b40d52b7561c45f2  (base 6d736451a1ffc2df; ld-final.html matches; +22788 chars)
+[4] on sc-tendril-fx.html + lodestone 1,2,3,5 (98f30ddba0cff3bb): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on ci-final.html + lodestone 1,2,3,5 (47b068194cd62906): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on ih-final-fx.html + lodestone 1,2,3,5 (f849783d42f82004): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on pc-final.html + lodestone 1,2,3,5 (28b493c44612ce44): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-angelus-b9-5.html (round-3 compose) (f392d3c767652dd0): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-coldiron-temper-b93-5.html (round-3 compose) (b8c3c1bc75b30b46): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-coldiron-temper-fx-5.html (round-3 compose) (886fc9f1a55a8c6a): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-ironhail-b14-5.html (round-3 compose) (5513550924171d50): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-lightkeeper-bulwark-b9.5-5.html (round-3 compose) (4892f4daf0927eb6): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-onslaught-fx-5.html (round-3 compose) (89d03fd7508c6e45): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-oracle-sight-5.html (round-3 compose) (38711398247268c9): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-widowmaker-b1075-5.html (round-3 compose) (e4f00198d4d7ddda): every anchor once, forward == reverse True, parses (+22788 chars, the same as on the base: True)
+    with Lodestone's 3 voice rows (rows_lab3.json): voice-then-picture == picture-then-voice True, parses
+[5] CONTROL (an anchor that occurs many times) refused: rebuttal picture: fighter fields: anchor found 340x

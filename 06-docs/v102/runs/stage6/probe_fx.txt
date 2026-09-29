@@ -1,0 +1,27 @@
+Mon Sep 28 02:55:54 PDT 2026
+
+REBUTTAL PROBE  sc-lodestone-b205-fx.html  Chromium 151.0.7922.34  456 fights (Lodestone both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'pad': 1.5, 'cd': 0.5, 'hex': 1, 'hurl': 700, 'dmg': 20.5}
+  casts/fight 3.72   blows a fight: in windows 8.96, outside 7.20   Lodestone win 43.0%
+  per cast: touches 8.55  hexes 8.55  hurls 8.55   foe hex stacks on a window frame 4.00   touches on a closed-in hall 10620 of 14518
+  hurl speed 700.000000 .. 700.000000   caster on a wall 53221 window frames (its touches do nothing)   wall frames under the cooldown 30587   caster frames under a rune hurt 0
+  closes on a death: the caster's 49, the foe's 0 (unreachable: Lodestone kills only in tickHits, after tickRunes)   fights ending with the walls STILL LIT 236 of 456 (Lodestone won 127, lost 109); still lit 240 verdict steps on 236
+  window: 959 window frames a clock close (1413 clock closes, 49 on a death); 9.16s of match time a clock-closed window   FREEZE CENSUS 13.3% of window steps frozen
+  whole-state reads: the foe 1487433, the caster 1487433, the Match 1487433 rune ticks unchanged; recorded by identity only (never walked): nothing; arrays read as length + last 16: caster.lodeFx, caster.tips, caster.trail, foe.tips, foe.trail, foe.treeLeaves, foe.ultTrace, match.beats, match.drains, match.events, match.fx, match.motes, match.shades, match.shots
+  stage 6 voice: casts 1698  touch snaps + hex-snaps 14518 (n 1:900, 2:1099, 3:1166, 4:1166, 5:10187)  close voices 1413 (clock closes, both alive)  silent death closes 49  windows lit at the verdict 236 (silent)   run totals {'lodestone': 1698, 'lodestone-touch': 14518, 'lodestone-close': 1413}
+  stage 6 picture: tickLode calls clean 7011283  walls lit 3198716, going dark 151536  touch records at the touch 14515 (83 at a corner, 10617 in a closed-in hall)  the foe's count tagged 14515 (4328 under the cap)  kill-step touches undrawn 3  dark in the verdict 290  drawn frames 54427 (49378 with the picture up, 6775 of them in a hit stop, 316 in the verdict)
+  [0] PASS  the numbers: charge 14 (16 converted), dur 8, pad 1.5, cd 0.5, hex 1, hurl 0 (stage 2) or 700
+  [1] PASS  the window is `dur` on the window clock (never ticks frozen), closes on the caster's death; only Lodestone carries it
+  [2] PASS  a touch only with the foe's centre within inset + R + pad of a side of the CURRENT hall, alive, unpinned
+  [3] PASS  once per `cd` on the window clock; never a missed clear touch
+  [4] PASS  each touch: apply('hex', hex) on the foe once, by side letter; nothing on any other frame
+  [5] PASS  the hurl: the foe's velocity ASSIGNED hurl x unit(caster - foe), 700 +-1; untouched otherwise (and at hurl 0)
+  [6] PASS  no damage, no resolveHit, no beat, no hit stop; nothing else on the foe (its whole state but vx, vy, status.hex) or the Match
+  [7] PASS  the caster's own touches do nothing: the tick never changes the caster (its whole state but ultRunes, runeTally)
+  [8] PASS  every blow the hammer's own, rebuilt exactly, in the window and out
+  [9] PASS  no cast while the walls are lit; no cast held back
+  [10] PASS  stage 6 voice: one cast voice a cast; a touch = its snap at the foe's count after its hex, then the hex-snap, in order; a close voice only on a clock close with both alive, none on a death or at the verdict; nothing else in tickRunes; every voice accounted for
+  [11] PASS  stage 6 picture: tickLode writes no sim field and draws no RNG; the walls lit exactly while the window is; one record a touch at its spot and walls; the foe's count tagged; a kill-step touch undrawn; dark in the verdict; no drawn frame throws, draws the RNG or writes the sim
+
+  12/12
+EXIT 0
+Mon Sep 28 03:15:27 PDT 2026

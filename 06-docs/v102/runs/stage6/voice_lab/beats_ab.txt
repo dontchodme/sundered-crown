@@ -1,0 +1,11 @@
+base sc-lodestone-b205.html 6d736451a1ffc2df 152 fights 38 plans errors 0
+voice sc-lodestone-voice.html 8921a39052799d17 152 fights 38 plans errors 0
+ctl sc-lodestone-voice-beatctl.html 640fc300003fbcab 152 fights 38 plans errors 0
+beats identical base vs voice: 152/152
+director's plan identical base vs voice: 38/38
+voice page: Lodestone casts 561, its ult beats 561 (equal: True); touches 4761; beats filed on a touch's own step, by kind: {'ult': 28, 'hit': 16, 'clank': 14}
+  (a beat on a touch's step can be a blow landed on the same step; the probe [6] reads the rune tick itself)
+voice page beats by kind: {'hit': 5086, 'clank': 3071, 'ult': 1434}
+CONTROL (a beat filed on every touch): beats identical 4/152; ult beats 5322 vs casts 561; on touch steps {'ult': 4789, 'hit': 16, 'clank': 14} -> fails, as it must
+BEATS PASS
+EXIT 0

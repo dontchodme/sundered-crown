@@ -1,0 +1,11 @@
+The probe on sc-lodestone-b205 and its mutants (ctl/mut205, runs/make_ctl.py), 456 fights each.
+  link       win 43.0%   10/10
+  mut-dur      Z.t += dt * 0.9           (the window 11% long)                             win 54.8%   fails ['[1] x149962']   -> fails ONLY its own check [1]
+  mut-pad      e = u.pad + 4.5           (a 6-unit band)                                   win 47.6%   fails ['[2] x12261']   -> fails ONLY its own check [2]
+  mut-cd       Z.cd = u.cd * 0.8         (a touch every 0.4s)                              win 49.6%   fails ['[3] x3928']   -> fails ONLY its own check [3]
+  mut-hex2     apply("hex", u.hex + 1)   (two stacks a touch)                              win 55.3%   fails ['[4] x14677']   -> fails ONLY its own check [4]
+  mut-impulse  foe.vx += ..., vy += ...  (an impulse, not the throw)                       win 51.8%   fails ['[5] x15404']   -> fails ONLY its own check [5]
+  mut-bite     this.hurt(foe, 4, f)      (the design's rejected bite)                      win 67.1%   fails ['[6] x26323']   -> fails ONLY its own check [6]
+  mut-self     the caster pushed off its own left wall                                     win 51.3%   fails ['[7] x13493']   -> fails ONLY its own check [7]
+  mut-death    drops `|| !foe.alive` from the close (EQUIVALENT: the branch is unreachable) win 43.0%   fails none   every count identical to the link: True   -> EQUIVALENT, as expected
+ALL AS EXPECTED

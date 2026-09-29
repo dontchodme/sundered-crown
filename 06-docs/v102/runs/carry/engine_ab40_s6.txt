@@ -1,0 +1,12 @@
+=== ENGINE A/B: 40 relics, 6 seeds x 780 pairings ===
+
+  sc-lodestone-b205.html          4680 matches  515.9s
+  sc-lodestone-b205-fx.html       4680 matches  613.4s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4680
+  PASS  every match identical field for field  — 4680/4680
+  PASS  the sweep is real  — 40/40 distinct winners, 4680 distinct seeds, 16.2-113.5s
+
+ENGINE A/B PASS — ../02-chain/sc-lodestone-b205-fx.html does not move the 40-relic roster.
+exit 0

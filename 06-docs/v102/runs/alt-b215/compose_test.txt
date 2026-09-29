@@ -1,0 +1,60 @@
+=== on sc-tendril-fx (5e2cc29a1178bef4)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-tendril-fx-1.html  ba6656b5accfef0f   (+914 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-tendril-fx-2.html  c455ff12680e957c   (+3063 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-tendril-fx-3.html  550826869270cdb1   (+2 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-tendril-fx-5.html  97c50c37598b1cf7   (+0 chars, written LF)
+  the composed diff is the base->b215 diff, line for line
+=== on sc-onslaught-fx (ee74fe9ad67e50a6)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-onslaught-fx-1.html  fc82f83824f643f1   (+914 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-onslaught-fx-2.html  573b568474acf656   (+3063 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-onslaught-fx-3.html  3eee9e62a74c363b   (+2 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-onslaught-fx-5.html  4fbc8767f04060bc   (+0 chars, written LF)
+  the composed diff is the base->b215 diff, line for line
+=== on sc-coldiron-temper-b93 (324b42d5b36fac98)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 relics in the roster (la
+out sc-coldiron-temper-b93-1.html  02336c8e574832f4   (+914 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 relics in the roster (la
+out sc-coldiron-temper-b93-2.html  330a2f2148799d45   (+3063 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 relics in the roster (la
+out sc-coldiron-temper-b93-3.html  870e88c726ef359c   (+2 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 40 relics in the roster (la
+out sc-coldiron-temper-b93-5.html  b5db602960b7a306   (+0 chars, written LF)
+  the composed diff is the base->b215 diff, line for line
+=== on sc-widowmaker-b11 (7438eed4e6e4ca6b)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-widowmaker-b11-1.html  146e3db725c3114c   (+914 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-widowmaker-b11-2.html  b6eec1837b2d1bfe   (+3063 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-widowmaker-b11-3.html  56982e5a392e685b   (+2 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-widowmaker-b11-5.html  af820439fc392151   (+0 chars, written LF)
+  the composed diff is the base->b215 diff, line for line
+=== on sc-ironhail-b14 (dadb773b6f8d4555)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-ironhail-b14-1.html  719fef3d1b1aaf57   (+914 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-ironhail-b14-2.html  1d18a3d4b0458404   (+3063 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-ironhail-b14-3.html  3322b14aa85d9d80   (+2 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-ironhail-b14-5.html  f9f64c589b194cf4   (+0 chars, written LF)
+  the composed diff is the base->b215 diff, line for line
+=== on sc-lightkeeper-bulwark-b10 (97746e35cc3e500d)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-lightkeeper-bulwark-b10-1.html  b3542c6f0af8b220   (+914 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-lightkeeper-bulwark-b10-2.html  f2efc540243ae27f   (+3063 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-lightkeeper-bulwark-b10-3.html  43ac872109da947e   (+2 chars, written LF)
+ok    one runes ultimate, Lodestone's; no insert draws the RNG, writes the shared weapon, stuns, pins, stops, hurts or files a beat; 39 relics in the roster (la
+out sc-lightkeeper-bulwark-b10-5.html  ecad84638e1d4224   (+0 chars, written LF)
+  the composed diff is the base->b215 diff, line for line

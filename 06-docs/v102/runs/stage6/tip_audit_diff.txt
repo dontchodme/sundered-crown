@@ -1,0 +1,8 @@
+tip_audit fx vs b205 (both run 2026-09-28 with PYTHONIOENCODING=utf-8), diffed past the first line (the page's path):
+diff exit 0 (0 = identical)
+vs runs/tip_audit_b205.txt (stage 5, cp1252 console: the em-dash printed as a replacement char):
+31c31
+<                  0.55 is scaled by the relic's own onSelf.ward value ? resolveHit
+---
+>                  0.55 is scaled by the relic's own onSelf.ward value  resolveHit
+diff exit 1

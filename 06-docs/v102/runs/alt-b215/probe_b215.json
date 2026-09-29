@@ -1,0 +1,53 @@
+{
+ "n": {
+  "chargeOk": 3126427,
+  "blowOutOk": 3130,
+  "castOk": 1640,
+  "casterOk": 1437449,
+  "frames": 1436049,
+  "stkFrames": 5717339,
+  "nothingElseOk": 1436049,
+  "winFrozen": 221007,
+  "winLive": 1435809,
+  "touches": 13926,
+  "wallOk": 13926,
+  "cadenceOk": 13926,
+  "hexOk": 13926,
+  "hurlOk": 13926,
+  "spMin": 699.9999999999998,
+  "spMax": 700.0000000000002,
+  "casterWallFrames": 51813,
+  "wallCdFrames": 28920,
+  "blowInOk": 3987,
+  "closes": 1400,
+  "clockCloses": 1363,
+  "clockOk": 1363,
+  "winSteps": 1500783,
+  "insetTouches": 10069,
+  "deathCloses": 37,
+  "blowExempt": 66
+ },
+ "bad": {},
+ "T": {
+  "casts": 1640,
+  "frames": 1436049,
+  "touches": 13926,
+  "hexes": 13926,
+  "hurls": 13926,
+  "foeStk": 5717339
+ },
+ "fights": 456,
+ "win": 0.49780701754385964,
+ "blowsIn": 8.81359649122807,
+ "blowsOut": 6.93859649122807,
+ "closeTicks": 960,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "pad": 1.5,
+  "cd": 0.5,
+  "hex": 1,
+  "hurl": 700,
+  "dmg": 21.5
+ }
+}

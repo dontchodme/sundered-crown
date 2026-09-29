@@ -1,0 +1,6 @@
+probe_fx.txt [header + 0-9] vs runs/probe_b205.txt (page name masked; the stage-6 lines and the score line dropped; line endings ignored):
+7c7
+<   whole-state reads: the foe 1487433, the caster 1487433, the Match 1487433 rune ticks unchanged; recorded by identity only (never walked): nothing; arrays read as length + last 16: caster.lodeFx, caster.tips, caster.trail, foe.tips, foe.trail, foe.treeLeaves, foe.ultTrace, match.beats, match.drains, match.events, match.fx, match.motes, match.shades, match.shots
+---
+>   whole-state reads: the foe 1487433, the caster 1487433, the Match 1487433 rune ticks unchanged; recorded by identity only (never walked): nothing; arrays read as length + last 16: caster.tips, caster.trail, foe.tips, foe.trail, foe.treeLeaves, foe.ultTrace, match.beats, match.drains, match.events, match.fx, match.motes, match.shades, match.shots
+diff exit 1

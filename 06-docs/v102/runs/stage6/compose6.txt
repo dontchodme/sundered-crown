@@ -1,0 +1,22 @@
+COMPOSITION, STAGE 6  2026-09-28 02:29  lodestone_build.py c74cd4a4508bfcf5
+-- forward: lodestone stages 1, 2, 3, 5, 6 on the real tip, the batch line's tip and each newest link
+  sc-tendril-t3 (5a6216e3b629fad4): stages 12356 -> 39 relics in the roster, s6 7a095b143d66fbdb (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-ironhail-fxout (4b3775e5900172ea): stages 12356 -> 40 relics in the roster, s6 4568c2995d06f696 (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-tendril-fx (eea0cde5536955b3): stages 12356 -> 39 relics in the roster, s6 615b6ccc8cf65fa8 (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-onslaught-fx (ee74fe9ad67e50a6): stages 12356 -> 39 relics in the roster, s6 82bdfed6f50d63cb (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-coldiron-temper-fx (3693eda608b26fa8): stages 12356 -> 40 relics in the roster, s6 5787a4df1b8a4c02 (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-ironhail-sunder-fx (b8ff2014a954be3f): stages 12356 -> 39 relics in the roster, s6 fc8e3ad6731f5c55 (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-angelus-b9 (db58100b3aa0092a): stages 12356 -> 40 relics in the roster, s6 a02fc406dd62e79b (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-lightkeeper-bulwark-b9.5 (d60a5c63b785ad04): stages 12356 -> 39 relics in the roster, s6 6dad1f28035c7acb (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-oracle-b10 (2610d11c5c35fdf8): stages 12356 -> 40 relics in the roster, s6 dd25b97680c7d58f (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+  sc-widowmaker-b1075 (a9977a757d5772b7): stages 12356 -> 39 relics in the roster, s6 3444a23ffd106a37 (+29141 chars) s5->s6 590 lines md5 403421dd3e62
+-- reverse: each builder's stages on sc-lodestone-b205-fx
+  angelus_build.py stages 1 2 3 5: 1 2 3 5 
+  coldiron_build.py stages 1 2 3 4 5 6: 1 2 3 4 5 6 
+  ironhail_build.py stages 1 2 3 6: 1 2 3 6 
+  lightkeeper_build.py stages 1 2 3 5: 1 2 3 5 
+  oracle_build.py stages 1 2 3 5: 1 2 3 5 
+  widowmaker_build.py stages 1 2 5: 1 2 5 
+  bindweed_build.py stages 6: 6 
+  portcullis_build.py stages 6: 6 
+done 02:30

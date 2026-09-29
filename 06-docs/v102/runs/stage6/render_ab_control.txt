@@ -1,0 +1,16 @@
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-lodestone-b205.html
+  b  sc-lodestone-b205-fx.html
+  aureole v lodestone seed 102602 t= 61.60  DIFFERS   luma 21.488 -> 21.851   lit 67.94% -> 67.94%
+  aureole v lodestone seed 102602 t= 62.50  DIFFERS   luma 20.573 -> 22.288   lit 67.20% -> 67.20%
+  aureole v lodestone seed 102602 t= 64.00  DIFFERS   luma 19.308 -> 20.779   lit 65.89% -> 65.85%
+  aureole v lodestone seed 102602 t= 66.00  DIFFERS   luma 20.345 -> 21.823   lit 66.22% -> 66.22%
+  aureole v lodestone seed 102602 t= 68.00  DIFFERS   luma 18.461 -> 20.060   lit 65.29% -> 65.34%
+  aureole v lodestone seed 102602 t= 70.00  DIFFERS   luma 18.029 -> 19.564   lit 65.26% -> 65.33%
+
+FAIL  0/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

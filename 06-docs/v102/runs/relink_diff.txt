@@ -1,0 +1,37 @@
+sc-lodestone             round 2 219cc73b0460ddf0 -> round 3 32736d26461e3061   8 +/- lines   same line count: True   identical with comments stripped: True
+    -     relic. Grudgebearer's hammer profile and its blade, 23.5 (the lab's donor
+    -     and the whole type's; stage 5 settles the blade), and the school's
+    -     channel, onHit hex 1. Stage 1 stubs the ultimate at charge 1e9; stages 2-3
+    -     give it its runed walls and their hex, then the hurl. */
+    +     relic. Grudgebearer's hammer profile (the lab's donor and the whole
+    +     type's) on the donor's blade until stage 5 settles its own; the school's
+    +     channel, onHit hex 1. The ultimate is stubbed at stage 1 (charge 1e9);
+    +     stages 2-3 give it its runed walls and their hex, then the hurl. */
+sc-lodestone-runes       round 2 f6b9d99345d7bd52 -> round 3 f779b5be09d8ae4e   8 +/- lines   same line count: True   identical with comments stripped: True
+    -     relic. Grudgebearer's hammer profile and its blade, 23.5 (the lab's donor
+    -     and the whole type's; stage 5 settles the blade), and the school's
+    -     channel, onHit hex 1. Stage 1 stubs the ultimate at charge 1e9; stages 2-3
+    -     give it its runed walls and their hex, then the hurl. */
+    +     relic. Grudgebearer's hammer profile (the lab's donor and the whole
+    +     type's) on the donor's blade until stage 5 settles its own; the school's
+    +     channel, onHit hex 1. The ultimate is stubbed at stage 1 (charge 1e9);
+    +     stages 2-3 give it its runed walls and their hex, then the hurl. */
+sc-lodestone-rebuttal    round 2 0dac0cefbff88ead -> round 3 d48dd38d92e55bd0   8 +/- lines   same line count: True   identical with comments stripped: True
+    -     relic. Grudgebearer's hammer profile and its blade, 23.5 (the lab's donor
+    -     and the whole type's; stage 5 settles the blade), and the school's
+    -     channel, onHit hex 1. Stage 1 stubs the ultimate at charge 1e9; stages 2-3
+    -     give it its runed walls and their hex, then the hurl. */
+    +     relic. Grudgebearer's hammer profile (the lab's donor and the whole
+    +     type's) on the donor's blade until stage 5 settles its own; the school's
+    +     channel, onHit hex 1. The ultimate is stubbed at stage 1 (charge 1e9);
+    +     stages 2-3 give it its runed walls and their hex, then the hurl. */
+sc-lodestone-b205        round 2 346b12ef6d3b67ac -> round 3 6d736451a1ffc2df   8 +/- lines   same line count: True   identical with comments stripped: True
+    -     relic. Grudgebearer's hammer profile and its blade, 23.5 (the lab's donor
+    -     and the whole type's; stage 5 settles the blade), and the school's
+    -     channel, onHit hex 1. Stage 1 stubs the ultimate at charge 1e9; stages 2-3
+    -     give it its runed walls and their hex, then the hurl. */
+    +     relic. Grudgebearer's hammer profile (the lab's donor and the whole
+    +     type's) on the donor's blade until stage 5 settles its own; the school's
+    +     channel, onHit hex 1. The ultimate is stubbed at stage 1 (charge 1e9);
+    +     stages 2-3 give it its runed walls and their hex, then the hurl. */
+ONLY THE ROW COMMENT CHANGED

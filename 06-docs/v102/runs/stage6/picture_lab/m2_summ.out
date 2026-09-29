@@ -1,0 +1,40 @@
+88 frames, 9 fights; missing: shroudmaul 5150b ['over']; lastlight 4242a ['over']
+BLOOM: the picture's share of the chain's arena lift max +0.0000 min -0.0002 (gate +0.02) [worst twinshade 99008a tstop]; raw luma added max +0.0115; arena clip with max 0.0190 without 0.0190
+  CONTROL ctrl1: dLift max +0.0129, > 0.02 on 0/88; caster disc pushed past 0.90 on 70/72 window frames; foe disc pushed past 0.90 on 1/88 (max caster 1.000, foe 0.911)
+  CONTROL ctrl2: dLift max +0.0448, > 0.02 on 11/88; caster disc pushed past 0.90 on 1/72 window frames; foe disc pushed past 0.90 on 6/88 (max caster 0.919, foe 0.972)
+  CONTROL ctrl3: dLift max +0.0594, > 0.02 on 5/88; caster disc pushed past 0.90 on 7/72 window frames; foe disc pushed past 0.90 on 28/88 (max caster 1.000, foe 0.993)
+DISC me: max |d| 0.0000 (art only, tags out: +0.0000..+0.0000); disc 0.340..0.919; >0.90 with 1 / without 1 of 88; clip with max 0.712 without 0.712
+DISC foe: max |d| 0.0963 (art only, tags out: -0.0138..+0.0167); disc 0.262..0.902; >0.90 with 1 / without 1 of 88; clip with max 0.589 without 0.589
+  foe bloodsworn: n 10 max |d| 0.0202 (art +0.0000..+0.0167); disc 0.301..0.844, contour 0.187..0.438; >0.90 with 0 without 0
+  foe dwarven   : n 10 max |d| 0.0074 (art +0.0000..+0.0113); disc 0.308..0.469, contour 0.187..0.450; >0.90 with 0 without 0
+  foe runic     : n 10 max |d| 0.0073 (art +0.0000..+0.0008); disc 0.403..0.895, contour 0.267..0.838; >0.90 with 0 without 0
+  foe sanctified: n 29 max |d| 0.0547 (art -0.0138..+0.0000); disc 0.262..0.902, contour 0.257..0.725; >0.90 with 1 without 1
+  foe umbral    : n 29 max |d| 0.0963 (art +0.0000..+0.0158); disc 0.333..0.899, contour 0.205..0.744; >0.90 with 0 without 0
+LEGIBILITY (median |dL| of the component's own pixels (min..max) [n frames]; out of a stop  /  in one):
+  weaponBase in rest                              : 0.223 (0.136..0.258) [9]  /  -
+  weapon     in rest                              : 0.223 (0.136..0.258) [9]  /  -
+  weaponBase in lit,stop                          : 0.221 (0.143..0.251) [9]  /  0.151 (0.103..0.228) [9]
+  weapon     in lit,stop                          : 0.206 (0.132..0.221) [9]  /  0.153 (0.116..0.218) [9]
+  walls      in cast                              : 0.201 (0.187..0.202) [8]  /  0.149 (0.149..0.149) [1]
+  walls      in lit,stop,touch2,touch10,tstop     : 0.197 (0.186..0.201) [27]  /  0.164 (0.151..0.222) [18]
+  walls      in close,over                        : 0.197 (0.174..0.199) [9]  /  0.159 (0.158..0.160) [2]
+  motes      in lit,stop,touch2,touch10           : 0.258 (0.221..0.292) [27]  /  0.259 (0.242..0.283) [9]
+  head       in cast,lit,stop,touch2,touch10,tstop: 0.390 (0.114..0.403) [30]  /  0.148 (0.100..0.396) [18]
+  head       in close,over                        : 0.267 (0.099..0.278) [9]  /  0.157 (0.137..0.177) [2]
+  flare      in touch0,touch2,tstop               : 0.161 (0.084..0.245) [18]  /  0.078 (0.056..0.161) [9]
+  bolt       in touch0                            : 0.297 (0.255..0.376) [9]  /  -
+  streak     in touch2,touch10,tstop              : 0.219 (0.090..0.301) [9]  /  0.150 (0.058..0.201) [5]
+  tag        in touch0,touch2,touch10,tstop       : 0.216 (0.181..0.371) [27]  /  0.231 (0.190..0.482) [9]
+  ground     in cast,lit,stop,touch0,touch2,touch10,tstop,close: 0.200 (0.176..0.206) [53]  /  0.165 (0.152..0.226) [19]
+  top        in touch0                            : 0.297 (0.255..0.376) [9]  /  -
+by state (median |dL| of everything the picture draws, the walls' tags included):
+  rest     nan (nan..nan) n 0 of 9  area 0 u2
+  cast     0.205 (0.152..0.212) n 9 of 9  area 14404 u2
+  lit      0.202 (0.194..0.207) n 9 of 9  area 23372 u2
+  stop     0.185 (0.155..0.220) n 9 of 9  area 11531 u2
+  touch0   0.202 (0.198..0.208) n 9 of 9  area 23377 u2
+  touch2   0.205 (0.201..0.210) n 9 of 9  area 23434 u2
+  touch10  0.204 (0.198..0.210) n 9 of 9  area 24452 u2
+  tstop    0.177 (0.156..0.222) n 9 of 9  area 13626 u2
+  close    0.201 (0.173..0.203) n 9 of 9  area 16081 u2
+  over     0.158 (0.145..0.197) n 5 of 7  area 768 u2
