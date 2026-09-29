@@ -1,0 +1,15 @@
+
+BULWARK PROBE  sc-lightkeeper-wall.html  Chromium 151.0.7922.34  660 fights (Lightkeeper side A x 33 foes x 20 seeds)   blade 10.54   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 0, 'bankShot': 0}
+  casts/fight 4.10   per cast: blocks 6.64  arrows 1.56  banked 0.00   shield on a window frame 10.65 (per fight, windowless as 0: 10.46)   Lightkeeper win 42.6%
+  blows a fight: in windows 12.68, outside 11.50   window frames a cast 901.2 (dur x 120 = 960)   blocks ahead / behind the wall 10285 / 7716   pinned contacts passed over 0
+  net arrows stuck 408   other arrows spliced 3823   closes: clock 2366, death 57   FREEZE CENSUS 16.2% of window steps frozen (a window is ~9.54s of match time)
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens the wall {t 0, dur, cd 0} and touches nothing
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: stuck; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] PASS  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity
+  [6] PASS  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, the ward's clock (none at bank 0)
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop on a wall frame; no position or hp moved
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  8/8

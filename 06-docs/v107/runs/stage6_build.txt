@@ -1,0 +1,24 @@
+
+LIGHTKEEPER / BULWARK (redesign) -- stage 6
+  src sc-lightkeeper-bulwark-b9.5.html  d60a5c63b785ad04  (LF text)
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for widowmaker, censer
+  ok    Sfx: Lightkeeper's raise, gong, tink and fold arms, before the shared rune-crack fallback
+  ok    tickLightwall: the tink, once per arrow the wall stops, flammed by its index in the frame
+  ok    tickLightwall: the gong, once per ball block, on the block's frame
+  ok    tickLightwall: the fold, on a clock close with both alive, before the close line
+  ok    bulwark picture: fighter fields
+  ok    bulwark picture: the presentation call
+  ok    bulwark picture: tickBulwark
+  ok    bulwark picture: the world call (over both fighters)
+  ok    bulwark picture: the drawing methods
+  ok    bulwark picture: the nova's plate ring retired
+  ok    bulwark picture: the nova's plates retired
+  ok    bulwark picture: the charge rune
+  ok    bulwark picture: the cast record's life
+  ok    ult   ult:{ name:"Bulwark", charge:14, kind:"lightwall", dur:8, ahead:50, half:110, shotPad:6, ballPad ...
+  ok    card  71 chars  'A wall of light: arrows die on it, foes bounce off it, blocks bank ward'
+  ok    stage 6: presentation only (no RNG, no ultFx, no call into the sim, writes its own fields); the inlined fx.js untouched; the nova's art out; four voices and one picture hook wired once each
+  ok    one lightwall ultimate, Lightkeeper's; the nova gone from its row; no insert draws the RNG, writes the shared weapon or a shared table, beats, stops, hurts, stuns, pins or lays a status but the ward; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-lightkeeper-bulwark-b9.5-fx.html  e3f16bf01f0e2995   (+20903 chars, written LF)

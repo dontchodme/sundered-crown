@@ -1,0 +1,17 @@
+# the clip, checked 2026-09-29 04:17: 07-shorts/v107/bulwark-window.mp4 sha256[:16] 2d52915287c69d12, 5289520 bytes
+# ffprobe:
+stream|index=0|codec_name=h264|codec_type=video|width=540|height=960|r_frame_rate=60/1|nb_frames=1106|
+stream|index=1|codec_name=aac|codec_type=audio|sample_rate=48000|channels=2|r_frame_rate=0/0|nb_frames=865
+format|duration=18.454687|size=5289520
+# ffmpeg -af volumedetect (the AAC track):
+n_samples: 1771520
+mean_volume: -23.4 dB
+max_volume: -1.5 dB
+# five frames (ffmpeg select eq(n,..) + tile=5x1, full 540x960, through the post chain and the director): scratch s6int/clipcheck/tile5.png, copied to 05-reference/v107/lightkeeper-clip-frames.png
+#   f84  (1.40s video, HUD 49.1): the bar rising out of the ward ring (cast at 48.842), the Bulwark banner; Lightkeeper's blow on the foe (12, +7 ward)
+#   f188 (3.13s, HUD 50.8): a block (50.783): the bar white (the two-frame flash, f188-f189), the foe turned back, +3 and WARD on the caster
+#   f651 (10.85s, HUD 57.6): Bloodmill's spikes dying on the bar (57.608 / 57.633 x2): white strike rings on the bar, +3 / +6 floats
+#   f663 (11.05s, HUD 57.8): the bar swung with the blade, spikes still in the air, a strike ring at the bar's end
+#   f865 (14.42s, HUD 59.2): the fold (clock close 59.067, fold done 59.308): the bar shortening back into the ward ring
+# the video -> match mapping read off the HUD clock: 1.0x to ~8.5s of video (match ~56.1), then the director's slow motion from the T3 cut at 56.2
+# events in the filmed span, headless (stage6_clip_timeline.txt): cast 48.842; 13 blocks 50.783..58.842; 9 arrows (57.608, 57.633 x2, 57.675, 57.717, 58.500 x2, 58.525, 58.958; two frames of two, flammed k 0,1); close BY THE CLOCK 59.067 with the fold voice; bulwarkFade 0 at 59.308; the fight runs on (over at 69.03)

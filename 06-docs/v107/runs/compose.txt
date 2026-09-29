@@ -1,0 +1,12 @@
+ok   lightkeeper 1,2,3,5 on widowmaker's last link (sc-widowmaker-bzz.html)
+ok   widowmaker's stages on lightkeeper's b10
+ok   lightkeeper 1,2,3,5 on coldiron's last link (sc-coldiron-temper-bzz.html)
+ok   coldiron's stages on lightkeeper's b10
+ok   lightkeeper 1,2,3,5 on ironhail's last link (sc-ironhail-bzz.html)
+ok   ironhail's stages on lightkeeper's b10
+ok   lightkeeper 1,2,3,5 on lodestone's last link (sc-lodestone-bzz.html)
+ok   lodestone's stages on lightkeeper's b10
+FAIL coldiron stage 1 on sc-widowmaker-bzz.html: COLDIRON / TEMPER -- stage 1   src sc-widowmaker-bzz.html  7438eed4e6e4ca6b  (LF text) Widowmaker's twinblade profile has moved -- the donor is not what this builder copies 
+ok   lightkeeper 1,2,3,5 on all four stacked (sc-widowmaker-bzz.html)
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for censer
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for censer

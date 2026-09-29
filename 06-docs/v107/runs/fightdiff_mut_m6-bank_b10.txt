@@ -1,0 +1,1 @@
+mut-m6-bank.html vs sc-lightkeeper-bulwark-b10.html: 215/222 fights differ; Lightkeeper wins 116 -> 128

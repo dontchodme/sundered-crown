@@ -1,0 +1,20 @@
+
+BULWARK PROBE  mut-r4-noward.html  Chromium 151.0.7922.34  444 fights (Lightkeeper both sides x every foe x 6 seeds)   blade 9.5   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.39   per cast: blocks 6.82  arrows 1.26  banked 23.54   shield on a window frame 16.63 (per fight, windowless as 0: 16.17)   Lightkeeper win 44.1%
+  blows a fight: in windows 13.62, outside 12.67   window frames a cast 901.8 (dur x 120 = 960)   blocks ahead / behind the wall 7479 / 5794   pinned contacts passed over 7376
+  net arrows stuck 255   other arrows spliced 2200   closes: clock 1703, death 43   FREEZE CENSUS 16.5% of window steps frozen (a window is ~9.58s of match time)
+  whole-state diffs clean: 1757532 wall frames (11790 with a shade in the hall), 1947 casts, 444 fights' shared tables (WEAPONS STATUS CONFIG AFFINITIES SHAPES)   Crossweave volleys the wall left fully stuck (released at the next tickShots, reading 2): 80
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0} and writes nothing else (whole state and shared tables, from the prologue's end)
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: exactly the endpoint write; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] PASS  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity
+  [6] FAIL  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, apply("ward", 1) exactly (none at bank 0)   2241 FAIL: ['the ward {"stacks":1,"t":4.824999999999991} -> {"stacks":1,"t":4.824999999999991}, want {"stacks":1,"t":5} (apply("ward", 1) x 1)', 'the ward {"stacks":1,"t":4.699999999999985} -> {"stacks":1,"t":4.699999999999985}, want {"stacks":1,"t":5} (apply("ward", 1) x 1)', 'the ward {"stacks":1,"t":4.641666666666649} -> {"stacks":1,"t":4.641666666666649}, want {"stacks":1,"t":5} (apply("ward", 1) x 1)', 'the ward {"stacks":1,"t":4.13333333333329} -> {"stacks":1,"t":4.13333333333329}, want {"stacks":1,"t":5} (apply("ward", 1) x 1)']
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop; a whole-state diff of both fighters, the match (shades too) and the shared tables
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  7/8
+
+real	7m11.990s
+user	0m0.000s
+sys	0m0.015s

@@ -1,0 +1,16 @@
+
+BULWARK PROBE  mut-m5-shove.html  Chromium 151.0.7922.34  444 fights (Lightkeeper both sides x every foe x 6 seeds)   blade 9.5   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.41   per cast: blocks 6.89  arrows 1.30  banked 23.72   shield on a window frame 17.13 (per fight, windowless as 0: 16.71)   Lightkeeper win 43.7%
+  blows a fight: in windows 14.16, outside 12.71   window frames a cast 903.6 (dur x 120 = 960)   blocks ahead / behind the wall 7661 / 5853   pinned contacts passed over 7376
+  net arrows stuck 255   other arrows spliced 2286   closes: clock 1711, death 27   FREEZE CENSUS 16.6% of window steps frozen (a window is ~9.59s of match time)
+  whole-state diffs clean: 1772782 wall frames, 1960 casts, 444 fights' weapon tables   Crossweave volleys the wall left fully stuck (released at the next tickShots, reading 2): 92
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0} and writes nothing else (whole state, from the end of the shared prologue)
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: exactly the endpoint write; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] FAIL  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity   13514 FAIL: ['dawnbringer v 284.36484413873154,69.49406411257581 want 283.4260063176994,19.502879054149673', 'dawnbringer v -771.9100116139186,284.13250923948897 want -772.5186140865547,334.1288051325879', 'dawnbringer v -111.74636105453317,347.3825321862263 want -62.73336194847377,357.26817423059674', 'dawnbringer v -97.41920192147802,-382.7615689940905 want -47.53104207053161,-386.1039493863293']
+  [6] PASS  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, apply("ward", 1) exactly (none at bank 0)
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop; a whole-state diff of both fighters (stun, pin, status, ...) and the match
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  7/8

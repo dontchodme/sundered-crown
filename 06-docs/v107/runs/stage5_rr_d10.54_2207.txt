@@ -1,0 +1,4 @@
+lightkeeper on sc-lightkeeper-bulwark.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · stage5-as-built-10.54
+  win 55.9%   side A 57.3%   side B 54.6%   mean 79.7s   timeouts 0
+  by type  bow 84%  twinblade 63%  scythe 61%  greatsword 52%  flail 41%  warhammer 36%
+  worst    paradox 10%  ironwood 15%  thornwake 25%   (740 fights in 128s)

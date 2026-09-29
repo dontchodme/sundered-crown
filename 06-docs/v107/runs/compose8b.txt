@@ -1,0 +1,7 @@
+# compose8b 22:20 builders: lightkeeper 0cc27d7b775b6d2c ironhail 491643c55a34fa56
+ok   ironhail 1,2,3,6 on sc-tendril-t3 alone: reach sc-ironhail-s6.html (the last stage)
+ok   lightkeeper 1,2,3,5 on ironhail's s6: reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   lightkeeper 1,2,3,5 on sc-tendril-t3 alone: reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   ironhail 1,2,3,6 on lightkeeper's b9.5: reach sc-ironhail-s6.html (the last stage)
+ok   lk-first b9.5 == the link
+# compose8b: 0 FAIL

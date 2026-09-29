@@ -1,0 +1,44 @@
+# compose7 18:08 builders: lightkeeper 0cc27d7b775b6d2c widowmaker a3b2d26d581735c7 coldiron f194fa06f46454c9 ironhail 3c24bc2e4e59326b lodestone 0731db270893647b oracle 907a2237c3be0ff7 angelus bb95f0eb4d9ff2c9 
+ok   lightkeeper 1,2,3,5 on sc-tendril-t3 alone reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+--   widowmaker alone on the base reaches sc-widowmaker-s5.html (its last)
+ok   lightkeeper 1,2,3,5 on widowmaker's sc-widowmaker-s5.html: reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   widowmaker's stages on lightkeeper's b9.5 reach sc-widowmaker-s5.html (the last stage)
+--   coldiron alone on the base reaches sc-coldiron-s6.html (its last)
+ok   lightkeeper 1,2,3,5 on coldiron's sc-coldiron-s6.html: reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   coldiron's stages on lightkeeper's b9.5 reach sc-coldiron-s6.html (the last stage)
+--   ironhail alone on the base stops at sc-ironhail-s3.html (its builder's own state, not this build's)
+ok   lightkeeper 1,2,3,5 on ironhail's sc-ironhail-s3.html: reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   ironhail's stages on lightkeeper's b9.5 stop at sc-ironhail-s3.html, exactly where they stop on the base alone (that builder's own state)
+--   lodestone alone on the base reaches sc-lodestone-s5.html (its last)
+ok   lightkeeper 1,2,3,5 on lodestone's sc-lodestone-s5.html: reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   lodestone's stages on lightkeeper's b9.5 reach sc-lodestone-s5.html (the last stage)
+--   oracle alone on the base stops at sc-oracle-s3.html (its builder's own state, not this build's)
+ok   lightkeeper 1,2,3,5 on oracle's sc-oracle-s3.html: reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   oracle's stages on lightkeeper's b9.5 stop at sc-oracle-s3.html, exactly where they stop on the base alone (that builder's own state)
+--   angelus alone on the base reaches sc-angelus-s5.html (its last)
+ok   lightkeeper 1,2,3,5 on angelus's sc-angelus-s5.html: reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   angelus's stages on lightkeeper's b9.5 reach sc-angelus-s5.html (the last stage)
+ok   stack1: coldiron's stages reach sc-coldiron-s6.html (the last stage)
+ok   stack1: angelus's stages reach sc-angelus-s5.html (the last stage)
+ok   stack1: oracle's stages stop at sc-oracle-s3.html, exactly where they stop on the base alone (that builder's own state)
+ok   stack1: widowmaker's stages reach sc-widowmaker-s5.html (the last stage)
+ok   stack1: lightkeeper's stages reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+ok   stack1: ironhail's stages stop at sc-ironhail-s3.html, exactly where they stop on the base alone (that builder's own state)
+ok   stack1: lodestone's stages reach sc-lodestone-s5.html (the last stage)
+ok   stack2: coldiron's stages reach sc-coldiron-s6.html (the last stage)
+ok   stack2: angelus's stages reach sc-angelus-s5.html (the last stage)
+ok   stack2: oracle's stages stop at sc-oracle-s3.html, exactly where they stop on the base alone (that builder's own state)
+ok   stack2: widowmaker's stages reach sc-widowmaker-s5.html (the last stage)
+ok   stack2: ironhail's stages stop at sc-ironhail-s3.html, exactly where they stop on the base alone (that builder's own state)
+ok   stack2: lodestone's stages reach sc-lodestone-s5.html (the last stage)
+ok   stack2: lightkeeper 1,2,3,5 last, on the other six stacked (sc-lodestone-s5.html): reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for censer
+# sc-tendril-fx eea0cde5536955b3
+ok   lightkeeper 1,2,3,5 on sc-tendril-fx (the line's current tip): reach sc-lightkeeper-bulwark-b9.5.html (the last stage)
+     on-fx b9.5 383a547dfdfc4279
+ok   the change set on sc-tendril-fx is line for line the change set on sc-tendril-t3 (4d8cfccbf2ce5cbf)
+ok   lk-alone sc-lightkeeper-stub.html == the link
+ok   lk-alone sc-lightkeeper-wall.html == the link
+ok   lk-alone sc-lightkeeper-bulwark.html == the link
+ok   lk-alone sc-lightkeeper-bulwark-b9.5.html == the link
+# compose7: 0 FAIL

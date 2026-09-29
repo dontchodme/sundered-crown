@@ -1,0 +1,9 @@
+builder 3b41d58c1df9dee4
+voice rows_final.json 814d0a16d8911102 (want 814d0a16d8911102) ok
+picture rows_final.json f9b7579caa065664 (want f9b7579caa065664) ok
+S6 == the rows, byte for byte, in order: 13 edits (voice 4, picture 9)
+picture rows alone   728d64f8397290a1 (want 728d64f8397290a1) ok
+voice rows alone     a8629a7fe94d50b9 (want a8629a7fe94d50b9) ok
+voice then picture   e3f16bf01f0e2995 (want e3f16bf01f0e2995) ok
+picture then voice   e3f16bf01f0e2995 (want e3f16bf01f0e2995) ok
+the fx link e3f16bf01f0e2995 CR 0

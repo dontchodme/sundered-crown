@@ -1,0 +1,26 @@
+
+BULWARK PROBE  sc-lightkeeper-bulwark-b9.5-fx.html  Chromium 151.0.7922.34  444 fights (Lightkeeper both sides x every foe x 6 seeds)   blade 9.5   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.38   per cast: blocks 6.82  arrows 1.24  banked 23.49   shield on a window frame 16.68 (per fight, windowless as 0: 16.24)   Lightkeeper win 43.9%
+  blows a fight: in windows 13.63, outside 12.64   window frames a cast 901.1 (dur x 120 = 960)   blocks ahead / behind the wall 7476 / 5796   pinned contacts passed over 7376
+  net arrows stuck 255   other arrows spliced 2158   closes: clock 1699, death 43   FREEZE CENSUS 16.5% of window steps frozen (a window is ~9.58s of match time)
+  whole-state diffs clean: 1754465 wall frames (11790 with a shade in the hall), 1945 casts, 444 fights' shared tables (WEAPONS STATUS CONFIG AFFINITIES SHAPES)   Crossweave volleys the wall left fully stuck (released at the next tickShots, reading 2): 80
+  stage 6 voice: raises 1945  tinks 2413 (111 calls with two or more, flammed by k)  gongs 13272  folds 1699 (= clock closes both alive 1699)  death closes silent 43   run totals {'lightkeeper': 1945, 'lightkeeper-gong': 13272, 'lightkeeper-fold': 1699, 'lightkeeper-tink': 2413}
+  stage 6 picture: tickBulwark calls clean 7983735 (whole-state on 336616 event calls)  bar up 3851454, casts 1945, folding 114755, folds done 1945 (252 in the verdict)  flashes 13272  scorches 2413  '+N' floats 15070  WARD tags 1880
+  scorch along the bar vs where the arrow died (units; measured, not gated): seen n 1946 p50 0.0 p95 0.0 max 208.8   never seen n 467 p50 3.2 p95 66.4 max 140.3   drawn frames 67079 (61128 with the picture up, 10279 of them in a hit stop, 266 in the verdict)
+  SHAPES keys the renderer wrote on drawn frames, taken into [7]'s start as each draw wrote them: _facetCache, _fxc, _inkCache, _shadeCache, _t
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0} and writes nothing else (whole state and shared tables, from the prologue's end)
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: exactly the endpoint write; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] PASS  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity
+  [6] PASS  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, apply("ward", 1) exactly (none at bank 0)
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop; a whole-state diff of both fighters, the match (shades too) and the shared tables
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+  [9] PASS  stage 6 voice: one raise a cast; a tink an arrow (k its index in the call) then a gong a block, in order; the fold on a clock close with both alive and never on a death; nothing else in the ticker; every voice accounted for
+  [10] PASS  stage 6 picture: tickBulwark writes no sim field (every call; whole state on event calls) and draws no RNG; the bar up exactly while the window is; every block flashed, every arrow scorched, every bank one '+N', WARD once a window; folded in the verdict; no drawn frame throws, draws the RNG or writes the sim
+
+  10/10
+
+real	49m30.585s
+user	0m0.015s
+sys	0m0.000s

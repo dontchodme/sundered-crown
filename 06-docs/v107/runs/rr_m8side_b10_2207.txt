@@ -1,0 +1,4 @@
+lightkeeper on m8-side-b10.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · literal-shove-outward-b10
+  win 50.0%   side A 53.0%   side B 47.0%   mean 80.1s   timeouts 0
+  by type  bow 82%  twinblade 58%  scythe 55%  greatsword 39%  flail 37%  warhammer 31%
+  worst    heartwood 5%  axiom 10%  bindweed 10%   (740 fights in 79s)

@@ -1,0 +1,9 @@
+34 relics · Chromium 151.0.7922.34 · lightkeeper (redesign) · 33 foes x 10 seeds = 330 fights an arm · repro sc-trunk 151 (wall_base)
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out   arrows   banked   blocks f_shield
+  A       36.7%   0.00  0.00/24.21      0.00     0.00     0.00     0.00
+  SHIP    43.9%   0.00  0.00/23.35      0.00     0.00     0.00     0.00
+  B       38.5%   4.21 11.00/13.31      1.32     0.00     6.61    10.80
+  lifts over A: SHIP +7.3  B +1.8
+  990 fights in 142s   errors: []

@@ -1,0 +1,16 @@
+
+BULWARK PROBE  mut-m2-clock.html  Chromium 151.0.7922.34  444 fights (Lightkeeper both sides x every foe x 6 seeds)   blade 9.5   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.39   per cast: blocks 6.67  arrows 1.06  banked 22.59   shield on a window frame 17.34 (per fight, windowless as 0: 16.84)   Lightkeeper win 43.5%
+  blows a fight: in windows 11.74, outside 15.06   window frames a cast 919.6 (dur x 120 = 960)   blocks ahead / behind the wall 7593 / 5390   pinned contacts passed over 8713
+  net arrows stuck 262   other arrows spliced 1796   closes: clock 1781, death 28   FREEZE CENSUS 16.5% of window steps frozen (a window is ~9.59s of match time)
+  whole-state diffs clean: 1792333 wall frames, 1947 casts, 444 fights' weapon tables   Crossweave volleys the wall left fully stuck (released at the next tickShots, reading 2): 81
+  [1] FAIL  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall   636877 FAIL: ["the wall's ticker ran on a frozen step (the lab's clock, not the window's)", "the wall's ticker ran on a frozen step (the lab's clock, not the window's)", "the wall's ticker ran on a frozen step (the lab's clock, not the window's)", "the wall's ticker ran on a frozen step (the lab's clock, not the window's)"]
+  [2] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0} and writes nothing else (whole state, from the end of the shared prologue)
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: exactly the endpoint write; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] PASS  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity
+  [6] PASS  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, apply("ward", 1) exactly (none at bank 0)
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop; a whole-state diff of both fighters (stun, pin, status, ...) and the match
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  7/8

@@ -1,0 +1,33 @@
+# v107 stage-6 event lines (grep -n -F), resume 9 01:55: b9.5 = the final link d60a5c63b785ad04; on-if = this builder's four stages on 02-chain/sc-ironhail-fxout.html (4b3775e5900172ea), scratch f2d72d2b1f7546a1 (tmp/compose10/on-if). Grep the text on whatever link is carried.
+{ id:"lightkeeper"                                                             b9.5 973                on-if 983 
+kind:"lightwall"                                                               b9.5 977 979            on-if 987 989 
+this.ultWall = null;                                                           b9.5 7702               on-if 8093 
+this.wallTally = null;                                                         b9.5 7703               on-if 8094 
+  fireUlt(f, foe){                                                             b9.5 16273              on-if 17385 
+SFX.play("ult", { w: f.w.id });                                                b9.5 10134 16300        on-if 10734 17412 
+ironhail: 1.3, lightkeeper: 1.5,                                               b9.5 16335              on-if 17447 
+if (u.kind === "lightwall"){                                                   b9.5 16676              on-if 17812 
+f.ultWall = { t: 0, dur: u.dur, cd: 0 };                                       b9.5 16681              on-if 17817 
+f.wallTally.casts++;                                                           b9.5 16685              on-if 17821 
+this.tickLightwall(dt);                                                        b9.5 8942               on-if 9456 
+  tickLightwall(dt){                                                           b9.5 13658              on-if 14763 
+if (Z.t >= Z.dur || !f.alive || !foe.alive){ f.ultWall = null; continue; }     b9.5 13664              on-if 14769 
+const ux = Math.cos(f.theta), uy = Math.sin(f.theta);                          b9.5 13668              on-if 14773 22008 22044 
+T.arrows++                                                                     b9.5 13680              on-if 14785 
+T.blocks++                                                                     b9.5 13694              on-if 14799 
+T.banks++                                                                      b9.5 13545 13686 13704  on-if 14187 14791 14809 
+foe.vx += kx / kl * u.shove;                                                   b9.5 13697              on-if 14802 
+f.theta = aim + Math.sin(f.swingPhase) * (f.w.arc || 1.2);                     b9.5 9791               on-if 10391 
+  drawWeapon(m, f){                                                            b9.5 24016              on-if 26122 
+greatsword(c, L, W, p, k, aff){                                                b9.5 3453               on-if 3478 
+_artShape(c, w, pal){                                                          b9.5 29198              on-if 31340 
+  lightkeeper(c, t, cf, P){                                                    b9.5 601                on-if 605 
+const ULTSIG = {                                                               b9.5 452                on-if 452 
+_ultSigil(m, f, x, y, r, cf, hot){                                             b9.5 26526              on-if 28671 
+  drawStatus(m, f){                                                            b9.5 23501              on-if 25601 
+this._stWard(m, f, R);                                                         b9.5 23513              on-if 25615 
+  _stWard(                                                                     b9.5 23641              on-if 25743 
+else if (u.w === "lightkeeper"){                                               b9.5 21226 22043        on-if 23347 24139 
+lightkeeper: { mode: 'burst'                                                   b9.5 32315              on-if 34457 
+else if (kind === "wall"){                                                     b9.5 7569               on-if 7938 
+this.tickTendril(dt);                                                          b9.5 8941               on-if 9455 

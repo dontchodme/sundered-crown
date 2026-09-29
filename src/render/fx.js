@@ -117,9 +117,6 @@
                  spawn: 0.12, up: 0 },
 
     /* ---- NOVAS: a burst that does NOT fall --------------------------- */
-    lightkeeper: { mode: 'burst', n: 1500, sp: [210, 560], grav: 70,
-                   drag: 2.5, life: [0.35, 0.85], heavy: 0.03,
-                   size: [0.8, 2.2], spawn: 0.05, up: 0 },
     censer: { mode: 'burst', n: 1500, sp: [180, 540], grav: 40, drag: 2.2,
               life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
               spawn: 0.08, up: 20 },

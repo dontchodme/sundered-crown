@@ -1,0 +1,15 @@
+
+BULWARK PROBE  mut-m4-cd.html  Chromium 151.0.7922.34  444 fights (Lightkeeper both sides x every foe x 6 seeds)   blade 9.5   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.42   per cast: blocks 7.06  arrows 1.29  banked 24.25   shield on a window frame 17.07 (per fight, windowless as 0: 16.55)   Lightkeeper win 46.6%
+  blows a fight: in windows 13.94, outside 12.81   window frames a cast 898.0 (dur x 120 = 960)   blocks ahead / behind the wall 7883 / 5973   pinned contacts passed over 7376
+  net arrows stuck 272   other arrows spliced 2264   closes: clock 1715, death 33   FREEZE CENSUS 16.5% of window steps frozen (a window is ~9.58s of match time)
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens the wall {t 0, dur, cd 0} and touches nothing
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: stuck; else spliced), no other shot is touched
+  [4] FAIL  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd   16818 FAIL: ['cd 0.36000000000000004 after a block', 'cd 0.36000000000000004 after a block', 'cd 0.36000000000000004 after a block', 'cd 0.36000000000000004 after a block']
+  [5] PASS  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity
+  [6] PASS  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, the ward's clock (none at bank 0)
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop on a wall frame; no position or hp moved
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  7/8

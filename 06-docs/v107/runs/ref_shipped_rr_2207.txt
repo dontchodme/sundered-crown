@@ -1,0 +1,4 @@
+lightkeeper on sc-tendril-t3.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · shipped-nova
+  win 43.8%   side A 44.6%   side B 43.0%   mean 74.3s   timeouts 0
+  by type  bow 67%  twinblade 54%  scythe 49%  greatsword 41%  warhammer 30%  flail 26%
+  worst    heartwood 5%  slagheart 10%  thornwake 15%   (740 fights in 117s)

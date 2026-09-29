@@ -1,0 +1,25 @@
+
+  sc-lightkeeper-bulwark-b9.5-fx.html  ·  every foe (37) x 4 seeds (+ gloamwire:107602,aureole:4101,marrowdraw:2207,spellbreaker:99015)  ·  Lightkeeper side A
+
+  foe              seed  cast at  window clock blocks arrows flam banks banked blows  score
+  redflail       107201    48.84   10.22     1     13      9    2    20     66     7  17.70
+  lastlight      107312    47.15   10.27     1     11      6    1    16     51     6  17.50
+  slagheart      107312    62.78   11.30     1     12      7    2    17     57     5  17.30
+  ironhail       107201    46.74    9.82     1      9      6    1    14     45     5  17.30
+  redflail       107312    48.10    9.41     1     10     19    2    21     74     3  16.90
+  thornshear     107275    46.69    9.47     1      8      7    1    11     32     3  16.90
+  redflail       107275    15.15   10.12     1      8     21    0    28     87     5  16.80
+  thornshear     107312    31.21    8.93     1      8     30    4    16     56     2  16.70
+  farwarden      107238    82.35   10.00     1     11      5    0     9     26     6  16.40
+  farwarden      107275    99.60   10.23     1      8      4    0    12     36     8  16.20
+  thornshear     107238    46.92    9.22     1      7     18    1    17     58     2  16.20
+  aureole          4101    62.83   10.12     1     11      4    0    15     45     9  16.20
+  lastlight      107238    30.80    9.53     1      8      5    1    12     39     2  16.10
+  ironhail       107238    47.25    9.52     1      9      5    0    14     42     4  16.00
+  slagheart      107201    15.45    9.72     1      6      6    1     9     36     2  15.70
+  redflail       107238    14.96    9.67     1      6     36    2    35    112     2  15.70
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/lightkeeper/links/sc-lightkeeper-bulwark-b9.5-fx.html --a lightkeeper --b redflail --seed 107201 \
+      --at 47.64 --window 13.22 --end-at-window --fps 60 --w 540 --out ../07-shorts/v107/bulwark-window.mp4

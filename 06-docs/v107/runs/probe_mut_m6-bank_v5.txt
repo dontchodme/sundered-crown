@@ -1,0 +1,20 @@
+
+BULWARK PROBE  mut-m6-bank.html  Chromium 151.0.7922.34  444 fights (Lightkeeper both sides x every foe x 6 seeds)   blade 9.5   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.45   per cast: blocks 6.90  arrows 1.24  banked 30.26   shield on a window frame 18.92 (per fight, windowless as 0: 18.41)   Lightkeeper win 48.0%
+  blows a fight: in windows 14.07, outside 12.94   window frames a cast 901.3 (dur x 120 = 960)   blocks ahead / behind the wall 7655 / 5981   pinned contacts passed over 7376
+  net arrows stuck 262   other arrows spliced 2183   closes: clock 1742, death 30   FREEZE CENSUS 16.5% of window steps frozen (a window is ~9.58s of match time)
+  whole-state diffs clean: 1783665 wall frames (11520 with a shade in the hall), 1977 casts, 444 fights' shared tables (WEAPONS STATUS CONFIG AFFINITIES SHAPES)   Crossweave volleys the wall left fully stuck (released at the next tickShots, reading 2): 85
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0} and writes nothing else (whole state and shared tables, from the prologue's end)
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: exactly the endpoint write; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] PASS  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity
+  [6] FAIL  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, apply("ward", 1) exactly (none at bank 0)   13285 FAIL: ['shield 15.25 -> 19.25, want 18.25 (0 arrows, 1 blocks)', 'shield 17.25 -> 21.25, want 20.25 (0 arrows, 1 blocks)', 'shield 3.25 -> 7.25, want 6.25 (0 arrows, 1 blocks)', 'shield 3.25 -> 7.25, want 6.25 (0 arrows, 1 blocks)']
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop; a whole-state diff of both fighters, the match (shades too) and the shared tables
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  7/8
+
+real	10m3.936s
+user	0m0.000s
+sys	0m0.046s

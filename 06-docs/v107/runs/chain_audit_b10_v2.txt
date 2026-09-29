@@ -1,0 +1,15 @@
+  (8 insert(s) found in lightkeeper_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-lightkeeper-bulwark-b10.html
+tip    sc-lightkeeper-bulwark-b10.html
+8 inserts read out of lightkeeper_build.py
+
+    ok  S1:Bulwark's nova out, the wall's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the wall has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the wall's window relic  1  mid   -  tip  1
+    ok  S2:the cast raises the wall and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the wall ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickLightwall stops arrows, turns the foe back and banks relic  1  mid   -  tip  1
+    ok  S3:the bank                relic  1  mid   -  tip  1
+    ok  S5:the blade: at the crossing relic  1  mid   -  tip  1
+
+ALL 8 INSERTS SURVIVE to sc-lightkeeper-bulwark-b10.html

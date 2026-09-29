@@ -1,0 +1,10 @@
+
+FX REMOVE -- lightkeeper's particle field out of both copies
+  src sc-lightkeeper-bulwark-b9.5-fx.html  e3f16bf01f0e2995
+  the block, removed whole:
+    |     lightkeeper: { mode: 'burst', n: 1500, sp: [210, 560], grav: 70,
+    |                    drag: 2.5, life: [0.35, 0.85], heavy: 0.03,
+    |                    size: [0.8, 2.2], spawn: 0.05, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 28fc58641370a1a9 -> a74732c13d4bae1b
+  wrote sc-lightkeeper-bulwark-b9.5-fxout.html  619efdb849eae43e
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\lightkeeper\tmp\fxout\fx.js  a74732c13d4bae1b

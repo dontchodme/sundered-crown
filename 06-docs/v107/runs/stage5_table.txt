@@ -1,0 +1,10 @@
+                             blade   2207   2317  pooled  side A  side B  mean s     n
+shipped nova (base)          10.54   43.8   43.5    43.6    45.3    42.0    74.2  1480
+Bulwark, stage 3 --set           9   37.7   39.2    38.4    38.2    38.6    81.2  1480
+Bulwark, stage 3 --set         9.5   43.6   44.9    44.3    44.5    44.1    80.9  1480
+Bulwark, stage 3 --set          10   47.3   47.8    47.6    46.9    48.2    80.6  1480
+Bulwark, stage 3 --set       10.25   54.6   56.5    55.5    55.1    55.9    80.3  1480
+Bulwark, stage 3 --set        10.5   52.8   54.1    53.4    54.2    52.7    79.6  1480
+Bulwark, stage 3 as built    10.54   55.9   56.4    56.1    56.8    55.5    79.7  1480
+stage 5 link b9.5, no --set    9.5   43.6   44.9    44.3    44.5    44.1    80.9  1480
+first draft's b10, no --set     10   47.3   47.8    47.6    46.9    48.2    80.6  1480

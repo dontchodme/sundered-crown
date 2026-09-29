@@ -1,0 +1,11 @@
+
+LIGHTKEEPER / BULWARK (redesign) -- stage 1
+  src sc-tendril-t3.html  5a6216e3b629fad4  (LF text)
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova kept by Widowmaker and Censer
+  ok    Bulwark's nova out, the wall's block in, stubbed
+  ok    ult   ult:{ name:"Bulwark", charge:1e9, kind:"lightwall", dur:8, ahead:50, half:110, shotPad:6, ballPa ...
+  ok    card  71 chars  'A wall of light: arrows die on it, foes bounce off it, blocks bank ward'
+  ok    one lightwall ultimate, Lightkeeper's; the nova gone from its row; no insert draws the RNG, writes the shared weapon, beats, stops or hurts; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-lightkeeper-stub.html  e7d4efcc27e97d13   (+384 chars, written LF)

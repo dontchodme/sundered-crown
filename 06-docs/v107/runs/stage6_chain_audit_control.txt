@@ -1,0 +1,44 @@
+  (21 insert(s) found in lightkeeper_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-lightkeeper-bulwark-b9.5-fx.html
+tip    sc-lightkeeper-bulwark-b9.5.html
+21 inserts read out of lightkeeper_build.py
+
+    ok  S1:Bulwark's nova out, the wall's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the wall has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the wall's window relic  1  mid   -  tip  1
+    ok  S2:the cast raises the wall and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the wall ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickLightwall stops arrows, turns the foe back and banks relic  1  mid   -  tip  1
+    ok  S3:the bank                relic  1  mid   -  tip  1
+    ok  S5:the blade: the shipped rate relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Lightkeeper's raise, gong, tink and fold arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'this._tone(t + u, { freq: f, to: to, gain: g * km * (0.35 + 0.65 * u / L), dur: D, type:'
+  LOST  S6:tickLightwall: the tink, once per arrow the wall stops, flammed by its index in the frame relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "lightkeeper-tink", k: tinkK++ });'
+  LOST  S6:tickLightwall: the gong, once per ball block, on the block's frame relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "lightkeeper-gong" });'
+  LOST  S6:tickLightwall: the fold, on a clock close with both alive, before the close line relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur && f.alive && foe.alive) SFX.play("ult", { w: "lightkeeper-fold" });'
+  LOST  S6:bulwark picture: fighter fields relic  1  mid   -  tip  0
+        'this.bulwarkSeen = [0, 0, 0];'
+  LOST  S6:bulwark picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickBulwark(dt);               // BULWARK'S PICTURE (v77 section 5)"
+  LOST  S6:bulwark picture: tickBulwark relic  1  mid   -  tip  0
+        'if (f.bulwarkScorch.length > 8) f.bulwarkScorch.splice(0, f.bulwarkScorch.length - 8);'
+  LOST  S6:bulwark picture: the world call (over both fighters) relic  1  mid   -  tip  0
+        'this.drawBulwark(m);'
+  LOST  S6:bulwark picture: the drawing methods relic  1  mid   -  tip  0
+        'const h1 = shellHash(7717 + f.side, n * 16 + j), h2 = shellHash(7723 + f.side, n * 16 + '
+  LOST  S6:bulwark picture: the nova's plate ring retired relic  1  mid   -  tip  0
+        "v107 stage 6). The wall's picture is `drawBulwark`, off the fighter,"
+  LOST  S6:bulwark picture: the nova's plates retired relic  1  mid   -  tip  0
+        'thrown out to radius 300); retired with it (v77, v107 stage 6). The'
+  LOST  S6:bulwark picture: the charge rune relic  1  mid   -  tip  0
+        'SG.arc(c, -0.42, 0, 0.36, a0, a0 + TAU / 5 - 0.2, P.core, 0.13, 0.45 + cf * 0.45);'
+  LOST  S6:bulwark picture: the cast record's life relic  1  mid   -  tip  0
+        'ironhail: 1.3, farwarden: 2.6,'
+
+!! 13 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Lightkeeper's raise, gong, tink and fold arms, before the shared rune-crack fallback, S6:tickLightwall: the tink, once per arrow the wall stops, flammed by its index in the frame, S6:tickLightwall: the gong, once per ball block, on the block's frame, S6:tickLightwall: the fold, on a clock close with both alive, before the close line, S6:bulwark picture: fighter fields, S6:bulwark picture: the presentation call, S6:bulwark picture: tickBulwark, S6:bulwark picture: the world call (over both fighters), S6:bulwark picture: the drawing methods, S6:bulwark picture: the nova's plate ring retired, S6:bulwark picture: the nova's plates retired, S6:bulwark picture: the charge rune, S6:bulwark picture: the cast record's life
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

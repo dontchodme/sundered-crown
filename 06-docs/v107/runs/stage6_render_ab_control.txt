@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-lightkeeper-bulwark-b9.5.html
+  b  sc-lightkeeper-bulwark-b9.5-fx.html
+  lightkeeper v gloamwire seed 107602 t= 64.50  DIFFERS   luma 21.189 -> 20.778   lit 60.76% -> 57.16%
+  lightkeeper v gloamwire seed 107602 t= 66.00  DIFFERS   luma 18.264 -> 18.904   lit 56.75% -> 56.98%
+  lightkeeper v gloamwire seed 107602 t= 68.00  DIFFERS   luma 20.746 -> 21.313   lit 57.34% -> 57.57%
+  lightkeeper v gloamwire seed 107602 t= 70.00  DIFFERS   luma 19.350 -> 19.823   lit 55.18% -> 55.19%
+  lightkeeper v gloamwire seed 107602 t= 72.00  DIFFERS   luma 21.430 -> 21.810   lit 55.86% -> 55.86%
+  lightkeeper v gloamwire seed 107602 t= 74.00  DIFFERS   luma 18.830 -> 19.322   lit 56.53% -> 56.53%
+
+FAIL  0/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

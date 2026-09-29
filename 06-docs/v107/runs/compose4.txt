@@ -1,0 +1,26 @@
+# compose4 12:00 builders: lightkeeper e1748aeb28856e57 widowmaker 5252fb14e51e462c coldiron c5b8ecf7016fc829 ironhail 13d0df8b674c873d lodestone 6d23c19de47fd9f1 oracle 907a2237c3be0ff7 angelus bb95f0eb4d9ff2c9 
+ok   lightkeeper 1,2,3,5 on widowmaker's stages (to sc-widowmaker-s5.html)
+ok?  widowmaker's stages on lightkeeper's b9.5 reach sc-widowmaker-s5.html
+ok   lightkeeper 1,2,3,5 on coldiron's stages (to sc-coldiron-s5.html)
+ok?  coldiron's stages on lightkeeper's b9.5 reach sc-coldiron-s5.html
+--   ironhail's own stage list stops at sc-ironhail-s3.html (its builder's own state, not this build's)
+ok   lightkeeper 1,2,3,5 on ironhail's stages (to sc-ironhail-s3.html)
+ok?  ironhail's stages on lightkeeper's b9.5 reach sc-ironhail-s3.html
+ok   lightkeeper 1,2,3,5 on lodestone's stages (to sc-lodestone-s5.html)
+ok?  lodestone's stages on lightkeeper's b9.5 reach sc-lodestone-s5.html
+--   oracle's own stage list stops at sc-oracle-s3.html (its builder's own state, not this build's)
+ok   lightkeeper 1,2,3,5 on oracle's stages (to sc-oracle-s3.html)
+ok?  oracle's stages on lightkeeper's b9.5 reach sc-oracle-s3.html
+ok   lightkeeper 1,2,3,5 on angelus's stages (to sc-angelus-s5.html)
+ok?  angelus's stages on lightkeeper's b9.5 reach sc-angelus-s5.html
+ok   stack1 + coldiron
+ok   stack1 + angelus
+--   stack1: oracle stops at sc-oracle-s3.html (its own state)
+ok   stack1 + widowmaker
+ok   stack1 + lightkeeper
+--   stack1: ironhail stops at sc-ironhail-s3.html (its own state)
+ok   stack1 + lodestone
+--   stack2: oracle stops at sc-oracle-s3.html (its own state)
+--   stack2: ironhail stops at sc-ironhail-s3.html (its own state)
+ok   lightkeeper 1,2,3,5 on the other six stacked (sc-lodestone-s5.html)
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for censer

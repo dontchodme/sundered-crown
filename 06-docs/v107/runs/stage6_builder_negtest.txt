@@ -1,0 +1,16 @@
+# neg_test6  builder a559dc47824545e9  base sc-lightkeeper-bulwark-b9.5.html
+ok    the unmodified builder writes e3f16bf01f0e2995
+ok    a sim write (the foe nudged): REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: tickBulwark' writes foe.x
+ok    an RNG draw: REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: tickBulwark' draws the RNG or uses the one ultFx slot
+ok    the one ultFx slot: REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: the drawing methods' draws the RNG or uses the one ultFx slot
+ok    a beat (in the gong row): REFUSES -- REFUSING TO WRITE -- stage 6 insert 'tickLightwall: the gong, once per ball block, on the block's frame' calls into the simulation
+ok    a hurt: REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: tickBulwark' calls into the simulation
+ok    a status laid (stun): REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: tickBulwark' calls into the simulation
+ok    a splice of the shots in the air: REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: tickBulwark' mutates shots
+ok    an index write into the shots: REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: the drawing methods' writes shots[...]
+ok    a write to the tally: REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: tickBulwark' writes T.blocks
+ok    Math.random: REFUSES -- REFUSING TO WRITE -- this build adds a Math.random
+ok    a shared table through an alias (P = AFFINITIES.vigil): REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: the drawing methods' writes P.core
+ok    the shared weapon (w.reach): REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: tickBulwark' writes w.reach
+ok    a sim write in a draw method (the match's clock): REFUSES -- REFUSING TO WRITE -- stage 6 insert 'bulwark picture: the drawing methods' writes m.t
+# neg_test6: 0 FAIL

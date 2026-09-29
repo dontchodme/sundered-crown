@@ -1,0 +1,1 @@
+mut-r3-castcd.html vs sc-lightkeeper-bulwark-b9.5.html: 204/222 fights differ; Lightkeeper wins 105 -> 106

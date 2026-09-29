@@ -1,0 +1,15 @@
+# builder_checks6b 03:20 lightkeeper_build.py a559dc47824545e9
+ok    stage 6 twice (on the fx link) refuses: 'tickBulwark' is already in this source -- stage 6 goes on once
+ok    stage 6 on stage 3's link (blade 10.54) refuses: Lightkeeper's greatsword profile has moved -- not the shipped relic this builder redesigns
+ok    stage 6 on stage 2's link refuses: Lightkeeper's greatsword profile has moved -- not the shipped relic this builder redesigns
+ok    stage 6 on stage 1's link refuses: Lightkeeper's greatsword profile has moved -- not the shipped relic this builder redesigns
+ok    stage 6 on the bare tip refuses: Lightkeeper's greatsword profile has moved -- not the shipped relic this builder redesigns
+ok    stage 6 over an existing link refuses: refusing to overwrite sc-lightkeeper-bulwark-b9.5-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+ok    stage 6 to a name not sc-lightkeeper* refuses: refusing sc-other-fx.html: this relic's links are named sc-lightkeeper*
+ok    stage 5 on the fx link refuses: Lightkeeper's greatsword profile has moved -- not the shipped relic this builder redesigns
+ok    stage 1 -> sc-lightkeeper-stub.html e7d4efcc27e97d13 == the link (cmp), CR 0
+ok    stage 2 -> sc-lightkeeper-wall.html a22bc1f8cb4b2dfe == the link (cmp), CR 0
+ok    stage 3 -> sc-lightkeeper-bulwark.html b0776ae2de382e67 == the link (cmp), CR 0
+ok    stage 5 -> sc-lightkeeper-bulwark-b9.5.html d60a5c63b785ad04 == the link (cmp), CR 0
+ok    stage 6 -> sc-lightkeeper-bulwark-b9.5-fx.html e3f16bf01f0e2995 == the link (cmp), CR 0
+# builder_checks6b: 0 FAIL

@@ -1,0 +1,1 @@
+mut-r4-noward.html vs sc-lightkeeper-bulwark-b9.5.html: 9/222 fights differ; Lightkeeper wins 105 -> 103

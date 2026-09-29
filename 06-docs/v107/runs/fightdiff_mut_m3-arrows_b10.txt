@@ -1,0 +1,1 @@
+mut-m3-arrows.html vs sc-lightkeeper-bulwark-b10.html: 42/222 fights differ; Lightkeeper wins 116 -> 113

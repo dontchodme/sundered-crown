@@ -82,7 +82,17 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-angelus-b9-fx.html   THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+02-chain/sc-lightkeeper-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+                                 LIGHTKEEPER / BULWARK REDESIGNED (lightkeeper_build.py
+                                 1, 2, 3, 5, 6 and fx_remove.py, v107), carried onto
+                                 sc-angelus-b9-fx. The nova is gone: a wall of light;
+                                 arrows die on it, foes bounce off it, blocks bank ward.
+                                 Charge 14, blade 9.5, the shipped rate (44.3%; 50% is
+                                 10, Rick's). verify 10/13: it wins all 40 against
+                                 Marrowdraw (Rick's). fx.js stamp -> 830a7026987903b4.
+                                 Carry proved against scratch and the tip; probe 10/10;
+                                 shell_identity PENDING (Rick was on the PC).
+02-chain/sc-angelus-b9-fx.html   the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  ANGELUS / ASCENSION, the sanctified twinblade
                                  (angelus_build.py 1, 2, 3, 5, 6, v104), carried onto
                                  sc-oracle-fx. For 8s she rises into the air; her

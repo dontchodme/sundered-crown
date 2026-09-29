@@ -1,0 +1,17 @@
+m1-window      SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+m2-clock       SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+m3-arrows      SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+m4-cd          SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+m5-shove       SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+m6-bank        SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+m7-stop        SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+m8-side        SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+r1-netsplice   SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+r2-pinned      SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+r3-castcd      SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+r4-noward      SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+r5-stun        SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+r6-hex         SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+r7-castsunder  SAME   [1][3][4][5][6][8] identical   mechanism lines identical   [2][7]: identical
+
+EVERY MUTANT: v5 reads [1] [3] [4] [5] [6] [8] and the mechanism exactly as v4 did

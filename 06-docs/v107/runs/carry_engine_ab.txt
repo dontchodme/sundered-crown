@@ -1,0 +1,11 @@
+=== ENGINE A/B: 36 relics, 6 seeds x 630 pairings ===
+
+  sc-lightkeeper-bulwark-b9.5-fx.html  3780 matches  253.1s
+  sc-lightkeeper-bulwark-b9.5-fx.html  3780 matches  295.3s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3780
+  PASS  every match identical field for field  — 3780/3780
+  PASS  the sweep is real  — 36/36 distinct winners, 3780 distinct seeds, 16.2-133.8s
+
+ENGINE A/B PASS — C:\dev\sundered-crown\02-chain\sc-lightkeeper-bulwark-b9.5-fx.html does not move the 36-relic roster.

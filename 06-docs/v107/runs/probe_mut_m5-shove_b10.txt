@@ -1,0 +1,15 @@
+
+BULWARK PROBE  mut-m5-shove.html  Chromium 151.0.7922.34  444 fights (Lightkeeper both sides x every foe x 6 seeds)   blade 10   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.39   per cast: blocks 6.88  arrows 1.30  banked 23.96   shield on a window frame 17.38 (per fight, windowless as 0: 17.02)   Lightkeeper win 52.0%
+  blows a fight: in windows 13.99, outside 12.61   window frames a cast 902.8 (dur x 120 = 960)   blocks ahead / behind the wall 7689 / 5714   pinned contacts passed over 6798
+  net arrows stuck 264   other arrows spliced 2262   closes: clock 1704, death 27   FREEZE CENSUS 16.6% of window steps frozen (a window is ~9.60s of match time)
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens the wall {t 0, dur, cd 0} and touches nothing
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: stuck; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] FAIL  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity   13403 FAIL: ['dawnbringer v 189.98147964436203,-251.3159261376777 want 142.9572330913703,-268.30769579605794', 'dawnbringer v -107.97546666299655,1026.9297602851593 want -129.83604236499752,981.9618247090502', 'dawnbringer v -95.16857135033115,-968.125896374203 want -61.76796313245575,-930.9183787107522', 'dawnbringer v 808.8137880857181,97.95458845631606 want 810.534027119694,47.984189441839646']
+  [6] PASS  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, the ward's clock (none at bank 0)
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop on a wall frame; no position or hp moved
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  7/8

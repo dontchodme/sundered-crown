@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 5 frames  540x960
+  a  sc-lightkeeper-bulwark-b9.5-fx.html
+  b  sc-lightkeeper-fxout.html
+  lightkeeper v redflail seed 107201 t= 48.87  DIFFERS   luma 20.761 -> 20.194   lit 66.29% -> 66.24%
+  lightkeeper v redflail seed 107201 t= 48.95  DIFFERS   luma 23.672 -> 21.503   lit 65.59% -> 65.56%
+  lightkeeper v redflail seed 107201 t= 49.05  DIFFERS   luma 23.679 -> 22.671   lit 65.63% -> 65.63%
+  lightkeeper v redflail seed 107201 t= 49.15  DIFFERS   luma 23.266 -> 23.022   lit 67.28% -> 67.28%
+  lightkeeper v redflail seed 107201 t= 49.25  DIFFERS   luma 22.894 -> 22.866   lit 65.97% -> 65.96%
+
+FAIL  0/5 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

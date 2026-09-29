@@ -1,0 +1,64 @@
+# compose13 03:10 builders: lightkeeper 3b41d58c1df9dee4 widowmaker bf8dff45e6870fa4 coldiron f194fa06f46454c9 ironhail 491643c55a34fa56 lodestone c74cd4a4508bfcf5 oracle ae5d6f4e641a2b16 angelus 0e4e2fc3ff5813de censer 78501578c5773570 aureole f28b8dcae7fa0883 
+ok   lightkeeper 1,2,3,5,6 on sc-tendril-t3 alone reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   lk-alone sc-lightkeeper-stub.html == the link
+ok   lk-alone sc-lightkeeper-wall.html == the link
+ok   lk-alone sc-lightkeeper-bulwark.html == the link
+ok   lk-alone sc-lightkeeper-bulwark-b9.5.html == the link
+ok   lk-alone sc-lightkeeper-bulwark-b9.5-fx.html == the link
+--   widowmaker alone on the base reaches sc-widowmaker-s6.html (its last)
+ok   lightkeeper 1,2,3,5,6 on widowmaker's sc-widowmaker-s6.html: reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   widowmaker's stages on lightkeeper's fx link reach sc-widowmaker-s6.html (the last stage)
+--   coldiron alone on the base reaches sc-coldiron-s6.html (its last)
+ok   lightkeeper 1,2,3,5,6 on coldiron's sc-coldiron-s6.html: reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   coldiron's stages on lightkeeper's fx link reach sc-coldiron-s6.html (the last stage)
+--   ironhail alone on the base reaches sc-ironhail-s6.html (its last)
+ok   lightkeeper 1,2,3,5,6 on ironhail's sc-ironhail-s6.html: reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   ironhail's stages on lightkeeper's fx link reach sc-ironhail-s6.html (the last stage)
+--   lodestone alone on the base reaches sc-lodestone-s6.html (its last)
+ok   lightkeeper 1,2,3,5,6 on lodestone's sc-lodestone-s6.html: reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   lodestone's stages on lightkeeper's fx link reach sc-lodestone-s6.html (the last stage)
+--   oracle alone on the base reaches sc-oracle-s6.html (its last)
+ok   lightkeeper 1,2,3,5,6 on oracle's sc-oracle-s6.html: reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   oracle's stages on lightkeeper's fx link reach sc-oracle-s6.html (the last stage)
+--   angelus alone on the base reaches sc-angelus-s6.html (its last)
+ok   lightkeeper 1,2,3,5,6 on angelus's sc-angelus-s6.html: reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   angelus's stages on lightkeeper's fx link reach sc-angelus-s6.html (the last stage)
+--   censer alone on the base reaches sc-censer-s5.html (its last)
+ok   lightkeeper 1,2,3,5,6 on censer's sc-censer-s5.html: reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   censer's stages on lightkeeper's fx link reach sc-censer-s5.html (the last stage)
+--   aureole alone on the base reaches sc-aureole-s5.html (its last)
+ok   lightkeeper 1,2,3,5,6 on aureole's sc-aureole-s5.html: reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   aureole's stages on lightkeeper's fx link reach sc-aureole-s5.html (the last stage)
+ok   stack1: coldiron's stages reach sc-coldiron-s6.html (the last stage)
+ok   stack1: angelus's stages reach sc-angelus-s6.html (the last stage)
+ok   stack1: oracle's stages reach sc-oracle-s6.html (the last stage)
+ok   stack1: widowmaker's stages reach sc-widowmaker-s6.html (the last stage)
+ok   stack1: lightkeeper's stages reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   stack1: ironhail's stages reach sc-ironhail-s6.html (the last stage)
+ok   stack1: lodestone's stages reach sc-lodestone-s6.html (the last stage)
+ok   stack1: censer's stages reach sc-censer-s5.html (the last stage)
+ok   stack1: aureole's stages reach sc-aureole-s5.html (the last stage)
+ok   stack2: coldiron's stages reach sc-coldiron-s6.html (the last stage)
+ok   stack2: angelus's stages reach sc-angelus-s6.html (the last stage)
+ok   stack2: oracle's stages reach sc-oracle-s6.html (the last stage)
+ok   stack2: widowmaker's stages reach sc-widowmaker-s6.html (the last stage)
+ok   stack2: ironhail's stages reach sc-ironhail-s6.html (the last stage)
+ok   stack2: lodestone's stages reach sc-lodestone-s6.html (the last stage)
+ok   stack2: censer's stages reach sc-censer-s5.html (the last stage)
+ok   stack2: aureole's stages reach sc-aureole-s5.html (the last stage)
+ok   stack2: lightkeeper 1,2,3,5,6 last, on the others stacked (sc-aureole-s5.html): reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for no other relic
+# stage 6's change set on sc-tendril-t3: 36aa852004da2d15 (stages 1-5's: 4d8cfccbf2ce5cbf)
+ok   lightkeeper 1,2,3,5,6 on sc-tendril-fx (eea0cde5536955b3): reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   on sc-tendril-fx: stages 1-5's change set 4d8cfccbf2ce5cbf and stage 6's 36aa852004da2d15 are sc-tendril-t3's; fx 5b15acac0359a09e
+ok   lightkeeper 1,2,3,5,6 on sc-coldiron-temper-fx (67cc3e6e05d5326e): reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   on sc-coldiron-temper-fx: stages 1-5's change set 4d8cfccbf2ce5cbf and stage 6's 36aa852004da2d15 are sc-tendril-t3's; fx 3f7e6937a1e801f2
+ok   lightkeeper 1,2,3,5,6 on sc-ironhail-sunder-fx (b51c2539999dd272): reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   on sc-ironhail-sunder-fx: stages 1-5's change set 4d8cfccbf2ce5cbf and stage 6's 36aa852004da2d15 are sc-tendril-t3's; fx aa508efb5aad42fc
+ok   lightkeeper 1,2,3,5,6 on sc-ironhail-fxout (4b3775e5900172ea): reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   on sc-ironhail-fxout: stages 1-5's change set 4d8cfccbf2ce5cbf and stage 6's 36aa852004da2d15 are sc-tendril-t3's; fx 1561f53d76b713d7
+ok   lightkeeper 1,2,3,5,6 on sc-lodestone-b205-fx (4568c2995d06f696): reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   on sc-lodestone-b205-fx: stages 1-5's change set 4d8cfccbf2ce5cbf and stage 6's 36aa852004da2d15 are sc-tendril-t3's; fx b6249478ee6f0091
+ok   lightkeeper 1,2,3,5,6 on sc-widowmaker-fxout (04fdd2e2daa17c26): reach sc-lightkeeper-bulwark-b9.5-fx.html (the last stage)
+ok   on sc-widowmaker-fxout: stages 1-5's change set 4d8cfccbf2ce5cbf and stage 6's 36aa852004da2d15 are sc-tendril-t3's; fx 1964a06d896f82c4
+# compose13: 0 FAIL

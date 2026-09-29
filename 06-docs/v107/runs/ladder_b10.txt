@@ -1,0 +1,45 @@
+Lightkeeper / Bulwark (sc-lightkeeper-bulwark-b10: the wall, bank 3/3, charge 14, blade 10) win by foe, both sides,
+relic_rate seed0 2207 + 2317 (40 fights a foe: 10 seeds x 2 sides x 2 blocks). Beside it, the SHIPPED nova on the base
+(sc-tendril-t3, blade 10.54, the same seeds). Pooled: Bulwark 47.6%   shipped nova 43.6%
+
+by type   bow 80%  scythe 54%  twinblade 49%  greatsword 37%  flail 36%  warhammer 31%
+shipped   bow 62%  twinblade 54%  scythe 48%  greatsword 43%  warhammer 30%  flail 28%
+
+foe           type         Bulwark  shipped   move
+ironwood      warhammer      12.5%    27.5%  -15.0
+heartwood     greatsword     15.0%    10.0%   +5.0
+portcullis    flail          20.0%    22.5%   -2.5
+grudgebearer  warhammer      22.5%    27.5%   -5.0
+bindweed      flail          22.5%    17.5%   +5.0
+spellbreaker  twinblade      25.0%    37.5%  -12.5
+nightfell     greatsword     25.0%    47.5%  -22.5
+axiom         greatsword     25.0%    20.0%   +5.0
+paradox       flail          27.5%    27.5%   +0.0
+thornwake     scythe         30.0%    20.0%  +10.0
+cindercleave  scythe         30.0%    40.0%  -10.0
+morningstar   flail          32.5%    47.5%  -15.0
+gravemourn    flail          32.5%    25.0%   +7.5
+emberedge     greatsword     35.0%    45.0%  -10.0
+foregone      scythe         35.0%    45.0%  -10.0
+bulwarden     warhammer      35.0%    22.5%  +12.5
+shroudmaul    warhammer      35.0%    27.5%   +7.5
+censer        warhammer      40.0%    37.5%   +2.5
+vesper        scythe         40.0%    47.5%   -7.5
+ravelbone     warhammer      40.0%    40.0%   +0.0
+starwarden    twinblade      40.0%    65.0%  -25.0
+slagheart     flail          42.5%    12.5%  +30.0
+dawnbringer   greatsword     50.0%    55.0%   -5.0
+widowmaker    twinblade      55.0%    65.0%  -10.0
+twinshade     twinblade      60.0%    72.5%  -12.5
+thornshear    twinblade      65.0%    30.0%  +35.0
+vinesower     bow            67.5%    32.5%  +35.0
+farwarden     bow            70.0%    57.5%  +12.5
+bloodmirror   scythe         70.0%    60.0%  +10.0
+oathwound     greatsword     72.5%    80.0%   -7.5
+ironhail      bow            75.0%    52.5%  +22.5
+redflail      flail          75.0%    40.0%  +35.0
+duskreave     scythe         75.0%    72.5%   +2.5
+gloamwire     bow            85.0%    65.0%  +20.0
+aureole       bow            85.0%    85.0%   +0.0
+lastlight     scythe         95.0%    52.5%  +42.5
+marrowdraw    bow            97.5%    82.5%  +15.0

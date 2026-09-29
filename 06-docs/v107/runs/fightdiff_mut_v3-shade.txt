@@ -1,0 +1,5 @@
+mut-v3-shade.html vs sc-lightkeeper-bulwark-b9.5.html: 6/222 fights differ; Lightkeeper wins 105 -> 103
+
+real	1m5.937s
+user	0m0.000s
+sys	0m0.000s

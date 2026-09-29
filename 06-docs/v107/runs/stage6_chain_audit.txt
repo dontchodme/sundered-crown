@@ -1,0 +1,29 @@
+  (21 insert(s) found in lightkeeper_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-lightkeeper-bulwark-b9.5-fx.html
+tip    sc-lightkeeper-bulwark-b9.5-fx.html
+21 inserts read out of lightkeeper_build.py
+
+    ok  S1:Bulwark's nova out, the wall's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the wall has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the wall's window relic  1  mid   -  tip  1
+    ok  S2:the cast raises the wall and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the wall ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickLightwall stops arrows, turns the foe back and banks relic  1  mid   -  tip  1
+    ok  S3:the bank                relic  1  mid   -  tip  1
+    ok  S5:the blade: the shipped rate relic  1  mid   -  tip  1
+    ok  S6:Sfx: Lightkeeper's raise, gong, tink and fold arms, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:tickLightwall: the tink, once per arrow the wall stops, flammed by its index in the frame relic  1  mid   -  tip  1
+    ok  S6:tickLightwall: the gong, once per ball block, on the block's frame relic  1  mid   -  tip  1
+    ok  S6:tickLightwall: the fold, on a clock close with both alive, before the close line relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: tickBulwark relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: the world call (over both fighters) relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: the drawing methods relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: the nova's plate ring retired relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: the nova's plates retired relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: the charge rune relic  1  mid   -  tip  1
+    ok  S6:bulwark picture: the cast record's life relic  1  mid   -  tip  1
+
+ALL 21 INSERTS SURVIVE to sc-lightkeeper-bulwark-b9.5-fx.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: S6:bulwark picture: the nova's plate ring retired, S6:bulwark picture: the nova's plates retired)

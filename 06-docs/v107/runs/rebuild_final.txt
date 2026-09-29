@@ -1,0 +1,49 @@
+# rebuild with the fix-pass builder e1748aeb28856e57, from the base 5a6216e3b629fad4
+  out sc-lightkeeper-stub.html  e7d4efcc27e97d13   (+384 chars, written LF)
+  out sc-lightkeeper-wall.html  a22bc1f8cb4b2dfe   (+4690 chars, written LF)
+  out sc-lightkeeper-bulwark.html  b0776ae2de382e67   (+0 chars, written LF)
+  out sc-lightkeeper-bulwark-b9.5.html  d60a5c63b785ad04   (-2 chars, written LF)
+sc-lightkeeper-stub link e7d4efcc27e97d13 rebuild e7d4efcc27e97d13 IDENTICAL
+sc-lightkeeper-wall link a22bc1f8cb4b2dfe rebuild a22bc1f8cb4b2dfe IDENTICAL
+sc-lightkeeper-bulwark link b0776ae2de382e67 rebuild b0776ae2de382e67 IDENTICAL
+sc-lightkeeper-bulwark-b9.5 link d60a5c63b785ad04 rebuild d60a5c63b785ad04 IDENTICAL
+# stage 3 -> stage 5 diff:
+974c974
+<     blades:[0], reach:116, width:14, artW:40, dmg:10.54, spin:3.4, mode:"swing", arc:1.5, mass:3.0,
+---
+>     blades:[0], reach:116, width:14, artW:40, dmg:9.5, spin:3.4, mode:"swing", arc:1.5, mass:3.0,
+# re-checked 11:56 (resume 3): the same builder e1748aeb28856e57 rebuilt all four from the base into tmp/rebuild5:
+#   stub e7d4efcc27e97d13  wall a22bc1f8cb4b2dfe  bulwark b0776ae2de382e67  b9.5 d60a5c63b785ad04  -- all IDENTICAL to the links;
+#   a fifth stage-5 write onto the existing b9.5 refused ("refusing to overwrite ... a link is written once").
+# SECOND REVIEW ROUND (12:37): the builder is now de79d7c1fefc8b74 (reading 2 declares the volley release; the +0.6 comment;
+#   a new self-check that no insert stuns, pins, burdens or lays a status but the ward). Its inserts are unchanged, so its
+#   output is: rebuilt all four from the base into tmp/rebuild6 --
+#   stub e7d4efcc27e97d13  wall a22bc1f8cb4b2dfe  bulwark b0776ae2de382e67  b9.5 d60a5c63b785ad04  -- all IDENTICAL to the links
+#   (cmp), so no link was deleted or rewritten; a stage-5 write onto the existing b9.5 refused.
+#   The new self-check, negative-tested on scratch copies of the builder with a stun (g_stun) or a hex (g_hex) put in the
+#   tickLightwall insert: both REFUSE ("... stuns, pins, burdens or lays a status other than the bank's ward").
+# 12:50: the builder's docstring took the probe's volley count (reading 2) -> 28fedb3011a90e1a, the FINAL builder. Rebuilt all
+#   four from the base into tmp/rebuild7: stub e7d4efcc27e97d13  wall a22bc1f8cb4b2dfe  bulwark b0776ae2de382e67
+#   b9.5 d60a5c63b785ad04 -- all IDENTICAL (cmp). compose5 and chain_audit_b9.5_v2 were re-run with it.
+# 16:55 (resume 5): the same builder 28fedb3011a90e1a rebuilt all four from the base into tmp/rebuild8: stub e7d4efcc27e97d13
+#   wall a22bc1f8cb4b2dfe  bulwark b0776ae2de382e67  b9.5 d60a5c63b785ad04 -- all IDENTICAL (cmp), LF (no CR byte);
+#   a stage-5 write onto the existing b9.5 refused ("refusing to overwrite"); stage 5 with the b9.5 as --src refused ("profile has moved").
+# 18:07 (third review round): the builder is now 0cc27d7b775b6d2c (a self-check that no insert writes a shared module table --
+#   STATUS / CONFIG / AFFINITIES / WEAPONS / SHAPES -- by name or through a local alias; ++/-- count as writes in every write
+#   check; docstring readings 8 and 9). Its inserts are unchanged. Rebuilt all four from the base into tmp/rebuild9:
+#   stub e7d4efcc27e97d13  wall a22bc1f8cb4b2dfe  bulwark b0776ae2de382e67  b9.5 d60a5c63b785ad04 -- all IDENTICAL (cmp), no CR
+#   byte; a stage-5 write onto the existing b9.5 refused ("refusing to overwrite"); stage 5 with the b9.5 as --src refused
+#   ("profile has moved"). Negative test: builder_negtest3.txt (ten table/weapon/stun writes REFUSE; the clean copy writes
+#   a22bc1f8cb4b2dfe). compose7 rewrote all four on the base byte-identical too (its last lines).
+# 2026-09-28 01:17 (resume 8): the same builder 0cc27d7b775b6d2c rebuilt all four from the base inside compose9 (tmp/compose9/lk-alone):
+#   stub e7d4efcc27e97d13  wall a22bc1f8cb4b2dfe  bulwark b0776ae2de382e67  b9.5 d60a5c63b785ad04 -- all IDENTICAL (cmp; compose9.txt
+#   last lines). Refusals re-tested: stage 5 onto the existing b9.5 refused ("refusing to overwrite"), stage 5 with the b9.5 as
+#   --src refused ("profile has moved"), a name not sc-lightkeeper* refused.
+# 2026-09-28 02:55 (resume 10): the same builder 0cc27d7b775b6d2c rebuilt all four from the base into tmp/rebuild13:
+#   stub e7d4efcc27e97d13  wall a22bc1f8cb4b2dfe  bulwark b0776ae2de382e67  b9.5 d60a5c63b785ad04 -- all IDENTICAL (cmp), no CR byte;
+#   a stage-5 write onto the existing b9.5 refused ("refusing to overwrite"). compose11 rewrote all four on the base byte-identical too.
+# 2026-09-29 03:20 (stage 6): the final builder a559dc47824545e9 (the stage-6 builder 3b41d58c1df9dee4 with one comment corrected)
+#   rebuilt all five from the bare tip sc-tendril-t3 into scratch tmp/rebuild15: stub e7d4efcc27e97d13  wall a22bc1f8cb4b2dfe
+#   bulwark b0776ae2de382e67  b9.5 d60a5c63b785ad04  fx e3f16bf01f0e2995 -- all IDENTICAL (cmp), no CR byte. Refused: stage 6 twice,
+#   stage 6 on stages 3/2/1 and on the bare tip, stage 6 over an existing link, a name not sc-lightkeeper*, stage 5 on the fx link
+#   (stage6_builder_checks.txt). compose14 rewrote all five on the base byte-identical too.

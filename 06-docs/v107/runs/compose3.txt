@@ -1,0 +1,14 @@
+# compose3 07:44 builders: lightkeeper e1748aeb28856e57 widowmaker cd311927da6a34ac coldiron c1c1108f708d9cad ironhail 035126d40719d714 lodestone 6d23c19de47fd9f1
+ok   lightkeeper 1,2,3,5 on widowmaker's last link (sc-widowmaker-bzz.html)
+ok   widowmaker's stages on lightkeeper's b9.5
+ok   lightkeeper 1,2,3,5 on coldiron's last link (sc-coldiron-temper-bzz.html)
+ok   coldiron's stages on lightkeeper's b9.5
+ok   lightkeeper 1,2,3,5 on ironhail's last link (sc-ironhail-bzz.html)
+ok   ironhail's stages on lightkeeper's b9.5
+ok   lightkeeper 1,2,3,5 on lodestone's last link (sc-lodestone-bzz.html)
+ok   lodestone's stages on lightkeeper's b9.5
+ok   lightkeeper 1,2,3,5 on all four stacked (sc-lodestone-bzz.html)
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for censer
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for censer
+ok   lightkeeper 1,2,3,5 on all four stacked, coldiron first (sc-lodestone-bzz.html)
+  base  the window tickers' anchors, the net endpoint rule and the ward; Lightkeeper's shipped profile; the nova's tail kept, untouched, for censer

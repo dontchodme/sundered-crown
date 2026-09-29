@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · lightkeeper (redesign) · 33 foes x 20 seeds = 660 fights an arm · built-wall
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    42.6%   0.00  0.00/24.18 
+  660 fights in 100s   errors: []

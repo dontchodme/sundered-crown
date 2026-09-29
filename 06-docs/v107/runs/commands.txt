@@ -1,0 +1,225 @@
+# v107 runs: the exact commands (from tools/; $S = the build's scratch folder, PY = Python 3.13; <33> = foes33.txt, <37> = ids37.txt)
+# NAMES (the review's note): the probe was run three times as it grew (v2 added --foes/--sides/--seedstep, v3 the
+# window-clock check in [1]). This folder keeps the LAST run of each, renamed on the copy: probe_wall.json = the run
+# written as probe_wall_v3.json, probe_bulwark.json = probe_bulwark_v3.json, probe_b10.json = probe_b10_v3.json
+# (= probe_b10_final.json); the .txt of every version of a link is byte-identical, so one is kept. The earlier
+# versions are not kept. chain_audit_b10.txt is the run written as chain_audit_b10_v2.txt (identical).
+# THE FIX PASS (after the review) moved the final link from b10 to b9.5 (jobs7 below). Every *_b10* file here is
+# the first draft's final link, kept as the measured record of Rick's other choice (50%); engine_ab37_b10.txt was
+# engine_ab37.txt. The b10 mutants' probes (probe3_mut_*) are superseded by the b9.5 mutants (probe_mut_*).
+# stage 0, the census and the repro (the first attempt ran these by hand: reconstructed from each run's own header and P)
+PY ult_overlay.py --game ../02-chain/sc-tendril-t3.html --relic lightkeeper --mech overlays/wall.js --arms A,SHIP,B,C --P bankBall=3 bankShot=3 --seeds 20 --seed0 2207|2317 --foes <33> --label "stage0 v77 wall" --out s0_ASBC_<block>.json
+PY wall_census.py --game ../02-chain/sc-tendril-t3.html --relic lightkeeper --mech overlays/wall.js --arms B,C --P bankBall=3 bankShot=3 --seeds 20 --seed0 2207 --foes <33> --label census --out s0_census_2207.json
+PY ult_overlay.py --game ../02-chain/sc-trunk.html --relic lightkeeper --mech overlays/wall.js --arms A,SHIP,B --label "repro sc-trunk 151 (wall_base)" --foes <33> --out repro_trunk_wall_base.json   (the published seeds: 10 from 2207)
+# jobs1.txt
+PY ult_overlay.py --game $S/links/sc-lightkeeper-stub.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2207 --foes <33> --label built-stub --out $S/runs/built_stub_2207.json
+PY ult_overlay.py --game $S/links/sc-lightkeeper-stub.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2317 --foes <33> --label built-stub --out $S/runs/built_stub_2317.json
+PY ult_overlay.py --game $S/links/sc-lightkeeper-wall.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2207 --foes <33> --label built-wall --out $S/runs/built_wall_2207.json
+PY ult_overlay.py --game $S/links/sc-lightkeeper-wall.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2317 --foes <33> --label built-wall --out $S/runs/built_wall_2317.json
+PY ult_overlay.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2207 --foes <33> --label built-bulwark --out $S/runs/built_bulwark_2207.json
+PY ult_overlay.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2317 --foes <33> --label built-bulwark --out $S/runs/built_bulwark_2317.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-wall.html --json $S/runs/probe_wall.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark.html --json $S/runs/probe_bulwark.json
+PY relic_rate.py --game ../02-chain/sc-tendril-t3.html --relic lightkeeper --n 10 --seed0 2207 --label shipped-nova --json $S/runs/ref_shipped_rr_2207.json
+PY relic_rate.py --game ../02-chain/sc-tendril-t3.html --relic lightkeeper --n 10 --seed0 2317 --label shipped-nova --json $S/runs/ref_shipped_rr_2317.json
+# jobs2.txt
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2207 --set dmg=9 --label stage5 --json $S/runs/stage5_rr_d9_2207.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2317 --set dmg=9 --label stage5 --json $S/runs/stage5_rr_d9_2317.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2207 --set dmg=9.5 --label stage5 --json $S/runs/stage5_rr_d9.5_2207.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2317 --set dmg=9.5 --label stage5 --json $S/runs/stage5_rr_d9.5_2317.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2207 --set dmg=10 --label stage5 --json $S/runs/stage5_rr_d10_2207.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2317 --set dmg=10 --label stage5 --json $S/runs/stage5_rr_d10_2317.json
+PY ult_overlay.py --game ../02-chain/sc-tendril-t3.html --relic lightkeeper --mech overlays/wall.js --arms B,C --P bankBall=3 bankShot=3 dur=9.57 --seeds 20 --seed0 2207 --foes <33> --label lab-at-dur-9.57 --out $S/runs/lab957_BC_2207.json
+PY ult_overlay.py --game ../02-chain/sc-tendril-t3.html --relic lightkeeper --mech overlays/wall.js --arms B,C --P bankBall=3 bankShot=3 dur=9.57 --seeds 20 --seed0 2317 --foes <33> --label lab-at-dur-9.57 --out $S/runs/lab957_BC_2317.json
+PY ult_overlay.py --game $S/ctl/ctl-labclock-wall.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2207 --foes <33> --label ctl-labclock-wall --out $S/runs/ctl_labclock_wall_2207.json
+PY ult_overlay.py --game $S/ctl/ctl-labclock-wall.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2317 --foes <33> --label ctl-labclock-wall --out $S/runs/ctl_labclock_wall_2317.json
+PY ult_overlay.py --game $S/ctl/ctl-labclock-bulwark.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2207 --foes <33> --label ctl-labclock-bulwark --out $S/runs/ctl_labclock_bulwark_2207.json
+PY ult_overlay.py --game $S/ctl/ctl-labclock-bulwark.html --relic lightkeeper --mech overlays/wall.js --arms SHIP --seeds 20 --seed0 2317 --foes <33> --label ctl-labclock-bulwark --out $S/runs/ctl_labclock_bulwark_2317.json
+# jobs3.txt
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2207 --set dmg=10.25 --label stage5 --json $S/runs/stage5_rr_d10.25_2207.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2317 --set dmg=10.25 --label stage5 --json $S/runs/stage5_rr_d10.25_2317.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2207 --set dmg=10.5 --label stage5 --json $S/runs/stage5_rr_d10.5_2207.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2317 --set dmg=10.5 --label stage5 --json $S/runs/stage5_rr_d10.5_2317.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2207 --label stage5-as-built-10.54 --json $S/runs/stage5_rr_d10.54_2207.json
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark.html --relic lightkeeper --n 10 --seed0 2317 --label stage5-as-built-10.54 --json $S/runs/stage5_rr_d10.54_2317.json
+# jobs4.txt
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark-b10.html --relic lightkeeper --n 10 --seed0 2207 --label built-b10-noset --json $S/runs/stage5_rr_built_b10_2207.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark-b10.html --json $S/runs/probe_b10.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-wall.html --json $S/runs/probe_wall_v2.json          (superseded by v3, not kept)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark.html --json $S/runs/probe_bulwark_v2.json    (superseded by v3, not kept)
+# (the mutant lines below were on the b10 link, with the v2 probe; superseded by jobs5, then by jobs7 on b9.5)
+PY lightkeeper_probe.py --game $S/mut/mut-m1-window.html
+PY $S/runs/fightdiff.py $S/links/sc-lightkeeper-bulwark-b10.html $S/mut/mut-m1-window.html 3
+PY lightkeeper_probe.py --game $S/mut/mut-m3-arrows.html
+PY $S/runs/fightdiff.py $S/links/sc-lightkeeper-bulwark-b10.html $S/mut/mut-m3-arrows.html 3
+PY lightkeeper_probe.py --game $S/mut/mut-m4-cd.html
+PY $S/runs/fightdiff.py $S/links/sc-lightkeeper-bulwark-b10.html $S/mut/mut-m4-cd.html 3
+PY lightkeeper_probe.py --game $S/mut/mut-m5-shove.html
+PY $S/runs/fightdiff.py $S/links/sc-lightkeeper-bulwark-b10.html $S/mut/mut-m5-shove.html 3
+PY lightkeeper_probe.py --game $S/mut/mut-m6-bank.html
+PY $S/runs/fightdiff.py $S/links/sc-lightkeeper-bulwark-b10.html $S/mut/mut-m6-bank.html 3
+PY lightkeeper_probe.py --game $S/mut/mut-m7-stop.html
+PY $S/runs/fightdiff.py $S/links/sc-lightkeeper-bulwark-b10.html $S/mut/mut-m7-stop.html 3
+PY engine_ab.py --a ../02-chain/sc-tendril-t3.html --b $S/links/sc-lightkeeper-bulwark-b10.html --ids <37> --n 6   (-> engine_ab37_b10.txt)
+PY verify.py --game $S/links/sc-lightkeeper-bulwark-b10.html --n 40
+PY tip_audit.py --game $S/links/sc-lightkeeper-bulwark-b10.html
+PY tip_audit.py --game ../02-chain/sc-tendril-t3.html
+# jobs5.txt
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark-b10.html --relic lightkeeper --n 10 --seed0 2317 --label built-b10-noset --json $S/runs/stage5_rr_built_b10_2317.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark-b10.html --json $S/runs/probe_b10_v3.json       (copied as probe_b10.json)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-wall.html --json $S/runs/probe_wall_v3.json             (copied as probe_wall.json)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark.html --json $S/runs/probe_bulwark_v3.json       (copied as probe_bulwark.json)
+# (the mutant lines below were on the b10 link -> probe3_mut_*.txt; superseded by jobs7 on b9.5)
+PY lightkeeper_probe.py --game $S/mut/mut-m1-window.html
+PY lightkeeper_probe.py --game $S/mut/mut-m2-clock.html
+PY lightkeeper_probe.py --game $S/mut/mut-m3-arrows.html
+PY lightkeeper_probe.py --game $S/mut/mut-m4-cd.html
+PY lightkeeper_probe.py --game $S/mut/mut-m5-shove.html
+PY lightkeeper_probe.py --game $S/mut/mut-m6-bank.html
+PY lightkeeper_probe.py --game $S/mut/mut-m7-stop.html
+PY $S/runs/fightdiff.py $S/links/sc-lightkeeper-bulwark-b10.html $S/mut/mut-m2-clock.html 3
+# jobs6.txt
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-wall.html --foes <33> --sides A --seed0 2207 --seeds 20 --seedstep 11 --json $S/runs/probe_labfield_wall_2207.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-wall.html --foes <33> --sides A --seed0 2317 --seeds 20 --seedstep 11 --json $S/runs/probe_labfield_wall_2317.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark.html --foes <33> --sides A --seed0 2207 --seeds 20 --seedstep 11 --json $S/runs/probe_labfield_bulwark_2207.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark.html --foes <33> --sides A --seed0 2317 --seeds 20 --seedstep 11 --json $S/runs/probe_labfield_bulwark_2317.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark-b10.html --json $S/runs/probe_b10_final.json    (identical to probe_b10_v3; not kept)
+# builds, mutants, controls, composition
+PY lightkeeper_build.py --stage 1|2|3|5 --src <prev> --out $S/links/<name>   (runs/rebuild_final.txt)
+PY $S/runs/mutants.py $S/links/sc-lightkeeper-bulwark-b10.html $S/mut ; PY $S/runs/ctl_variant.py <link> <out> labclock   (first draft)
+bash $S/runs/compose.sh ; bash $S/runs/compose_b.sh   (first draft, with the b10 builder)
+PY chain_audit.py --relic $S/links/sc-lightkeeper-bulwark-b10.html --tip $S/links/sc-lightkeeper-bulwark-b10.html --builder lightkeeper_build.py   (-> chain_audit_b10.txt)
+# ============ THE FIX PASS: the blade to the shipped rate (design §4/§5), the final link b9.5 ============
+# (the b10 link deleted by hand; BLADE = 9.5 in the builder)
+PY lightkeeper_build.py --stage 5 --src $S/links/sc-lightkeeper-bulwark.html --out $S/links/sc-lightkeeper-bulwark-b9.5.html   (build_stage5.txt)
+PY lightkeeper_build.py --stage 1|2|3|5 from the base into tmp/rebuild4, sha against every link   (rebuild_final.txt)
+PY chain_audit.py --relic $S/links/sc-lightkeeper-bulwark-b9.5.html --tip $S/links/sc-lightkeeper-bulwark-b9.5.html --builder lightkeeper_build.py   (chain_audit_b9.5.txt)
+bash $S/runs/compose3.sh   (compose3.txt: the four other in-progress builders as they stand, both ways, two stacks)
+PY $S/runs/mutants.py $S/links/sc-lightkeeper-bulwark-b9.5.html $S/mut ; PY $S/runs/ctl_variant.py <b9.5> $S/mut/mut-m2-clock.html labclock   (mutants_hashes.txt)
+# jobs7.txt (2 at a time, q.sh)
+PY relic_rate.py --game $S/links/sc-lightkeeper-bulwark-b9.5.html --relic lightkeeper --n 10 --seed0 2207|2317 --label built-b9.5-noset --json $S/runs/stage5_rr_built_b9.5_<block>.json
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark-b9.5.html --json $S/runs/probe_b9.5.json
+PY engine_ab.py --a ../02-chain/sc-tendril-t3.html --b $S/links/sc-lightkeeper-bulwark-b9.5.html --ids <37> --n 6   (engine_ab37_b9.5.txt)
+PY verify.py --game $S/links/sc-lightkeeper-bulwark-b9.5.html --n 40   (verify_b9.5.txt)
+PY tip_audit.py --game $S/links/sc-lightkeeper-bulwark-b9.5.html   (tip_audit_b9.5.txt)
+PY lightkeeper_probe.py --game $S/mut/mut-<m>.html ; PY $S/runs/fightdiff.py <b9.5> $S/mut/mut-<m>.html 3   for m1-window m2-clock m3-arrows m4-cd m5-shove m6-bank m7-stop m8-side   (probe_mut_<m>.txt, fightdiff_mut_<m>.txt)
+PY relic_rate.py --game $S/mut/mut-m8-side.html --relic lightkeeper --n 10 --seed0 2207|2317 --label literal-shove-outward --json $S/runs/rr_m8side_<block>.json
+# after
+PY $S/runs/cmp_rr.py stage5_rr_built_b9.5_<block>.json stage5_rr_d9.5_<block>.json   (cmp_rr_b9.5.txt: the no-set link == the --set run)
+PY $S/runs/ladder.py "<label>" stage5_rr_built_b9.5_2207.json stage5_rr_built_b9.5_2317.json   (ladder_b9.5.txt)
+PY $S/runs/stage5_table.py   (stage5_table.txt)
+# the literal shove at blade 10 (the size of the review's r3-side at the first draft's blade): a scratch b10 rebuilt in tmp/side10
+# (== 97746e35cc3e500d), mutated with mutants.py's m8-side replacement -> tmp/side10/m8-side-b10.html
+PY lightkeeper_probe.py --game $S/tmp/side10/m8-side-b10.html   (probe_mut_m8-side_on_b10.txt: 444 fights, 48.4 -> 54.7 as the review read)
+PY relic_rate.py --game $S/tmp/side10/m8-side-b10.html --relic lightkeeper --n 10 --seed0 2207|2317 --label literal-shove-outward-b10 --json $S/runs/rr_m8side_b10_<block>.json
+# NAMES ON THE COPY (fix pass): the b10 mutants' probe runs probe3_mut_<m>.txt are kept as probe_mut_<m>_b10.txt, their fightdiffs
+# (fightdiff_mut_<m>.txt as first copied) as fightdiff_mut_<m>_b10.txt; probe_mut_<m>.txt / fightdiff_mut_<m>.txt are the b9.5 mutants.
+# ============ RESUME 3 (12:00): re-checks and the composition against every in-progress batch builder ============
+PY lightkeeper_build.py --stage 1|2|3|5 from the base into tmp/rebuild5: all four IDENTICAL (rebuild_final.txt, the last lines)
+bash $S/runs/compose4.sh   (compose4.txt: widowmaker, coldiron, ironhail, lodestone, oracle, angelus as they stood at 12:00)
+# ============ SECOND REVIEW ROUND (12:30): the probe reads the whole state; the builder declares the volley release ============
+# probe v4 (tools/lightkeeper_probe.py): [2] and [7] are a whole-state diff (both fighters, the match, every shot), [6] rebuilds
+# the ward exactly, and the probe counts the Crossweave volleys the wall leaves fully stuck. builder de79d7c1fefc8b74: reading 2,
+# the +0.6 comment, a self-check that no insert stuns/pins/burdens or lays a status but the ward. Its output is unchanged.
+PY lightkeeper_build.py --stage 1|2|3|5 from the base into tmp/rebuild6: all four IDENTICAL (rebuild_final.txt, the last lines)
+PY tmp/guard/tools/g_stun.py|g_hex.py --stage 2 --src <stub> --out ...   (scratch builders with a stun / a hex in the insert: both REFUSE)
+bash $S/runs/compose5.sh   (compose5.txt: the six others as they stood at 12:38)
+PY chain_audit.py --relic $S/links/sc-lightkeeper-bulwark-b9.5.html --tip $S/links/sc-lightkeeper-bulwark-b9.5.html --builder lightkeeper_build.py   (chain_audit_b9.5_v2.txt)
+PY $S/runs/mutants.py $S/links/sc-lightkeeper-bulwark-b9.5.html $S/mut   (+ r5-stun, r6-hex, r7-castsunder, and the reviewer's r1-r4; mutants_hashes.txt)
+# jobs8.txt (2 at a time, q.sh; q8.log)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark-b9.5.html --json $S/runs/probe_b9.5_v4.json   (probe_b9.5_v4.txt)
+PY lightkeeper_probe.py --game $S/mut/mut-<m>.html   for r5-stun r6-hex r7-castsunder   (probe_mut_<m>.txt)
+PY $S/runs/fightdiff.py <b9.5> $S/mut/mut-<m>.html 3   for r5-stun r6-hex r7-castsunder   (fightdiff_mut_<m>.txt)
+PY lightkeeper_probe.py --game $S/mut/mut-<m>.html   for m1-window m2-clock m3-arrows m4-cd m5-shove m6-bank m7-stop m8-side   (probe_mut_<m>_v4.txt)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-wall.html --json $S/runs/probe_wall_v4.json   (probe_wall_v4.txt)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark.html --json $S/runs/probe_bulwark_v4.json   (probe_bulwark_v4.txt)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-wall|bulwark.html --foes <33> --sides A --seed0 2207|2317 --seeds 20 --seedstep 11 --json $S/runs/probe_labfield_<stage>_<block>_v4.json
+# jobs9.txt (after jobs8; q9.log)
+PY lightkeeper_probe.py --game $S/mut/mut-<m>.html ; PY $S/runs/fightdiff.py <b9.5> $S/mut/mut-<m>.html 3   for r1-netsplice r2-pinned r3-castcd r4-noward
+PY $S/runs/mutant_table.py   (mutant_table.txt: the fifteen, each fails its own check alone and changes fights)
+# ============ RESUME 5 (16:54): re-checks; the other builders and the line's tip moved ============
+PY lightkeeper_build.py --stage 1|2|3|5 from the base into tmp/rebuild8: all four IDENTICAL (rebuild_final.txt, the last lines);
+   a stage-5 write onto the existing b9.5 refuses; stage 5 onto b9.5 refuses (the profile has moved)
+bash $S/runs/compose6.sh   (compose6.txt: the six others as they stood at 16:56, and this builder on sc-tendril-fx, Bindweed stage 6)
+# jobs10.txt (q10.log): the b9.5 carried onto sc-tendril-fx (tmp/compose6/on-fx, 383a547dfdfc4279)
+PY lightkeeper_probe.py --game $S/tmp/compose6/on-fx/sc-lightkeeper-bulwark-b9.5.html   (probe_onfx_b9.5.txt)
+PY engine_ab.py --a ../02-chain/sc-tendril-fx.html --b $S/tmp/compose6/on-fx/sc-lightkeeper-bulwark-b9.5.html --ids <37> --n 6   (engine_ab37_onfx.txt)
+# ============ THIRD REVIEW ROUND (18:00): the probe's whole-state diff reads the match's arrays (shades field by field) and the
+# shared module tables; builder 0cc27d7b775b6d2c refuses an insert that writes STATUS/CONFIG/AFFINITIES/WEAPONS/SHAPES ============
+PY lightkeeper_build.py --stage 1|2|3|5 from the base into tmp/rebuild9: all four IDENTICAL (rebuild_final.txt, the last lines)
+PY $S/tmp/guard3/neg_test.py $S/links/sc-lightkeeper-stub.html   (builder_negtest3.txt: ten scratch builders with a table write REFUSE; the clean copy writes a22bc1f8cb4b2dfe)
+bash $S/runs/compose7.sh   (compose7.txt / .err: verdicts from exit status; the six others as they stood at 18:08, and sc-tendril-fx; 0 FAIL)
+PY chain_audit.py --relic $S/links/sc-lightkeeper-bulwark-b9.5.html --tip $S/links/sc-lightkeeper-bulwark-b9.5.html --builder lightkeeper_build.py   (chain_audit_b9.5_v3.txt)
+PY $S/runs/mutants.py $S/links/sc-lightkeeper-bulwark-b9.5.html $S/mut   (+ the reviewer's v3-shade and v4-global; the other 15 cmp-identical; mutants_hashes.txt)
+# jobs11.txt (2 at a time, q.sh; q11.log)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-bulwark-b9.5.html --json $S/runs/probe_b9.5_v5.json   (probe_b9.5_v5.txt)
+PY lightkeeper_probe.py --game $S/mut/mut-<m>.html   for all 17 mutants   (probe_mut_<m>_v5.txt)
+PY $S/runs/fightdiff.py <b9.5> $S/mut/mut-<m>.html 3   for v3-shade v4-global   (fightdiff_mut_<m>.txt)
+PY lightkeeper_probe.py --game $S/links/sc-lightkeeper-wall|bulwark.html --json $S/runs/probe_<stage>_v5.json   (probe_wall_v5.txt, probe_bulwark_v5.txt)
+PY lightkeeper_probe.py --game $S/tmp/compose6/on-fx/sc-lightkeeper-bulwark-b9.5.html   (probe_onfx_b9.5_v5.txt; compose7 rewrote the same bytes, 383a547dfdfc4279)
+PY $S/runs/mutant_table.py   (mutant_table.txt: the seventeen under v5; the fifteen under v4 kept as mutant_table_v4.txt)
+# ============ RESUME 7 (21:57) and RESUME 8 (2026-09-28 01:14): each after a usage-limit cut; jobs11 was killed after 6 jobs,
+# jobs12 died at 22:38 (bash fork: resource unavailable) after m1-m3; jobs13 runs the rest ============
+bash $S/runs/compose8.sh ; bash $S/runs/compose8b.sh   (compose8.txt/.err, compose8b.txt: ironhail moved; the newest tip sc-coldiron-temper-fx; 0 FAIL)
+bash $S/runs/compose9.sh   (compose9.txt/.err, 2026-09-28 01:17: oracle moved; ironhail by its carry list 1,2,3,6; the newest batch tip
+   sc-ironhail-sunder-fx; the four links rebuilt byte-identical inside it; 0 FAIL)
+PY lightkeeper_build.py --stage 5 ... onto the existing b9.5 / with the b9.5 as --src / to a name not sc-lightkeeper*: all three refuse
+# jobs12.txt (q12.log) and jobs13.txt (q13.log), 2 at a time, q.sh: the v5 probe on the 15 older mutants, the bulwark link and the
+# b9.5 carried onto sc-tendril-fx (the same command lines as jobs11 above)
+PY $S/runs/v5_vs_v4.py      (v5_vs_v4.txt: wall / bulwark / b9.5 / on-fx b9.5 under v5, header and mechanism lines against v4)
+PY $S/runs/v5_vs_v4_mut.py  (v5_vs_v4_mut.txt: every older mutant's [1][3][4][5][6][8] and mechanism lines under v5 against v4)
+PY $S/runs/mutant_table.py  (mutant_table.txt: the seventeen under v5)
+# ============ RESUME 9 (2026-09-28 01:45): after another cut; jobs13 died with the session at ~01:26 (every output empty or a
+# browser-closed traceback; moved aside to tmp/q13dead), so jobs14.txt (== jobs13.txt; q14.log) re-runs all fourteen ============
+PY lightkeeper_build.py --stage 1|2|3|5 from the base into tmp/rebuild12: all four IDENTICAL, no CR byte; a stage-5 write onto the
+   existing b9.5 refuses; stage 5 with the b9.5 as --src refuses (the profile has moved)
+PY $S/runs/cmp_arms.py s0_ASBC_<block>.json A built_stub_<block>.json SHIP   (re-run: identical both blocks; SHIP vs stub differs)
+PY $S/runs/cmp_rr.py stage5_rr_built_b9.5_<block>.json stage5_rr_d9.5_<block>.json   (re-run: IDENTICAL both blocks)
+bash $S/runs/compose10.sh   (compose10.txt/.err, 01:49: oracle moved again, 00a0aa12, and now reaches its stage 5; the newest batch
+   tip sc-ironhail-fxout 4b3775e5900172ea; the four links rebuilt byte-identical inside it; 0 FAIL)
+grep -n -F <each event's text> on the b9.5 and on tmp/compose10/on-if   (stage6_lines.txt: the stage-6 event lines on both)
+# ============ RESUME 10 (2026-09-28 02:52): after another cut; jobs14 (q14.log) survived it and finished at 02:58 ============
+PY lightkeeper_build.py --stage 1|2|3|5 from the base into tmp/rebuild13: all four IDENTICAL, no CR byte; a stage-5 write onto the
+   existing b9.5 refuses
+bash $S/runs/compose11.sh   (compose11.txt/.err, 02:55: widowmaker 51c97e69, lodestone c74cd4a4, angelus e5b0d70b moved; Ironhail's
+   carry committed (0303511); the four links rebuilt byte-identical inside it; 0 FAIL)
+PY $S/runs/mutant_table.py  (mutant_table.txt: the seventeen under v5, all 17 runs present: EVERY MUTANT CHANGES FIGHTS AND FAILS ITS OWN CHECK ALONE)
+PY $S/runs/v5_vs_v4_mut.py  (v5_vs_v4_mut.txt: the fifteen older mutants, every line SAME)
+# ============ STAGE 6 (2026-09-28 23:08 -> 2026-09-29; resumed at 03:05 after a cut). S = the scratch batch/lightkeeper folder,
+# I = $S/s6int; bn.cmd runs python at below-normal priority. Two browsers at most. ============
+PY $I/gen_s6.py   (stage6_gen_s6.py: rows == the labs' files; the picture rows alone 728d64f8397290a1, the voice rows alone a8629a7fe94d50b9,
+   both orders e3f16bf01f0e2995; no shared or nested anchor; writes S6 + the --stage 6 branch into lightkeeper_build.py)
+PY lightkeeper_build.py --stage 6 --src $S/links/sc-lightkeeper-bulwark-b9.5.html --out $S/links/sc-lightkeeper-bulwark-b9.5-fx.html   (stage6_build.txt)
+PY $I/s6_rows_recheck.py   (stage6_rows_recheck.txt: S6 as the builder holds it == the rows, byte for byte; the stamps)
+bash $I/builder_checks6.sh   (stage6_builder_checks.txt with the final builder a559dc47824545e9; _3b41 with the first stage-6 builder:
+   8 refusals, and stages 1, 2, 3, 5, 6 from the bare tip == every link, no CR)
+PY $I/neg_test6.py   (stage6_builder_negtest.txt: 13 variants REFUSE, the clean copy writes e3f16bf01f0e2995)
+PY $S/tmp/guard3b/neg_test.py $S/links/sc-lightkeeper-stub.html   (builder_negtest3_rerun6.txt: the third round's 10 REFUSE on the stage-6 builder)
+bash $I/compose12.sh ; bash $I/compose13.sh ; bash $I/compose14.sh   (compose12/13/14 .txt/.err: 0 FAIL each; 14 with the final builder)
+bash $I/lane_eab.sh   (stage6_engine_ab38.txt: engine_ab --a b9.5 --b the fx link --ids <stage6_ids38.txt> --n 6)
+bash $I/lane_render.sh   (stage6_render_ab.txt, stage6_render_ab_control.txt, stage6_tip_audit_fx.txt)
+PY chain_audit.py --relic <fx> --tip <fx> | --tip <b9.5> --builder lightkeeper_build.py   (stage6_chain_audit.txt, stage6_chain_audit_control.txt)
+PY fx_remove.py --relic lightkeeper --fxjs <a scratch copy of the fx link's inlined module> ...   (stage6_fx_remove_scratch.txt; scratch only)
+PY $I/mutants6.py   (stage6_mutants.py: mV1 e3f7808fe60a0429, mP1 e53ac12997454126, mD1 8cd6df19b86b41be, scratch pages)
+bash $I/lane2A.sh   (stage6_probe.txt/.json: the probe v6 on the fx link, 444 fights + the drawn 74)
+bash $I/lane2B.sh   (the clip; stage6_probe_mut_mV1/mP1 (--no-draw), _mD1 (--seeds 1 --draw-every 30), stage6_probe_seeds1_drawn30.txt
+   (the fx link on mD1's field), probe_b9.5_v6.txt)
+bash $I/lane2C.sh   (stage6_engine_ab_control.txt: b9.5 against mP1; stage6_clip_timeline.txt; stage6_shapes_draw.txt)
+PY _lightkeeper_pick.py --game $S/links/sc-lightkeeper-bulwark-b9.5-fx.html   (stage6_pick.txt)
+PY cinema_clip.py --game $S/links/sc-lightkeeper-bulwark-b9.5-fx.html --a lightkeeper --b redflail --seed 107201 --at 47.64 --window 13.22 \
+   --end-at-window --fps 60 --w 540 --out ../07-shorts/v107/bulwark-window.mp4   (stage6_clip_log.txt)
+ffprobe / ffmpeg volumedetect / ffmpeg select+tile on the clip   (stage6_clip_check.txt)
+# ---- stage 6, after 04:05 on 2026-09-29: the probe's SHAPES fix and its final runs (probe e1e09479216f72d6) ----
+PY $I/shapes_draw_all.py   (stage6_shapes_draw_all.txt: every foe drawn on the b9.5 and the fx link; the five underscore memos, alike on both)
+PY lightkeeper_probe.py --game <fx | mS1 | mS2> --foes axiom,gloamwire,redflail --seeds 2 --draw-every 30
+   (stage6_probe_smoke_fx/_mS1/_mS2.txt: 10/10; [7] alone 12x; [7] alone 6x; _mS1_fxcMap.txt, the first mS1 on SHAPES._fxc.lk: 10/10, the JSON limit)
+bash $I/lane3A.sh   (stage6_probe.txt/.json: the fx link 10/10, 444 fights + the drawn 74, 49.5 min; stage6_probe_mut_mV1.txt: [9] alone, 44)
+bash $I/lane3B.sh   (stage6_probe_mut_mD1.txt: [10] alone, 12350; stage6_probe_seeds1_drawn30.txt: the fx link on mD1's field, 10/10;
+   probe_b9.5_v6.txt: 8/8, v5's lines; stage6_probe_mut_mP1.txt: [10] alone, 30090)
+   (the first v6 form's runs, before the fix: stage6_probe_v6first.txt 9/10 ([7] 348), stage6_probe_mut_mV1_v6first.txt, _mP1_v6first.txt)
+# ---- the resume of 2026-09-29 08:05 (the line moved: Lodestone, Widowmaker, Oracle, Angelus committed) ----
+bash $I/compose15.sh   (compose15.txt/.err, 08:07-08:10: 10 other builders, both ways + 2 stacks, 8 tips up to sc-angelus-b9-fx; 0 FAIL, 64 verdicts)
+PY $I/s6_rows_recheck.py   (stage6_rows_recheck.txt: on the final builder a559dc47824545e9; _3b41.txt on the first stage-6 builder)
+bash $I/lane4P.sh   (stage6_probe_on_angelus_tip_s1.txt: the probe v6 on the fx link the builder writes on sc-angelus-b9-fx, one seed, drawn every 30th)
+PY $I/merge_doc.py --tip-probe <that file>   (stage6_merge_doc.py: stage 6's sections into this doc, from s6int/doc_s6_sections.md)
+bash $I/copy_runs.sh   (stage6_copy_runs.sh: these files into runs/)

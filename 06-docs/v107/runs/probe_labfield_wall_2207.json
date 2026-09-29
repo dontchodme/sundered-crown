@@ -1,0 +1,52 @@
+{
+ "n": {
+  "liveTicks": 5154260,
+  "blowOutOk": 7767,
+  "castOk": 2718,
+  "frames": 2451918,
+  "bankFrameOk": 2451918,
+  "winFrozen": 470916,
+  "winLive": 2451625,
+  "blocks": 18081,
+  "blockOk": 18081,
+  "blockBehind": 7778,
+  "shoveOk": 18081,
+  "blockAhead": 10303,
+  "blowInOk": 8422,
+  "closes": 2425,
+  "clockCloses": 2372,
+  "deathCloses": 53,
+  "arrowOk": 3834,
+  "arrowsKilled": 4238,
+  "blowExempt": 202,
+  "netStuck": 404
+ },
+ "bad": {},
+ "T": {
+  "casts": 2718,
+  "frames": 2451918,
+  "shieldSum": 26406758.14999998,
+  "blocks": 18081,
+  "arrows": 4238,
+  "banks": 0,
+  "banked": 0
+ },
+ "fights": 660,
+ "win": 0.4484848484848485,
+ "blowsIn": 12.862121212121211,
+ "blowsOut": 11.972727272727273,
+ "shieldFight": 10.510386049995887,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "ahead": 50,
+  "half": 110,
+  "shotPad": 6,
+  "ballPad": 8,
+  "cd": 0.4,
+  "shove": 500,
+  "bankBall": 0,
+  "bankShot": 0
+ },
+ "dmg": 10.54
+}

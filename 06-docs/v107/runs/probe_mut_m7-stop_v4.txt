@@ -1,0 +1,16 @@
+
+BULWARK PROBE  mut-m7-stop.html  Chromium 151.0.7922.34  444 fights (Lightkeeper both sides x every foe x 6 seeds)   blade 9.5   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.38   per cast: blocks 6.95  arrows 1.33  banked 24.04   shield on a window frame 17.33 (per fight, windowless as 0: 16.69)   Lightkeeper win 48.9%
+  blows a fight: in windows 13.97, outside 12.85   window frames a cast 903.4 (dur x 120 = 960)   blocks ahead / behind the wall 7573 / 5936   pinned contacts passed over 7376
+  net arrows stuck 252   other arrows spliced 2324   closes: clock 1708, death 30   FREEZE CENSUS 20.0% of window steps frozen (a window is ~10.00s of match time)
+  whole-state diffs clean: 1744888 wall frames, 1944 casts, 444 fights' weapon tables   Crossweave volleys the wall left fully stuck (released at the next tickShots, reading 2): 82
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0} and writes nothing else (whole state, from the end of the shared prologue)
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: exactly the endpoint write; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] PASS  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity
+  [6] PASS  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, apply("ward", 1) exactly (none at bank 0)
+  [7] FAIL  nothing else: no hurt, beat, rng draw or hit stop; a whole-state diff of both fighters (stun, pin, status, ...) and the match   26056 FAIL: ['hitStop -0.008333333333333309 -> 0.05', "the wall also moved the match's hitStop", 'hitStop -0.008333333333333309 -> 0.05', "the wall also moved the match's hitStop"]
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  7/8

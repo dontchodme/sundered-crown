@@ -1,0 +1,11 @@
+g_ok        (clean copy)                                     WRITES a22bc1f8cb4b2dfe  ok     out sc-lightkeeper-g_ok.html  a22bc1f8cb4b2dfe   (+4690 chars, written LF)
+g_status    + STATUS.ward.cap = 120;                         REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes a shared module 
+g_alias     + W.cap = 120;                                   REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes a shared module 
+g_config    + CONFIG.physics.ballR += 1;                     REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes a shared module 
+g_aff       + AFFINITIES[f.w.id] = null;                     REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes a shared module 
+g_weapons   + WEAPONS[0].dmg = 1;                            REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes a shared module 
+g_shapes    + delete SHAPES._fxc;                            REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes a shared module 
+g_incr      + STATUS.ward.cap++;                             REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes a shared module 
+g_assign    + Object.assign(STATUS.ward, { cap: 120 });      REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes a shared module 
+g_wincr     + f.w.dmg++;                                     REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' writes the shared weapo
+g_stunincr  + foe.stun++;                                    REFUSES                  ok   REFUSING TO WRITE -- insert 'tickLightwall stops arrows, turns the foe back and banks' stuns, pins, burdens or

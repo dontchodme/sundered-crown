@@ -1,0 +1,5 @@
+mut-v4-global.html vs sc-lightkeeper-bulwark-b9.5.html: 31/222 fights differ; Lightkeeper wins 105 -> 108
+
+real	0m56.947s
+user	0m0.000s
+sys	0m0.015s

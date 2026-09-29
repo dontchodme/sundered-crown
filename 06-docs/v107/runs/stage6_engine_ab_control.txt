@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-lightkeeper-bulwark-b9.5.html    36 matches    6.2s
+  sc-lightkeeper-mP1.html           36 matches    6.3s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Lightkeeper", "b": "Gloamwire", "winner": "Gloamwire", "hp": 9, "duration": 76.96, "reason": "slain", "hits": {"a": 26, "b": 56}, "crits": {"a": 4, "b": 4}, "clanks": 25}
+            variant {"seed": 1233799701, "a": "Lightkeeper", "b": "Gloamwire", "winner": "Lightkeeper", "hp": 89, "duration": 81.35, "reason": "slain", "hits": {"a": 24, "b": 63}, "crits": {"a": 4, "b": 4}, "clanks": 28}
+          #1
+            control {"seed": 330441002, "a": "Lightkeeper", "b": "Gloamwire", "winner": "Lightkeeper", "hp": 4, "duration": 77.47, "reason": "slain", "hits": {"a": 27, "b": 54}, "crits": {"a": 4, "b": 6}, "clanks": 23}
+            variant {"seed": 330441002, "a": "Lightkeeper", "b": "Gloamwire", "winner": "Lightkeeper", "hp": 105, "duration": 77.54, "reason": "slain", "hits": {"a": 29, "b": 49}, "crits": {"a": 3, "b": 5}, "clanks": 22}
+          #2
+            control {"seed": 4184808219, "a": "Lightkeeper", "b": "Gloamwire", "winner": "Lightkeeper", "hp": 454, "duration": 73.96, "reason": "slain", "hits": {"a": 31, "b": 32}, "crits": {"a": 5, "b": 2}, "clanks": 28}
+            variant {"seed": 4184808219, "a": "Lightkeeper", "b": "Gloamwire", "winner": "Lightkeeper", "hp": 401, "duration": 68.28, "reason": "slain", "hits": {"a": 33, "b": 33}, "crits": {"a": 4, "b": 1}, "clanks": 27}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 37.3-92.0s
+
+ENGINE A/B FAIL

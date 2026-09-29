@@ -1,0 +1,10 @@
+38 relics · Chromium 151.0.7922.34 · lightkeeper (redesign) · 33 foes x 20 seeds = 660 fights an arm · stage0 v77 wall
+  charge=16.0 dur=8.0 blade=None bankBall=3 bankShot=3
+
+  arm       win  casts  hits in/out   arrows   banked   blocks f_shield
+  A       38.8%   0.00  0.00/23.92      0.00     0.00     0.00     0.00
+  SHIP    44.1%   0.00  0.00/22.91      0.00     0.00     0.00     0.00
+  B       45.9%   4.25 11.17/13.14      1.40     0.00     6.60    10.96
+  C       61.7%   4.44 11.69/13.86      1.40    23.62     6.73    18.80
+  lifts over A: SHIP +5.3  B +7.1  C +22.9
+  2640 fights in 358s   errors: []

@@ -1,0 +1,12 @@
+sc-lightkeeper-bulwark-b9.5.html SHAPES has 73 keys (68 functions); moved by drawing:
+   _t                     first moved in the fight with dawnbringer (side A)     number   69.30000000000122
+   _shadeCache            first moved in the fight with dawnbringer (side A)     object   77 entries
+   _facetCache            first moved in the fight with dawnbringer (side A)     object   16 entries
+   _inkCache              first moved in the fight with ironhail (side A)        object   27 entries
+   _fxc                   first moved in the fight with axiom (side A)           object   0 entries
+sc-lightkeeper-bulwark-b9.5-fx.html SHAPES has 73 keys (68 functions); moved by drawing:
+   _t                     first moved in the fight with dawnbringer (side A)     number   69.30000000000122
+   _shadeCache            first moved in the fight with dawnbringer (side A)     object   77 entries
+   _facetCache            first moved in the fight with dawnbringer (side A)     object   16 entries
+   _inkCache              first moved in the fight with ironhail (side A)        object   27 entries
+   _fxc                   first moved in the fight with axiom (side A)           object   0 entries

@@ -1,0 +1,16 @@
+
+BULWARK PROBE  sc-lightkeeper-bulwark.html  Chromium 151.0.7922.34  660 fights (Lightkeeper side A x 33 foes x 20 seeds)   blade 10.54   ult {'charge': 14, 'dur': 8, 'ahead': 50, 'half': 110, 'shotPad': 6, 'ballPad': 8, 'cd': 0.4, 'shove': 500, 'bankBall': 3, 'bankShot': 3}
+  casts/fight 4.31   per cast: blocks 6.82  arrows 1.54  banked 24.14   shield on a window frame 18.72 (per fight, windowless as 0: 18.32)   Lightkeeper win 60.5%
+  blows a fight: in windows 13.51, outside 12.26   window frames a cast 904.9 (dur x 120 = 960)   blocks ahead / behind the wall 10981 / 8417   pinned contacts passed over 0
+  net arrows stuck 428   other arrows spliced 3945   closes: clock 2498, death 48   FREEZE CENSUS 16.5% of window steps frozen (a window is ~9.58s of match time)
+  whole-state diffs clean: 2575996 wall frames, 2844 casts, 660 fights' weapon tables   Crossweave volleys the wall left fully stuck (released at the next tickShots, reading 2): 136
+  [1] PASS  the window is `dur` on the window clock, closes on either death; no cast under a wall; only Lightkeeper carries ultWall
+  [2] PASS  the nova is out: a cast opens exactly {t 0, dur, cd 0} and writes nothing else (whole state, from the end of the shared prologue)
+  [3] PASS  arrows within (r || 6) + shotPad of the rebuilt wall die (net: exactly the endpoint write; else spliced), no other shot is touched
+  [4] PASS  a block exactly when the foe is inside R + ballPad, unpinned, the cooldown clear; never closer than cd
+  [5] PASS  the shove: exactly `shove` along the normal to the foe's side of the wall; no other velocity
+  [6] PASS  the bank: min(cap, shield + bankShot) an arrow, + bankBall a block, shieldMax, apply("ward", 1) exactly (none at bank 0)
+  [7] PASS  nothing else: no hurt, beat, rng draw or hit stop; a whole-state diff of both fighters (stun, pin, status, ...) and the match
+  [8] PASS  the sword swings as ever: every blow the greatsword's own, rebuilt exactly, in the window and out
+
+  8/8

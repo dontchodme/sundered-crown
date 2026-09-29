@@ -1,0 +1,4 @@
+lightkeeper on sc-lightkeeper-bulwark-b9.5.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · built-b9.5-noset
+  win 44.9%   side A 43.8%   side B 45.9%   mean 80.6s   timeouts 0
+  by type  bow 82%  twinblade 51%  scythe 48%  greatsword 35%  flail 29%  warhammer 27%
+  worst    heartwood 0%  axiom 5%  ironwood 5%   (740 fights in 67s)

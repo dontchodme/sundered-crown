@@ -1,0 +1,18 @@
+[progress] capture frames=0 elapsed=0.0
+[... 339 progress lines in all ...]
+[progress] capture frames=1104 elapsed=414.5
+no killing blow on this seed (timeout finish); using the last cut
+--at 47.64s: filming a 13.22s window rather than measuring back from the kill
+seed 107201: kill at 69.03s, clip starts at 47.64s
+cut list: 38.3s T3, 56.2s T3, 69.0s T3
+  rendering director ON ...
+    the window ends at 60.86s of match time: stopped at 18.4s of video
+    on: 1106 frames, 18.4s wall, 426s to render, match ended {'seed': 107201, 't': 47.641666666664605, 'kill': None}
+    on: FIGHT over=None t=60.8667 clanks=24 hp=[370.45, 115]
+
+wrote C:\dev\sundered-crown\07-shorts\v107\bulwark-window.mp4  5.04 MB  (0.0s off + 18.4s on)
+the two halves are the same seed. If the winner differs, the feature is broken.
+
+real	7m31.833s
+user	0m0.000s
+sys	0m0.031s
