@@ -1,0 +1,21 @@
+
+  sc-angelus-b9-fx.html  ·  32 foes x 4 seeds (left out: aureole, censer, dawnbringer, lastlight, morningstar, twinshade)  ·  the best window of each fight: 128, of which 9 show everything
+
+  foe              seed  cast at  window clock land  fall all blows heals  taps n  thr stops foeOn other card  score
+  farwarden      104001    81.88   10.03     1    1  0.73   1     9     9   12345    9   235     3     0    0  28.57
+  slagheart      104112    31.18    9.85     1    1  0.90   1     8     8   12345    8   213     1     0    0  27.80
+  grudgebearer   104001    31.15    9.55     1    1  0.98   1     9     9   12345    9   177     0     0    0  27.42
+  slagheart      104038    30.67    9.82     1    1  1.07   1    10    10   12345   10   210     0     0    0  27.33
+  slagheart      104001    32.08    9.18     1    1  0.85   1     7     7   12345    7   133     0     0    0  26.85
+  slagheart      104075    31.38    9.34     1    1  0.92   1     7     7   12345    7   152     0     0    0  26.78
+  grudgebearer   104075    31.12    9.65     1    1  1.19   1     7     7   12345    7   189     0     0    0  26.51
+  spellbreaker   104112    48.41    9.84     1    1  0.90   1     5     5   12345    5   203     3     0    0  26.30
+  grudgebearer   104038    31.72    9.32     1    1  0.85   1     5     5   12345    5   149     0     0    0  25.45
+  oathwound      104038    49.70   10.39     1    1  0.69   0     9     9   12345    9   269     5     1    0  16.61
+  gloamwire      104075    47.89   10.42     1    1  0.77   0     8     8   12345    8   253     9     1    0  16.53
+  emberedge      104112    31.66   10.22     1    1  0.85   0     9     9   12345    9   257     6     1    0  16.45
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/angelus/links/sc-angelus-b9-fx.html --a angelus --b farwarden --seed 104001 \
+      --at 80.68 --window 13.03 --end-at-window --fps 60 --w 540 --out ../07-shorts/v104/ascension-window.mp4

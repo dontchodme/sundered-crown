@@ -1,0 +1,24 @@
+
+ANGELUS / ASCENSION -- stage 6
+  src sc-angelus-b9.html  db58100b3aa0092a  (LF text)
+  base  by content: the anchors, the five twinblades' profile, the sanctified channel, the radiant head route, blessing, the pin's hold
+  ok    Sfx: Angelus's cast, shaft-hit, close and landing arms, before the shared rune-crack fallback
+  ok    tickRise: the shaft-hit tap, once per shaft hit healed, after its blessing, carrying the count
+  ok    tickRise: the close, when the window closes by its clock with both alive; the drop is marked
+  ok    move: the landing thud, on the first floor contact after a clock close, the caster alive
+  ok    ascension picture: fighter fields
+  ok    ascension picture: the presentation call
+  ok    ascension picture: tickAscend
+  ok    ascension picture: the world call (under both balls)
+  ok    ascension picture: the emissive call (over both fighters)
+  ok    ascension picture: the shafts' hook in drawWeapon
+  ok    ascension picture: the body trail's ghost
+  ok    ascension picture: the drawing methods
+  ok    ult   ult:{ name:"Ascension", charge:14, kind:"rise", dur:8, rise:0.35, hangY:300, shaft:10, shaftSpin:0.5 ...
+  ok    card  69 chars  'Rises into the air; its blades become shafts of light. Each hit heals'
+  ok    stage 6: presentation only (no RNG, no ultFx, no call into the sim, writes its own fields; the tap, the close and the landing its three lines on the sim path); the inlined fx.js untouched; the rune-crack fallback kept; every arm, call and pass once
+  ok    the spin product, the damage line, and tickRise before tickHits
+  ok    one rise ultimate, Angelus's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon or files a beat; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-angelus-b9-fx.html  6356f75eb0b328e1   (+28189 chars, written LF)

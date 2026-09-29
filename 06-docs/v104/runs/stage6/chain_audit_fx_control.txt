@@ -1,0 +1,42 @@
+  (20 insert(s) found in angelus_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-angelus-b9-fx.html
+tip    sc-angelus-b9.html
+20 inserts read out of angelus_build.py
+
+    ok  S1:angelus joins the roster at the end of the array, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the rise has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the rise relic  1  mid   -  tip  1
+    ok  S2:the cast pins the caster and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the rise ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:the shafts turn at half the blades' spin relic  1  mid   -  tip  1
+    ok  S2:tickRise lifts, lights and heals relic  1  mid   -  tip  1
+    ok  S3:the heal                relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Angelus's cast, shaft-hit, close and landing arms, before the shared rune-crack fallback relic  2  mid   -  tip  0
+        'this._tone(t + s, { freq: f * h, gain: a * kh, dur: D, type:"sine" }).frequency.value = '
+  LOST  S6:tickRise: the shaft-hit tap, once per shaft hit healed, after its blessing, carrying the count relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "angelus-shaft", n: f.stacks("blessing") });'
+  LOST  S6:tickRise: the close, when the window closes by its clock with both alive; the drop is marked relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur && f.alive && (f === this.a ? this.b : this.a).alive){'
+  LOST  S6:move: the landing thud, on the first floor contact after a clock close, the caster alive relic  1  mid   -  tip  0
+        'if (f.riseTally && f.riseTally.falling && f.alive && f.y >= hiY){'
+  LOST  S6:ascension picture: fighter fields relic  1  mid   -  tip  0
+        'this.ascendSeen = [0, 0];'
+  LOST  S6:ascension picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickAscend(dt);                // ASCENSION'S PICTURE (v74 section 6.1)"
+  LOST  S6:ascension picture: tickAscend relic  1  mid   -  tip  0
+        'const g = this.tags.find(g2 => g2.key === "blessing" && !g2.first && g2.life > 0.3'
+  LOST  S6:ascension picture: the world call (under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawAscend(m);'
+  LOST  S6:ascension picture: the emissive call (over both fighters) relic  1  mid   -  tip  0
+        'this.drawAscendTop(m);'
+  LOST  S6:ascension picture: the shafts' hook in drawWeapon relic  1  mid   -  tip  0
+        'if ((f.ascendFade > 0 || f.ultRise) && this.drawAscendWeapon(m, f, dim)) return;'
+  LOST  S6:ascension picture: the body trail's ghost relic  1  mid   -  tip  0
+        'const tr = f.ascendFade > 0 ? [] : f.trail;'
+  LOST  S6:ascension picture: the drawing methods relic  1  mid   -  tip  0
+        'c.beginPath(); c.moveTo(f.x + cq * R, f.y + sq * R); c.lineTo(f.x + cq * Ld, f.y + sq * '
+
+!! 12 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Angelus's cast, shaft-hit, close and landing arms, before the shared rune-crack fallback, S6:tickRise: the shaft-hit tap, once per shaft hit healed, after its blessing, carrying the count, S6:tickRise: the close, when the window closes by its clock with both alive; the drop is marked, S6:move: the landing thud, on the first floor contact after a clock close, the caster alive, S6:ascension picture: fighter fields, S6:ascension picture: the presentation call, S6:ascension picture: tickAscend, S6:ascension picture: the world call (under both balls), S6:ascension picture: the emissive call (over both fighters), S6:ascension picture: the shafts' hook in drawWeapon, S6:ascension picture: the body trail's ghost, S6:ascension picture: the drawing methods
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

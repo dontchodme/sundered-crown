@@ -1,0 +1,10 @@
+== ascension-window.mp4 (the stage-6 link, 6356f75eb0b328e1; Angelus v Slagheart 104112)
+db54d28cf46009eb
+stream|codec_name=h264|width=540|height=960|r_frame_rate=60/1|nb_frames=878|
+stream|codec_name=aac|sample_rate=48000|channels=2|r_frame_rate=0/0|nb_frames=686
+format|duration=14.654687|size=3307605
+[Parsed_volumedetect_0 @ 00000134e2a72d00] mean_volume: -22.9 dB
+[Parsed_volumedetect_0 @ 00000134e2a72d00] max_volume: -3.4 dB
+  Integrated loudness:
+    I:         -20.8 LUFS
+    Threshold: -31.4 LUFS

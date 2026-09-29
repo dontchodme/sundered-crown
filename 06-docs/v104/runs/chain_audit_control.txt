@@ -1,0 +1,25 @@
+  (8 insert(s) found in angelus_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-angelus-b9.html
+tip    sc-tendril-t3.html
+8 inserts read out of angelus_build.py
+
+  LOST  S1:angelus joins the roster at the end of the array, its ultimate stubbed relic  1  mid   -  tip  0
+        'blurb:"Twin blades that rise into the air and become two shafts of light: they sweep the'
+  LOST  S2:the rise has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  0
+        'ult:{ name:"Ascension", charge:14, kind:"rise", dur:8,   // v74 stage 2: the rise and th'
+  LOST  S2:the fighter carries the rise relic  1  mid   -  tip  0
+        'this.riseTally = null;'
+  LOST  S2:the cast pins the caster and resolves nothing relic  1  mid   -  tip  0
+        'f.ultRise = { t: 0, dur: u.dur, x0: f.x, y0: f.y, lit: 0, hits: f.hits };'
+  LOST  S2:the rise ticks with the window tickers relic  1  mid   -  tip  0
+        'this.tickRise(dt);                  // ASCENSION (v74)'
+    ok  S2:the shafts turn at half the blades' spin relic  1  mid   -  tip  1
+  LOST  S2:tickRise lifts, lights and heals relic  1  mid   -  tip  0
+        'const ty = Math.max(u.hangY, this.inset + CONFIG.physics.ballR + 6);'
+  LOST  S3:the heal                relic  1  mid   -  tip  0
+        'healPer:1,          // v74: the heal (stage 3)'
+
+!! 7 INSERT(S) DID NOT SURVIVE THE CHAIN: S1:angelus joins the roster at the end of the array, its ultimate stubbed, S2:the rise has a charge: the lab's 16 on the game's clock, S2:the fighter carries the rise, S2:the cast pins the caster and resolves nothing, S2:the rise ticks with the window tickers, S2:tickRise lifts, lights and heals, S3:the heal
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

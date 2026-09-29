@@ -82,7 +82,14 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-oracle-fx.html       THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 41 RELICS:
+02-chain/sc-angelus-b9-fx.html   THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+                                 ANGELUS / ASCENSION, the sanctified twinblade
+                                 (angelus_build.py 1, 2, 3, 5, 6, v104), carried onto
+                                 sc-oracle-fx. For 8s she rises into the air; her
+                                 blades become shafts of light; each hit heals. Charge 14, blade 9
+                                 (51.1%). Carry proved against scratch and the tip;
+                                 probe 12/12; shell_identity 200/200.
+02-chain/sc-oracle-fx.html       the link under it, AWAITING RICK'S EYE. 41 RELICS:
                                  ORACLE / FORESIGHT, the runic bow (oracle_build.py 1, 2,
                                  3, 5, 6, v105), carried onto sc-widowmaker-fxout. For
                                  8s the bow turns onto the foe's lead and every window

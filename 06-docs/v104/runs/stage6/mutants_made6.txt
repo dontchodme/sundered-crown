@@ -1,0 +1,4 @@
+sc-angelus-m9-chorddeath.html 83ecc6a55f787cb2 (already made: the same bytes)
+sc-angelus-m10-overopen.html 5201520a335f7f58 (already made: the same bytes)
+sc-angelus-m11-picwrite.html f482cca12003d67e (already made: the same bytes)
+sc-angelus-m12-thudall.html 5166b6cb8b6b99bd

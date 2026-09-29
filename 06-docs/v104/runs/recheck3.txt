@@ -1,0 +1,15 @@
+chain_audit b9 exit 0
+chain_audit control (tip = base) exit 1
+sc-angelus.html
+BASE sc-tendril-t3  added-lines-hash cac1f0175114  removed 2
+sc-ironhail-fxout  src 4b3775e5900172ea  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-ironhail-sunder-fx  src b51c2539999dd272  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-coldiron-temper-fx  src 67cc3e6e05d5326e  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-tendril-fx  src 5e2cc29a1178bef4  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster
+sc-coldiron-temper-fx  src 3693eda608b26fa8  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-ironhail-sunder-fx  src b8ff2014a954be3f  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster
+sc-lightkeeper-bulwark-b9.5  src d60a5c63b785ad04  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster
+sc-lodestone-b205-fx  src 7a095b143d66fbdb  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-oracle-b10  src 2610d11c5c35fdf8  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-onslaught-fx  src ee74fe9ad67e50a6  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster
+sc-widowmaker-b1075-fx  src a253d1d3816d0c85  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster

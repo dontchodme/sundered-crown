@@ -1,0 +1,10 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker as sanctified:twinblade · 33 foes x 20 seeds = 660 fights an arm · stage0 unmodified lab 2207
+  charge=16.0 dur=8.0 blade=None hangY=300
+
+  arm       win  casts  hits in/out    bless f_foeStk  foeHitsshaftHits    smite
+  A       28.9%   0.00  0.00/18.78      0.00     0.00     0.00     0.00     0.00
+  B       47.3%   3.54 18.29/11.10      0.00     2.91     0.00     5.13     0.00
+  C       65.0%   3.76 19.52/11.93      5.14     2.94     0.00     5.14     0.00
+  D       72.3%   3.73 19.17/11.75      5.08     3.34     0.00     5.08     5.08
+  lifts over A: B +18.3  C +36.1  D +43.3
+  2640 fights in 296s   errors: []

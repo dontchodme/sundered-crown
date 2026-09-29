@@ -1,0 +1,72 @@
+CLIP TIMELINE sc-angelus-b9-fx.html  angelus v slagheart 104112, headless to match time 42.84
+     15.117  voice                              angelus
+     15.117  cast                               at (71, 234)
+     15.542  arrival: the shafts light          (260, 300)
+     15.792  shaft blow                         foe hp 501.20
+     15.792  hit stop (lit) begins              
+     15.858  voice                              angelus-shaft 1
+     15.900  hit stop (lit) begins              
+     16.442  hit stop (lit) begins              
+     17.625  shaft blow                         foe hp 495.01
+     17.625  hit stop (lit) begins              
+     17.692  voice                              angelus-shaft 2
+     18.633  hit stop (lit) begins              
+     18.733  hit stop (lit) begins              
+     19.758  hit stop (lit) begins              
+     20.883  shaft blow                         foe hp 483.61
+     20.883  hit stop (lit) begins              
+     20.950  voice                              angelus-shaft 3
+     20.992  hit stop (lit) begins              
+     22.367  shaft blow                         foe hp 473.91
+     22.367  hit stop (lit) begins              
+     22.433  voice                              angelus-shaft 4
+     22.600  hit stop (lit) begins              
+     23.033  shaft blow                         foe hp 468.21
+     23.033  hit stop (lit) begins              
+     23.100  voice                              angelus-shaft 5
+     24.200  shaft blow                         foe hp 457.56
+     24.200  hit stop (lit) begins              
+     24.267  voice                              angelus-shaft 5
+     24.317  hit stop (lit) begins              
+     24.733  voice                              angelus-close
+     24.733  close                              window clock 8.000 of 8; hp 404.69 / 455.66
+     26.792  voice                              angelus-land
+     31.183  voice                              angelus
+     31.183  cast                               at (273, 357)
+     31.608  arrival: the shafts light          (260, 300)
+     32.408  shaft blow                         foe hp 388.56
+     32.408  hit stop (lit) begins              
+     32.475  voice                              angelus-shaft 1
+     32.517  hit stop (lit) begins              
+     33.192  hit stop (lit) begins              
+     33.625  shaft blow                         foe hp 382.30
+     33.625  hit stop (lit) begins              
+     33.692  voice                              angelus-shaft 2
+     34.650  hit stop (lit) begins              
+     35.067  shaft blow                         foe hp 372.63
+     35.067  hit stop (lit) begins              
+     35.133  voice                              angelus-shaft 3
+     35.917  hit stop (lit) begins              
+     36.308  shaft blow                         foe hp 364.01
+     36.308  hit stop (lit) begins              
+     36.375  voice                              angelus-shaft 4
+     37.225  hit stop (lit) begins              
+     37.600  shaft blow                         foe hp 352.56
+     37.600  hit stop (lit) begins              
+     37.667  voice                              angelus-shaft 5
+     38.592  shaft blow                         foe hp 342.96
+     38.592  hit stop (lit) begins              
+     38.658  voice                              angelus-shaft 5
+     38.725  the foe's blow on the hung ball    hp 266.59
+     38.725  hit stop (lit) begins              
+     38.967  hit stop (lit) begins              
+     39.492  shaft blow                         foe hp 329.21
+     39.492  hit stop (lit) begins              
+     39.625  voice                              angelus-shaft 5
+     40.492  shaft blow                         foe hp 312.96
+     40.492  hit stop (lit) begins              
+     40.625  voice                              angelus-shaft 5
+     41.033  voice                              angelus-close
+     41.033  close                              window clock 8.000 of 8; hp 276.64 / 310.46
+     41.933  voice                              angelus-land
+  end: t 42.8417  over False  hp [286.59000000000054, 276.5124999999927]  positions [[264.89, 308.48], [155.02, 671.01]]

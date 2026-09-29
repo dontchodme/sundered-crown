@@ -1,0 +1,204 @@
+
+ASCENSION -- THE VOICES   game sc-angelus-b9.html db58100b3aa0092a
+  every render: OfflineAudioContext 48 kHz, first event at t = 1.0, through Sfx.buildChain, render.py's xorshift noise;
+  a candidate is rendered from its arm's own text
+  runtime Chromium 151.0.7922.34
+  the row: dmg 9, winDmg 0.4, healPer 1, window 8 s, rise 0.35 s, kind rise, sanctified twinblade; blessing cap 5
+  THE SYNTH'S KINDS TODAY (17): hit, nova, clank, scour-hold, scour-tick, scour-woosh, scour-moo, ult, hex-snap, seal, death, loose, fork, spark, aegis, vine, wall
+
+CONTROLS -- v88 published rune-crack 0.608 / 450 ms and hit@11.6 0.443 / 80 ms. They must come back.
+  the sanctified and twinblade casts, max |diff| vs the rune-crack fallback: dawnbringer 6.2e-01, widowmaker 8.6e-01, lastlight 4.5e-08, spellbreaker 6.0e-08, aureole 6.0e-08, censer 4.5e-08, twinshade 8.8e-01, thornshear 9.3e-01, starwarden 6.1e-01, morningstar 6.2e-01
+  with a voice of their own -- the school: dawnbringer, morningstar; the type: widowmaker, twinshade, thornshear, starwarden; rune-crack: lastlight, spellbreaker, aureole, censer
+  ult/angelus today vs the fallback: max |diff| 6.0e-08 -- it IS rune-crack
+  rune-crack    peak 0.608 at    6 ms   audible   450 ms   loudest 50 ms 0.1356   centroid   3158 Hz   low 0.00
+  hit@11.6      peak 0.443 at    7 ms   audible    80 ms   loudest 50 ms 0.1173   centroid    233 Hz   low 0.09
+  hit@9         peak 0.432 at    7 ms   audible    75 ms   loudest 50 ms 0.1109   centroid    243 Hz   low 0.09
+  hit@3.6       peak 0.413 at    7 ms   audible    70 ms   loudest 50 ms 0.1021   centroid    257 Hz   low 0.08
+  wall          peak 0.097 at    7 ms   audible    25 ms   loudest 50 ms 0.0112   centroid  12322 Hz   low 0.00
+  death         peak 0.501 at    8 ms   audible   620 ms   loudest 50 ms 0.2657   centroid    111 Hz   low 0.91
+  seal          peak 0.315 at  103 ms   audible   660 ms   loudest 50 ms 0.1207   centroid    360 Hz   low 0.00
+  clank         peak 0.534 at    7 ms   audible   210 ms   loudest 50 ms 0.1186   centroid   2519 Hz   low 0.08
+  hex-snap      peak 0.394 at    6 ms   audible    25 ms   loudest 50 ms 0.0392   centroid   3350 Hz   low 0.00
+  drum          peak 0.152 at    9 ms   audible   175 ms   loudest 50 ms 0.0748   centroid     72 Hz   low 0.99
+  spark1        peak 0.082 at    6 ms   audible   135 ms   loudest 50 ms 0.0275   centroid   1333 Hz   low 0.00
+  spark2        peak 0.081 at    6 ms   audible   135 ms   loudest 50 ms 0.0275   centroid   1446 Hz   low 0.00
+  spark3        peak 0.083 at    6 ms   audible   135 ms   loudest 50 ms 0.0275   centroid   1560 Hz   low 0.00
+  spark4        peak 0.081 at    6 ms   audible   130 ms   loudest 50 ms 0.0275   centroid   1673 Hz   low 0.00
+  spark5        peak 0.082 at    6 ms   audible   135 ms   loudest 50 ms 0.0275   centroid   1787 Hz   low 0.00
+  zt0           peak 0.205 at    7 ms   audible    55 ms   loudest 50 ms 0.0412   centroid   2425 Hz   low 0.00
+  zt1           peak 0.205 at    7 ms   audible    55 ms   loudest 50 ms 0.0412   centroid   2715 Hz   low 0.00
+  zt2           peak 0.204 at    7 ms   audible    55 ms   loudest 50 ms 0.0412   centroid   3037 Hz   low 0.00
+  zt3           peak 0.196 at    7 ms   audible    55 ms   loudest 50 ms 0.0412   centroid   3612 Hz   low 0.00
+  zt4           peak 0.201 at    7 ms   audible    55 ms   loudest 50 ms 0.0412   centroid   4055 Hz   low 0.00
+  dawnbringer   peak 0.027 at 1749 ms   audible  1990 ms   loudest 50 ms 0.0150   centroid    542 Hz   low 0.00
+  morningstar   peak 0.201 at  506 ms   audible   690 ms   loudest 50 ms 0.1032   centroid   1064 Hz   low 0.00
+  widowmaker    peak 0.469 at    8 ms   audible   275 ms   loudest 50 ms 0.0922   centroid   2117 Hz   low 0.00
+  twinshade     peak 0.456 at  627 ms   audible  1045 ms   loudest 50 ms 0.2209   centroid    563 Hz   low 0.59
+  thornshear    peak 0.365 at    6 ms   audible  1170 ms   loudest 50 ms 0.0775   centroid   2401 Hz   low 0.00
+  starwarden    peak 0.271 at  507 ms   audible  1110 ms   loudest 50 ms 0.0962   centroid    319 Hz   low 0.01
+  reproduction: PASS  all 4 published numbers come back   (ult/spellbreaker IS the fallback: 6.0e-08)
+  the hit @ 9 across 12 draws: loudest 50 ms 0.1095-0.1152;  the shaft's blow, the hit @ 3.6: 0.1011-0.1062;  the wall tick: 0.0105-0.0118
+
+CAST -- 'a choir swell (three re-struck tones a fifth and octave apart, 0.6s) -- the one voice in the game allowed to be a chord'. D4 A4 D5. Level-matched: TOP 0.0794 (the centre of 0.0576-0.1095), SWELL +12 dB, AUDIBLE 600 ms; the score's p90 x2 at D4 A4 D5: 0.0096 0.0170 0.0117
+  FLUTTER's floor, one steady sine strike at D4 / A4 (read at D3's period): 0.01 / 0.01 dB
+  cand             g    sw     D calls     top   at  aud   swl dip flut    D4 c/dB  A4 c/dB  D5 c/dB           inb D4/A4/D5 rune-  seal dawnb morni widow twins thorn starw death hit@9
+  1 PURE     0.01449 18.25 0.188   131  0.0791  445  595  11.9   0  0.3    -0/+0    +0/-2    -0/-3   0.0425/0.0322/0.0286  0.30  0.52  0.07  0.20  0.30  0.16  0.30  0.67  0.08  0.12
+  2 REED     0.01798 18.14 0.194   131  0.0791  445  595  11.9   0  0.2    -0/+0    +0/-2    -0/-3   0.0423/0.0320/0.0283  0.35  0.52  0.07  0.29  0.37  0.18  0.36  0.69  0.08  0.13
+  3 VOWEL    0.01343 18.85 0.161   393  0.0791  445  605  11.9   0  0.3    -0/-1    +0/-3    -0/+0   0.0344/0.0261/0.0370  0.37  0.46  0.08  0.54  0.54  0.22  0.49  0.61  0.09  0.13
+  4 STACK    0.01492 15.60 0.183   108  0.0793  440  600  11.9   0  0.2    -0/+0    +0/-2    -0/-4   0.0443/0.0341/0.0295  0.30  0.53  0.08  0.18  0.28  0.15  0.29  0.68  0.07  0.12
+  5 CHORUS   0.02326 21.99 0.175   261  0.0790  445  600  11.8   0  0.7   +36/-11   -0/-1    -0/+0   0.0109/0.0353/0.0393  0.33  0.39  0.08  0.25  0.37  0.16  0.38  0.56  0.09  0.11
+  0 STRUCK   0.01449 18.25 0.188     3  0.0150   30  160   0.0   0 10.9  +117/+0  +210/-5  -410/-4   0.0105/0.0060/0.0070  0.33  0.66  0.23  0.24  0.37  0.31  0.34  0.76  0.17  0.27
+  0 DYAD     0.01449 18.25 0.188    86  0.0694  445  595  11.8   0  0.2    -0/+0    +0/-2   +84/-28  0.0425/0.0323/0.0016  0.31  0.55  0.06  0.03  0.11  0.12  0.08  0.71  0.07  0.12
+  0 OFFBEAT  0.01449 18.25 0.188   126  0.0193  445  605   8.1   1  0.9  -125/+0   +55/-1  -115/-10  0.0098/0.0091/0.0031  0.25  0.75  0.60  0.20  0.40  0.37  0.29  0.53  0.21  0.29
+    RAW      0.01449 18.25 0.188   131  0.0774  440  605  12.0   0  0.3    +0/+0    +0/-2    -0/-3   0.0403/0.0316/0.0271  0.30  0.52  0.07  0.20  0.30  0.16  0.30  0.68  0.08  0.12
+  0 RC-NOW         0  0.00     0     5  0.1356   30  450   0.0   0 12.4   +97/-1   -86/+0   -86/-10  0.0072/0.0080/0.0025  1.00  0.21  0.14  0.45  0.62  0.19  0.62  0.35  0.07  0.15
+    1 PURE     three sines, D4 A4 D5, re-struck in phase, swelling together: the 'oo' of a choir
+    2 REED     PURE on triangles (odd partials): a reedier voice
+    3 VOWEL    PURE with each strike's 2nd and 3rd partials at 0.3 / 0.12: an 'ah' drawn in partials
+    4 STACK    PURE with the voices entering in turn, root, fifth +80 ms, octave +160 ms: the choir joining
+    5 CHORUS   PURE with every tone sung by two voices 8 cents apart: an ensemble's slow shimmer
+    0 STRUCK   PURE's chord struck once, no re-strike, no swell -- a control
+    0 DYAD     PURE without its octave: two tones, not three -- a control
+    0 OFFBEAT  PURE with its strikes a flat 11 ms apart, not whole cycles: out of phase -- a control
+      RAW      PURE without `.frequency.value = f` (v97's toolkit finding) -- a REFERENCE
+    0 RC-NOW   what ult/angelus plays today (rune-crack) -- a control
+  RULE  '0.6s': AUDIBLE 510-690 ms; 'a swell': SWELL (the loudest 50 ms re the loudest in the first 100 ms) +8..+16 dB and no DIPS on the way up (one swell); 'the rise': the loudest 50 ms centred 330-530 ms after the cast -- the swell crests where the rise arrives (0.08 s of the cast's hit stop + the 0.35 s rise; measured in the fights below); 'three ... tones a fifth and octave apart', 'a chord': over the 150 ms before the crest each of D4, A4 and D5 is sounding -- its FFT peak within 30 cents and its third-octave within 12 dB of the loudest of the three; 're-struck': FLUTTER <= 3 dB over the swell (at the chord's own period, D3); heard: over those 150 ms every tone's third-octave >= the score's p90 there, the loudest >= 2x. Register against rune-crack, the seal (the game's other stack of fifths), the sanctified and twinblade casts with a voice of their own, the death voice and the hit @ 9 each <= 0.80. Level: TOP between 0.5x the hit @ 9's loudest 50 ms on its LOUDEST draw and 1.0x on its QUIETEST (heard like a blow, never over one). Tiebreak: the lowest worst register (to 0.05), then the fewest synth calls, then the order listed.
+    5 CHORUS   out: D4 +36 c off
+  0 STRUCK (a control) comes back wrong, as it must: audible 160 ms, not 510-690; swell +0.0 dB, not +8..+16; crest at 30 ms, not 330-530
+  0 DYAD (a control) comes back wrong, as it must: D5 +84 c off; D5 -28.3 dB; D5 under the score (0.0016 < 0.0059)
+  0 OFFBEAT (a control) comes back wrong, as it must: 1 dips on the way up; D4 -125 c off; A4 +55 c off
+  0 RC-NOW (a control) comes back wrong, as it must: audible 450 ms, not 510-690; swell +0.0 dB, not +8..+16; crest at 30 ms, not 330-530
+  RAW (a reference): max |diff| vs PURE 0.0870, its crest -0.20 dB re PURE's, flutter 0.3 dB -- it passes every gate, as it did in the first table: at D4-D5 and an 11 ms spacing the phase slip is not a thing the rules can hear; the arms set the line anyway
+  main-thread cost of one call (median of 20; printed, not gated): PURE 4.7 ms (131 calls), REED 4.8 ms (131 calls), VOWEL 17.5 ms (393 calls), STACK 4.3 ms (108 calls), CHORUS 10.5 ms (261 calls)
+  PICK  3 VOWEL  g 0.01343, sw 18.85, D 0.161; 393 synth calls; TOP 0.0791 = -2.8 dB re the hit @ 9 (quietest draw), +16.5 dB re the wall; crest at 445 ms
+
+TAP -- 'a bright glassy tap, 70ms, quiet; blessing count in the pitch'. Level-matched: loudest 50 ms 0.0346 at count 3 (the centre of 0.0236-0.0506), AUDIBLE 70 ms at count 3
+  cand            g     D calls       aud rise  pk@   cen  noise inhc inhd  top lo  top hi  err  step     inb sparkzenith  wallhex-snhit@3.  cast
+  1 ROD     0.06776 0.106     2   70-70      0    7  1496 -180.0  144  -12  0.0346  0.0346    0   200  0.0275  0.98  1.00  0.28  0.37  0.11  0.26
+  2 BOWL    0.06624 0.105     3   65-65      0    8  1559 -147.3  257  -10  0.0346  0.0346    0   200  0.0268  0.95  0.92  0.34  0.46  0.12  0.26
+  3 HIGH    0.06776 0.106     2   70-70      0    7  2001 -180.0  144  -12  0.0346  0.0346    0   200  0.0276  0.97  1.00  0.37  0.88  0.11  0.15
+  4 THIN    0.07067 0.105     2   65-65      0    7  1347 -180.0  144  -20  0.0346  0.0346    0   200  0.0284  1.00  0.99  0.23  0.36  0.11  0.27
+  5 SKY     0.06776 0.106     2   70-70      0    7  4774 -180.0  144  -13  0.0343  0.0346    0   200  0.0279  0.14  0.30  0.51  0.36  0.09  0.03
+  6 SHELL   0.06636 0.106     2   70-70      0    7  4817 -180.0  257  -10  0.0346  0.0346    0   200  0.0273  0.14  0.35  0.52  0.38  0.09  0.03
+  7 FAINT   0.07067 0.105     2   65-65      0    6  4295 -180.0  144  -21  0.0345  0.0346    0   200  0.0288  0.14  0.31  0.44  0.35  0.09  0.03
+  0 FLAT    0.06776 0.106     2   70-70      0    7  4774 -180.0  144  -12  0.0346  0.0346    0     0  0.0279  0.14  0.27  0.49  0.36  0.09  0.03
+  0 LOUD     0.1694 0.106     2   60-60      0    7  4758 -180.0  144  -14  0.0741  0.0749    0   200  0.0597  0.14  0.31  0.51  0.37  0.09  0.03
+  0 HARM    0.06776 0.106     3   70-70      0    6  4680 -147.8    0  -11  0.0349  0.0351    0   200  0.0279  0.14  0.31  0.53  0.37  0.10  0.03
+  0 LONG    0.06776 0.296     2  185-185     0    7  4777 -180.0  144  -11  0.0542  0.0546    0   200  0.0453  0.13  0.30  0.48  0.32  0.08  0.02
+  0 TICK    0.08361 0.109     1   70-70      0    7 12052    0.1   24   -1  0.0334  0.0351    0   200  0.0087  0.14  0.44  1.00  0.62  0.11  0.02
+    1 ROD     a thin glass rod (sines on 1 : 2.76), E6 G6 A6 C7 D7 for blessing 1-5
+    2 BOWL    a struck glass bowl (sines on 1 : 2.32 : 4.25), E6-D7
+    3 HIGH    ROD a fourth up, A6 C7 D7 E7 G7
+    4 THIN    ROD with its upper mode at 0.15: the purest glass
+    5 SKY     ROD two octaves and a sixth up: C8 D8 E8 G8 A8 (4186-7040 Hz), over Zenith's tick
+    6 SHELL   a glass shell's first two modes (sines on 1 : 2.32), C8-A8
+    7 FAINT   THIN on C8-A8
+    0 FLAT    SKY at count 1's note for every count -- a control
+    0 LOUD    SKY at 2.5x its gain -- a control
+    0 HARM    SKY on whole-number partials (1 : 2 : 3) -- a control
+    0 LONG    SKY ringing 200 ms -- a control
+    0 TICK    the wall tick's own shape (high-passed noise) at the tap's level -- a control
+  RULE  At EVERY count 1-5: '70ms': AUDIBLE 55-85 ms; 'a tap': RISE <= 3 ms and the peak in the first 10 ms; 'bright': the centroid >= 2000 Hz; 'glassy': pure (the noise part <= -30 dB re the whole) and ringing in inharmonic modes (the strongest peak 1.5x-4x the note >= 60 cents from every whole multiple, within 20 dB); 'quiet': the loudest 50 ms <= 0.5x the shaft blow's (the hit @ 3.6) on its quietest draw and >= 2x the wall tick's on its loudest; 'blessing count in the pitch': each count's note within 30 cents of its declared degree, and every step n -> n + 1 >= 150 cents up; heard: at count 1 the note's third-octave over 0-70 ms >= 2x the score's p90 there. Register (the worst count) against the heal chime (the spark collect, n 1-5), Zenith's tick (n 0-4), the wall tick, hex-snap, the hit @ 3.6 and the picked cast each <= 0.80. Tiebreak: the lowest worst register (to 0.05), then the fewest calls, then the order listed.
+    1 ROD     out: centroid 1496 Hz (not bright); register vs spark 0.98 > 0.80; register vs zenith-tick 1.00 > 0.80
+    2 BOWL    out: centroid 1559 Hz (not bright); register vs spark 0.95 > 0.80; register vs zenith-tick 0.92 > 0.80
+    3 HIGH    out: register vs spark 0.97 > 0.80; register vs zenith-tick 1.00 > 0.80; register vs hex-snap 0.88 > 0.80
+    4 THIN    out: centroid 1347 Hz (not bright); register vs spark 1.00 > 0.80; register vs zenith-tick 0.99 > 0.80
+    7 FAINT   out: not glassy (worst count: 144 c, -21 dB)
+  0 FLAT (a control) comes back wrong, as it must: a step of +0 cents (< 150)
+  0 LOUD (a control) comes back wrong, as it must: loudest 50 ms 0.0749 > 0.0506 (not quiet)
+  0 HARM (a control) comes back wrong, as it must: not glassy (worst count: 0 c, -11 dB)
+  0 LONG (a control) comes back wrong, as it must: audible 185-185 ms, not 55-85; loudest 50 ms 0.0546 > 0.0506 (not quiet)
+  0 TICK (a control) comes back wrong, as it must: not pure: a noise part of +0.1 dB; not glassy (worst count: 24 c, -1 dB); register vs wall 1.00 > 0.80
+  PICK  5 SKY  g 0.06776, D 0.106; notes 4186 4699 5274 6272 7040 Hz at counts 1-5; loudest 50 ms -9.3 dB re the hit @ 3.6, +9.3 dB re the wall
+
+CLOSE -- 'the chord resolving down'. The picked cast's chord and voice (3 VOWEL), D4-A4-D5 -> A3-E4-A4. Level-matched: loudest 50 ms 0.0560 (3 dB under the cast's), AUDIBLE 600 ms
+  cand             g     D calls  aud     top    D4 A4 D5 at 20-70 ms    A3 E4 A4 at 300-450 ms  gone  heard  seal death rune- hit@9  cast
+  1 STEP    0.004659 0.256   303  590  0.0560    -1/+0    -0/-2    -0/-0      -0/-0    -0/-4    -0/+0   -21.8   +4.2  0.62  0.12  0.40  0.26  0.91
+  2 EARLY   0.005617 0.255   303  595  0.0560    -1/+0    -0/-2    -0/-0      -0/-0    +0/-4    -0/+0   -44.0   +5.9  0.67  0.12  0.38  0.30  0.83
+  3 SLOW    0.004735 0.262   306  595  0.0561    -1/+0    -0/-2    -0/-0      -0/-1    +0/-5    +0/+0   -11.2   +3.1  0.58  0.11  0.40  0.23  0.96
+  4 SUSPEND 0.004936 0.263   306  605  0.0560    -1/+0    -0/-2    -0/-0      -0/+0    +0/-4    -0/-3   -13.4   +4.7  0.66  0.12  0.37  0.29  0.89
+  0 AGAIN   0.003641 0.259   306  605  0.0563    -1/+0    -0/-2    -0/-0      -1/-24 -116/-9    +2/+0     3.7   -2.7  0.46  0.09  0.36  0.13  1.00
+  0 UP      0.004491 0.266   297  595  0.0562    -1/+0    -0/-2    -0/-0     +89/-36  +91/-27   -0/+0   -18.2   -0.1  0.38  0.09  0.43  0.14  0.97
+  0 OTHER   0.004986 0.268   300  595  0.0560    -1/+0    -0/-2    -0/-0     +98/-15 -100/-21   -0/+0     6.5   -0.5  0.63  0.11  0.42  0.18  0.86
+  0 GLIDE    0.01185 0.305   291  610  0.0560   -38/+0   -37/-3   -40/-2     +19/+0   +20/-4   +15/-3   -34.2   +2.4  0.72  0.13  0.35  0.26  0.65
+    1 STEP     the three voices step down together at 0.15 s
+    2 EARLY    STEP at 0.08 s: the chord barely held before it moves
+    3 SLOW     STEP at 0.22 s: the chord held, then a short resolution
+    4 SUSPEND  root and fifth move at 0.12 s, the top voice holds (a suspension) and resolves at 0.24 s
+    0 AGAIN    STEP 'resolving' to the cast's own chord: no resolution -- a control
+    0 UP       STEP resolving UP, to A4-E5-A5 -- a control
+    0 OTHER    STEP resolving down to C4: not the tonic -- a control
+    0 GLIDE    every voice gliding from the cast's chord to the tonic's across the whole close: no chord held -- a control
+  RULE  'the chord': over 20-70 ms its tones are the cast's chord (D4, A4, D5: each within 30 cents, within 12 dB of the loudest); 'resolving down': over 300-450 ms its tones are the score's tonic below it (A3, E4, A4: each within 30 cents, within 12 dB of the loudest), and D4 and D5 -- the chord's tones the tonic does not share -- are gone there (each one's spectral peak within 40 cents, Hann-windowed, >= 12 dB under the tonic's loudest); the root lower than the cast's; '0.6s' (the cast's length, declared): AUDIBLE 510-690 ms; level: its loudest 50 ms <= the cast's and >= 2x the wall tick's loudest; heard: over 300-450 ms the tonic's loudest tone >= 2x the score's p90 there. Register against the seal, the death voice, rune-crack and the hit @ 9 each <= 0.80 (the cast's is printed, not gated: it IS the cast's chord). Tiebreak: the lowest worst register (to 0.05), then the fewest calls, then the order listed.
+    3 SLOW     out: the old chord not gone (-11.2 dB)
+  0 AGAIN (a control) comes back wrong, as it must: ends without A3; ends E4 -116 c off; the old chord not gone (+3.7 dB)
+  0 UP (a control) comes back wrong, as it must: ends A3 +89 c off; ends without A3; ends E4 +91 c off
+  0 OTHER (a control) comes back wrong, as it must: ends A3 +98 c off; ends without A3; ends E4 -100 c off
+  0 GLIDE (a control) comes back wrong, as it must: starts D4 -38 c off; starts A4 -37 c off; starts D5 -40 c off
+  PICK  1 STEP  g 0.004659, D 0.256; loudest 50 ms -3.0 dB re the cast, +13.5 dB re the wall
+
+LAND -- 'and the ball's landing thud'. The floor contact plays the wall tick; the thud is new. Level-matched: TOP 0.0509 (the centre of 0.0236-0.1095), AUDIBLE 120 ms
+  cand            g     D calls rise  pk@  aud   low   cen     top  heard dB@Hz hit@9 death  wall clank  drum
+  1 BODY    0.08055 0.183     2    1    8  115  0.99   110  0.0509   +4.5@100   0.64  0.99  0.00  0.51  0.48
+  2 BOARD   0.07854 0.196     2    1    8  120  0.99   140  0.0509   -8.8@126   0.92  0.67  0.01  0.66  0.31
+  3 DEEP     0.0811 0.187     2    2    8  115  1.00    87  0.0509   +0.6@100   0.43  0.77  0.00  0.34  0.83
+  4 BARE     0.0812 0.184     1    1    8  115  1.00   109  0.0509   +4.4@100   0.63  0.99  0.00  0.51  0.48
+  5 KNOCK   0.08144 0.184     2    1    8  120  0.99   105  0.0509   +4.9@100   0.54  0.96  0.02  0.44  0.58
+  6 SLAB      0.078 0.197     2    1    8  115  0.99   138  0.0509   -8.5@126   0.91  0.71  0.00  0.66  0.31
+  0 WALL     0.2969  0.15     1    0    7   20  0.00 12495  0.0506  -79.7@200   0.11  0.01  1.00  0.42  0.00
+  0 BOOM    0.05215 0.679     2    6   12  450  1.00   112  0.0509   -6.2@126   0.57  0.99  0.00  0.50  0.39
+  0 RING     0.0566 0.471     1    2    8  300  1.00   109  0.0509   +0.2@100   0.49  0.98  0.00  0.41  0.42
+  0 HIT           0     0     2    1    7   75  0.96   243  0.1109   -4.2@159   1.00  0.54  0.11  0.67  0.31
+    1 BODY    a sine falling 120 -> 50 Hz under a short low-passed noise at 300 Hz
+    2 BOARD   a sine falling 150 -> 70 Hz under a band of noise at 240 Hz: a wooden floor
+    3 DEEP    BODY lower: 95 -> 42 Hz under noise low-passed at 220 Hz
+    4 BARE    BODY's sine alone
+    5 KNOCK   a sine falling 110 -> 45 Hz under a short band of noise at 380 Hz: the floor's knock
+    6 SLAB    a sine falling 150 -> 60 Hz under a short low-passed noise at 450 Hz: a stone floor
+    0 WALL    the wall tick's own shape at the thud's level -- a control
+    0 BOOM    BODY decaying over 450 ms -- a control
+    0 RING    a held 110 Hz sine, 300 ms -- a control
+    0 HIT     the engine's own blow at 9, played as the thud -- a control
+  RULE  'a ... thud': RISE <= 5 ms and the peak in the first 20 ms (a landing is struck); AUDIBLE 60-180 ms (short: not a boom); LOW: >= 0.60 of its power under 250 Hz; DULL: the centroid <= 400 Hz (no crack, no ring on top); level: TOP between 2x the wall tick's loudest 50 ms (the tick it lands over) and 1.0x the hit @ 9's on its quietest draw (never over a blow); heard: its loudest third-octave under 250 Hz over 0-80 ms >= 2x the score's p90 there (the bass and the drum live there). Register against the hit @ 9 ('the ball's', not a blow), the death voice, the wall tick and the clank each <= 0.80 (the score's drum is printed). Tiebreak: the lowest worst register (to 0.05), then the fewest calls, then the order listed.
+    1 BODY    out: register vs death 0.99 > 0.80
+    2 BOARD   out: under the score (-8.8 dB re 2x its p90 at 126 Hz); register vs hit@9 0.92 > 0.80
+    4 BARE    out: register vs death 0.99 > 0.80
+    5 KNOCK   out: register vs death 0.96 > 0.80
+    6 SLAB    out: under the score (-8.5 dB re 2x its p90 at 126 Hz); register vs hit@9 0.91 > 0.80
+  0 WALL (a control) comes back wrong, as it must: audible 20 ms, not 60-180; low share 0.00 < 0.60; centroid 12495 Hz > 400 (not dull)
+  0 BOOM (a control) comes back wrong, as it must: rise 6 ms; audible 450 ms, not 60-180; under the score (-6.2 dB re 2x its p90 at 126 Hz)
+  0 RING (a control) comes back wrong, as it must: audible 300 ms, not 60-180; register vs death 0.98 > 0.80
+  0 HIT (a control) comes back wrong, as it must: top 0.1109 > 0.1095; under the score (-4.2 dB re 2x its p90 at 159 Hz); register vs hit@9 1.00 > 0.80
+  PICK  3 DEEP  g 0.0811, D 0.187; TOP -6.7 dB re the hit @ 9, +12.7 dB re the wall
+
+THE SFX ROW, applied to Sfx.prototype.play's own source and rendered:
+  REPRO -- the render floor: the loudest tap rendered twice from the same text differs by at most 0.0e+00 (three tries); the tolerance is 1e-05
+  the arms vs the picked candidates, max |diff|: cast 1.3e-07, tap@-1 0.0e+00, tap@0 0.0e+00, tap@1 0.0e+00, tap@2 0.0e+00, tap@3 0.0e+00, tap@4 0.0e+00, tap@5 0.0e+00, tap@7 0.0e+00, tap@None 0.0e+00, close 1.0e-07, land 0.0e+00
+  every other voice through the patched play vs the original (127 voices: the hit at 5 weights x crit and the bough, spark x3, wall, death, clank x2, seal, nova, hex-snap, aegis x2, vine x4, loose x3, fork, scour x4, every other kind, and 92 ult ids -- every relic's cast and every sub-voice the ult arm names): worst max |diff| 1e-07 (nova/)
+  ult/angelus vs rune-crack after the row: max |diff| 0.631 -- no longer the fallback
+  main-thread cost a call (median of 40, performance.now() at its headless resolution): cast 11.90 ms, tap 0.10 ms, close 9.20 ms, land 0.10 ms, hit 0.10 ms
+
+THE tickRise AND move ROWS, applied to their prototypes' own source, run beside the originals on real fights (the mirror match refused by Match -- not run):
+  152 fights (Angelus both sides x every foe x seeds [104601, 104602]): 152/152 identical (over, clock, both hp, positions, velocities, stuns, both blessing and smite counts, both blow ledgers, winner, both riseTallies but `falling`); every other voice call identical in order, kind and opts in 152/152; the caster's riseTally differs by `falling` alone in 152/152
+  windows {'clock': 512, 'clock-foe-dead': 0, 'death': 8, 'over': 86}: 606 casts -> 606 cast voices; 3555 shaft hits healed -> 3555 taps; 512 clock closes with both alive -> 512 closes; 470 landings after them -> 470 thuds (42 fights ended before the ball landed); problems 0
+  the count a tap carries: 1: 585, 2: 563, 3: 544, 4: 508, 5: 1355; taps a window: median 6, max 14
+  the tap after its shaft blow's own hit voice, s (min/q1/median/q3/max): 0.00/0.07/0.07/0.07/0.17
+  the arrival after the cast voice, s: 0.42/0.42/0.42/0.51/1.75  (the cast's crest is centred at 0.45 s)
+  the landing after the close, s: 0.52/0.92/1.17/2.66/7.32; 96 of 470 fall straight to the floor under the hang point (0.59/0.85/0.92/0.92/1.66), the rest are knocked on the way down
+  the control (the rows plus one sim write, the foe nudged 1e-9 on a tap): 1/152 identical -- it fails, as it must
+  THE CLOSE ON A DEATH: 8 windows closed by a death (in a kill flight), 0 by the clock on the step the foe died, and 86 still open at the fight's end play no close and no thud (checked above); those endings belong to the death voice.
+
+IN A REAL WINDOW -- angelus v starwarden (side A), seed 104602, cast at 66.54s, closed by its clock at 77.92s, landed at 78.76s, 12 shaft hits healed (counts 1 2 3 4 5 5 5 5 5 5 5 5); the fight's own sounds and the score, with and without the new voices
+  each tap over the fight in its own third-octave, 0-70 ms: +64.5 +55.9 +34.2 +6.7 +46.8 +42.7 +26.2 +9.8 +19.5 +50.4 +38.6 +48.4 dB
+  the cast's chord over the fight without it, the 150 ms before its crest: +12.9 @ D4 / +9.9 @ A4 / +20.8 @ D5 dB
+  the close's tonic over the fight, 300-450 ms: -1.4 @ A3 / +4.5 @ E4 / +7.2 @ A4 dB
+  the thud over the fight (its wall tick included) at its best third-octave under 250 Hz, 0-80 ms: +12.4 @ 79 Hz dB  (every band: +3.8@50 +8.2@63 +12.4@79 -3.6@100 +1.2@126 +0.1@159 -0.6@200)
+    the two readings the first cut tried: its 100 Hz third-octave alone -3.6 dB (the score's A2 bass shares that band: a phase reading), and the power 40-500 Hz +0.8 dB (the score's A1 bass carries most of that power and the ear little of it)
+
+THE PICKS  cast 3 VOWEL   tap 5 SKY   close 1 STEP   land 3 DEEP
+WAVS   C:\dev\sundered-crown\05-reference\v104  (58 files, 5623 KB, raw level)
+
+THE ROWS AS TEXT: 4 rows (replace, replace, replace, after) give sc-angelus-b9.html + 8042 chars, sha256[:16] 32d55d74179c4335 -- the page the checks above ran on
+
+  NOTHING IS IN THE BUILD. The four rows are the edits; all four were applied to the page's own code above.
+exit 0

@@ -1,0 +1,42 @@
+87 frames, 9 fights; missing: aureole 99015b ['over', 'over2']; gravemourn 4242a ['over', 'over2']; nightfell 2211a ['over', 'over2']; spellbreaker 99015b ['over', 'over2']; twinshade 4242a ['over', 'over2']; lastlight 99015b ['over', 'over2']
+BLOOM: the picture's share of the chain's arena lift max +0.0051 min -0.0069 (gate +0.02; v74's +0.03) [worst grudgebearer 2213a stop]; raw luma added vs the base's look max +0.0209 min +0.0000; arena clip with max 0.0209 without 0.0186
+  CONTROL ctrl1: dLift max +0.0154, > 0.02 on 0/87; caster disc pushed past 0.90 on 69/72 window frames; foe disc pushed past 0.90 on 1/87, foe disc lift max +0.0919 (max caster 1.000, foe 0.947)
+  CONTROL ctrl2: dLift max +0.0438, > 0.02 on 6/87; caster disc pushed past 0.90 on 1/72 window frames; foe disc pushed past 0.90 on 14/87, foe disc lift max +0.4465 (max caster 0.937, foe 0.989)
+  CONTROL ctrl3: dLift max +0.0136, > 0.02 on 0/87; caster disc pushed past 0.90 on 0/72 window frames; foe disc pushed past 0.90 on 4/87, foe disc lift max +0.1153 (max caster 0.937, foe 0.956)
+  CONTROL ctrl4: dLift max +0.0760, > 0.02 on 57/87; caster disc pushed past 0.90 on 41/72 window frames; foe disc pushed past 0.90 on 9/87, foe disc lift max +0.2630 (max caster 0.968, foe 0.980)
+DISC me: d -0.0082..+0.0067 (art only, tags out: +0.0000..+0.0082); disc 0.222..0.937; >0.90 with 1 / without 1 of 87; clip with max 0.450 without 0.447
+DISC foe: d -0.1912..+0.0042 (art only, tags out: -0.0672..+0.0042); disc 0.181..0.947; >0.90 with 9 / without 8 of 87; clip with max 0.822 without 0.810
+  foe dwarven   : n 11 d -0.0129..+0.0013; disc 0.300..0.946, contour 0.190..0.874; >0.90 with 1 without 1
+  foe runic     : n 9 d +0.0000..+0.0042; disc 0.412..0.885, contour 0.276..0.364; >0.90 with 0 without 0
+  foe sanctified: n 40 d -0.0672..+0.0021; disc 0.365..0.947, contour 0.357..0.976; >0.90 with 8 without 7
+  foe umbral    : n 27 d -0.1912..+0.0007; disc 0.181..0.889, contour 0.199..0.455; >0.90 with 0 without 0
+LEGIBILITY (median |dL| of the component's own pixels (min..max) [n frames]; out of a stop  /  in one):
+  weaponBase in rest                              : 0.220 (0.128..0.235) [9]  /  -
+  weapon     in rest                              : 0.220 (0.128..0.235) [9]  /  -
+  weaponBase in lit,hang,stop,hit,heal            : 0.233 (0.138..0.237) [27]  /  0.233 (0.140..0.237) [18]
+  weapon     in lit,hang,stop,hit,heal            : 0.277 (0.160..0.364) [27]  /  0.275 (0.149..0.331) [18]
+  column     in cast,rise,lit                     : 0.123 (0.100..0.131) [17]  /  0.037 (0.036..0.122) [10]
+  halo       in rise,lit,hang,stop,hit,heal       : 0.340 (0.165..0.358) [35]  /  0.342 (0.227..0.361) [19]
+  halo       in heal                              : 0.337 (0.330..0.343) [9]  /  -
+  pools      in lit,hang,stop,hit,heal            : 0.101 (0.084..0.125) [27]  /  0.057 (0.039..0.076) [12]
+  body       in lit,hang,stop,hit,heal            : 0.293 (0.148..0.436) [27]  /  0.293 (0.146..0.429) [18]
+  cores      in lit,hang,stop,hit,heal            : 0.098 (0.069..0.268) [27]  /  0.188 (0.069..0.263) [18]
+  light      in lit,hang,stop,hit,heal            : 0.288 (0.158..0.526) [27]  /  0.331 (0.158..0.449) [18]
+  motes      in lit,hang,stop,hit,heal            : 0.404 (0.165..0.478) [27]  /  0.380 (0.181..0.499) [18]
+  threads    in hit,stop                          : -  /  0.200 (0.044..0.221) [8]
+  tag        in heal,hit,stop                     : 0.061 (0.060..0.100) [9]  /  0.153 (0.035..0.157) [5]
+  ground     in cast,rise,lit,hang,stop,hit,heal  : 0.135 (0.075..0.310) [35]  /  0.289 (0.033..0.361) [28]
+  light      in close,over                        : 0.225 (0.167..0.367) [9]  /  0.132 (0.102..0.141) [3]
+  halo       in close,over                        : 0.225 (0.166..0.251) [9]  /  0.214 (0.200..0.215) [3]
+by state (median |dL| of everything the picture changes against the base's look, the tags included):
+  rest     nan (nan..nan) n 0 of 9  fade [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  cast     0.036 (0.033..0.037) n 9 of 9  fade [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  rise     0.132 (0.106..0.138) n 9 of 9  fade [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  lit      0.191 (0.163..0.256) n 9 of 9  fade [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  hang     0.244 (0.166..0.447) n 9 of 9  fade [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  stop     0.185 (0.154..0.431) n 9 of 9  fade [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  hit      0.401 (0.183..0.429) n 9 of 9  fade [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  heal     0.216 (0.156..0.273) n 9 of 9  fade [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  close    0.225 (0.165..0.350) n 9 of 9  fade [0.639, 0.694, 0.639, 0.639, 0.639, 0.639, 0.75, 0.639, 0.639]
+  over     0.143 (0.124..0.153) n 3 of 3  fade [0.583, 0.583, 0.583]
+  over2    nan (nan..nan) n 0 of 3  fade [0, 0, 0]

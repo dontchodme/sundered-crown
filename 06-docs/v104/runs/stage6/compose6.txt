@@ -1,0 +1,16 @@
+compose6 2026-09-29 03:12 PDT  builder 0e4e2fc3ff5813de
+REFERENCE  b9 -> b9-fx (the scratch links): +523 -1 lines, added 4b9c29685fb0 removed 8cebf2baa3d6
+sc-tendril-t3  src 5a6216e3b629fad4  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  39 relics in the roster  scratch link 6356f75eb0b328e1 built 6356f75eb0b328e1
+sc-ironhail-fxout  src 4b3775e5900172ea  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  40 relics in the roster
+sc-ironhail-sunder-fx  src b51c2539999dd272  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  40 relics in the roster
+sc-coldiron-temper-fx  src 67cc3e6e05d5326e  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  40 relics in the roster
+sc-widowmaker-fxout  src 04fdd2e2daa17c26  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  41 relics in the roster
+sc-lodestone-b205-fx  src 4568c2995d06f696  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  41 relics in the roster
+sc-tendril-fx  src 5e2cc29a1178bef4  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  39 relics in the roster
+sc-coldiron-temper-fx  src 3693eda608b26fa8  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  40 relics in the roster
+sc-ironhail-sunder-fx  src b8ff2014a954be3f  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  39 relics in the roster
+sc-lightkeeper-bulwark-b9.5-fx  src e3f16bf01f0e2995  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  39 relics in the roster
+sc-lodestone-b205-fx  src 7a095b143d66fbdb  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  40 relics in the roster
+sc-oracle-fx  src 4e8f47301b97d7d7  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  40 relics in the roster
+sc-onslaught-fx  src ee74fe9ad67e50a6  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  39 relics in the roster
+sc-widowmaker-b1075-fx-specout  src 3d16bbc543e74c18  ok  stage 5->6 +523 -1 added 4b9c29685fb0 removed 8cebf2baa3d6  1-5 added cac1f0175114  39 relics in the roster

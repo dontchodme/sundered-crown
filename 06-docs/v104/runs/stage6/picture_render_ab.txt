@@ -1,0 +1,13 @@
+widowmaker:spellbreaker 31337: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+twinshade:thornshear 4101: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+starwarden:dawnbringer 2207: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+aureole:lastlight 7719: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+censer:ironwood 1234: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+morningstar:grudgebearer 90210: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+bindweed:paradox 4242: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+ravelbone:gravemourn 5150: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+twinshade:morningstar 99001: 6/6 pixel-identical  (window up at [False, False, False, False, False, False]; identical per time [True, True, True, True, True, True])
+CONTROL angelus:spellbreaker 99015: 3/6 pixel-identical  (window up at [False, False, False, True, True, True]; identical per time [True, True, True, False, False, False])
+CONTROL dawnbringer:angelus 4242: 2/6 pixel-identical  (window up at [False, False, True, True, True, True]; identical per time [True, True, False, False, False, False])
+OTHER RELICS: 54/54 pixel-identical
+exit 0

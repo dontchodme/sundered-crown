@@ -1,0 +1,62 @@
+  [final drawn] angelus v spellbreaker 99015: draws 2045 thrown None windows 5 blows 17 found 17 bad [] heals 17 tag 17 bad [] | pic frames 1777 (stop 299) close->0 [0.2917, 0.2917, 0.2917, 0.3333] death->0 [] | at kill [[True, 1, 10, False, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 8707 past the hall 0 | max threads 1 | w written False
+  [final drawn] dawnbringer v angelus 4242: draws 1705 thrown None windows 4 blows 22 found 22 bad [] heals 22 tag 22 bad [] | pic frames 1471 (stop 287) close->0 [0.2917, 0.35, 0.2917] death->0 [] | at kill [[True, 1, 10, False, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 7390 past the hall 0 | max threads 1 | w written False
+  [final drawn] angelus v gravemourn 4242: draws 1393 thrown None windows 3 blows 20 found 20 bad [] heals 20 tag 20 bad [] | pic frames 1188 (stop 194) close->0 [0.2917, 0.2917, 0.325] death->0 [] | at kill [[False, None, 1, False, 0]] -> 0 after 0 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 6054 past the hall 0 | max threads 1 | w written False
+  [final drawn] twinshade v angelus 99008: draws 1720 thrown None windows 4 blows 27 found 27 bad [] heals 27 tag 27 bad [] | pic frames 1462 (stop 400) close->0 [0.35, 0.575, 0.2917] death->0 [] | at kill [[True, 1, 10, False, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 7405 past the hall 0 | max threads 2 | w written False
+  [final drawn] angelus v grudgebearer 2213: draws 1766 thrown None windows 4 blows 26 found 26 bad [] heals 26 tag 26 bad [] | pic frames 1539 (stop 274) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[True, 1, 10, True, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 66 (bad 0) | shaft ends checked 7850 past the hall 0 | max threads 1 | w written False
+  [final drawn] aureole v angelus 99015: draws 1872 thrown None windows 4 blows 33 found 33 bad [] heals 33 tag 33 bad [] | pic frames 1651 (stop 343) close->0 [0.325, 0.2917, 0.2917] death->0 [] | at kill [[True, 1, 10, False, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 8440 past the hall 0 | max threads 1 | w written False
+  [final drawn] angelus v ravelbone 4242: draws 1813 thrown None windows 4 blows 23 found 23 bad [] heals 23 tag 23 bad [] | pic frames 1583 (stop 291) close->0 [0.2917, 0.45, 0.2917] death->0 [] | at kill [[True, 1, 10, True, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 67 (bad 0) | shaft ends checked 8005 past the hall 0 | max threads 1 | w written False
+  [final drawn] ironwood v angelus 1234: draws 2274 thrown None windows 5 blows 11 found 11 bad [] heals 11 tag 11 bad [] | pic frames 2006 (stop 344) close->0 [0.2917, 0.2917, 0.2917, 0.2917, 0.2917] death->0 [] | at kill [[False, None, 1, False, 0]] -> 0 after 0 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 9841 past the hall 0 | max threads 1 | w written False
+  [final drawn] angelus v bindweed 2317: draws 1674 thrown None windows 4 blows 17 found 17 bad [] heals 17 tag 17 bad [] | pic frames 1446 (stop 293) close->0 [0.2917, 0.2917, 0.375] death->0 [] | at kill [[True, 1, 10, True, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 66 (bad 0) | shaft ends checked 7209 past the hall 0 | max threads 1 | w written False
+  [final drawn] morningstar v angelus 8888: draws 1829 thrown None windows 4 blows 29 found 29 bad [] heals 29 tag 29 bad [] | pic frames 1581 (stop 261) close->0 [0.2917, 0.375, 0.2917, 0.2917] death->0 [] | at kill [[False, None, 1, True, 0]] -> 0 after 0 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 8123 past the hall 0 | max threads 1 | w written False
+  [final drawn] angelus v lastlight 4242: draws 1469 thrown None windows 4 blows 20 found 20 bad [] heals 20 tag 20 bad [] | pic frames 1237 (stop 226) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[True, 0, 1, True, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 6199 past the hall 0 | max threads 1 | w written False
+  [final drawn] angelus v dawnbringer 2207: draws 1767 thrown None windows 4 blows 22 found 22 bad [] heals 22 tag 22 bad [] | pic frames 1534 (stop 313) close->0 [0.35, 0.2917, 0.2917] death->0 [] | at kill [[True, 1, 10, True, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 66 (bad 0) | shaft ends checked 7704 past the hall 0 | max threads 1 | w written False
+  [final drawn] lastlight v angelus 99015: draws 1714 thrown None windows 4 blows 26 found 26 bad [] heals 26 tag 26 bad [] | pic frames 1483 (stop 302) close->0 [0.2917, 0.3, 0.375] death->0 [] | at kill [[False, None, 1, False, 0.972]] -> 0 after 0.2917 s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 7458 past the hall 0 | max threads 1 | w written False
+  [final drawn] axiom v grudgebearer 31337: draws 461 thrown None windows 0 blows 0 found 0 bad [] heals 0 tag 0 bad [] | pic frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> 0 after None s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 0 past the hall 0 | max threads 0 | w written False
+  [final drawn] morningstar v lastlight 4242: draws 325 thrown None windows 0 blows 0 found 0 bad [] heals 0 tag 0 bad [] | pic frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> 0 after None s; rest-drawn verdict frames 0 (bad 0) | shaft ends checked 0 past the hall 0 | max threads 0 | w written False
+('angelus', 'spellbreaker', 99015): final        IDENTICAL  steps@kill 10444 hash@kill [14774558, 231986764] winner Spellbreaker t 87.03333333334866 blows 17 heals 17
+('angelus', 'spellbreaker', 99015): final drawn  IDENTICAL  steps@kill 10444 hash@kill [14774558, 231986764] winner Spellbreaker t 87.03333333334866 blows 17 heals 17
+('angelus', 'spellbreaker', 99015): CONTROL (must differ)  DIFFERS  heals 17 (control bit)
+('dawnbringer', 'angelus', 4242): final        IDENTICAL  steps@kill 8726 hash@kill [4026180912, 2865030236] winner Dawnbringer t 72.7166666666706 blows 22 heals 22
+('dawnbringer', 'angelus', 4242): final drawn  IDENTICAL  steps@kill 8726 hash@kill [4026180912, 2865030236] winner Dawnbringer t 72.7166666666706 blows 22 heals 22
+('dawnbringer', 'angelus', 4242): CONTROL (must differ)  DIFFERS  heals 22 (control bit)
+('angelus', 'gravemourn', 4242): final        IDENTICAL  steps@kill 7076 hash@kill [767802648, 3876524592] winner Gravemourn t 58.96666666666396 blows 20 heals 20
+('angelus', 'gravemourn', 4242): final drawn  IDENTICAL  steps@kill 7076 hash@kill [767802648, 3876524592] winner Gravemourn t 58.96666666666396 blows 20 heals 20
+('angelus', 'gravemourn', 4242): CONTROL (must differ)  DIFFERS  heals 20 (control bit)
+('twinshade', 'angelus', 99008): final        IDENTICAL  steps@kill 9262 hash@kill [3729456173, 2807313671] winner Twinshade t 77.18333333334083 blows 27 heals 27
+('twinshade', 'angelus', 99008): final drawn  IDENTICAL  steps@kill 9262 hash@kill [3729456173, 2807313671] winner Twinshade t 77.18333333334083 blows 27 heals 27
+('twinshade', 'angelus', 99008): CONTROL (must differ)  DIFFERS  heals 27 (control bit)
+('angelus', 'grudgebearer', 2213): final        IDENTICAL  steps@kill 8775 hash@kill [3903309677, 1328058457] winner Angelus t 73.12500000000426 blows 26 heals 26
+('angelus', 'grudgebearer', 2213): final drawn  IDENTICAL  steps@kill 8775 hash@kill [3903309677, 1328058457] winner Angelus t 73.12500000000426 blows 26 heals 26
+('angelus', 'grudgebearer', 2213): CONTROL (must differ)  DIFFERS  heals 26 (control bit)
+('aureole', 'angelus', 99015): final        IDENTICAL  steps@kill 8962 hash@kill [1444280552, 3694370548] winner Aureole t 74.68333333333884 blows 33 heals 33
+('aureole', 'angelus', 99015): final drawn  IDENTICAL  steps@kill 8962 hash@kill [1444280552, 3694370548] winner Aureole t 74.68333333333884 blows 33 heals 33
+('aureole', 'angelus', 99015): CONTROL (must differ)  DIFFERS  heals 33 (control bit)
+('angelus', 'ravelbone', 4242): final        IDENTICAL  steps@kill 8933 hash@kill [2859281153, 1954471977] winner Angelus t 74.44166666667198 blows 23 heals 23
+('angelus', 'ravelbone', 4242): final drawn  IDENTICAL  steps@kill 8933 hash@kill [2859281153, 1954471977] winner Angelus t 74.44166666667198 blows 23 heals 23
+('angelus', 'ravelbone', 4242): CONTROL (must differ)  DIFFERS  heals 23 (control bit)
+('ironwood', 'angelus', 1234): final        IDENTICAL  steps@kill 11000 hash@kill [3477941312, 1767917414] winner Ironwood t 91.66666666668569 blows 11 heals 11
+('ironwood', 'angelus', 1234): final drawn  IDENTICAL  steps@kill 11000 hash@kill [3477941312, 1767917414] winner Ironwood t 91.66666666668569 blows 11 heals 11
+('ironwood', 'angelus', 1234): CONTROL (must differ)  DIFFERS  heals 11 (control bit)
+('angelus', 'bindweed', 2317): final        IDENTICAL  steps@kill 8491 hash@kill [3104880274, 1235762462] winner Angelus t 70.75833333333571 blows 17 heals 17
+('angelus', 'bindweed', 2317): final drawn  IDENTICAL  steps@kill 8491 hash@kill [3104880274, 1235762462] winner Angelus t 70.75833333333571 blows 17 heals 17
+('angelus', 'bindweed', 2317): CONTROL (must differ)  DIFFERS  heals 17 (control bit)
+('morningstar', 'angelus', 8888): final        IDENTICAL  steps@kill 9241 hash@kill [1470741946, 1336009852] winner Angelus t 77.00833333334069 blows 29 heals 29
+('morningstar', 'angelus', 8888): final drawn  IDENTICAL  steps@kill 9241 hash@kill [1470741946, 1336009852] winner Angelus t 77.00833333334069 blows 29 heals 29
+('morningstar', 'angelus', 8888): CONTROL (must differ)  DIFFERS  heals 29 (control bit)
+('angelus', 'lastlight', 4242): final        IDENTICAL  steps@kill 7954 hash@kill [2858933438, 4266660376] winner Angelus t 66.28333333333215 blows 20 heals 20
+('angelus', 'lastlight', 4242): final drawn  IDENTICAL  steps@kill 7954 hash@kill [2858933438, 4266660376] winner Angelus t 66.28333333333215 blows 20 heals 20
+('angelus', 'lastlight', 4242): CONTROL (must differ)  DIFFERS  heals 20 (control bit)
+('angelus', 'dawnbringer', 2207): final        IDENTICAL  steps@kill 8857 hash@kill [2003917722, 226867816] winner Angelus t 73.80833333333814 blows 22 heals 22
+('angelus', 'dawnbringer', 2207): final drawn  IDENTICAL  steps@kill 8857 hash@kill [2003917722, 226867816] winner Angelus t 73.80833333333814 blows 22 heals 22
+('angelus', 'dawnbringer', 2207): CONTROL (must differ)  DIFFERS  heals 22 (control bit)
+('lastlight', 'angelus', 99015): final        IDENTICAL  steps@kill 8653 hash@kill [3251194205, 551803839] winner Lastlight t 72.10833333333679 blows 26 heals 26
+('lastlight', 'angelus', 99015): final drawn  IDENTICAL  steps@kill 8653 hash@kill [3251194205, 551803839] winner Lastlight t 72.10833333333679 blows 26 heals 26
+('lastlight', 'angelus', 99015): CONTROL (must differ)  DIFFERS  heals 26 (control bit)
+('axiom', 'grudgebearer', 31337): final        IDENTICAL  steps@kill 9611 hash@kill [1564926060, 2924085264] winner Axiom t 80.09166666667647 blows 0 heals 0
+('axiom', 'grudgebearer', 31337): final drawn  IDENTICAL  steps@kill 9611 hash@kill [1564926060, 2924085264] winner Axiom t 80.09166666667647 blows 0 heals 0
+('axiom', 'grudgebearer', 31337): CONTROL (must differ)  IDENTICAL  heals 0 (control bit)
+('morningstar', 'lastlight', 4242): final        IDENTICAL  steps@kill 6348 hash@kill [1626814714, 3459272318] winner Lastlight t 52.89999999999764 blows 0 heals 0
+('morningstar', 'lastlight', 4242): final drawn  IDENTICAL  steps@kill 6348 hash@kill [1626814714, 3459272318] winner Lastlight t 52.89999999999764 blows 0 heals 0
+('morningstar', 'lastlight', 4242): CONTROL (must differ)  IDENTICAL  heals 0 (control bit)
+SIM IDENTITY: PASS | CONTROL: BIT ON EVERY ANGELUS FIGHT WITH A HEAL
+exit 0

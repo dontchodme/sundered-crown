@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker as sanctified:twinblade · 33 foes x 20 seeds = 660 fights an arm · CTL lab at dur 8/(1-0.194) 2207
+  charge=16.0 dur=9.92 blade=None hangY=300
+
+  arm       win  casts  hits in/out    bless f_foeStk  foeHitsshaftHits
+  B       48.3%   3.52 22.26/9.24       0.00     3.06     0.00     6.27
+  C       72.4%   3.80 23.98/9.98       6.23     3.09     0.00     6.23
+  1320 fights in 161s   errors: []

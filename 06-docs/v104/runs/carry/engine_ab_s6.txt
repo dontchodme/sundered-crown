@@ -1,0 +1,12 @@
+=== ENGINE A/B: 42 relics, 6 seeds x 861 pairings ===
+
+  sc-angelus-b9.html              5166 matches  753.7s
+  sc-angelus-b9-fx.html           5166 matches  530.4s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 5166
+  PASS  every match identical field for field  — 5166/5166
+  PASS  the sweep is real  — 42/42 distinct winners, 5166 distinct seeds, 17.3-113.8s
+
+ENGINE A/B PASS — ../02-chain/sc-angelus-b9-fx.html does not move the 42-relic roster.
+exit 0

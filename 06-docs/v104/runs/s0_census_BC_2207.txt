@@ -1,0 +1,9 @@
+38 relics · Chromium 151.0.7922.34 · widowmaker as sanctified:twinblade · 33 foes x 20 seeds = 660 fights an arm · census (scratch copy of ult_overlay)
+  charge=16.0 dur=8.0 blade=None hangY=300
+
+  arm       win  casts  hits in/out    bless f_foeStk  foeHitsshaftHits
+  B       47.3%   3.54 18.29/11.10      0.00     2.91     0.00     5.13
+      census: frozen 0.1441 of lab steps (743719 of 5161105), 0.1912 in windows (402792 of 2106188), 0.1116 outside; lab 16 -> engine 13.69
+  C       65.0%   3.76 19.52/11.93      5.14     2.94     0.00     5.14
+      census: frozen 0.1478 of lab steps (802594 of 5430428), 0.1939 in windows (434992 of 2243282), 0.1153 outside; lab 16 -> engine 13.64
+  1320 fights in 192s   errors: []

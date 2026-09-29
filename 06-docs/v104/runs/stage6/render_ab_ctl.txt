@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-angelus-b9.html
+  b  sc-angelus-b9-fx.html
+  angelus v slagheart seed 104112 t= 31.40  DIFFERS   luma 28.948 -> 30.104   lit 88.36% -> 88.36%
+  angelus v slagheart seed 104112 t= 32.50  DIFFERS   luma 30.898 -> 28.855   lit 87.99% -> 87.95%
+  angelus v slagheart seed 104112 t= 34.50  DIFFERS   luma 28.874 -> 26.769   lit 85.69% -> 85.49%
+  angelus v slagheart seed 104112 t= 36.40  DIFFERS   luma 29.917 -> 27.670   lit 82.96% -> 82.77%
+  angelus v slagheart seed 104112 t= 38.70  DIFFERS   luma 29.299 -> 26.914   lit 79.79% -> 79.53%
+  angelus v slagheart seed 104112 t= 40.60  DIFFERS   luma 28.956 -> 27.603   lit 78.39% -> 78.33%
+
+FAIL  0/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

@@ -1,0 +1,10 @@
+base sc-angelus-b9.html db58100b3aa0092a
+applied 4 rows (replace, replace, replace, after): sc-angelus-b9.html -> sc-angelus-voice.html 32d55d74179c4335 (+8042 chars); every anchor still occurs once after
+orig: Chromium 151.0.7922.34, 37 voices rendered, 76 fights, page errors 0
+patched: Chromium 151.0.7922.34, 37 voices rendered, 76 fights, page errors 0
+every other voice, the patched page's own play vs the original page's (37): worst max |diff| 1.8e-07
+the new voices through the patched page's own play vs the lab's candidate text, max |diff|: cast 1.2e-07, close 8.9e-08, land 0.0e+00, tap@1 0.0e+00, tap@2 0.0e+00, tap@3 0.0e+00, tap@4 0.0e+00, tap@5 0.0e+00
+ult/angelus vs rune-crack: the original page 6.0e-08, the patched page 0.631
+fights (seeds [104701], Angelus both sides x every foe): 76/76 identical; every other voice call identical 76/76; taps == blessings 76/76 (1865 blessings); closes == clock closes with both alive 76/76 (261); thuds only after a close, one at most 76/76 (238 thuds); new voices on the ORIGINAL page: 0 fights
+END-TO-END: PASS
+exit 0

@@ -1,0 +1,15 @@
+base 5a6216e3b629fad4
+sc-angelus links cb1786badd375ec3 rebuild cb1786badd375ec3 SAME
+sc-angelus-rise links 9607d88c968b1aff rebuild 9607d88c968b1aff SAME
+sc-angelus-heal links 45f46064b018bb85 rebuild 45f46064b018bb85 SAME
+sc-angelus-b9 links db58100b3aa0092a rebuild db58100b3aa0092a SAME
+BASE sc-tendril-t3  added-lines-hash cac1f0175114  removed 2
+sc-coldiron-temper-fx  src 67cc3e6e05d5326e  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-tendril-fx  src 5e2cc29a1178bef4  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster
+scratch sc-coldiron-temper-fx  src 3693eda608b26fa8  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster (rerun: the chain and scratch copies share a name)
+sc-ironhail-sunder-fx  src b8ff2014a954be3f  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster
+sc-lightkeeper-bulwark-b9.5  src d60a5c63b785ad04  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster
+sc-lodestone-b205  src 6d736451a1ffc2df  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-oracle-sight  src 1b599fca2040534e  ok  added-lines-hash cac1f0175114  removed 2  40 relics in the roster
+sc-onslaught-fx  src ee74fe9ad67e50a6  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster
+sc-widowmaker-b1075  src a9977a757d5772b7  ok  added-lines-hash cac1f0175114  removed 2  39 relics in the roster

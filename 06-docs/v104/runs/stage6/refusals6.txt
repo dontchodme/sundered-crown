@@ -1,0 +1,24 @@
+STAGE 6 REFUSALS  builder 0e4e2fc3ff5813de
+
+  ok    REAL   stage 6 on the stage-6 link (twice)
+        exit 1: 'tickAscend' is already in this source -- stage 6 goes on once
+  ok    REAL   stage 6 on stage 3's link (the blade not 9)
+        exit 1: stage 6 goes on stage 5 (the heal, at the blade BLADE names)
+  ok    REAL   stage 6 onto the existing link (overwrite)
+        exit 1: refusing to overwrite sc-angelus-b9-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+  ok    MUTANT picwrite  (the picture's heal flare writes foe.vx)
+        exit 1: REFUSING TO WRITE -- stage 6 insert 'ascension picture: tickAscend' writes a).vx
+  ok    MUTANT rng       (the motes draw the RNG)
+        exit 1: REFUSING TO WRITE -- stage 6 insert 'ascension picture: the drawing methods' draws the RNG or uses the one ultFx slot
+  ok    MUTANT ultfx     (tickAscend reads the one ultFx slot)
+        exit 1: REFUSING TO WRITE -- stage 6 insert 'ascension picture: tickAscend' draws the RNG or uses the one ultFx slot
+  ok    MUTANT voice     (the motes play the tap)
+        exit 1: REFUSING TO WRITE -- stage 6 insert 'ascension picture: the drawing methods' plays a voice outside the tap, the close and the landing
+  ok    MUTANT chord     (the close chord on every close, a death's included)
+        exit 1: REFUSING TO WRITE -- stage 6's line on the sim path ('tickRise: the close, when the window closes by its clock with both alive; the drop is marked') is not its voice call alone:
+  ok    MUTANT fallback  (the shared rune-crack fallback not re-emitted)
+        exit 1: REFUSING TO WRITE -- the shared rune-crack fallback is not kept, once, after Angelus's arms
+  ok    CONTROL the unmutated copy writes the link (6356f75eb0b328e1, want 6356f75eb0b328e1)
+        exit 0: written
+
+  10/10

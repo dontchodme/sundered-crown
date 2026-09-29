@@ -1,0 +1,6 @@
+39 relics · Chromium 151.0.7922.34 · angelus (redesign) · 33 foes x 20 seeds = 660 fights an arm · CTL built rise-rise0 2317
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    46.8%   0.00  0.00/31.18 
+  660 fights in 69s   errors: []

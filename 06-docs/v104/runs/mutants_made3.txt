@@ -1,0 +1,8 @@
+sc-angelus-m1-hang.html 2df82b81488db64f
+sc-angelus-m2-clock.html f3900098a470c1b3
+sc-angelus-m3-release.html be5b7789c4984e7c
+sc-angelus-m4-reach50.html abef0e9bf249c0a4
+sc-angelus-m5-spin.html 355bf450861bd73a
+sc-angelus-m6-dmg.html 807d1fd6ae6cee2b
+sc-angelus-m7-heal.html d8a35d407bd5fe55
+sc-angelus-m8-pinfree.html 47ad6a1726edddb6

@@ -1,0 +1,5 @@
+STAGE 1 vs ARM A, fight for fight: 33 foes x 40 seeds (blocks [2207, 2317]) = 1320 fights
+  identical records (winner, steps, both hits/dealt/crits/clanks, both hp): 1320/1320
+  win: lab arm A 29.17%   built stage 1 29.17%
+  CONTROL (the donor unmutated, bloodsworn): 1319/1320 records differ from arm A -- the comparison can fail
+  first difference: None

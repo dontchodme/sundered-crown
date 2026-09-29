@@ -1,0 +1,21 @@
+
+ASCENSION PROBE  sc-angelus-m2-clock.html  Chromium 151.0.7922.34  456 fights (Angelus sides AB x every foe(s) x 6 seeds from 104001 step 13)   relic {'dmg': 9, 'charge': 14, 'dur': 8, 'rise': 0.35, 'hangY': 300, 'shaft': 10, 'shaftSpin': 0.5, 'winDmg': 0.4, 'healPer': 1}
+  casts/fight 3.93   blows a fight: in windows 19.93, outside 13.92   Angelus win 45.8%
+  per cast: shaft hits 4.90  blessing 4.90  healed 37.6 hp (tickStatus)  blows in the rise 0.14  foe blows taken lit 2.05 / rising 0.10
+  foe smite stacks on an average window frame (per fight, the lab's f_foeStk) 2.88   blessing from elsewhere 0   ward/curse-exempt blows 138
+  hold: at the hang point on 100.00% of lit steps (0 off of 1548371)   hung ball moved between frames 0 of 1252526   pinFree found cleared 0   clamp bound 0   shaft tip 710.5 units
+  closes 1609 (clock 1588, dead caster 21)   multi-hit heals 0   window clock: held 0 frozen steps, +dt 1301191 live   FREEZE CENSUS 19.8% of window steps frozen (320662 of 1623461)
+  [2] re-arm exercised: the probe cleared pin/pinMax/pinFree before 26091 window ticks (every 50th), re-armed 26060 (the rest were closes)
+  reading 10: windows still open at the match's end 184 of 456 fights (Angelus won 96, lost 88; lit 173; not slain 0)   ticks with the foe dead and the caster alive 40   reading 11: shaft hits on shades 46
+  [1] PASS  the rise: the cast's record, the smoothstep ease on the window clock, the arrival at `rise`, the hang point held (>= 99% of lit steps within 1)
+  [2] PASS  the hold: pin dur / pinFree 1 / pinV [0,0] at the cast, re-armed every frame (exercised: the probe's cleared frames re-arm); the hung ball never moved; foe blows land on it
+  [3] PASS  released on close: a live caster to rest; a dead one's kill flight untouched
+  [4] PASS  the shafts: reachMul `shaft` on every lit frame, 1 in the rise and after; both blade tips at R + reach x reachMul
+  [5] PASS  the turn: w.spin x (shaftSpin lit) x spinMul x dt, rebuilt exactly
+  [6] PASS  every blow: the blade x (winDmg lit), crit and jitter rebuilt exactly; no shaft hit at full damage
+  [7] PASS  the heal: blessing healPer x each lit hit, once, by side letter, and tickStatus heals it; nothing else
+  [8] PASS  nothing else: the tick hurts nobody, files no beat, moves no stop, leaves the foe; the cast files its one ult beat
+  [9] FAIL  the window is `dur` long on the window clock (held through every frozen step, +dt a live one), closes on the caster's death, not the foe's (reading 10); only Angelus carries ultRise   320885 FAIL: ['the window clock ran through a frozen step: t 0.008333333333333333 -> 0.016666666666666666', 'the window clock ran through a frozen step: t 0.016666666666666666 -> 0.025', 'the window clock ran through a frozen step: t 0.025 -> 0.03333333333333333', 'the window clock ran through a frozen step: t 0.03333333333333333 -> 0.041666666666666664']
+  [10] PASS  no cast while the rise is open (the design has no wait)
+
+  9/10

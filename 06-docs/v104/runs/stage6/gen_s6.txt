@@ -1,0 +1,9 @@
+voice rows   rows_final.json 70f47a5acf37e4f7
+picture rows rows_final.json 324d3654c51b4d04
+the rows the labs returned == the row files (voice 4, picture 8)
+picture rows alone -> 32d61ac685db232f  (the picture lab's stamp: 32d61ac685db232f)
+voice rows alone   -> 32d55d74179c4335  (the voice lab's page:  32d55d74179c4335)
+both sets, either order -> 6356f75eb0b328e1 (identical)
+12 rows -> 12 edits (0 merged on a shared anchor); edits reproduce 6356f75eb0b328e1
+anchors NOT re-emitted by their edit: ["ascension picture: the body trail's ghost"]
+stage 6 written into angelus_build.py: 12 edits; builder now 0e4e2fc3ff5813de

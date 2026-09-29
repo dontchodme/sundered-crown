@@ -1,0 +1,43 @@
+Angelus / Ascension (sc-angelus-b9: blade 9) win by foe, both sides, relic_rate seed0 2207 + 2317
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks). Pooled: 51.1%  side A 53.3%  side B 48.9%
+
+by type  warhammer 78%  flail 62%  bow 59%  scythe 48%  greatsword 37%  twinblade 19%
+
+starwarden        2.5%
+spellbreaker      5.0%
+bloodmirror      12.5%
+lightkeeper      15.0%
+emberedge        15.0%
+twinshade        20.0%
+vesper           25.0%
+widowmaker       30.0%
+aureole          30.0%
+bindweed         30.0%
+nightfell        32.5%
+cindercleave     35.0%
+foregone         37.5%
+thornshear       37.5%
+ironwood         40.0%
+axiom            42.5%
+oathwound        47.5%
+thornwake        50.0%
+heartwood        50.0%
+dawnbringer      55.0%
+gravemourn       55.0%
+ironhail         55.0%
+gloamwire        55.0%
+farwarden        60.0%
+portcullis       60.0%
+slagheart        62.5%
+paradox          62.5%
+vinesower        67.5%
+grudgebearer     70.0%
+redflail         77.5%
+lastlight        85.0%
+ravelbone        85.0%
+marrowdraw       85.0%
+shroudmaul       87.5%
+censer           90.0%
+duskreave        90.0%
+morningstar      90.0%
+bulwarden        92.5%

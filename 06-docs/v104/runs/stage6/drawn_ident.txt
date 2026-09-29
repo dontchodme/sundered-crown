@@ -1,0 +1,20 @@
+# Two sittings of one script (drawn_ident.py), run in parallel in two browsers on the same link (6356f75eb0b328e1):
+# sitting 1 ran fights 1-6 in order and was stopped by a watcher once fight 3 had printed (drawn_ident_kill.log);
+# sitting 2 ran fights 4-6 with the script's index argument (drawn_ident.py <link> 3,4,5).
+
+== sitting 1 (fights 1-3)
+DRAWN SIM IDENTITY on sc-angelus-b9-fx.html: 6 fights, each run undrawn, drawn and drawn+control in one page
+       angelus v grudgebearer    2213  drawn IDENTICAL  (4507 draws, 2307 with the picture up, 0 thrown)   control DIFFERS   kill at step 8775, winner angelus, rise tally [casts, shaftHits, bless, arrivals] [4, 26, 26, 4], window open at the kill True
+   dawnbringer v angelus         4242  drawn IDENTICAL  (4483 draws, 2206 with the picture up, 0 thrown)   control DIFFERS   kill at step 8726, winner dawnbringer, rise tally [casts, shaftHits, bless, arrivals] [4, 22, 22, 4], window open at the kill True
+       angelus v nightfell       2211  drawn IDENTICAL  (4645 draws, 2362 with the picture up, 0 thrown)   control DIFFERS   kill at step 9050, winner nightfell, rise tally [casts, shaftHits, bless, arrivals] [4, 22, 22, 4], window open at the kill True
+
+== sitting 2 (fights 4-6)
+DRAWN SIM IDENTITY on sc-angelus-b9-fx.html: 3 fights, each run undrawn, drawn and drawn+control in one page
+  spellbreaker v angelus        99015  drawn IDENTICAL  (4538 draws, 2269 with the picture up, 0 thrown)   control DIFFERS   kill at step 8836, winner spellbreaker, rise tally [casts, shaftHits, bless, arrivals] [4, 20, 20, 4], window open at the kill True
+       angelus v twinshade     104001  drawn IDENTICAL  (5144 draws, 2587 with the picture up, 0 thrown)   control DIFFERS   kill at step 10048, winner angelus, rise tally [casts, shaftHits, bless, arrivals] [4, 38, 38, 4], window open at the kill True
+     ravelbone v angelus         5150  drawn IDENTICAL  (4410 draws, 2210 with the picture up, 0 thrown)   control DIFFERS   kill at step 8581, winner angelus, rise tally [casts, shaftHits, bless, arrivals] [4, 24, 24, 4], window open at the kill True
+
+DRAWN SIM IDENTITY PASS: 3/3 identical drawn, control differs on 3/3; 14092 draws, 7066 with the picture up  (sc-angelus-b9-fx.html)
+exit 0 04:27:09
+
+TOTAL: DRAWN SIM IDENTITY PASS: 6/6 identical drawn, control differs on 6/6 (3 fights with Angelus as a, 3 as b; 27727 draws, 13941 with the picture up, 0 thrown; the window open at the kill in 6/6)

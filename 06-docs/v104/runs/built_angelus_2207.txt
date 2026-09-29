@@ -1,0 +1,6 @@
+39 relics · Chromium 151.0.7922.34 · angelus (redesign) · 33 foes x 20 seeds = 660 fights an arm · built stage 1 sc-angelus 2207
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    28.9%   0.00  0.00/18.78 
+  660 fights in 95s   errors: []

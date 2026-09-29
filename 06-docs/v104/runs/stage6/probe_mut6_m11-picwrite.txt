@@ -1,0 +1,25 @@
+
+ASCENSION PROBE  sc-angelus-m11-picwrite.html  Chromium 151.0.7922.34  152 fights (Angelus sides AB x every foe(s) x 2 seeds from 104001 step 13)   relic {'dmg': 9, 'charge': 14, 'dur': 8, 'rise': 0.35, 'hangY': 300, 'shaft': 10, 'shaftSpin': 0.5, 'winDmg': 0.4, 'healPer': 1}
+  casts/fight 3.95   blows a fight: in windows 24.44, outside 12.24   Angelus win 50.7%
+  per cast: shaft hits 5.98  blessing 5.98  healed 43.4 hp (tickStatus)  blows in the rise 0.16  foe blows taken lit 2.65 / rising 0.14
+  foe smite stacks on an average window frame (per fight, the lab's f_foeStk) 2.99   blessing from elsewhere 0   ward/curse-exempt blows 46
+  hold: at the hang point on 100.00% of lit steps (0 off of 626626)   hung ball moved between frames 0 of 508080   pinFree found cleared 0   clamp bound 0   shaft tip 710.5 units
+  closes 524 (clock 518, dead caster 6)   multi-hit heals 0   window clock: held 128011 frozen steps, +dt 532688 live   FREEZE CENSUS 19.4% of window steps frozen (128011 of 661223)
+  [2] re-arm exercised: the probe cleared pin/pinMax/pinFree before 10676 window ticks (every 50th), re-armed 10664 (the rest were closes)
+  reading 10: windows still open at the match's end 77 of 152 fights (Angelus won 37, lost 40; lit 74; not slain 0)   ticks with the foe dead and the caster alive 13   reading 11: shaft hits on shades 26
+  stage 6 voices: 601 casts each one cast voice (of 601); 3595 healing ticks each one tap (n 1-5: 589/564/541/506/1395; 0 tick(s) healing two hits at once, one tap); 518 clock closes with both alive each one chord; quiet on 6 death closes and 0 clock closes with the foe dead; 477 landings each one thud (23 fights ended before the ball landed, 18 balls hung again by the next cast before they landed: 518 = the 518 chords); silent through 2 s of the verdict: 77 fights with the window open, 75 with it shut
+  stage 6 picture: tickAscend 2551585 calls, 2547990 writing nothing of the simulation's and drawing no RNG; up on 1194435 calls in an open window; closes 518 by the clock, 0 on the caster's death, 77 AT THE KILL with the sim's window open (+6 at `over` with it shut), 601 gone in 0.6 of its clock (0.3 s); 3595 heals each flared and tagged; 3595 threads for 3595 shaft blows seen lit; after 2 s of the verdict the picture down in 77 fights the sim left open and 75 others
+  [1] PASS  the rise: the cast's record, the smoothstep ease on the window clock, the arrival at `rise`, the hang point held (>= 99% of lit steps within 1)
+  [2] PASS  the hold: pin dur / pinFree 1 / pinV [0,0] at the cast, re-armed every frame (exercised: the probe's cleared frames re-arm); the hung ball never moved; foe blows land on it
+  [3] PASS  released on close: a live caster to rest; a dead one's kill flight untouched
+  [4] PASS  the shafts: reachMul `shaft` on every lit frame, 1 in the rise and after; both blade tips at R + reach x reachMul
+  [5] PASS  the turn: w.spin x (shaftSpin lit) x spinMul x dt, rebuilt exactly
+  [6] PASS  every blow: the blade x (winDmg lit), crit and jitter rebuilt exactly; no shaft hit at full damage
+  [7] PASS  the heal: blessing healPer x each lit hit, once, by side letter, and tickStatus heals it; nothing else
+  [8] PASS  nothing else: the tick hurts nobody, files no beat, moves no stop, leaves the foe; the cast files its one ult beat
+  [9] PASS  the window is `dur` long on the window clock (held through every frozen step, +dt a live one), closes on the caster's death, not the foe's (reading 10); only Angelus carries ultRise
+  [10] PASS  no cast while the rise is open (the design has no wait)
+  [11] PASS  stage 6 voices: one cast voice a cast, one tap a healing tick (n = the caster's blessing), one chord a clock close with both alive and one thud on its landing; none anywhere else -- not on a death, a foe's cast, the picture or the verdict
+  [12] FAIL  stage 6 picture: tickAscend writes nothing of the simulation's and draws no RNG; up while the window is open, a 0.3 s close by the clock, on a death and AT THE KILL (reading 10); a flare and a BLESSING tag a heal; threads only for shaft blows; down after the verdict   3595 FAIL: ['the picture wrote the simulation: vx 236.6011994787672 -> 236.6011994797672', 'the picture wrote the simulation: vx -93.13913389795428 -> -93.13913389695428', 'the picture wrote the simulation: vx 227.38527392212393 -> 227.38527392312392', 'the picture wrote the simulation: vx 177.45818669363965 -> 177.45818669463964']
+
+  11/12

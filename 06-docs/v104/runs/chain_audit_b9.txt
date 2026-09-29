@@ -1,0 +1,15 @@
+  (8 insert(s) found in angelus_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-angelus-b9.html
+tip    sc-angelus-b9.html
+8 inserts read out of angelus_build.py
+
+    ok  S1:angelus joins the roster at the end of the array, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the rise has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the rise relic  1  mid   -  tip  1
+    ok  S2:the cast pins the caster and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the rise ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:the shafts turn at half the blades' spin relic  1  mid   -  tip  1
+    ok  S2:tickRise lifts, lights and heals relic  1  mid   -  tip  1
+    ok  S3:the heal                relic  1  mid   -  tip  1
+
+ALL 8 INSERTS SURVIVE to sc-angelus-b9.html

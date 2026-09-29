@@ -1,0 +1,8 @@
+angelus      sanctified twinblade n 8  TWINBLADE |dL| med 0.234 (min 0.145 max 0.247)  luma 0.410  area 6169 u2
+widowmaker   bloodsworn twinblade n 6  TWINBLADE |dL| med 0.171 (min 0.160 max 0.185)  luma 0.273  area 4230 u2
+spellbreaker runic      twinblade n 8  TWINBLADE |dL| med 0.289 (min 0.156 max 0.303)  luma 0.416  area 3466 u2
+twinshade    umbral     twinblade n 8  TWINBLADE |dL| med 0.151 (min 0.096 max 0.157)  luma 0.260  area 3957 u2
+thornshear   verdant    twinblade n 8  TWINBLADE |dL| med 0.144 (min 0.091 max 0.147)  luma 0.269  area 5281 u2
+starwarden   vigil      twinblade n 8  TWINBLADE |dL| med 0.156 (min 0.088 max 0.164)  luma 0.274  area 4860 u2
+rank by |dL|: spellbreaker 0.289 > angelus 0.234 > widowmaker 0.171 > starwarden 0.156 > twinshade 0.151 > thornshear 0.144
+done-base

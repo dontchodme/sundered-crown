@@ -1,0 +1,21 @@
+rows_final.json: 8 rows, 23289 bytes, sha256[:16] of the file 324d3654c51b4d04, round-trips
+[1] 8 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+[3] STAMP 32d61ac685db232f  (base db58100b3aa0092a; an-final.html matches; +20147 chars)
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + angelus stages 1,2,3,5 (db58100b3aa0092a, = the base): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] on sc-ironhail-fxout.html (4b3775e5900172ea) + angelus stages 1,2,3,5 (9c20e5d365371762): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] on ci-final.html (94bb7580047f01bc) + angelus stages 1,2,3,5 (75cd578d054f33f9): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] on ih-final-fx.html (4463f003dd5230b8) + angelus stages 1,2,3,5 (fca7d3bcfb5b5228): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] on bw-final.html (ef4bd13fe968d99c) + angelus stages 1,2,3,5 (683230b96a06e689): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] on pc-final.html (de1cf49480a06745) + angelus stages 1,2,3,5 (336c603d62573dd0): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] on ld-final.html (b40d52b7561c45f2) + angelus stages 1,2,3,5 (7123d0711f112722): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] on lk-final-fx.html (5acd4d78b30b6914) + angelus stages 1,2,3,5 (8c97e460ab3b73e7): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] on wm-final-fx.html (93e8955ef03be732) + angelus stages 1,2,3,5 (f4bc1735d32a44e0): every anchor once, forward == reverse True, parses (+20147 chars, the same as on the base: True)
+[4] Angelus's voice rows are not on disk yet (angelus/stage6-voice/rows_final.json)
+[5] CONTROL (an anchor that occurs many times) refused: ascension picture: fighter fields: anchor found 340x

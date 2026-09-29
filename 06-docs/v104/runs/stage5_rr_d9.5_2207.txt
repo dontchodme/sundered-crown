@@ -1,0 +1,4 @@
+angelus on sc-angelus-heal.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 2207 · set dmg=9.5 · stage5 dmg 9.5
+  win 52.4%   side A 53.7%   side B 51.1%   mean 73.0s   timeouts 0
+  by type  warhammer 76%  flail 66%  bow 61%  scythe 50%  greatsword 35%  twinblade 22%
+  worst    starwarden 0%  spellbreaker 15%  lightkeeper 15%   (760 fights in 83s)

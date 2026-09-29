@@ -1,0 +1,17 @@
+base sc-angelus-b9.html db58100b3aa0092a; voice rows rows_lab.json 70f47a5acf37e4f7 (4: replace, replace, replace, after); picture rows 8 324d3654c51b4d04
+[1] 12 anchors (4 voice + 8 picture), each once in the base; spans disjoint; each replace carries its own anchor once, no code carries another's; rng/spawnFx/Math.random/ultFx in a voice row's code (comments stripped): none
+[2] the voice rows alone: 24 orders byte-identical, 32d55d74179c4335 (+8042 chars); 1 script blocks parse
+    with the picture's rows: forward, reverse and 60 random interleavings byte-identical, 6356f75eb0b328e1 (+28189 chars); parses
+[3] tip: sc-tendril-t3.html 5a6216e3b629fad4 + angelus 1,2,3,5 db58100b3aa0092a (= the base): every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] chain-lodestone-b205-fx: sc-lodestone-b205-fx.html 4568c2995d06f696 + angelus 1,2,3,5 85eabb2b728aba0e: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] chain-ironhail-fxout: sc-ironhail-fxout.html 4b3775e5900172ea + angelus 1,2,3,5 9c20e5d365371762: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] coldiron: ci-final.html 94bb7580047f01bc + angelus 1,2,3,5 75cd578d054f33f9: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] ironhail: ih-final-fx.html 4463f003dd5230b8 + angelus 1,2,3,5 fca7d3bcfb5b5228: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] bindweed: bw-final.html ef4bd13fe968d99c + angelus 1,2,3,5 683230b96a06e689: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] portcullis: pc-final.html de1cf49480a06745 + angelus 1,2,3,5 336c603d62573dd0: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] lodestone: ld-final.html b40d52b7561c45f2 + angelus 1,2,3,5 7123d0711f112722: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] lightkeeper: lk-final-fx.html 5acd4d78b30b6914 + angelus 1,2,3,5 8c97e460ab3b73e7: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[3] widowmaker: wm-final-fx.html 93e8955ef03be732 + angelus 1,2,3,5 f4bc1735d32a44e0: every anchor once, forward == reverse True, +8042 chars (as on the base: True), parses; with the picture's rows voice-then-picture == picture-then-voice True
+[4] CONTROL (an anchor that occurs many times) refused: tickRise: the shaft-hit tap, once per shaft hit healed, afte: anchor found 340x
+[4] CONTROL (a replace row that drops its anchor) caught: a replace that drops its anchor
+exit 0

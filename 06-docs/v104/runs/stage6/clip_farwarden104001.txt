@@ -1,0 +1,10 @@
+--at 80.68s: filming a 13.03s window rather than measuring back from the kill
+seed 104001: kill at 92.78s, clip starts at 80.68s
+cut list: 49.2s T3, 55.3s T3, 64.9s T3, 73.7s T3, 88.9s T3, 92.8s KILL
+  rendering director ON ...
+    verdict panel held 2.40s of the 4.30s tail (armed 1.90s after the kill)
+    on: 1200 frames, 20.0s wall, 248s to render, match ended {'seed': 104001, 't': 80.68333333334361, 'kill': 92.78333333335324}
+    on: FIGHT over=True t=93.4083 clanks=42 hp=[56.79, 0]
+
+wrote C:\dev\sundered-crown\07-shorts\v104\ascension-window.mp4  3.82 MB  (0.0s off + 20.0s on)
+the two halves are the same seed. If the winner differs, the feature is broken.

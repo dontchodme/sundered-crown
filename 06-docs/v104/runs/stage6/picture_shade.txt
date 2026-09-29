@@ -1,0 +1,14 @@
+twinshade v angelus 99008: lit blows 27 (on the foe 18, on a shade 9) threads checked 27 at the blow 27 (shade 9; control 'at the foe' misses 9) bad [] | shade frames 3242 | Twinshade t 77.18
+twinshade v angelus 4242: lit blows 22 (on the foe 12, on a shade 10) threads checked 22 at the blow 22 (shade 10; control 'at the foe' misses 10) bad [] | shade frames 3425 | Twinshade t 76.33
+twinshade v angelus 2207: lit blows 26 (on the foe 23, on a shade 3) threads checked 26 at the blow 26 (shade 3; control 'at the foe' misses 3) bad [] | shade frames 2898 | Twinshade t 74.03
+twinshade v angelus 1234: lit blows 27 (on the foe 16, on a shade 11) threads checked 27 at the blow 27 (shade 11; control 'at the foe' misses 11) bad [] | shade frames 3518 | Twinshade t 79.94
+twinshade v angelus 31337: lit blows 24 (on the foe 18, on a shade 6) threads checked 24 at the blow 24 (shade 6; control 'at the foe' misses 6) bad [] | shade frames 3360 | Twinshade t 78
+twinshade v angelus 777: lit blows 38 (on the foe 24, on a shade 14) threads checked 38 at the blow 38 (shade 14; control 'at the foe' misses 14) bad [] | shade frames 3700 | Twinshade t 83.05
+angelus v twinshade 99008: lit blows 23 (on the foe 17, on a shade 6) threads checked 23 at the blow 23 (shade 6; control 'at the foe' misses 6) bad [] | shade frames 3284 | Twinshade t 77.05
+angelus v twinshade 4242: lit blows 22 (on the foe 14, on a shade 8) threads checked 22 at the blow 22 (shade 8; control 'at the foe' misses 8) bad [] | shade frames 3228 | Twinshade t 76.47
+angelus v twinshade 2207: lit blows 18 (on the foe 15, on a shade 3) threads checked 18 at the blow 18 (shade 3; control 'at the foe' misses 3) bad [] | shade frames 2940 | Twinshade t 74.66
+angelus v twinshade 1234: lit blows 32 (on the foe 22, on a shade 10) threads checked 32 at the blow 32 (shade 10; control 'at the foe' misses 10) bad [] | shade frames 3441 | Angelus t 86.65
+angelus v twinshade 31337: lit blows 32 (on the foe 26, on a shade 6) threads checked 32 at the blow 32 (shade 6; control 'at the foe' misses 6) bad [] | shade frames 3723 | Angelus t 95.87
+angelus v twinshade 777: lit blows 30 (on the foe 26, on a shade 4) threads checked 30 at the blow 30 (shade 4; control 'at the foe' misses 4) bad [] | shade frames 2341 | Angelus t 69.7
+TOTAL {"litBlows": 321, "foeBlows": 231, "shadeBlows": 90, "threads": 321, "ok": 321, "shadeOk": 90, "ctrlMiss": 90}
+READING 11 THREAD: PASS | CONTROL: MISSES ON EVERY SHADE BLOW

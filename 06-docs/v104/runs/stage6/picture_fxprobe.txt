@@ -1,0 +1,4 @@
+133 Ascension windows on 16 foes x 2 seeds (both sides); ultFx life at the cast: [1.3, 1.5, 1.6] (fx clock, half-seconds); the slot is Angelus's at the cast on 112/133
+  the slot is Angelus's for a median 0.633s of window clock (max 0.717); lost to: {"opponent's cast": 21, 'expired': 109, 'match ended in the window': 3}
+  a slot-borne field could exist for 7.4% of the window's clock, and for 4.36% of the time the shafts are lit (131 windows lit; the shafts light at window clock 0.350..0.350)
+  the slot's spawn point (the cast position) is a median 226 units from the hang point the shafts turn about (p10 79, p90 383)

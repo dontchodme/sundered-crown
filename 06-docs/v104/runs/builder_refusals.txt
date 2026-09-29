@@ -1,0 +1,6 @@
+refusing to overwrite sc-angelus.html -- a link is written once. Delete it by hand if this is a rebuild.
+refusing to write other-name.html: this relic's links are sc-angelus*
+stage 3 goes on stage 2, once
+stage 2 goes on stage 1, once
+stage 5 goes on stage 3, once
+'kind:"rise"' is already in the base

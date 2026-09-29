@@ -1,0 +1,7 @@
+REVIEW-R2 REBUILD, 2026-09-28 02:31 PDT, final builder, from base 5a6216e3b629fad4
+sc-angelus rebuilt cb1786badd375ec3  link cb1786badd375ec3  SAME
+sc-angelus-rise rebuilt 9607d88c968b1aff  link 9607d88c968b1aff  SAME
+sc-angelus-heal rebuilt 45f46064b018bb85  link 45f46064b018bb85  SAME
+sc-angelus-b9 rebuilt db58100b3aa0092a  link db58100b3aa0092a  SAME
+e5b0d70b8555a916 *angelus_build.py
+4c3ecb34775f7c65 *angelus_probe.py

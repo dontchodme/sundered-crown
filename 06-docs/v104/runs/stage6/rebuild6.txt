@@ -1,0 +1,7 @@
+rebuild6 2026-09-28 23:33 PDT builder 0e4e2fc3ff5813de from 02-chain/sc-tendril-t3.html
+exit 0
+sc-angelus rebuilt cb1786badd375ec3  link cb1786badd375ec3  SAME
+sc-angelus-rise rebuilt 9607d88c968b1aff  link 9607d88c968b1aff  SAME
+sc-angelus-heal rebuilt 45f46064b018bb85  link 45f46064b018bb85  SAME
+sc-angelus-b9 rebuilt db58100b3aa0092a  link db58100b3aa0092a  SAME
+sc-angelus-b9-fx rebuilt 6356f75eb0b328e1  link 6356f75eb0b328e1  SAME

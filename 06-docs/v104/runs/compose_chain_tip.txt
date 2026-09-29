@@ -1,0 +1,43 @@
+COMPOSE ONTO THE CURRENT CHAIN TIP (2026-09-27 22:26): angelus_build.py stages 1,2,3,5 --src 02-chain/sc-coldiron-temper-fx.html (67cc3e6e05d5326e)
+    src sc-coldiron-temper-fx.html  67cc3e6e05d5326e  (LF text)
+    base  by content: the anchors, the five twinblades' profile, the sanctified channel, the radiant head route, blessing, the pin's hold
+    ok    angelus joins the roster at the end of the array, its ultimate stubbed
+    ok    ult   ult:{ name:"Ascension", charge:1e9, kind:"rise", dur:8, rise:0.35, hangY:300, shaft:10, shaftSpin:0. ...
+    ok    card  69 chars  'Rises into the air; its blades become shafts of light. Each hit heals'
+    ok    one rise ultimate, Angelus's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon or files a beat; 40 relics in the roster
+    ok    syntax  1 inline script block(s) parse
+    out sc-angelus.html  3f464121f7bde05b   (+976 chars, written LF)
+    src sc-angelus.html  3f464121f7bde05b  (LF text)
+    base  by content: the anchors, the five twinblades' profile, the sanctified channel, the radiant head route, blessing, the pin's hold
+    ok    the rise has a charge: the lab's 16 on the game's clock
+    ok    the fighter carries the rise
+    ok    the cast pins the caster and resolves nothing
+    ok    the rise ticks with the window tickers
+    ok    the shafts turn at half the blades' spin
+    ok    a shaft hit is the blade x winDmg
+    ok    tickRise lifts, lights and heals
+    ok    ult   ult:{ name:"Ascension", charge:14, kind:"rise", dur:8, rise:0.35, hangY:300, shaft:10, shaftSpin:0.5 ...
+    ok    card  69 chars  'Rises into the air; its blades become shafts of light. Each hit heals'
+    ok    the spin product, the damage line, and tickRise before tickHits
+    ok    one rise ultimate, Angelus's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon or files a beat; 40 relics in the roster
+    ok    syntax  1 inline script block(s) parse
+    out sc-angelus-rise.html  b355cd3b63442828   (+4438 chars, written LF)
+    src sc-angelus-rise.html  b355cd3b63442828  (LF text)
+    base  by content: the anchors, the five twinblades' profile, the sanctified channel, the radiant head route, blessing, the pin's hold
+    ok    the heal
+    ok    ult   ult:{ name:"Ascension", charge:14, kind:"rise", dur:8, rise:0.35, hangY:300, shaft:10, shaftSpin:0.5 ...
+    ok    card  69 chars  'Rises into the air; its blades become shafts of light. Each hit heals'
+    ok    the spin product, the damage line, and tickRise before tickHits
+    ok    one rise ultimate, Angelus's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon or files a beat; 40 relics in the roster
+    ok    syntax  1 inline script block(s) parse
+    out sc-angelus-heal.html  ea3685476399dce0   (+0 chars, written LF)
+    src sc-angelus-heal.html  ea3685476399dce0  (LF text)
+    base  by content: the anchors, the five twinblades' profile, the sanctified channel, the radiant head route, blessing, the pin's hold
+    ok    the blade: at the crossing
+    ok    ult   ult:{ name:"Ascension", charge:14, kind:"rise", dur:8, rise:0.35, hangY:300, shaft:10, shaftSpin:0.5 ...
+    ok    card  69 chars  'Rises into the air; its blades become shafts of light. Each hit heals'
+    ok    the spin product, the damage line, and tickRise before tickHits
+    ok    one rise ultimate, Angelus's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon or files a beat; 40 relics in the roster
+    ok    syntax  1 inline script block(s) parse
+    out sc-angelus-b9.html  88a010d098535fec   (-4 chars, written LF)
+  added-lines-hash cac1f0175114 (== on sc-tendril-t3), removed 2, out sc-angelus-b9 88a010d098535fec (scratch file, not a link)

@@ -1,0 +1,34 @@
+  dawnbringer ON  rep 0: windows 3 scratch 863px  rest 28.3  rise 77.7  lit 93.2  close 95.6  after 82.8
+  dawnbringer OFF rep 0: windows 3 scratch 1597px  rest 26.6  rise 71.7  lit 107.4  after 73.7
+  dawnbringer OFF rep 1: windows 3 scratch 1597px  rest 28.3  rise 72.4  lit 105.1  after 72.0
+  dawnbringer ON  rep 1: windows 3 scratch 863px  rest 27.8  rise 61.7  lit 64.0  close 54.8  after 59.0
+dawnbringer  4242 a  ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  (medians of the 2 runs' medians, ms; p90 in brackets)
+    rest   FRAME ON    28.0 [  33.5]  OFF    27.4 [  33.9]  | Angelus drawWeapon ON   0.40  OFF   0.40  | drawAscend+Top ON  0.00
+    rise   FRAME ON    69.7 [  89.7]  OFF    72.0 [  85.4]  | Angelus drawWeapon ON   0.20  OFF   1.95  | drawAscend+Top ON  0.05
+    lit    FRAME ON    78.6 [  95.9]  OFF   106.2 [ 125.2]  | Angelus drawWeapon ON   0.25  OFF  42.85  | drawAscend+Top ON  0.15
+    close  FRAME ON    75.2 [  89.2]  OFF     nan [   nan]  | Angelus drawWeapon ON   0.25  OFF    nan  | drawAscend+Top ON  0.10
+    after  FRAME ON    70.9 [  91.1]  OFF    72.8 [  85.1]  | Angelus drawWeapon ON   0.20  OFF  11.50  | drawAscend+Top ON  0.00
+    scratch at the end: ON [863, 863]  OFF [1597, 1597]
+  spellbreaker ON  rep 0: windows 3 scratch 863px  rest 34.0  rise 72.9  lit 77.6  close 71.6  after 76.7
+  spellbreaker OFF rep 0: windows 3 scratch 1597px  rest 32.1  rise 211.3  lit 354.5  after 316.2
+  spellbreaker OFF rep 1: windows 3 scratch 1597px  rest 31.7  rise 239.5  lit 319.3  after 287.1
+  spellbreaker ON  rep 1: windows 3 scratch 863px  rest 27.2  rise 59.3  lit 63.5  close 64.8  after 62.8
+spellbreaker 99015 b  ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  (medians of the 2 runs' medians, ms; p90 in brackets)
+    rest   FRAME ON    30.6 [  35.9]  OFF    31.9 [  37.5]  | Angelus drawWeapon ON   0.40  OFF   0.40  | drawAscend+Top ON  0.00
+    rise   FRAME ON    66.1 [  76.8]  OFF   225.4 [ 289.3]  | Angelus drawWeapon ON   0.30  OFF   4.55  | drawAscend+Top ON  0.05
+    lit    FRAME ON    70.5 [  82.3]  OFF   336.9 [ 371.2]  | Angelus drawWeapon ON   0.35  OFF  33.65  | drawAscend+Top ON  0.15
+    close  FRAME ON    68.2 [  80.0]  OFF     nan [   nan]  | Angelus drawWeapon ON   0.35  OFF    nan  | drawAscend+Top ON  0.10
+    after  FRAME ON    69.7 [  88.3]  OFF   301.6 [ 337.3]  | Angelus drawWeapon ON   0.30  OFF   7.30  | drawAscend+Top ON  0.00
+    scratch at the end: ON [863, 863]  OFF [1597, 1597]
+  gravemourn ON  rep 0: windows 3 scratch 863px  rest 25.5  rise 53.2  lit 58.1  close 61.0  after 63.6
+  gravemourn OFF rep 0: windows 3 scratch 1597px  rest 24.9  rise 54.1  lit 89.6  after 62.2
+  gravemourn OFF rep 1: windows 3 scratch 1597px  rest 27.3  rise 59.3  lit 92.9  after 65.1
+  gravemourn ON  rep 1: windows 3 scratch 863px  rest 30.2  rise 64.0  lit 68.1  close 69.8  after 69.4
+gravemourn   4242 a  ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  (medians of the 2 runs' medians, ms; p90 in brackets)
+    rest   FRAME ON    27.9 [  32.6]  OFF    26.1 [  31.6]  | Angelus drawWeapon ON   0.50  OFF   0.45  | drawAscend+Top ON  0.00
+    rise   FRAME ON    58.6 [  68.7]  OFF    56.7 [  66.6]  | Angelus drawWeapon ON   0.20  OFF   1.35  | drawAscend+Top ON  0.10
+    lit    FRAME ON    63.1 [  73.7]  OFF    91.2 [ 101.7]  | Angelus drawWeapon ON   0.25  OFF  35.50  | drawAscend+Top ON  0.10
+    close  FRAME ON    65.4 [  74.6]  OFF     nan [   nan]  | Angelus drawWeapon ON   0.25  OFF    nan  | drawAscend+Top ON  0.10
+    after  FRAME ON    66.5 [  74.4]  OFF    63.7 [  72.8]  | Angelus drawWeapon ON   0.20  OFF   9.50  | drawAscend+Top ON  0.00
+    scratch at the end: ON [863, 863]  OFF [1597, 1597]
+exit 0

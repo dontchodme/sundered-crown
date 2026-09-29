@@ -1,0 +1,19 @@
+
+ASCENSION PROBE  sc-angelus-m6-dmg.html  Chromium 151.0.7922.34  456 fights (Angelus sides AB x every foe(s) x 6 seeds from 104001 step 13)   relic {'dmg': 9, 'charge': 14, 'dur': 8, 'rise': 0.35, 'hangY': 300, 'shaft': 10, 'shaftSpin': 0.5, 'winDmg': 0.4, 'healPer': 1}
+  casts/fight 3.41   blows a fight: in windows 19.76, outside 9.53   Angelus win 84.6%
+  per cast: shaft hits 5.53  blessing 5.53  healed 41.0 hp (tickStatus)  blows in the rise 0.15  foe blows taken lit 2.29 / rising 0.13
+  foe smite stacks on an average window frame (per fight, the lab's f_foeStk) 2.91   blessing from elsewhere 0   ward/curse-exempt blows 341
+  hold: at the hang point on 100.00% of lit steps (0 off of 1591709)   hung ball moved between frames 0 of 1282491   pinFree found cleared 0   clamp bound 0   shaft tip 700.0 units
+  closes 1267 (clock 1258, dead caster 9)   multi-hit heals 0   window clock: held 332843 frozen steps, +dt 1345895 live   FREEZE CENSUS 19.8% of window steps frozen (332843 of 1680004)
+  [1] PASS  the rise: the cast's record, the smoothstep ease on the window clock, the arrival at `rise`, the hang point held (>= 99% of lit steps within 1)
+  [2] PASS  the hold: pin dur / pinFree 1 / pinV [0,0] at the cast, re-armed every frame; the hung ball never moved; foe blows land on it
+  [3] PASS  released on close: a live caster to rest; a dead one's kill flight untouched
+  [4] PASS  the shafts: reachMul `shaft` on every lit frame, 1 in the rise and after; both blade tips at R + reach x reachMul
+  [5] PASS  the turn: w.spin x (shaftSpin lit) x spinMul x dt, rebuilt exactly
+  [6] FAIL  every blow: the blade x (winDmg lit), crit and jitter rebuilt exactly; no shaft hit at full damage   8494 FAIL: ['a SHAFT blow: dealt 10, want 4 -- FULL DAMAGE', 'a SHAFT blow: dealt 19, want 8 -- FULL DAMAGE', 'a SHAFT blow: dealt 9, want 3 -- FULL DAMAGE', 'a SHAFT blow: dealt 10, want 4 -- FULL DAMAGE']
+  [7] PASS  the heal: blessing healPer x each lit hit, once, by side letter, and tickStatus heals it; nothing else
+  [8] PASS  nothing else: the tick hurts nobody, files no beat, moves no stop, leaves the foe; the cast files its one ult beat
+  [9] PASS  the window is `dur` long on the window clock (held through every frozen step, +dt a live one), closes on the caster's death; only Angelus carries ultRise
+  [10] PASS  no cast while the rise is open (the design has no wait)
+
+  9/10

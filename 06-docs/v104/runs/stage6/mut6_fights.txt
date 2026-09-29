@@ -1,0 +1,11 @@
+  sc-angelus-b9-fx.html  6356f75eb0b328e1  152 fights played
+  sc-angelus-m9-chorddeath.html  83ecc6a55f787cb2  152 fights played
+  sc-angelus-m10-overopen.html  5201520a335f7f58  152 fights played
+  sc-angelus-m11-picwrite.html  f482cca12003d67e  152 fights played
+  sc-angelus-m12-thudall.html  5166b6cb8b6b99bd  152 fights played
+
+FIGHT FOR FIGHT against sc-angelus-b9-fx.html (152 fights: Angelus both sides x 38 foes x 2 seeds from 104001 step 13; win 51.3%)
+  sc-angelus-m9-chorddeath.html           0 of 152 fights changed   win 51.3%
+  sc-angelus-m10-overopen.html            0 of 152 fights changed   win 51.3%
+  sc-angelus-m11-picwrite.html          148 of 152 fights changed   win 50.7%
+  sc-angelus-m12-thudall.html             0 of 152 fights changed   win 51.3%
