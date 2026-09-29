@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · aureole (redesign) · 33 foes x 20 seeds = 660 fights an arm · CONTROL: stage 3 on the lab's clock block 2317
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    73.2%   0.00  0.00/16.55 
+  660 fights in 140s   errors: []

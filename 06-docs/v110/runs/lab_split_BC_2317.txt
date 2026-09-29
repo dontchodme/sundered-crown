@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · aureole (redesign) · 33 foes x 20 seeds = 660 fights an arm · CONTROL: the lab's window frames split by frozen / unfrozen, block 2317
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out    bless  blessFzf_foeInPct f_foeStkf_fzWinPctf_inFzPctf_inUnfzPct    smite  smiteFz
+  B       51.5%   2.82  5.87/9.60       0.00     0.00    34.87     3.45    12.05    74.34    29.61     7.56     0.84
+  C       72.3%   3.01  6.40/10.09      5.71     0.55    35.71     3.46    12.28    75.03    30.35     7.74     0.88
+  1320 fights in 150s   errors: []

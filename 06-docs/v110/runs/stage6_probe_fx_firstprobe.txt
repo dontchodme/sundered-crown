@@ -1,0 +1,23 @@
+
+BENEDICTION (HALO) PROBE  sc-aureole-b12.5-fx.html  Chromium 151.0.7922.34  444 fights (Aureole both sides x every foe(s) x 6 seeds, seed0 110001 step 13)   ult {'charge': 14, 'dur': 8, 'haloR': 150, 'tickCd': 0.5, 'smite': 1, 'blessCd': 0.8, 'bless': 1, 'kind': 'halo', 'dmg': None, 'heal': None, 'blade': 12.5}
+  casts/fight 3.34   blows a fight: in windows 8.56, outside 10.15   shots loosed: in windows 59.00, outside 74.98 a fight   Aureole win 58.8%
+  per cast: smite 7.50  bless 5.66   foe inside 32.4% of window frames (140982 inside frames by the rim only)   foe smite stacks on a window frame 3.46
+  the bow's fire rebuilt: 1067322 frames in windows, 1354217 outside, 432320 skipped; asked once on 2853859 unfrozen steps; the channel's smite 1 on 3799 blows in windows, 4505 outside
+  the halo's clock: tickHalo asked once on 2853859 unfrozen steps (none on a frozen one), 1291901 open-window frames; clock closes 1217, death closes 141
+  her heal: 1454042 blessed tickStatus frames rebuilt exactly, 884395 unblessed frames with no heal; fatal smite ticks on her foe credited to her side: 101
+  FREEZE CENSUS 12.8% of window steps frozen   a clock window lasts 9.10s of match time (8s on the window clock)
+  stage 6 voices: 1485 casts each one cast voice (of 1485); entries: 8926 voiced (an inside tick after an outside one), 477 windows opened with the foe inside and no entry, 409182 inside ticks after inside ticks silent, 873316 outside ticks silent; 8406 blessings each one heal chime (of 8406); closes: 1217 by the clock voiced (of 1217), 141 by a death silent; silent through 2 s of the verdict: 127 fights with the window open, 317 with it shut; the run's own: 1485 cast voices, 8926 entries, 1217 close voices, 8406 chimes in the halo, 245 other relics' chimes in their tickers (tickSun, tickSparks)
+  stage 6 picture: tickBenediction 6275774 calls, 6275774 writing nothing of the simulation's, drawing no RNG and playing nothing; the ring up on 2773461 calls in an open window (1484 casts), its growth clock exact; closes 1217 by the clock, 1 on Aureole's death and 0 on the foe's (in the kill flight), 266 at `over` (127 of them with the sim's window still open), 1484 out in 0.6 of its clock (0.3 s); inside: 837049 ticked inside, 556907 held inside between ticks, 2671406 outside window calls (138441 held inside and 51470 outside through a hit stop); brightening: 197094 rising, 778277 full, 487507 falling; tags: SMITE 8863 (+2273 smites inside a tagged stretch), BLESSING 7783 (+623); after 2 s of the verdict the picture gone in 444 fights, 272 of them lit at `over` (127 with the sim's window still open)
+  drawn subset: 74 fights drawn every 6th step while the picture shows (every 60th otherwise): 48557 frames clean, 43566 with the picture up (5700 in a hit stop), 488 in the verdict
+  [1] PASS  the window: dur on the window clock (tickHalo once on every unfrozen step, never on a frozen one; dt a call), closes on its clock or either death; only Aureole's
+  [2] PASS  inside iff the foe's centre is strictly within haloR + R of hers, rebuilt on every window frame
+  [3] PASS  the smite: every tickCd while inside (cd rebuilt, through the whole window): apply('smite', smite, side letter) on the foe only, stacks and clock the engine's
+  [4] PASS  the blessing: every blessCd while a foe is inside (bcd rebuilt): apply('blessing', bless, side letter) on her only (none at bless 0); her only heal
+  [5] PASS  nothing else: no hurt, no hp or ward change, no move, no push, no stop, no beat, no rng, no shot, no other status
+  [6] PASS  no arrows through the halo: the bow's spin, its fire (asked once a step; cadence rebuilt), every blow's damage and its channel smite 1, in the window and out
+  [7] PASS  the beam is out: a cast spawns no shot, hurts, heals or applies nothing, opens {t 0, dur, cd 0, bcd 0}, never on an open window; the block is the design's
+  [8] PASS  a smite tick that kills her foe files its fatal beat for her side (the side letter)
+  [9] PASS  stage 6 voices: one cast voice a cast (in fireUlt); the entry on an inside tick after an outside tick of the same window and never on a window's first; one heal chime a blessing (n = her blessing); the close voice on a clock close with both alive and never on a death; none in the picture, a drawn frame or the verdict; every one accounted for
+  [10] PASS  stage 6 picture: tickBenediction writes nothing of the simulation's, draws no RNG, plays nothing; the ring up while the window is open and a 0.3 s close at any close; inside the ticker's own answer; the brightening rebuilt; SMITE / BLESSING on each stretch's first; gone after the verdict; the drawn subset clean
+
+  10/10

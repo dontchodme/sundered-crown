@@ -1,0 +1,4 @@
+aureole on sc-aureole-bless.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · set dmg=14 · stage 5 grid, blade 14
+  win 68.2%   side A 69.7%   side B 66.8%   mean 58.7s   timeouts 0
+  by type  flail 74%  warhammer 74%  scythe 70%  twinblade 68%  bow 61%  greatsword 61%
+  worst    lightkeeper 35%  nightfell 40%  spellbreaker 50%   (740 fights in 92s)

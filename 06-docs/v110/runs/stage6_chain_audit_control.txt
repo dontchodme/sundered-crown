@@ -1,0 +1,44 @@
+CONTROL: chain_audit.py --relic sc-aureole-b12.5-fx --tip sc-aureole-b12.5 (stage 5: no stage 6) --builder aureole_build.py (7cf0a20f6b53a2c3)
+  (21 insert(s) found in aureole_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-aureole-b12.5-fx.html
+tip    sc-aureole-b12.5.html
+21 inserts read out of aureole_build.py
+
+    ok  S1:Benediction becomes the halo, stubbed relic  1  mid   -  tip  1
+    ok  S1:the beam's heal is retired: `heal` was Aureole's alone relic  1  mid   -  tip  1
+    ok  S2:the halo has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the halo relic  1  mid   -  tip  1
+    ok  S2:the cast opens the halo and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the halo ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickHalo smites and blesses relic  1  mid   -  tip  1
+    ok  S3:the blessing            relic  1  mid   -  tip  1
+    ok  S5:the blade: to the shipped rate relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Aureole's cast, entry and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'this._tone(t, { freq: f * m, gain: g * km, dur: D * d, type:"sine" }).frequency.value = '
+  LOST  S6:tickHalo: the entry note, on an inside tick after an outside tick of the same window relic  1  mid   -  tip  0
+        'if (voiceIn && Z.voiceIn === 0) SFX.play("ult", { w: "aureole-enter" });'
+    ok  S6:tickHalo: the heal chime (spark collect, unchanged), once per blessing, with the count relic  3  mid   -  tip  2
+  LOST  S6:tickHalo: the close, on a clock close with both alive, before the close line relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur && f.alive && foe.alive) SFX.play("ult", { w: "aureole-close" });'
+  LOST  S6:benediction picture: fighter fields relic  1  mid   -  tip  0
+        'this.beneSeen = [0, 0, 0, 0];'
+  LOST  S6:benediction picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickBenediction(dt);           // BENEDICTION'S PICTURE (v82 section 4)"
+  LOST  S6:benediction picture: tickBenediction relic  1  mid   -  tip  0
+        'const dF = T.frames - S[0], dI = T.inFrames - S[1], dS = T.smite - S[2], dB = T.bless - '
+  LOST  S6:benediction picture: the floor call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawBenediction(m);'
+  LOST  S6:benediction picture: the drawing methods relic  1  mid   -  tip  0
+        'const q = TAU * shellHash(sd + 2, i) + ph * 0.3 * (shellHash(sd + 3, i) < 0.5 ? -1 : 1);'
+  LOST  S6:benediction picture: the beam's lit ground retired relic  1  mid   -  tip  0
+        "target for the cast's 1.6); retired with it (v82, v110 stage 6). The"
+  LOST  S6:benediction picture: the beam's lance retired relic  1  mid   -  tip  0
+        "the shot line, the heal's rings closing into the caster); retired with"
+  LOST  S6:benediction picture: the charge rune relic  1  mid   -  tip  0
+        'SG.spokes(c, 6, 0.74, 0.92, 0.3 + t * 0.12, P.core, 0.06, 0.25 + cf * 0.45);'
+
+!! 11 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Aureole's cast, entry and close arms, before the shared rune-crack fallback, S6:tickHalo: the entry note, on an inside tick after an outside tick of the same window, S6:tickHalo: the close, on a clock close with both alive, before the close line, S6:benediction picture: fighter fields, S6:benediction picture: the presentation call, S6:benediction picture: tickBenediction, S6:benediction picture: the floor call (world, under both balls), S6:benediction picture: the drawing methods, S6:benediction picture: the beam's lit ground retired, S6:benediction picture: the beam's lance retired, S6:benediction picture: the charge rune
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+rc 1

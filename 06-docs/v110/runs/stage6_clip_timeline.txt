@@ -1,0 +1,38 @@
+    43.967  TAG HEX 0
+    44.817  CAST (the halo rises); BANNER Benediction; foe INSIDE; smite (foe smite 2); blessing (Aureole 1); TAG SMITE 2; TAG BLESSING 1; voices: aureole, chime n1
+    45.117  foe outside
+    46.292  foe INSIDE; smite (foe smite 3); blessing (Aureole 2); TAG SMITE 3; TAG BLESSING 2; voices: aureole-enter, chime n2
+    46.858  TAG HEX 0
+    47.025  smite (foe smite 4)
+    47.233  foe outside
+    47.550  foe INSIDE; smite (foe smite 4); blessing (Aureole 3); TAG SMITE 4; TAG BLESSING 3; voices: aureole-enter, chime n3
+    47.967  foe outside
+    48.183  foe INSIDE; voices: aureole-enter
+    48.208  smite (foe smite 4); TAG SMITE 4
+    48.383  foe outside
+    48.567  foe INSIDE; blessing (Aureole 4); TAG BLESSING 4; voices: aureole-enter, chime n4
+    48.708  smite (foe smite 4); TAG SMITE 4
+    48.767  foe outside
+    49.258  foe INSIDE; smite (foe smite 4); TAG SMITE 4; voices: aureole-enter
+    49.375  blessing (Aureole 5); TAG BLESSING 5; voices: chime n5
+    49.517  TAG HEX 0
+    49.992  smite (foe smite 4)
+    50.417  blessing (Aureole 5); voices: chime n5
+    50.492  smite (foe smite 4)
+    50.550  foe outside
+    50.717  foe INSIDE; voices: aureole-enter
+    51.150  smite (foe smite 4); TAG SMITE 4
+    51.333  TAG HEX 0
+    51.458  blessing (Aureole 5); TAG BLESSING 5; voices: chime n5
+    51.725  smite (foe smite 4)
+    51.742  TAG HEX 0
+    52.008  foe outside
+    52.850  foe INSIDE; smite (foe smite 4); blessing (Aureole 5); TAG SMITE 4; TAG BLESSING 5; voices: aureole-enter, chime n5
+    53.233  foe outside
+    53.350  foe INSIDE; voices: aureole-enter
+    53.400  TAG HEX 0
+    53.583  smite (foe smite 4); TAG SMITE 4
+    53.600  foe outside
+    54.058  CLOSE by the clock; voices: aureole-close
+    55.658  TAG HEX 0
+end: {'t': 55.875, 'over': False, 'hp': [371.96, 213.77], 'clanks': 12}

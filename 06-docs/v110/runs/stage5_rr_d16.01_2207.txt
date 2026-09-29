@@ -1,0 +1,4 @@
+aureole on sc-aureole-bless.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · stage 3 link, blade 16.01 (the shipped blade)
+  win 74.7%   side A 77.0%   side B 72.4%   mean 55.8s   timeouts 0
+  by type  warhammer 85%  flail 79%  scythe 75%  twinblade 74%  greatsword 71%  bow 61%
+  worst    ironhail 40%  farwarden 45%  lightkeeper 55%   (740 fights in 83s)

@@ -1,0 +1,2 @@
+tip_audit fx == b12.5 but the file name
+b12.5 today == runs/tip_audit_final.txt, every line (that file's trailing 'exit 0' vs this run's 'rc 0' aside)

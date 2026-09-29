@@ -1,0 +1,15 @@
+
+AUREOLE / BENEDICTION (REDESIGN) -- stage 2
+  src sc-aureole-stub.html  21dc5fe5783980d1  (LF text)
+  base  Aureole's shipped body (sanctified bow, ranged, smite 1, the shot); apply / stacks / STATUS.smite / STATUS.blessing and the blessing's heal; the window tickers stop in a hit stop
+  ok    the halo has a charge: the lab's 16 on the game's clock
+  ok    the fighter carries the halo
+  ok    the cast opens the halo and resolves nothing
+  ok    the halo ticks with the window tickers
+  ok    tickHalo smites and blesses
+  ok    ult   ult:{ name:"Benediction", charge:14, kind:"halo", dur:8, haloR:150, tickCd:0.5, smite:1, blessCd:0.8, bl ...
+  ok    card  67 chars  'A halo: foes inside it are smitten, and she is blessed while one is'
+  ok    one halo ultimate, Aureole's; the beam out; no insert draws the RNG, writes the shared weapon, hurts, moves or files a beat; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-aureole-halo.html  51cd039d45f40521   (+2986 chars, written LF)

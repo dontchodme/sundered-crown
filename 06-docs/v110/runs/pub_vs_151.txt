@@ -1,0 +1,26 @@
+arm    published 141 (sc-trunk, n10)   same fights on 151 (sc-trunk)   foes identical   tip on 151 (20 seeds, 1 / 2 -> pooled)
+A        27.9                            33.0                         10/33            34.7 / 32.0 -> 33.3
+SHIP     55.5                            55.8                          3/33            53.5 / 52.1 -> 52.8
+B        49.7                            53.9                          8/33            55.0 / 51.5 -> 53.3
+C        69.4                            69.1                          7/33            72.6 / 72.3 -> 72.4
+D        70.6                            69.4                          7/33            72.9 / 72.0 -> 72.4
+
+mechanism (per cast; f_ per fight):  published | trunk on 151 | tip on 151 block 1 / 2
+  B smite          7.72 |    7.65 |    7.59 /    7.56
+  B bless          0.00 |    0.00 |    0.00 /    0.00
+  B f_foeInPct    35.52 |   35.60 |   35.20 /   34.87
+  B f_foeStk       3.47 |    3.47 |    3.46 /    3.45
+  B arrowSmite     0.00 |    0.00 |    0.00 /    0.00
+  B casts          2.88 |    2.87 |    2.85 /    2.82
+  C smite          7.93 |    7.95 |    7.80 /    7.74
+  C bless          5.82 |    5.85 |    5.74 /    5.71
+  C f_foeInPct    36.36 |   36.62 |   36.03 /   35.71
+  C f_foeStk       3.47 |    3.48 |    3.47 /    3.46
+  C arrowSmite     0.00 |    0.00 |    0.00 /    0.00
+  C casts          3.08 |    3.05 |    3.02 /    3.01
+  D smite          7.94 |    7.91 |    7.79 /    7.73
+  D bless          5.82 |    5.84 |    5.74 /    5.69
+  D f_foeInPct    36.33 |   36.55 |   35.99 /   35.78
+  D f_foeStk       3.51 |    3.52 |    3.51 /    3.51
+  D arrowSmite     2.04 |    2.09 |    2.06 /    2.04
+  D casts          3.06 |    3.04 |    3.01 /    3.02

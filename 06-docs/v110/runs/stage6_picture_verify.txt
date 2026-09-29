@@ -1,0 +1,77 @@
+  [final-fx drawn] aureole v spellbreaker 99015: draws 2031 thrown None windows 5 | ticked 4549 inside-mismatch [] | stretches 31 smites 41 blessings 31 SMITE tags 30 BLESSING tags 28 bad [] other [] | ring at haloR 4925 bad [] | halo frames 1773 (stop 215) close->0 [0.2917, 0.2917, 0.3333, 0.3333] death->0 [] | at kill [[0.9722222222222222, False, True]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] dawnbringer v aureole 99001: draws 1381 thrown None windows 3 | ticked 2877 inside-mismatch [] | stretches 19 smites 21 blessings 17 SMITE tags 18 BLESSING tags 17 bad [] other [] | ring at haloR 3235 bad [] | halo frames 1154 (stop 159) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0, False, False]] -> 0 after 0 s | w written False
+  [final-fx drawn] aureole v gravemourn 99015: draws 1224 thrown None windows 3 | ticked 2608 inside-mismatch [] | stretches 22 smites 26 blessings 18 SMITE tags 22 BLESSING tags 17 bad [] other [] | ring at haloR 2859 bad [] | halo frames 1030 (stop 123) close->0 [0.3167, 0.2917] death->0 [] | at kill [[0.9722222222222222, True, False]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] twinshade v aureole 99008: draws 1547 thrown None windows 4 | ticked 3062 inside-mismatch [] | stretches 20 smites 27 blessings 20 SMITE tags 20 BLESSING tags 18 bad [] other [] | ring at haloR 3540 bad [] | halo frames 1298 (stop 250) close->0 [0.2917, 0.575, 0.2917] death->0 [] | at kill [[0.9722222222222222, False, True]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] aureole v grudgebearer 31337: draws 1411 thrown None windows 4 | ticked 3058 inside-mismatch [] | stretches 18 smites 28 blessings 19 SMITE tags 17 BLESSING tags 16 bad [] other [] | ring at haloR 3253 bad [] | halo frames 1185 (stop 133) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, True, False]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] farwarden v aureole 4101: draws 1827 thrown None windows 5 | ticked 4040 inside-mismatch [] | stretches 27 smites 35 blessings 26 SMITE tags 25 BLESSING tags 24 bad [] other [] | ring at haloR 4311 bad [] | halo frames 1571 (stop 178) close->0 [0.2917, 0.2917, 0.3417, 0.3333] death->0 [] | at kill [[0.9722222222222222, False, False]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] aureole v ironhail 99001: draws 872 thrown None windows 2 | ticked 1844 inside-mismatch [] | stretches 12 smites 13 blessings 10 SMITE tags 12 BLESSING tags 10 bad [] other [] | ring at haloR 1975 bad [] | halo frames 709 (stop 81) close->0 [0.2917] death->0 [] | at kill [[0.9722222222222222, False, True]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] ironwood v aureole 1234: draws 1545 thrown None windows 4 | ticked 3080 inside-mismatch [] | stretches 21 smites 31 blessings 22 SMITE tags 19 BLESSING tags 17 bad [] other [] | ring at haloR 3650 bad [] | halo frames 1319 (stop 261) close->0 [0.2917, 0.3333, 0.2917] death->0 [] | at kill [[0.9722222222222222, False, True]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] aureole v bindweed 2317: draws 1339 thrown None windows 3 | ticked 2877 inside-mismatch [] | stretches 19 smites 24 blessings 18 SMITE tags 18 BLESSING tags 16 bad [] other [] | ring at haloR 3183 bad [] | halo frames 1141 (stop 151) close->0 [0.3333, 0.375, 0.2917] death->0 [] | at kill [[0, True, False]] -> 0 after 0 s | w written False
+  [final-fx drawn] morningstar v aureole 8888: draws 1529 thrown None windows 4 | ticked 3489 inside-mismatch [] | stretches 29 smites 36 blessings 23 SMITE tags 28 BLESSING tags 23 bad [] other [] | ring at haloR 3632 bad [] | halo frames 1311 (stop 113) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, True, False]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] aureole v portcullis 5150: draws 1745 thrown None windows 4 | ticked 3836 inside-mismatch [] | stretches 27 smites 39 blessings 27 SMITE tags 25 BLESSING tags 22 bad [] other [] | ring at haloR 4158 bad [] | halo frames 1490 (stop 161) close->0 [0.2917, 0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0, True, False]] -> 0 after 0 s | w written False
+  [final-fx drawn] lastlight v aureole 4242: draws 1148 thrown None windows 3 | ticked 2373 inside-mismatch [] | stretches 14 smites 14 blessings 11 SMITE tags 14 BLESSING tags 11 bad [] other [] | ring at haloR 2625 bad [] | halo frames 954 (stop 138) close->0 [0.2917, 0.3417] death->0 [] | at kill [[0.9722222222222222, False, True]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] aureole v heartwood 2207: draws 1548 thrown None windows 4 | ticked 3259 inside-mismatch [] | stretches 24 smites 29 blessings 24 SMITE tags 24 BLESSING tags 24 bad [] other [] | ring at haloR 3652 bad [] | halo frames 1319 (stop 197) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, True, False]] -> 0 after 0.2917 s | w written False
+  [final-fx drawn] axiom v grudgebearer 31337: draws 461 thrown None windows 0 | ticked 0 inside-mismatch [] | stretches 0 smites 0 blessings 0 SMITE tags 0 BLESSING tags 0 bad [] other [] | ring at haloR 0 bad [] | halo frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> 0 after None s | w written False
+  [final-fx drawn] morningstar v lastlight 4242: draws 325 thrown None windows 0 | ticked 0 inside-mismatch [] | stretches 0 smites 0 blessings 0 SMITE tags 0 BLESSING tags 0 bad [] other [] | ring at haloR 0 bad [] | halo frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> 0 after None s | w written False
+('aureole', 'spellbreaker', 99015): final           IDENTICAL  steps@kill 10189 hash@kill [2715196948, 3170079684] winner Spellbreaker t 84.90833333334697 windows 5
+('aureole', 'spellbreaker', 99015): final-fx        IDENTICAL  steps@kill 10189 hash@kill [2715196948, 3170079684] winner Spellbreaker t 84.90833333334697 windows 5
+('aureole', 'spellbreaker', 99015): final-fx drawn  IDENTICAL  steps@kill 10189 hash@kill [2715196948, 3170079684] winner Spellbreaker t 84.90833333334697 windows 5
+('aureole', 'spellbreaker', 99015): CONTROL (must differ)  DIFFERS  SMITE tags 30 (control bit)
+('dawnbringer', 'aureole', 99001): final           IDENTICAL  steps@kill 7464 hash@kill [1430705636, 1166327660] winner Dawnbringer t 62.19999999999711 windows 3
+('dawnbringer', 'aureole', 99001): final-fx        IDENTICAL  steps@kill 7464 hash@kill [1430705636, 1166327660] winner Dawnbringer t 62.19999999999711 windows 3
+('dawnbringer', 'aureole', 99001): final-fx drawn  IDENTICAL  steps@kill 7464 hash@kill [1430705636, 1166327660] winner Dawnbringer t 62.19999999999711 windows 3
+('dawnbringer', 'aureole', 99001): CONTROL (must differ)  DIFFERS  SMITE tags 18 (control bit)
+('aureole', 'gravemourn', 99015): final           IDENTICAL  steps@kill 6425 hash@kill [2279794871, 2010369471] winner Aureole t 53.54166666666427 windows 3
+('aureole', 'gravemourn', 99015): final-fx        IDENTICAL  steps@kill 6425 hash@kill [2279794871, 2010369471] winner Aureole t 53.54166666666427 windows 3
+('aureole', 'gravemourn', 99015): final-fx drawn  IDENTICAL  steps@kill 6425 hash@kill [2279794871, 2010369471] winner Aureole t 53.54166666666427 windows 3
+('aureole', 'gravemourn', 99015): CONTROL (must differ)  DIFFERS  SMITE tags 22 (control bit)
+('twinshade', 'aureole', 99008): final           IDENTICAL  steps@kill 8555 hash@kill [1035615502, 522462220] winner Twinshade t 71.29166666666947 windows 4
+('twinshade', 'aureole', 99008): final-fx        IDENTICAL  steps@kill 8555 hash@kill [1035615502, 522462220] winner Twinshade t 71.29166666666947 windows 4
+('twinshade', 'aureole', 99008): final-fx drawn  IDENTICAL  steps@kill 8555 hash@kill [1035615502, 522462220] winner Twinshade t 71.29166666666947 windows 4
+('twinshade', 'aureole', 99008): CONTROL (must differ)  DIFFERS  SMITE tags 20 (control bit)
+('aureole', 'grudgebearer', 31337): final           IDENTICAL  steps@kill 7680 hash@kill [2959457185, 2115432015] winner Aureole t 63.99999999999701 windows 4
+('aureole', 'grudgebearer', 31337): final-fx        IDENTICAL  steps@kill 7680 hash@kill [2959457185, 2115432015] winner Aureole t 63.99999999999701 windows 4
+('aureole', 'grudgebearer', 31337): final-fx drawn  IDENTICAL  steps@kill 7680 hash@kill [2959457185, 2115432015] winner Aureole t 63.99999999999701 windows 4
+('aureole', 'grudgebearer', 31337): CONTROL (must differ)  DIFFERS  SMITE tags 17 (control bit)
+('farwarden', 'aureole', 4101): final           IDENTICAL  steps@kill 9573 hash@kill [2525699888, 2003403700] winner Farwarden t 79.77500000000956 windows 5
+('farwarden', 'aureole', 4101): final-fx        IDENTICAL  steps@kill 9573 hash@kill [2525699888, 2003403700] winner Farwarden t 79.77500000000956 windows 5
+('farwarden', 'aureole', 4101): final-fx drawn  IDENTICAL  steps@kill 9573 hash@kill [2525699888, 2003403700] winner Farwarden t 79.77500000000956 windows 5
+('farwarden', 'aureole', 4101): CONTROL (must differ)  DIFFERS  SMITE tags 25 (control bit)
+('aureole', 'ironhail', 99001): final           IDENTICAL  steps@kill 4707 hash@kill [449776576, 2659139406] winner Ironhail t 39.22499999999842 windows 2
+('aureole', 'ironhail', 99001): final-fx        IDENTICAL  steps@kill 4707 hash@kill [449776576, 2659139406] winner Ironhail t 39.22499999999842 windows 2
+('aureole', 'ironhail', 99001): final-fx drawn  IDENTICAL  steps@kill 4707 hash@kill [449776576, 2659139406] winner Ironhail t 39.22499999999842 windows 2
+('aureole', 'ironhail', 99001): CONTROL (must differ)  DIFFERS  SMITE tags 12 (control bit)
+('ironwood', 'aureole', 1234): final           IDENTICAL  steps@kill 8066 hash@kill [3202532387, 2557542645] winner Ironwood t 67.21666666666623 windows 4
+('ironwood', 'aureole', 1234): final-fx        IDENTICAL  steps@kill 8066 hash@kill [3202532387, 2557542645] winner Ironwood t 67.21666666666623 windows 4
+('ironwood', 'aureole', 1234): final-fx drawn  IDENTICAL  steps@kill 8066 hash@kill [3202532387, 2557542645] winner Ironwood t 67.21666666666623 windows 4
+('ironwood', 'aureole', 1234): CONTROL (must differ)  DIFFERS  SMITE tags 19 (control bit)
+('aureole', 'bindweed', 2317): final           IDENTICAL  steps@kill 6781 hash@kill [782517810, 1349059550] winner Aureole t 56.50833333333077 windows 3
+('aureole', 'bindweed', 2317): final-fx        IDENTICAL  steps@kill 6781 hash@kill [782517810, 1349059550] winner Aureole t 56.50833333333077 windows 3
+('aureole', 'bindweed', 2317): final-fx drawn  IDENTICAL  steps@kill 6781 hash@kill [782517810, 1349059550] winner Aureole t 56.50833333333077 windows 3
+('aureole', 'bindweed', 2317): CONTROL (must differ)  DIFFERS  SMITE tags 18 (control bit)
+('morningstar', 'aureole', 8888): final           IDENTICAL  steps@kill 7845 hash@kill [277483244, 2825205222] winner Aureole t 65.3749999999981 windows 4
+('morningstar', 'aureole', 8888): final-fx        IDENTICAL  steps@kill 7845 hash@kill [277483244, 2825205222] winner Aureole t 65.3749999999981 windows 4
+('morningstar', 'aureole', 8888): final-fx drawn  IDENTICAL  steps@kill 7845 hash@kill [277483244, 2825205222] winner Aureole t 65.3749999999981 windows 4
+('morningstar', 'aureole', 8888): CONTROL (must differ)  DIFFERS  SMITE tags 28 (control bit)
+('aureole', 'portcullis', 5150): final           IDENTICAL  steps@kill 9127 hash@kill [278513272, 160734104] winner Aureole t 76.05833333333993 windows 4
+('aureole', 'portcullis', 5150): final-fx        IDENTICAL  steps@kill 9127 hash@kill [278513272, 160734104] winner Aureole t 76.05833333333993 windows 4
+('aureole', 'portcullis', 5150): final-fx drawn  IDENTICAL  steps@kill 9127 hash@kill [278513272, 160734104] winner Aureole t 76.05833333333993 windows 4
+('aureole', 'portcullis', 5150): CONTROL (must differ)  DIFFERS  SMITE tags 25 (control bit)
+('lastlight', 'aureole', 4242): final           IDENTICAL  steps@kill 6169 hash@kill [3182816659, 2301002707] winner Lastlight t 51.40833333333106 windows 3
+('lastlight', 'aureole', 4242): final-fx        IDENTICAL  steps@kill 6169 hash@kill [3182816659, 2301002707] winner Lastlight t 51.40833333333106 windows 3
+('lastlight', 'aureole', 4242): final-fx drawn  IDENTICAL  steps@kill 6169 hash@kill [3182816659, 2301002707] winner Lastlight t 51.40833333333106 windows 3
+('lastlight', 'aureole', 4242): CONTROL (must differ)  DIFFERS  SMITE tags 14 (control bit)
+('aureole', 'heartwood', 2207): final           IDENTICAL  steps@kill 8107 hash@kill [2895476378, 4006737896] winner Aureole t 67.55833333333317 windows 4
+('aureole', 'heartwood', 2207): final-fx        IDENTICAL  steps@kill 8107 hash@kill [2895476378, 4006737896] winner Aureole t 67.55833333333317 windows 4
+('aureole', 'heartwood', 2207): final-fx drawn  IDENTICAL  steps@kill 8107 hash@kill [2895476378, 4006737896] winner Aureole t 67.55833333333317 windows 4
+('aureole', 'heartwood', 2207): CONTROL (must differ)  DIFFERS  SMITE tags 24 (control bit)
+('axiom', 'grudgebearer', 31337): final           IDENTICAL  steps@kill 9611 hash@kill [1548506614, 1113937436] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): final-fx        IDENTICAL  steps@kill 9611 hash@kill [1548506614, 1113937436] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): final-fx drawn  IDENTICAL  steps@kill 9611 hash@kill [1548506614, 1113937436] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): CONTROL (must differ)  IDENTICAL  SMITE tags 0 (control bit)
+('morningstar', 'lastlight', 4242): final           IDENTICAL  steps@kill 6348 hash@kill [4275584490, 1010690610] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): final-fx        IDENTICAL  steps@kill 6348 hash@kill [4275584490, 1010690610] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): final-fx drawn  IDENTICAL  steps@kill 6348 hash@kill [4275584490, 1010690610] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): CONTROL (must differ)  IDENTICAL  SMITE tags 0 (control bit)
+SIM IDENTITY: PASS | CONTROL: BIT ON EVERY AUREOLE FIGHT WITH A TAG
+EXIT 0

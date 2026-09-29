@@ -1,0 +1,3 @@
+the stage-6 probe: [1]-[8]'s 39 counter names, sites before/after: all unchanged; 37 names new
+CONTROL (the first extended probe's names put back): [1]-[8]'s 39 counter names, sites before/after: CHANGED {'inOk': (1, 2), 'outOk': (1, 2)}; 35 names new
+control fails, as it must

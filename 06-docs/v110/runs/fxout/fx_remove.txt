@@ -1,0 +1,11 @@
+
+FX REMOVE -- aureole's particle field out of both copies
+  src sc-aureole-b12.5-fx.html  e373cf79dc779466
+  the block, removed whole:
+    |     aureole: { mode: 'beam', n: 1350, sp: [20, 120], grav: -120, drag: 1.2,
+    |                life: [0.45, 1.10], heavy: 0.0, size: [0.7, 2.0],
+    |                spawn: 0.55, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 866f45e37dc54e3f -> 487c9de9dff7f374
+  wrote sc-aureole-fxout.html  da5eafafcfae06c2
+  wrote src/render/fx.js  487c9de9dff7f374
+exit 0

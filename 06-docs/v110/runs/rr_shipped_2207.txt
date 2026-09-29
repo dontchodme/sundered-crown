@@ -1,0 +1,4 @@
+aureole on sc-tendril-t3.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · Aureole AS SHIPPED on the base (the beam, 16.01): the reference
+  win 56.8%   side A 54.9%   side B 58.6%   mean 56.4s   timeouts 0
+  by type  flail 67%  scythe 64%  warhammer 61%  twinblade 53%  bow 48%  greatsword 45%
+  worst    farwarden 25%  lightkeeper 30%  emberedge 30%   (740 fights in 89s)

@@ -1,0 +1,5 @@
+mV1-closevoice   50e6e1064363fa7d  sc-aureole-mV1-closevoice.html
+mV2-enterfirst   b52f9b96000d578d  sc-aureole-mV2-enterfirst.html
+mP1-picwrite     2ecbdb82e7a8bc19  sc-aureole-mP1-picwrite.html
+mT1-tagevery     9a21efee6c2b5fda  sc-aureole-mT1-tagevery.html
+mD1-drawwrite    77e96508edea27b4  sc-aureole-mD1-drawwrite.html

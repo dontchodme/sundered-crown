@@ -1,0 +1,74 @@
+voice rows   rows_final.json 5a43210cd9d13019
+picture rows rows_final.json ed67bd6722cbbe2b
+voice: relayed report 5000 chars (rows 4); equal to the row file's for 5000 chars -> PREFIX OK
+   control (one char changed half way): prefix fails, as it must
+picture: relayed report 6996 chars (rows 9); equal to the row file's for 6996 chars -> PREFIX OK
+   control (one char changed half way): prefix fails, as it must
+picture rows alone -> b8d571f46a2681af  (the picture lab's stamp: b8d571f46a2681af)
+voice rows alone   -> 50d4b2dfd385397e  (the voice lab's e2e page: 50d4b2dfd385397e)
+both sets, either order -> f3228d8d1509edbb (identical)
+13 rows -> 13 edits (0 merged on a shared anchor); edits reproduce f3228d8d1509edbb
+anchors NOT re-emitted by their edit (4): ["benediction picture: the beam's lit ground retired", "benediction picture: the beam's lance retired", 'benediction picture: the charge rune', "benediction picture: the cast record's life"]
+18 names: free on the base, all in the page
+   write  Sfx: Aureole's cast, entry and close arms, b frequency.value
+   write  Sfx: Aureole's cast, entry and close arms, b frequency.value
+   write  Sfx: Aureole's cast, entry and close arms, b frequency.value
+   write  Sfx: Aureole's cast, entry and close arms, b frequency.value
+   write  tickHalo: the entry note, on an inside tick  Z.voiceIn
+   write  benediction picture: fighter fields          this.beneFade
+   write  benediction picture: fighter fields          this.beneAge
+   write  benediction picture: fighter fields          this.beneOut
+   write  benediction picture: fighter fields          this.beneIn
+   write  benediction picture: fighter fields          this.beneLit
+   write  benediction picture: fighter fields          this.beneSeen
+   write  benediction picture: fighter fields          this.beneTagS
+   write  benediction picture: fighter fields          this.beneTagB
+   write  benediction picture: tickBenediction         f.beneAge
+   write  benediction picture: tickBenediction         f.beneOut
+   write  benediction picture: tickBenediction         f.beneIn
+   write  benediction picture: tickBenediction         f.beneLit
+   write  benediction picture: tickBenediction         f.beneTagS
+   write  benediction picture: tickBenediction         f.beneTagB
+   write  benediction picture: tickBenediction         f.beneFade
+   write  benediction picture: tickBenediction         f.beneAge
+   write  benediction picture: tickBenediction         f.beneOut
+   write  benediction picture: tickBenediction         f.beneFade
+   write  benediction picture: tickBenediction         f.beneIn
+   write  benediction picture: tickBenediction         f.beneIn
+   write  benediction picture: tickBenediction         f.beneTagS
+   write  benediction picture: tickBenediction         f.beneTagB
+   write  benediction picture: tickBenediction         f.beneLit
+   write  benediction picture: tickBenediction         f.beneTagS
+   write  benediction picture: tickBenediction         taught.smite
+   write  benediction picture: tickBenediction         f.beneTagB
+   write  benediction picture: tickBenediction         taught.blessing
+   index  benediction picture: tickBenediction         S[...]
+   index  benediction picture: tickBenediction         S[...]
+   index  benediction picture: tickBenediction         S[...]
+   index  benediction picture: tickBenediction         S[...]
+   write  benediction picture: the drawing methods     c.globalAlpha
+   write  benediction picture: the drawing methods     c.globalAlpha
+   write  benediction picture: the drawing methods     c.fillStyle
+   write  benediction picture: the drawing methods     c.globalAlpha
+   write  benediction picture: the drawing methods     c.fillStyle
+   write  benediction picture: the drawing methods     c.globalAlpha
+   write  benediction picture: the drawing methods     c.fillStyle
+   write  benediction picture: the drawing methods     c.fillStyle
+   write  benediction picture: the drawing methods     c.fillStyle
+   write  benediction picture: the drawing methods     c.globalAlpha
+   write  benediction picture: the drawing methods     c.globalAlpha
+   write  benediction picture: the drawing methods     c.fillStyle
+sim-path lines: {
+ "tickHalo: the entry note, on an inside tick after an outside tick of the same window": [
+  "const voiceIn = Math.hypot(foe.x - f.x, foe.y - f.y) < u.haloR + R;",
+  "if (voiceIn && Z.voiceIn === 0) SFX.play(\"ult\", { w: \"aureole-enter\" });",
+  "Z.voiceIn = voiceIn ? 1 : 0;"
+ ],
+ "tickHalo: the heal chime (spark collect, unchanged), once per blessing, with the count": [
+  "SFX.play(\"spark\", { collect: true, n: f.stacks(\"blessing\") });"
+ ],
+ "tickHalo: the close, on a clock close with both alive, before the close line": [
+  "if (Z.t >= Z.dur && f.alive && foe.alive) SFX.play(\"ult\", { w: \"aureole-close\" });"
+ ]
+}
+DRY: not writing the builder

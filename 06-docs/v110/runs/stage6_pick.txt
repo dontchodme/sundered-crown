@@ -1,0 +1,21 @@
+
+  sc-aureole-b12.5-fx.html  ·  32 foes x 4 seeds (left out: censer, dawnbringer, lastlight, morningstar, twinshade)  ·  the best window of each fight: 128, of which 5 show everything
+
+  foe              seed  cast at  window clock all enter exit smite heals   in% stops other card kill  score
+  spellbreaker   110075    44.82    9.24     1   1     8    9    13     8  50.4   150     0    0    0  27.52
+  spellbreaker   110001    45.56    8.72     1   1     8    9    11     7  43.6    87     0    0    0  27.18
+  slagheart      110001    46.16    8.99     1   1     9    9    10     7  41.9   110     0    0    0  27.10
+  spellbreaker   110112    45.05    9.03     1   1     9    9     9     8  28.2   115     0    0    0  26.41
+  grudgebearer   110075    31.23    8.96     1   1     6    6     7     6  28.1   116     0    0    0  26.10
+  paradox        110075    44.66   10.06     1   0     7    7    14     9  69.7   237     1    0    0  16.00
+  ironwood       110038    47.14    9.90     1   0     7    7    13     8  60.6   197     1    0    0  16.00
+  shroudmaul     110038    45.42    9.00     1   0     6    5    11     8  59.6   101     1    0    0  15.98
+  vinesower      110112    47.63    9.23     1   0     8    8    12     9  58.0   128     1    0    0  15.90
+  shroudmaul     110112    45.87    9.17     1   0     8    8    12     8  57.2   121     1    0    0  15.86
+  axiom          110075    45.43    9.47     1   0     7    7    12     8  55.1   160     1    0    0  15.75
+  vesper         110001    45.63    9.22     1   0     7    6    11     9  54.7   123     1    0    0  15.74
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/aureole/links/sc-aureole-b12.5-fx.html --a aureole --b spellbreaker --seed 110075 \
+      --at 43.62 --window 12.24 --end-at-window --fps 60 --w 540 --out ../07-shorts/v110/benediction-window.mp4

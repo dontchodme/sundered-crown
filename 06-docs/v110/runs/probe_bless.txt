@@ -1,0 +1,18 @@
+
+BENEDICTION (HALO) PROBE  sc-aureole-bless.html  Chromium 151.0.7922.34  444 fights (Aureole both sides x every foe x 6 seeds)   ult {'charge': 14, 'dur': 8, 'haloR': 150, 'tickCd': 0.5, 'smite': 1, 'blessCd': 0.8, 'bless': 1, 'kind': 'halo', 'dmg': None, 'heal': None, 'blade': 16.01}
+  casts/fight 3.04   blows a fight: in windows 7.41, outside 9.30   shots loosed: in windows 53.41, outside 70.55 a fight   Aureole win 72.7%
+  per cast: smite 7.24  bless 5.50   foe inside 30.9% of window frames (122776 inside frames by the rim only)   foe smite stacks on a window frame 3.42
+  the bow's fire rebuilt: 965735 frames in windows, 1274002 outside, 379321 skipped; asked once on 2619058 unfrozen steps; the channel's smite 1 on 3289 blows in windows, 4130 outside
+  the halo's clock: tickHalo asked once on 2619058 unfrozen steps (none on a frozen one), 1164069 open-window frames; clock closes 1083, death closes 169
+  her heal: 1287756 blessed tickStatus frames rebuilt exactly, 855607 unblessed frames with no heal; fatal smite ticks on her foe credited to her side: 115
+  FREEZE CENSUS 12.9% of window steps frozen   a clock window lasts 9.11s of match time (8s on the window clock)
+  [1] PASS  the window: dur on the window clock (tickHalo once on every unfrozen step, never on a frozen one; dt a call), closes on its clock or either death; only Aureole's
+  [2] PASS  inside iff the foe's centre is strictly within haloR + R of hers, rebuilt on every window frame
+  [3] PASS  the smite: every tickCd while inside (cd rebuilt, through the whole window): apply('smite', smite, side letter) on the foe only, stacks and clock the engine's
+  [4] PASS  the blessing: every blessCd while a foe is inside (bcd rebuilt): apply('blessing', bless, side letter) on her only (none at bless 0); her only heal
+  [5] PASS  nothing else: no hurt, no hp or ward change, no move, no push, no stop, no beat, no rng, no shot, no other status
+  [6] PASS  no arrows through the halo: the bow's spin, its fire (asked once a step; cadence rebuilt), every blow's damage and its channel smite 1, in the window and out
+  [7] PASS  the beam is out: a cast spawns no shot, hurts, heals or applies nothing, opens {t 0, dur, cd 0, bcd 0}, never on an open window; the block is the design's
+  [8] PASS  a smite tick that kills her foe files its fatal beat for her side (the side letter)
+
+  8/8

@@ -1,0 +1,16 @@
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-aureole-b12.5.html
+  b  sc-aureole-b12.5-fx.html
+  aureole v spellbreaker seed 110075 t= 45.30  DIFFERS   luma 31.903 -> 28.068   lit 77.84% -> 74.86%
+  aureole v spellbreaker seed 110075 t= 46.50  DIFFERS   luma 25.698 -> 28.484   lit 73.75% -> 73.74%
+  aureole v spellbreaker seed 110075 t= 48.00  DIFFERS   luma 23.967 -> 25.872   lit 73.58% -> 73.58%
+  aureole v spellbreaker seed 110075 t= 50.00  DIFFERS   luma 23.591 -> 26.978   lit 72.09% -> 72.09%
+  aureole v spellbreaker seed 110075 t= 52.00  DIFFERS   luma 23.208 -> 27.235   lit 72.13% -> 72.13%
+  aureole v spellbreaker seed 110075 t= 53.80  DIFFERS   luma 22.902 -> 24.510   lit 71.83% -> 71.79%
+
+FAIL  0/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+rc 1

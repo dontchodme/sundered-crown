@@ -1,0 +1,22 @@
+CLIP  07-shorts/v110/benediction-window.mp4  sha256[:16] f56af7299f6f5072  2,782,728 bytes (2.65 MB)
+  python cinema_clip.py --game <scratch>/batch/aureole/links/sc-aureole-b12.5-fx.html --a aureole --b spellbreaker
+    --seed 110075 --at 43.62 --window 12.24 --end-at-window --fps 60 --w 540 --out ../07-shorts/v110/benediction-window.mp4
+  h264 540x960 60 fps, 735 frames, 12.25 s; AAC 48 kHz stereo (ffprobe)
+  the director: no kill inside the clip (the kill is at 75.23, its T3 cut); the clip plays 1:1 (12.24 s of match -> 12.25 s)
+  end state: t 55.875, hp [371.96, 213.775], 12 clanks (cinema_clip) == headless at 55.875 [371.96, 213.77], 12 (clip_timeline.txt)
+AUDIO (ffmpeg volumedetect / ebur128): mean -22.3 dB, max -3.5 dB; integrated -20.3 LUFS, LRA 1.1 LU, true peak -3.1 dBFS
+THE VOICES IN THE MIX (clip_audio.py -> clip_audio.txt): the same window filmed on the b12.5 (no stage-6 voice; its cast
+  plays rune-crack; 93d707c1cf1198d3), both decoded to mono 48 kHz, each stage-6 voice read in its band over its time, with
+  minus without: the cast +12.1 dB (240-420 Hz, 0.20-0.45 s), the 8 entries +23.3..+86.2 (C6), 7 chimes +11.7..+42.7, the
+  close +22.7 (240-420 Hz, 0-0.5 s); the chime on the cast's own frame -12.8 (the base's rune-crack fills that band);
+  no-voice controls at 10 other times: max |d| 3.8 dB.
+FIVE FRAMES through the pipeline (post chain, director), matched to the fight by the HUD clock (video t = match t - 43.625)
+  -> 05-reference/v110/benediction-clip-5frames.png (2700x960, add6b9e25b0a5b10):
+  1.40 s (HUD 45.0): the cast (44.817) 0.18 s on: the banner, the ring growing out of the ball, SMITE 2 on the foe (inside at
+                     the cast: no entry note) and BLESSING 1 on Aureole; the white spray at the foe is the BEAM's SPECS.aureole
+                     field, still in this link's fx.js copy until the carry's fx_remove.py
+  2.80 s (HUD 46.4): the first entry (46.292, its C6 note): the ring bright, the foe on its edge, SMITE 3, BLESSING 2
+                     (the foe's rim not legible at this size under Spellbreaker's own blue glow)
+  6.30 s (HUD 49.9): the foe inside (since 49.258), the ring bright; Spellbreaker's own HEX tag
+  9.00 s (HUD 52.6): the foe outside (since 52.008): the ring back at 0.4
+  10.60 s (HUD 54.2): 0.14 s after the clock close (54.058, its close voice): the ring contracting into the ball

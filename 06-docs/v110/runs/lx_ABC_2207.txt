@@ -1,0 +1,12 @@
+38 relics · Chromium 151.0.7922.34 · aureole (redesign) · 33 foes x 20 seeds = 660 fights an arm · census + per-fight, arms A B C, block 2207
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out    blessf_foeInPct f_foeStk    smite
+  A       34.7%   0.00  0.00/16.68      0.00     0.00     0.00     0.00
+      census: frozen 0.1073 of lab steps (473590/4415200), 0.0000 in windows (0/0), 0.1073 outside; lab 16 -> engine 14.28
+  B       55.0%   2.85  5.97/9.75       0.00    35.20     3.46     7.59
+      census: frozen 0.1047 of lab steps (440712/4208003), 0.1201 in windows (196115/1633496), 0.0950 outside; lab 16 -> engine 14.32
+  C       72.6%   3.02  6.45/10.20      5.74    36.03     3.47     7.80
+      census: frozen 0.1077 of lab steps (477898/4436279), 0.1232 in windows (215066/1745046), 0.0977 outside; lab 16 -> engine 14.28
+  lifts over A: B +20.3  C +37.9
+  1980 fights in 361s   errors: []

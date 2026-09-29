@@ -1,0 +1,11 @@
+38 relics · Chromium 151.0.7922.34 · aureole (redesign) · 33 foes x 20 seeds = 660 fights an arm · stage 0 block 2317
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/outarrowSmite    blessf_foeInPct f_foeStk    smite
+  A       32.0%   0.00  0.00/16.49      0.00     0.00     0.00     0.00     0.00
+  SHIP    52.1%   0.00  0.00/16.48      0.00     0.00     0.00     0.00     0.00
+  B       51.5%   2.82  5.87/9.60       0.00     0.00    34.87     3.45     7.56
+  C       72.3%   3.01  6.40/10.09      0.00     5.71    35.71     3.46     7.74
+  D       72.0%   3.02  6.43/10.07      2.04     5.69    35.78     3.51     7.73
+  lifts over A: SHIP +20.2  B +19.5  C +40.3  D +40.0
+  3300 fights in 563s   errors: []

@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · aureole (redesign) · 33 foes x 20 seeds = 660 fights an arm · CONTROL: the lab at the engine's clock, extra block 2427
+  charge=16.0 dur=9.12 blade=None tickCd=0.57 blessCd=0.912
+
+  arm       win  casts  hits in/out    blessf_foeInPct f_foeStk    smite
+  B       51.5%   2.79  6.56/8.82       0.00    34.40     3.48     7.67
+  C       74.1%   2.99  7.16/9.30       5.89    35.35     3.50     7.88
+  1320 fights in 156s   errors: []

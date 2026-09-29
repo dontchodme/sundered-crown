@@ -1,0 +1,72 @@
+== sc-aureole-b12.5-fx.html
+  fireUlt                                 16428
+  the cast voice (fireUlt's prologue)     16455
+  the life map line                       16547
+  the life map line (b12.5)              -
+  the halo's cast branch                  16831
+  the window opens                        16837
+  step: tickHalo                           9039
+  tickHalo(dt){                           13750
+  the close voice                         13765
+  the close                               13766
+  the entry's test                        13779
+  the entry voice                         13780
+  the inside test                         13782
+  T.inFrames++                            13783
+  the smite                               13787
+  the blessing                            13792
+  T.bless                                 13793
+  the heal chime                          13799   (2x)
+  Sfx: the cast arm                        7427
+  Sfx: the entry arm                       7460
+  Sfx: the close arm                       7480
+  Sfx: the shared rune-crack fallback      7501
+  picture fields                           7793
+  tickPresentation                         9079
+  the picture's call                       9081
+  tickBenediction(dt){                    13822
+  the world pass call                     19533
+  drawBenediction(m){                     20622
+  drawMotes(m){                           20722
+  ULTSIG aureole                            623
+  retired: the lit ground (comment)       21528
+  retired: the lance (comment)            22377
+  b12.5: drawUltUnder aureole            -
+  b12.5: drawUltOver aureole             -
+  fx SPECS.aureole (inline)               32557
+== sc-aureole-b12.5.html
+  fireUlt                                 16246
+  the cast voice (fireUlt's prologue)     16273
+  the life map line                      -
+  the life map line (b12.5)               16365
+  the halo's cast branch                  16649
+  the window opens                        16655
+  step: tickHalo                           8944
+  tickHalo(dt){                           13654
+  the close voice                        -
+  the close                               13662
+  the entry's test                       -
+  the entry voice                        -
+  the inside test                         13667
+  T.inFrames++                            13668
+  the smite                               13672
+  the blessing                            13677
+  T.bless                                 13678
+  the heal chime                          15411
+  Sfx: the cast arm                      -
+  Sfx: the entry arm                     -
+  Sfx: the close arm                     -
+  Sfx: the shared rune-crack fallback      7428
+  picture fields                         -
+  tickPresentation                         8984
+  the picture's call                     -
+  tickBenediction(dt){                   -
+  the world pass call                    -
+  drawBenediction(m){                    -
+  drawMotes(m){                           20417
+  ULTSIG aureole                            621
+  retired: the lit ground (comment)      -
+  retired: the lance (comment)           -
+  b12.5: drawUltUnder aureole             21223
+  b12.5: drawUltOver aureole              22077
+  fx SPECS.aureole (inline)               32307

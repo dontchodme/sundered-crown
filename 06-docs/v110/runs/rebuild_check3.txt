@@ -1,0 +1,14 @@
+builder aureole_build.py f28b8dcae7fa0883; base sc-tendril-t3 5a6216e3b629fad4
+  sc-aureole-stub  link 21dc5fe5783980d1  rebuilt 21dc5fe5783980d1  SAME
+  sc-aureole-halo  link 51cd039d45f40521  rebuilt 51cd039d45f40521  SAME
+  sc-aureole-bless  link bdd954b260479136  rebuilt bdd954b260479136  SAME
+  sc-aureole-b12.5  link 21ea91d0f3c14274  rebuilt 21ea91d0f3c14274  SAME
+  sc-aureole-b11.5  link 5a3f9c431d30bd7e  rebuilt 5a3f9c431d30bd7e  SAME
+EVERY LINK REBUILDS BYTE FOR BYTE
+refusals:
+refusing to overwrite sc-aureole-stub.html -- a link is written once. Delete it by hand if this is a rebuild.
+stage 2 goes on stage 1, once
+the kind "halo" is already in the base
+stage 3 needs stage 1 under it
+refusing sc-other.html: this builder's links are sc-aureole*
+wrong base: no `this.tickTendril(dt);` in step() -- the halo's ticker goes after Tendril's (v68), so this is not the Tendril lineage

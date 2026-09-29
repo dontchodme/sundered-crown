@@ -1,0 +1,22 @@
+CONTROL: chain_audit.py --relic sc-aureole-b12.5 --tip <the final link with Aureole's blade put back to 16.01 (bdd954b260479136)> --builder aureole_build.py (c7641c026661b686)
+  (9 insert(s) found in aureole_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-aureole-b12.5.html
+tip    sc-aureole-b12.5-bladeback.html
+9 inserts read out of aureole_build.py
+
+    ok  S1:Benediction becomes the halo, stubbed relic  1  mid   -  tip  1
+    ok  S1:the beam's heal is retired: `heal` was Aureole's alone relic  1  mid   -  tip  1
+    ok  S2:the halo has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the halo relic  1  mid   -  tip  1
+    ok  S2:the cast opens the halo and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the halo ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickHalo smites and blesses relic  1  mid   -  tip  1
+    ok  S3:the blessing            relic  1  mid   -  tip  1
+  LOST  S5:the blade: to the shipped rate relic  1  mid   -  tip  0
+        'blades:[0], reach:54, width:9, artW:44, dmg:12.5,'
+
+!! 1 INSERT(S) DID NOT SURVIVE THE CHAIN: S5:the blade: to the shipped rate
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+exit 1

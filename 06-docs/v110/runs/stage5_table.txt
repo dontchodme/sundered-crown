@@ -1,0 +1,12 @@
+blade                              blk 1   blk 2   split   pooled (wins)     sideA   sideB   mean
+16.01 SHIPPED (the beam): the target  56.8    51.5    5.3    54.1 (801/1480)    53.8    54.5    56.5s
+16.01  (the stage-3 link)           74.7    71.9    2.8    73.3 (1085/1480)    75.5    71.1    55.9s   +284 wins vs shipped   +345 vs 50%
+14.5  (the brief's grid)            69.5    67.2    2.3    68.3 (1011/1480)    68.9    67.7    58.2s   +210 wins vs shipped   +271 vs 50%
+14  (the brief's grid)              64.9    68.2    3.4    66.6 (985/1480)    66.5    66.6    58.9s   +184 wins vs shipped   +245 vs 50%
+13.5  (the brief's grid)            61.1    61.9    0.8    61.5 (910/1480)    61.1    61.9    59.2s   +109 wins vs shipped   +170 vs 50%
+13                                  57.4    58.0    0.5    57.7 (854/1480)    58.6    56.8    60.1s    +53 wins vs shipped   +114 vs 50%
+12.5                                55.8    56.4    0.5    56.1 (830/1480)    56.2    55.9    60.9s    +29 wins vs shipped    +90 vs 50%
+12                                  50.5    53.5    3.0    52.0 (770/1480)    52.7    51.4    61.6s    -31 wins vs shipped    +30 vs 50%
+11.5                                48.2    49.3    1.1    48.8 (722/1480)    48.1    49.5    62.1s    -79 wins vs shipped    -18 vs 50%
+11                                  48.0    46.4    1.6    47.2 (698/1480)    47.4    46.9    62.8s   -103 wins vs shipped    -42 vs 50%
+10                                  37.0    36.5    0.5    36.8 (544/1480)    34.6    38.9    64.2s   -257 wins vs shipped   -196 vs 50%

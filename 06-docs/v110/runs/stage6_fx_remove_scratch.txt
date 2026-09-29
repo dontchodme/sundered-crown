@@ -1,0 +1,34 @@
+# A. on the stage-6 link itself, with a scratch copy of fx.js at the stamp its inlined copy carries (git edd6400, 28fc58641370a1a9)
+
+FX REMOVE -- aureole's particle field out of both copies
+  src sc-aureole-b12.5-fx.html  f3228d8d1509edbb
+  the block, removed whole:
+    |     /* Negative gravity is what stops a beam reading as an explosion pointed
+    |        sideways. */
+    |     aureole: { mode: 'beam', n: 1350, sp: [20, 120], grav: -120, drag: 1.2,
+    |                life: [0.45, 1.10], heavy: 0.0, size: [0.7, 2.0],
+    |                spawn: 0.55, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 28fc58641370a1a9 -> 813fe9b101be3878
+  wrote sc-aureole-b12.5-fxout.html  66c384110868783b
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\aureole\s6\fxout\fx.js  813fe9b101be3878
+rc 0
+
+# B. the carry, dry, on the newest real tip: aureole_build.py stages 1,2,3,5,6 on 02-chain/sc-censer-fxout.html (00a2e2e10448c492), then fx_remove with a COPY of today's src/render/fx.js (866f45e37dc54e3f)
+  stage 1 -> sc-aureole-stub.html f0385dde62b833b1
+  stage 2 -> sc-aureole-halo.html d801dc0bdd2e6a94
+  stage 3 -> sc-aureole-bless.html 0c967b3a5113bdc6
+  stage 5 -> sc-aureole-b12.5.html 02dfcf9b1c4d3875
+  stage 6 -> sc-aureole-b12.5-fx.html e373cf79dc779466
+
+FX REMOVE -- aureole's particle field out of both copies
+  src sc-aureole-b12.5-fx.html  e373cf79dc779466
+  the block, removed whole:
+    |     /* Negative gravity is what stops a beam reading as an explosion pointed
+    |        sideways. */
+    |     aureole: { mode: 'beam', n: 1350, sp: [20, 120], grav: -120, drag: 1.2,
+    |                life: [0.45, 1.10], heavy: 0.0, size: [0.7, 2.0],
+    |                spawn: 0.55, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 866f45e37dc54e3f -> fd4932c664fcbac9
+  wrote sc-aureole-fxout.html  afa83ad4a4f56ca7
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\aureole\s6\fxout\tip\fx.js  fd4932c664fcbac9
+rc 0

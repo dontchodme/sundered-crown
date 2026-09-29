@@ -1,0 +1,21 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-tendril-t3.html                36 matches    3.6s
+  sc-aureole-b12.5.html             36 matches    3.7s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Aureole", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 266, "duration": 31.92, "reason": "slain", "hits": {"a": 10, "b": 12}, "crits": {"a": 0, "b": 1}, "clanks": 8}
+            variant {"seed": 1233799701, "a": "Aureole", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 101, "duration": 49.31, "reason": "slain", "hits": {"a": 16, "b": 15}, "crits": {"a": 0, "b": 2}, "clanks": 7}
+          #1
+            control {"seed": 330441002, "a": "Aureole", "b": "Grudgebearer", "winner": "Aureole", "hp": 300, "duration": 41.62, "reason": "slain", "hits": {"a": 16, "b": 7}, "crits": {"a": 4, "b": 1}, "clanks": 9}
+            variant {"seed": 330441002, "a": "Aureole", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 170, "duration": 43.06, "reason": "slain", "hits": {"a": 13, "b": 10}, "crits": {"a": 0, "b": 2}, "clanks": 10}
+          #2
+            control {"seed": 4184808219, "a": "Aureole", "b": "Grudgebearer", "winner": "Aureole", "hp": 95, "duration": 36.14, "reason": "slain", "hits": {"a": 18, "b": 7}, "crits": {"a": 0, "b": 2}, "clanks": 6}
+            variant {"seed": 4184808219, "a": "Aureole", "b": "Grudgebearer", "winner": "Aureole", "hp": 83, "duration": 61.02, "reason": "slain", "hits": {"a": 18, "b": 14}, "crits": {"a": 3, "b": 2}, "clanks": 9}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 22.7-67.5s
+
+ENGINE A/B FAIL
+exit 1

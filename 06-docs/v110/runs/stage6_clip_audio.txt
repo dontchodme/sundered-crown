@@ -1,0 +1,34 @@
+clip f56af7299f6f5072 (the fx link) against clip_base 93d707c1cf1198d3 (the b12.5), same window
+  the cast (the swell, 0.20-0.45 s)    match  44.817  video  1.192    240-420   Hz  with - without  +12.1 dB
+  an entry (C6, first 100 ms)          match  46.292  video  2.667    990-1110  Hz  with - without  +27.6 dB
+  an entry (C6, first 100 ms)          match  47.550  video  3.925    990-1110  Hz  with - without  +39.4 dB
+  an entry (C6, first 100 ms)          match  48.183  video  4.558    990-1110  Hz  with - without  +62.2 dB
+  an entry (C6, first 100 ms)          match  48.567  video  4.942    990-1110  Hz  with - without  +73.4 dB
+  an entry (C6, first 100 ms)          match  49.258  video  5.633    990-1110  Hz  with - without  +86.2 dB
+  an entry (C6, first 100 ms)          match  50.717  video  7.092    990-1110  Hz  with - without  +27.4 dB
+  an entry (C6, first 100 ms)          match  52.850  video  9.225    990-1110  Hz  with - without  +26.2 dB
+  an entry (C6, first 100 ms)          match  53.350  video  9.725    990-1110  Hz  with - without  +23.3 dB
+  a heal chime (spark collect, 135 ms) match  44.817  video  1.192   1240-1780  Hz  with - without  -12.8 dB
+  a heal chime (spark collect, 135 ms) match  46.292  video  2.667   1240-1780  Hz  with - without  +11.7 dB
+  a heal chime (spark collect, 135 ms) match  47.550  video  3.925   1240-1780  Hz  with - without  +31.9 dB
+  a heal chime (spark collect, 135 ms) match  48.567  video  4.942   1240-1780  Hz  with - without  +33.6 dB
+  a heal chime (spark collect, 135 ms) match  49.375  video  5.750   1240-1780  Hz  with - without  +42.7 dB
+  a heal chime (spark collect, 135 ms) match  50.417  video  6.792   1240-1780  Hz  with - without  +28.8 dB
+  a heal chime (spark collect, 135 ms) match  51.458  video  7.833   1240-1780  Hz  with - without  +21.6 dB
+  a heal chime (spark collect, 135 ms) match  52.850  video  9.225   1240-1780  Hz  with - without  +25.5 dB
+  the close (0-0.5 s)                  match  54.058  video 10.433    240-420   Hz  with - without  +22.7 dB
+  (the chime on the CAST's frame reads against the base's own cast voice, rune-crack -- centroid 3.2 kHz, loud --
+   which the fx link replaced with the swell: that one row compares the chime to rune-crack, not to silence)
+  every other stage-6 event (17): min +11.7 dB, median +27.6 dB
+CONTROL -- the same readings at match times with no stage-6 voice (must come back near 0):
+  C6 band, no entry                    match  45.600  video  1.975    990-1110  Hz  with - without   +0.1 dB
+  C6 band, no entry                    match  51.900  video  8.275    990-1110  Hz  with - without   -0.0 dB
+  C6 band, no entry                    match  52.400  video  8.775    990-1110  Hz  with - without   +0.4 dB
+  C6 band, no entry                    match  54.900  video 11.275    990-1110  Hz  with - without   +0.0 dB
+  C6 band, no entry                    match  55.400  video 11.775    990-1110  Hz  with - without   -0.0 dB
+  chime band, no blessing              match  45.600  video  1.975   1240-1780  Hz  with - without   +0.6 dB
+  chime band, no blessing              match  51.900  video  8.275   1240-1780  Hz  with - without   +0.0 dB
+  chime band, no blessing              match  54.900  video 11.275   1240-1780  Hz  with - without   +3.8 dB
+  C4-G4 band, no swell                 match  51.000  video  7.375    240-420   Hz  with - without   +0.2 dB
+  C4-G4 band, no swell                 match  55.200  video 11.575    240-420   Hz  with - without   -0.0 dB
+  no-voice controls: max |d| 3.8 dB

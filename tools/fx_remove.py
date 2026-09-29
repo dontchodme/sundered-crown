@@ -32,8 +32,9 @@ def inlined(s):
     return h, s[h.end():t.start()].rstrip("\n")
 
 
-def spec_block(mod, relic):
-    """The SPECS entry for `relic`, with the comment directly above it, as whole lines."""
+def spec_block(mod, relic, keep_comment=False):
+    """The SPECS entry for `relic`, with the comment directly above it (unless keep_comment), as
+    whole lines."""
     key = re.escape(relic)
     m = re.search(r"(?m)^( *)(?:" + key + r"|'" + key + r"'): \{", mod)
     if not m:
@@ -48,7 +49,7 @@ def spec_block(mod, relic):
     # HEADER (`/* ---- NOVAS: ... ---- */`): that heads a group of entries, not this one (v106: it
     # sits over Widowmaker, Lightkeeper and Censer, and goes with none of them)
     before = mod[:start]
-    if before.rstrip(" ").endswith("*/\n"):
+    if not keep_comment and before.rstrip(" ").endswith("*/\n"):
         c = before.rfind("/*")
         line0 = before.rfind("\n", 0, c) + 1
         if (before[line0:c].strip() == "" and "*/" not in before[c:-4]
@@ -63,6 +64,8 @@ def main():
     ap.add_argument("--src", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--dry", action="store_true", help="check everything, write nothing")
+    ap.add_argument("--keep-comment", action="store_true",
+                    help="remove the entry's lines only and leave the comment above it (v110: Aureole's comment states a rule the beams below it still follow)")
     ap.add_argument("--fxjs", default=None,
                     help="a COPY of fx.js to read and rewrite instead of src/render/fx.js (tests in "
                          "scratch: a scratch link built on an older tip carries an older fx.js)")
@@ -87,7 +90,7 @@ def main():
     old_sha = h.group(1)
     if hashlib.sha256(mod.encode("utf-8")).hexdigest() != old_sha:
         raise SystemExit("the page's fx.js stamp is not src/render/fx.js's sha256")
-    blk = spec_block(mod, A.relic)
+    blk = spec_block(mod, A.relic, A.keep_comment)
     if mod.count(blk) != 1 or s0.count(blk) != 1:
         raise SystemExit(f"{A.relic}'s spec is not exactly once in both copies")
     print("  the block, removed whole:")

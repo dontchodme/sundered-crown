@@ -1,0 +1,11 @@
+=== ENGINE A/B: 34 relics, 6 seeds x 561 pairings ===
+
+  sc-aureole-b12.5-fx.html        3366 matches  224.9s
+  sc-aureole-b12.5-fx.html        3366 matches  271.8s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3366
+  PASS  every match identical field for field  — 3366/3366
+  PASS  the sweep is real  — 34/34 distinct winners, 3366 distinct seeds, 21.8-108.2s
+
+ENGINE A/B PASS — C:\dev\sundered-crown\02-chain\sc-aureole-b12.5-fx.html does not move the 34-relic roster.

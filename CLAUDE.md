@@ -82,7 +82,16 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-censer-fxout.html    THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+02-chain/sc-aureole-fxout.html   THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+                                 AUREOLE / BENEDICTION REDESIGNED (aureole_build.py 1, 2,
+                                 3, 5, 6 and fx_remove.py --keep-comment, v110), carried
+                                 onto sc-censer-fxout. The beam is gone: a halo; foes
+                                 inside it are smitten, and she is blessed while one is.
+                                 Charge 14, blade 12.5, the shipped rate (56.1%; 50% is
+                                 11.5, Rick's). fx.js stamp -> 487c9de9dff7f374. Carry
+                                 proved against scratch and the tip; probe 10/10;
+                                 shell_identity PENDING.
+02-chain/sc-censer-fxout.html    the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  CENSER / CONSECRATION REDESIGNED (censer_build.py 1, 2,
                                  3, 5, 6 and fx_remove.py, v109), carried onto
                                  sc-lightkeeper-fxout. The nova is gone: its blows make

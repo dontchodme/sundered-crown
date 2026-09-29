@@ -1,0 +1,48 @@
+LADDER  Aureole / the halo at 12.5 (the final): pooled 56.1% (55.8% / 56.4%), side A 56.2%, side B 55.9%, mean 60.9s   | shipped (the beam, 16.01): 54.1%
+
+BY TYPE (the relic's rate against each type)        [reference]
+  warhammer     65.8%   [ 59.6%]   +6.2
+  flail         62.1%   [ 64.6%]   -2.5
+  scythe        61.1%   [ 58.9%]   +2.1
+  twinblade     53.5%   [ 50.5%]   +3.0
+  bow           46.5%   [ 46.0%]   +0.5
+  greatsword    45.4%   [ 42.5%]   +2.9
+
+BY FOE (40 fights a foe)        [reference]
+  bloodmirror     90.0%   [ 70.0%]   +20.0
+  bindweed        90.0%   [ 72.5%]   +17.5
+  vinesower       80.0%   [ 85.0%]    -5.0
+  thornshear      80.0%   [ 75.0%]    +5.0
+  ironwood        77.5%   [ 60.0%]   +17.5
+  thornwake       75.0%   [ 62.5%]   +12.5
+  censer          75.0%   [ 67.5%]    +7.5
+  ravelbone       72.5%   [ 57.5%]   +15.0
+  heartwood       70.0%   [ 60.0%]   +10.0
+  morningstar     70.0%   [ 75.0%]    -5.0
+  widowmaker      65.0%   [ 52.5%]   +12.5
+  foregone        65.0%   [ 55.0%]   +10.0
+  shroudmaul      65.0%   [ 55.0%]   +10.0
+  redflail        62.5%   [ 62.5%]    +0.0
+  axiom           60.0%   [ 35.0%]   +25.0
+  paradox         60.0%   [ 52.5%]    +7.5
+  oathwound       55.0%   [ 65.0%]   -10.0
+  bulwarden       55.0%   [ 72.5%]   -17.5
+  marrowdraw      55.0%   [ 40.0%]   +15.0
+  portcullis      55.0%   [ 67.5%]   -12.5
+  lastlight       52.5%   [ 47.5%]    +5.0
+  spellbreaker    52.5%   [ 35.0%]   +17.5
+  grudgebearer    50.0%   [ 45.0%]    +5.0
+  slagheart       50.0%   [ 60.0%]   -10.0
+  vesper          50.0%   [ 55.0%]    -5.0
+  duskreave       50.0%   [ 62.5%]   -12.5
+  gravemourn      47.5%   [ 62.5%]   -15.0
+  twinshade       45.0%   [ 52.5%]    -7.5
+  cindercleave    45.0%   [ 60.0%]   -15.0
+  nightfell       42.5%   [ 30.0%]   +12.5
+  farwarden       37.5%   [ 20.0%]   +17.5
+  dawnbringer     35.0%   [ 47.5%]   -12.5
+  emberedge       35.0%   [ 27.5%]    +7.5
+  ironhail        30.0%   [ 40.0%]   -10.0
+  gloamwire       30.0%   [ 45.0%]   -15.0
+  starwarden      25.0%   [ 37.5%]   -12.5
+  lightkeeper     20.0%   [ 32.5%]   -12.5

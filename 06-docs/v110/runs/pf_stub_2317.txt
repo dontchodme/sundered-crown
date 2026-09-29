@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · aureole (redesign) · 33 foes x 20 seeds = 660 fights an arm · per-fight: stage 1 (the stub's own ultimate), block 2317
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    32.0%   0.00  0.00/16.49 
+      census: frozen 0.1075 of lab steps (475491/4423117), 0.0000 in windows (0/0), 0.1075 outside; lab 16 -> engine 14.28
+  660 fights in 134s   errors: []

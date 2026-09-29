@@ -1,0 +1,34 @@
+96 frames, 10 fights; missing: dawnbringer 99001a ['over']; grudgebearer 31337b ['over']; twinshade 99008a ['over']; nightfell 5150a ['over']
+BLOOM: the picture's share of the chain's arena lift max +0.0004 min -0.0011 (gate +0.02) [worst gravemourn 99015a stopout]; raw luma added max +0.0223; arena clip with max 0.0185 without 0.0184
+  CONTROL ctrl1 (the halo as a filled white lighter disc at 0.35 (reach)): dLift max +0.0712, > 0.02 on 16/96; caster disc pushed past 0.90 on 49/80 window frames; foe disc pushed past 0.90 on 4/30 frames with the foe inside (max caster 1.000, foe 0.984)
+  CONTROL ctrl2 (a white-hot lighter glow on the caster): dLift max +0.0132, > 0.02 on 0/96; caster disc pushed past 0.90 on 65/80 window frames; foe disc pushed past 0.90 on 0/30 frames with the foe inside (max caster 1.000, foe 0.955)
+  CONTROL ctrl3 (the rim as a filled white lighter disc over the foe): dLift max +0.0073, > 0.02 on 0/96; caster disc pushed past 0.90 on 0/80 window frames; foe disc pushed past 0.90 on 22/30 frames with the foe inside (max caster 0.952, foe 1.000)
+DISC me: max |d| 0.4674 (art only, tags out: +0.0000..+0.0021 [largest twinshade 99008a stopout]); disc 0.139..0.951; >0.90 with 5 / without 6 of 96; clip with max 0.698 without 0.698
+DISC foe: max |d| 0.4521 (art only, tags out: +0.0000..+0.0179 [largest dawnbringer 99001a stop]); disc 0.147..0.955; >0.90 with 4 / without 4 of 96; clip with max 0.712 without 0.712
+  foe dwarven   : n 9 art max |d| 0.0081; disc 0.301..0.850, contour 0.194..0.516 (without 0.194..0.453); >0.90 with 0 without 0
+  foe runic     : n 10 art max |d| 0.0008; disc 0.406..0.909, contour 0.315..0.755 (without 0.300..0.692); >0.90 with 1 without 1
+  foe sanctified: n 39 art max |d| 0.0179; disc 0.208..0.955, contour 0.415..0.947 (without 0.415..0.947); >0.90 with 3 without 3
+  foe umbral    : n 28 art max |d| 0.0028; disc 0.147..0.885, contour 0.203..0.545 (without 0.203..0.545); >0.90 with 0 without 0
+  foe verdant   : n 10 art max |d| 0.0005; disc 0.299..0.880, contour 0.268..0.889 (without 0.268..0.872); >0.90 with 0 without 0
+LEGIBILITY (median |dL| of the component's own pixels (min..max) [n frames]; out of a stop  /  in one):
+  ring   in out,stopout                       : 0.239 (0.232..0.243) [10]  /  0.236 (0.226..0.325) [10]
+  ring   in in,enter,stop                     : 0.314 (0.246..0.363) [20]  /  0.318 (0.280..0.366) [10]
+  ring   in cast,grow                         : 0.235 (0.218..0.316) [10]  /  0.115 (0.102..0.140) [10]
+  ring   in close,over                        : 0.238 (0.227..0.293) [11]  /  0.285 (0.236..0.305) [5]
+  wash   in out,in,enter,stop,stopout         : 0.033 (0.030..0.034) [30]  /  0.032 (0.030..0.034) [20]
+  motes  in out,in,enter,stop,stopout         : 0.234 (0.091..0.277) [30]  /  0.231 (0.115..0.299) [20]
+  rim    in in,enter,stop                     : 0.096 (0.037..0.127) [20]  /  0.088 (0.052..0.119) [10]
+  tag    in enter,in,stop                     : 0.282 (0.077..0.392) [20]  /  0.317 (0.100..0.389) [9]
+  ground in out,in,enter,stop,stopout         : 0.085 (0.064..0.123) [30]  /  0.095 (0.062..0.124) [20]
+by state (median |dL| of everything the picture draws, its tags included):
+  rest    nan (nan..nan) n 0 of 10  [pixels moved: med 0.0]
+  cast    0.111 (0.102..0.149) n 10 of 10  [pixels moved: med 4797.0]
+  grow    0.089 (0.073..0.207) n 10 of 10  [pixels moved: med 32828.0]
+  out     0.077 (0.070..0.120) n 10 of 10  [pixels moved: med 64473.0]
+  in      0.128 (0.114..0.164) n 10 of 10  [pixels moved: med 70083.5]
+  enter   0.097 (0.086..0.174) n 10 of 10  [pixels moved: med 64239.5]
+  stop    0.121 (0.091..0.166) n 10 of 10  [pixels moved: med 67515.5]
+  stopout 0.079 (0.063..0.190) n 10 of 10  [pixels moved: med 58932.0]
+  close   0.080 (0.067..0.104) n 10 of 10  [pixels moved: med 53220.5]
+  over    0.091 (0.077..0.124) n 6 of 6  [pixels moved: med 48584.5]
+the ring out vs in (the tell): ring |dL| out 0.239 in 0.344

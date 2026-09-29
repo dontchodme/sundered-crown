@@ -1,0 +1,71 @@
+{
+ "n": {
+  "statusQuietOk": 3104935,
+  "spinOutOk": 2293090,
+  "fireOutOk": 1985320,
+  "shotsOut": 49022,
+  "calls": 4235490,
+  "haloStepOk": 3778534,
+  "fireStepOk": 3778534,
+  "blowOutOk": 6179,
+  "chanOutOk": 6235,
+  "x1": 913912,
+  "fireSkipOk": 557750,
+  "castOk": 1914,
+  "frames": 1698589,
+  "inOk": 586131,
+  "smiteCdOk": 14391,
+  "bless0Ok": 1698589,
+  "smiteOk": 14391,
+  "winFrozen": 212991,
+  "smiteWaitOk": 571740,
+  "winLive": 1485444,
+  "spinInOk": 1485444,
+  "fireInOk": 1235464,
+  "inRim": 180924,
+  "outOk": 1112458,
+  "smiteOutOk": 1112458,
+  "shotsIn": 30281,
+  "blowInOk": 3998,
+  "chanInOk": 4068,
+  "clockCloses": 1602,
+  "winMT": 12802.650000000207,
+  "winMTn": 1602,
+  "deathCloses": 158,
+  "fatalSmiteOk": 95,
+  "blowExempt": 126
+ },
+ "bad": {
+  "1": [
+   "tickHalo on a frozen step",
+   "1 tickHalo call(s) on a frozen step",
+   "tickHalo on a frozen step",
+   "1 tickHalo call(s) on a frozen step"
+  ]
+ },
+ "T": {
+  "casts": 1914,
+  "frames": 1698589,
+  "inFrames": 586131,
+  "smite": 14391,
+  "bless": 0,
+  "foeStk": 5721180
+ },
+ "fights": 660,
+ "win": 0.4863636363636364,
+ "blowsIn": 6.163636363636364,
+ "blowsOut": 9.446969696969697,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "haloR": 150,
+  "tickCd": 0.5,
+  "smite": 1,
+  "blessCd": 0.8,
+  "bless": 0,
+  "kind": "halo",
+  "dmg": null,
+  "heal": null,
+  "blade": 16.01
+ }
+}

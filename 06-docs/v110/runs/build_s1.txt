@@ -1,0 +1,12 @@
+
+AUREOLE / BENEDICTION (REDESIGN) -- stage 1
+  src sc-tendril-t3.html  5a6216e3b629fad4  (LF text)
+  base  Aureole's shipped body (sanctified bow, ranged, smite 1, the shot); apply / stacks / STATUS.smite / STATUS.blessing and the blessing's heal; the window tickers stop in a hit stop
+  ok    Benediction becomes the halo, stubbed
+  ok    the beam's heal is retired: `heal` was Aureole's alone
+  ok    ult   ult:{ name:"Benediction", charge:1e9, kind:"halo", dur:8, haloR:150, tickCd:0.5, smite:1, blessCd:0.8, b ...
+  ok    card  67 chars  'A halo: foes inside it are smitten, and she is blessed while one is'
+  ok    one halo ultimate, Aureole's; the beam out; no insert draws the RNG, writes the shared weapon, hurts, moves or files a beat; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-aureole-stub.html  21dc5fe5783980d1   (+600 chars, written LF)

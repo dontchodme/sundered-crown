@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-aureole-b12.5.html             36 matches    2.5s
+  sc-aureole-mP1-picwrite.html      36 matches    2.7s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Aureole", "b": "Farwarden", "winner": "Farwarden", "hp": 257, "duration": 54.42, "reason": "slain", "hits": {"a": 18, "b": 30}, "crits": {"a": 2, "b": 3}, "clanks": 5}
+            variant {"seed": 1233799701, "a": "Aureole", "b": "Farwarden", "winner": "Farwarden", "hp": 213, "duration": 68.6, "reason": "slain", "hits": {"a": 27, "b": 35}, "crits": {"a": 1, "b": 5}, "clanks": 7}
+          #1
+            control {"seed": 330441002, "a": "Aureole", "b": "Farwarden", "winner": "Aureole", "hp": 120, "duration": 75.73, "reason": "slain", "hits": {"a": 30, "b": 29}, "crits": {"a": 2, "b": 2}, "clanks": 14}
+            variant {"seed": 330441002, "a": "Aureole", "b": "Farwarden", "winner": "Aureole", "hp": 73, "duration": 79.68, "reason": "slain", "hits": {"a": 30, "b": 31}, "crits": {"a": 2, "b": 3}, "clanks": 11}
+          #2
+            control {"seed": 4184808219, "a": "Aureole", "b": "Farwarden", "winner": "Farwarden", "hp": 91, "duration": 70.85, "reason": "slain", "hits": {"a": 20, "b": 19}, "crits": {"a": 2, "b": 2}, "clanks": 10}
+            variant {"seed": 4184808219, "a": "Aureole", "b": "Farwarden", "winner": "Aureole", "hp": 282, "duration": 73.81, "reason": "slain", "hits": {"a": 23, "b": 21}, "crits": {"a": 3, "b": 0}, "clanks": 16}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 54.4-98.0s
+
+ENGINE A/B FAIL

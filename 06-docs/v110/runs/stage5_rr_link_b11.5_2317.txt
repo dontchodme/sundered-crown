@@ -1,0 +1,4 @@
+aureole on sc-aureole-b11.5.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · the 50% alternative link, no --set (the proof)
+  win 49.3%   side A 49.5%   side B 49.2%   mean 62.0s   timeouts 0
+  by type  warhammer 67%  scythe 51%  flail 50%  bow 48%  twinblade 41%  greatsword 39%
+  worst    lightkeeper 15%  starwarden 20%  portcullis 20%   (740 fights in 79s)

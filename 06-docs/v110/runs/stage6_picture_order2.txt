@@ -1,0 +1,50 @@
+rows_final.json: 9 rows, 19211 bytes, sha256[:16] of the file ed67bd6722cbbe2b, round-trips
+[1] 9 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+    the page after: 'aureole: 1.6' 0x, 'u.w === "aureole"' 0x, 'aureole(c, t, cf, P)' 1x, SPECS.aureole text 1x (the orchestrator's)
+[3] STAMP b8d571f46a2681af  (base 21ea91d0f3c14274; au-final.html matches; +7812 chars)
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + aureole stages 1-5 (21ea91d0f3c14274, = the base): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-ironhail-fxout.html (4b3775e5900172ea) + aureole stages 1-5 (336bc4baf224d027): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-lodestone-b205-fx.html (4568c2995d06f696) + aureole stages 1-5 (1d7def63a6d5e502): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-widowmaker-fxout.html (04fdd2e2daa17c26) + aureole stages 1-5 (014d0a120480473c): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-oracle-fx.html (15cf62f96f72653a) + aureole stages 1-5 (b4db5875635fa4ec): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-angelus-b9-fx.html (85b8af63055d1108) + aureole stages 1-5 (73eabfd44af6b775): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-lightkeeper-fxout.html (088189f3517b6f11) + aureole stages 1-5 (c6fbb7492bba2bc1): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on sc-censer-consecration-b25.5-fx.html (ae411af7b64ba742) + aureole stages 1-5 (990f1e726961ce85): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on ce-final-fx.html (9eb071b0e42df058) + aureole stages 1-5 (6d00791287df6ceb): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on bw-final.html (ef4bd13fe968d99c) + aureole stages 1-5 (4e841d473d06a5b2): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on pc-final.html (de1cf49480a06745) + aureole stages 1-5 (3a099c3aca20ffdb): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on ci-final.html (94bb7580047f01bc) + aureole stages 1-5 (df1b2b903d2576c6): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on ih-final-fx.html (4463f003dd5230b8) + aureole stages 1-5 (bedb08ff591d045e): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on lk-final-fx.html (5acd4d78b30b6914) + aureole stages 1-5 (abb1b697bf87255e): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on ld-final.html (b40d52b7561c45f2) + aureole stages 1-5 (fbf0157c7436bae7): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on an-final-v5.html (32d61ac685db232f) + aureole stages 1-5 (755e3b928594acec): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on wm-final-fx.html (93e8955ef03be732) + aureole stages 1-5 (fe6606072550c068): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] on or-final.html (1bdec440699e6fd7) + aureole stages 1-5 (8f8bf063587ca969): every anchor once, forward == reverse True, parses (+7812 chars, the same as on the base: True); SPECS.aureole text 1x
+    with Aureole's 4 voice rows (rows_final.json, in progress): voice-then-picture == picture-then-voice True, parses
+[4] 18 carries clean
+[5] CONTROL (an anchor that occurs many times) refused: benediction picture: fighter fields: anchor found 340x
+EXIT 0

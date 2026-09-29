@@ -1,0 +1,10 @@
+b12.5 under the stage-6 probe (fc096aca9624bb99, --drawn 0) vs runs/probe_final.txt (the stage 1-5 probe afa389b746f9c12b): every line but the stage-6 note (line ends ignored)
+IDENTICAL (every line)
+counters n: equal (37 counters)
+tally T: equal
+
+the fx link under the stage-6 probe vs runs/probe_final.txt: every line but the stage-6 lines, [9]-[10] and the N/N, the file name aside
+IDENTICAL (every mechanism line and [1]-[8])
+the stages 1-5 run's 37 counters: all equal on the fx link
+tally T: equal ; win equal: True
+the fx run adds 44 counters of its own ([9]-[10])

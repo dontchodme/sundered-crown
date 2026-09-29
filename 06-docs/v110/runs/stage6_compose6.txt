@@ -1,0 +1,42 @@
+# compose6 12:21 builders: aureole 7cf0a20f6b53a2c3 censer 0d97b0a19fe72d27 heartwood 04567e2ed899524a spellbreaker 463b49d265b3258c 
+ok   aureole 1,2,3,5,6 on sc-tendril-t3 alone reach sc-aureole-b12.5-fx.html
+ok   the builder rebuilds sc-aureole-stub byte for byte
+ok   the builder rebuilds sc-aureole-halo byte for byte
+ok   the builder rebuilds sc-aureole-bless byte for byte
+ok   the builder rebuilds sc-aureole-b12.5 byte for byte
+ok   the builder rebuilds sc-aureole-b12.5-fx byte for byte
+--   on t3: change set of stages 1-5 a73d17141fe14b0a, of stage 6 alone 91a52fd6cfebc2bf (406 changed lines)
+ok   on sc-censer-fxout (00a2e2e10448c492, 42 relics in the roster): stages 1-5 t3's; stage 6 5d7927576f9c60e1 -- t3's but for the life map's own line (4 line(s): the tip's other tokens on it); fx there e373cf79dc779466
+        < <               aureole: 1.6, censer: 1.6,
+        > <               aureole: 1.6, 
+        > >               
+        < >               censer: 1.6,
+ok   on sc-censer-consecration-b25.5-fx (ae411af7b64ba742, 42 relics in the roster): stages 1-5 t3's; stage 6 5d7927576f9c60e1 -- t3's but for the life map's own line (4 line(s): the tip's other tokens on it); fx there c9256497971fdb4b
+        < <               aureole: 1.6, censer: 1.6,
+        > <               aureole: 1.6, 
+        > >               
+        < >               censer: 1.6,
+ok   on sc-lightkeeper-fxout (088189f3517b6f11, 42 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there 2cfc90c68e0f0db8
+ok   on sc-angelus-b9-fx (85b8af63055d1108, 42 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there a5d70fda929e6b03
+ok   on sc-oracle-fx (15cf62f96f72653a, 41 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there 3c3ea5011f85101f
+ok   on sc-widowmaker-fxout (04fdd2e2daa17c26, 40 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there f80a0993e30987db
+ok   on sc-ironhail-fxout (4b3775e5900172ea, 39 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there a0794a35bd512c61
+ok   on sc-ironhail-sunder-fx (b51c2539999dd272, 39 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there dcbb1886da9afc43
+ok   on sc-lodestone-b205-fx (4568c2995d06f696, 40 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there 69d4753ec3f3eed4
+ok   on scratch-angelus-sc-angelus-b9-fx (6356f75eb0b328e1, 39 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there 3ed65f6397eb45bc
+ok   on scratch-censer-sc-censer-consecration-b25.5-fx (3d68c7648a9cb3a8, 38 relics in the roster): stages 1-5 t3's; stage 6 5d7927576f9c60e1 -- t3's but for the life map's own line (4 line(s): the tip's other tokens on it); fx there a39c8eb6d8205940
+        < <               aureole: 1.6, censer: 1.6,
+        > <               aureole: 1.6, 
+        > >               
+        < >               censer: 1.6,
+ok   on scratch-coldiron-sc-coldiron-temper-fx (3693eda608b26fa8, 39 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there fc3a5e57c6104956
+ok   on scratch-lightkeeper-sc-lightkeeper-bulwark-b9.5-fx (e3f16bf01f0e2995, 38 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there 72efc0712c875577
+ok   on scratch-oracle-sc-oracle-fx (4e8f47301b97d7d7, 39 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there 67beedd278c8bfd6
+ok   on scratch-widowmaker-sc-widowmaker-b1075-fx-specout (3d16bbc543e74c18, 38 relics in the roster): stages 1-5 a73d17141fe14b0a, stage 6 91a52fd6cfebc2bf -- t3's both; fx there 6ad8779761754fd2
+--   heartwood alone on the base reaches sc-heartwood-rootfast.html (its last today)
+ok   aureole 1-6 on heartwood's sc-heartwood-rootfast.html: stage 6's change set is t3's (91a52fd6cfebc2bf)
+ok   heartwood's stages on aureole's fx link reach sc-heartwood-rootfast.html
+--   spellbreaker alone on the base reaches sc-spellbreaker-unmaking.html (its last today)
+ok   aureole 1-6 on spellbreaker's sc-spellbreaker-unmaking.html: stage 6's change set is t3's (91a52fd6cfebc2bf)
+ok   spellbreaker's stages on aureole's fx link reach sc-spellbreaker-unmaking.html
+# 0 FAIL

@@ -1,0 +1,7 @@
+CONTROL (the review's note): chain_audit.py --relic sc-aureole-b12.5 --tip <the final link with fireUlt's retired 'if (u.heal)' block put back under its retirement comment (e2222f4b44443b83)> --builder aureole_build.py (c7641c026661b686)
+EXPECTED GREEN: a deletion leaves no code line, so chain_audit watches the retirement only by its comment.
+    ok  S5:the blade: to the shipped rate relic  1  mid   -  tip  1
+
+ALL 9 INSERTS SURVIVE to sc-aureole-b12.5-healback.html
+(1 of them are marked by COMMENT text -- the code they add is shorter than the floor: S1:the beam's heal is retired: `heal` was Aureole's alone)
+exit 0

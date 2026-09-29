@@ -1,0 +1,19 @@
+chain_audit.py --relic sc-aureole-b12.5 --tip sc-aureole-b12.5 --builder aureole_build.py (c7641c026661b686)
+  (9 insert(s) found in aureole_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-aureole-b12.5.html
+tip    sc-aureole-b12.5.html
+9 inserts read out of aureole_build.py
+
+    ok  S1:Benediction becomes the halo, stubbed relic  1  mid   -  tip  1
+    ok  S1:the beam's heal is retired: `heal` was Aureole's alone relic  1  mid   -  tip  1
+    ok  S2:the halo has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the halo relic  1  mid   -  tip  1
+    ok  S2:the cast opens the halo and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the halo ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickHalo smites and blesses relic  1  mid   -  tip  1
+    ok  S3:the blessing            relic  1  mid   -  tip  1
+    ok  S5:the blade: to the shipped rate relic  1  mid   -  tip  1
+
+ALL 9 INSERTS SURVIVE to sc-aureole-b12.5.html
+(1 of them are marked by COMMENT text -- the code they add is shorter than the floor: S1:the beam's heal is retired: `heal` was Aureole's alone)
+exit 0
