@@ -1,0 +1,33 @@
+THE SIX STAGE-6 MUTANTS: scratch copies of sc-oracle-fx.html (4e8f47301b97d7d7), each one line off (diff link -> mutant)
+
+=== mut6-closedeath  72ade90b05bd3513
+13788c13788
+<       if (Z.t >= Z.dur && f.alive && foe.alive) SFX.play("ult", { w: "oracle-close" });
+---
+>       if (Z.t >= Z.dur || !f.alive || !foe.alive) SFX.play("ult", { w: "oracle-close" });
+
+=== mut6-sigil4  a847a72c03d650d3
+13801c13801
+<       if (Math.round(Z.t / dt) % 8 === 1) SFX.play("ult", { w: "oracle-sigil" });
+---
+>       if (Math.round(Z.t / dt) % 4 === 1) SFX.play("ult", { w: "oracle-sigil" });
+
+=== mut6-snapn  06562adc09c79a24
+15012c15012
+<         SFX.play("ult", { w: "oracle-hex", n: foe.stacks("hex") });
+---
+>         SFX.play("ult", { w: "oracle-hex", n: foe.stacks("hex") - 1 });
+
+=== mut6-foevx  186be44c5bc8ef2d
+13872a13873
+>         foe.vx += 1e-9;
+
+=== mut6-drawvx  fc16ba7fcd29bb12
+20745a20746
+>     if (A.foreFade > 0 || B.foreFade > 0) A.vx += 1e-9;
+
+=== mut6-flarekill  2d442eea3f53400c
+13871d13870
+<       if (!foe.alive || !(foe.hp > 0)) continue;
+
+(the builder controls are in stage6_builder_controls_final.txt)

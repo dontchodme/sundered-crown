@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-oracle-b10.html                36 matches    3.8s
+  mut6-foevx.html                   36 matches    3.8s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 17 differ
+          #0
+            control {"seed": 1233799701, "a": "Oracle", "b": "Grudgebearer", "winner": "Oracle", "hp": 139, "duration": 66.42, "reason": "slain", "hits": {"a": 38, "b": 10}, "crits": {"a": 3, "b": 0}, "clanks": 14}
+            variant {"seed": 1233799701, "a": "Oracle", "b": "Grudgebearer", "winner": "Oracle", "hp": 137, "duration": 66.19, "reason": "slain", "hits": {"a": 35, "b": 9}, "crits": {"a": 5, "b": 2}, "clanks": 12}
+          #1
+            control {"seed": 330441002, "a": "Oracle", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 105, "duration": 50.73, "reason": "slain", "hits": {"a": 35, "b": 10}, "crits": {"a": 1, "b": 2}, "clanks": 10}
+            variant {"seed": 330441002, "a": "Oracle", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 41, "duration": 54.21, "reason": "slain", "hits": {"a": 38, "b": 11}, "crits": {"a": 2, "b": 2}, "clanks": 13}
+          #2
+            control {"seed": 4184808219, "a": "Oracle", "b": "Grudgebearer", "winner": "Oracle", "hp": 159, "duration": 63.14, "reason": "slain", "hits": {"a": 39, "b": 5}, "crits": {"a": 6, "b": 2}, "clanks": 10}
+            variant {"seed": 4184808219, "a": "Oracle", "b": "Grudgebearer", "winner": "Oracle", "hp": 116, "duration": 56.53, "reason": "slain", "hits": {"a": 36, "b": 9}, "crits": {"a": 6, "b": 0}, "clanks": 12}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 21.6-69.1s
+
+ENGINE A/B FAIL

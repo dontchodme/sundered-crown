@@ -1,0 +1,6 @@
+mut6-closedeath  72ade90b05bd3513  parses True  -- [8] the close voiced on every close, deaths included
+mut6-sigil4      a847a72c03d650d3  parses True  -- [8] the sigil struck every 4th window frame, not every 8th
+mut6-snapn       06562adc09c79a24  parses True  -- [8] the snap pitched one count low (the count before the second hex)
+mut6-foevx       186be44c5bc8ef2d  parses True  -- [9] tickForesight nudges the foe 1e-9 at a flare (one sim write)
+mut6-drawvx      fc16ba7fcd29bb12  parses True  -- [9] drawForesightTop nudges side A 1e-9 while the picture shows (a draw that writes the sim)
+mut6-flarekill   2d442eea3f53400c  parses True  -- [9] a killing arrow flares too (the shatter's frame)

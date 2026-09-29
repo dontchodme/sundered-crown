@@ -1,0 +1,4 @@
+oracle on mut-stunlock.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 2207 · reading 2 control: no turn while stunned, blade 10
+  win 44.1%   side A 44.5%   side B 43.7%   mean 66.8s   timeouts 0
+  by type  bow 58%  flail 50%  warhammer 42%  scythe 39%  twinblade 39%  greatsword 36%
+  worst    duskreave 10%  spellbreaker 15%  paradox 15%   (760 fights in 53s)

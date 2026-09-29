@@ -1,0 +1,12 @@
+=== ENGINE A/B: 41 relics, 6 seeds x 820 pairings ===
+
+  sc-oracle-b10.html              4920 matches  521.8s
+  sc-oracle-fx.html               4920 matches  630.0s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4920
+  PASS  every match identical field for field  — 4920/4920
+  PASS  the sweep is real  — 41/41 distinct winners, 4920 distinct seeds, 21.4-131.5s
+
+ENGINE A/B PASS — ../02-chain/sc-oracle-fx.html does not move the 41-relic roster.
+exit 0

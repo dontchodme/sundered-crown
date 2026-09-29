@@ -1,0 +1,17 @@
+
+FORESIGHT PROBE  mut-wait.html  Chromium 151.0.7922.34  152 fights (Oracle both sides x every foe x 2 seeds)   {'dmg': 10, 'charge': 14, 'dur': 8, 'turn': 6, 'hex': 1}
+  casts/fight 3.62   blows a fight in / out of windows 19.95 / 12.64   (arrows 14.27 / 7.93)   Oracle win 44.1%   mean 67.0s
+  per cast: arrow hits 3.94   blade blows in windows 1.57   second hexes 3.88   hex applied by window arrows 4309 for 2169 arrows
+  outside: 1206 arrows in 5010s of live time = 1.93 a window-equivalent (8s)   foe hex on a window frame 2.85 pooled, 2.90 per fight (the lab's f_foeStk)
+  THE LOCK (after 0.5s): 38.3% of 444942 window frames within turn x dt of the lead; of the 274704 not, 98% within 0.6s of a jump in the foe's velocity (a bounce or a knock)
+  aim frames 477319 (stunned 79541, held 5)   shots in / out 9762 / 13048   clock closes 458  death closes 41   FREEZE CENSUS 14.8% of window steps frozen
+  OWNERS: the charge as tickCharge left it on 1078475 entries, the cadence as tickFire left it on 1078323, the window as the cast / tickSight left it on 477870; tickWeapon wrote only the facing on 1078475 frames
+  [1] PASS  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only the cast and tickSight write it; only Oracle carries ultSight
+  [2] PASS  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside
+  [3] PASS  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned; only tickFire moves the cadence
+  [4] PASS  the arrow as ever: every blow's damage rebuilt exactly, its own stop and one beat, in the window and out
+  [5] PASS  the double hex: an arrow landing in a window applies the channel's hex and +hex (side letter); nothing on a blade blow or outside
+  [6] PASS  nothing else: tickWeapon writes only the facing (every other field snapshotted); tickSight only its window and tally; no apply moves the stop
+  [7] FAIL  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window; the charge fills by dt and only tickCharge writes it   33220 FAIL: ['charge 14.008333333333178 reached 14 with no cast (window false)', 'charge 14.016666666666511 reached 14 with no cast (window false)', 'charge 14.024999999999844 reached 14 with no cast (window false)', 'charge 14.033333333333177 reached 14 with no cast (window false)']
+
+  6/7

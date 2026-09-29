@@ -82,7 +82,14 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-widowmaker-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 40 RELICS:
+02-chain/sc-oracle-fx.html       THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 41 RELICS:
+                                 ORACLE / FORESIGHT, the runic bow (oracle_build.py 1, 2,
+                                 3, 5, 6, v105), carried onto sc-widowmaker-fxout. For
+                                 8s the bow turns onto the foe's lead and every window
+                                 hit hexes twice. Charge 14, blade 10 (49.5%), under
+                                 the brief's 11.5-12: Rick's. Carry proved against
+                                 scratch and the tip; probe 9/9; shell_identity 195/195.
+02-chain/sc-widowmaker-fxout.html the link under it, AWAITING RICK'S EYE. 40 RELICS:
                                  WIDOWMAKER / EXSANGUINATE REDESIGNED (widowmaker_build.py
                                  1, 2, 5, 6 and fx_remove.py, v106), carried onto
                                  sc-lodestone-b205-fx. The nova is gone: for 8s every
@@ -2584,7 +2591,9 @@ its first line headless and wraps its body in try/catch. Render it in an
 **5. `_burst` DOES NOT LOOP ITS 0.6s NOISE BUFFER**, so any burst longer than
 that plays silence for its tail. `_tone` ends on an exponential ramp over its
 whole length, so **a HELD note does not exist in this toolkit** — anything that
-must last is re-struck. Both are live bugs across 24 shipped voices.
+must last is re-struck. Both are live bugs across 24 shipped voices. And the
+ramp ends at a gain of 0.0001 ABSOLUTE, not relative to the strike: a very quiet
+strike at gain g falls only 20*log10(g/1e-4) dB over its length (v105's voice lab).
 
 **6. AN INSTRUMENT THAT FIRES WHERE THE MECHANIC DOES NOT MEASURES SOMETHING
 ELSE.** The pin read −12% triggered on a clock and +42% triggered on its own

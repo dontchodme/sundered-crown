@@ -1,0 +1,26 @@
+== render_ab sc-oracle-b10 -> sc-oracle-fx, the other relics' pairs (default frames 0.5,6,12,22,31,40)
+
+RENDER A/B  4 pairings x 6 frames  540x960
+  a  sc-oracle-b10.html
+  b  sc-oracle-fx.html
+
+PASS  24/24 frames pixel-identical.
+      Same relics, same seeds, same frame indices, one runtime.
+EXIT 0
+
+== CONTROL: Oracle v Heartwood 105312 (windows 15.07-23.78 and 30.38-39.73 on the match clock); frame 6 is before the first cast
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-oracle-b10.html
+  b  sc-oracle-fx.html
+  oracle v heartwood seed 105312 t= 16.00  DIFFERS   luma 25.635 -> 25.887   lit 90.15% -> 90.15%
+  oracle v heartwood seed 105312 t= 20.00  DIFFERS   luma 23.719 -> 23.925   lit 88.46% -> 88.46%
+  oracle v heartwood seed 105312 t= 31.00  DIFFERS   luma 27.671 -> 27.802   lit 89.94% -> 89.94%
+  oracle v heartwood seed 105312 t= 35.00  DIFFERS   luma 24.722 -> 25.030   lit 84.77% -> 84.75%
+  oracle v heartwood seed 105312 t= 39.50  DIFFERS   luma 23.884 -> 24.301   lit 78.76% -> 78.73%
+
+FAIL  1/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+EXIT 1

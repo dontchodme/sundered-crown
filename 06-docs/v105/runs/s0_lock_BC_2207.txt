@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · ironhail as runic:bow · 33 foes x 20 seeds = 660 fights an arm · the lab mechanism counted (lock, arrows/blades)
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/outarrowHits f_foeStk   f_lock  f_lockF    f_wfz    f_wst      hex l_arrows l_blades
+  B       67.1%   3.10 12.27/11.54      3.81     2.10  1100.30  2523.37   385.65  2711.40     0.00     2.84     1.11
+  C       75.2%   3.08 12.59/11.66      3.93     2.82  1075.98  2475.65   372.90  2662.00     3.93     2.98     1.11
+  1320 fights in 302s   errors: []

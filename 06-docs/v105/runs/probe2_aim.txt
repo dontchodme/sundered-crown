@@ -1,0 +1,17 @@
+
+FORESIGHT PROBE  sc-oracle-aim.html  Chromium 151.0.7922.34  456 fights (Oracle both sides x every foe x 6 seeds)   {'dmg': 16.23, 'charge': 14, 'dur': 8, 'turn': 6, 'hex': 0}
+  casts/fight 3.03   blows a fight in / out of windows 14.50 / 10.27   (arrows 10.70 / 6.84)   Oracle win 81.4%   mean 55.1s
+  per cast: arrow hits 3.53   blade blows in windows 1.26   second hexes 0.00   hex applied by window arrows 4877 for 4877 arrows
+  outside: 3119 arrows in 12410s of live time = 2.01 a window-equivalent (8s)   foe hex on a window frame 2.15 pooled, 2.25 per fight (the lab's f_foeStk)
+  THE LOCK (after 0.5s): 41.3% of 1094396 window frames within turn x dt of the lead; of the 642414 not, 98% within 0.6s of a jump in the foe's velocity (a bounce or a knock)
+  aim frames 1175523 (stunned 189462, held 5)   shots in / out 24180 / 32275   clock closes 1080  death closes 202   FREEZE CENSUS 14.7% of window steps frozen
+  OWNERS: the charge as tickCharge left it on 2664760 entries, the cadence as tickFire left it on 2664304, the window as the cast / tickSight left it on 1176903; tickWeapon wrote only the facing on 2664760 frames
+  [1] PASS  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only the cast and tickSight write it; only Oracle carries ultSight
+  [2] PASS  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside
+  [3] PASS  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned; only tickFire moves the cadence
+  [4] PASS  the arrow as ever: every blow's damage rebuilt exactly, its own stop and one beat, in the window and out
+  [5] PASS  the double hex: an arrow landing in a window applies the channel's hex and +hex (side letter); nothing on a blade blow or outside
+  [6] PASS  nothing else: tickWeapon writes only the facing (every other field snapshotted); tickSight only its window and tally; no apply moves the stop
+  [7] PASS  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window; the charge fills by dt and only tickCharge writes it
+
+  7/7

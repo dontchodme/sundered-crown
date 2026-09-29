@@ -1,0 +1,23 @@
+== BUILDER CONTROLS, re-made on the FINAL builder (ae5d6f4e641a2b16): one bad line in a stage-6 row each; each must refuse and write nothing
+-- ob2_foevx.py (the change):
+623a624
+>         foe.vx += 1e-9;
+   run:
+REFUSING TO WRITE -- stage 6 insert 'foresight picture: tickForesight' writes foe.vx
+-- ob2_rng.py (the change):
+550a551
+>     if (this.rng() < 0) this.shake += 0;
+   run:
+REFUSING TO WRITE -- stage 6 insert 'foresight picture: the presentation call' draws the RNG or uses the one ultFx slot
+-- ob2_theta.py (the change):
+550a551
+>     this.a.theta += 0;
+   run:
+REFUSING TO WRITE -- stage 6 insert 'foresight picture: the presentation call' writes a.theta
+-- ob2_apply.py (the change):
+501c501
+<         SFX.play("ult", { w: "oracle-hex", n: foe.stacks("hex") });'''),
+---
+>         SFX.play("ult", { w: "oracle-hex", n: foe.stacks("hex") }); foe.apply("hex", 0, "a");'''),
+   run:
+REFUSING TO WRITE -- stage 6 insert 'resolveHit: the snap, pitched by the foe's hex count, once per second hex' calls into the simulation

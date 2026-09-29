@@ -1,0 +1,6 @@
+39 relics · Chromium 151.0.7922.34 · oracle (redesign) · 33 foes x 20 seeds = 660 fights an arm · built sc-oracle-aim (fix round)
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    84.1%   0.00  0.00/24.66 
+  660 fights in 45s   errors: []

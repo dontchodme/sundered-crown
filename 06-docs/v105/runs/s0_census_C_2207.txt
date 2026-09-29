@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · ironhail as runic:bow · 33 foes x 20 seeds = 660 fights an arm · census arm C block 2207
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/outarrowHits f_foeStk f_frozen  f_steps    f_wfz    f_wst      hex
+  C       75.2%   3.08 12.59/11.66      3.93     2.82   762.48  6763.86   372.90  2662.00     3.93
+  660 fights in 61s   errors: []

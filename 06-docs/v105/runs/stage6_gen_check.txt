@@ -1,0 +1,22 @@
+voice rows   4f3e2656c44f9237 10352 bytes
+picture rows 72e885b17b2e193e 18887 bytes (picture lab: 72e885b17b2e193e)
+returned rows == the files (labels, anchors, modes, the quoted code)
+picture rows alone: 1bdec440699e6fd7 (+16149) (picture lab's stamp 1bdec440699e6fd7, +16149)
+voice rows alone:   b65621b4f4847be5 (+6856) (voice lab's e2e b65621b4f4847be5, +6856)
+voice then picture: 4e8f47301b97d7d7 (+23005) (voice lab's interleaving 4e8f47301b97d7d7, +23005)
+picture-then-voice and 20 shuffles: byte-identical
+  line   7435-7435   before Sfx: Oracle's cast, sigil, snap and close arms, before the shared rune-crack fal
+  line  13689-13689  after  tickSight: the sigil's shimmer, re-struck every 8 window frames while the window
+  line  14811-14811  after  resolveHit: the snap, pitched by the foe's hex count, once per second hex
+  line  13686-13686  before tickSight: the close voice, on a clock close with both fighters alive
+  line   7713-7714   after  foresight picture: fighter fields
+  line   8993-8994   after  foresight picture: the presentation call
+  line  13693-13693  before foresight picture: tickForesight
+  line  19372-19372  after  foresight picture: the floor call (world, under both balls)
+  line  19434-19434  after  foresight picture: the emissive call (over both fighters)
+  line  22623-22623  after  foresight picture: the eye on the glass
+  line  20444-20444  before foresight picture: the drawing methods
+11 rows, 11 anchor-line groups; rows sharing an anchor line: 0
+11 edits; none carries ''' or a backslash
+11 edits; none carries ''' or a backslash
+stage 6 written into oracle_build.py: 11 edits; c835ba672ae4bff7

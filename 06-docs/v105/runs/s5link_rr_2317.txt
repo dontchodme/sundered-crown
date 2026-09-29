@@ -1,0 +1,4 @@
+oracle on sc-oracle-b10.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 2317 · stage 5 link, no set
+  win 48.3%   side A 50.0%   side B 46.6%   mean 66.6s   timeouts 0
+  by type  bow 54%  greatsword 54%  flail 51%  warhammer 47%  scythe 45%  twinblade 37%
+  worst    dawnbringer 15%  gloamwire 15%  spellbreaker 25%   (760 fights in 100s)

@@ -1,0 +1,16 @@
+
+FORESIGHT PROBE  mut-bladehex.html  Chromium 151.0.7922.34  152 fights (Oracle both sides x every foe x 2 seeds)   {'dmg': 10, 'charge': 14, 'dur': 8, 'turn': 6, 'hex': 1}
+  casts/fight 3.68   blows a fight in / out of windows 21.96 / 11.59   (arrows 15.90 / 7.56)   Oracle win 55.3%   mean 65.8s
+  per cast: arrow hits 5.96   blade blows in windows 1.64   second hexes 5.85   hex applied by window arrows 4793 for 2417 arrows
+  outside: 1149 arrows in 4748s of live time = 1.94 a window-equivalent (8s)   foe hex on a window frame 3.10 pooled, 3.14 per fight (the lab's f_foeStk)
+  THE LOCK (after 0.5s): 39.4% of 455743 window frames within turn x dt of the lead; of the 276050 not, 98% within 0.6s of a jump in the foe's velocity (a bounce or a knock)
+  aim frames 488488 (stunned 78323, held 6)   shots in / out 10049 / 12313   clock closes 460  death closes 57   FREEZE CENSUS 15.0% of window steps frozen
+  [1] PASS  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only Oracle carries ultSight
+  [2] PASS  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside
+  [3] PASS  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned
+  [4] PASS  the arrow as ever: every blow's damage rebuilt exactly, its own stop and one beat, in the window and out
+  [5] FAIL  the double hex: an arrow landing in a window applies the channel's hex and +hex (side letter); nothing on a blade blow or outside   1820 FAIL: ['a blade blow in the window applied [["hex",1,"a"]] (hex 1)', 'the tally moved on a blow it should not count', 'a blade blow in the window applied [["hex",1,"a"]] (hex 1)', 'the tally moved on a blow it should not count']
+  [6] PASS  nothing else: tickWeapon moves no ball; tickSight writes only its window and tally; no apply moves the stop
+  [7] PASS  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window
+
+  6/7

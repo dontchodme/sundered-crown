@@ -1,0 +1,2 @@
+{"fights": 12, "draws": 36750, "winDraws": 35313, "throws": [], "writes": 0, "casts": 35}
+page errors: []

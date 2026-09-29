@@ -1,0 +1,29 @@
+  (21 insert(s) found in oracle_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-oracle-fx.html
+tip    sc-oracle-fx.html
+21 inserts read out of oracle_build.py
+
+    ok  S1:oracle joins the roster at the end of WEAPONS, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the sight has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the sight relic  1  mid   -  tip  1
+    ok  S2:the bow aims at the lead, each window frame, stunned or not relic  1  mid   -  tip  1
+    ok  S2:the cast opens the sight and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:an arrow that lands in the window hexes twice relic  1  mid   -  tip  1
+    ok  S2:the sight ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickSight runs the window's clock relic  1  mid   -  tip  1
+    ok  S3:the double hex          relic  1  mid   -  tip  1
+    ok  S5_ROWS:the blade: at the crossing relic  1  mid   -  tip  1
+    ok  S6:Sfx: Oracle's cast, sigil, snap and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:tickSight: the sigil's shimmer, re-struck every 8 window frames while the window runs relic  1  mid   -  tip  1
+    ok  S6:resolveHit: the snap, pitched by the foe's hex count, once per second hex relic  1  mid   -  tip  1
+    ok  S6:tickSight: the close voice, on a clock close with both fighters alive relic  1  mid   -  tip  1
+    ok  S6:foresight picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:foresight picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:foresight picture: tickForesight relic  1  mid   -  tip  1
+    ok  S6:foresight picture: the floor call (world, under both balls) relic  1  mid   -  tip  1
+    ok  S6:foresight picture: the emissive call (over both fighters) relic  1  mid   -  tip  1
+    ok  S6:foresight picture: the eye on the glass relic  1  mid   -  tip  1
+    ok  S6:foresight picture: the drawing methods relic  1  mid   -  tip  1
+
+ALL 21 INSERTS SURVIVE to sc-oracle-fx.html
+EXIT 0

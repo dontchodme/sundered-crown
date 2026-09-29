@@ -1,0 +1,17 @@
+  (10 insert(s) found in oracle_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-oracle-b10.html
+tip    sc-oracle-b10.html
+10 inserts read out of oracle_build.py
+
+    ok  S1:oracle joins the roster at the end of WEAPONS, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the sight has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the sight relic  1  mid   -  tip  1
+    ok  S2:the bow aims at the lead, each window frame, stunned or not relic  1  mid   -  tip  1
+    ok  S2:the cast opens the sight and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:an arrow that lands in the window hexes twice relic  1  mid   -  tip  1
+    ok  S2:the sight ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickSight runs the window's clock relic  1  mid   -  tip  1
+    ok  S3:the double hex          relic  1  mid   -  tip  1
+    ok  S5_ROWS:the blade: at the crossing relic  1  mid   -  tip  1
+
+ALL 10 INSERTS SURVIVE to sc-oracle-b10.html

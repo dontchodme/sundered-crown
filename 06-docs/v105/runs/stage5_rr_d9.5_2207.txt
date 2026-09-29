@@ -1,0 +1,4 @@
+oracle on sc-oracle-sight.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 2207 · set dmg=9.5 · stage 5 grid
+  win 50.5%   side A 46.8%   side B 54.2%   mean 67.4s   timeouts 0
+  by type  bow 61%  greatsword 55%  flail 55%  twinblade 46%  warhammer 44%  scythe 41%
+  worst    duskreave 15%  lastlight 20%  spellbreaker 20%   (760 fights in 141s)

@@ -1,0 +1,22 @@
+
+FORESIGHT PROBE  mut6-drawvx.html  Chromium 151.0.7922.34  76 fights (Oracle both sides x every foe x 1 seeds)   {'dmg': 10, 'charge': 14, 'dur': 8, 'turn': 6, 'hex': 1}
+  casts/fight 3.82   blows a fight in / out of windows 22.20 / 12.17   (arrows 16.08 / 7.70)   Oracle win 53.9%   mean 67.4s
+  per cast: arrow hits 4.21   blade blows in windows 1.60   second hexes 4.15   hex applied by window arrows 2426 for 1222 arrows
+  outside: 585 arrows in 2412s of live time = 1.94 a window-equivalent (8s)   foe hex on a window frame 2.98 pooled, 3.04 per fight (the lab's f_foeStk)
+  THE LOCK (after 0.5s): 40.2% of 234353 window frames within turn x dt of the lead; of the 140112 not, 97% within 0.6s of a jump in the foe's velocity (a bounce or a knock)
+  aim frames 251399 (stunned 41023, held 2)   shots in / out 5159 / 6246   clock closes 235  death closes 23   FREEZE CENSUS 15.2% of window steps frozen
+  OWNERS: the charge as tickCharge left it on 540838 entries, the cadence as tickFire left it on 540762, the window as the cast / tickSight left it on 251689; tickWeapon wrote only the facing on 540838 frames; one `ult` beat on 290 casts
+  STAGE 6 VOICE: cast voices 290 for 290 casts; sigil strikes 31483 (window frames 251431); snaps 1204 for 1204 second hexes (n 1:0 2:189 3:71 4:125 5:819); close voices 235 for 235 clock closes, none on 23 death closes; the run's Oracle voices {'oracle': 290, 'oracle-sigil': 31483, 'oracle-hex': 1204, 'oracle-close': 235}
+  STAGE 6 PICTURE: tickForesight calls with the sim untouched 1155207; the eye at 1 on 547831 open-window ticks, shut after 232 closes; flares 1203 (killing arrows, no flare: 18); HEX tags carrying the count 1203 (1:0 2:187 3:73 4:123 5:820)
+    drawn subset: 5117 frames through the renderer (0 with the picture up, 0 of them in a hit stop, 0 with the eye opening or shutting); drawn fights ending where their undrawn replay does: 0
+  [1] PASS  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only the cast and tickSight write it; only Oracle carries ultSight
+  [2] PASS  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside
+  [3] PASS  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned; only tickFire moves the cadence
+  [4] PASS  the arrow as ever: every blow's damage rebuilt exactly, its own stop and one beat, in the window and out
+  [5] PASS  the double hex: an arrow landing in a window applies the channel's hex and +hex (side letter); nothing on a blade blow or outside
+  [6] PASS  nothing else: tickWeapon writes only the facing (every other field snapshotted); tickSight only its window and tally; no apply moves the stop
+  [7] PASS  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window, one `ult` beat; the charge fills by dt and only tickCharge writes it
+  [8] PASS  stage 6 voice: one cast voice a cast; the sigil on the window's 1st, 9th, 17th... frame and no other; one snap a second hex at the foe's count; one close voice a clock close and none on a death; every Oracle voice accounted for
+  [9] FAIL  stage 6 picture: tickForesight writes no sim field and draws no RNG; the eye at 1 through every open window and never rising outside; one flare a landed window arrow on a live foe; a HEX tag carrying the count on each second hex; no drawn frame throws or writes the sim   50960 FAIL: ['a drawn frame changed the sim: "46043719624,516.75070357912,237.25968184421737,-628.0300779072586,473." -> "46043719624,516.75070357912,237.25968184521736,-628.0300779072586,473."', 'a drawn frame changed the sim: "46043719624,516.75070357912,237.25968184521736,-593.2600444893769,473." -> "46043719624,516.75070357912,237.25968184621735,-593.2600444893769,473."', 'a drawn frame changed the sim: "096202341,488.1205713966346,236.86272547798848,-557.5331172734768,473." -> "096202341,488.1205713966346,236.86272547898847,-557.5331172734768,473."', 'a drawn frame changed the sim: "71280788,461.28295912093637,236.30863464446628,-521.5083395941459,472." -> "71280788,461.28295912093637,236.30863464546627,-521.5083395941459,472."']
+
+  8/9

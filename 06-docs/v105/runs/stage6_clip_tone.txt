@@ -1,0 +1,20 @@
+CLIP C:/dev/sundered-crown/07-shorts/v105/foresight-window.mp4  12.35s mono 48000 Hz
+THE SIGIL'S LINE, 2640 Hz, over the median of 2.4-2.9 kHz (a tone stands tens of dB out of it):
+  before the cast   0.00-1.15:  line   -1.0 dB over the band
+  window, early     1.60-5.60:  line  +37.1 dB over the band
+  window, late      5.60-10.50:  line  +35.0 dB over the band
+  after the close  11.00-12.30:  line   -2.3 dB over the band
+LOUDNESS (RMS dBFS, 50 ms) at each voice's frame against the 150 ms before it:
+  cast   1.20:   -17.9 dB  (before  -18.4)
+  snap n2 2.16:   -13.6 dB  (before  -18.2)
+  snap n4 4.46:   -13.1 dB  (before  -18.4)
+  snap n5 5.42:   -15.1 dB  (before  -24.7)
+  snap n3 8.66:   -16.6 dB  (before  -20.2)
+  close 10.55:   -17.9 dB  (before  -17.3)
+THE CHIME'S BAR MODE, 2640 x 2.76 = 7286 Hz (only the cast and the close carry it; the sigil is a pure 2640):
+  before the cast   0.60-1.10:  line   -1.0 dB over the 6.8-7.8 kHz band
+  the cast's chime  1.45-1.95:  line  +25.9 dB over the 6.8-7.8 kHz band
+  mid-window        5.00-5.50:  line   -8.1 dB over the 6.8-7.8 kHz band
+  mid-window        9.00-9.50:  line   -9.0 dB over the 6.8-7.8 kHz band
+  the close         10.50-11.00:  line  +44.0 dB over the 6.8-7.8 kHz band
+  after the close   11.30-11.80:  line   -6.3 dB over the 6.8-7.8 kHz band

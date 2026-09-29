@@ -1,0 +1,4 @@
+  ok    ult   ult:{ name:"Foresight", charge:14, kind:"sight", dur:8, turn:6, hex:0, tip:"Every arrow flies to ...
+  ok    card  68 chars  'Every arrow flies to where the foe will be, and each hit hexes twice'
+  ok    row   the bow profile at dmg 16.23, onHit hex 1
+REFUSING TO WRITE -- chain_audit could not watch insert 'the bow aims at the lead, each window frame, stunned or not': its marker is in the output 2x ('const dl = Math.atan2(Math.sin(want - f.theta), Math.cos(want - f.theta));')

@@ -1,0 +1,43 @@
+  (21 insert(s) found in oracle_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-oracle-fx.html
+tip    sc-oracle-b10.html
+21 inserts read out of oracle_build.py
+
+    ok  S1:oracle joins the roster at the end of WEAPONS, its ultimate stubbed relic  1  mid   -  tip  1
+    ok  S2:the sight has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the sight relic  1  mid   -  tip  1
+    ok  S2:the bow aims at the lead, each window frame, stunned or not relic  1  mid   -  tip  1
+    ok  S2:the cast opens the sight and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:an arrow that lands in the window hexes twice relic  1  mid   -  tip  1
+    ok  S2:the sight ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickSight runs the window's clock relic  1  mid   -  tip  1
+    ok  S3:the double hex          relic  1  mid   -  tip  1
+    ok  S5_ROWS:the blade: at the crossing relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Oracle's cast, sigil, snap and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'this._tone(t + 0.33 + Math.round(f * 0.03 * i / 4) / f, { freq: f, gain: g * k / 4, dur:'
+  LOST  S6:tickSight: the sigil's shimmer, re-struck every 8 window frames while the window runs relic  1  mid   -  tip  0
+        'if (Math.round(Z.t / dt) % 8 === 1) SFX.play("ult", { w: "oracle-sigil" });'
+  LOST  S6:resolveHit: the snap, pitched by the foe's hex count, once per second hex relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "oracle-hex", n: foe.stacks("hex") });'
+  LOST  S6:tickSight: the close voice, on a clock close with both fighters alive relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur && f.alive && foe.alive) SFX.play("ult", { w: "oracle-close" });'
+  LOST  S6:foresight picture: fighter fields relic  1  mid   -  tip  0
+        'this.foreSeen = [0, 0];'
+  LOST  S6:foresight picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickForesight(dt);             // FORESIGHT'S PICTURE (v75 section 6.1)"
+  LOST  S6:foresight picture: tickForesight relic  1  mid   -  tip  0
+        'if (!T && !(f.foreFade > 0)) continue;                   // <- zero burden'
+  LOST  S6:foresight picture: the floor call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawForesight(m);'
+  LOST  S6:foresight picture: the emissive call (over both fighters) relic  1  mid   -  tip  0
+        'this.drawForesightTop(m);'
+  LOST  S6:foresight picture: the eye on the glass relic  1  mid   -  tip  0
+        'if (f.foreFade > 0) this._foreEye(c, f, R);'
+  LOST  S6:foresight picture: the drawing methods relic  1  mid   -  tip  0
+        'c.beginPath(); c.moveTo(s.x - ux * tl, s.y - uy * tl); c.lineTo(s.x - ux * s.r * 0.4, s.'
+
+!! 11 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Oracle's cast, sigil, snap and close arms, before the shared rune-crack fallback, S6:tickSight: the sigil's shimmer, re-struck every 8 window frames while the window runs, S6:resolveHit: the snap, pitched by the foe's hex count, once per second hex, S6:tickSight: the close voice, on a clock close with both fighters alive, S6:foresight picture: fighter fields, S6:foresight picture: the presentation call, S6:foresight picture: tickForesight, S6:foresight picture: the floor call (world, under both balls), S6:foresight picture: the emissive call (over both fighters), S6:foresight picture: the eye on the glass, S6:foresight picture: the drawing methods
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+EXIT 1

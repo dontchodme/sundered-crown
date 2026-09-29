@@ -1,0 +1,30 @@
+  (10 insert(s) found in oracle_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-oracle-b10.html
+tip    sc-tendril-t3.html
+10 inserts read out of oracle_build.py
+
+  LOST  S1:oracle joins the roster at the end of WEAPONS, its ultimate stubbed relic  1  mid   -  tip  0
+        'blurb:"A runic bow that foresees: a rune marks where the foe will be, every arrow flies '
+  LOST  S2:the sight has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  0
+        'ult:{ name:"Foresight", charge:14, kind:"sight", dur:8, turn:6,   // v75 stage 2: the bo'
+  LOST  S2:the fighter carries the sight relic  1  mid   -  tip  0
+        'this.sightTally = null;'
+  LOST  S2:the bow aims at the lead, each window frame, stunned or not relic  1  mid   -  tip  0
+        'const dl = Math.atan2(Math.sin(bearing - f.theta), Math.cos(bearing - f.theta));'
+  LOST  S2:the cast opens the sight and resolves nothing relic  1  mid   -  tip  0
+        'f.sightTally = { casts: 0, frames: 0, foeHex: 0, arrows: 0, hex: 0 };'
+  LOST  S2:an arrow that lands in the window hexes twice relic  1  mid   -  tip  0
+        'foe.apply("hex", self.w.ult.hex, self === this.a ? "a" : "b");'
+  LOST  S2:the sight ticks with the window tickers relic  1  mid   -  tip  0
+        'this.tickSight(dt);                 // FORESIGHT (v75)'
+  LOST  S2:tickSight runs the window's clock relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur || !f.alive || !foe.alive){ f.ultSight = null; continue; }'
+  LOST  S3:the double hex          relic  1  mid   -  tip  0
+        'hex:1,          // v75: the double hex (stage 3)'
+  LOST  S5_ROWS:the blade: at the crossing relic  1  mid   -  tip  0
+        'blades:[0], reach:54, width:9, artW:44, dmg:10, spin:2.8, mode:"ranged", mass:1.6,'
+
+!! 10 INSERT(S) DID NOT SURVIVE THE CHAIN: S1:oracle joins the roster at the end of WEAPONS, its ultimate stubbed, S2:the sight has a charge: the lab's 16 on the game's clock, S2:the fighter carries the sight, S2:the bow aims at the lead, each window frame, stunned or not, S2:the cast opens the sight and resolves nothing, S2:an arrow that lands in the window hexes twice, S2:the sight ticks with the window tickers, S2:tickSight runs the window's clock, S3:the double hex, S5_ROWS:the blade: at the crossing
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

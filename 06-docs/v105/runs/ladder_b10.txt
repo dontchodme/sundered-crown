@@ -1,0 +1,11 @@
+THE LADDER: oracle on sc-oracle-b10.html  set []  40 fights a foe (2 blocks x 10 seeds x 2 sides)
+  by type   bow 57%  greatsword 52%  flail 51%  scythe 48%  warhammer 47%  twinblade 40%
+  by foe (worst first):
+    gloamwire 15.0   twinshade 20.0   dawnbringer 25.0   duskreave 27.5   spellbreaker 30.0   shroudmaul 30.0
+    ironwood 32.5   bloodmirror 40.0   morningstar 40.0   oathwound 42.5   lastlight 42.5   paradox 42.5
+    foregone 45.0   cindercleave 45.0   portcullis 45.0   bindweed 45.0   slagheart 47.5   axiom 47.5
+    widowmaker 50.0   censer 50.0   bulwarden 50.0   thornshear 50.0   starwarden 50.0   gravemourn 52.5
+    thornwake 55.0   lightkeeper 55.0   ironhail 57.5   nightfell 57.5   ravelbone 57.5   grudgebearer 62.5
+    aureole 62.5   emberedge 65.0   farwarden 67.5   vinesower 67.5   marrowdraw 70.0   heartwood 72.5
+    redflail 82.5   vesper 82.5
+  pooled 49.5%   mean 66.5s

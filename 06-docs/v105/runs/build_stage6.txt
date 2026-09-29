@@ -1,0 +1,23 @@
+
+ORACLE / FORESIGHT -- stage 6
+  src sc-oracle-b10.html  72dcd8aa43e5b501  (LF text)
+  base  by content: the bow profile (Ironhail's row), the runic channel, hex, ballisticAngle at grav 0, the ranged branch, resolveHit's onHit loop
+  ok    Sfx: Oracle's cast, sigil, snap and close arms, before the shared rune-crack fallback
+  ok    tickSight: the sigil's shimmer, re-struck every 8 window frames while the window runs
+  ok    resolveHit: the snap, pitched by the foe's hex count, once per second hex
+  ok    tickSight: the close voice, on a clock close with both fighters alive
+  ok    foresight picture: fighter fields
+  ok    foresight picture: the presentation call
+  ok    foresight picture: tickForesight
+  ok    foresight picture: the floor call (world, under both balls)
+  ok    foresight picture: the emissive call (over both fighters)
+  ok    foresight picture: the eye on the glass
+  ok    foresight picture: the drawing methods
+  ok    ult   ult:{ name:"Foresight", charge:14, kind:"sight", dur:8, turn:6, hex:1, tip:"Every arrow flies to ...
+  ok    card  68 chars  'Every arrow flies to where the foe will be, and each hit hexes twice'
+  ok    row   the bow profile at dmg 10, onHit hex 1
+  ok    chain_audit's marker for each of the 21 inserts is in the output once
+  ok    one sight ultimate, Oracle's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon row, pins, stops or deals; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse (node --check)
+
+  out sc-oracle-fx.html  4e8f47301b97d7d7   (+23005 chars, written LF)

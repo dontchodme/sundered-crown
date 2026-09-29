@@ -1,0 +1,20 @@
+== REBUILD all five links from the stage-6 builder into tmp/rb8 (base 02-chain/sc-tendril-t3.html)
+  out sc-oracle.html  d68f270896af8fe3   (+952 chars, written LF)
+  out sc-oracle-aim.html  1932863f5ab0f88a   (+4270 chars, written LF)
+  out sc-oracle-sight.html  23229388fac65e8a   (+0 chars, written LF)
+  out sc-oracle-b10.html  72dcd8aa43e5b501   (-3 chars, written LF)
+  out sc-oracle-fx.html  4e8f47301b97d7d7   (+23005 chars, written LF)
+  sc-oracle.html byte-identical to links/ (d68f270896af8fe3)
+  sc-oracle-aim.html byte-identical to links/ (1932863f5ab0f88a)
+  sc-oracle-sight.html byte-identical to links/ (23229388fac65e8a)
+  sc-oracle-b10.html byte-identical to links/ (72dcd8aa43e5b501)
+  sc-oracle-fx.html byte-identical to links/ (4e8f47301b97d7d7)
+== REFUSALS
+-- a second write:
+refusing to overwrite sc-oracle-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+-- stage 6 on its own output:
+'tickForesight' is already in this source -- stage 6 goes on once
+-- stage 6 on stage 3:
+stage 6 goes on stage 5: Oracle's ult block or blade is not stage 5's
+-- stage 6 on the base (no Oracle):
+stage 6 needs stage 1 under it

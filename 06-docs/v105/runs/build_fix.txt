@@ -1,0 +1,45 @@
+
+ORACLE / FORESIGHT -- stage 2
+  src sc-oracle.html  d68f270896af8fe3  (LF text)
+  base  by content: the bow profile (Ironhail's row), the runic channel, hex, ballisticAngle at grav 0, the ranged branch, resolveHit's onHit loop
+  ok    the sight has a charge: the lab's 16 on the game's clock
+  ok    the fighter carries the sight
+  ok    the bow aims at the lead, each window frame, stunned or not
+  ok    the cast opens the sight and resolves nothing
+  ok    an arrow that lands in the window hexes twice
+  ok    the sight ticks with the window tickers
+  ok    tickSight runs the window's clock
+  ok    ult   ult:{ name:"Foresight", charge:14, kind:"sight", dur:8, turn:6, hex:0, tip:"Every arrow flies to ...
+  ok    card  68 chars  'Every arrow flies to where the foe will be, and each hit hexes twice'
+  ok    row   the bow profile at dmg 16.23, onHit hex 1
+  ok    chain_audit's marker for each of the 8 inserts is in the output once
+  ok    one sight ultimate, Oracle's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon row, pins, stops or deals; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse (node --check)
+
+  out sc-oracle-aim.html  1932863f5ab0f88a   (+4270 chars, written LF)
+
+ORACLE / FORESIGHT -- stage 3
+  src sc-oracle-aim.html  1932863f5ab0f88a  (LF text)
+  base  by content: the bow profile (Ironhail's row), the runic channel, hex, ballisticAngle at grav 0, the ranged branch, resolveHit's onHit loop
+  ok    the double hex
+  ok    ult   ult:{ name:"Foresight", charge:14, kind:"sight", dur:8, turn:6, hex:1, tip:"Every arrow flies to ...
+  ok    card  68 chars  'Every arrow flies to where the foe will be, and each hit hexes twice'
+  ok    row   the bow profile at dmg 16.23, onHit hex 1
+  ok    chain_audit's marker for each of the 9 inserts is in the output once
+  ok    one sight ultimate, Oracle's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon row, pins, stops or deals; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse (node --check)
+
+  out sc-oracle-sight.html  23229388fac65e8a   (+0 chars, written LF)
+
+ORACLE / FORESIGHT -- stage 5
+  src sc-oracle-sight.html  23229388fac65e8a  (LF text)
+  base  by content: the bow profile (Ironhail's row), the runic channel, hex, ballisticAngle at grav 0, the ranged branch, resolveHit's onHit loop
+  ok    the blade: at the crossing
+  ok    ult   ult:{ name:"Foresight", charge:14, kind:"sight", dur:8, turn:6, hex:1, tip:"Every arrow flies to ...
+  ok    card  68 chars  'Every arrow flies to where the foe will be, and each hit hexes twice'
+  ok    row   the bow profile at dmg 10, onHit hex 1
+  ok    chain_audit's marker for each of the 10 inserts is in the output once
+  ok    one sight ultimate, Oracle's; no insert draws the RNG, takes the ultFx slot, writes the shared weapon row, pins, stops or deals; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse (node --check)
+
+  out sc-oracle-b10.html  72dcd8aa43e5b501   (-3 chars, written LF)

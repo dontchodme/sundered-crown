@@ -1,0 +1,8 @@
+38 relics · Chromium 151.0.7922.34 · ironhail as runic:bow · 33 foes x 20 seeds = 660 fights an arm · the lab at the stage-5 blade 10
+  charge=16.0 dur=8.0 blade=10
+
+  arm       win  casts  hits in/outarrowHits f_foeStk      hex
+  A        4.5%   0.00  0.00/21.50      0.00     0.00     0.00
+  C       31.8%   3.73 16.73/13.74      4.44     2.93     4.44
+  lifts over A: C +27.3
+  1320 fights in 143s   errors: []

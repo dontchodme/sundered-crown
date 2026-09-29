@@ -1,0 +1,12 @@
+CLIP /c/dev/sundered-crown/07-shorts/v105/foresight-window.mp4  2748787 bytes  sha256[:16] bbd98ccb2179a5f0
+  Duration: 00:00:12.37, start: 0.000000, bitrate: 1777 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 540x960 [SAR 1:1 DAR 9:16], 1640 kb/s, 60 fps, 60 tbr, 15360 tbn, start 0.021354 (default)
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 126 kb/s (default)
+n_samples: 1185792
+mean_volume: -22.3 dB
+max_volume: -1.6 dB
+frames: 741,
+THE SIGIL'S BAND IN THE CLIP (bandpass 2640 Hz, Q 8): mean level before the cast, in the window, after the close
+  before-cast (0.0s +1.15s): -43.7 dB
+  window (1.6s +8.9s): -45.2 dB
+  after-close (11.2s +1.15s): -62.4 dB

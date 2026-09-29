@@ -1,0 +1,11 @@
+=== ENGINE A/B: 8 relics, 6 seeds x 28 pairings ===
+
+  sc-oracle-b10.html               168 matches   31.2s
+  sc-oracle-b10.html               168 matches   33.0s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 168
+  PASS  every match identical field for field  — 168/168
+  PASS  the sweep is real  — 8/8 distinct winners, 168 distinct seeds, 33.6-92.1s
+
+ENGINE A/B PASS — C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/oracle/links/sc-oracle-b10.html does not move the 8-relic roster.

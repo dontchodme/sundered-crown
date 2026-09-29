@@ -1,0 +1,17 @@
+
+FORESIGHT PROBE  mut-cadence.html  Chromium 151.0.7922.34  152 fights (Oracle both sides x every foe x 2 seeds)   {'dmg': 10, 'charge': 14, 'dur': 8, 'turn': 6, 'hex': 1}
+  casts/fight 3.76   blows a fight in / out of windows 22.71 / 11.87   (arrows 16.77 / 7.66)   Oracle win 57.2%   mean 66.5s
+  per cast: arrow hits 4.46   blade blows in windows 1.58   second hexes 4.39   hex applied by window arrows 5056 for 2549 arrows
+  outside: 1165 arrows in 4795s of live time = 1.94 a window-equivalent (8s)   foe hex on a window frame 3.07 pooled, 3.11 per fight (the lab's f_foeStk)
+  THE LOCK (after 0.5s): 39.4% of 458921 window frames within turn x dt of the lead; of the 278165 not, 98% within 0.6s of a jump in the foe's velocity (a bounce or a knock)
+  aim frames 492331 (stunned 80558, held 7)   shots in / out 0 / 12474   clock closes 463  death closes 55   FREEZE CENSUS 15.3% of window steps frozen
+  OWNERS: the charge as tickCharge left it on 1067770 entries, the cadence as tickFire left it on 1067618, the window as the cast / tickSight left it on 492902; tickWeapon wrote only the facing on 1067770 frames
+  [1] PASS  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only the cast and tickSight write it; only Oracle carries ultSight
+  [2] PASS  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside
+  [3] FAIL  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned; only tickFire moves the cadence   11192 FAIL: ['cadence after a shot 0.3026666666666593, want 0.3366666666666593', 'cadence after a shot 0.3003333333333259, want 0.3343333333333259', 'cadence after a shot 0.2979999999999925, want 0.33199999999999247', 'cadence after a shot 0.30399999999999244, want 0.3379999999999924']
+  [4] PASS  the arrow as ever: every blow's damage rebuilt exactly, its own stop and one beat, in the window and out
+  [5] PASS  the double hex: an arrow landing in a window applies the channel's hex and +hex (side letter); nothing on a blade blow or outside
+  [6] PASS  nothing else: tickWeapon writes only the facing (every other field snapshotted); tickSight only its window and tally; no apply moves the stop
+  [7] PASS  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window; the charge fills by dt and only tickCharge writes it
+
+  6/7

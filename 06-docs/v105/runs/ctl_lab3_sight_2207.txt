@@ -1,0 +1,6 @@
+39 relics · Chromium 151.0.7922.34 · oracle (redesign) · 33 foes x 20 seeds = 660 fights an arm · ctl lab clock+spin+hex, stage 3
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    75.6%   0.00  0.00/24.39 
+  660 fights in 74s   errors: []

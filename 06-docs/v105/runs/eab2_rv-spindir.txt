@@ -1,0 +1,20 @@
+=== ENGINE A/B: 8 relics, 4 seeds x 28 pairings ===
+
+  sc-oracle-b10.html               112 matches   48.3s
+  rv-spindir.html                  112 matches   46.8s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 112
+  FAIL  every match identical field for field  — 24 differ
+          #0
+            control {"seed": 1233799701, "a": "Oracle", "b": "Ironhail", "winner": "Ironhail", "hp": 77, "duration": 51.02, "reason": "slain", "hits": {"a": 30, "b": 19}, "crits": {"a": 0, "b": 1}, "clanks": 7}
+            variant {"seed": 1233799701, "a": "Oracle", "b": "Ironhail", "winner": "Oracle", "hp": 99, "duration": 58.02, "reason": "slain", "hits": {"a": 31, "b": 17}, "crits": {"a": 6, "b": 0}, "clanks": 4}
+          #2
+            control {"seed": 4184808219, "a": "Oracle", "b": "Ironhail", "winner": "Oracle", "hp": 233, "duration": 58.56, "reason": "slain", "hits": {"a": 41, "b": 13}, "crits": {"a": 1, "b": 0}, "clanks": 10}
+            variant {"seed": 4184808219, "a": "Oracle", "b": "Ironhail", "winner": "Ironhail", "hp": 18, "duration": 68.27, "reason": "slain", "hits": {"a": 32, "b": 19}, "crits": {"a": 3, "b": 3}, "clanks": 12}
+          #4
+            control {"seed": 2513597073, "a": "Oracle", "b": "Paradox", "winner": "Paradox", "hp": 77, "duration": 64.18, "reason": "slain", "hits": {"a": 27, "b": 10}, "crits": {"a": 7, "b": 0}, "clanks": 8}
+            variant {"seed": 2513597073, "a": "Oracle", "b": "Paradox", "winner": "Paradox", "hp": 55, "duration": 59.24, "reason": "slain", "hits": {"a": 27, "b": 10}, "crits": {"a": 5, "b": 2}, "clanks": 11}
+  PASS  the sweep is real  — 8/8 distinct winners, 112 distinct seeds, 35.1-86.7s
+
+ENGINE A/B FAIL

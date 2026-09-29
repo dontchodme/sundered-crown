@@ -1,0 +1,23 @@
+
+FORESIGHT PROBE  sc-oracle-fx.html  Chromium 151.0.7922.34  480 fights (Oracle both sides x every foe x 6 seeds)   {'dmg': 10, 'charge': 14, 'dur': 8, 'turn': 6, 'hex': 1}
+  casts/fight 3.80   blows a fight in / out of windows 21.56 / 12.16   (arrows 15.30 / 7.81)   Oracle win 50.2%   mean 67.2s
+  per cast: arrow hits 4.02   blade blows in windows 1.64   second hexes 3.96   hex applied by window arrows 14580 for 7345 arrows
+  outside: 3748 arrows in 15270s of live time = 1.96 a window-equivalent (8s)   foe hex on a window frame 2.91 pooled, 2.94 per fight (the lab's f_foeStk)
+  THE LOCK (after 0.5s): 38.9% of 1468828 window frames within turn x dt of the lead; of the 897597 not, 98% within 0.6s of a jump in the foe's velocity (a bounce or a knock)
+  aim frames 1575680 (stunned 283916, held 13)   shots in / out 31674 / 39044   clock closes 1498  death closes 150   FREEZE CENSUS 15.0% of window steps frozen
+  OWNERS: the charge as tickCharge left it on 3408036 entries, the cadence as tickFire left it on 3407556, the window as the cast / tickSight left it on 1577506; tickWeapon wrote only the facing on 3408036 frames; one `ult` beat on 1826 casts
+  STAGE 6 VOICE: cast voices 1826 for 1826 casts; sigil strikes 197316 (window frames 1575858); snaps 7235 for 7235 second hexes (n 1:0 2:1168 3:486 4:728 5:4853); close voices 1498 for 1498 clock closes, none on 150 death closes; the run's Oracle voices {'oracle': 1826, 'oracle-sigil': 197316, 'oracle-hex': 7235, 'oracle-close': 1498}
+  STAGE 6 PICTURE: tickForesight calls with the sim untouched 7277350; the eye at 1 on 3428882 open-window ticks, shut after 1486 closes; flares 7213 (killing arrows, no flare: 118); HEX tags carrying the count 7213 (1:0 2:1158 3:490 4:721 5:4844)
+    drawn subset: 59202 frames through the renderer (53760 with the picture up, 7933 of them in a hit stop, 1590 with the eye opening or shutting); drawn fights ending where their undrawn replay does: 80
+  [1] PASS  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only the cast and tickSight write it; only Oracle carries ultSight
+  [2] PASS  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside
+  [3] PASS  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned; only tickFire moves the cadence
+  [4] PASS  the arrow as ever: every blow's damage rebuilt exactly, its own stop and one beat, in the window and out
+  [5] PASS  the double hex: an arrow landing in a window applies the channel's hex and +hex (side letter); nothing on a blade blow or outside
+  [6] PASS  nothing else: tickWeapon writes only the facing (every other field snapshotted); tickSight only its window and tally; no apply moves the stop
+  [7] PASS  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window, one `ult` beat; the charge fills by dt and only tickCharge writes it
+  [8] PASS  stage 6 voice: one cast voice a cast; the sigil on the window's 1st, 9th, 17th... frame and no other; one snap a second hex at the foe's count; one close voice a clock close and none on a death; every Oracle voice accounted for
+  [9] PASS  stage 6 picture: tickForesight writes no sim field and draws no RNG; the eye at 1 through every open window and never rising outside; one flare a landed window arrow on a live foe; a HEX tag carrying the count on each second hex; no drawn frame throws or writes the sim
+
+  9/9
+exit 0

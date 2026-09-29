@@ -1,0 +1,4 @@
+oracle on sc-oracle.html · Chromium 151.0.7922.34 · 38 foes x 10 seeds x sides AB = 760 fights · seed0 2317 · stage 1, both sides
+  win 34.6%   side A 36.1%   side B 33.2%   mean 61.4s   timeouts 0
+  by type  flail 51%  bow 38%  warhammer 34%  scythe 32%  greatsword 31%  twinblade 18%
+  worst    spellbreaker 5%  gloamwire 5%  axiom 10%   (760 fights in 60s)

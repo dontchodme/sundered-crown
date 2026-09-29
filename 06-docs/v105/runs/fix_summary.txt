@@ -1,0 +1,47 @@
+MUTANTS of sc-oracle-b10 72dcd8aa43e5b501 (variants.py; oracle_probe --seeds 2, 152 fights; engine_ab against the link, Oracle + 7 foes, n=4: 112 fights, Oracle's own 28)
+
+[7] rv-charge     the reviewer's: the window feeds the charge 25% faster (f.charge += 0.25 dt in the aim)      fails [7]  engine_ab 28/112 differ  OK   previous probe: PASSED 7/7 (blind)
+      [7] FAIL  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window; the charge fills by dt and only tickCharge writes it   558349 FAIL: ['the charge moved outside tickCharge: 0 -> 0.0020833333333333333 
+[6] rv-spindir    the reviewer's: the aim sets spinDir, so the bow leaves each window spinning its last way    fails [6]  engine_ab 24/112 differ  OK   previous probe: PASSED 7/7 (blind)
+      [6] FAIL  nothing else: tickWeapon writes only the facing (every other field snapshotted); tickSight only its window and tally; no apply moves the stop   13350 FAIL: ['tickWeapon wrote f.spinDir: 1 -> -1 (in the window)', 'tickWeapon wrote 
+[1] mut-winclock  the window stretched 10% by a writer in the aim (ultSight.t -= 0.1 dt)                       fails [1]  engine_ab 28/112 differ  OK   previous probe: PASSED 7/7 (blind)
+      [1] FAIL  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only the cast and tickSight write it; only Oracle carries ultSight   544043 FAIL: ['the window moved outside tickSight: t 0.008333333333333333 
+[3] mut-cdhit     the stream quickened by a writer in resolveHit (fireCd -= 0.05 a window arrow)               fails [3]  engine_ab 28/112 differ  OK   previous probe: PASSED 7/7 (blind)
+      [3] FAIL  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned; only tickFire moves the cadence   2402 FAIL: ['the cadence clock moved outside tickFire: 0.0599999999999922 -
+[1] mut-window    the window 1% long (dur x 1.01 at the cast)                                                  fails [1]  engine_ab 28/112 differ  OK
+      [1] FAIL  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only the cast and tickSight write it; only Oracle carries ultSight   574 FAIL: ['the cast opened {"t":0,"dur":8.08}', 'the cast opened {"t":0,"
+[2] mut-nolead    no lead: aim at where the foe IS                                                             fails [2]  engine_ab 28/112 differ  OK
+      [2] FAIL  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside   300731 FAIL: ['window: theta -23.060679138829876 -> -23.110679138829877, want -23.04604
+[3] mut-cadence   the stream 10% quicker in the window (tickFire touched)                                      fails [3]  engine_ab 28/112 differ  OK
+      [3] FAIL  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned; only tickFire moves the cadence   11192 FAIL: ['cadence after a shot 0.3026666666666593, want 0.3366666666666
+[4] mut-dmg       the window's arrows 10% harder                                                               fails [4]  engine_ab 28/112 differ  OK
+      [4] FAIL  the arrow as ever: every blow's damage rebuilt exactly, its own stop and one beat, in the window and out   2240 FAIL: ['IN the window (arrow): dealt 11, want 10', 'IN the window (arrow): dealt 13, want 11', 'IN the window (arrow):
+[5] mut-bladehex  the second hex on blade blows too                                                            fails [5]  engine_ab 25/112 differ  OK
+      [5] FAIL  the double hex: an arrow landing in a window applies the channel's hex and +hex (side letter); nothing on a blade blow or outside   1820 FAIL: ['a blade blow in the window applied [["hex",1,"a"]] (hex 1)', 'the tally moved on a bl
+[6] mut-nudge     the aim nudges the caster (vx += 1e-9)                                                       fails [6]  engine_ab 28/112 differ  OK
+      [6] FAIL  nothing else: tickWeapon writes only the facing (every other field snapshotted); tickSight only its window and tally; no apply moves the stop   495346 FAIL: ['tickWeapon wrote f.vx: 237.20349770667596 -> 237.20349770767595 (in the
+[7] mut-wait      the cast waits 0.5 past its charge                                                           fails [7]  engine_ab 28/112 differ  OK
+      [7] FAIL  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window; the charge fills by dt and only tickCharge writes it   33220 FAIL: ['charge 14.008333333333178 reached 14 with no cast (window false)'
+[2] mut-stunlock  CONTROL, reading 2 the other way: no turn while stunned                                      fails [2]  engine_ab 28/112 differ  OK
+      [2] FAIL  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside   84285 FAIL: ['window: theta -25.134765826087104 -> -25.134765826087104, want -25.084765
+
+EVERY MUTANT FAILS ITS OWN CHECK AND ONLY THAT ONE, AND CHANGES FIGHTS
+
+IDENTITY: the rebuilt links (the aim's locals renamed) against the first build
+
+  engine_ab first -> rebuilt aim    IDENTICAL field for field
+  engine_ab first -> rebuilt sight  IDENTICAL field for field
+  engine_ab first -> rebuilt b10    IDENTICAL field for field
+  SHIP aim    2207: win 82.6  every arm key (win, n, casts, blows, byFoe) IDENTICAL to the first build's
+  SHIP aim    2317: win 84.1  every arm key (win, n, casts, blows, byFoe) IDENTICAL to the first build's
+  SHIP sight  2207: win 85.9  every arm key (win, n, casts, blows, byFoe) IDENTICAL to the first build's
+  SHIP sight  2317: win 87.0  every arm key (win, n, casts, blows, byFoe) IDENTICAL to the first build's
+  SHIP b10    2207: win 50.8  every arm key (win, n, casts, blows, byFoe) IDENTICAL to the first build's
+  SHIP b10    2317: win 55.5  every arm key (win, n, casts, blows, byFoe) IDENTICAL to the first build's
+  probe aim    mechanism lines IDENTICAL to the first build's
+  probe sight  mechanism lines IDENTICAL to the first build's
+  probe b10    mechanism lines IDENTICAL to the first build's
+  relic_rate rebuilt b10 2207 vs s5link_rr_2207.json      IDENTICAL (every key but game/set/label)
+  relic_rate rebuilt b10 2207 vs stage5_rr_d10_2207.json  IDENTICAL (every key but game/set/label)
+  relic_rate rebuilt b10 2317 vs s5link_rr_2317.json      IDENTICAL (every key but game/set/label)
+  relic_rate rebuilt b10 2317 vs stage5_rr_d10_2317.json  IDENTICAL (every key but game/set/label)

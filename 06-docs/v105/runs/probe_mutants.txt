@@ -1,0 +1,18 @@
+MUTANTS of sc-oracle-b10 (variants.py; oracle_probe --seeds 2, 152 fights; engine_ab vs the link, oracle + 7 foes, n=4)
+
+[1] the window 1% long (dur x 1.01 at the cast)      fails [1]  engine_ab 28/112 differ   OK
+      [1] FAIL  the window: dt a window-ticker frame, `dur` long, closes by its clock or either death; only Oracle carries ultSight   574 FAIL: ['the cast opened {"t":0,"dur":8.08}', 'the cast opened {"t":0,"dur":8.08}', 'the cast opened {"t":0,"dur":8.08}', 'the ca
+[2] no lead: aim at where the foe IS                 fails [2]  engine_ab 28/112 differ   OK
+      [2] FAIL  the aim: each window frame (stunned or not) theta + clamp(shortest angle to the lead, +-turn x dt); none in a hit stop; spin as ever outside   300731 FAIL: ['window: theta -23.060679138829876 -> -23.110679138829877, want -23.04604970139488 (stun 0, a
+[3] the stream 10% quicker in the window             fails [3]  engine_ab 28/112 differ   OK
+      [3] FAIL  the stream: tickFire untouched -- one shot along f.theta when the cadence runs out, in the window and out; none stunned   11192 FAIL: ['cadence after a shot 0.3026666666666593, want 0.3366666666666593', 'cadence after a shot 0.3003333333333259, want 
+[4] the window's arrows 10% harder                   fails [4]  engine_ab 28/112 differ   OK
+      [4] FAIL  the arrow as ever: every blow's damage rebuilt exactly, its own stop and one beat, in the window and out   2240 FAIL: ['IN the window (arrow): dealt 11, want 10', 'IN the window (arrow): dealt 13, want 11', 'IN the window (arrow): dealt 26, want 24',
+[5] the second hex on blade blows too                fails [5]  engine_ab 25/112 differ   OK
+      [5] FAIL  the double hex: an arrow landing in a window applies the channel's hex and +hex (side letter); nothing on a blade blow or outside   1820 FAIL: ['a blade blow in the window applied [["hex",1,"a"]] (hex 1)', 'the tally moved on a blow it should not cou
+[6] the aim nudges the caster (vx += 1e-9)           fails [6]  engine_ab 28/112 differ   OK
+      [6] FAIL  nothing else: tickWeapon moves no ball; tickSight writes only its window and tally; no apply moves the stop   495346 FAIL: ['tickWeapon moved a ball', 'tickWeapon moved a ball', 'tickWeapon moved a ball', 'tickWeapon moved a ball']
+[7] the cast waits 0.5 past its charge               fails [7]  engine_ab 28/112 differ   OK
+      [7] FAIL  the cast: on the frame the charge reaches `charge` (nothing waits), never under an open window   33220 FAIL: ['charge 14.008333333333178 reached 14 with no cast (window false)', 'charge 14.016666666666511 reached 14 with no cast (window false)', 'cha
+
+EVERY MUTANT FAILS ITS OWN CHECK AND ONLY THAT ONE, AND CHANGES FIGHTS
