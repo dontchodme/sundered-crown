@@ -1,0 +1,1844 @@
+{
+ "game": "sc-goreshard-b10.25.html",
+ "rules": {
+  "cast": "'0.4s': AUDIBLE 330-470 ms and GONE <= 470 ms on every noise draw; 'hiss': HISS (the share of the power at >= 2 kHz) >= 0.50 on every draw -- the hiss carries it; 'drawn-blade': the hiss band RISES (DRAWN >= +600 cents, first audible 100 ms to last: a blade drawn out, the scrape climbing to the tip) and SWELLS (10 -> 90% in >= 20 ms: drawn, not struck); 'wet': a liquid under the hiss -- the wet rendered alone HEARD in its own band (WET-HEARD, the best third-octave at 159-1270 Hz over the score's p90) >= +6 dB on the worst draw, and MOVING >= 400 cents (a liquid glides; a held note does not). Level: TOP between 0.5x the blow's loudest 50 ms on its LOUDEST draw and 1.0x on its QUIETEST, on every draw; heard: its loudest 100 ms >= +6 dB over the score's p90 in its best third-octave >= 200 Hz. Register against rune-crack, each bloodsworn and greatsword cast with a voice of its own, the tornado's woosh (the game's other swept noise), the blow and the death voice -- and a school or type peer's cast -- each <= 0.80. Tiebreak: the most distinct register (to 0.05), then the fewest synth calls, then the order listed.",
+  "blow": "Each candidate is the plain hit arm at the damage DEALT with its frequencies scaled by the stack count n. 'pitched DOWN by the stack count (bigger = lower)': against the plain hit at the same dealt damage, CRACK and BODY each fall by >= 50 cents with every stack from 1 to 4; heard over the dice: at 2 and 4 stacks (the counts a window has) each drop >= SPREAD there (what the damage roll's whole range moves the plain hit by); 'the sword's strike voice': a strike at 4 stacks (RISE <= 3 ms, the peak in the first 15 ms), its sample peak within 1.5 dB of the plain hit's on the same draw at every n x jitter 0.85 / 1 / 1.15 x crit (its level is its damage's), and at 4 stacks ENV-CORR >= 0.90 and REG > 0.80 with the plain hit at the same damage (still that voice, on the batch's own 0.80 line); not a death: REG <= 0.80 against the death voice at 4 stacks, crit or not; heard on a phone: PHONE at 4 stacks >= -6 dB re the plain hit's. Tiebreak: the largest drop at 4 stacks (the mean of CRACK and BODY, to 50 cents -- the price the most legible), then the fewest synth calls, then the order listed. ROUND 2 (see THE ROUNDS): CRACK is CRACK3; the two REG gates are printed, not gated; 'a strike, not a boom': AUDIBLE at 4 stacks, crit or not, <= 1.25x the plain hit's at the same damage; the tiebreak is the SMALLEST drop at 4 stacks (to 50 cents) that clears every gate."
+ },
+ "game_sha": "8eb3c1634184c1bd",
+ "chromium": "151.0.7922.34",
+ "fallthrough": [
+  "lastlight",
+  "spellbreaker",
+  "ironhail",
+  "lightkeeper",
+  "farwarden",
+  "aureole",
+  "censer",
+  "oathwound",
+  "heartwood",
+  "gloamwire",
+  "portcullis",
+  "bindweed"
+ ],
+ "school": [
+  "widowmaker",
+  "redflail",
+  "marrowdraw",
+  "ravelbone",
+  "bloodmirror"
+ ],
+ "type": [
+  "dawnbringer",
+  "emberedge",
+  "nightfell",
+  "axiom"
+ ],
+ "levels": {
+  "hit": [
+   0.11238295501577077,
+   0.11816159759659567
+  ],
+  "wall_hi": 0.011819145312079945
+ },
+ "spread": {
+  "crack": {
+   "2": 128.9429968841651,
+   "4": 224.04591697200172
+  },
+  "body": {
+   "2": 95.27659228695188,
+   "4": 150.4005806497242
+  },
+  "weight_crack": {
+   "2": -148.76249409079654,
+   "4": -355.6818516257314
+  },
+  "weight_body": {
+   "2": -105.74535623388765,
+   "4": -247.93808139936897
+  }
+ },
+ "arm_check": {
+  "chk": [
+   [
+    "cast",
+    4.470348358154297e-08
+   ],
+   [
+    "cast draw",
+    5.960464477539063e-08
+   ],
+   [
+    "blow n1-5 x jitter x crit",
+    1.1920928955078125e-07
+   ]
+  ],
+  "cap": 0.0,
+  "others": [
+   [
+    "hit/5",
+    0.0
+   ],
+   [
+    "hit/5!",
+    4.470348358154297e-08
+   ],
+   [
+    "hit/10.25",
+    0.0
+   ],
+   [
+    "hit/10.25!",
+    8.940696716308594e-08
+   ],
+   [
+    "hit/16",
+    0.0
+   ],
+   [
+    "hit/16!",
+    1.7881393432617188e-07
+   ],
+   [
+    "hit/23",
+    0.0
+   ],
+   [
+    "hit/23!",
+    5.960464477539063e-08
+   ],
+   [
+    "hit/50",
+    0.0
+   ],
+   [
+    "hit/50!",
+    0.0
+   ],
+   [
+    "hit/16$0",
+    0.0
+   ],
+   [
+    "hit/5b",
+    0.0
+   ],
+   [
+    "hit/5!b",
+    0.0
+   ],
+   [
+    "hit/9b",
+    0.0
+   ],
+   [
+    "hit/9!b",
+    4.470348358154297e-08
+   ],
+   [
+    "hit/20b",
+    0.0
+   ],
+   [
+    "hit/20!b",
+    0.0
+   ],
+   [
+    "spark/0",
+    0.0
+   ],
+   [
+    "spark/1",
+    0.0
+   ],
+   [
+    "spark/2",
+    0.0
+   ],
+   [
+    "spark/3",
+    0.0
+   ],
+   [
+    "spark/4",
+    0.0
+   ],
+   [
+    "spark/5",
+    0.0
+   ],
+   [
+    "spark/6",
+    0.0
+   ],
+   [
+    "spark/",
+    0.0
+   ],
+   [
+    "spark/",
+    0.0
+   ],
+   [
+    "wall/",
+    0.0
+   ],
+   [
+    "death/",
+    0.0
+   ],
+   [
+    "clank/",
+    8.940696716308594e-08
+   ],
+   [
+    "clank/",
+    5.960464477539063e-08
+   ],
+   [
+    "seal/",
+    0.0
+   ],
+   [
+    "nova/",
+    1.1920928955078125e-07
+   ],
+   [
+    "hex-snap/",
+    0.0
+   ],
+   [
+    "fork/",
+    3.725290298461914e-09
+   ],
+   [
+    "vine/",
+    4.470348358154297e-08
+   ],
+   [
+    "vine/",
+    0.0
+   ],
+   [
+    "vine/",
+    0.0
+   ],
+   [
+    "vine/",
+    0.0
+   ],
+   [
+    "loose/",
+    0.0
+   ],
+   [
+    "loose/",
+    0.0
+   ],
+   [
+    "loose/",
+    0.0
+   ],
+   [
+    "aegis/3",
+    5.960464477539063e-08
+   ],
+   [
+    "aegis/",
+    4.470348358154297e-08
+   ],
+   [
+    "scour-hold/5",
+    0.0
+   ],
+   [
+    "scour-tick/",
+    0.0
+   ],
+   [
+    "scour-woosh/1",
+    0.0
+   ],
+   [
+    "scour-moo/",
+    2.2351741790771484e-08
+   ],
+   [
+    "ult/__fallback__",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/aureole",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/axiom",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/axiom-echo",
+    2.9802322387695312e-08
+   ],
+   [
+    "ult/bindweed",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/bloodmirror",
+    0.0
+   ],
+   [
+    "ult/bloodmirror-close",
+    0.0
+   ],
+   [
+    "ult/bloodmirror-mill",
+    0.0
+   ],
+   [
+    "ult/bloodmirror-stick",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/bloodmirror-tick",
+    0.0
+   ],
+   [
+    "ult/bulwarden",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/censer",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/cindercleave",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/cindercleave-burn",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/cindercleave-jet",
+    1.4901161193847656e-08
+   ],
+   [
+    "ult/cindercleave-tear",
+    1.4901161193847656e-08
+   ],
+   [
+    "ult/dawnbringer",
+    1.1175870895385742e-08
+   ],
+   [
+    "ult/dawnbringer-close",
+    2.9802322387695312e-08
+   ],
+   [
+    "ult/dawnbringer-step",
+    1.4901161193847656e-08
+   ],
+   [
+    "ult/duskreave",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/emberedge",
+    0.0
+   ],
+   [
+    "ult/emberedge-burst",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/farwarden",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/foregone",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/foregone-arc",
+    0.0
+   ],
+   [
+    "ult/foregone-bloom",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/foregone-orb",
+    0.0
+   ],
+   [
+    "ult/foregone-reverse",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/foregone-tick",
+    0.0
+   ],
+   [
+    "ult/gloamwire",
+    0.0
+   ],
+   [
+    "ult/gravemourn",
+    8.940696716308594e-08
+   ],
+   [
+    "ult/gravemourn-fist",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/gravemourn-hand",
+    0.0
+   ],
+   [
+    "ult/grudgebearer",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/grudgebearer-fizzle",
+    0.0
+   ],
+   [
+    "ult/grudgebearer-hit",
+    8.940696716308594e-08
+   ],
+   [
+    "ult/heartwood",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/ironhail",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/ironwood",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/ironwood-sprout",
+    2.9802322387695312e-08
+   ],
+   [
+    "ult/ironwood-wither",
+    2.9802322387695312e-08
+   ],
+   [
+    "ult/lastlight",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/lastlight-bloom",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/lastlight-cold",
+    0.0
+   ],
+   [
+    "ult/lastlight-stick",
+    0.0
+   ],
+   [
+    "ult/lastlight-throw",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/lightkeeper",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/marrowdraw",
+    1.7881393432617188e-07
+   ],
+   [
+    "ult/morningstar",
+    7.450580596923828e-08
+   ],
+   [
+    "ult/morningstar-close",
+    2.60770320892334e-08
+   ],
+   [
+    "ult/morningstar-tick",
+    0.0
+   ],
+   [
+    "ult/nightfell",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/nightfell-arm",
+    0.0
+   ],
+   [
+    "ult/nightfell-boom",
+    1.1920928955078125e-07
+   ],
+   [
+    "ult/nightfell-stamp",
+    0.0
+   ],
+   [
+    "ult/paradox",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/paradox-pin",
+    8.940696716308594e-08
+   ],
+   [
+    "ult/portcullis",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/ravelbone",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/ravelbone-burst",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/ravelbone-slip",
+    0.0
+   ],
+   [
+    "ult/ravelbone-snag",
+    1.4901161193847656e-08
+   ],
+   [
+    "ult/ravelbone-wire",
+    0.0
+   ],
+   [
+    "ult/redflail",
+    8.940696716308594e-08
+   ],
+   [
+    "ult/redflail-break",
+    1.1920928955078125e-07
+   ],
+   [
+    "ult/redflail-mill",
+    0.0
+   ],
+   [
+    "ult/redflail-release",
+    0.0
+   ],
+   [
+    "ult/shroudmaul",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/shroudmaul-crush",
+    1.4901161193847656e-07
+   ],
+   [
+    "ult/shroudmaul-grab",
+    0.0
+   ],
+   [
+    "ult/slagheart",
+    0.0
+   ],
+   [
+    "ult/slagheart-blast",
+    1.1920928955078125e-07
+   ],
+   [
+    "ult/slagheart-fizzle",
+    0.0
+   ],
+   [
+    "ult/slagheart-latch",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/spellbreaker",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/starwarden",
+    5.960464477539063e-08
+   ],
+   [
+    "ult/starwarden-burn",
+    1.4901161193847656e-08
+   ],
+   [
+    "ult/starwarden-chain",
+    0.0
+   ],
+   [
+    "ult/starwarden-pop",
+    7.450580596923828e-08
+   ],
+   [
+    "ult/thornshear",
+    2.9802322387695312e-08
+   ],
+   [
+    "ult/thornshear-rung",
+    0.0
+   ],
+   [
+    "ult/thornwake",
+    2.9802322387695312e-08
+   ],
+   [
+    "ult/twinshade",
+    8.940696716308594e-08
+   ],
+   [
+    "ult/twinshade-rejoin",
+    7.450580596923828e-08
+   ],
+   [
+    "ult/vesper",
+    2.9802322387695312e-08
+   ],
+   [
+    "ult/vesper-hum",
+    0.0
+   ],
+   [
+    "ult/vesper-open",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/vesper-pass",
+    0.0
+   ],
+   [
+    "ult/vesper-tip",
+    0.0
+   ],
+   [
+    "ult/vesper-wind",
+    2.9802322387695312e-08
+   ],
+   [
+    "ult/vinesower",
+    4.470348358154297e-08
+   ],
+   [
+    "ult/widowmaker",
+    2.9802322387695312e-08
+   ],
+   [
+    "aegis/",
+    8.940696716308594e-08
+   ],
+   [
+    "clank/",
+    5.960464477539063e-08
+   ],
+   [
+    "nova/",
+    1.1920928955078125e-07
+   ],
+   [
+    "scour-hold/",
+    3.725290298461914e-09
+   ],
+   [
+    "scour-woosh/",
+    5.587935447692871e-09
+   ],
+   [
+    "spark/",
+    0.0
+   ]
+  ],
+  "now_rc": 0.6080812105960831,
+  "fallback": 5.960464477539063e-08,
+  "cost": {
+   "cast": 0.20000001788139343,
+   "priced": 0.09999999403953552,
+   "hit": 0.09999999403953552
+  },
+  "n_others": 145
+ },
+ "peers": [
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/widowmaker/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "widowmaker",
+    "widowmaker-drain"
+   ],
+   "both_orders": 2.9802322387695312e-08,
+   "mine": 5.960464477539063e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/lightkeeper/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "lightkeeper",
+    "lightkeeper-fold",
+    "lightkeeper-gong",
+    "lightkeeper-tink"
+   ],
+   "both_orders": 7.450580596923828e-08,
+   "mine": 5.960464477539063e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/heartwood/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "heartwood",
+    "heartwood-root"
+   ],
+   "both_orders": 5.960464477539063e-08,
+   "mine": 5.960464477539063e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/angelus/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "angelus",
+    "angelus-close",
+    "angelus-land",
+    "angelus-shaft"
+   ],
+   "both_orders": 1.1920928955078125e-07,
+   "mine": 5.960464477539063e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/aureole/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "aureole",
+    "aureole-close",
+    "aureole-enter"
+   ],
+   "both_orders": 8.940696716308594e-08,
+   "mine": 5.960464477539063e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/censer/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "censer",
+    "censer-disc"
+   ],
+   "both_orders": 8.940696716308594e-08,
+   "mine": 4.470348358154297e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/coldiron/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "coldiron",
+    "coldiron-anvil",
+    "coldiron-close"
+   ],
+   "both_orders": 8.940696716308594e-08,
+   "mine": 5.960464477539063e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/ironhail/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "ironhail",
+    "ironhail-land",
+    "ironhail-miss"
+   ],
+   "both_orders": 8.940696716308594e-08,
+   "mine": 5.960464477539063e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/lodestone/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "lodestone",
+    "lodestone-close",
+    "lodestone-touch"
+   ],
+   "both_orders": 5.960464477539063e-08,
+   "mine": 1.4901161193847656e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/oracle/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "oracle",
+    "oracle-close",
+    "oracle-hex",
+    "oracle-sigil"
+   ],
+   "both_orders": 5.960464477539063e-08,
+   "mine": 5.960464477539063e-08
+  },
+  {
+   "file": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/spellbreaker/stage6-voice/rows_final.json",
+   "rows": 1,
+   "ids": [
+    "spellbreaker",
+    "spellbreaker-close",
+    "spellbreaker-stun"
+   ],
+   "both_orders": 1.7881393432617188e-07,
+   "mine": 5.960464477539063e-08
+  }
+ ],
+ "wire": {
+  "fights": 148,
+  "same": 148,
+  "otherSame": 148,
+  "tot": {
+   "win": 1224,
+   "win0": 358,
+   "priced": 866,
+   "pricedV": 866,
+   "outside": 1241,
+   "foeB": 3107,
+   "shat": 177,
+   "noVoice": 0,
+   "casts": 502,
+   "castV": 502,
+   "hist": [
+    358,
+    0,
+    244,
+    0,
+    622,
+    0
+   ]
+  },
+  "nbad": 0,
+  "control_same": 4
+ },
+ "real": {
+  "win": {
+   "side": 0,
+   "foe": "bulwarden",
+   "seed": 114601,
+   "priced": 13
+  },
+  "cast_over": [
+   34.69007643688651
+  ],
+  "priced": [
+   [
+    2,
+    44,
+    true,
+    -207.8862705048311
+   ],
+   [
+    4,
+    29,
+    false,
+    -411.65040517242875
+   ],
+   [
+    4,
+    0,
+    false,
+    -407.6491769178898
+   ],
+   [
+    4,
+    24,
+    false,
+    -409.02534155470335
+   ],
+   [
+    4,
+    31,
+    false,
+    -413.085775444667
+   ]
+  ]
+ },
+ "e2e": {
+  "new": [
+   [
+    "cast",
+    2.9802322387695312e-08
+   ],
+   [
+    "blow n1",
+    0.0
+   ],
+   [
+    "blow n1!",
+    0.0
+   ],
+   [
+    "blow n2",
+    0.0
+   ],
+   [
+    "blow n2!",
+    0.0
+   ],
+   [
+    "blow n4",
+    0.0
+   ],
+   [
+    "blow n4!",
+    0.0
+   ]
+  ],
+  "others": 1.7881393432617188e-07,
+  "not_rc": 0.6080812105960831,
+  "fights": 74,
+  "same": 74,
+  "other_same": 74,
+  "totals": {
+   "casts": 252,
+   "castV": 252,
+   "win": 619,
+   "priced": 426,
+   "pricedV": 426
+  },
+  "page_errors": 0,
+  "regs": {},
+  "patched_sha": "8323dc9c2a8302b5"
+ },
+ "also": [
+  {
+   "new": [
+    [
+     "cast",
+     4.470348358154297e-08
+    ],
+    [
+     "blow n1",
+     0.0
+    ],
+    [
+     "blow n1!",
+     5.960464477539063e-08
+    ],
+    [
+     "blow n2",
+     0.0
+    ],
+    [
+     "blow n2!",
+     0.0
+    ],
+    [
+     "blow n4",
+     0.0
+    ],
+    [
+     "blow n4!",
+     1.1920928955078125e-07
+    ]
+   ],
+   "others": 1.7881393432617188e-07,
+   "not_rc": 0.6080812105960831,
+   "fights": 82,
+   "same": 82,
+   "other_same": 82,
+   "totals": {
+    "casts": 285,
+    "castV": 285,
+    "win": 670,
+    "priced": 462,
+    "pricedV": 462
+   },
+   "page_errors": 0,
+   "regs": {
+    "widowmaker": 0.10864669576578859,
+    "redflail": 0.17260265646136552,
+    "marrowdraw": 0.09562616321955618,
+    "ravelbone": 0.14978477958588193,
+    "bloodmirror": 0.28347543864511215,
+    "dawnbringer": 0.06198389709266277,
+    "lightkeeper": 0.10897112561492071,
+    "emberedge": 0.43504090021774255,
+    "nightfell": 0.2817650212082191,
+    "axiom": 0.3012460762383726
+   },
+   "game": "sc-goreshard-b10.25.html",
+   "sha": "c3d5fc24835f91f4",
+   "patched_sha": "4eb18d49d4af08c2",
+   "voices": 176
+  }
+ ],
+ "cast": [
+  {
+   "peak": 0.302187979221344,
+   "pk_ms": 269.875,
+   "a0": 35.0,
+   "aud": 400.0,
+   "gone": 435.0,
+   "top": 0.08153175342218576,
+   "top_at": 0.285,
+   "start": 0.06389110826841098,
+   "rise": 226.0,
+   "late": 0.44937718399202964,
+   "cen": 4194.403990195681,
+   "calls": 12,
+   "name": "1 BUBBLE",
+   "aud_lo": 395.0,
+   "aud_hi": 410.0,
+   "gone_hi": 445.0,
+   "top_lo": 0.07481380103301506,
+   "top_hi": 0.08166930523738478,
+   "hiss_lo": 0.8782532460332187,
+   "wet": 0.09493231246936,
+   "wet_lo": 0.09391565804628761,
+   "wheard": 8.979159322411775,
+   "wheard_fc": 800.0,
+   "wheard_lo": 8.979159322411775,
+   "drawn": 1011.9186767590996,
+   "swell": 194.0,
+   "moving": 3185.077795722325,
+   "heard": 36.37842296782046,
+   "heard_fc": 5079.683366298239,
+   "regs": {
+    "rune-crack": 0.43580069827229817,
+    "widowmaker": 0.7276252442712459,
+    "redflail": 0.2748202719695817,
+    "marrowdraw": 0.16765989891858601,
+    "ravelbone": 0.23977883996481347,
+    "bloodmirror": 0.4490425186354722,
+    "dawnbringer": 0.19309985582204148,
+    "emberedge": 0.5195895332297472,
+    "nightfell": 0.4159955695932709,
+    "axiom": 0.35561974834670107,
+    "woosh": 0.7660680643564628,
+    "hit": 0.20543372716675956,
+    "death": 0.07997152628039922,
+    "peer:widowmaker": 0.289119614732416,
+    "peer:lightkeeper": 0.27055655344057217,
+    "peer:heartwood": 0.23620823553950526
+   },
+   "reg_wall": 0.6959333755695548,
+   "sp": {
+    "wet": "bubble"
+   },
+   "g": 0.5168,
+   "kw": 0.08449,
+   "D2": 0.46,
+   "why": []
+  },
+  {
+   "peak": 0.2988986074924469,
+   "pk_ms": 269.875,
+   "a0": 50.0,
+   "aud": 400.0,
+   "gone": 450.0,
+   "top": 0.08152032406552158,
+   "top_at": 0.285,
+   "start": 0.061727602969999996,
+   "rise": 194.0,
+   "late": 0.4133273356468501,
+   "cen": 4244.734479724496,
+   "calls": 3,
+   "name": "2 SQUELCH",
+   "aud_lo": 390.0,
+   "aud_hi": 415.0,
+   "gone_hi": 465.0,
+   "top_lo": 0.074655767848346,
+   "top_hi": 0.08152032386033604,
+   "hiss_lo": 0.9090265827508367,
+   "wet": 0.08424687081459983,
+   "wet_lo": 0.04151416405708916,
+   "wheard": 8.981523609803991,
+   "wheard_fc": 400.0,
+   "wheard_lo": 3.292485971046681,
+   "drawn": 996.6733628927386,
+   "swell": 194.0,
+   "moving": 504.15039184591797,
+   "heard": 36.48851532419629,
+   "heard_fc": 5079.683366298239,
+   "regs": {
+    "rune-crack": 0.4543856799891881,
+    "widowmaker": 0.6285127456001474,
+    "redflail": 0.20899889232602248,
+    "marrowdraw": 0.1256591169988142,
+    "ravelbone": 0.1777293037369635,
+    "bloodmirror": 0.3568233777021344,
+    "dawnbringer": 0.17128062988392925,
+    "emberedge": 0.47191806450808915,
+    "nightfell": 0.3180933856430057,
+    "axiom": 0.31505714901534654,
+    "woosh": 0.7110383147142987,
+    "hit": 0.15411496254658041,
+    "death": 0.03193839411374835,
+    "peer:widowmaker": 0.22296468251131907,
+    "peer:lightkeeper": 0.24081875737200314,
+    "peer:heartwood": 0.24102717013440264
+   },
+   "reg_wall": 0.7101767013383158,
+   "sp": {
+    "wet": "squelch"
+   },
+   "g": 0.5137,
+   "kw": 1.382,
+   "D2": 0.49,
+   "why": [
+    "wet heard +3.3 dB < +6"
+   ]
+  },
+  {
+   "peak": 0.30681484937667847,
+   "pk_ms": 269.875,
+   "a0": 35.0,
+   "aud": 400.0,
+   "gone": 435.0,
+   "top": 0.08151215374327747,
+   "top_at": 0.285,
+   "start": 0.06397731486441303,
+   "rise": 226.0,
+   "late": 0.44164440514139264,
+   "cen": 4440.0090891431655,
+   "calls": 4,
+   "name": "3 SLICK",
+   "aud_lo": 395.0,
+   "aud_hi": 410.0,
+   "gone_hi": 445.0,
+   "top_lo": 0.07471215427609915,
+   "top_hi": 0.08231769149367403,
+   "hiss_lo": 0.9452437702847917,
+   "wet": 0.03734224408740316,
+   "wet_lo": 0.0356691714157446,
+   "wheard": 8.98828179390972,
+   "wheard_fc": 1269.9208415745597,
+   "wheard_lo": 8.98828179390972,
+   "drawn": 1005.8077934549325,
+   "swell": 192.0,
+   "moving": 1059.0726164533544,
+   "heard": 36.5180480197072,
+   "heard_fc": 5079.683366298239,
+   "regs": {
+    "rune-crack": 0.4314480068046135,
+    "widowmaker": 0.6496727505241757,
+    "redflail": 0.18365834818489607,
+    "marrowdraw": 0.09888315476577136,
+    "ravelbone": 0.15698936823180698,
+    "bloodmirror": 0.3462161206311929,
+    "dawnbringer": 0.12689401771693126,
+    "emberedge": 0.4494238170329373,
+    "nightfell": 0.3192355235881031,
+    "axiom": 0.36184083364038483,
+    "woosh": 0.7253057353921302,
+    "hit": 0.141507397959866,
+    "death": 0.025481039437318012,
+    "peer:widowmaker": 0.15795345112155695,
+    "peer:lightkeeper": 0.16241736221111164,
+    "peer:heartwood": 0.1322920804087871
+   },
+   "reg_wall": 0.7229169742440857,
+   "sp": {
+    "wet": "slick"
+   },
+   "g": 0.53,
+   "kw": 0.05621,
+   "D2": 0.46,
+   "why": []
+  },
+  {
+   "peak": 0.28933995962142944,
+   "pk_ms": 269.875,
+   "a0": 50.0,
+   "aud": 400.0,
+   "gone": 450.0,
+   "top": 0.0815286049067748,
+   "top_at": 0.285,
+   "start": 0.0612545401575398,
+   "rise": 194.0,
+   "late": 0.4294753300941515,
+   "cen": 4499.637167504993,
+   "calls": 5,
+   "name": "4 DRIP",
+   "aud_lo": 395.0,
+   "aud_hi": 415.0,
+   "gone_hi": 465.0,
+   "top_lo": 0.07550448131688446,
+   "top_hi": 0.08152860475793791,
+   "hiss_lo": 0.9649494887756842,
+   "wet": 0.025550008896122488,
+   "wet_lo": 0.02300352040940611,
+   "wheard": 8.97886104440916,
+   "wheard_fc": 1007.9368399158984,
+   "wheard_lo": 8.97886104440916,
+   "drawn": 996.7845561596537,
+   "swell": 194.0,
+   "moving": 803.6052559577711,
+   "heard": 36.444854496416916,
+   "heard_fc": 5079.683366298239,
+   "regs": {
+    "rune-crack": 0.41757012311351327,
+    "widowmaker": 0.6219147412055792,
+    "redflail": 0.17260265630969657,
+    "marrowdraw": 0.09562616252763137,
+    "ravelbone": 0.14978477957918207,
+    "bloodmirror": 0.28347543842914824,
+    "dawnbringer": 0.0619838970882081,
+    "emberedge": 0.43504090021774255,
+    "nightfell": 0.2817650209323035,
+    "axiom": 0.3012460759470291,
+    "woosh": 0.7060270304637462,
+    "hit": 0.14544091305689652,
+    "death": 0.02833569006258047,
+    "peer:widowmaker": 0.10864669576578859,
+    "peer:lightkeeper": 0.10897112659809621,
+    "peer:heartwood": 0.07093090857149585
+   },
+   "reg_wall": 0.7264877522252868,
+   "sp": {
+    "wet": "drip"
+   },
+   "g": 0.5095,
+   "kw": 0.03921,
+   "D2": 0.49,
+   "why": []
+  }
+ ],
+ "cast_controls": [
+  {
+   "peak": 0.2994597852230072,
+   "pk_ms": 269.875,
+   "a0": 50.0,
+   "aud": 400.0,
+   "gone": 450.0,
+   "top": 0.08152634249702033,
+   "top_at": 0.285,
+   "start": 0.0617859797768981,
+   "rise": 194.0,
+   "late": 0.42683625188558466,
+   "cen": 4579.29428002831,
+   "calls": 2,
+   "name": "0 DRY",
+   "aud_lo": 390.0,
+   "aud_hi": 415.0,
+   "gone_hi": 465.0,
+   "top_lo": 0.07485266675984685,
+   "top_hi": 0.08155147871754818,
+   "hiss_lo": 0.9869238506738294,
+   "wet": 0.0037564244207350947,
+   "wet_lo": 0.0019866818838612803,
+   "wheard": -99.0,
+   "wheard_fc": 0.0,
+   "wheard_lo": -99.0,
+   "drawn": 996.7572206419668,
+   "swell": 194.0,
+   "moving": 0.0,
+   "heard": 36.49028067748867,
+   "heard_fc": 5079.683366298239,
+   "regs": {
+    "rune-crack": 0.375386253216888,
+    "widowmaker": 0.5588800821661922,
+    "redflail": 0.13572370521806704,
+    "marrowdraw": 0.07375286531802269,
+    "ravelbone": 0.11635082404146393,
+    "bloodmirror": 0.23299639823242446,
+    "dawnbringer": 0.04859301913318027,
+    "emberedge": 0.4026815480055091,
+    "nightfell": 0.23552332394664954,
+    "axiom": 0.2851866953242963,
+    "woosh": 0.652404013225224,
+    "hit": 0.12628041227079828,
+    "death": 0.010735710993425048,
+    "peer:widowmaker": 0.05786422722833537,
+    "peer:lightkeeper": 0.043842465532053024,
+    "peer:heartwood": 0.034080795301988584
+   },
+   "reg_wall": 0.7325701486704084,
+   "sp": {
+    "wet": null
+   },
+   "g": 0.5148,
+   "kw": 0.0,
+   "D2": 0.49,
+   "why": [
+    "wet heard -99.0 dB < +6",
+    "moving 0 c < 400"
+   ]
+  },
+  {
+   "peak": 0.3420686423778534,
+   "pk_ms": 88.16666666666667,
+   "a0": 35.0,
+   "aud": 395.0,
+   "gone": 430.0,
+   "top": 0.08144155184925561,
+   "top_at": 0.095,
+   "start": 0.08144155184925561,
+   "rise": 55.0,
+   "late": 0.39823933741607104,
+   "cen": 2797.5948319782624,
+   "calls": 12,
+   "name": "0 STILL",
+   "aud_lo": 390.0,
+   "aud_hi": 405.0,
+   "gone_hi": 440.0,
+   "top_lo": 0.0777609944595811,
+   "top_hi": 0.0880567211208923,
+   "hiss_lo": 0.8561338545771745,
+   "wet": 0.08666073852842211,
+   "wet_lo": 0.07834594535592669,
+   "wheard": 9.018408456212265,
+   "wheard_fc": 800.0,
+   "wheard_lo": 9.018408456212265,
+   "drawn": 75.30460357187975,
+   "swell": 21.0,
+   "moving": 3185.077795722325,
+   "heard": 33.292316438668564,
+   "heard_fc": 2539.8416831491195,
+   "regs": {
+    "rune-crack": 0.3863621580607769,
+    "widowmaker": 0.7131754205186428,
+    "redflail": 0.2665009450900544,
+    "marrowdraw": 0.13739783413254864,
+    "ravelbone": 0.238054767253724,
+    "bloodmirror": 0.44582329318086594,
+    "dawnbringer": 0.19064104961156095,
+    "emberedge": 0.45176492344694763,
+    "nightfell": 0.407693931143822,
+    "axiom": 0.28491866080289485,
+    "woosh": 0.7875897706028059,
+    "hit": 0.2018770357994623,
+    "death": 0.07562871280801894,
+    "peer:widowmaker": 0.2831653560483284,
+    "peer:lightkeeper": 0.2655267086313748,
+    "peer:heartwood": 0.2220184361254008
+   },
+   "reg_wall": 0.49529233078992413,
+   "sp": {
+    "wet": "bubble",
+    "still": true
+   },
+   "g": 0.7295,
+   "kw": 0.06016,
+   "D2": 0.475,
+   "why": [
+    "drawn +75 c, not >= +600"
+   ]
+  },
+  {
+   "peak": 0.3083171844482422,
+   "pk_ms": 269.875,
+   "a0": 35.0,
+   "aud": 400.0,
+   "gone": 435.0,
+   "top": 0.08152234162831049,
+   "top_at": 0.285,
+   "start": 0.06460318177242559,
+   "rise": 226.0,
+   "late": 0.4340825629463802,
+   "cen": 4344.874077010738,
+   "calls": 3,
+   "name": "0 HUM",
+   "aud_lo": 395.0,
+   "aud_hi": 410.0,
+   "gone_hi": 445.0,
+   "top_lo": 0.07464284790535307,
+   "top_hi": 0.08227601100864726,
+   "hiss_lo": 0.9201285103689605,
+   "wet": 0.062150970340364396,
+   "wet_lo": 0.06007981465043763,
+   "wheard": 8.986162402862764,
+   "wheard_fc": 634.9604207872799,
+   "wheard_lo": 8.986162402862764,
+   "drawn": 1011.8290260224098,
+   "swell": 194.0,
+   "moving": 27.248330765550122,
+   "heard": 36.51980822261309,
+   "heard_fc": 5079.683366298239,
+   "regs": {
+    "rune-crack": 0.3796143868718389,
+    "widowmaker": 0.6477216988751241,
+    "redflail": 0.17663749272507762,
+    "marrowdraw": 0.09574427953074066,
+    "ravelbone": 0.1511725220405007,
+    "bloodmirror": 0.3578379624041084,
+    "dawnbringer": 0.07526433657673706,
+    "emberedge": 0.4343431466874059,
+    "nightfell": 0.3489723491156879,
+    "axiom": 0.37513787487468353,
+    "woosh": 0.7000888074566342,
+    "hit": 0.14018312482562378,
+    "death": 0.028488655514747982,
+    "peer:widowmaker": 0.13859376232127696,
+    "peer:lightkeeper": 0.1374293658406592,
+    "peer:heartwood": 0.0919403055263544
+   },
+   "reg_wall": 0.7096757926247776,
+   "sp": {
+    "wet": "hum"
+   },
+   "g": 0.5302,
+   "kw": 0.05062,
+   "D2": 0.46,
+   "why": [
+    "moving 27 c < 400"
+   ]
+  },
+  {
+   "peak": 0.3021867871284485,
+   "pk_ms": 269.875,
+   "a0": 35.0,
+   "aud": 400.0,
+   "gone": 435.0,
+   "top": 0.0803037428313864,
+   "top_at": 0.285,
+   "start": 0.06210090315008645,
+   "rise": 194.0,
+   "late": 0.45462056957004243,
+   "cen": 4542.419497873125,
+   "calls": 12,
+   "name": "0 FAINT",
+   "aud_lo": 395.0,
+   "aud_hi": 410.0,
+   "gone_hi": 445.0,
+   "top_lo": 0.07358343787083062,
+   "top_hi": 0.08087492962438421,
+   "hiss_lo": 0.9778698743248481,
+   "wet": 0.011920250715490391,
+   "wet_lo": 0.010527037752853116,
+   "wheard": -1.5523228019258335,
+   "wheard_fc": 800.0,
+   "wheard_lo": -1.5523228019258335,
+   "drawn": 1011.9667816737425,
+   "swell": 194.0,
+   "moving": 3099.4251858899006,
+   "heard": 36.37566130012888,
+   "heard_fc": 5079.683366298239,
+   "regs": {
+    "rune-crack": 0.3922340632864044,
+    "widowmaker": 0.6051810502656672,
+    "redflail": 0.17057199580781587,
+    "marrowdraw": 0.0968610379649304,
+    "ravelbone": 0.1480161879282863,
+    "bloodmirror": 0.28832641231456824,
+    "dawnbringer": 0.08679631007127472,
+    "emberedge": 0.43334578354880815,
+    "nightfell": 0.2823912355122572,
+    "axiom": 0.30189181091908324,
+    "woosh": 0.6861853862648053,
+    "hit": 0.14686911720820245,
+    "death": 0.027814973452830995,
+    "peer:widowmaker": 0.11415533535487823,
+    "peer:lightkeeper": 0.09918280591701055,
+    "peer:heartwood": 0.08315933709252069
+   },
+   "reg_wall": 0.7292130734713667,
+   "sp": {
+    "wet": "bubble"
+   },
+   "g": 0.5168,
+   "kw": 0.02122,
+   "D2": 0.46,
+   "why": [
+    "wet heard -1.6 dB < +6"
+   ]
+  },
+  {
+   "peak": 0.608074963092804,
+   "pk_ms": 6.5,
+   "a0": 5.0,
+   "aud": 450.0,
+   "gone": 455.0,
+   "top": 0.13563943959697658,
+   "top_at": 0.03,
+   "start": 0.13563943959697658,
+   "rise": 0.0,
+   "late": 0.2594078048028132,
+   "cen": 3157.553475253915,
+   "calls": 5,
+   "name": "0 RUNECRACK",
+   "aud_lo": 445.0,
+   "aud_hi": 450.0,
+   "gone_hi": 455.0,
+   "top_lo": 0.1321678959955121,
+   "top_hi": 0.13603989470076053,
+   "hiss_lo": 0.18391886715124073,
+   "wet": 0.41129701244988626,
+   "wet_lo": 0.40869808228385474,
+   "wheard": 26.829966573048463,
+   "wheard_fc": 1007.9368399158984,
+   "wheard_lo": 26.821846372007798,
+   "drawn": -333.59514662799,
+   "swell": 1.0,
+   "moving": 1615.522000113281,
+   "heard": 35.01238528295877,
+   "heard_fc": 1600.0,
+   "regs": {
+    "rune-crack": 1.0,
+    "widowmaker": 0.6208343561865313,
+    "redflail": 0.2894699257735204,
+    "marrowdraw": 0.1804821208498475,
+    "ravelbone": 0.24564101366581595,
+    "bloodmirror": 0.41128136313776487,
+    "dawnbringer": 0.14096470431658192,
+    "emberedge": 0.47495323239192755,
+    "nightfell": 0.3314293016041868,
+    "axiom": 0.3507652930555421,
+    "woosh": 0.7501070603052815,
+    "hit": 0.15280937963669167,
+    "death": 0.06920270594391194,
+    "peer:widowmaker": 0.35950677971932765,
+    "peer:lightkeeper": 0.5550143049691103,
+    "peer:heartwood": 0.4023134256856724
+   },
+   "reg_wall": 0.44159604579894396,
+   "why": [
+    "hiss 0.18 < 0.50",
+    "drawn -334 c, not >= +600",
+    "swell 1 ms < 20 (struck)",
+    "top 0.1360 > 0.1124",
+    "register vs rune-crack 1.00 > 0.80"
+   ]
+  }
+ ],
+ "blow": [
+  {
+   "name": "1 SEMI",
+   "sp": {
+    "c": 100,
+    "crack": true,
+    "tape": false
+   },
+   "crack": {
+    "1": -82.49074569506794,
+    "2": -199.81245840282267,
+    "3": -316.4910095933725,
+    "4": -421.6047659521275
+   },
+   "body": {
+    "1": -101.73881884525719,
+    "2": -204.2604933997924,
+    "3": -306.93167383443614,
+    "4": -409.0115169539499
+   },
+   "spread_c": {
+    "2": 128.9429968841651,
+    "4": 224.04591697200172
+   },
+   "spread_b": {
+    "2": 95.27659228695188,
+    "4": 150.4005806497242
+   },
+   "rise": 1.0,
+   "pk_ms": 7.625,
+   "calls": 2,
+   "pk_db": 0.92691468193149,
+   "corr": 0.999621184953667,
+   "reg_plain": 0.7321407765779135,
+   "reg_death": 0.96930433570852,
+   "phone_db": -1.67516582285684,
+   "aud_r": 1.0833333333333333,
+   "drop4": 415.30814145303873,
+   "why": []
+  },
+  {
+   "name": "2 TONE",
+   "sp": {
+    "c": 200,
+    "crack": true,
+    "tape": false
+   },
+   "crack": {
+    "1": -194.83722692261313,
+    "2": -399.84810311384155,
+    "3": -619.0215059883592,
+    "4": -806.4055087304666
+   },
+   "body": {
+    "1": -204.10077996350867,
+    "2": -409.4162662705435,
+    "3": -615.2911902421786,
+    "4": -823.6954785521993
+   },
+   "spread_c": {
+    "2": 128.9429968841651,
+    "4": 224.04591697200172
+   },
+   "spread_b": {
+    "2": 95.27659228695188,
+    "4": 150.4005806497242
+   },
+   "rise": 2.0,
+   "pk_ms": 8.916666666666666,
+   "calls": 2,
+   "pk_db": 1.102477018118603,
+   "corr": 0.9994156422299437,
+   "reg_plain": 0.5026202548824821,
+   "reg_death": 0.6861958918570654,
+   "phone_db": -3.154252492109121,
+   "aud_r": 1.125,
+   "drop4": 815.050493641333,
+   "why": []
+  },
+  {
+   "name": "3 THIRD",
+   "sp": {
+    "c": 300,
+    "crack": true,
+    "tape": false
+   },
+   "crack": {
+    "1": -301.2434445366155,
+    "2": -609.4249157093931,
+    "3": -896.2799075239236,
+    "4": -1174.747459629979
+   },
+   "body": {
+    "1": -305.76838870340066,
+    "2": -614.1585432093442,
+    "3": -926.7013378016497,
+    "4": -1250.6248772696238
+   },
+   "spread_c": {
+    "2": 128.9429968841651,
+    "4": 224.04591697200172
+   },
+   "spread_b": {
+    "2": 95.27659228695188,
+    "4": 150.4005806497242
+   },
+   "rise": 2.0,
+   "pk_ms": 8.9375,
+   "calls": 2,
+   "pk_db": 1.4187922846283607,
+   "corr": 0.9995546464663495,
+   "reg_plain": 0.38556206386719566,
+   "reg_death": 0.4330245335377998,
+   "phone_db": -4.354760395087157,
+   "aud_r": 1.0833333333333333,
+   "drop4": 1212.6861684498012,
+   "why": []
+  },
+  {
+   "name": "4 TAPE",
+   "sp": {
+    "c": 200,
+    "crack": true,
+    "tape": true
+   },
+   "crack": {
+    "1": -200.24795477823386,
+    "2": -399.5779275772672,
+    "3": -610.2595131127462,
+    "4": -803.9763810098867
+   },
+   "body": {
+    "1": -189.95734621234897,
+    "2": -383.905845500358,
+    "3": -580.1853374873324,
+    "4": -783.844303550251
+   },
+   "spread_c": {
+    "2": 128.9429968841651,
+    "4": 224.04591697200172
+   },
+   "spread_b": {
+    "2": 95.27659228695188,
+    "4": 150.4005806497242
+   },
+   "rise": 2.0,
+   "pk_ms": 8.916666666666666,
+   "calls": 2,
+   "pk_db": 1.0248347253889443,
+   "corr": 0.9461445983675314,
+   "reg_plain": 0.4523149094490191,
+   "reg_death": 0.662320845479363,
+   "phone_db": -1.8404200915985292,
+   "aud_r": 1.7916666666666667,
+   "drop4": 793.9103422800688,
+   "why": [
+    "audible 1.79x the plain hit's at 4 stacks (a boom, not a strike)"
+   ]
+  },
+  {
+   "name": "5 BODY",
+   "sp": {
+    "c": 200,
+    "crack": false,
+    "tape": false
+   },
+   "crack": {
+    "1": -13.922372032294414,
+    "2": -29.307627766985128,
+    "3": -36.17804822484909,
+    "4": -33.48175558365894
+   },
+   "body": {
+    "1": -204.1194639510981,
+    "2": -409.43822906935867,
+    "3": -615.2872679280001,
+    "4": -823.9535024283116
+   },
+   "spread_c": {
+    "2": 128.9429968841651,
+    "4": 224.04591697200172
+   },
+   "spread_b": {
+    "2": 95.27659228695188,
+    "4": 150.4005806497242
+   },
+   "rise": 2.0,
+   "pk_ms": 8.291666666666666,
+   "calls": 2,
+   "pk_db": 1.048609464044321,
+   "corr": 0.9994209643766836,
+   "reg_plain": 0.5056514984923246,
+   "reg_death": 0.6828736581118602,
+   "phone_db": -1.5447764741371308,
+   "aud_r": 1.125,
+   "drop4": 428.71762900598526,
+   "why": [
+    "crack +0 -> -14 c at 0 -> 1 stacks, not down >= 50",
+    "crack -14 -> -29 c at 1 -> 2 stacks, not down >= 50",
+    "crack -29 -> -36 c at 2 -> 3 stacks, not down >= 50",
+    "crack -36 -> -33 c at 3 -> 4 stacks, not down >= 50",
+    "crack -29 c at 2 stacks inside the dice's 129",
+    "crack -33 c at 4 stacks inside the dice's 224"
+   ]
+  }
+ ],
+ "blow_controls": [
+  {
+   "name": "0 PLAIN",
+   "sp": null,
+   "crack": {
+    "1": 1.7150703193800465,
+    "2": 0.1789762481465618,
+    "3": -2.251546376175039,
+    "4": -6.004413669659217
+   },
+   "body": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0
+   },
+   "spread_c": {
+    "2": 128.9429968841651,
+    "4": 224.04591697200172
+   },
+   "spread_b": {
+    "2": 95.27659228695188,
+    "4": 150.4005806497242
+   },
+   "rise": 1.0,
+   "pk_ms": 7.583333333333333,
+   "calls": 2,
+   "pk_db": 0.0,
+   "corr": 1.0,
+   "reg_plain": 1.0,
+   "reg_death": 0.8528039521298154,
+   "phone_db": 0.0,
+   "aud_r": 1.0,
+   "drop4": 3.0022068348296087,
+   "why": [
+    "crack +0 -> +2 c at 0 -> 1 stacks, not down >= 50",
+    "body +0 -> +0 c at 0 -> 1 stacks, not down >= 50",
+    "crack +2 -> +0 c at 1 -> 2 stacks, not down >= 50",
+    "body +0 -> +0 c at 1 -> 2 stacks, not down >= 50",
+    "crack +0 -> -2 c at 2 -> 3 stacks, not down >= 50",
+    "body +0 -> +0 c at 2 -> 3 stacks, not down >= 50",
+    "crack -2 -> -6 c at 3 -> 4 stacks, not down >= 50",
+    "body +0 -> +0 c at 3 -> 4 stacks, not down >= 50",
+    "crack +0 c at 2 stacks inside the dice's 129",
+    "body +0 c at 2 stacks inside the dice's 95",
+    "crack -6 c at 4 stacks inside the dice's 224",
+    "body +0 c at 4 stacks inside the dice's 150"
+   ]
+  },
+  {
+   "name": "0 UP",
+   "sp": {
+    "c": 200,
+    "crack": true,
+    "tape": false,
+    "up": true
+   },
+   "crack": {
+    "1": 202.72025766580347,
+    "2": 405.6911889907658,
+    "3": 615.2669022830003,
+    "4": 820.3127192401238
+   },
+   "body": {
+    "1": 202.80837029553174,
+    "2": 405.0243542121446,
+    "3": 607.3631612259177,
+    "4": 810.1334147240091
+   },
+   "spread_c": {
+    "2": 128.9429968841651,
+    "4": 224.04591697200172
+   },
+   "spread_b": {
+    "2": 95.27659228695188,
+    "4": 150.4005806497242
+   },
+   "rise": 1.0,
+   "pk_ms": 6.708333333333334,
+   "calls": 2,
+   "pk_db": 1.5339332275336752,
+   "corr": 0.99987272555224,
+   "reg_plain": 0.43831582145333897,
+   "reg_death": 0.5045684125644015,
+   "phone_db": 12.19118966341626,
+   "aud_r": 1.0833333333333333,
+   "drop4": -815.2230669820665,
+   "why": [
+    "crack +0 -> +203 c at 0 -> 1 stacks, not down >= 50",
+    "body +0 -> +203 c at 0 -> 1 stacks, not down >= 50",
+    "crack +203 -> +406 c at 1 -> 2 stacks, not down >= 50",
+    "body +203 -> +405 c at 1 -> 2 stacks, not down >= 50",
+    "crack +406 -> +615 c at 2 -> 3 stacks, not down >= 50",
+    "body +405 -> +607 c at 2 -> 3 stacks, not down >= 50",
+    "crack +615 -> +820 c at 3 -> 4 stacks, not down >= 50",
+    "body +607 -> +810 c at 3 -> 4 stacks, not down >= 50",
+    "crack +406 c at 2 stacks inside the dice's 129",
+    "body +405 c at 2 stacks inside the dice's 95",
+    "crack +820 c at 4 stacks inside the dice's 224",
+    "body +810 c at 4 stacks inside the dice's 150",
+    "peak 1.5 dB off the plain hit's"
+   ]
+  }
+ ],
+ "wavs": {
+  "goreshard-ctl-runecrack.wav": 75138,
+  "goreshard-ctl-hit10.25.wav": 24756,
+  "goreshard-ctl-woosh.wav": 74654,
+  "goreshard-cast-bubble.wav": 66994,
+  "goreshard-cast-squelch.wav": 69992,
+  "goreshard-cast-slick.wav": 66658,
+  "goreshard-cast-drip.wav": 69992,
+  "goreshard-cast-ctl-dry.wav": 69992,
+  "goreshard-cast-ctl-still.wav": 65510,
+  "goreshard-cast-ctl-hum.wav": 66658,
+  "goreshard-cast-ctl-faint.wav": 66994,
+  "goreshard-blow-semi-n2.wav": 26252,
+  "goreshard-blow-semi-n4.wav": 27272,
+  "goreshard-blow-tone-n2.wav": 25922,
+  "goreshard-blow-tone-n4.wav": 27792,
+  "goreshard-blow-third-n2.wav": 26168,
+  "goreshard-blow-third-n4.wav": 27352,
+  "goreshard-blow-tape-n2.wav": 29768,
+  "goreshard-blow-tape-n4.wav": 36018,
+  "goreshard-blow-body-n2.wav": 25922,
+  "goreshard-blow-body-n4.wav": 27782,
+  "goreshard-pick-real-window.wav": 1217644,
+  "goreshard-pick-real-window-without.wav": 1217644,
+  "goreshard-pick-sequence.wav": 298054
+ },
+ "pick": {
+  "cast": "4 DRIP",
+  "cast_g": 0.5095,
+  "cast_kw": 0.03921,
+  "cast_D2": 0.49,
+  "blow": "1 SEMI",
+  "blow_c": 100
+ }
+}

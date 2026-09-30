@@ -1,0 +1,30 @@
+07-shorts/v114/bloodprice-window.mp4 0559c567566128ba
+stream|codec_name=h264|width=540|height=960|r_frame_rate=60/1|nb_frames=754|
+stream|codec_name=aac|sample_rate=48000|channels=2|r_frame_rate=0/0|nb_frames=590
+format|duration=12.588021|size=2199579
+[Parsed_volumedetect_0 @ 000002aca764b6c0] n_samples: 0
+[Parsed_volumedetect_0 @ 000002aca9144200] n_samples: 1208320
+[Parsed_volumedetect_0 @ 000002aca9144200] mean_volume: -22.4 dB
+[Parsed_volumedetect_0 @ 000002aca9144200] max_volume: -2.5 dB
+[Parsed_ebur128_0 @ 0000019bd5fc56c0] Summary:
+
+  Integrated loudness:
+    I:         -20.6 LUFS
+    Threshold: -30.8 LUFS
+
+  Loudness range:
+    LRA:         0.7 LU
+    Threshold: -40.7 LUFS
+    LRA low:   -21.0 LUFS
+    LRA high:  -20.2 LUFS
+
+  True peak:
+    Peak:       -2.0 dBFS
+[out#0/null @ 0000019bd4517a40] video:0KiB audio:2360KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:12.58 bitrate=N/A speed= 178x elapsed=0:00:00.07    
+the same window on the stage-5 link: a1d320db3ec57252
+[Parsed_volumedetect_0 @ 00000257aaaea780] mean_volume: -22.3 dB
+[Parsed_volumedetect_0 @ 00000257aaaea780] max_volume: -3.0 dB
+    I:         -20.4 LUFS
+    LRA:         1.0 LU
+    Peak:       -2.4 dBFS

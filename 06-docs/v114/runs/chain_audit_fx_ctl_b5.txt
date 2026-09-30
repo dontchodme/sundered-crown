@@ -1,0 +1,45 @@
+  (21 insert(s) found in goreshard_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-goreshard-b10.25-fx.html
+tip    sc-goreshard-b10.25.html
+22 inserts read out of goreshard_build.py
+
+    ok  PRICE_CLAUSE_NEW           relic  1  mid   -  tip  1
+    ok  S1:Bloodprice's beam block out, the price's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the price has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the price's window relic  1  mid   -  tip  1
+    ok  S2:the blow reads the stacks it found, before its own onHit relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickPrice keeps the window's clock relic  1  mid   -  tip  1
+    ok  S5:the blade: nearest 50% both sides (Rick's ruling, reading 12) relic  1  mid   -  tip  1
+  LOST  S6:Sfx: the scaled blow -- a branch before the plain hit arm, taken only with `price` relic  1  mid   -  tip  0
+        'this._tone (t, { freq: (190 - 90*w) * k, to: 46 * k, gain: 0.22 + 0.26*w, dur: (0.11 + 0'
+  LOST  S6:Sfx: Goreshard's cast arm, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'this._sweep(t + 0.16, { f0: 4100, f1: 8000, q: 5, gain: g, dur: 0.49, atk: 0.1, type:"ba'
+  LOST  S6:resolveHit: a scaled blow's hit voice carries `price` (priceN > 0), before the hit-voice line relic  1  mid   -  tip  0
+        'if (priceN > 0) SFX.play("hit", { dmg, crit, price: priceN });'
+  LOST  S6:bloodprice picture: fighter fields relic  1  mid   -  tip  0
+        'this.goreDrops = [];'
+  LOST  S6:bloodprice picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickGore(dt);                 // BLOODPRICE'S PICTURE (v81 section 4)"
+  LOST  S6:bloodprice picture: tickGore relic  1  mid   -  tip  0
+        'const lx = j < 4 ? L * (0.34 + 0.14 * j) - L * 0.075 + (h1 - 0.5) * L * 0.05 : L * (0.97'
+  LOST  S6:bloodprice picture: drawWeapon's blade hook relic  1  mid   -  tip  0
+        'if (f.goreFade > 0 && this.drawGoreWeapon(m, f, reach, dim)) return;'
+  LOST  S6:bloodprice picture: the motes' call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawGoreDrops(m);'
+  LOST  S6:bloodprice picture: the drawing methods relic  1  mid   -  tip  0
+        'return C[id] || (C[id] = Object.assign({}, aff, k ? { core: aff.glow } : { steel: "#D02A'
+  LOST  S6:bloodprice picture: the priced blow's float, larger relic  1  mid   -  tip  0
+        'const fsz = clamp(22 + dmg * 0.62, 22, 62) * (crit ? 1.3 : 1) * (1 + 0.1 * priceN);'
+  LOST  S6:bloodprice picture: the beam's pool retired relic  1  mid   -  tip  0
+        "stage 6). The window's picture is the blade itself (`drawGoreWeapon`),"
+  LOST  S6:bloodprice picture: the beam's seam retired relic  1  mid   -  tip  0
+        'the quarry, its drops and the tether back to the caster); retired with'
+  LOST  S6:bloodprice picture: the charge rune relic  1  mid   -  tip  0
+        'const pts = [at(0.03, -hw), at(e, -hw * (1 - 0.1 * e / 0.84)), at(e, hw * (1 - 0.1 * e /'
+
+!! 13 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: the scaled blow -- a branch before the plain hit arm, taken only with `price`, S6:Sfx: Goreshard's cast arm, before the shared rune-crack fallback, S6:resolveHit: a scaled blow's hit voice carries `price` (priceN > 0), before the hit-voice line, S6:bloodprice picture: fighter fields, S6:bloodprice picture: the presentation call, S6:bloodprice picture: tickGore, S6:bloodprice picture: drawWeapon's blade hook, S6:bloodprice picture: the motes' call (world, under both balls), S6:bloodprice picture: the drawing methods, S6:bloodprice picture: the priced blow's float, larger, S6:bloodprice picture: the beam's pool retired, S6:bloodprice picture: the beam's seam retired, S6:bloodprice picture: the charge rune
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

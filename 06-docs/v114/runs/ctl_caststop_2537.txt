@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · oathwound (redesign) · 33 foes x 20 seeds = 660 fights an arm · control: the lab with fireUlt's 0.08 cast stop
+  charge=16.0 dur=8.0 blade=None perStack=0.3 castStop=0.08
+
+  arm       win  casts  hits in/out    blows f_foeStk
+  B       40.0%   3.47  7.57/9.89       2.11     2.32
+  660 fights in 74s   errors: []

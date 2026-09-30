@@ -1,0 +1,21 @@
+  (8 insert(s) found in goreshard_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-goreshard-b10.25.html
+tip    ctl-goreshard-noclause.html
+9 inserts read out of goreshard_build.py
+
+  LOST  PRICE_CLAUSE_NEW           relic  1  mid   -  tip  0
+        'self.ultPrice ? self.w.dmg * (1 + self.w.ult.perStack * priceN) :'
+    ok  S1:Bloodprice's beam block out, the price's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the price has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the price's window relic  1  mid   -  tip  1
+    ok  S2:the blow reads the stacks it found, before its own onHit relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickPrice keeps the window's clock relic  1  mid   -  tip  1
+    ok  S5:the blade: nearest 50% both sides (Rick's ruling, reading 12) relic  1  mid   -  tip  1
+
+!! 1 INSERT(S) DID NOT SURVIVE THE CHAIN: PRICE_CLAUSE_NEW
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+rc=1

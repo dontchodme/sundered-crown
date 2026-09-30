@@ -1,0 +1,11 @@
+=== ENGINE A/B: 30 relics, 6 seeds x 435 pairings ===
+
+  sc-goreshard-b10.25-fx.html     2610 matches  190.1s
+  sc-goreshard-b10.25-fx.html     2610 matches  248.4s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 2610
+  PASS  every match identical field for field  — 2610/2610
+  PASS  the sweep is real  — 30/30 distinct winners, 2610 distinct seeds, 21.9-112.7s
+
+ENGINE A/B PASS — C:\dev\sundered-crown\02-chain\sc-goreshard-b10.25-fx.html does not move the 30-relic roster.

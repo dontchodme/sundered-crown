@@ -1,0 +1,4 @@
+stub vs arm A (base, charge 1e9): 2640/2640 fights identical, every field (33 foes x 20 seeds x 2 blocks x both sides)
+control, the shipped beam live vs the stub: 2640/2640 fights differ (must be > 0)
+fields compared per fight: ['a', 'b', 'clanks', 'crits', 'duration', 'hits', 'hp', 'reason', 'seed', 'winner']
+exit 0

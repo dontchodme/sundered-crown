@@ -1,0 +1,17 @@
+  (8 insert(s) found in goreshard_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-goreshard-b10.25.html
+tip    sc-goreshard-b10.25.html
+9 inserts read out of goreshard_build.py
+
+    ok  PRICE_CLAUSE_NEW           relic  1  mid   -  tip  1
+    ok  S1:Bloodprice's beam block out, the price's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the price has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the price's window relic  1  mid   -  tip  1
+    ok  S2:the blow reads the stacks it found, before its own onHit relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickPrice keeps the window's clock relic  1  mid   -  tip  1
+    ok  S5:the blade: nearest 50% both sides (Rick's ruling, reading 12) relic  1  mid   -  tip  1
+
+ALL 9 INSERTS SURVIVE to sc-goreshard-b10.25.html
+rc=0

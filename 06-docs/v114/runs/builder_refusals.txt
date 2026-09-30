@@ -1,0 +1,24 @@
+(1) the stage guards and the link rules
+  REFUSES  stage 2 on the base (no stub under it)       -> stage 2 goes on stage 1
+  REFUSES  stage 1 on the stub (built already)          -> 'kind:"price"' is already in the base
+  REFUSES  stage 2 on stage 2 (twice)                   -> stage 2 goes on stage 1
+  REFUSES  stage 5 on the stub (no price under it)      -> stage 5 goes on stage 2, once
+  REFUSES  a link that exists (overwrite)               -> refusing to overwrite sc-goreshard-stub.html -- a link is written once. Delete it by hand if this is a rebuild
+  REFUSES  a name that is not sc-goreshard*             -> a link of this build is named sc-goreshard*: sc-other.html
+  REFUSES  the live build's name                        -> refusing to write the live build
+(2) negative copies of the builder: one insert made wrong, each must refuse
+  REFUSES  tickPrice writes the foe's velocity                          -> REFUSING TO WRITE -- insert 'tickPrice keeps the window's clock' writes foe.vx (reading 10: the window, the tally and th
+  REFUSES  the read draws the RNG                                       -> REFUSING TO WRITE -- insert 'the blow reads the stacks it found, before its own onHit' draws the RNG or uses the one ult
+  REFUSES  the cast writes the shared weapon                            -> REFUSING TO WRITE -- insert 'the cast opens the window and resolves nothing' writes the shared weapon
+  REFUSES  the cast keeps the beam's bleed (an apply)                   -> REFUSING TO WRITE -- insert 'the cast opens the window and resolves nothing' calls .apply(): the price reads the stacks 
+  REFUSES  tickPrice stops the world                                    -> REFUSING TO WRITE -- insert 'tickPrice keeps the window's clock' carries 'hitStop': the price is the blade's damage and 
+  REFUSES  the read floats a number                                     -> REFUSING TO WRITE -- insert 'the blow reads the stacks it found, before its own onHit' carries 'float(': the price is th
+  REFUSES  the read heals the caster                                    -> REFUSING TO WRITE -- insert 'the blow reads the stacks it found, before its own onHit' writes self.hp (reading 10: the w
+  REFUSES  the cast stuns the foe                                       -> REFUSING TO WRITE -- insert 'the cast opens the window and resolves nothing' writes foe.stun (reading 10: the window, th
+  REFUSES  the read writes a status by index                            -> REFUSING TO WRITE -- insert 'the blow reads the stacks it found, before its own onHit' deletes or writes by index
+  REFUSES  the read rewrites the jitter                                 -> REFUSING TO WRITE -- insert 'the blow reads the stacks it found, before its own onHit' rewrites the blow's own locals (t
+  REFUSES  tickPrice calls into the simulation (hurt)                   -> REFUSING TO WRITE -- insert 'tickPrice keeps the window's clock' calls .hurt(): the price reads the stacks and nothing e
+  REFUSES  the price read from the stacks AFTER the onHit (the read moved below the damage line) -> REFUSING TO WRITE -- the read, the damage line and the onHit loop are not in that order
+  REFUSES  the damage clause written twice                              -> REFUSING TO WRITE -- the price is not exactly one clause of the damage line
+
+ALL REFUSE

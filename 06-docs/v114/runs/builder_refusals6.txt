@@ -1,0 +1,29 @@
+(1) the stage-6 guards
+  REFUSES  stage 6 on the base                          -> wrong base: Goreshard's row (greatsword, 10.25, hemorrhage 2) has moved
+  REFUSES  stage 6 on stage 2 (no blade under it)       -> wrong base: Goreshard's row (greatsword, 10.25, hemorrhage 2) has moved
+  REFUSES  stage 6 on stage 6 (twice)                   -> 'tickGore' is already in this source -- stage 6 goes on once
+  REFUSES  stage 5 on stage 6                           -> wrong base: Goreshard's row (greatsword, 9.17, hemorrhage 2) has moved
+  REFUSES  stage 6 over an existing link                -> refusing to overwrite sc-goreshard-b10.25-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+(2) negative copies of the builder: one stage-6 row made wrong, each must refuse (stage 6 on the b10.25 link)
+  REFUSES  tickGore writes the foe's velocity                     -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' writes the window, the tally, a status or a body
+  REFUSES  tickGore draws the match's RNG                         -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' draws the RNG or uses the one ultFx slot
+  REFUSES  tickGore closes the window                             -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' writes the window, the tally, a status or a body
+  REFUSES  tickGore writes a status                               -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' writes hemorrhage.t
+  REFUSES  tickGore turns the blade                               -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' writes the window, the tally, a status or a body
+  REFUSES  tickGore calls into the simulation (a note)            -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' calls into the simulation
+  REFUSES  tickGore plays a voice (off its line)                  -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' plays a voice or sizes a float outside its two sim-path rows
+  REFUSES  tickGore pushes a float                                -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' plays a voice or sizes a float outside its two sim-path rows
+  REFUSES  tickGore assigns into the fighter                      -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' deletes or redefines a property, or assigns into an object it d
+  REFUSES  the mote writes the shared weapon                      -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: tickGore' writes the shared weapon row
+  REFUSES  the motes' draw takes the ultFx slot                   -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: the drawing methods' draws the RNG or uses the one ultFx slot
+  REFUSES  the motes' draw uses Math.random                       -> REFUSING TO WRITE -- this build adds a Math.random
+  REFUSES  the motes' draw writes a module table                  -> REFUSING TO WRITE -- stage 6 insert 'bloodprice picture: the drawing methods' reaches a shared module table other than by the read
+  REFUSES  the float row is not its own text (x0.2)               -> REFUSING TO WRITE -- stage 6's line on the sim path ('bloodprice picture: the priced blow's float, larger') is not its own text al
+  REFUSES  the priced voice on every window blow (n >= 0)         -> REFUSING TO WRITE -- stage 6's line on the sim path ('resolveHit: a scaled blow's hit voice carries `price` (priceN > 0), before t
+  REFUSES  the cast arm drops the rune-crack fallback             -> REFUSING TO WRITE -- the shared rune-crack fallback is not kept, once, after Goreshard's cast arm
+  REFUSES  a row takes SPECS.oathwound out of the inlined fx.js   -> REFUSING TO WRITE -- stage 6 touched the inlined fx.js copy (no field: reading 15; SPECS.oathwound goes at the carry)
+(3) the harness can pass
+  WRITES   the builder unchanged: f063e05c0f721d54 (the fx link f063e05c0f721d54)
+  WRITES   a harmless comment in tickGore: d719cfe76125eb56 (out sc-goreshard-harmless-fx.html  d719cfe76125eb56   (+1523)
+
+ALL REFUSE (and the harness passes the clean builder)

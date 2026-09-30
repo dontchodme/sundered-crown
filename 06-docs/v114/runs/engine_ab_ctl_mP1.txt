@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-goreshard-b10.25.html          36 matches    3.3s
+  sc-goreshard-mP1-picwrite.html    36 matches    3.5s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Goreshard", "b": "Axiom", "winner": "Goreshard", "hp": 117, "duration": 72.76, "reason": "slain", "hits": {"a": 15, "b": 27}, "crits": {"a": 2, "b": 3}, "clanks": 42}
+            variant {"seed": 1233799701, "a": "Goreshard", "b": "Axiom", "winner": "Axiom", "hp": 37, "duration": 74.98, "reason": "slain", "hits": {"a": 15, "b": 29}, "crits": {"a": 0, "b": 4}, "clanks": 43}
+          #1
+            control {"seed": 330441002, "a": "Goreshard", "b": "Axiom", "winner": "Axiom", "hp": 39, "duration": 72.77, "reason": "slain", "hits": {"a": 15, "b": 27}, "crits": {"a": 3, "b": 2}, "clanks": 39}
+            variant {"seed": 330441002, "a": "Goreshard", "b": "Axiom", "winner": "Goreshard", "hp": 156, "duration": 69.88, "reason": "slain", "hits": {"a": 14, "b": 23}, "crits": {"a": 3, "b": 1}, "clanks": 38}
+          #2
+            control {"seed": 4184808219, "a": "Goreshard", "b": "Axiom", "winner": "Goreshard", "hp": 110, "duration": 70.53, "reason": "slain", "hits": {"a": 16, "b": 20}, "crits": {"a": 2, "b": 5}, "clanks": 36}
+            variant {"seed": 4184808219, "a": "Goreshard", "b": "Axiom", "winner": "Axiom", "hp": 282, "duration": 85.52, "reason": "slain", "hits": {"a": 9, "b": 34}, "crits": {"a": 0, "b": 5}, "clanks": 50}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 46.6-86.9s
+
+ENGINE A/B FAIL

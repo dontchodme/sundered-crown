@@ -1,0 +1,7 @@
+mV1-closevoice   [11]        e910775daa8ad222  the cast voice again at every window close, a death's included (a close voice)
+mV2-x1priced     [11]        092636a012c0cfa1  the priced voice on every window blow, x1 ones included (price 0)
+mP1-picwrite     [12]        de21f3c0873d6751  tickGore nudges the foe's velocity 1e-9 at every mote it sheds (a sim write)
+mP2-glowfloor    [12]        857b0d558be7e952  the glow's floor 0.25, not v81's 0.2
+mP3-floatx2      [12]        26e382b9fdaa1391  the priced float x(1 + 0.2 n), not x(1 + 0.1 n)
+mP4-windowonly   [12]        12aef33e2ca556b9  the red read off the window alone (not the match, not both standing): held through the verdict when the kill leaves the window set
+mD1-drawwrite    [12] drawn  29d54aaaf6b74db8  the blade's draw writes the caster's velocity (only a drawn frame can see it)

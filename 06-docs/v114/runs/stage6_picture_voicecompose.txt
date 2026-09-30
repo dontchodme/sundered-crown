@@ -1,0 +1,10 @@
+[4c] base b10.25: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+[4c] aureole-fxout: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+[4c] censer-fxout: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+[4c] ironhail-fxout: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+[4c] lightkeeper-fxout: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+[4c] spellbreaker-fxout: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+[4c] t3: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+[4c] tendril-fx: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+[4c] widowmaker-fxout: voice-then-picture == picture-then-voice True; parses; every anchor once; the float line precedes the voice's call by 21 lines
+RH_ANCHOR: SFX.play("hit", self.ultTree ? { dmg, crit, bough: self.w.ult.winDmg } : { dmg, crit });

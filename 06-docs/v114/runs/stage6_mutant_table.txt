@@ -1,0 +1,23 @@
+mV1-closevoice   [11]  the cast voice again at every window close, a death's included (a close voice)
+    fights changed   0/148   probe 11/12  fails [11]  Goreshard wins 48.6%   OWN CHECK ONLY: PASS
+    [11] FAIL  the voices fire exactly on their events: one cast voice a cast, in fireUlt; a blow priced on n > 0 voiced with price n (its dmg and crit), every other blow plain; the close silent, by the clock and ON A DEATH; none in the picture, a drawn frame or the verdict   408 FAIL: ["her cast voice 
+mV2-x1priced     [11]  the priced voice on every window blow, x1 ones included (price 0)
+    fights changed   0/148   probe 11/12  fails [11]  Goreshard wins 48.6%   OWN CHECK ONLY: PASS
+    [11] FAIL  the voices fire exactly on their events: one cast voice a cast, in fireUlt; a blow priced on n > 0 voiced with price n (its dmg and crit), every other blow plain; the close silent, by the clock and ON A DEATH; none in the picture, a drawn frame or the verdict   204 FAIL: ['a x1 window blo
+mP1-picwrite     [12]  tickGore nudges the foe's velocity 1e-9 at every mote it sheds (a sim write)
+    fights changed 143/148   probe 11/12  fails [12]  Goreshard wins 43.2%   OWN CHECK ONLY: PASS
+    [12] FAIL  the picture's hook writes nothing of the simulation's and is the picture declared: the red exactly while the window is open, its run and drain, the glow toward 0.2 + 0.15 n, the motes while open only; the float x(1 + 0.1 n) on a priced blow and the old size on every other   19039 FAIL: ['
+mP2-glowfloor    [12]  the glow's floor 0.25, not v81's 0.2
+    fights changed   0/148   probe 11/12  fails [12]  Goreshard wins 48.6%   OWN CHECK ONLY: PASS
+    [12] FAIL  the picture's hook writes nothing of the simulation's and is the picture declared: the red exactly while the window is open, its run and drain, the glow toward 0.2 + 0.15 n, the motes while open only; the float x(1 + 0.1 n) on a priced blow and the old size on every other   464748 FAIL: [
+mP3-floatx2      [12]  the priced float x(1 + 0.2 n), not x(1 + 0.1 n)
+    fights changed   0/148   probe 11/12  fails [12]  Goreshard wins 48.6%   OWN CHECK ONLY: PASS
+    [12] FAIL  the picture's hook writes nothing of the simulation's and is the picture declared: the red exactly while the window is open, its run and drain, the glow toward 0.2 + 0.15 n, the motes while open only; the float x(1 + 0.1 n) on a priced blow and the old size on every other   416 FAIL: ['he
+mP4-windowonly   [12]  the red read off the window alone: held through the verdict when the kill leaves it set
+    fights changed   0/148   probe 11/12  fails [12]  Goreshard wins 48.6%   OWN CHECK ONLY: PASS
+    [12] FAIL  the picture's hook writes nothing of the simulation's and is the picture declared: the red exactly while the window is open, its run and drain, the glow toward 0.2 + 0.15 n, the motes while open only; the float x(1 + 0.1 n) on a priced blow and the old size on every other   23641 FAIL: ['
+mD1-drawwrite    [12] drawn  the blade's draw writes the caster's velocity (a drawn frame only)
+    fights changed   0/148   probe 11/12  fails [12]  Goreshard wins 51.4%   OWN CHECK ONLY: PASS
+    [12] FAIL  the picture's hook writes nothing of the simulation's and is the picture declared: the red exactly while the window is open, its run and drain, the glow toward 0.2 + 0.15 n, the motes while open only; the float x(1 + 0.1 n) on a priced blow and the old size on every other; the drawn subse
+
+7/7 stage-6 mutants fail their own check and only that one

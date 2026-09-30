@@ -1,0 +1,5 @@
+oathwound on sc-tendril-t3.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · ship_rr
+  win 32.3%   side A 34.6%   side B 30.0%   mean 62.3s   timeouts 0
+  by type  bow 46%  twinblade 36%  scythe 35%  greatsword 31%  warhammer 24%  flail 24%
+  worst    ironwood 5%  twinshade 10%  vesper 10%   (740 fights in 72s)
+exit 0

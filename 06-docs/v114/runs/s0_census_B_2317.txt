@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · oathwound (redesign) · 33 foes x 20 seeds = 660 fights an arm · census block 2317
+  charge=16.0 dur=8.0 blade=None perStack=0.3
+
+  arm       win  casts  hits in/out    blows f_foeStk f_frozen  f_steps    f_wfz    f_wststkAtBlow
+  B       43.3%   3.46  7.71/9.91       2.16     2.37   985.52  7546.92   455.33  3063.02     5.11
+  660 fights in 85s   errors: []
+exit 0

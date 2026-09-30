@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 5 frames  540x960
+  a  sc-goreshard-b10.25-fx.html
+  b  sc-goreshard-fxout.html
+  oathwound v grudgebearer seed 114371 t= 31.84  DIFFERS   luma 21.337 -> 20.972   lit 88.27% -> 88.26%
+  oathwound v grudgebearer seed 114371 t= 31.94  DIFFERS   luma 22.644 -> 21.798   lit 88.22% -> 88.18%
+  oathwound v grudgebearer seed 114371 t= 32.04  DIFFERS   luma 22.717 -> 21.690   lit 88.21% -> 88.21%
+  oathwound v grudgebearer seed 114371 t= 32.14  DIFFERS   luma 23.532 -> 22.639   lit 88.18% -> 88.18%
+  oathwound v grudgebearer seed 114371 t= 32.24  DIFFERS   luma 23.059 -> 22.807   lit 88.04% -> 88.04%
+
+FAIL  0/5 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

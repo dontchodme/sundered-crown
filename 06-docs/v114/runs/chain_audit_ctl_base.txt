@@ -1,0 +1,29 @@
+  (8 insert(s) found in goreshard_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-goreshard-b10.25.html
+tip    sc-tendril-t3.html
+9 inserts read out of goreshard_build.py
+
+  LOST  PRICE_CLAUSE_NEW           relic  1  mid   -  tip  0
+        'self.ultPrice ? self.w.dmg * (1 + self.w.ult.perStack * priceN) :'
+  LOST  S1:Bloodprice's beam block out, the price's block in, stubbed relic  1  mid   -  tip  0
+        'tip:"Its blows hit harder the more the foe bleeds: +30% a Hemorrhage stack" },'
+  LOST  S2:the price has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  0
+        'ult:{ name:"Bloodprice", charge:14, kind:"price", dur:8, perStack:0.3,   // v81 stage 1:'
+  LOST  S2:the fighter carries the price's window relic  1  mid   -  tip  0
+        'this.priceTally = null;'
+  LOST  S2:the blow reads the stacks it found, before its own onHit relic  1  mid   -  tip  0
+        'if (self.ultPrice){ self.priceTally.blows++; self.priceTally.stk += priceN; }'
+  LOST  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  0
+        'f.priceTally = { casts: 0, frames: 0, foeStk: 0, blows: 0, stk: 0 };'
+  LOST  S2:the window ticks with the window tickers relic  1  mid   -  tip  0
+        'this.tickPrice(dt);                 // BLOODPRICE (v81)'
+  LOST  S2:tickPrice keeps the window's clock relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur || !f.alive || !foe.alive){ f.ultPrice = null; continue; }'
+  LOST  S5:the blade: nearest 50% both sides (Rick's ruling, reading 12) relic  1  mid   -  tip  0
+        'blades:[0], reach:116, width:14, artW:40, spin:3.4, mode:"swing", arc:1.5, mass:3.0, dmg'
+
+!! 9 INSERT(S) DID NOT SURVIVE THE CHAIN: PRICE_CLAUSE_NEW, S1:Bloodprice's beam block out, the price's block in, stubbed, S2:the price has a charge: the lab's 16 on the game's clock, S2:the fighter carries the price's window, S2:the blow reads the stacks it found, before its own onHit, S2:the cast opens the window and resolves nothing, S2:the window ticks with the window tickers, S2:tickPrice keeps the window's clock, S5:the blade: nearest 50% both sides (Rick's ruling, reading 12)
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+rc=1

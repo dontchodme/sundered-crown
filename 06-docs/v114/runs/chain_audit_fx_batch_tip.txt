@@ -1,0 +1,30 @@
+  (21 insert(s) found in goreshard_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-goreshard-b10.25-fx.html
+tip    sc-goreshard-b10.25-fx.html
+22 inserts read out of goreshard_build.py
+
+    ok  PRICE_CLAUSE_NEW           relic  1  mid   -  tip  1
+    ok  S1:Bloodprice's beam block out, the price's block in, stubbed relic  1  mid   -  tip  1
+    ok  S2:the price has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the price's window relic  1  mid   -  tip  1
+    ok  S2:the blow reads the stacks it found, before its own onHit relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickPrice keeps the window's clock relic  1  mid   -  tip  1
+    ok  S5:the blade: nearest 50% both sides (Rick's ruling, reading 12) relic  1  mid   -  tip  1
+    ok  S6:Sfx: the scaled blow -- a branch before the plain hit arm, taken only with `price` relic  1  mid   -  tip  1
+    ok  S6:Sfx: Goreshard's cast arm, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:resolveHit: a scaled blow's hit voice carries `price` (priceN > 0), before the hit-voice line relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: tickGore relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: drawWeapon's blade hook relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: the motes' call (world, under both balls) relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: the drawing methods relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: the priced blow's float, larger relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: the beam's pool retired relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: the beam's seam retired relic  1  mid   -  tip  1
+    ok  S6:bloodprice picture: the charge rune relic  1  mid   -  tip  1
+
+ALL 22 INSERTS SURVIVE to sc-goreshard-b10.25-fx.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: S6:bloodprice picture: the beam's pool retired, S6:bloodprice picture: the beam's seam retired)

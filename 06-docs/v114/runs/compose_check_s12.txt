@@ -1,0 +1,29 @@
+v114 compose check: goreshard_build.py (sha16 4b29b0b2b09e8d02) stages 1/2 re-applied on LATER tips (scratch, not the chain)
+base = sc-tendril-t3.html 5a6216e3b629fad4
+  on the base: 5dac38065e1c8ac3 / 9105fa5bb4cf258c; +52 -2 lines; == the links in links/: [True, True]
+(a) THE BATCH LINE'S TIP now (Spellbreaker carried; 42 relics; read only) -> sc-spellbreaker-fxout.html 9243277a756e84b6
+    46aca169fd7c2937 / b8b3319f11a41df1; every anchor found once; parses; +52 -2; the same lines in the same order as on the base: True
+    builder: base  Goreshard's shipped row, hemorrhage at 4, resolveHit's draws / damage line / onHit loop and the anchors hold; the beam's generic tail kept, untouched, for no other 
+    builder: 42 relics in the roster
+(b) Aureole's carry (Benediction off the beam: NO other relic a beam; read only) -> sc-aureole-fxout.html da5eafafcfae06c2
+    6574ff86f2d31f9c / 17cca4fe5aa21073; every anchor found once; parses; +52 -2; the same lines in the same order as on the base: True
+    builder: base  Goreshard's shipped row, hemorrhage at 4, resolveHit's draws / damage line / onHit loop and the anchors hold; the beam's generic tail kept, untouched, for no other 
+    builder: 42 relics in the roster
+(c) Widowmaker's carry (read only) -> sc-widowmaker-fxout.html 04fdd2e2daa17c26
+    6b06e4d7616b9265 / 0c56f26dfec46685; every anchor found once; parses; +52 -2; the same lines in the same order as on the base: True
+    builder: base  Goreshard's shipped row, hemorrhage at 4, resolveHit's draws / damage line / onHit loop and the anchors hold; the beam's generic tail kept, untouched, for aureole
+    builder: 40 relics in the roster
+(d) Bindweed's stage 6 (read only) -> sc-tendril-fx.html eea0cde5536955b3
+    36bb92638ef716c3 / f4ac6de9ce2a8614; every anchor found once; parses; +52 -2; the same lines in the same order as on the base: True
+    builder: base  Goreshard's shipped row, hemorrhage at 4, resolveHit's draws / damage line / onHit loop and the anchors hold; the beam's generic tail kept, untouched, for aureole
+    builder: 38 relics in the roster
+(e) Heartwood / Rootfast in flight (its scratch final, on sc-tendril-t3) -> sc-heartwood-b11.html aff84a04b303a402
+    a289cd9d39a8c839 / 932ee7d11482a54f; every anchor found once; parses; +52 -2; the same lines in the same order as on the base: True
+    builder: base  Goreshard's shipped row, hemorrhage at 4, resolveHit's draws / damage line / onHit loop and the anchors hold; the beam's generic tail kept, untouched, for aureole
+    builder: 38 relics in the roster
+(f) Thornwake / Bramblesnare in flight (its scratch link, on sc-tendril-t3) -> sc-thornwake-snare.html 800daceb906ef28e
+    349be769bba4bea6 / 4308d2013544ed15; every anchor found once; parses; +52 -2; the same lines in the same order as on the base: True
+    builder: base  Goreshard's shipped row, hemorrhage at 4, resolveHit's draws / damage line / onHit loop and the anchors hold; the beam's generic tail kept, untouched, for aureole
+    builder: 38 relics in the roster
+
+ALL COMPOSE

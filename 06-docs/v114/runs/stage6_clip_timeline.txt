@@ -1,0 +1,21 @@
+Goreshard (side A) v grudgebearer, seed 114371, match time 30.610-43.180  (sc-goreshard-b10.25-fx.html)
+    31.808  CAST voice (ult/oathwound)
+    31.808  WINDOW OPENS
+    32.083  her plain blow voice: dmg 12 (window open, n 0)
+    32.083    float "12" at 29.44 px
+    34.900  PRICED blow voice: price 2, dmg 22
+    34.900    float "22" at 42.77 px
+    36.092  PRICED blow voice: price 4, dmg 69 crit
+    36.092    float "69!" at 112.84 px
+    37.083  PRICED blow voice: price 4, dmg 34
+    37.083    float "34" at 60.31 px
+    37.975  PRICED blow voice: price 4, dmg 30
+    37.975    float "30" at 56.84 px
+    40.625  PRICED blow voice: price 4, dmg 28
+    40.625    float "28" at 55.10 px
+    41.383  WINDOW CLOSES by the clock
+    41.725  the red DRAINED (goreFade 0)
+    41.933  her plain blow voice: dmg 13
+    41.933    float "13" at 30.06 px
+window steps in the clip 1149: the foe's Hemorrhage 0/2/4 on 0: 3%, 2: 29%, 4: 68%; 190 in a hit stop; at most 7 motes in flight
+the match ends at None (None)

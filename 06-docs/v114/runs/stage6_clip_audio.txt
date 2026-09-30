@@ -1,0 +1,28 @@
+the clip against the same window on the stage-5 link; the clip's first frame at match 30.617
+THE CAST at 31.808:
+  with (DRIP)            the 2-12 kHz centroid   3283 Hz in its first 100 ms ->   5454 Hz in its last:  +879 c
+  without (rune-crack)   the 2-12 kHz centroid   6960 Hz in its first 100 ms ->   4810 Hz in its last:  -640 c
+  the drops' band (700-1600 Hz, 0.15-0.45 s): with - without -11.1 dB
+  the scrape's top (4-9 kHz, 0.20-0.45 s): with - without +16.9 dB
+A PRICED BLOW: the strike's body, the FFT peak at 40-400 Hz over its first 40 ms, with against without:
+    34.900  n 2    144.5 Hz ->  109.4 Hz    -483 c   (the arm: -200 c)
+    36.092  n 4     91.4 Hz ->   70.3 Hz    -454 c   (the arm: -400 c)
+    37.083  n 4    117.2 Hz ->   95.3 Hz    -358 c   (the arm: -400 c)
+    37.975  n 4    135.9 Hz ->  121.9 Hz    -189 c   (the arm: -400 c)
+    40.625  n 4    109.4 Hz ->   92.2 Hz    -296 c   (the arm: -400 c)
+CONTROL -- her plain blows (the same call on both links), the same reading, must come back near 0:
+    32.083  plain   156.2 Hz ->  156.2 Hz      +0 c
+    41.933  plain   152.3 Hz ->  152.3 Hz      +0 c
+THE CLOSE at 41.383 ("close -- nothing"): with - without, 0-0.4 s:
+     40-400   Hz   +0.0 dB
+    700-1600  Hz   +0.5 dB
+   2000-12000 Hz   +2.3 dB
+CONTROL -- 0.5 s before the cast, the same bands: must come back near 0:
+     40-400   Hz   -0.0 dB
+    700-1600  Hz   -0.0 dB
+   2000-12000 Hz   -0.0 dB
+CONTROL -- windows after the first new voice with none of the three sounding (0.5 s clear of every event in the timeline), the same bands: what the AAC encode alone moves once the two soundtracks differ anywhere:
+    32.808  40-400 Hz  +0.0 dB  700-1600 Hz  -0.0 dB  2000-12000 Hz  -0.1 dB
+    33.408  40-400 Hz  -0.0 dB  700-1600 Hz  -0.9 dB  2000-12000 Hz  -0.4 dB
+    38.508  40-400 Hz  +0.0 dB  700-1600 Hz  -0.1 dB  2000-12000 Hz  -0.2 dB
+    39.108  40-400 Hz  +0.1 dB  700-1600 Hz  +3.2 dB  2000-12000 Hz  +1.9 dB

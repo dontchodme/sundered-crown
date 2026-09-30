@@ -1,0 +1,132 @@
+{
+ "n": {
+  "segOut": 4452060,
+  "turnOut": 1356631,
+  "hitTestOut": 1583269,
+  "rowStepOut": 1761349,
+  "tickCleanIdle": 97163,
+  "clankOut": 5996,
+  "turnFrozenOk": 434779,
+  "turnStunOk": 406176,
+  "rowBlowOut": 3974,
+  "blowOutOk": 3937,
+  "knockOut": 3974,
+  "stunOut": 3974,
+  "stopOut": 3974,
+  "bleedOut": 2472,
+  "othOut": 4238,
+  "castOk": 1489,
+  "cadenceOk": 1489,
+  "castClean": 1489,
+  "segIn": 3602808,
+  "tickCleanWin": 1288902,
+  "winFrames": 1287639,
+  "winFoeStk": 2845538,
+  "hitTestIn": 1301565,
+  "rowStepIn": 1516711,
+  "winSteps": 1516485,
+  "winFrozen": 229072,
+  "winHeldFrozen": 229072,
+  "turnIn": 1080474,
+  "winLiveAdv": 1286150,
+  "othIn": 5271,
+  "rowBlowIn": 3673,
+  "readClean": 3673,
+  "blowInOk": 3615,
+  "stkAtBlow": 8660,
+  "knockIn": 3673,
+  "stunIn": 3673,
+  "stopIn": 3673,
+  "bleedIn": 1882,
+  "clankIn": 5501,
+  "closes": 1263,
+  "clockOk": 1201,
+  "clockMatchSteps": 1345766,
+  "winLiveClose": 1263,
+  "blowScaledDiff": 2539,
+  "ceilBindIn": 1791,
+  "ceilBindOut": 1502,
+  "acctOk": 444,
+  "openAtKill": 226,
+  "owedOk": 444,
+  "deathClose": 62,
+  "hitSkipOk": 186,
+  "wardShatter": 471,
+  "blowInShade": 24,
+  "othShadeIn": 42,
+  "othShadeOut": 105,
+  "blowOutFoeRule": 37,
+  "blowInFoeRule": 34
+ },
+ "bad": {},
+ "T": {
+  "casts": 1489,
+  "frames": 1287639,
+  "foeStk": 2845538,
+  "blows": 3673,
+  "stk": 8660
+ },
+ "log": {
+  "0": [
+   1134,
+   1135.0735924477283,
+   1134
+  ],
+  "2": [
+   748,
+   1195.7258106260526,
+   748
+  ],
+  "4": [
+   1791,
+   3941.142367006217,
+   0
+  ]
+ },
+ "fights": 444,
+ "win": 0.536036036036036,
+ "blowsIn": 8.272522522522523,
+ "blowsOut": 8.95045045045045,
+ "nClock": 960,
+ "nCharge": 1681,
+ "HB": 4,
+ "ONHIT": 2,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "kind": "price",
+  "perStack": 0.3
+ },
+ "blade": 10.25,
+ "pin": {
+  "dur": 8,
+  "charge": 14,
+  "perStack": 0.3,
+  "pic": {
+   "G0": 0.2,
+   "G1": 0.15,
+   "GLOWT": 0.16,
+   "RATE": 5,
+   "DRAIN": 0.7,
+   "DLIFE": 1.3,
+   "CAP": 40,
+   "FK": 0.1
+  },
+  "blades": [
+   -0.0
+  ],
+  "reach": 116,
+  "width": 14,
+  "spin": 3.4,
+  "mode": "swing",
+  "arc": 1.5,
+  "mass": 3,
+  "onHit": 2,
+  "blade": 10.25
+ },
+ "s6": {
+  "v": false,
+  "p": false,
+  "part": false
+ }
+}

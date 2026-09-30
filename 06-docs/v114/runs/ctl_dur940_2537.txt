@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · oathwound (redesign) · 33 foes x 20 seeds = 660 fights an arm · control: the lab at the engine's window (8 / (1 - 0.149))
+  charge=16.0 dur=9.4 blade=None perStack=0.3
+
+  arm       win  casts  hits in/out    blows f_foeStk
+  B       48.3%   3.46  8.82/8.56       2.45     2.31
+  660 fights in 70s   errors: []

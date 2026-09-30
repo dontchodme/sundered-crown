@@ -1,0 +1,45 @@
+97 frames, 9 fights; missing: gravemourn 99015a ['over']; twinshade 99008a ['over']
+BLOOM: the picture's share of the chain's arena lift max +0.0000 min -0.0003 (gate +0.02) [worst gloamwire 5150b win2]; raw luma added max +0.0014 min -0.0014; arena clip with max 0.0169 without 0.0165
+  CONTROL ctrl1: dLift max +0.0071, > 0.02 on 0/97; caster disc pushed past 0.90 on 0/81 window frames; foe disc pushed past 0.90 on 4/81; foe disc moved -0.009..+0.239 (max caster 0.928, foe 0.955)
+  CONTROL ctrl2: dLift max +0.0854, > 0.02 on 44/97; caster disc pushed past 0.90 on 78/81 window frames; foe disc pushed past 0.90 on 20/81; foe disc moved -0.009..+0.655 (max caster 1.000, foe 1.000)
+DISC me: max |d| 0.0013 (art only, readout out: -0.0000..+0.0013); disc 0.286..0.909; >0.90 with 1 / without 1 of 97; clip with max 0.192 without 0.192
+DISC foe: max |d| 0.0117 (art only, readout out: -0.0104..+0.0096); disc 0.294..0.947; >0.90 with 3 / without 3 of 97; clip with max 0.886 without 0.908
+  foe bloodsworn: n 11 max |d| 0.0071 (art -0.0005..+0.0077); disc 0.294..0.825, contour 0.189..0.677; >0.90 with 0 without 0
+  foe dwarven   : n 11 max |d| 0.0104 (art +0.0000..+0.0096); disc 0.313..0.947, contour 0.198..0.721; >0.90 with 2 without 2
+  foe runic     : n 11 max |d| 0.0104 (art -0.0104..+0.0000); disc 0.408..0.903, contour 0.263..0.755; >0.90 with 1 without 1
+  foe sanctified: n 22 max |d| 0.0102 (art -0.0040..+0.0044); disc 0.578..0.847, contour 0.414..0.893; >0.90 with 0 without 0
+  foe umbral    : n 31 max |d| 0.0117 (art -0.0002..+0.0015); disc 0.300..0.894, contour 0.208..0.719; >0.90 with 0 without 0
+  foe vigil     : n 11 max |d| 0.0009 (art -0.0000..+0.0000); disc 0.397..0.825, contour 0.292..0.625; >0.90 with 0 without 0
+LEGIBILITY (median |dL| of the component's own pixels (min..max) [n frames]; out of a stop  /  in one):
+  weaponBase in rest                                    : 0.188 (0.125..0.216) [9]  /  -
+  weapon     in rest                                    : 0.188 (0.125..0.216) [9]  /  -
+  weaponBase in win0,win2,win4,stop,blow,blow2          : 0.168 (0.064..0.219) [30]  /  0.171 (0.101..0.216) [24]
+  weapon     in win0,win2,win4,stop,blow,blow2          : 0.093 (0.047..0.158) [30]  /  0.110 (0.069..0.156) [24]
+  pic        in cast                                    : -  /  0.101 (0.055..0.121) [9]
+  pic        in run                                     : 0.103 (0.044..0.125) [8]  /  0.117 (0.117..0.117) [1]
+  pic        in win0,win2,win4,stop,blow,blow2          : 0.124 (0.040..0.183) [30]  /  0.119 (0.053..0.184) [24]
+  steel      in win0,win2,win4,stop,blow,blow2          : 0.111 (0.042..0.311) [30]  /  0.134 (0.059..0.294) [24]
+  glow       in win0                                    : 0.048 (0.027..0.052) [9]  /  -
+  glow       in win2                                    : 0.078 (0.047..0.098) [9]  /  -
+  glow       in win4                                    : 0.140 (0.047..0.146) [9]  /  -
+  front      in cast,run                                : 0.128 (0.075..0.138) [7]  /  0.367 (0.133..0.377) [10]
+  drops      in win0,win2,win4,stop,blow,blow2          : 0.134 (0.082..0.199) [30]  /  0.165 (0.100..0.242) [22]
+  reads      in blow,blow2                              : 0.232 (0.227..0.264) [3]  /  0.260 (0.220..0.353) [15]
+  pic        in close                                   : 0.128 (0.102..0.156) [9]  /  -
+  pic        in over                                    : -  /  0.109 (0.098..0.129) [6]
+THE GLOW'S LADDER (the same window frame with goreGlow forced; median |dL| of the pixels that move, and their area in u^2):
+  d28: |dL| 0.100 (0.025..0.116) peak 0.407, area 7142 u2 [71 frames]
+  d25: |dL| 0.061 (0.026..0.066) peak 0.204, area 5824 u2 [63 frames]
+  d58: |dL| 0.061 (0.026..0.066) peak 0.203, area 5929 u2 [63 frames]
+by state (median |dL| of everything the picture draws, its readout included):
+  rest     nan (nan..nan) n 0 of 9  | px changed med 0
+  cast     0.101 (0.055..0.121) n 9 of 9  | px changed med 1585
+  run      0.104 (0.044..0.175) n 9 of 9  | px changed med 5772
+  win0     0.139 (0.093..0.182) n 9 of 9  | px changed med 4219
+  win2     0.091 (0.054..0.123) n 9 of 9  | px changed med 6928
+  win4     0.143 (0.061..0.159) n 9 of 9  | px changed med 10379
+  stop     0.124 (0.056..0.183) n 9 of 9  | px changed med 5379
+  blow     0.122 (0.104..0.173) n 9 of 9  | px changed med 9165
+  blow2    0.138 (0.113..0.175) n 9 of 9  | px changed med 8871
+  close    0.128 (0.103..0.155) n 9 of 9  | px changed med 8608
+  over     0.135 (0.098..0.140) n 7 of 7  | px changed med 9615

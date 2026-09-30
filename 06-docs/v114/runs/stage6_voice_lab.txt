@@ -1,0 +1,119 @@
+
+BLOODPRICE -- THE VOICES   game sc-goreshard-b10.25.html 8eb3c1634184c1bd
+  every render: OfflineAudioContext 48 kHz, first event at t = 1.0, through Sfx.buildChain, render.py's xorshift noise;
+  a candidate is rendered from its arm's own text
+  runtime Chromium 151.0.7922.34
+  Goreshard: blade 10.25, ult price perStack 0.3; Hemorrhage cap 4, crit x2.1, jitter +/-15%
+  the page's plain hit arm is the four lines this lab transcribes (checked verbatim)
+
+CONTROLS -- v88 published rune-crack 0.608 / 450 ms, BAR 0.364 / 300 ms, hit@11.6 0.443 / 80 ms. They must come back.
+  rune-crack     peak 0.608 at    6 ms   audible   450 ms   loudest 50 ms 0.1356   centroid   3158 Hz
+  BAR            peak 0.364 at    7 ms   audible   300 ms   loudest 50 ms 0.1131   centroid   1685 Hz
+  hit@11.6       peak 0.443 at    7 ms   audible    80 ms   loudest 50 ms 0.1173   centroid    233 Hz
+  hit@10.25      peak 0.437 at    7 ms   audible    80 ms   loudest 50 ms 0.1140   centroid    238 Hz
+  wall           peak 0.097 at    7 ms   audible    25 ms   loudest 50 ms 0.0112   centroid  12322 Hz
+  death          peak 0.501 at    8 ms   audible   620 ms   loudest 50 ms 0.2657   centroid    111 Hz
+  woosh          peak 0.082 at  206 ms   audible   415 ms   loudest 50 ms 0.0194   centroid   2679 Hz
+  reproduction: PASS  all 6 published numbers come back
+  rune-crack today (max |diff| <= 1e-6 vs ult/__fallback__), 12 relics: lastlight, spellbreaker, ironhail, lightkeeper, farwarden, aureole, censer, oathwound, heartwood, gloamwire, portcullis, bindweed
+  the bloodsworn casts with their own voice: widowmaker, redflail, marrowdraw, ravelbone, bloodmirror;  the greatsword casts': dawnbringer, emberedge, nightfell, axiom
+  the hit @ 10.25 across 12 draws: loudest 50 ms 0.1124-0.1182, peak 0.400-0.460;  the wall tick: 0.0105-0.0118
+  the school's and type's voices on the batch line, from --peer-rows: peer:widowmaker, peer:lightkeeper, peer:heartwood
+
+CAST -- 'a wet drawn-blade hiss, 0.4s'. The declared draw (a Q 5 scrape rising 2.6 -> 8 kHz in two strokes); the wet is the candidate. Level-matched: WET-HEARD +9 dB, AUDIBLE 400 ms, TOP 0.0815 (the centre of 0.0591-0.1124)
+  cand              g     kw    D2 calls  top lo  top hi  aud    - gone  hiss  drawn  swl   wet  wHrd moving   hrd  wall   reg
+  1 BUBBLE     0.51680.08449 0.460    12  0.0748  0.0817  395  410  445  0.88   1012  194  0.09   9.0   3185  36.4  0.70  0.77 (woosh)
+  2 SQUELCH    0.5137  1.382 0.490     3  0.0747  0.0815  390  415  465  0.91    997  194  0.04   3.3    504  36.5  0.71  0.71 (woosh)
+  3 SLICK        0.530.05621 0.460     4  0.0747  0.0823  395  410  445  0.95   1006  192  0.04   9.0   1059  36.5  0.72  0.73 (woosh)
+  4 DRIP       0.50950.03921 0.490     5  0.0755  0.0815  395  415  465  0.96    997  194  0.02   9.0    804  36.4  0.73  0.71 (woosh)
+  0 DRY        0.5148      0 0.490     2  0.0749  0.0816  390  415  465  0.99    997  194  0.00 -99.0      0  36.5  0.73  0.65 (woosh)
+  0 STILL      0.72950.06016 0.475    12  0.0778  0.0881  390  405  440  0.86     75   21  0.08   9.0   3185  33.3  0.50  0.79 (woosh)
+  0 HUM        0.53020.05062 0.460     3  0.0746  0.0823  395  410  445  0.92   1012  194  0.06   9.0     27  36.5  0.71  0.70 (woosh)
+  0 FAINT      0.51680.02122 0.460    12  0.0736  0.0809  395  410  445  0.98   1012  194  0.01  -1.6   3099  36.4  0.73  0.69 (woosh)
+  0 RUNECRACK       0      0 0.000     5  0.1322  0.1360  445  450  455  0.18   -334    1  0.41  26.8   1616  35.0  0.44  1.00 (rune-crack)
+    1 BUBBLE    bubbles under the draw: sine chirps rising 1.6x in 28 ms, 434-806 Hz, every ~34 ms (+/-20%)
+    2 SQUELCH   a squelch under the draw: a resonant noise band (Q 8) sliding 300 -> 900 Hz
+    3 SLICK     the retired wet slice's saws under the draw: sawtooths falling 660 -> 240 and 480 -> 180 Hz
+    4 DRIP      drops off the blade as it clears: three sines chirping up 1.5x over 80 ms, 760 / 880 / 1010 Hz
+    0 DRY       the draw alone (no wet) -- a control
+    0 STILL     BUBBLE with both strokes held at 2.6 kHz (not rising) -- a control
+    0 HUM       the draw over a held 620 Hz sine, heard as the wets are -- a control
+    0 FAINT     BUBBLE with its wet 12 dB down -- a control
+    0 RUNECRACK what the cast plays today -- a control
+  RULE  '0.4s': AUDIBLE 330-470 ms and GONE <= 470 ms on every noise draw; 'hiss': HISS (the share of the power at >= 2 kHz) >= 0.50 on every draw -- the hiss carries it; 'drawn-blade': the hiss band RISES (DRAWN >= +600 cents, first audible 100 ms to last: a blade drawn out, the scrape climbing to the tip) and SWELLS (10 -> 90% in >= 20 ms: drawn, not struck); 'wet': a liquid under the hiss -- the wet rendered alone HEARD in its own band (WET-HEARD, the best third-octave at 159-1270 Hz over the score's p90) >= +6 dB on the worst draw, and MOVING >= 400 cents (a liquid glides; a held note does not). Level: TOP between 0.5x the blow's loudest 50 ms on its LOUDEST draw and 1.0x on its QUIETEST, on every draw; heard: its loudest 100 ms >= +6 dB over the score's p90 in its best third-octave >= 200 Hz. Register against rune-crack, each bloodsworn and greatsword cast with a voice of its own, the tornado's woosh (the game's other swept noise), the blow and the death voice -- and a school or type peer's cast -- each <= 0.80. Tiebreak: the most distinct register (to 0.05), then the fewest synth calls, then the order listed.
+    2 SQUELCH   out: wet heard +3.3 dB < +6
+  0 DRY (a control) comes back wrong, as it must: wet heard -99.0 dB < +6; moving 0 c < 400
+  0 STILL (a control) comes back wrong, as it must: drawn +75 c, not >= +600
+  0 HUM (a control) comes back wrong, as it must: moving 27 c < 400
+  0 FAINT (a control) comes back wrong, as it must: wet heard -1.6 dB < +6
+  0 RUNECRACK (a control) comes back wrong, as it must: hiss 0.18 < 0.50; drawn -334 c, not >= +600; swell 1 ms < 20 (struck)
+  PICK  4 DRIP  g 0.5095, kw 0.03921, D2 0.49, 5 synth calls; TOP -2.8 dB re the blow (quietest draw), +16.8 dB re the wall; register at most 0.71 (woosh); the wall tick 0.73 (a 35 ms tick: printed)
+
+SCALED BLOW -- 'the sword's strike voice pitched DOWN by the stack count (bigger = lower)'. The plain hit at the damage dealt, every frequency x 2^(-c n / 1200); not levelled (its level is the blow's)
+  SPREAD (the plain hit at the dealt damage x 1.15 against x 0.85): 2 stacks (14-19) crack 129 c, body 95 c, 4 stacks (19-26) crack 224 c, body 150 c
+  the WEIGHT alone today (the plain hit at the dealt damage, n stacks against 0): 2 stacks (16 vs 10) crack -149 c, body -106 c, 4 stacks (23 vs 10) crack -356 c, body -248 c
+  cand      calls  crack/body c at 1           2           3           4 rise  pk@ pk dB  corr plain death  phone  audR  drop4
+  1 SEMI        2    -82/ -102  -200/ -204  -316/ -307  -422/ -409    1    8   0.9  1.00  0.73  0.97   -1.7  1.08    415
+  2 TONE        2   -195/ -204  -400/ -409  -619/ -615  -806/ -824    2    9   1.1  1.00  0.50  0.69   -3.2  1.12    815
+  3 THIRD       2   -301/ -306  -609/ -614  -896/ -927 -1175/-1251    2    9   1.4  1.00  0.39  0.43   -4.4  1.08   1213
+  4 TAPE        2   -200/ -190  -400/ -384  -610/ -580  -804/ -784    2    9   1.0  0.95  0.45  0.66   -1.8  1.79    794
+  5 BODY        2    -14/ -204   -29/ -409   -36/ -615   -33/ -824    2    8   1.0  1.00  0.51  0.68   -1.5  1.12    429
+  0 PLAIN       2     +2/   +0    +0/   +0    -2/   +0    -6/   +0    1    8   0.0  1.00  1.00  0.85    0.0  1.00      3
+  0 UP          2   +203/ +203  +406/ +405  +615/ +607  +820/ +810    1    7   1.5  1.00  0.44  0.50   12.2  1.08   -815
+    1 SEMI   every frequency of the strike down a semitone a stack (4 stacks: a major third)
+    2 TONE   every frequency down a whole tone a stack (4 stacks: a minor sixth)
+    3 THIRD  every frequency down a minor third a stack (4 stacks: an octave)
+    4 TAPE   TONE slowed like tape: every frequency down a whole tone a stack and every length x 1/k
+    5 BODY   only the strike's sine body down a whole tone a stack; its crack (and crit) unchanged
+    0 PLAIN  the hit at the dealt damage: what a scaled blow plays TODAY -- a control
+    0 UP     TONE's interval upward (bigger = higher) -- a control
+  RULE  Each candidate is the plain hit arm at the damage DEALT with its frequencies scaled by the stack count n. 'pitched DOWN by the stack count (bigger = lower)': against the plain hit at the same dealt damage, CRACK and BODY each fall by >= 50 cents with every stack from 1 to 4; heard over the dice: at 2 and 4 stacks (the counts a window has) each drop >= SPREAD there (what the damage roll's whole range moves the plain hit by); 'the sword's strike voice': a strike at 4 stacks (RISE <= 3 ms, the peak in the first 15 ms), its sample peak within 1.5 dB of the plain hit's on the same draw at every n x jitter 0.85 / 1 / 1.15 x crit (its level is its damage's), and at 4 stacks ENV-CORR >= 0.90 and REG > 0.80 with the plain hit at the same damage (still that voice, on the batch's own 0.80 line); not a death: REG <= 0.80 against the death voice at 4 stacks, crit or not; heard on a phone: PHONE at 4 stacks >= -6 dB re the plain hit's. Tiebreak: the largest drop at 4 stacks (the mean of CRACK and BODY, to 50 cents -- the price the most legible), then the fewest synth calls, then the order listed. ROUND 2 (see THE ROUNDS): CRACK is CRACK3; the two REG gates are printed, not gated; 'a strike, not a boom': AUDIBLE at 4 stacks, crit or not, <= 1.25x the plain hit's at the same damage; the tiebreak is the SMALLEST drop at 4 stacks (to 50 cents) that clears every gate.
+    4 TAPE   out: audible 1.79x the plain hit's at 4 stacks (a boom, not a strike)
+    5 BODY   out: crack +0 -> -14 c at 0 -> 1 stacks, not down >= 50; crack -14 -> -29 c at 1 -> 2 stacks, not down >= 50; crack -29 -> -36 c at 2 -> 3 stacks, not down >= 50; crack -36 -> -33 c at 3 -> 4 stacks, not down >= 50; crack -29 c at 2 stacks inside the dice's 129; crack -33 c at 4 stacks inside the dice's 224
+  0 PLAIN (a control) comes back wrong, as it must: crack +0 -> +2 c at 0 -> 1 stacks, not down >= 50; body +0 -> +0 c at 0 -> 1 stacks, not down >= 50; crack +2 -> +0 c at 1 -> 2 stacks, not down >= 50
+  0 UP (a control) comes back wrong, as it must: crack +0 -> +203 c at 0 -> 1 stacks, not down >= 50; body +0 -> +203 c at 0 -> 1 stacks, not down >= 50; crack +203 -> +406 c at 1 -> 2 stacks, not down >= 50
+  PICK  1 SEMI  2 synth calls; at 1-4 stacks crack -82/-200/-316/-422 c, body -102/-204/-307/-409 c against the plain hit at the same damage; register 0.73 with it at 4
+
+THE SFX ROWS (mode `before` the plain hit arm; mode `before` the rune-crack fallback), applied to Sfx.prototype.play's own source and rendered:
+  the arms vs the picked candidates, max |diff|: cast 4.5e-08, cast draw 6.0e-08, blow n1-5 x jitter x crit 1.2e-07;  price 6 vs 4 (held at the cap): 0.0e+00
+  every other voice through the patched play vs the original (145 voices, 0 of them silent by design with empty opts: the hit at 5 weights x crit, a hit whose price is 0, Canopy's bough at 3 x crit, the heal chime at n 0-6, spark arm and burn, wall, death, clank x2, seal, nova, hex-snap, fork, vine x4, loose x3, aegis x2, scour x4, 92 ult ids -- every relic's cast, every sub-voice the ult arm names and the bare fallback -- and every kind play() names): worst max |diff| 2e-07 (hit/16!)
+  ult/oathwound vs rune-crack after the rows: max |diff| 0.608 -- no longer the fallback;  ult/__fallback__ after the rows: 6e-08 -- still rune-crack
+  main-thread cost a call (median of 40, performance.now() at its headless resolution): cast 0.20 ms, priced 0.10 ms, hit 0.10 ms
+  WITH widowmaker's 1 Sfx row(s) (arms widowmaker, widowmaker-drain): both orders render every arm alike (max |diff| 3.0e-08); these arms unchanged by them (6.0e-08)
+  WITH lightkeeper's 1 Sfx row(s) (arms lightkeeper, lightkeeper-fold, lightkeeper-gong, lightkeeper-tink): both orders render every arm alike (max |diff| 7.5e-08); these arms unchanged by them (6.0e-08)
+  WITH heartwood's 1 Sfx row(s) (arms heartwood, heartwood-root): both orders render every arm alike (max |diff| 6.0e-08); these arms unchanged by them (6.0e-08)
+  WITH angelus's 1 Sfx row(s) (arms angelus, angelus-close, angelus-land, angelus-shaft): both orders render every arm alike (max |diff| 1.2e-07); these arms unchanged by them (6.0e-08)
+  WITH aureole's 1 Sfx row(s) (arms aureole, aureole-close, aureole-enter): both orders render every arm alike (max |diff| 8.9e-08); these arms unchanged by them (6.0e-08)
+  WITH censer's 1 Sfx row(s) (arms censer, censer-disc): both orders render every arm alike (max |diff| 8.9e-08); these arms unchanged by them (4.5e-08)
+  WITH coldiron's 1 Sfx row(s) (arms coldiron, coldiron-anvil, coldiron-close): both orders render every arm alike (max |diff| 8.9e-08); these arms unchanged by them (6.0e-08)
+  WITH ironhail's 1 Sfx row(s) (arms ironhail, ironhail-land, ironhail-miss): both orders render every arm alike (max |diff| 8.9e-08); these arms unchanged by them (6.0e-08)
+  WITH lodestone's 1 Sfx row(s) (arms lodestone, lodestone-close, lodestone-touch): both orders render every arm alike (max |diff| 6.0e-08); these arms unchanged by them (1.5e-08)
+  WITH oracle's 1 Sfx row(s) (arms oracle, oracle-close, oracle-hex, oracle-sigil): both orders render every arm alike (max |diff| 6.0e-08); these arms unchanged by them (6.0e-08)
+  WITH spellbreaker's 1 Sfx row(s) (arms spellbreaker, spellbreaker-close, spellbreaker-stun): both orders render every arm alike (max |diff| 1.8e-07); these arms unchanged by them (6.0e-08)
+
+THE resolveHit ROW (mode `before` the hit-voice line), applied to the prototype's own source, run beside the original on real fights:
+  148 fights (Goreshard both sides x every foe x seeds [114601, 114602]): 148/148 identical (over, clock, both fighters' hp, positions, velocities, stun, charge, Hemorrhage, winner, both priceTallies, and a digest of every step); every other SFX call identical in order and opts (the hit's `price` taken out) in 148/148
+  502 casts -> 502 cast voices; 1224 window blows by stacks priced on (0-4): [358, 0, 244, 0, 622] -> 866 priced voices for 866 scaled blows (0 blows with no voice of their own, both pages), 358 x1 window blows plain; untouched: 1241 Goreshard blows outside the window, 3107 foe blows, 177 ward bursts; problems 0
+  the control (the row plus one sim write, the struck body nudged 1e-9 on a priced blow): 4/148 identical -- it fails, as it must
+
+IN A REAL WINDOW -- Goreshard v Bulwarden (side 0), seed 114601, cast at 31.30s, closed at 40.93s; the fight's own sounds and the score, with the new voices and without
+  the cast over the fight in its own third-octave (5080 Hz), 0.4 s: +34.7 dB
+  the window's 5 scaled blows, each alone at the damage it dealt (stacks, dmg, crit -> body cents re the plain call): 2/44! -208, 4/29 -412, 4/0 -408, 4/24 -409, 4/31 -413
+
+END TO END -- the three rows applied as text: sc-goreshard-b10.25.html 8eb3c1634184c1bd -> 8323dc9c2a8302b5 (+4381 chars), loaded in a fresh browser
+  the new voices through the patched page's own SFX.play vs the lab's candidate text in that page, max |diff|: cast 3.0e-08, blow n1 0.0e+00, blow n1! 0.0e+00, blow n2 0.0e+00, blow n2! 0.0e+00, blow n4 0.0e+00, blow n4! 0.0e+00
+  every other voice (145), the patched page vs the original page: worst max |diff| 1.8e-07;  ult/oathwound vs rune-crack on the patched page 0.608
+  74 fights: 74/74 identical to the original page's (a digest of every step included), every other SFX call identical in 74/74; per fight -- cast voices = casts 74, every scaled blow voiced with its stacks and nothing else priced 74 (of 74); totals {'casts': 252, 'castV': 252, 'win': 619, 'priced': 426, 'pricedV': 426}; the original page priced 0 (its judge's problems 0 -- it must voice none); page errors 0
+
+ALSO -- sc-goreshard-b10.25.html c3d5fc24835f91f4: every anchor once, every row applies and keeps it; the original page first (a browser), then the patched one (another, after it closes)
+  42 relics; its bloodsworn casts with a voice of their own: widowmaker, redflail, marrowdraw, ravelbone, bloodmirror; its greatsword casts': dawnbringer, lightkeeper, emberedge, nightfell, axiom
+  the new voices through the patched page's own SFX.play vs the lab's candidate text in that page, max |diff|: cast 4.5e-08, blow n1 0.0e+00, blow n1! 6.0e-08, blow n2 0.0e+00, blow n2! 0.0e+00, blow n4 0.0e+00, blow n4! 1.2e-07
+  every other voice (176), the patched page vs the original page: worst max |diff| 1.8e-07;  ult/oathwound vs rune-crack on the patched page 0.608
+  the picked cast's register against this page's bloodsworn and greatsword casts: widowmaker 0.11, redflail 0.17, marrowdraw 0.10, ravelbone 0.15, bloodmirror 0.28, dawnbringer 0.06, lightkeeper 0.11, emberedge 0.44, nightfell 0.28, axiom 0.30
+  82 fights: 82/82 identical to the original page's (a digest of every step included), every other SFX call identical in 82/82; per fight -- cast voices = casts 82, every scaled blow voiced with its stacks and nothing else priced 82 (of 82); totals {'casts': 285, 'castV': 285, 'win': 670, 'priced': 462, 'pricedV': 462}; the original page priced 0 (its judge's problems 0 -- it must voice none); page errors 0
+
+THE PICKS  cast 4 DRIP   scaled blow 1 SEMI   close: nothing (v81 s4)
+WAVS   C:\dev\sundered-crown\05-reference\v114  (24 files, 3643 KB, raw level)
+
+  NOTHING IS IN THE BUILD. The three rows are the edits; all three were applied to the page's own code above, and as text to a copy of the page.
+EXIT 0

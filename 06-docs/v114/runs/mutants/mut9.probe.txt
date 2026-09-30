@@ -1,0 +1,34 @@
+
+BLOODPRICE PROBE  mut9.html  stage 5  Chromium 151.0.7922.34  222 fights (Goreshard both sides x every foe x 3 seeds, seed0 114001)   ult {'charge': 14, 'dur': 8, 'kind': 'price', 'perStack': 0.3}  blade 10.25
+  pinned from the builder: window 8s, charge 14, perStack 0.3, the greatsword reach 116 width 14 spin 3.4 arc 1.5 mass 3 blades [0.0] onHit +2, blade 10.25
+  casts/fight 2.85   blows a fight: in windows 8.51, outside 7.72   Goreshard win 59.9%
+  per cast: 2.99 priced blows (the tally)   the foe's stacks on a window frame 2.47   stacks a window blow found 2.56 (mean multiplier x1.77)
+  window: 960 steps of the window clock (8.000s); match time a window 17.51s (a clock close)   FREEZE CENSUS 54.6% of window steps frozen
+  the window clock: held on 622195 frozen steps, moved by dt on 517365 live steps (488 of them closing)
+  632 windows: 466 closed by the clock, 23 on a death tickPrice saw, 143 still set at `over` (a kill after tickPrice in the last step), 0 at the timeout, 0 at the probe's cap
+  the charge: 632 casts each exactly 1681 steps of her live clock after the last (14.008s); 222 fights ended owing none
+  THE LOG (§5's gate): the measured multiplier of every window blow, by the stacks it found:
+      n 0:    493 blows   measured x1.0021   design x1.00   (493 would have been priced otherwise on the stacks after the blow's own onHit)
+      n 2:    372 blows   measured x1.5989   design x1.60   (372 would have been priced otherwise on the stacks after the blow's own onHit)
+      n 4:   1024 blows   measured x2.1998   design x2.20   (0 would have been priced otherwise on the stacks after the blow's own onHit)
+  window blows: 1863 on the foe, 9 on a shade (its own stacks), 17 with a foe rule (curse echo / wall); 1396 of those at n > 0 dealt more than the plain blade
+  shut-window blows rebuilt plain: 1705 (+9 with a foe rule)
+  the blade: swing rebuilt on 420185 live steps in windows and 607011 outside (183020 stunned, held); held on 708666 frozen steps; segment 1410181 in / 1985835 out; hit test 523226 in / 704553 out (119 skipped with one down)
+             knock 1889/1714, hitstun 1889/1714, stop 1889/1714 (in/out; 246 ward shatters); clanks 2656 in / 2501 out
+  then bleeds: onHit +2 865 in / 1011 out; at the ceiling 4: 1024 in / 703 out
+  the shared weapon row: unmoved after 1139703 steps in windows and 779179 outside, and at 1889 / 1714 blows
+  the price's code: tickPrice clean on 5164 window calls and 43268 sampled idle ones; the read clean on 1889 window blows
+  hers alone: other attackers' blows unpriced, her window and tally untouched -- the foe's 2685 with her window open and 1702 shut; a shade's 16 open and 44 shut
+  [1] PASS  the window is the build's 8 s on the window tickers' clock: held on every frozen step, dt on every live one; closes on a death tickPrice sees; every window accounted for; only Goreshard carries ultPrice
+  [2] PASS  every window blow deals round(blade x (1 + 0.3 x n) x ...) exactly, n the struck fighter's Hemorrhage before its own onHit (the log above)
+  [3] PASS  then bleeds: onHit +2 after the price, stopped at hemorrhage's own 4; the ceiling 4 at every blow; n <= 4
+  [4] PASS  the window only: every shut-window blow is the plain blade, and reads no stacks for a price
+  [5] PASS  the blade is otherwise the shipped greatsword, in the window and out: the row, the swing, the segment, the hit test and cooldown, each blow's knock, hitstun and stop off its damage, the clank
+  [6] PASS  the cast resolves nothing: no damage, no status (the beam's 16 and 3 Hemorrhage gone), no knock, no RNG, no new object; the common 0.08 stop and ult beat only; a window {t 0, dur}
+  [7] PASS  the build's charge 14 on her live clock: every cast exactly then, none owed at the end, none while her window is open
+  [8] PASS  the shared weapon row is never written: unmoved after every step and at every blow
+  [9] FAIL  the price's own code writes nothing but its window and tally: tickPrice (every window call) and the read inside resolveHit (every window blow)   512833 FAIL: ['tickPrice moved hitStop -0.0033333333333333184 -> 0.001', 'tickPrice moved hitStop -0.007333333333333333 -> 0.001', 'tickPrice moved hitStop -0.007333333333333333 -> 0.001', 'tickPrice moved hitStop -0.007333333333333333 -> 0.001']
+  [10] PASS  the price is hers alone: no other attacker's blow (the foe's or a shade's, her window open or shut) reads or writes her window or tally, or reads the struck fighter's Hemorrhage for a price
+
+  9/10
+

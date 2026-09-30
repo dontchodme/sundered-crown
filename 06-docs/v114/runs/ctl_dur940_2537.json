@@ -1,0 +1,56 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 9.4,
+  "blade": null,
+  "perStack": 0.3
+ },
+ "arms": {
+  "B": {
+   "win": 0.48333333333333334,
+   "n": 660,
+   "casts": 3.463636363636364,
+   "hitsIn": 8.81969696969697,
+   "hitsOut": 8.563636363636364,
+   "stats": {
+    "blows": 2.452318460192476,
+    "f_foeStk": 2.308065906679081
+   },
+   "byFoe": {
+    "dawnbringer": 0.45,
+    "widowmaker": 0.5,
+    "grudgebearer": 0.3,
+    "thornwake": 0.35,
+    "lastlight": 0.5,
+    "slagheart": 0.45,
+    "spellbreaker": 0.25,
+    "ironhail": 0.55,
+    "lightkeeper": 0.65,
+    "farwarden": 0.7,
+    "aureole": 0.65,
+    "censer": 0.5,
+    "emberedge": 0.6,
+    "heartwood": 0.35,
+    "nightfell": 0.75,
+    "axiom": 0.3,
+    "twinshade": 0.55,
+    "redflail": 0.35,
+    "foregone": 0.4,
+    "vinesower": 0.3,
+    "bulwarden": 0.35,
+    "marrowdraw": 0.8,
+    "paradox": 0.25,
+    "thornshear": 0.45,
+    "vesper": 0.6,
+    "shroudmaul": 0.7,
+    "cindercleave": 0.65,
+    "ravelbone": 0.6,
+    "gloamwire": 0.3,
+    "bloodmirror": 0.3,
+    "duskreave": 0.45,
+    "starwarden": 0.8,
+    "gravemourn": 0.25
+   }
+  }
+ }
+}

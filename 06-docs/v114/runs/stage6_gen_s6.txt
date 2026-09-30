@@ -1,0 +1,12 @@
+voice rows   rows_final.json 780b26fd136cfa59 (lab: 780b26fd136cfa59)
+picture rows rows_final.json 1b95d5d4e1c71ed6 (lab: 1b95d5d4e1c71ed6)
+base         sc-goreshard-b10.25.html 8eb3c1634184c1bd (the final stage-5 link: 8eb3c1634184c1bd)
+picture rows alone -> 1f0248fee32086ba (the picture lab's stamp: 1f0248fee32086ba)
+                      == the lab's own gs-final.html, byte for byte
+voice rows alone   -> 8323dc9c2a8302b5 (the voice lab's page: 8323dc9c2a8302b5)
+voice then picture -> f063e05c0f721d54 ; picture then voice -> f063e05c0f721d54
+reversed order     -> f063e05c0f721d54 (the same)
+rows sharing an anchor line: none -- so none is merged
+modes: {'before': 4, 'after': 5, 'replace': 4}
+read back: the S6 table == the rows (label, anchor, new) x 13
+S6 written into goreshard_build.py: 13 edits; builder 7f2f86d2a87b7aa3 -> 2075be1d1b25122b

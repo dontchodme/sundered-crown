@@ -1,0 +1,63 @@
+# Goreshard / Bloodprice -- STAGE 6 VOICES -- STATE
+Started 2026-09-30 fresh (no stage6-voice dir, no tools/goreshard_voice_lab.py existed).
+Base for rows: S/links/sc-goreshard-b10.25.html (sha16 8eb3c1634184c1bd per the stage 0-5 STATE)
+## Done
+- step 0: resume check (nothing on disk)
+## Next
+- read design doc v81 sections picture/sound + brief stage 6; precedents ironwood/zenith voice labs; canopy-fx wiring
+## step 1: read (done)
+- design v81 s4 SOUND: cast "a wet drawn-blade hiss, 0.4s"; scaled blow "the sword's strike voice pitched DOWN by the
+  stack count (bigger = lower)"; close "nothing". Brief s5 has no "stage 6": its stage 3 is "picture, voice, carry".
+- precedents read: ironwood_voice_lab (bough = hit branch before plain hit arm; RH row), spellbreaker_voice_lab (latest:
+  before-mode rows, fallback id __fallback__, school/type read off page, peers, e2e in 2nd browser, digest wire check)
+- base b10.25 sha16 8eb3c1634184c1bd. oathwound aff bloodsworn shape greatsword dmg 10.25; hemorrhage maxStacks 4;
+  jitter 0.30 (x0.85-1.15), critMul 2.1. hit arm L6045 `      else if (kind === "hit"){` (Canopy bough branch above it).
+  resolveHit voice line L15136 (Canopy's ternary). fallback L7425. fireUlt plays ult/{w} at L16254 (no sim row needed).
+- other batch voice rows: nobody touches resolveHit's hit line; widowmaker rows replace its "wet slice" cast with an inhale.
+- goreshard/stage6-picture started in parallel (its rows will likely anchor on the fsz/float lines: avoid them).
+## plan (declared readings)
+- priced blow: opt `price: priceN` (stack count) only when priceN > 0; hit branch = plain arm at DEALT dmg, every freq x
+  2^(-c*n/12) (n clamped 1..4); candidates SEMI/TONE/THIRD/TAPE/BODY; controls PLAIN (today) and UP.
+- resolveHit row: mode before on the SFX.play line: `if (priceN > 0) SFX.play(... price) ; else` (anchor kept).
+- cast: arm `oathwound` before rune-crack (mode before); hiss = rising bandpass _sweep; wet candidates.
+## step 2: lab written (tools/goreshard_voice_lab.py, LF, ASCII)
+- scratch surveys: survey.py (school/type own voices: widowmaker redflail marrowdraw ravelbone bloodmirror;
+  dawnbringer emberedge nightfell axiom; lightkeeper+heartwood fall through), survey2/3.py (a single _sweep can't be
+  audible 0.4 s at blow level; broad hiss <2.5k = scour-woosh 0.86-0.94; 3k highpass = wall 0.97 -> draw Q5 2.6-8k)
+- rows: Sfx hit branch before `      else if (kind === "hit"){`; cast arm before rune-crack; RH before the SFX.play line
+- next: round 1 --no-wire -> r1.log
+## step 3: round 1 (r1.log, --no-wire): NO CAST, NO BLOW passed
+- reproduction PASS; 12 on rune-crack incl oathwound; sfx rows transcribe (3e-8/1.2e-7), 145 others unchanged 2e-7
+- blow: CRACK blind (v99 crack_shift on the SAME noise draw: SPREAD 10/14 c where arithmetic says ~140/211; SEMI n1 -6c)
+  -> cross the draws; REG>0.80 with plain fails even SEMI (0.73: register IS pitch here) -> drop; death REG: PLAIN
+  itself 0.85 (hit & death share the low register) -> replace with a length gate; tiebreak "largest" had only that
+  ceiling -> "least change heard" (candidate for round 2, record honestly)
+- cast: BUBBLE/SLICK/DRIP 0.80-0.83 vs woosh at WET 0.20; SQUELCH wet 0.10 worst draw (single noise band swings)
+- next: survey4.py (register vs wet share; crossed-draw CRACK)
+- survey5.py: v99 CRACK on the same 12 draws reads SPREAD n2 -10 c (arith -141): shared noise fine structure pins lag 0;
+  crossing the list order changes nothing (the average is the same set). DISJOINT draws + 1/3-octave windows track
+  the arithmetic within ~25 c (SEMI n1 -82/-100, n2 -200/-200, spread n2 -129/-141) -> CRACK3 for round 2
+- survey6.py: a wet heard +6..+10 dB over the score's p90 in its band takes only 0.04-0.12 of the power; at share
+  0.12 tonal wets already sit 0.78-0.80 vs woosh -> round 2: WET-HEARD >= +6 dB (level-matched +9) replaces WET share
+- round 2 blow: drop REG>0.80-with-plain (register is pitch: SEMI 0.73) and REG-vs-death (PLAIN 0.85) gates (print);
+  add AUDIBLE at 4 <= 1.25x plain's; tiebreak -> the smallest drop that passes
+## step 4: round 2 (r2.log): blow OK (CRACK3 tracks; SEMI/TONE/THIRD pass; TAPE audR 1.79, BODY crack out; PLAIN/UP fail
+  right) -> smallest drop = SEMI. cast: HUM control PASSED (MOVING 1373 c: the draw's skirt in 150-1500 Hz wanders);
+  SQUELCH/DRIP wet heard 3.3/4.9 worst draw (full-voice measure lands on the skirt) -> round 3: WET-HEARD and MOVING
+  on the wet rendered ALONE (part="wet"), FAINT control (BUBBLE's wet -12 dB)
+## step 5 (RESUMED 2026-09-30 after a cut-off): r3.log was complete (--no-wire). Picks cast 4 DRIP, blow 1 SEMI;
+  all controls fail right; sfx rows transcribe. STATE had not recorded r3. Remaining: docstring ROUNDS/PICKS,
+  peer rows, full run with wire + e2e -> rows_final.json, wavs to 05-reference/v114.
+## step 6: FINAL run launched 09:08 -> final.log (wire, e2e, --also carry/spellbreaker-fxout, 11 peers)
+- lab docstring filled before the final run: THE ROUNDS 1-3 + FINAL, THE PICKS, WET-HEARD/MOVING/CRACK3/FAINT readings
+## step 6 DONE 09:19 -- final.log EXIT 0 (final.json)
+- picks unchanged: cast 4 DRIP (g 0.5095 kw 0.03921 D2 0.49), blow 1 SEMI (c 100); close nothing
+- sfx rows transcribe (cast 4.5e-8, blow 1.2e-7), 145 other voices unchanged (2e-7), fallback still rune-crack
+- 11 peers co-apply both orders (<=1.8e-7); cast reg max 0.71 incl peer widowmaker/lightkeeper/heartwood casts
+- wire 148/148 identical, other SFX 148/148, 866/866 scaled blows priced, 502 casts = voices, problems 0; control 4/148
+- e2e 74/74 identical, page errors 0; ALSO carry/spellbreaker-fxout (42 relics) 82/82, cast reg vs its casts <= 0.44
+- rows_final.json = rows_lab.json byte-exact (sha16 780b26fd136cfa59); compose_check.py EXIT 0 (picture rows both
+  orders identical on base + 8 carried tips; 14 peers' voice rows both orders; controls caught)
+- wavs: C:/dev/sundered-crown/05-reference/v114/goreshard-*.wav (24, 3.7 MB, gitignored)
+- FLAG for Rick: SEMI's 4-stack blow prints REG 0.97 vs the death voice (PLAIN 0.85, TONE 0.69); printed not gated
+  since round 2 ("not a death" read as not a boom: audR 1.08). Runner-up TONE = one constant (100 -> 200).

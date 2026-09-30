@@ -1,0 +1,3 @@
+counters of [1]-[10]: 57 on the b10.25, 57 on the fx link; tally {'casts': 1489, 'frames': 1287639, 'foeStk': 2845538, 'blows': 3673, 'stk': 8660}; win 0.5360; log {'0': [1134, 1135.0735924477283, 1134], '2': [748, 1195.7258106260526, 748], '4': [1791, 3941.142367006217, 0]}
+printed [1]-[10] lines (the header aside): 29 on the b10.25, 29 on the fx link, identical: True
+PASS: the stage-6 link's [1]-[10] are the stage-5 link's, number for number

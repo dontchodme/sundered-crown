@@ -1,0 +1,68 @@
+rows_final.json: 10 rows, 22542 bytes, sha256[:16] of the file 1b95d5d4e1c71ed6, round-trips; ascii False
+[1] 10 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+[3] STAMP 1f0248fee32086ba  (base 8eb3c1634184c1bd; gs-final.html matches; +10815 chars)
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + goreshard stages 1,2,5 (8eb3c1634184c1bd, = the base): every anchor once, forward == reverse True, parses (+10815 chars, the same as on the base: True)
+    with Goreshard's 3 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+    with Heartwood's picture rows: rootfast picture: fighter fields: anchor found 0x
+[4] on sc-tendril-fx.html (eea0cde5536955b3) + goreshard stages 1,2,5 (d4cfa6baac2fb7fd): every anchor once, forward == reverse True, parses (+10815 chars, the same as on the base: True)
+    with Goreshard's 3 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+    with Heartwood's picture rows: rootfast picture: fighter fields: anchor found 0x
+[4] on sc-spellbreaker-fxout.html (9243277a756e84b6) + goreshard stages 1,2,5 (c3d5fc24835f91f4): every anchor once, forward == reverse True, parses (+10815 chars, the same as on the base: True)
+    with Goreshard's 3 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+    with Heartwood's picture rows: rootfast picture: fighter fields: anchor found 0x
+[4] on sc-aureole-fxout.html (da5eafafcfae06c2) + goreshard stages 1,2,5 (b96c5c9503700c3a): every anchor once, forward == reverse True, parses (+10815 chars, the same as on the base: True)
+    with Goreshard's 3 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+    with Heartwood's picture rows: rootfast picture: fighter fields: anchor found 0x
+[4] on sc-censer-fxout.html (00a2e2e10448c492) + goreshard stages 1,2,5 (273c24de9c9db43e): every anchor once, forward == reverse True, parses (+10815 chars, the same as on the base: True)
+    with Goreshard's 3 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+    with Heartwood's picture rows: rootfast picture: fighter fields: anchor found 0x
+[4] on sc-lightkeeper-fxout.html (088189f3517b6f11) + goreshard stages 1,2,5 (fd93c0765023a099): every anchor once, forward == reverse True, parses (+10815 chars, the same as on the base: True)
+    with Goreshard's 3 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+    with Heartwood's picture rows: rootfast picture: fighter fields: anchor found 0x
+[4] on sc-widowmaker-fxout.html (04fdd2e2daa17c26) + goreshard stages 1,2,5 (cf7e0ad9056dd6b9): every anchor once, forward == reverse True, parses (+10815 chars, the same as on the base: True)
+    with Goreshard's 3 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+    with Heartwood's picture rows: rootfast picture: fighter fields: anchor found 0x
+[4] on sc-ironhail-fxout.html (4b3775e5900172ea) + goreshard stages 1,2,5 (d97881dcae882e74): every anchor once, forward == reverse True, parses (+10815 chars, the same as on the base: True)
+    with Goreshard's 3 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+    with Heartwood's picture rows: rootfast picture: fighter fields: anchor found 0x
+[4b] on sc-tendril-t3.html + heartwood 1,2,3,5 + goreshard 1,2,5 (8da99d113da49abc): Heartwood's 9 picture rows then these == these then Heartwood's: False (the same lines, only the two relics' inserts at a shared point swap places: True), both parse; the oathwound life entry after both: 1x, the heartwood entry 0x
+[4b] on sc-spellbreaker-fxout.html + heartwood 1,2,3,5 + goreshard 1,2,5 (5c0d06831747c64f): Heartwood's 9 picture rows then these == these then Heartwood's: False (the same lines, only the two relics' inserts at a shared point swap places: True), both parse; the oathwound life entry after both: 1x, the heartwood entry 0x
+[5] angelus/stage6-picture (8 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if ((f.treeFade > 0 || f.ultTree) ' (after / mine after), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] angelus/stage6-voice (4 rows): no hazard
+[5] aureole/stage6-picture (9 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] aureole/stage6-voice (4 rows): no hazard
+[5] bindweed/stage6-picture (11 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] bindweed/stage6-voice (4 rows): no hazard
+[5] censer/stage6-picture (10 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] censer/stage6-voice (3 rows): no hazard
+[5] coldiron/stage6-picture (11 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if ((f.treeFade > 0 || f.ultTree) ' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] coldiron/stage6-voice (3 rows): no hazard
+[5] goreshard/stage6-voice (3 rows): no hazard
+[5] heartwood/stage6-picture (9 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] heartwood/stage6-voice (2 rows): no hazard
+[5] ironhail/stage6-picture (12 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] ironhail/stage6-voice (3 rows): no hazard
+[5] lightkeeper/stage6-picture (9 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] lightkeeper/stage6-voice (4 rows): no hazard
+[5] lodestone/stage6-picture (9 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] lodestone/stage6-voice (3 rows): no hazard
+[5] oracle/stage6-picture (7 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] oracle/stage6-voice (4 rows): no hazard
+[5] portcullis/stage6-picture (8 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after)
+[5] portcullis/stage6-voice (5 rows): no hazard
+[5] spellbreaker/stage6-picture (12 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] spellbreaker/stage6-voice (3 rows): no hazard
+[5] thornwake/stage6-picture (12 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] thornwake/stage6-voice (4 rows): no hazard
+[5] widowmaker/stage6-picture (10 rows): no hazard; shares an insertion point, both inserting (composes: the anchor stays once): 'drawMotes(m){' (before / mine before), 'if (__world) this.drawTree(m);' (after / mine after), 'tickPresentation(dt){\n    this.tic' (after / mine after)
+[5] widowmaker/stage6-voice (2 rows): no hazard
+[5] 29 other rows files read
+[6] CONTROL (an anchor that occurs many times) refused: bloodprice picture: fighter fields: anchor found 340x
+EXIT 0

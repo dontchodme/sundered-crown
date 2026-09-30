@@ -1,0 +1,21 @@
+
+  sc-goreshard-b10.25-fx.html  ·  31 foes x 12 seeds (left out: bloodmirror, marrowdraw, ravelbone, redflail, twinshade, widowmaker)  ·  the best window of each fight: 372, of which 4 show everything
+
+  foe              seed  cast at  window clock all  @4  @2   stacks 0/2/4 % blows stops other card kill  score
+  grudgebearer   114371    31.81    9.57     1   1   4   1          3/29/68     6   190     0    0    0  19.90
+  grudgebearer   114334    31.75    9.60     1   1   3   1         20/23/57     5   193     0    0    0  19.00
+  slagheart      114038    31.70    9.23     1   1   2   1         10/11/79     4   149     0    0    0  18.10
+  slagheart      114260    31.16    8.84     1   1   1   1         20/20/61     2   102     0    0    0  17.10
+  portcullis     114408    31.09   10.75     1   0   6   1           0/3/97     7   331     1    0    0   9.10
+  grudgebearer   114186    47.16    9.73     1   0   5   0          0/0/100     5   209     0    0    0   9.00
+  gravemourn     114334    31.36   10.02     1   0   5   1          2/25/72     7   243     1    0    0   8.80
+  emberedge      114075    48.32   10.47     1   0   5   1          0/13/87     6   297     1    0    0   8.20
+  nightfell      114149    31.27   10.16     1   0   5   1           0/3/97     6   260     1    0    0   8.20
+  vesper         114260    47.61   10.37     1   0   5   1           0/4/96     6   286     1    0    0   8.20
+  portcullis     114038    15.04    8.94     1   0   5   1           0/6/94     6   114     1    0    0   8.20
+  portcullis     114297    45.71    9.32     1   0   5   1          0/10/90     6   159     1    0    0   8.20
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/goreshard/links/sc-goreshard-b10.25-fx.html --a oathwound --b grudgebearer --seed 114371 \
+      --at 30.61 --window 12.57 --end-at-window --fps 60 --w 540 --out ../07-shorts/v114/bloodprice-window.mp4

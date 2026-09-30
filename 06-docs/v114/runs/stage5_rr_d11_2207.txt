@@ -1,0 +1,5 @@
+oathwound on sc-goreshard-price.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · set dmg=11 · stage5_rr_d11
+  win 56.9%   side A 56.8%   side B 57.0%   mean 61.1s   timeouts 0
+  by type  scythe 64%  twinblade 61%  bow 59%  greatsword 57%  flail 51%  warhammer 50%
+  worst    ironwood 25%  heartwood 30%  axiom 35%   (740 fights in 68s)
+exit 0

@@ -1,0 +1,3 @@
+watch4: windows (steps) [[1877, 2909], [3760, 4863], [5695, 6817], [7696, 8716]] over at 8716 winner Goreshard thrown None frames 279
+montages: ['watch4_all_0.png', 'watch4_all_1.png', 'watch4_all_2.png', 'watch4_all_3.png', 'watch4_all_4.png', 'watch4_kill_0.png', 'watch4_win_0.png', 'watch4_win_1.png', 'watch4_win_2.png', 'watch4_win_3.png']
+EXIT 0

@@ -1,0 +1,10 @@
+lightkeeper       vigil      greatsword n 8  WEAPON |dL| med 0.199 (min 0.123 max 0.212)  dE 35.8  luma 0.309  area 6165 u2
+dawnbringer       sanctified greatsword n 8  WEAPON |dL| med 0.317 (min 0.203 max 0.362)  dE 34.3  luma 0.474  area 8712 u2
+axiom             runic      greatsword n 8  WEAPON |dL| med 0.300 (min 0.160 max 0.309)  dE 37.0  luma 0.411  area 3577 u2
+oathwound         bloodsworn greatsword n 8  WEAPON |dL| med 0.179 (min 0.122 max 0.221)  dE 32.1  luma 0.268  area 5834 u2
+emberedge         dwarven    greatsword n 8  WEAPON |dL| med 0.107 (min 0.066 max 0.111)  dE 18.7  luma 0.197  area 5014 u2
+heartwood         verdant    greatsword n 8  WEAPON |dL| med 0.215 (min 0.131 max 0.233)  dE 32.2  luma 0.334  area 6369 u2
+nightfell         umbral     greatsword n 8  WEAPON |dL| med 0.161 (min 0.109 max 0.193)  dE 32.7  luma 0.256  area 4985 u2
+oathwound@window  bloodsworn greatsword n 8  WEAPON |dL| med 0.113 (min 0.071 max 0.118)  dE 21.3  luma 0.204  area 9347 u2
+rank by |dL|: dawnbringer 0.317 > axiom 0.300 > heartwood 0.215 > lightkeeper 0.199 > oathwound 0.179 > nightfell 0.161 > oathwound@window 0.113 > emberedge 0.107
+EXIT 0

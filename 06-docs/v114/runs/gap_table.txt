@@ -1,0 +1,16 @@
+                                                               2207   2317   2427   2537   pooled  (n)    blows in / out a fight
+  lab B: 8 step-seconds, no cast stop (the design's arm)       43.3   43.3   45.6   45.5    44.4  (2640)   7.72 /  9.92
+  lab B with fireUlt's 0.08 cast stop                          46.4   46.7   42.6   40.0    43.9  (2640)   7.61 / 10.03
+  lab B at the engine's window: 8 / (1 - 0.149) = 9.40 s       46.4   46.7   47.4   48.3    47.2  (2640)   8.80 /  8.62
+  BUILT, the lab's window AND the lab's cast (no 0.08 stop)    42.6   43.0   43.3   43.6    43.1  (2640)   0.00 / 17.68
+  BUILT, its window on MATCH time (the lab's 8 s)              41.1   41.4   39.7   41.5    40.9  (2640)   0.00 / 17.48
+  BUILT stage 2: 8 s of the window clock                       46.4   45.8   43.6   47.4    45.8  (2640)   0.00 / 17.32
+
+  the build on the lab's window and cast, against the lab         -1.3  (SE of the difference 1.4; -0.9 SE)
+  the build given the cast's 0.08 stop                            -2.2  (SE of the difference 1.4; -1.6 SE)
+  the lab's window lengthened to the engine's                     +2.8  (SE of the difference 1.4; +2.0 SE)
+  the lab given the cast's 0.08 stop                              -0.5  (SE of the difference 1.4; -0.4 SE)
+  the built window: the window clock against match time           +4.9  (SE of the difference 1.4; +3.6 SE)
+  the build on the lab's window against the lab                   -3.5  (SE of the difference 1.4; -2.6 SE)
+  the built relic against the lab (the gap)                       +1.4  (SE of the difference 1.4; +1.0 SE)
+  the built relic against the lab at the engine's window          -1.4  (SE of the difference 1.4; -1.0 SE)

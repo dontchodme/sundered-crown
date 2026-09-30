@@ -1,0 +1,6 @@
+107 Bloodprice windows on 16 foes x 2 seeds (both sides); ultFx life at the cast: [1.3, 1.5, 1.6]; the slot was Goreshard's at the cast on 89/107
+  the slot is Goreshard's for a median 0.67s of window clock (max 0.72; the window is 8s); lost to: {"opponent's cast": 18, 'expired': 88, 'match ended in the window': 1}
+  a slot-borne field could exist for 7.5% of the window's clock
+  after the slot is gone, the blade's middle is a median 220 units from the cast point (p10 85, p90 403) and 215 from the foe's point, where a 'burst' is drawn (p10 79, p90 407); 7169 samples
+  the blade turns through a median 7.04 rad over a window (p10 4.62, p90 11.61)
+EXIT 0

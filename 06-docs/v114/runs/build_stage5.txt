@@ -1,0 +1,12 @@
+
+GORESHARD / BLOODPRICE -- stage 5
+  src sc-goreshard-price.html  9105fa5bb4cf258c  (LF text)
+  base  Goreshard's shipped row, hemorrhage at 4, resolveHit's draws / damage line / onHit loop and the anchors hold; the beam's generic tail kept, untouched, for aureole
+  ok    the blade: nearest 50% both sides (Rick's ruling, reading 12)
+  ok    ult   ult:{ name:"Bloodprice", charge:14, kind:"price", dur:8, perStack:0.3, tip:"Its blows hit harder the ...
+  ok    card  69 chars  'Its blows hit harder the more the foe bleeds: +30% a Hemorrhage stack'
+  ok    blade 10.25
+  ok    one price ultimate, Goreshard's; 1 other beam row(s) left as they were; no insert draws the RNG, writes the shared weapon, or stops, beats, floats, applies, knocks or heals; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-goreshard-b10.25.html  8eb3c1634184c1bd   (+1 chars, written LF)

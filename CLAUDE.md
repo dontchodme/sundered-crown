@@ -82,7 +82,15 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-heartwood-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+02-chain/sc-goreshard-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+                                 GORESHARD REDESIGNED (goreshard_build.py, fx_remove.py,
+                                 v114), carried onto sc-heartwood-fxout. Its blows hit
+                                 harder the more the foe bleeds: +30% a Hemorrhage stack.
+                                 Charge 14, blade 10.25 (50.2%). fx.js stamp ->
+                                 7d745d39bfb9fecd.
+                                 Carry proved against scratch and the tip; probe 12/12;
+                                 shell_identity 200/200.
+02-chain/sc-heartwood-fxout.html the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  HEARTWOOD REDESIGNED (heartwood_build.py, fx_remove.py,
                                  v112), carried onto sc-thornwake-fxout. Every blow roots
                                  the foe where it stands, ball and weapon, and entangles.

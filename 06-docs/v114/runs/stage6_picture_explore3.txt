@@ -1,0 +1,11 @@
+aureole 12 frames
+gravemourn 12 frames
+spellbreaker 12 frames
+REST blade |dL| med 0.170 over 36 frames
+  #D02A40|glow|20|lighter|1    weapon |dL| med 0.100 (min 0.053)   ladder 0.2->0.8 |dL| med 0.076 px 5353
+  #D02A40|glow|22|lighter|1.4  weapon |dL| med 0.101 (min 0.049)   ladder 0.2->0.8 |dL| med 0.093 px 7988
+  #D02A40|glow|18|lighter|1.6  weapon |dL| med 0.113 (min 0.037)   ladder 0.2->0.8 |dL| med 0.109 px 8130
+  #D02A40|#FFC2C9|20|lighter|1 weapon |dL| med 0.103 (min 0.047)   ladder 0.2->0.8 |dL| med 0.086 px 5999
+  #D02A40|#FFC2C9|22|lighter|1.4 weapon |dL| med 0.109 (min 0.037)   ladder 0.2->0.8 |dL| med 0.105 px 8729
+  #D02A40|glow|26|lighter|2    weapon |dL| med 0.106 (min 0.037)   ladder 0.2->0.8 |dL| med 0.107 px 12152
+EXIT 0

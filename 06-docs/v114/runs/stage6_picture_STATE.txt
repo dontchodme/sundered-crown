@@ -1,0 +1,45 @@
+# Goreshard / Bloodprice -- stage 6 PICTURE -- STATE
+Started 2026-09-30 fresh (no stage6-picture dir, no tools/goreshard_voice_lab.py on disk).
+Base for rows: S/links/sc-goreshard-b10.25.html (sha16 8eb3c1634184c1bd)
+## Steps
+- [ ] read design doc v81 section 5 + picture section, handoff stage 6, precedents v98/v99, sibling stage6-picture labs
+- [x] read design v81 (sec 4 picture: arterial-red blade for the window; glow alpha 0.2->0.8 over foe stacks 0->4; larger dmg float on a scaled blow; blood motes off the blade both copies; beam art retired), build doc v114 sec 0/5/6, CLAUDE.md sec 3/4, precedents v98 sec 4, v99 sec 6
+- templates copied from ../../lightkeeper/stage6-picture (a greatsword lab, complete) into tpl/ (+ widowmaker's wm_rows as the rows pattern)
+- gs_rows.py v1 written (10 rows: fields, pcall, tickGore after tickPrice, drawWeapon hook after canopy line, drops call after drawTree, draw methods before drawMotes, float line, under/over beam branches retired, ULTSIG). stamp v1 827607fc25b89bfa; gs-final-fx 06df17a67debdb40 (fx 28fc5864 -> d56fb70c)
+- LIFE MAP ENTRY (oathwound: 1.5) KEPT, NO ROW: equals the map default 1.5, and heartwood's in-flight picture row anchors on "              oathwound: 1.5, heartwood: 2.2, " (a row of mine on that line would collide)
+- gs_snap.py (states) OK on spellbreaker 99015a: whole fight drawn, no throw. gs_measure.py written (m0 = 3 fights next)
+- m0 (3 fights): bloom +0.0001; ctrl2 fails (15/32 >0.02); PROBLEM weapon |dL| in window 0.071 vs rest 0.167; glow ladder 0.2->0.8 only 0.032. gs_explore.py: lighter steels 0.079->0.102, glow sprite in aff.glow colour doubles the ladder (0.066). gs_variants.py for a visual pick.
+- explore2: pick ART #D02A40, window glow = rest sprite shape in aff.glow colour, blur 20, `lighter`, alpha 0.2+0.15n (ladder 0.076/5354px vs core 0.036/2566px); weapon |dL| 0.100 (rest 0.170)
+- rows v2 stamp eda09e8dea5a5ead; gs-final-fx 1c34e693e6b8c076
+- verify base arm launched (GV_ARMS=base) -> verify_parts/base.json (resumable)
+- m1 (9 fights, v2): bloom +0.0000; ctrl2 FAILS 44/97; weapon in window 0.090/0.098 vs rest blade 0.168/0.171; glow win0 .037 win2 .058 win4 .097; ladder d28 .074 over 4842u2; drops .134/.165; reads .228/.261; cast (in the stop) px changed 0 -> run now eases OUT (v3)
+- rows v3 stamp 075d6b59f7d08d93 (gs-final-fx 514de7d2b61eca49). verify base arm DONE (14 fights, verify_parts/base.json). LAUNCHED verify all arms (verify.out) + gs_sil (sil.out)
+- gs_sil (sil.out): rest oathwound .179 5th of 7 (unchanged); oathwound@window .099 dE 21.4 (lowest in value; emberedge rest .107 dE 18.7); by stacks at 540: win0 .088 win2 .080 win4 .114 (7472px vs rest 5674). KEPT (design: darkens); flag ART to Rick. LAUNCHED fxprobe
+- order.out (v3 rows): 10 rows once each, 62 orders identical, parses, carries on 8 tips (+10714... check), composes w/ heartwood picture rows both orders (hw+gs sim stages; same lines, order of shared inserts swaps); chain.out: 10/10 survive on t3/sbfxout/ihfxout, control LOST 10 exit 1 (rows_final from v2 run: RE-RUN order+chain at the end)
+- fxprobe.out: 107 windows, slot Goreshard's at cast 89/107, held median 0.67s (7.5% of window), blade middle median 220u from cast point -> fx_spec NONE (motes drawn), SPECS.oathwound out of both copies. LAUNCHED renderab
+- renderab.out: other relics 54/54 pixel-identical; controls 0/6 + 0/6. LAUNCHED gs_look.py spellbreaker 99015 a (tag final)
+## RESUMED 2026-09-30 (~09:05) after a cut-off
+- base unchanged (8eb3c1634184c1bd). gs_rows.py = v3 (stamp 075d6b59f7d08d93); rows_final.json on disk is STILL v2 (eda09e8dea5a5ead) -> must re-save
+- verify.out (06:36) complete on v3 pages: SIM IDENTITY PASS, control bit on every cast fight; drawn arms no throw (final-fx drawn 14 fights, final drawn 8); farwarden 31337 float check 1 'bad' = checker artifact? (priced float 60.312 = 43.08 x 1.4 correct) -> check
+- order.out / chain.out / gs_table.py / m1 are v2 -> re-run on final
+- explore3.out (06:29): wider glow sprite (Ww x1.6, blur 18) ladder 0.109/8130px vs 0.076/5353 (weapon 0.113 vs 0.100) -> decide
+- NOT DONE: electron frame cost, contact sheet, rows_final (v3+), stamp
+- voice stage runs in parallel (stage6-voice); its RH row is `before` the SFX.play hit line (disjoint from my float row)
+- v4 built: GW 1.6 + blur 18 on the window glow sprite (gs_rows.py; v3 kept as gs_rows.v3.py / gs-final.v3.html). stamp 1f0248fee32086ba, gs-final-fx ef6a477f6e6c76c6 (fx 28fc5864 -> d56fb70c). look_v4 ladder visibly wider (snaps/_ladzoom.png) -> KEEP v4
+- gs_verify float check: the priced blow's float is the STRING-text one (farwarden's 'bad' was a vigil burst float, number text 19, 30+19x0.7=43.3, L14288, filed in the same resolveHit; the priced float 60.312 = 43.08 x 1.4 was right). LAUNCHED verify on v4 -> verify4.out
+- order4.out (v4): 10 rows once each, 62 orders identical, parses, STAMP 1f0248fee32086ba = gs-final.html, rows_final.json re-saved (file sha 1b95d5d4e1c71ed6), carries on 8 tips, composes w/ Heartwood (4b), [5] no hazard w/ 27 other rows files, [6] control refused. voicecompose.out: [4c] w/ the voice lab's 3 anchors (RH_CODE exact): both orders identical on base + 8 tips
+- chain4.out (v4): chain_audit ALL 10 SURVIVE on t3 / sbfxout / ihfxout; control (base as tip) LOST 10 exit 1 -> PASS
+- m2 (v4, 9 fights): BLOOM +0.0000 (ctrl2 44/97 fail, ctrl1 foe disc 4/81); discs me 0.0013 foe 0.0117, >0.90 same with/without; weapon in window .093/.110 (rest .188); glow w0 .048 w2 .078 w4 .140; ladder d28 .100 / 7142u2 (v3 .074/4842); cast in the stop .101 (v2 was 0); front in stop .367
+- sil4.out (v4): window blade .113 dE 21.3 (v3 .099), 7th of 8, above emberedge's rest .107; rest oathwound .179 unchanged. renderab4.out: other relics 54/54 pixel-identical, controls 0/6 + 0/6 -> PASS. LAUNCHED electron cost (v4) -> electron/cost4.out
+- verify4.out (v4): SIM IDENTITY PASS (14 pairs x final, final-fx, final-fx drawn, final drawn(8)); CONTROL bit on every Goreshard fight with a cast, identical on the 2 without Goreshard
+- drawn tallies (v4, 22 drawn fights): 0 thrown, runs 60/60, glow checks 54187 ok, priced floats 97/97 exact, other floats 672 old size, no mote shed shut, w never written, other relic untouched. electron cost spellbreaker+dawnbringer: window +0.1..0.3ms (noise), cast +6.4/+5.8ms, close +5.6/+5.9ms frame median on a loaded PC (run/drain draw the blade twice via litWeapon). LAUNCHED laneC4 (base sigil, 3 foe snaps, watch4)
+- electron cost4.out DONE (3 fights, RTX 3070 ANGLE D3D, interleaved): window med +0.1/+0.2/-0.1 ms, blow +1.5/+0.7/+0.3, rest -0.3..+1.3, cast +6.4/+5.8/+6.3, close +5.6/+5.9/+7.5 (frames 36-61 ms: loaded PC). ALONE: window 7.7->7.8, cast ~7->12-14 (one more litWeapon during run/drain). LAUNCHED verify mirror pair (oathwound v oathwound 4242) -> verify5.out
+- mirror pair refused by the game ('A relic cannot fight itself'): dropped; verify re-read from cache
+- laneC4 done: look_base sigil, snaps x3 (dawnbringer/gravemourn/spellbreaker v4), watch4 (spellbreaker 99015 a: 4 windows, last open at the kill -> drained 0.35s into the kill stop; thrown None). Rick-style watch: window reads (red blade, motes), verdict clean
+- SHEET written: 05-reference/v114/goreshard-picture-sheet.png (2200x3039, from sheet_v4.png)
+- voice rows landed (stage6-voice/rows_final.json 780b26fd136cfa59): order5.out [4] voice-then-picture == picture-then-voice on 8 tips; chain5.out ALL 10 SURVIVE on 3 tips with the voice rows applied, control loses 10
+## DONE (stage 6 picture, v4) 2026-09-30 ~09:40
+- rows_final.json (file sha16 1b95d5d4e1c71ed6), 10 rows; STAMP 1f0248fee32086ba; gs-final-fx ef6a477f6e6c76c6 (fx 28fc5864 -> d56fb70c)
+- fx_spec NONE (fxprobe.out); SPECS.oathwound retired from both copies at the carry (exact text in gs_rows.FX_OLD)
+- sheet C:/dev/sundered-crown/05-reference/v114/goreshard-picture-sheet.png (b1a2dd5650061cc2)
+- nothing running

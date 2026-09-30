@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-goreshard-b10.25.html
+  b  sc-goreshard-b10.25-fx.html
+  oathwound v aureole seed 4101 t=  0.50  DIFFERS   luma 33.333 -> 33.355   lit 88.57% -> 88.57%
+  oathwound v aureole seed 4101 t=  6.00  DIFFERS   luma 20.576 -> 20.584   lit 68.48% -> 68.47%
+  oathwound v aureole seed 4101 t= 12.00  DIFFERS   luma 25.252 -> 25.248   lit 89.31% -> 89.30%
+  oathwound v aureole seed 4101 t= 22.00  DIFFERS   luma 24.815 -> 25.034   lit 88.38% -> 88.38%
+  oathwound v aureole seed 4101 t= 31.00  DIFFERS   luma 28.134 -> 28.122   lit 91.65% -> 91.65%
+  oathwound v aureole seed 4101 t= 40.00  DIFFERS   luma 23.621 -> 23.382   lit 77.98% -> 77.97%
+
+FAIL  0/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

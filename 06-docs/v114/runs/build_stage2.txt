@@ -1,0 +1,18 @@
+
+GORESHARD / BLOODPRICE -- stage 2
+  src sc-goreshard-stub.html  5dac38065e1c8ac3  (LF text)
+  base  Goreshard's shipped row, hemorrhage at 4, resolveHit's draws / damage line / onHit loop and the anchors hold; the beam's generic tail kept, untouched, for aureole
+  ok    the price has a charge: the lab's 16 on the game's clock
+  ok    the fighter carries the price's window
+  ok    the blow reads the stacks it found, before its own onHit
+  ok    the blade is x(1 + perStack x the stacks it found), inside the product
+  ok    the cast opens the window and resolves nothing
+  ok    the window ticks with the window tickers
+  ok    tickPrice keeps the window's clock
+  ok    ult   ult:{ name:"Bloodprice", charge:14, kind:"price", dur:8, perStack:0.3, tip:"Its blows hit harder the ...
+  ok    card  69 chars  'Its blows hit harder the more the foe bleeds: +30% a Hemorrhage stack'
+  ok    blade 9.17
+  ok    one price ultimate, Goreshard's; 1 other beam row(s) left as they were; no insert draws the RNG, writes the shared weapon, or stops, beats, floats, applies, knocks or heals; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-goreshard-price.html  9105fa5bb4cf258c   (+2552 chars, written LF)

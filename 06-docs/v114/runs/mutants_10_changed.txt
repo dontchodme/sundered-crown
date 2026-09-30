@@ -1,0 +1,3 @@
+which fights the [10] mutants change (AC.simulate, Goreshard v every foe, seeds 7001/7013, both sides; 148 fights)
+mut10.html  (the review's R2)         20 changed: bloodmirror, marrowdraw, ravelbone, redflail (Threshmaw), widowmaker
+mut10b.html (keyed on her relic)      20 changed: bloodmirror, marrowdraw, ravelbone, redflail (Threshmaw), widowmaker

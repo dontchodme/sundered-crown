@@ -1,0 +1,13 @@
+
+FX REMOVE -- oathwound's particle field out of both copies
+  src sc-goreshard-b10.25-fx.html  217e637c6df96565
+  the block, removed whole:
+    |     /* Negative gravity is what stops a beam reading as an explosion pointed
+    |        sideways. */
+    |     oathwound: { mode: 'beam', n: 1250, sp: [25, 140], grav: -60, drag: 1.3,
+    |                  life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
+    |                  spawn: 0.50, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp e07b60fee7425662 -> 7d745d39bfb9fecd
+  wrote sc-goreshard-fxout.html  a58575b8f16c3d8e
+  wrote src/render/fx.js  7d745d39bfb9fecd
+exit 0

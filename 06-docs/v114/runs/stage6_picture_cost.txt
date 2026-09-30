@@ -1,0 +1,22 @@
+  spellbreaker 99015a: electron start
+spellbreaker ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00002484) Direct3D  windows 4 priced blows 5
+    rest   n   90  FRAME off med 60.60 p90 71.10 max 80.4  | rows med 61.90 p90 73.30 max 165.0  || ALONE off 9.50/12.40  rows 10.10/12.50
+    cast   n   60  FRAME off med 57.70 p90 70.50 max 91.8  | rows med 64.10 p90 80.40 max 100.6  || ALONE off 7.70/12.30  rows 14.00/20.20
+    window n 1520  FRAME off med 55.00 p90 67.80 max 93.4  | rows med 55.10 p90 67.50 max 103.2  || ALONE off 7.70/10.60  rows 7.80/10.30
+    blow   n   49  FRAME off med 51.10 p90 63.60 max 75.0  | rows med 52.60 p90 63.00 max 71.3  || ALONE off 6.90/9.30  rows 7.40/9.50
+    close  n   67  FRAME off med 50.40 p90 61.60 max 74.3  | rows med 56.00 p90 67.60 max 84.5  || ALONE off 7.30/10.00  rows 12.20/16.20
+  dawnbringer 99001a: electron start
+dawnbringer  ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00002484) Direct3D  windows 4 priced blows 6
+    rest   n   90  FRAME off med 36.60 p90 44.10 max 49.5  | rows med 36.30 p90 45.00 max 88.8  || ALONE off 7.00/8.60  rows 6.80/8.20
+    cast   n   60  FRAME off med 41.30 p90 47.80 max 57.3  | rows med 47.10 p90 53.70 max 102.2  || ALONE off 6.70/8.70  rows 11.60/14.30
+    window n 1497  FRAME off med 41.70 p90 48.50 max 76.3  | rows med 41.90 p90 48.90 max 64.0  || ALONE off 6.70/8.50  rows 7.00/8.70
+    blow   n  100  FRAME off med 43.40 p90 50.20 max 75.2  | rows med 44.10 p90 52.40 max 58.5  || ALONE off 6.60/8.80  rows 7.20/9.50
+    close  n   64  FRAME off med 39.60 p90 45.80 max 52.0  | rows med 45.50 p90 50.40 max 70.8  || ALONE off 6.50/8.30  rows 11.50/14.20
+  gravemourn 5150b: electron start
+gravemourn   ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00002484) Direct3D  windows 3 priced blows 8
+    rest   n   90  FRAME off med 36.70 p90 42.10 max 62.5  | rows med 36.40 p90 42.20 max 95.7  || ALONE off 6.70/8.70  rows 6.70/8.70
+    cast   n   64  FRAME off med 42.90 p90 60.40 max 71.0  | rows med 49.20 p90 65.30 max 103.1  || ALONE off 6.70/9.30  rows 12.10/17.80
+    window n 1057  FRAME off med 42.50 p90 58.00 max 88.9  | rows med 42.40 p90 59.30 max 88.3  || ALONE off 6.60/9.40  rows 6.60/9.70
+    blow   n  124  FRAME off med 40.30 p90 58.30 max 66.4  | rows med 40.60 p90 60.50 max 76.8  || ALONE off 6.20/9.10  rows 6.50/9.30
+    close  n   40  FRAME off med 40.80 p90 59.70 max 64.3  | rows med 48.30 p90 65.10 max 79.2  || ALONE off 6.70/9.50  rows 12.00/18.80
+EXIT 0

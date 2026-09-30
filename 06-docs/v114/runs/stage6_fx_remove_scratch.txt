@@ -1,0 +1,53 @@
+src/render/fx.js on disk before: 7dc0123af735c83e
+(1) fx.js at the fx link's stamp, extracted from the page: 28fc58641370a1a9 (sha256 of the copy == the stamp)
+
+FX REMOVE -- oathwound's particle field out of both copies
+  src sc-goreshard-b10.25-fx.html  f063e05c0f721d54
+  the block, removed whole:
+    |     oathwound: { mode: 'beam', n: 1250, sp: [25, 140], grav: -60, drag: 1.3,
+    |                  life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
+    |                  spawn: 0.50, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 28fc58641370a1a9 -> d56fb70c97b7dc93
+  wrote sc-goreshard-b10.25-fx-specout.html  3c1f4698a50d457b
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\goreshard\s6\fxout\fxjs_at_stamp.js  d56fb70c97b7dc93
+    the copy after: d56fb70c97b7dc93
+(2) the carry, dry, on 02-chain/sc-spellbreaker-fxout (9243277a756e84b6)
+     out sc-goreshard-stub.html  46aca169fd7c2937   (+274 chars, written LF)
+     out sc-goreshard-price.html  b8b3319f11a41df1   (+2552 chars, written LF)
+     out sc-goreshard-b10.25.html  c3d5fc24835f91f4   (+1 chars, written LF)
+     out sc-goreshard-b10.25-fx.html  fb8d112bc1f4766a   (+15196 chars, written LF)
+
+FX REMOVE -- oathwound's particle field out of both copies
+  src sc-goreshard-b10.25-fx.html  fb8d112bc1f4766a
+  the block, removed whole:
+    |     /* Negative gravity is what stops a beam reading as an explosion pointed
+    |        sideways. */
+    |     oathwound: { mode: 'beam', n: 1250, sp: [25, 140], grav: -60, drag: 1.3,
+    |                  life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
+    |                  spawn: 0.50, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 7dc0123af735c83e -> 4ea79bab45f2a6d3
+  wrote sc-goreshard-fxout.html  0dfe8cc42e9931e0
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\goreshard\s6\fxout\fxjs_today.js  4ea79bab45f2a6d3
+    the copy of today's fx.js after: 4ea79bab45f2a6d3
+134,138d133
+<     /* Negative gravity is what stops a beam reading as an explosion pointed
+<        sideways. */
+<     oathwound: { mode: 'beam', n: 1250, sp: [25, 140], grav: -60, drag: 1.3,
+<                  life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
+<                  spawn: 0.50, up: 0 },
+src/render/fx.js on disk after: 7dc0123af735c83e (untouched)
+(3) the carry, dry, on the batch line's NEWEST tip 02-chain/sc-thornwake-fxout (65464e514ea28b9e), stages 1/2/5/6 from runs/compose_check6.txt (g), fx_remove with a COPY of today's src/render/fx.js (d08802c3e71e9f2b)
+
+FX REMOVE -- oathwound's particle field out of both copies
+  src sc-goreshard-b10.25-fx.html  5bdb719b3f893bc6
+  the block, removed whole:
+    |     /* Negative gravity is what stops a beam reading as an explosion pointed
+    |        sideways. */
+    |     oathwound: { mode: 'beam', n: 1250, sp: [25, 140], grav: -60, drag: 1.3,
+    |                  life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
+    |                  spawn: 0.50, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp d08802c3e71e9f2b -> a778168bca1731d4
+  wrote sc-goreshard-fxout.html  02c578c378dc0afb
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\goreshard\s6\fxout\g\fxjs_today.js  a778168bca1731d4
+    the copy after: a778168bca1731d4
+src/render/fx.js on disk after: d08802c3e71e9f2b (untouched)
