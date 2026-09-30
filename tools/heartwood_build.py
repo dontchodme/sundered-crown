@@ -1353,8 +1353,10 @@ def main() -> int:
     if not src_p.exists():
         raise SystemExit(f"no such build: {src_p}")
 
-    s0 = src_p.read_text(encoding="utf-8")
-    if "\r\n" in s0:
+    # READ AS BYTES: read_text() turns CRLF into LF, so this refusal could never fire (found by
+    # thornwake_build.py, v113; for an LF source the two reads are the same text, so no link moves).
+    s0 = src_p.read_bytes().decode("utf-8")
+    if "\r" in s0:
         raise SystemExit("the source is not LF text")
     s = s0
     print(f"\nHEARTWOOD / ROOTFAST (REDESIGN) -- stage {A.stage}")
