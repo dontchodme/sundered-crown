@@ -150,6 +150,17 @@ card's removal.** They are behind; this block is not a claim that they are not.
 - `tsheet.py`  *(not present)*
 - `scpage.py` — SHARED — the Playwright harness every tool imports
 
+## TRAILER — the World Cup trailer (06-docs/v115/WORLD-CUP-TRAILER-v115.md), run in this order
+
+- `trailer_clips.py` — films every moment the edit cuts from (`trailer_clip.py` = cinema_clip with the bed muted)
+- `trailer_portraits.py` — the 49-cell wall, off the game's own renderer
+- `trailer_vo.py` — the announcer lines, bm_lewis
+- `trailer_music.py` — the score, synthesized
+- `trailer_cut.py` — the picture, to the edit in `trailer_edit.py` (graphics: `trailer_gfx.py`)
+- `trailer_mix.py` — score + fight audio + voice, ducked, speech-to-bed measured
+- `trailer_deliver.py` — -14 LUFS / -2 dBTP and the mux
+- `trailer_scan.py` — how the fights were picked; `trailer_sheet.py` — contact sheet of a clip
+
 ## CINEMA — the director's own instruments
 
 - `cinema_probe.py` · `cinema_audit_probe.py` · `cinema_rate_probe.py` ·
