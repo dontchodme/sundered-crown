@@ -107,7 +107,74 @@ The link is `02-chain/sc-balance.html` (sha16 dcc2f046ae28562f), on `sc-goreshar
 - **shell_identity 200/200** (app Chromium 152 vs headless 151; the pointer not moved, the json restored;
   `runs/shell_identity.txt`).
 
-## 4. What it means for the docs before this one
+## 4. The type spread (CLAUDE.md items 12 and 32), measured -- and why no blade moves for it
+
+Items 12 and 32 say `verify`'s per-relic band cannot see a relic that loses one weapon type and crushes
+another (Thornshear 43.6pp, Shroudmaul 40.1pp). Rick left it to Code (2026-09-29: "the rest of that stuff
+looks like stuff for you"). Here is each batch relic's win rate BY FOE TYPE on the game roster (the
+final link's 49; `type_spread.py`, relic_rate both sides, n 10, block 2207, 960 fights a relic, about
+140 a type, so about 4pp of noise a cell; `runs/type_spread.txt/.json`):
+
+| relic | overall | worst foe type | best foe type | spread |
+|---|---|---|---|---|
+| Lightkeeper | 49.2% | warhammer 22.1% | staff 88.6% | 66.4pp |
+| Angelus | 49.8% | twinblade 16.7% | warhammer 82.9% | 66.2pp |
+| Heartwood | 50.7% | warhammer 25.7% | greatsword 83.3% | 57.6pp |
+| Axiom | 50.1% | warhammer 22.9% | staff 76.4% | 53.6pp |
+| Bindweed | 51.5% | bow 30.0% | greatsword 82.9% | 52.9pp |
+| Spellbreaker | 50.6% | scythe 27.9% | staff 71.4% | 43.6pp |
+| Lodestone | 50.9% | warhammer 36.7% | greatsword 74.3% | 37.6pp |
+| Thornwake | 50.5% | bow 35.0% | greatsword 70.7% | 35.7pp |
+| Ironwood | 50.4% | flail 42.9% | greatsword 78.6% | 35.7pp |
+| Goreshard (oathwound) | 48.8% | warhammer 35.7% | staff 70.0% | 34.3pp |
+| Oracle | 52.1% | greatsword 42.1% | staff 74.3% | 32.1pp |
+| Censer | 51.8% | bow 39.3% | greatsword 70.7% | 31.4pp |
+| Morningstar | 49.8% | bow 31.4% | greatsword 62.9% | 31.4pp |
+| Coldiron | 48.5% | warhammer 29.3% | greatsword 60.7% | 31.4pp |
+| Ironhail | 52.2% | greatsword 32.9% | flail 63.6% | 30.7pp |
+| Aureole | 49.6% | greatsword 33.6% | warhammer 60.0% | 26.4pp |
+| Portcullis | 48.4% | bow 38.6% | greatsword 63.6% | 25.0pp |
+| Widowmaker | 50.7% | greatsword 41.4% | staff 57.9% | 16.4pp |
+
+**The call, Code's under that ruling:**
+- **A spread is a relic's matchups, not its balance.** Every one of these relics is at 50% overall, and
+  the spread comes from its design: what its ultimate and its weapon beat.
+- **Tuning a spread out is redesigning, and rule 0 forbids it.** The blade scales every matchup at once
+  and cannot flatten one. Changing a type matchup means changing a mechanic, which is Cowork's and Rick's.
+- **So this pass records the spreads and moves nothing for them.** This is the same stance as Lightkeeper v
+  Marrowdraw, which Rick accepted as a counter.
+- **Five relics spread over 50pp:** Lightkeeper, Angelus, Heartwood, Axiom and Bindweed. That is wider
+  than the Thornshear and Shroudmaul cases that opened items 12 and 32.
+
+**Staff is the best foe type for 6 of the eighteen** (Axiom, Widowmaker, Oracle, Lightkeeper, Spellbreaker, Goreshard (oathwound)). The staves are
+yert's row, balanced on yert's line, which has none of the batch's relics. Their rates on the 49-relic
+roster come from verify on the candidate (§5). Their blades are yert's cells, not this pass's.
+
+## 5. The game candidate: `02-chain/sc-candidate-49.html`
+
+The roster the balance was measured on, placed on the chain so Rick can watch it and GAME can move to it.
+It is `sc-balance` with Rick's Daybreak circle (`sunrise_build.py` stages 1, 3, 5) and yert's seven staves
+(`staff_carry.py`) carried on, built by `make_roster.sh`: **49 relics, sha16 c4a9cd44693eb136**. Byte for
+byte, it is the roster of the final check in §3. GAME is NOT moved: that is Rick's.
+
+Gates (`runs/candidate/`):
+- **shell_identity 196/196** (app Chromium 152 vs headless 151; the json restored).
+- **tip_audit** exit 0.
+- **verify --n 40, all 49 (1176 pairings, 47,040 fights): 10/13.**
+  - Every relic is inside 30-70% (Vinesower 40.3 .. Gloamwire 63.1). The eighteen batch relics read 47-52%
+    here, side B in every pairing; the staves read 45.5-51.4.
+  - The reds: the two clock bands, red on every link, and "both sides can win every matchup", with six hard
+    counters at 40/0:
+    - Spellbreaker v Angelus 40/0;
+    - Lodestone v Angelus 0/40;
+    - Angelus v Nightglass 40/0;
+    - Heartwood v Ironwood 0/40;
+    - Lightkeeper v Nightglass 40/0 (on yert's line already: Nightglass's named counter, items 12/32);
+    - Lightkeeper v Bloodwick 40/0.
+  - They are matchups (§4), not blades, and they are FOR RICK before GAME moves. He accepted Lightkeeper v
+    Marrowdraw as a counter; these six are the same kind, and the go-live call is his.
+
+## 6. What it means for the docs before this one
 
 Each relic's build doc records the blade its build picked. Those numbers stay as history: the link that
 decides the blade on the chain is this one. A relic's probe that pins its build's blade
