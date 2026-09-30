@@ -1,0 +1,45 @@
+BALANCE SWEEP  roster49-r1.html  18 relics  n=10  blocks [2207, 2317]  tol 1.5
+  bindweed      blade 18.75   48.4%  (1920 fights)
+  morningstar   blade 25.75   49.7%  (1920 fights)
+  portcullis    blade 23.0    49.2%  (1920 fights)
+  axiom         blade 9.0     50.5%  (1920 fights)
+  ironwood      blade 24.0    50.7%  (1920 fights)
+  bindweed      blade 19.5    54.1%  (1920 fights)
+  ironhail      blade 14.75   50.2%  (1920 fights)
+  coldiron      blade 9.3     48.5%  (1920 fights)
+  lodestone     blade 20.25   51.0%  (1920 fights)
+  widowmaker    blade 11.25   50.5%  (1920 fights)
+  bindweed      blade 19.0    50.7%  (1920 fights)
+  coldiron      blade 9.75    55.3%  (1920 fights)
+  oracle        blade 10.0    51.5%  (1920 fights)
+  angelus       blade 9.0     49.3%  (1920 fights)
+  lightkeeper   blade 9.5     49.9%  (1920 fights)
+  censer        blade 26.0    50.4%  (1920 fights)
+  coldiron      blade 9.5     52.3%  (1920 fights)
+  aureole       blade 12.0    49.5%  (1920 fights)
+  heartwood     blade 10.5    50.2%  (1920 fights)
+  spellbreaker  blade 7.25    50.8%  (1920 fights)
+  thornwake     blade 26.5    49.3%  (1920 fights)
+  oathwound     blade 9.75    48.8%  (1920 fights)
+
+relic          current    rate      pick    rate  moved
+axiom              9.0   50.5%       9.0   50.5%  
+morningstar      25.75   49.7%     25.75   49.7%  
+ironwood          24.0   50.7%      24.0   50.7%  
+portcullis        23.0   49.2%      23.0   49.2%  
+bindweed         18.75   48.4%      19.0   50.7%  YES
+coldiron           9.3   48.5%       9.3   48.5%  
+ironhail         14.75   50.2%     14.75   50.2%  
+lodestone        20.25   51.0%     20.25   51.0%  
+widowmaker       11.25   50.5%     11.25   50.5%  
+oracle            10.0   51.5%      10.0   51.5%  
+angelus            9.0   49.3%       9.0   49.3%  
+lightkeeper        9.5   49.9%       9.5   49.9%  
+censer            26.0   50.4%      26.0   50.4%  
+aureole           12.0   49.5%      12.0   49.5%  
+spellbreaker      7.25   50.8%      7.25   50.8%  
+heartwood         10.5   50.2%      10.5   50.2%  
+thornwake         26.5   49.3%      26.5   49.3%  
+oathwound         9.75   48.8%      9.75   48.8%  
+
+wrote C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/round2.json  (1178s)

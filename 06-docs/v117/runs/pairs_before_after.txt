@@ -1,0 +1,7 @@
+relic_rate.py --relic <a> --foes <b> --n 20 --seed0 2207 (both sides), before (the tip) and after (the balance link):
+sc-goreshard-fxout ironwood v bloodmirror:     win 2.5%   side A 5.0%   side B 0.0%
+sc-goreshard-fxout spellbreaker v bloodmirror: win 7.5%   side A 15.0%  side B 0.0%
+sc-goreshard-fxout lodestone v angelus:        win 2.5%   side A 0.0%   side B 5.0%
+sc-balance ironwood v bloodmirror:             win 2.5%   side A 5.0%   side B 0.0%
+sc-balance spellbreaker v bloodmirror:         win 7.5%   side A 15.0%  side B 0.0%
+sc-balance lodestone v angelus:                win 0.0%   side A 0.0%   side B 0.0%

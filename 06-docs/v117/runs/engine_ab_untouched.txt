@@ -1,0 +1,12 @@
+=== ENGINE A/B: 31 relics, 6 seeds x 465 pairings ===
+
+  sc-goreshard-fxout.html         2790 matches  300.8s
+  sc-balance.html                 2790 matches  298.4s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 2790
+  PASS  every match identical field for field  — 2790/2790
+  PASS  the sweep is real  — 31/31 distinct winners, 2790 distinct seeds, 22.7-151.8s
+
+ENGINE A/B PASS — ../02-chain/sc-balance.html does not move the 31-relic roster.
+exit 0

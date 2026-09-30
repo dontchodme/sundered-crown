@@ -1,0 +1,66 @@
+BALANCE SWEEP  roster49.html  18 relics  n=10  blocks [2207, 2317]  tol 1.0
+  bindweed      blade 18.0    46.0%  (1920 fights)
+  morningstar   blade 24.03   46.0%  (1920 fights)
+  portcullis    blade 23.0    50.3%  (1920 fights)
+  axiom         blade 7.42    37.7%  (1920 fights)
+  ironwood      blade 24.0    50.9%  (1920 fights)
+  bindweed      blade 19.75   55.4%  (1920 fights)
+  morningstar   blade 26.5    51.7%  (1920 fights)
+  ironhail      blade 16.23   59.1%  (1920 fights)
+  coldiron      blade 9.3     49.1%  (1920 fights)
+  axiom         blade 9.25    52.2%  (1920 fights)
+  bindweed      blade 18.75   48.4%  (1920 fights)
+  morningstar   blade 25.75   50.7%  (1920 fights)
+  ironhail      blade 12.5    34.5%  (1920 fights)
+  lodestone     blade 20.5    52.2%  (1920 fights)
+  axiom         blade 9.0     49.9%  (1920 fights)
+  bindweed      blade 19.25   53.2%  (1920 fights)
+  ironhail      blade 14.75   49.9%  (1920 fights)
+  widowmaker    blade 10.75   45.8%  (1920 fights)
+  lodestone     blade 19.5    46.7%  (1920 fights)
+  oracle        blade 10.0    50.9%  (1920 fights)
+  angelus       blade 9.0     50.2%  (1920 fights)
+  lightkeeper   blade 9.5     49.6%  (1920 fights)
+  widowmaker    blade 11.75   53.2%  (1920 fights)
+  lodestone     blade 20.0    48.3%  (1920 fights)
+  censer        blade 25.5    47.4%  (1920 fights)
+  aureole       blade 12.5    53.5%  (1920 fights)
+  censer        blade 27.25   53.9%  (1920 fights)
+  lodestone     blade 20.25   50.9%  (1920 fights)
+  widowmaker    blade 11.25   51.4%  (1920 fights)
+  spellbreaker  blade 7.5     53.1%  (1920 fights)
+  aureole       blade 11.5    46.1%  (1920 fights)
+  censer        blade 26.25   51.4%  (1920 fights)
+  thornwake     blade 26.5    49.6%  (1920 fights)
+  heartwood     blade 11.0    53.6%  (1920 fights)
+  censer        blade 26.0    50.2%  (1920 fights)
+  spellbreaker  blade 7.0     48.0%  (1920 fights)
+  aureole       blade 12.0    49.0%  (1920 fights)
+  oathwound     blade 10.25   52.6%  (1920 fights)
+  heartwood     blade 10.0    47.0%  (1920 fights)
+  oathwound     blade 9.5     48.3%  (1920 fights)
+  spellbreaker  blade 7.25    50.9%  (1920 fights)
+  heartwood     blade 10.5    49.8%  (1920 fights)
+  oathwound     blade 9.75    49.1%  (1920 fights)
+
+relic          current    rate      pick    rate  moved
+axiom             7.42   37.7%       9.0   49.9%  YES
+morningstar      24.03   46.0%     25.75   50.7%  YES
+ironwood          24.0   50.9%      24.0   50.9%  
+portcullis        23.0   50.3%      23.0   50.3%  
+bindweed          18.0   46.0%     18.75   48.4%  YES
+coldiron           9.3   49.1%       9.3   49.1%  
+ironhail         16.23   59.1%     14.75   49.9%  YES
+lodestone         20.5   52.2%     20.25   50.9%  YES
+widowmaker       10.75   45.8%     11.25   51.4%  YES
+oracle            10.0   50.9%      10.0   50.9%  
+angelus            9.0   50.2%       9.0   50.2%  
+lightkeeper        9.5   49.6%       9.5   49.6%  
+censer            25.5   47.4%      26.0   50.2%  YES
+aureole           12.5   53.5%      12.0   49.0%  YES
+spellbreaker       7.5   53.1%      7.25   50.9%  YES
+heartwood         11.0   53.6%      10.5   49.8%  YES
+thornwake         26.5   49.6%      26.5   49.6%  
+oathwound        10.25   52.6%      9.75   49.1%  YES
+
+wrote C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/round1.json  (2640s)

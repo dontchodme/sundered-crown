@@ -1,0 +1,114 @@
+
+{
+ "winrate": {
+  "dawnbringer": 0.5115853658536585,
+  "widowmaker": 0.5213414634146342,
+  "grudgebearer": 0.5115853658536585,
+  "thornwake": 0.5097560975609756,
+  "lastlight": 0.49146341463414633,
+  "gravemourn": 0.5341463414634147,
+  "slagheart": 0.5652439024390243,
+  "spellbreaker": 0.4896341463414634,
+  "ironhail": 0.5310975609756098,
+  "lightkeeper": 0.4268292682926829,
+  "farwarden": 0.5231707317073171,
+  "aureole": 0.5054878048780488,
+  "censer": 0.5054878048780488,
+  "emberedge": 0.43109756097560975,
+  "oathwound": 0.4560975609756098,
+  "heartwood": 0.4871951219512195,
+  "nightfell": 0.4036585365853659,
+  "axiom": 0.46219512195121953,
+  "twinshade": 0.5457317073170732,
+  "redflail": 0.4774390243902439,
+  "foregone": 0.525609756097561,
+  "vinesower": 0.4140243902439024,
+  "bulwarden": 0.5237804878048781,
+  "marrowdraw": 0.46158536585365856,
+  "paradox": 0.5445121951219513,
+  "thornshear": 0.43414634146341463,
+  "vesper": 0.5018292682926829,
+  "shroudmaul": 0.4713414634146341,
+  "cindercleave": 0.5323170731707317,
+  "ravelbone": 0.5158536585365854,
+  "gloamwire": 0.6396341463414634,
+  "bloodmirror": 0.5445121951219513,
+  "duskreave": 0.5347560975609756,
+  "starwarden": 0.49085365853658536,
+  "morningstar": 0.5335365853658537,
+  "ironwood": 0.5146341463414634,
+  "portcullis": 0.5048780487804878,
+  "bindweed": 0.573170731707317,
+  "coldiron": 0.45975609756097563,
+  "lodestone": 0.4481707317073171,
+  "oracle": 0.4628048780487805,
+  "angelus": 0.47804878048780486
+ },
+ "meanDur": 63.870564169570265,
+ "meanClanks": 21.07903600464576
+}
+=== The Sundered Crown — falsification pass ===
+
+
+# sweep: 34440 matches in 3312.9s (40 seeds x 861 pairings)
+# mean duration 63.9s   mean clanks 21.1
+
+  Gloamwire       64.0%  ################################
+  Bindweed        57.3%  #############################
+  Slagheart       56.5%  ############################
+  Twinshade       54.6%  ###########################
+  Paradox         54.5%  ###########################
+  Bloodmirror     54.5%  ###########################
+  Duskreave       53.5%  ###########################
+  Gravemourn      53.4%  ###########################
+  Morningstar     53.4%  ###########################
+  Cindercleave    53.2%  ###########################
+  Ironhail        53.1%  ###########################
+  Foregone        52.6%  ##########################
+  Bulwarden       52.4%  ##########################
+  Farwarden       52.3%  ##########################
+  Widowmaker      52.1%  ##########################
+  Ravelbone       51.6%  ##########################
+  Ironwood        51.5%  ##########################
+  Dawnbringer     51.2%  ##########################
+  Grudgebearer    51.2%  ##########################
+  Thornwake       51.0%  #########################
+  Aureole         50.5%  #########################
+  Censer          50.5%  #########################
+  Portcullis      50.5%  #########################
+  Vesper          50.2%  #########################
+  Lastlight       49.1%  #########################
+  Starwarden      49.1%  #########################
+  Spellbreaker    49.0%  ########################
+  Heartwood       48.7%  ########################
+  Angelus         47.8%  ########################
+  Threshmaw       47.7%  ########################
+  Shroudmaul      47.1%  ########################
+  Oracle          46.3%  #######################
+  Axiom           46.2%  #######################
+  Marrowdraw      46.2%  #######################
+  Coldiron        46.0%  #######################
+  Goreshard       45.6%  #######################
+  Lodestone       44.8%  ######################
+  Thornshear      43.4%  ######################
+  Emberedge       43.1%  ######################
+  Lightkeeper     42.7%  #####################
+  Vinesower       41.4%  #####################
+  Nightfell       40.4%  ####################
+
+  PASS  no JS errors or page exceptions
+  PASS  every status and ultimate has viewer-facing text
+  PASS  all 861 pairings ran  — 861 pairings
+  PASS  every match resolved  — 0 pairings had unresolved matches
+  FAIL  both sides can win every matchup  — Spellbreaker vs Bloodmirror 0/40; Bloodmirror vs Ironwood 40/0; Lodestone vs Angelus 0/40
+  PASS  timeout rate <= 10%  — 1/34440 = 0.0%
+  PASS  every relic winrate in 30%-70%  — Nightfell 40.4% .. Gloamwire 64.0% (spread 23.6pp)
+  FAIL  every pairing mean duration in 18-70s  — Gravemourn/Marrowdraw 40.8s .. Spellbreaker/Lightkeeper 119.2s
+  FAIL  overall mean duration in 28-54s  — 63.9s
+  PASS  every pairing clanks at least once
+  PASS  no pairing resolves on fewer than 6 hits
+  PASS  capture path pins the canvas to 1080x1920  — 1080x1920 k=1
+  PASS  renderer draws a non-blank frame  — 135 distinct sampled colours
+
+10/13 checks passed  (3 FAILED)
+exit 1

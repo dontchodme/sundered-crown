@@ -1,0 +1,134 @@
+
+DAWNBRINGER / DAYBREAK, THE CIRCLE -- stage 1
+  src sc-balance.html  dcc2f046ae28562f  (LF text)
+  base  the batch tip: Corollary c14, the line through stage 3, Zenith
+  cut   the line's picture fields (dawnFade .. dawnTagged)  19 lines  sha c6935d486ac9cefb
+  cut   the line's presentation clock (tickPresentation)  24 lines  sha 143983db5e827cfe
+  cut   the line's draw call (world pass)              6 lines  sha f8d5b395269bb76f
+  cut   drawDawn                                      73 lines  sha cc3d0e0d8ebcacfe
+  cut   the line's voices (cast, steps 1-7, close)    71 lines  sha 56d97181b911a685
+  cut   tickDawn and dawnShown -> tickSunrise         82 lines  sha bdd40c94a794f278
+  ok    dawnbringer's ultimate is the circle
+  ok    the fighter carries the sun: armed, up, where, how long
+  ok    the cast arms the blade and resolves nothing
+  ok    the blow that lands breaks the dawn where it lands
+  ok    the sun ticks with the window tickers, in the line's place
+  ok    the ultFx life map: say what dawnbringer's entry is now
+  ok    the HUD sigil's comment stops describing the line
+  ok    the banner's comment stops describing the line
+  ok    ult   ult:{ name:"Daybreak", charge:14, kind:"sunrise", dur:8, grow:2, r:200, tick:0.5, tickDmg:2, smite:1 ...
+  ok    card  71 chars  'The next blow breaks the dawn where it lands; foes in the sunlight burn'
+  ok    the rim travels 100 px/s (r 200 over grow 2s)
+  ok    the line is out (11 names, kind:"dawn"); one sunrise ultimate; Zenith's ultSun untouched (5 refs); no relic is radiant
+  ok    no insert draws the RNG; 42 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out r-sunrise.html  fd263f9faec97730   (-10376 chars, written LF)
+  charge 14  sun r 200 up in 2s, 8s from the contact  tick 0.5s  2 dmg + smite 1   blade 10.4 (unchanged)
+
+  GATE -- in this order, and each can fail:
+    python engine_ab.py --a C:/dev/sundered-crown/02-chain/sc-balance.html --b C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise.html --ids <the 34 others> --n 8
+    python sunrise_probe.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise.html
+    the relic at 10.4 against stage 0's arm D on 151 (the lab)
+
+DAWNBRINGER / DAYBREAK, THE CIRCLE -- stage 3
+  src r-sunrise.html  fd263f9faec97730  (LF text)
+  base  stage 1 (the sun) on the batch tip
+  ok    the sun's palette, used nowhere else
+  ok    the fighter carries the sun's picture
+  ok    every cast restarts the arming's own clock
+  ok    the break rings the bell, on the blow's own frame
+  ok    the hum and the sunset ride the sun's own clocks
+  ok    the shimmer strikes every half second of the sun
+  ok    every tick is shown: the number, the shell's flash, the voice
+  ok    sunriseShown
+  ok    the sun's presentation clocks (tickPresentation)
+  ok    the sun is drawn on the floor (world pass)
+  ok    drawSunrise, its five parts, the blade and the flash
+  ok    the sun in the blade, over both fighters (world pass)
+  ok    the break's flash, over both balls (emissive pass)
+  ok    the synth: the arming, the bell, the shimmer, the sunset
+  ok    the synth: the tick's sizzle-chime, its own kind
+  ok    ult   ult:{ name:"Daybreak", charge:14, kind:"sunrise", dur:8, grow:2, r:200, tick:0.5, tickDmg:2, smite:1 ...
+  ok    card  71 chars  'The next blow breaks the dawn where it lands; foes in the sunlight burn'
+  ok    the rim travels 100 px/s (r 200 over grow 2s)
+  ok    the line is out (11 names, kind:"dawn"); one sunrise ultimate; Zenith's ultSun untouched (5 refs); no relic is radiant
+  ok    no insert draws the RNG; 42 relics in the roster
+  ok    `lighter` only in the break's flash; the sun in the world pass; tickSunrise reads no picture field
+  ok    syntax  1 inline script block(s) parse
+
+  out r-sunrise-fx.html  4b3d137788fed6c2   (+25765 chars, written LF)
+  charge 14  sun r 200 up in 2s, 8s from the contact  tick 0.5s  2 dmg + smite 1   blade 10.4 (unchanged)
+
+  GATE -- in this order, and each can fail:
+    python sunrise_sheet.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise-fx.html          # legibility FIRST, then the bloom
+    python engine_ab.py --a C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise.html --b C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise-fx.html --ids <ALL 35> --n 6
+    python sunrise_probe.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise-fx.html          # + the stage-3 checks
+    render_ab (defaults identical; a control inside a sun 0/N), shell_identity,
+    chain_audit --builder sunrise_build.py, tip_audit, verify --n 40
+
+DAWNBRINGER / DAYBREAK, THE CIRCLE -- stage 5
+  src r-sunrise-fx.html  4b3d137788fed6c2  (LF text)
+  base  stage 3 (the picture) on the batch tip
+  ok    the wash at the rim is Rick's 0.26
+  ok    the wash's rim stop
+  ok    ult   ult:{ name:"Daybreak", charge:14, kind:"sunrise", dur:8, grow:2, r:200, tick:0.5, tickDmg:2, smite:1 ...
+  ok    card  71 chars  'The next blow breaks the dawn where it lands; foes in the sunlight burn'
+  ok    the rim travels 100 px/s (r 200 over grow 2s)
+  ok    the line is out (11 names, kind:"dawn"); one sunrise ultimate; Zenith's ultSun untouched (5 refs); no relic is radiant
+  ok    no insert draws the RNG; 42 relics in the roster
+  ok    the wash at the rim 0.26 (Rick's; the design's 0.20)
+  ok    `lighter` only in the break's flash; the sun in the world pass; tickSunrise reads no picture field
+  ok    syntax  1 inline script block(s) parse
+
+  out r-sunrise-e26.html  46e27515a3ffed20   (+280 chars, written LF)
+  charge 14  sun r 200 up in 2s, 8s from the contact  tick 0.5s  2 dmg + smite 1   blade 10.4 (unchanged)
+
+  GATE -- in this order, and each can fail:
+    (a presentation number: verify carries from stage 3 on engine_ab's identity)
+    python sunrise_sheet.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise-e26.html          # legibility FIRST, then the bloom
+    python engine_ab.py --a C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise-fx.html --b C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise-e26.html --ids <ALL 35> --n 6
+    python sunrise_probe.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/balance/r-sunrise-e26.html          # + the stage-3 checks
+    render_ab (defaults identical; a control inside a sun 0/N), shell_identity,
+    chain_audit --builder sunrise_build.py, tip_audit, verify --n 40
+THE STAFF CARRY onto r-sunrise-e26.html  46e27515a3ffed20
+  ok  culverin_build.py      stage 1   out 01-culverin-s1.html  47c978e5bd7a7018   (+37329 chars, written LF)
+  ok  culverin_build.py      stage 2   out 02-culverin-s2.html  a30b1f3d98c394a7   (+1055 chars, written LF)
+  ok  culverin_build.py      stage 3   out 03-culverin-s3.html  6fb9da4417d55454   (+9720 chars, written LF)
+  ok  culverin_build.py      stage 5   out 04-culverin-s5.html  4b7e5596e01f503f   (+429 chars, written LF)
+  ok  culverin_build.py      stage 6   out 05-culverin-s6.html  ccbee780fdb8c0a0   (+13180 chars, written LF)
+  ok  briarwand_build.py     stage 1   out 06-briarwand-s1.html  05ee287c837270e5   (+1714 chars, written LF)
+  ok  briarwand_build.py     stage 2   out 07-briarwand-s2.html  7bab22077b1e8d0a   (+1340 chars, written LF)
+  ok  briarwand_build.py     stage 3   out 08-briarwand-s3.html  50f132f2346ef1a5   (+7472 chars, written LF)
+  ok  briarwand_build.py     stage 5   out 09-briarwand-s5.html  579157111aa952d5   (+472 chars, written LF)
+  ok  briarwand_build.py     stage 6   out 10-briarwand-s6.html  0b1d9e64d332d8e1   (+7845 chars, written LF)
+  ok  cipher_build.py        stage 1   out 11-cipher-s1.html  eb38954077b4534b   (+1540 chars, written LF)
+  ok  cipher_build.py        stage 2   out 12-cipher-s2.html  50200d999af8256f   (+1755 chars, written LF)
+  ok  cipher_build.py        stage 3   out 13-cipher-s3.html  07097841d6e1d8dc   (+6165 chars, written LF)
+  ok  cipher_build.py        stage 5   out 14-cipher-s5.html  3778fb422415b7aa   (+857 chars, written LF)
+  ok  cipher_build.py        stage 6   out 15-cipher-s6.html  917120a33a2af1d4   (+11132 chars, written LF)
+  ok  watchlight_build.py    stage 1   out 16-watchlight-s1.html  fbf3c72ece1ef6e1   (+1669 chars, written LF)
+  ok  watchlight_build.py    stage 2   out 17-watchlight-s2.html  1029cddd63de6c94   (+1538 chars, written LF)
+  ok  watchlight_build.py    stage 3   out 18-watchlight-s3.html  1860d72da6179536   (+5292 chars, written LF)
+  ok  watchlight_build.py    stage 6   out 19-watchlight-s6.html  00b1ceb1576cd632   (+8981 chars, written LF)
+  ok  crozier_build.py       stage 1   out 20-crozier-s1.html  1081ba34c8ad51d3   (+1728 chars, written LF)
+  ok  crozier_build.py       stage 2   out 21-crozier-s2.html  d1aaeef65a4c0917   (+1937 chars, written LF)
+  ok  crozier_build.py       stage 3   out 22-crozier-s3.html  0dd6927891d517a8   (+3442 chars, written LF)
+  ok  crozier_build.py       stage 5   out 23-crozier-s5.html  f0ba4deebfba5dd8   (+678 chars, written LF)
+  ok  crozier_build.py       stage 6   out 24-crozier-s6.html  0fae41ab0e243984   (+9362 chars, written LF)
+  ok  bloodwick_build.py     stage 1   out 25-bloodwick-s1.html  5b5268862d26fe8f   (+1640 chars, written LF)
+  ok  bloodwick_build.py     stage 2   out 26-bloodwick-s2.html  993ee487701ca3d7   (+1981 chars, written LF)
+  ok  bloodwick_build.py     stage 3   out 27-bloodwick-s3.html  1556ffacc7ccd4d9   (+4838 chars, written LF)
+  ok  bloodwick_build.py     stage 4   out 28-bloodwick-s4.html  b9c75fdc7482eb4b   (+977 chars, written LF)
+  ok  bloodwick_build.py     stage 5   out 29-bloodwick-s5.html  bb86f6d76db29f52   (+589 chars, written LF)
+  ok  bloodwick_build.py     stage 6   out 30-bloodwick-s6.html  5b40837dce6e2647   (+6746 chars, written LF)
+  ok  nightglass_build.py    stage 1   out 31-nightglass-s1.html  240bac6e12b4a7b6   (+1603 chars, written LF)
+  ok  nightglass_build.py    stage 2   out 32-nightglass-s2.html  bd47a01f03632b67   (+1589 chars, written LF)
+  ok  nightglass_build.py    stage 3   out 33-nightglass-s3.html  170931fb115efc8f   (+4668 chars, written LF)
+  ok  nightglass_build.py    stage 5   out 34-nightglass-s5.html  704119f04b35de55   (+619 chars, written LF)
+  ok  nightglass_build.py    stage 6   out 35-nightglass-s6.html  8570b6dd0c949b72   (+12947 chars, written LF)
+  ok    syntax  1 inline script block(s) parse
+
+  out roster49.html  c4a9cd44693eb136   (+174935 chars over the tip, written LF)
+relics: 49
+c4a9cd44693eb136

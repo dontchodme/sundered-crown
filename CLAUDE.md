@@ -82,7 +82,17 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-goreshard-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+02-chain/sc-balance.html         THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+                                 THE BALANCE PASS (v117, balance_build.py; Rick: "you pick
+                                 the blades. do whatevers best for balance"). Eleven batch
+                                 blades moved, nothing else: every batch relic but
+                                 Dawnbringer at 48.7-51.4% both sides on the 49-relic game
+                                 roster (this tip + the circle + the staves). engine_ab
+                                 2790/2790 on the untouched 31; verify 10/13 (clock bands +
+                                 three hard counters that predate it); shell_identity
+                                 200/200. ALL NINETEEN DESIGNS ARE BUILT. GAME waits for
+                                 Rick, and its move must carry the circle and the staves.
+02-chain/sc-goreshard-fxout.html the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  GORESHARD REDESIGNED (goreshard_build.py, fx_remove.py,
                                  v114), carried onto sc-heartwood-fxout. Its blows hit
                                  harder the more the foe bleeds: +30% a Hemorrhage stack.
