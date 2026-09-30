@@ -1,0 +1,35 @@
+12 fights, 122 measured frames; missing: dawnbringer:over, lastlight:over, morningstar:reroot/over, gravemourn:over, spellbreaker:over, paradox:over, bindweed:reroot/over, thornwake:over
+
+BLOOM: the picture's share of the arena lift: max +0.0000 (nightfell/5150a root), min -0.0000   (gate <= +0.02)
+  raw luma the picture adds (chain on): max +0.0053; clip with 0.0075 without 0.0089
+DISC me : art moves the disc mean by -0.0001..+0.0002 (worst nightfell/5150a over ); >0.90 share max 0.795 (without the art 0.795); clip max 0.5200
+DISC foe: art moves the disc mean by -0.0093..+0.0000 (worst twinshade/99008b reroot umbral); >0.90 share max 0.960 (without the art 0.961); clip max 0.2881
+  foe disc by school: bloodsworn -0.0064..+0.0000  dwarven -0.0029..+0.0000  runic -0.0059..+0.0000  sanctified -0.0082..+0.0000  umbral -0.0093..+0.0000  verdant -0.0077..+0.0000
+CONTROL 1: dLift max +0.0115 (> +0.02 on 0/122); caster disc >0.90 on >half the disc 102/122; foe disc 17/122
+CONTROL 2: dLift max +0.0884 (> +0.02 on 19/122); caster disc >0.90 on >half the disc 26/122; foe disc 52/122
+CONTROL 3: dLift max +0.0770 (> +0.02 on 30/122); caster disc >0.90 on >half the disc 33/122; foe disc 28/122
+
+LEGIBILITY (|dL| of the pixels a component moves by > 0.02; n px at 540x960) -- out of / in a hit stop:
+  blade   free: dL med 0.189 min 0.035 dE med 31.2 n med  1584 (59 frames) | stop: dL med 0.172 min 0.036 dE med 29.9 n med  1677 (39 frames)
+  green   free: dL med 0.182 min 0.023 dE med 33.5 n med  1289 (59 frames) | stop: dL med 0.166 min 0.030 dE med 32.3 n med  1259 (39 frames)
+  scale   free: dL med 0.158 min 0.046 dE med 20.9 n med   434 (59 frames) | stop: dL med 0.150 min 0.050 dE med 20.4 n med   487 (39 frames)
+  front   free: dL med 0.105 min 0.021 dE med 10.8 n med    52 (10 frames) | stop: dL med 0.059 min 0.059 dE med  5.9 n med    36 (1 frames)
+  ground  free: dL med 0.149 min 0.082 dE med 20.2 n med    29 (47 frames) | stop: dL med 0.170 min 0.053 dE med 21.7 n med    29 (37 frames)
+  motes   free: dL med 0.163 min 0.092 dE med 20.4 n med    27 (47 frames) | stop: dL med 0.177 min 0.053 dE med 21.9 n med    29 (36 frames)
+  bits    free: dL med 0.100 min 0.074 dE med 20.0 n med   223 (12 frames) | stop: dL med 0.086 min 0.056 dE med 12.9 n med   227 (4 frames)
+  root    free: dL med 0.171 min 0.096 dE med 36.4 n med  4629 (32 frames) | stop: dL med 0.223 min 0.103 dE med 46.3 n med  2539 (26 frames)
+  tag     free: dL med 0.246 min 0.183 dE med 42.4 n med   997 (12 frames) | stop: dL med 0.211 min 0.183 dE med 32.4 n med   699 (24 frames)
+  all     free: dL med 0.179 min 0.035 dE med 31.8 n med  3238 (59 frames) | stop: dL med 0.198 min 0.036 dE med 33.8 n med  3049 (39 frames)
+
+PER STATE (median |dL| of the whole picture, frames):
+  rest    12 frames: all dL med 0.000 n med     0; dLift max +0.0000; foe disc art +0.0000..+0.0000; me +0.0000..+0.0000
+  cast    12 frames: all dL med 0.000 n med     0; dLift max +0.0000; foe disc art +0.0000..+0.0000; me +0.0000..+0.0000
+  green   12 frames: all dL med 0.073 n med   465; dLift max +0.0000; foe disc art +0.0000..+0.0000; me +0.0000..+0.0000
+  window  12 frames: all dL med 0.186 n med  1837; dLift max +0.0000; foe disc art -0.0029..+0.0000; me +0.0000..+0.0000
+  stop    12 frames: all dL med 0.193 n med  1874; dLift max +0.0000; foe disc art -0.0029..+0.0000; me +0.0000..+0.0002
+  root    12 frames: all dL med 0.212 n med  3393; dLift max +0.0000; foe disc art -0.0002..+0.0000; me +0.0000..+0.0000
+  held    12 frames: all dL med 0.193 n med  7602; dLift max +0.0000; foe disc art -0.0044..-0.0003; me +0.0000..+0.0000
+  wilt    12 frames: all dL med 0.167 n med  6419; dLift max +0.0000; foe disc art -0.0037..-0.0011; me -0.0000..+0.0000
+  reroot  10 frames: all dL med 0.214 n med  9452; dLift max +0.0000; foe disc art -0.0093..-0.0029; me -0.0001..+0.0001
+  close   12 frames: all dL med 0.229 n med  1745; dLift max +0.0000; foe disc art -0.0028..+0.0000; me +0.0000..+0.0000
+  over     4 frames: all dL med 0.192 n med  1945; dLift max +0.0000; foe disc art -0.0007..+0.0000; me +0.0000..+0.0002

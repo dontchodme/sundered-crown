@@ -1,0 +1,15 @@
+sc-heartwood-b11.html: 142 Rootfast windows on 16 foes x 2 seeds (both sides); ultFx life at the cast: [1.4, 2.2]; the slot's spawn point is the caster's own spot on 134/142
+  the slot is Heartwood's for a median 0.98s of window clock (max 1.07); lost to: {"opponent's cast": 13, 'expired': 128, 'match ended in the window': 1}
+  a slot-borne field could exist for 12.6% of the window's clock
+  t=1s: the blade's midpoint is a median 219 units from the cast point (p90 399); its tip 229 (p90 401)  n=141
+  t=3s: the blade's midpoint is a median 192 units from the cast point (p90 391); its tip 216 (p90 409)  n=135
+  t=5s: the blade's midpoint is a median 184 units from the cast point (p90 415); its tip 203 (p90 433)  n=131
+  t=7s: the blade's midpoint is a median 197 units from the cast point (p90 379); its tip 207 (p90 397)  n=125
+hw-final-fx.html: 142 Rootfast windows on 16 foes x 2 seeds (both sides); ultFx life at the cast: [1.4, 1.5]; the slot's spawn point is the caster's own spot on 134/142
+  the slot is Heartwood's for a median 0.67s of window clock (max 0.72); lost to: {'expired': 135, 'match ended in the window': 1, "opponent's cast": 6}
+  a slot-borne field could exist for 8.5% of the window's clock
+  t=1s: the blade's midpoint is a median 219 units from the cast point (p90 399); its tip 229 (p90 401)  n=141
+  t=3s: the blade's midpoint is a median 192 units from the cast point (p90 391); its tip 216 (p90 409)  n=135
+  t=5s: the blade's midpoint is a median 184 units from the cast point (p90 415); its tip 203 (p90 433)  n=131
+  t=7s: the blade's midpoint is a median 197 units from the cast point (p90 379); its tip 207 (p90 397)  n=125
+exit 0

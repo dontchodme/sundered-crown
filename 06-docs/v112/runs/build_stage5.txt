@@ -1,0 +1,11 @@
+
+HEARTWOOD / ROOTFAST (REDESIGN) -- stage 5
+  src sc-heartwood-rootfast.html  cc303b02f2aba1d9  (LF text)
+  base  Heartwood's shipped body (verdant greatsword, swing, entangle 2); hurt / apply / resolveHit's count / tickStasis's lock / move's hold and resume; the window tickers stop in a hit stop and run before the hit loops
+  ok    the blade: the measured point nearest 50% both sides (Rick's ruling)
+  ok    ult   ult:{ name:"Rootfast", charge:13, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:1, tip:"Every blow roots ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-b11.html  aff84a04b303a402   (-3 chars, written LF)

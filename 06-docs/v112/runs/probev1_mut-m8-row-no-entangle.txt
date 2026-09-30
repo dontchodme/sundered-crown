@@ -1,0 +1,15 @@
+
+ROOTFAST PROBE  mut-m8-row-no-entangle.html  Chromium 151.0.7922.34  444 fights (Heartwood both sides x every foe x 6 seeds)   ult {'charge': 13, 'dur': 8, 'rootFor': 1, 'extraEnt': 0}   pinned {'charge': 13, 'dur': 8, 'rootFor': 1.0, 'extraEnt': 0}
+  casts/fight 4.22   blows a fight: in windows 15.92 (on the opponent 15.73), outside 10.79   Heartwood win 48.4%
+  per cast: blows rooted 3.69   roots as transitions 2.05   extra entangle 0.00   foe pinned 43.7% of window frames (the lab's read)
+  entangle applied by rooted blows in windows 13684  = 1.98 x blows rooted (the brief's gate: 3 x at stage 3)   killing blows unrooted 142   shade blows rooting Twinshade 84
+  re-roots on a held ball 3085 (under a longer hold 57)   held steps still 718449   held hit loops quiet 716659   FREEZE CENSUS 15.2% of window steps frozen   clock window 960 calls
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Heartwood's
+  [2] PASS  every blow in the window roots the opponent once (a shade's too); none outside; a killing blow roots nobody
+  [3] PASS  the pin: max(pin, rootFor), pinMax likewise, pinV = the knocked vector iff no longer hold stands
+  [4] PASS  ball and weapon: pinFree untouched; a held ball neither moves nor lands a blow, its weapon locked
+  [5] PASS  the channel's own, then entangle +extraEnt by side letter on every rooted blow; nothing else  (extraEnt 0 at this stage: none)
+  [6] PASS  no damage change (every blow rebuilt exactly, in and out); the root writes nothing else, no RNG
+  [7] PASS  a cast exactly when the live clock reaches the builder's charge, never with the window open; the row is the builder's
+
+  7/7

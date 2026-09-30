@@ -1,0 +1,6 @@
+gen_s6.py (dry), 2026-09-30 10:25: the labs' rows against the final link
+no two rows share an anchor line: none merged
+picture rows alone 4ce2e98655411557 (the picture lab's stamp 4ce2e98655411557)
+voice rows alone   6a19b58add3cf38e (the voice lab's end-to-end page 6a19b58add3cf38e)
+both, voice first  ceba5e801f4cf91b  picture first ceba5e801f4cf91b
+(dry: pass --write to write S6 into the builder) 11 edits

@@ -1,0 +1,14 @@
+
+RENDER A/B  1 pairings x 8 frames  540x960
+  a  sc-heartwood-b11-fx.html
+  b  sc-heartwood-fxout.html
+  heartwood v lightkeeper seed 112312 t= 76.46  DIFFERS   luma 19.545 -> 19.226   lit 61.90% -> 61.71%
+  heartwood v lightkeeper seed 112312 t= 76.47  DIFFERS   luma 19.429 -> 19.159   lit 61.86% -> 61.70%
+  heartwood v lightkeeper seed 112312 t= 76.50  DIFFERS   luma 19.330 -> 19.106   lit 61.89% -> 61.76%
+  heartwood v lightkeeper seed 112312 t= 76.52  DIFFERS   luma 19.443 -> 19.226   lit 61.93% -> 61.79%
+  heartwood v lightkeeper seed 112312 t= 76.55  DIFFERS   luma 19.485 -> 19.301   lit 61.95% -> 61.78%
+
+FAIL  3/8 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

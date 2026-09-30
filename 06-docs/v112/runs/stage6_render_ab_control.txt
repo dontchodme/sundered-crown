@@ -1,0 +1,13 @@
+
+RENDER A/B  2 pairings x 6 frames  540x960
+  a  sc-heartwood-b11.html
+  b  sc-heartwood-b11-fx.html
+  heartwood v spellbreaker seed 2207 t= 22.00  DIFFERS   luma 23.628 -> 23.534   lit 88.39% -> 88.39%
+  heartwood v spellbreaker seed 2207 t= 31.00  DIFFERS   luma 25.791 -> 25.840   lit 88.31% -> 88.31%
+  paradox v heartwood seed 25064 t= 22.00  DIFFERS   luma 26.376 -> 26.246   lit 88.41% -> 88.41%
+  paradox v heartwood seed 25064 t= 31.00  DIFFERS   luma 25.159 -> 25.037   lit 88.83% -> 88.83%
+
+FAIL  8/12 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

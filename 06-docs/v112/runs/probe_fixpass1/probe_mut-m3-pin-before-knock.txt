@@ -1,0 +1,17 @@
+
+ROOTFAST PROBE  mut-m3-pin-before-knock.html  stage 5  Chromium 151.0.7922.34  444 fights (Heartwood both sides x every foe x 6 seeds)   the row {'charge': 13, 'dur': 8, 'rootFor': 1, 'extraEnt': 1, 'blade': 11}   pinned {'charge': 13, 'dur': 8, 'rootFor': 1.0, 'extraEnt': 1, 'blade': 11.0, 'tip': 'Every blow roots the foe where it stands, ball and weapon, and entangles'}
+  casts/fight 4.25   blows a fight: in windows 16.02 (on the opponent 15.82), outside 10.86   Heartwood win 47.7%
+  per cast: blows rooted 3.69   roots as transitions 2.08   extra entangle 3.69   foe pinned 43.4% of window frames (the lab's read)
+  entangle applied by rooted blows in windows 20718  = 2.98 x blows rooted (the brief's gate: 3 x at stage 3)   killing blows unrooted 149   shade blows rooting Twinshade 87
+  re-roots on a held ball 123 (under a longer hold 63)   held steps still 722905   held hit loops quiet 720997   FREEZE CENSUS 15.1% of window steps frozen   clock window 960 calls
+  nothing else: 7113 root calls, 108013 ticker calls and 1885 casts snapshotted whole (both fighters, the shades, the match), clean; the entangle record exact on 7113 roots (6964 with the +1 applied)
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Heartwood's
+  [2] PASS  every blow in the window roots the opponent once (a shade's too); none outside; a killing blow roots nobody
+  [3] FAIL  the pin: max(pin, rootFor), pinMax likewise, pinV = the knocked vector iff no longer hold stands   6814 FAIL: ['pinV [-407.6535009636888,-280.14784062259446], want the knocked [-275.79232980142416, -180.96300539202133]', 'pinV [-440.9856343917645,189.75600688268284], want the knocked [-449.4655625275784, 354.5379561939209]', 'pinV [-461.8717012527071,369.15377527208983], want the knocked [-309.0589885599944, 431.3894148967811]', 'pinV [-273.36145285483116,-937.441437376259], want the knocked [-341.6074153528606, -787.2166438076954]']
+  [4] PASS  ball and weapon: pinFree untouched; a held ball neither moves nor lands a blow, its weapon locked
+  [5] PASS  the channel's own, then entangle +extraEnt by side letter on every rooted blow; nothing else
+  [6] PASS  no damage change (every blow rebuilt exactly, in and out); the root and the ticker write nothing else (every field of both fighters, the shades and the match; the entangle record exactly one apply), no RNG
+  [7] PASS  a cast exactly when the live clock reaches the builder's charge, never with the window open; the row (charge, window, root, entangle, blade) is the stage's
+  [8] PASS  the freeze out: the ult block is the design's keys only; the cast opens the window and resolves nothing (snapshotted whole, no RNG; only the window, the tally, ultsFired and the generic cast's picture)
+
+  7/8

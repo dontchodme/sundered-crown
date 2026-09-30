@@ -1,0 +1,37 @@
+ name:"Rootfast", charge:1e9, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:0, tip:"Every blow root ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-stub-on-sc-ironhail-fxout.html  2a8ca912315e0031   (+386 chars, written LF)
+ 
+name:"Rootfast", charge:13, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:0, tip:"Every blow roots ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-root-on-sc-ironhail-fxout.html  7b31c2ef665ae969   (+3128 chars, written LF)
+ 
+ame:"Rootfast", charge:13, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:1, tip:"Every blow roots ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-rootfast-on-sc-ironhail-fxout.html  b6a6674941038efd   (+0 chars, written LF)
+ 
+t:{ name:"Rootfast", charge:13, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:1, tip:"Every blow roots ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 39 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-b11-on-sc-ironhail-fxout.html  588fdea79322929f   (-3 chars, written LF)
+ 
+tip sc-ironhail-fxout.html 4b3775e5900172ea -> carried sc-heartwood-b11-on-sc-ironhail-fxout.html 588fdea79322929f
+  anchor of 'Sfx: Heartwood's cast and root arms, before the shared rune-': 1 time(s) in the carried link
+  anchor of 'rootBlow: the root voice, once per rooted blow, after T.root': 1 time(s) in the carried link
+  patched sc-heartwood-voices-on-sc-ironhail-fxout.html 2b285cc11eb6ddc7
+  on the carried tip, ult/bindweed-root vs Tendril's arm body read from sc-tendril-fx: max |diff| 6.0e-08 -- the same voice: heartwood-root is it, g scaled
+  every other voice (52), patched vs unpatched carried page: worst 1.2e-07
+  the new voices vs the lab's candidate text: cast 6.0e-08, cast 0.0e+00, root 6.0e-08, root 4.5e-08
+  76 fights: 76/76 identical, other SFX identical 76/76; totals {'casts': 322, 'rooted': 1156, 'castV': 322, 'rootV': 1156, 'closeV': 0}; root voices = rooted in 76/76, cast voices = casts in 76/76; page errors 0
+CARRY CHECK PASS

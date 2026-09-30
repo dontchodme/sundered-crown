@@ -1,0 +1,2 @@
+block 2207: stage 1 (sc-heartwood-stub, its own stubbed ultimate) against the lab's arm A (base): 660 / 660 fights; wins 175 / 175; blows 14168 / 14168; fights differing in winner, duration (to the step), blows in/out or casts: 0  -> IDENTICAL FIGHT BY FIGHT
+block 2317: stage 1 (sc-heartwood-stub, its own stubbed ultimate) against the lab's arm A (base): 660 / 660 fights; wins 178 / 178; blows 14099 / 14099; fights differing in winner, duration (to the step), blows in/out or casts: 0  -> IDENTICAL FIGHT BY FIGHT

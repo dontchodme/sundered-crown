@@ -1,0 +1,67 @@
+  [stamp/final drawn] heartwood v spellbreaker 2207: draws 2994 thrown None windows 5 roots 14 (holds 9) marked 14 bad 0 [] newAge0 9 | tag ok 14 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.4417, 0.4, 0.4, 0.525] death->0 [] | at kill [[0, True, False]] -> 0 after 0s | motes max 20 nan 0 | pic frames 2897 (stop 514) | w written False
+  [stamp/final drawn] dawnbringer v heartwood 99001: draws 2805 thrown None windows 5 roots 15 (holds 11) marked 15 bad 0 [] newAge0 11 | tag ok 15 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.4, 0.4, 0.4] death->0 [] | at kill [[0.9791666666666667, True, True]] -> 0 after 0.4s | motes max 20 nan 0 | pic frames 2735 (stop 538) | w written False
+  [stamp/final drawn] heartwood v gravemourn 99015: draws 2684 thrown None windows 5 roots 16 (holds 12) marked 16 bad 0 [] newAge0 12 | tag ok 16 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.4167, 0.4, 0.475] death->0 [] | at kill [[0, False, True]] -> 0 after 0s | motes max 20 nan 0 | pic frames 2612 (stop 448) | w written False
+  [stamp/final drawn] twinshade v heartwood 99008: draws 3099 thrown None windows 5 roots 21 (holds 10) marked 21 bad 0 [] newAge0 10 | tag ok 18 first 0 none 3 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.5167, 0.475, 0.6917] death->0 [] | at kill [[0.9791666666666667, True, True]] -> 0 after 0.4s | motes max 20 nan 0 | pic frames 3027 (stop 804) | w written False
+  [stamp/final drawn] heartwood v grudgebearer 31337: draws 1708 thrown None windows 3 roots 8 (holds 5) marked 8 bad 0 [] newAge0 5 | tag ok 8 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.4] death->0 [] | at kill [[0, False, True]] -> 0 after 0s | motes max 20 nan 0 | pic frames 1639 (stop 317) | w written False
+  [stamp/final drawn] lastlight v heartwood 4242: draws 1901 thrown None windows 3 roots 10 (holds 7) marked 10 bad 0 [] newAge0 7 | tag ok 10 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.4, 0.5083] death->0 [] | at kill [[0, False, False]] -> 0 after 0s | motes max 19 nan 0 | pic frames 1828 (stop 250) | w written False
+  [stamp/final drawn] heartwood v bindweed 2317: draws 2222 thrown None windows 4 roots 9 (holds 7) marked 9 bad 0 [] newAge0 7 | tag ok 9 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.425, 0.4] death->0 [] | at kill [[0, False, True]] -> 0 after 0s | motes max 20 nan 0 | pic frames 2153 (stop 420) | w written False
+  [stamp/final drawn] paradox v heartwood 1234: draws 2679 thrown None windows 5 roots 15 (holds 11) marked 15 bad 0 [] newAge0 11 | tag ok 15 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.4, 0.475, 0.4167] death->0 [] | at kill [[0, False, True]] -> 0 after 0s | motes max 20 nan 0 | pic frames 2607 (stop 449) | w written False
+  [stamp/final drawn] heartwood v thornwake 777: draws 2954 thrown None windows 5 roots 20 (holds 11) marked 20 bad 0 [] newAge0 11 | tag ok 20 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.4, 0.4, 0.4417, 0.4417] death->0 [] | at kill [[0, True, False]] -> 0 after 0s | motes max 19 nan 0 | pic frames 2885 (stop 457) | w written False
+  [stamp/final drawn] heartwood v widowmaker 99001: draws 2621 thrown None windows 4 roots 17 (holds 7) marked 17 bad 0 [] newAge0 7 | tag ok 17 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.5167, 0.4, 0.4] death->0 [] | at kill [[0, True, False]] -> 0 after 0s | motes max 20 nan 0 | pic frames 2546 (stop 471) | w written False
+  [stamp/final drawn] ironwood v heartwood 5150: draws 1997 thrown None windows 4 roots 11 (holds 2) marked 3 bad 0 [] newAge0 2 | tag ok 11 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 8 bad 0 let go 0 | green bad 0 [] | close->0 [0.4, 0.4, 0.475, 0.4] death->0 [] | at kill [[0, False, False]] -> 0 after 0s | motes max 20 nan 0 | pic frames 1855 (stop 403) | w written False
+  [stamp/final drawn] axiom v grudgebearer 31337: draws 461 thrown None windows 0 roots 0 (holds 0) marked 0 bad 0 [] newAge0 0 | tag ok 0 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [] death->0 [] | at kill None -> 0 after Nones | motes max 0 nan 0 | pic frames 0 (stop 0) | w written False
+  [stamp/final drawn] morningstar v lastlight 4242: draws 325 thrown None windows 0 roots 0 (holds 0) marked 0 bad 0 [] newAge0 0 | tag ok 0 first 0 none 0 bad 0 [] | held&pinned 0 bad 0 cleared-bad 0 | self-held: unmarked 0 bad 0 let go 0 | green bad 0 [] | close->0 [] death->0 [] | at kill None -> 0 after Nones | motes max 0 nan 0 | pic frames 0 (stop 0) | w written False
+('stamp', 'heartwood', 'spellbreaker', 2207): final          IDENTICAL  steps@kill 10668 hash@kill [3332716633, 3215139021] winner Heartwood t 88.90000000001682 roots 14
+('stamp', 'heartwood', 'spellbreaker', 2207): final-fx       IDENTICAL  steps@kill 10668 hash@kill [3332716633, 3215139021] winner Heartwood t 88.90000000001682 roots 14
+('stamp', 'heartwood', 'spellbreaker', 2207): final drawn    IDENTICAL  steps@kill 10668 hash@kill [3332716633, 3215139021] winner Heartwood t 88.90000000001682 roots 14
+('stamp', 'heartwood', 'spellbreaker', 2207): CONTROL (must differ)  DIFFERS  roots 14 (control bit)
+('stamp', 'dawnbringer', 'heartwood', 99001): final          IDENTICAL  steps@kill 9528 hash@kill [4114890831, 555849823] winner Heartwood t 79.40000000000926 roots 15
+('stamp', 'dawnbringer', 'heartwood', 99001): final-fx       IDENTICAL  steps@kill 9528 hash@kill [4114890831, 555849823] winner Heartwood t 79.40000000000926 roots 15
+('stamp', 'dawnbringer', 'heartwood', 99001): final drawn    IDENTICAL  steps@kill 9528 hash@kill [4114890831, 555849823] winner Heartwood t 79.40000000000926 roots 15
+('stamp', 'dawnbringer', 'heartwood', 99001): CONTROL (must differ)  DIFFERS  roots 15 (control bit)
+('stamp', 'heartwood', 'gravemourn', 99015): final          IDENTICAL  steps@kill 9220 hash@kill [1172349178, 2478597750] winner Gravemourn t 76.83333333334055 roots 16
+('stamp', 'heartwood', 'gravemourn', 99015): final-fx       IDENTICAL  steps@kill 9220 hash@kill [1172349178, 2478597750] winner Gravemourn t 76.83333333334055 roots 16
+('stamp', 'heartwood', 'gravemourn', 99015): final drawn    IDENTICAL  steps@kill 9220 hash@kill [1172349178, 2478597750] winner Gravemourn t 76.83333333334055 roots 16
+('stamp', 'heartwood', 'gravemourn', 99015): CONTROL (must differ)  DIFFERS  roots 16 (control bit)
+('stamp', 'twinshade', 'heartwood', 99008): final          IDENTICAL  steps@kill 10450 hash@kill [4245267841, 1939055771] winner Heartwood t 87.0833333333487 roots 21
+('stamp', 'twinshade', 'heartwood', 99008): final-fx       IDENTICAL  steps@kill 10450 hash@kill [4245267841, 1939055771] winner Heartwood t 87.0833333333487 roots 21
+('stamp', 'twinshade', 'heartwood', 99008): final drawn    IDENTICAL  steps@kill 10450 hash@kill [4245267841, 1939055771] winner Heartwood t 87.0833333333487 roots 21
+('stamp', 'twinshade', 'heartwood', 99008): CONTROL (must differ)  DIFFERS  roots 21 (control bit)
+('stamp', 'heartwood', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 6223 hash@kill [1431448858, 1930611428] winner Grudgebearer t 51.85833333333103 roots 8
+('stamp', 'heartwood', 'grudgebearer', 31337): final-fx       IDENTICAL  steps@kill 6223 hash@kill [1431448858, 1930611428] winner Grudgebearer t 51.85833333333103 roots 8
+('stamp', 'heartwood', 'grudgebearer', 31337): final drawn    IDENTICAL  steps@kill 6223 hash@kill [1431448858, 1930611428] winner Grudgebearer t 51.85833333333103 roots 8
+('stamp', 'heartwood', 'grudgebearer', 31337): CONTROL (must differ)  DIFFERS  roots 8 (control bit)
+('stamp', 'lastlight', 'heartwood', 4242): final          IDENTICAL  steps@kill 6884 hash@kill [3812777315, 1333502677] winner Lastlight t 57.36666666666405 roots 10
+('stamp', 'lastlight', 'heartwood', 4242): final-fx       IDENTICAL  steps@kill 6884 hash@kill [3812777315, 1333502677] winner Lastlight t 57.36666666666405 roots 10
+('stamp', 'lastlight', 'heartwood', 4242): final drawn    IDENTICAL  steps@kill 6884 hash@kill [3812777315, 1333502677] winner Lastlight t 57.36666666666405 roots 10
+('stamp', 'lastlight', 'heartwood', 4242): CONTROL (must differ)  DIFFERS  roots 10 (control bit)
+('stamp', 'heartwood', 'bindweed', 2317): final          IDENTICAL  steps@kill 7768 hash@kill [3262776499, 3869311015] winner Bindweed t 64.73333333333092 roots 9
+('stamp', 'heartwood', 'bindweed', 2317): final-fx       IDENTICAL  steps@kill 7768 hash@kill [3262776499, 3869311015] winner Bindweed t 64.73333333333092 roots 9
+('stamp', 'heartwood', 'bindweed', 2317): final drawn    IDENTICAL  steps@kill 7768 hash@kill [3262776499, 3869311015] winner Bindweed t 64.73333333333092 roots 9
+('stamp', 'heartwood', 'bindweed', 2317): CONTROL (must differ)  DIFFERS  roots 9 (control bit)
+('stamp', 'paradox', 'heartwood', 1234): final          IDENTICAL  steps@kill 9203 hash@kill [4019065076, 4176406970] winner Paradox t 76.69166666667377 roots 15
+('stamp', 'paradox', 'heartwood', 1234): final-fx       IDENTICAL  steps@kill 9203 hash@kill [4019065076, 4176406970] winner Paradox t 76.69166666667377 roots 15
+('stamp', 'paradox', 'heartwood', 1234): final drawn    IDENTICAL  steps@kill 9203 hash@kill [4019065076, 4176406970] winner Paradox t 76.69166666667377 roots 15
+('stamp', 'paradox', 'heartwood', 1234): CONTROL (must differ)  DIFFERS  roots 15 (control bit)
+('stamp', 'heartwood', 'thornwake', 777): final          IDENTICAL  steps@kill 9970 hash@kill [3819105914, 3046910814] winner Heartwood t 83.08333333334552 roots 20
+('stamp', 'heartwood', 'thornwake', 777): final-fx       IDENTICAL  steps@kill 9970 hash@kill [3819105914, 3046910814] winner Heartwood t 83.08333333334552 roots 20
+('stamp', 'heartwood', 'thornwake', 777): final drawn    IDENTICAL  steps@kill 9970 hash@kill [3819105914, 3046910814] winner Heartwood t 83.08333333334552 roots 20
+('stamp', 'heartwood', 'thornwake', 777): CONTROL (must differ)  DIFFERS  roots 20 (control bit)
+('stamp', 'heartwood', 'widowmaker', 99001): final          IDENTICAL  steps@kill 9091 hash@kill [2989126939, 2447297155] winner Heartwood t 75.75833333333969 roots 17
+('stamp', 'heartwood', 'widowmaker', 99001): final-fx       IDENTICAL  steps@kill 9091 hash@kill [2989126939, 2447297155] winner Heartwood t 75.75833333333969 roots 17
+('stamp', 'heartwood', 'widowmaker', 99001): final drawn    IDENTICAL  steps@kill 9091 hash@kill [2989126939, 2447297155] winner Heartwood t 75.75833333333969 roots 17
+('stamp', 'heartwood', 'widowmaker', 99001): CONTROL (must differ)  DIFFERS  roots 17 (control bit)
+('stamp', 'ironwood', 'heartwood', 5150): final          IDENTICAL  steps@kill 8608 hash@kill [1684472369, 2559590759] winner Ironwood t 71.73333333333649 roots 11
+('stamp', 'ironwood', 'heartwood', 5150): final-fx       IDENTICAL  steps@kill 8608 hash@kill [1684472369, 2559590759] winner Ironwood t 71.73333333333649 roots 11
+('stamp', 'ironwood', 'heartwood', 5150): final drawn    IDENTICAL  steps@kill 8608 hash@kill [1684472369, 2559590759] winner Ironwood t 71.73333333333649 roots 11
+('stamp', 'ironwood', 'heartwood', 5150): CONTROL (must differ)  DIFFERS  roots 11 (control bit)
+('stamp', 'axiom', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 9611 hash@kill [3221611356, 2057393704] winner Axiom t 80.09166666667647 roots 0
+('stamp', 'axiom', 'grudgebearer', 31337): final-fx       IDENTICAL  steps@kill 9611 hash@kill [3221611356, 2057393704] winner Axiom t 80.09166666667647 roots 0
+('stamp', 'axiom', 'grudgebearer', 31337): final drawn    IDENTICAL  steps@kill 9611 hash@kill [3221611356, 2057393704] winner Axiom t 80.09166666667647 roots 0
+('stamp', 'axiom', 'grudgebearer', 31337): CONTROL (must differ)  IDENTICAL  roots 0 (control bit)
+('stamp', 'morningstar', 'lastlight', 4242): final          IDENTICAL  steps@kill 6348 hash@kill [1252232039, 1953983011] winner Lastlight t 52.89999999999764 roots 0
+('stamp', 'morningstar', 'lastlight', 4242): final-fx       IDENTICAL  steps@kill 6348 hash@kill [1252232039, 1953983011] winner Lastlight t 52.89999999999764 roots 0
+('stamp', 'morningstar', 'lastlight', 4242): final drawn    IDENTICAL  steps@kill 6348 hash@kill [1252232039, 1953983011] winner Lastlight t 52.89999999999764 roots 0
+('stamp', 'morningstar', 'lastlight', 4242): CONTROL (must differ)  IDENTICAL  roots 0 (control bit)
+SIM IDENTITY: PASS | CONTROL: BIT ON EVERY HEARTWOOD FIGHT WITH A ROOT
+exit 0

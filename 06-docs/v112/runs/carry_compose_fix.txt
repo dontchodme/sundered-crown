@@ -1,0 +1,13 @@
+CARRY AND COMPOSE, DRY (cc4): heartwood_build.py 4550a53a2b5ac4bf
+
+== CARRY on 02-chain/sc-spellbreaker-fxout.html (9243277a756e84b6, 42 relics): sc-heartwood-stub b764493711fbc5b9  sc-heartwood-root 6da823196556ac31  sc-heartwood-rootfast 32968ccb13e7a734  sc-heartwood-b11 f51666c08b8f2d9b   (42 relics)
+== CARRY on 02-chain/sc-aureole-fxout.html (da5eafafcfae06c2, 42 relics): sc-heartwood-stub 4417e27f9b4bae07  sc-heartwood-root 65292fac5cb3fdbf  sc-heartwood-rootfast 6c64108e8b0290ef  sc-heartwood-b11 1a2743c8b8ebe33e   (42 relics)
+
+COMPOSE with thornwake_build.py (6f2fdad5f407b335) on sc-tendril-t3 (5a6216e3b629fad4):
+  heartwood then thornwake  -> sc-thornwake-b26.5.html    f1b03e7049baad65   (38 relics)
+  thornwake  then heartwood -> sc-heartwood-b11.html      7f603d69c0ae7415   (38 relics)
+  sorted lines identical: the two orders hold the same lines
+COMPOSE with goreshard_build.py (b6fa8226dc291099) on sc-tendril-t3 (5a6216e3b629fad4):
+  heartwood then goreshard  -> sc-goreshard-b10.25.html   8da99d113da49abc   (38 relics)
+  goreshard  then heartwood -> sc-heartwood-b11.html      f139ef0c7ca7a76d   (38 relics)
+  sorted lines identical: the two orders hold the same lines

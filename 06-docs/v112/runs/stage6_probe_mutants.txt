@@ -1,0 +1,32 @@
+the stage-6 link sc-heartwood-b11-fx (--stage 6, --no-draw): 10/10; wins 224/444, blows in/out 7177/4921, casts 1915, rooted 7035
+the final sc-heartwood-b11 (--stage 5): 8/8; the same fights YES
+
+STAGE 6's CONTROLS (--stage 6, --no-draw):
+  s6-close-voice   d198e081f6da772f  want [9]  fails [9] {9: 1703}  fights UNCHANGED (want UNCHANGED: a voice decides nothing)  -> OK
+      [9] e.g. tickRootfast played heartwood-root at a close
+  s6-kill-voice    d9474157ea33675a  want [9]  fails [9] {9: 143}  fights UNCHANGED (want UNCHANGED: a voice decides nothing)  -> OK
+      [9] e.g. a blow that rooted nobody (opponent alive false) voiced [["ult","{\"w\":\"heartwood-root\"}"]]
+  s6-grove-sim     823be27523d8e4e5  want [10]  fails [10] {10: 6924}  fights CHANGED (want CHANGED)  -> OK
+      [10] e.g. tickGrove changed the sim: 70589834,597.9793112743549,-275.79232980142416,-180.96300539202133,467,0,-1.2438 -> 70589834,597.9793112743549,-275.79232980042417,-180.9630053
+  s6-grove-rng     16def6ebed9263f2  want [10]  fails [10] {10: 48612}  fights CHANGED (want CHANGED)  -> OK
+      [10] e.g. tickGrove drew the RNG 1x
+
+THE FIFTEEN STAGE 0-5 CONTROLS ON THE STAGE-6 PROBE (--stage 5), against the fix round's table (runs/probe_mutants.txt):
+  m1-window-labclock     want  fails [1]  (the fix round's probe: [1])  fights the same  -> AS BEFORE
+  m2-every-other-blow    want  fails [2]  (the fix round's probe: [2])  fights the same  -> AS BEFORE
+  m3-pin-before-knock    want  fails [3]  (the fix round's probe: [3])  fights the same  -> AS BEFORE
+  m4-weapon-free         want  fails [4]  (the fix round's probe: [4])  fights the same  -> AS BEFORE
+  m5-entangle-2          want  fails [5]  (the fix round's probe: [5])  fights the same  -> AS BEFORE
+  m6-root-hitstop        want  fails [6]  (the fix round's probe: [6])  fights the same  -> AS BEFORE
+  m7-charge16            want  fails [7]  (the fix round's probe: [7])  fights the same  -> AS BEFORE
+  m8-row-no-entangle     want  fails [5, 7]  (the fix round's probe: [5, 7])  fights the same  -> AS BEFORE
+  m9-root-stundr         want  fails [6]  (the fix round's probe: [6])  fights the same  -> AS BEFORE
+  m10-ticker-stundr      want  fails [6]  (the fix round's probe: [6])  fights the same  -> AS BEFORE
+  m11-blade-shipped      want  fails [7]  (the fix round's probe: [7])  fights the same  -> AS BEFORE
+  x1-freeze-kept         want  fails [8]  (the fix round's probe: [8])  fights the same  -> AS BEFORE
+  x2-root-0.8            want  fails [3]  (the fix round's probe: [3])  fights the same  -> AS BEFORE
+  x4-entangle-clock      want  fails [6]  (the fix round's probe: [6])  fights the same  -> AS BEFORE
+  x5-cast-pins           want  fails [8]  (the fix round's probe: [8])  fights the same  -> AS BEFORE
+  x3-kill-roots          reads fails [2]  (the fix round's probe: [2])  fights the same  -> AS BEFORE
+
+EVERY STAGE-6 CONTROL FAILS ITS OWN CHECK AND ONLY IT; EVERY STAGE 0-5 CONTROL READS AS BEFORE

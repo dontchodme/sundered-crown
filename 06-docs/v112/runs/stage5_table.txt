@@ -1,0 +1,32 @@
+point                                        block 2207  block 2317   pooled    wins/fights   side A   side B   mean dur   (link)
+SHIPPED Rootfast (the freeze), 12.65, charge 15   29.9       34.9       32.4      479/1480      33.4     31.4     67.9s   sc-tendril-t3 (the base)
+10     (charge 13)                             46.9       42.2       44.5      659/1480      44.3     44.7     73.5s   stage 3 --set dmg=10
+10.5   (charge 13)                             50.1       45.7       47.9      709/1480      47.7     48.1     73.3s   stage 3 --set dmg=10.5
+11     (charge 13)                             51.2       51.6       51.4      761/1480      52.7     50.1     72.2s   stage 3 --set dmg=11
+11.5   (charge 13) design's 'for 50' band      55.0       56.5       55.7      825/1480      58.5     53.0     71.7s   stage 3 --set dmg=11.5
+12     (charge 13) design's 'for 50' band      56.6       58.2       57.4      850/1480      57.2     57.7     71.0s   stage 3 --set dmg=12
+12.65  (charge 13) design's 'leave it'         55.4       61.8       58.6      867/1480      56.9     60.3     69.8s   sc-heartwood-rootfast (stage 3)
+12.65  charge 14 (the lab's 16)                56.2       59.9       58.0      859/1480      55.4     60.7     69.8s   stage 3 --set ult.charge=14
+12.65  charge 15 (the shipped relic's)         54.6       54.7       54.7      809/1480      57.3     52.0     69.8s   stage 3 --set ult.charge=15
+11     (charge 13) = THE FINAL                 51.2       51.6       51.4      761/1480      52.7     50.1     72.2s   sc-heartwood-b11 (stage 5)
+
+THE 50% CROSSING (charge 13): the measured point nearest 50% is blade 11: 761 of 1480 = 51.42% (one SE 1.30 points); in wins from half: 10 -81, 10.5 -31, 11 +21, 11.5 +85, 12 +110, 12.65 +127
+  linear between the bracketing points 10.5 (47.9) and 11 (51.4): 10.80
+PROOF block 2207: sc-heartwood-b11 (no --set) 51.22% mean 72.4117s  vs  stage 3 --set dmg=11 51.22% mean 72.4117s; foes identical 37/37; rate/sides/dur/timeouts identical 6/6 -> EXACTLY THE SAME
+PROOF block 2317: sc-heartwood-b11 (no --set) 51.62% mean 72.0879s  vs  stage 3 --set dmg=11 51.62% mean 72.0879s; foes identical 37/37; rate/sides/dur/timeouts identical 6/6 -> EXACTLY THE SAME
+THE SHIPPED REFERENCE: Heartwood as shipped on the base, 479 of 1480 = 32.36% both sides
+
+LADDER -- Heartwood / Rootfast REDESIGNED, THE FINAL (sc-heartwood-b11: charge 13, blade 11 -- Rick's ruling, nearest 50%), both sides
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks, relic_rate seed0 2207 + 2317). Pooled: 51.4%
+by type  greatsword 80%  bow 58%  twinblade 55%  scythe 51%  warhammer 40%  flail 28%
+by foe   ironwood 0.0  bindweed 12.5  paradox 17.5  vinesower 25.0  gravemourn 27.5  redflail 27.5  thornshear 27.5  morningstar 32.5  shroudmaul 32.5  twinshade 32.5  bulwarden 37.5  portcullis 37.5  bloodmirror 40.0  slagheart 40.0  vesper 40.0  censer 42.5  gloamwire 42.5  lastlight 42.5  thornwake 52.5  aureole 55.0  axiom 55.0  foregone 57.5  ravelbone 57.5  spellbreaker 57.5  duskreave 62.5  cindercleave 65.0  dawnbringer 67.5  farwarden 67.5  grudgebearer 72.5  ironhail 75.0  widowmaker 77.5  oathwound 77.5  starwarden 80.0  marrowdraw 85.0  nightfell 85.0  emberedge 95.0  lightkeeper 100.0
+
+LADDER -- the design's own 'leave the blade', 12.65 (sc-heartwood-rootfast, stage 3: charge 13), both sides
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks, relic_rate seed0 2207 + 2317). Pooled: 58.6%
+by type  greatsword 89%  twinblade 72%  scythe 56%  bow 56%  warhammer 47%  flail 37%
+by foe   bindweed 12.5  vinesower 15.0  ironwood 20.0  paradox 22.5  bloodmirror 22.5  gloamwire 27.5  redflail 30.0  slagheart 32.5  gravemourn 32.5  thornshear 42.5  censer 45.0  bulwarden 45.0  shroudmaul 47.5  cindercleave 50.0  ravelbone 55.0  ironhail 57.5  morningstar 60.0  foregone 62.5  lastlight 62.5  thornwake 62.5  twinshade 65.0  vesper 65.0  spellbreaker 67.5  duskreave 70.0  grudgebearer 70.0  portcullis 70.0  farwarden 72.5  aureole 75.0  axiom 77.5  dawnbringer 85.0  emberedge 87.5  marrowdraw 90.0  oathwound 90.0  starwarden 90.0  widowmaker 92.5  lightkeeper 97.5  nightfell 97.5
+
+LADDER -- Heartwood as SHIPPED (sc-tendril-t3: the freeze, charge 15, blade 12.65), both sides
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks, relic_rate seed0 2207 + 2317). Pooled: 32.4%
+by type  greatsword 70%  scythe 32%  bow 32%  twinblade 26%  warhammer 19%  flail 18%
+by foe   twinshade 5.0  bloodmirror 7.5  ironwood 7.5  gravemourn 10.0  redflail 10.0  bindweed 12.5  thornshear 12.5  grudgebearer 15.0  bulwarden 17.5  morningstar 17.5  shroudmaul 20.0  slagheart 20.0  vinesower 20.0  paradox 22.5  vesper 22.5  aureole 25.0  censer 25.0  gloamwire 25.0  ravelbone 27.5  spellbreaker 27.5  ironhail 30.0  starwarden 30.0  farwarden 35.0  portcullis 35.0  thornwake 35.0  cindercleave 37.5  foregone 37.5  duskreave 40.0  lastlight 42.5  widowmaker 52.5  marrowdraw 55.0  dawnbringer 57.5  axiom 60.0  nightfell 65.0  emberedge 72.5  lightkeeper 80.0  oathwound 82.5

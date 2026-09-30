@@ -1,0 +1,23 @@
+
+HEARTWOOD / ROOTFAST (REDESIGN) -- stage 6
+  src sc-heartwood-b11.html  aff84a04b303a402  (LF text)
+  base  Heartwood's shipped body (verdant greatsword, swing, entangle 2); hurt / apply / resolveHit's count / tickStasis's lock / move's hold and resume; the window tickers stop in a hit stop and run before the hit loops
+  ok    Sfx: Heartwood's cast and root arms, before the shared rune-crack fallback
+  ok    rootBlow: the root voice, once per rooted blow, after T.rooted++
+  ok    rootfast picture: fighter fields
+  ok    rootfast picture: the presentation call
+  ok    rootfast picture: tickGrove
+  ok    rootfast picture: the ground call (world, under both balls)
+  ok    rootfast picture: the blade's hook in drawWeapon
+  ok    rootfast picture: the drawing methods
+  ok    rootfast picture: the freeze's root plate retired
+  ok    rootfast picture: the freeze's cage retired
+  ok    rootfast picture: the cast record's life
+  ok    ult   ult:{ name:"Rootfast", charge:13, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:1, tip:"Every blow roots ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    stage 6: presentation only (no RNG, no ultFx, calls only CALL_OK_S6, writes its own grove* fields, the canvas, the held ball's twine* markers and a tag's count only); the inlined fx.js untouched; the rune-crack fallback kept after Heartwood's two arms; the root's voice once, in rootBlow after T.rooted++; the freeze's art gone; every call, pass and method once
+  note  Tendril's root picture is NOT on this source (it lands on sc-tendril-fx): the root's markers are inert here and a held ball draws Paradox's hexagon (reading 18)
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-b11-fx.html  ceba5e801f4cf91b   (+20890 chars, written LF)

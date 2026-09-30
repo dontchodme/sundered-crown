@@ -1,0 +1,22 @@
+
+ROOTFAST PROBE  sc-heartwood-fxout.html  stage 6  Chromium 151.0.7922.34  492 fights (Heartwood both sides x every foe x 6 seeds)   the row {'charge': 13, 'dur': 8, 'rootFor': 1, 'extraEnt': 1, 'blade': 11}   pinned {'charge': 13, 'dur': 8, 'rootFor': 1.0, 'extraEnt': 1, 'blade': 11.0, 'tip': 'Every blow roots the foe where it stands, ball and weapon, and entangles'}
+  casts/fight 4.39   blows a fight: in windows 16.50 (on the opponent 16.32), outside 11.05   Heartwood win 51.2%
+  per cast: blows rooted 3.69   roots as transitions 2.02   extra entangle 3.69   foe pinned 44.5% of window frames (the lab's read)
+  entangle applied by rooted blows in windows 23695  = 2.98 x blows rooted (the brief's gate: 3 x at stage 3)   killing blows unrooted 161   shade blows rooting Twinshade 88
+  re-roots on a held ball 3589 (under a longer hold 168)   held steps still 811434   held hit loops quiet 809372   FREEZE CENSUS 15.4% of window steps frozen   clock window 960 calls
+  nothing else: 8118 root calls, 122459 ticker calls and 2158 casts snapshotted whole (both fighters, the shades, the match), clean; the opponent's status exactly its applications after 8118 root calls (7957 with an entangle)
+  stage 6 voice: casts voiced 2158  roots voiced 7957  killing blows silent 161  closes silent: clock 1877, death 42   run totals {'heartwood': 2158, 'heartwood-root': 7957}
+  stage 6 picture: tickGrove calls 8121099 (sim clean 8040131, whole-state clean 80968)  roots marked: new holds 4368, re-roots 3421, self-held left alone 168  tags counted 7872 (teaching panels 14)  green in the window 4207220  wither frames 179816  drawn frames 76032 (70968 with the picture up, 10789 in a hit stop)
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Heartwood's
+  [2] PASS  every blow in the window roots the opponent once (a shade's too); none outside; a killing blow roots nobody
+  [3] PASS  the pin: max(pin, rootFor), pinMax likewise, pinV = the knocked vector iff no longer hold stands
+  [4] PASS  ball and weapon: pinFree untouched; a held ball neither moves nor lands a blow, its weapon locked
+  [5] PASS  the channel's own, then entangle +extraEnt by side letter on every rooted blow; nothing else
+  [6] PASS  no damage change (every blow rebuilt exactly, in and out); the root and the ticker write nothing else (every field of both fighters, the shades and the match; the opponent's status exactly its applications), no RNG
+  [7] PASS  a cast exactly when the live clock reaches the builder's charge, never with the window open; the row (charge, window, root, entangle, blade) is the stage's
+  [8] PASS  the freeze out: the ult block is the design's keys only; the cast opens the window and resolves nothing (snapshotted whole, no RNG; only the window, the tally, ultsFired and the generic cast's picture)
+  [9] PASS  stage 6 voice: one cast voice a cast, inside fireUlt; one root voice a rooted blow, inside rootBlow, and nothing else there; none on a killing blow; none at a close, by the clock or a death; every Heartwood voice of the run accounted for
+  [10] PASS  stage 6 picture: tickGrove draws no RNG and writes nothing but its own fields, the held ball's markers and a tag's count; every root on a held ball marked, a self-held ball left alone; the tag prints the count; green exactly while the window stands; no drawn frame throws or writes
+
+  10/10
+exit 0

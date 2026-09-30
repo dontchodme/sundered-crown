@@ -1,0 +1,14 @@
+38 relics · Chromium 151.0.7922.34 · heartwood (redesign) · 33 foes x 20 seeds = 660 fights an arm · stage 0 block 2317
+  charge=16.0 dur=8.0 blade=None rootFor=1.0
+
+  arm       win  casts  hits in/out      entf_pinnedPct    roots
+  A       27.0%   0.00  0.00/21.36      0.00     0.00     0.00
+      census: frozen 0.1345 of lab steps (718731/5345582), 0.0000 in windows (0/0), 0.1345 outside; lab 16 -> engine 13.85
+  SHIP    37.1%   0.00  0.00/21.86      0.00     0.00     0.00
+      census: frozen 0.1354 of lab steps (730043/5393134), 0.0000 in windows (0/0), 0.1354 outside; lab 16 -> engine 13.83
+  B       58.0%   3.83 12.21/12.28      0.00    40.88     3.09
+      census: frozen 0.1340 of lab steps (736221/5495784), 0.1473 in windows (335504/2277820), 0.1245 outside; lab 16 -> engine 13.86
+  C       55.2%   3.83 12.12/12.23      3.07    41.00     3.07
+      census: frozen 0.1343 of lab steps (737954/5495936), 0.1474 in windows (335399/2275641), 0.1250 outside; lab 16 -> engine 13.85
+  lifts over A: SHIP +10.2  B +31.1  C +28.2
+  2640 fights in 329s   errors: []

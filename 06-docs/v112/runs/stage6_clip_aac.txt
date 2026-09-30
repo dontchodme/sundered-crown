@@ -1,0 +1,8 @@
+[Parsed_volumedetect_0 @ 0000024f47064200] mean_volume: -21.1 dB
+[Parsed_volumedetect_0 @ 0000024f47064200] max_volume: -1.2 dB
+[Parsed_volumedetect_0 @ 0000024f47064200] histogram_1db: 1
+[Parsed_volumedetect_0 @ 0000024f47064200] histogram_2db: 30
+[Parsed_volumedetect_0 @ 0000024f47064200] histogram_3db: 60
+[Parsed_volumedetect_0 @ 0000024f47064200] histogram_4db: 179
+[Parsed_volumedetect_0 @ 0000024f47064200] histogram_5db: 450
+[Parsed_volumedetect_0 @ 0000024f47064200] histogram_6db: 720

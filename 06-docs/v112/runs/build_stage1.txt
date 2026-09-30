@@ -1,0 +1,12 @@
+
+HEARTWOOD / ROOTFAST (REDESIGN) -- stage 1
+  src sc-tendril-t3.html  5a6216e3b629fad4  (LF text)
+  base  Heartwood's shipped body (verdant greatsword, swing, entangle 2); hurt / apply / resolveHit's count / tickStasis's lock / move's hold and resume; the window tickers stop in a hit stop and run before the hit loops
+  note  kind "freeze" on this base: thornwake, heartwood -- its generic tail stays (reading 12)
+  ok    Rootfast becomes the root on every blow, stubbed; the freeze out of the row
+  ok    ult   ult:{ name:"Rootfast", charge:1e9, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:0, tip:"Every blow root ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-stub.html  08b489bafa264c3e   (+386 chars, written LF)

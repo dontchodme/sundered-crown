@@ -1,0 +1,18 @@
+dry creak note 534.0362112888423 first/last 690.4833584268856 419.83217446147006
+ALONE tendril-root: (29.366804057957058, 206)
+ALONE dry: (2.3241746178877842, 6)
+ALONE hit@11: (18.136981062684445, 7)
+cand              top  aud rate  puls  cen   grn  fall  alone  note n/dry nfall  regs>0.70
+sine200        0.0824  395   35  0.72  231  0.39  -140    1.1   213  0.40   139  thornwake 0.86 vinesower 0.82 hit@11 0.78
+f180 1.4k .3   0.0816  395   35  0.63  247  0.42  -145    0.3   177  0.33  -195  thornwake 0.86 hit@11 0.83 vinesower 0.74
+f180 1.4k .6   0.0816  395   35  0.63  252  0.43  -138    0.8   177  0.33  -195  thornwake 0.86 hit@11 0.83 vinesower 0.74 dry 0.70
+f180 1.4k 1    0.0815  395   35  0.63  263  0.44  -128    0.7   177  0.33  -195  thornwake 0.86 hit@11 0.83 vinesower 0.75 dry 0.71
+f150 2k .6     0.0815  395   35  0.56  237  0.40  -151    0.4   177  0.33    78  hit@11 0.88 thornwake 0.83 nightfell 0.71 emberedge 0.71
+f220 900 .6    0.0818  395   35  0.70  278  0.47  -111    0.4   213  0.40   -96  thornwake 0.84 vinesower 0.82 paradox-pin 0.72 dry 0.72
+f200 1.2k .6 m0 0.0821  395   35  0.72  237  0.40  -134    0.5   213  0.40   139  thornwake 0.86 vinesower 0.83 hit@11 0.78
+f250 1.6k .6   0.0816  395   35  0.66  309  0.52   -78    0.3   247  0.46   -23  thornwake 0.85 paradox-pin 0.80 vinesower 0.78 dry 0.74
+fs200 1.2k .6  0.0824  400   32  0.64  237  0.40    71    1.9   179  0.34  -119  vinesower 0.84 thornwake 0.84 hit@11 0.74 paradox-pin 0.70
+f180 3k .6     0.0814  395   35  0.64  289  0.49  -131    0.3   177  0.33  -195  thornwake 0.87 hit@11 0.84 vinesower 0.75 dry 0.70
+f130 1.4k .6   0.0816  395   35  0.57  221  0.37  -168    1.0   134  0.25  -338  hit@11 0.83 thornwake 0.78 emberedge 0.74 paradox-pin 0.74 nightfell 0.72
+f180r 1.4k .6  0.0815  390   33  0.61  290  0.49   220    0.3   205  0.38   438  thornwake 0.86 vinesower 0.78 dry 0.76 hit@11 0.73 paradox-pin 0.72
+f180slow       0.0818  370   23  0.79  263  0.44    20    0.2   185  0.35   -86  thornwake 0.86 hit@11 0.79 vinesower 0.77 dry 0.72

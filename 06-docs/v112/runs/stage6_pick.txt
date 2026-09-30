@@ -1,0 +1,21 @@
+
+  sc-heartwood-b11-fx.html  �  31 foes x 4 seeds (left out: bindweed, ironwood, thornshear, thornwake, twinshade, vinesower)  �  the best window of each fight: 124, of which 3 show everything
+
+  foe              seed  cast at  window clock all roots holds voiced tags  held% blows other card kill  score
+  lightkeeper    112312    76.46   10.28     1   1    10     4     10   10   88.7    10     0    0    0  28.20
+  starwarden     112201    74.45   10.64     1   1    10     2     10   10   69.9    10     0    0    0  27.00
+  lightkeeper    112275    75.04    9.69     1   1     4     2      4    4   43.7     4     0    0    0  21.71
+  aureole        112201    59.27    9.84     1   0    10     2     10   10   85.6    10     1    0    0  15.00
+  redflail       112275    44.82    9.24     1   0     7     5      7    7   73.2     7     1    0    0  15.00
+  bulwarden      112275    58.27    9.56     1   0     7     6      7    7   77.8     7     1    0    0  15.00
+  cindercleave   112201    44.01   10.27     1   0    10     2     10   10   81.2    10     1    0    0  15.00
+  ravelbone      112275    43.37    9.61     1   0     7     5      7    7   77.0     7     1    0    0  15.00
+  gloamwire      112201    44.76    9.61     1   0     9     3      9    9   81.2     9     1    0    0  15.00
+  axiom          112312    74.71    9.69     1   0     6     5      6    6   72.1     6     1    0    0  14.40
+  slagheart      112201    44.74    9.12     1   0     7     4      7    7   71.0     7     1    0    0  14.40
+  bulwarden      112201    58.37    9.99     1   0     9     2      9    9   74.7     9     1    0    0  14.40
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python tools/cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/heartwood/links/sc-heartwood-b11-fx.html --a heartwood --b lightkeeper --seed 112312 \
+      --at 75.26 --window 13.28 --end-at-window --fps 60 --w 540 --out 07-shorts/v112/rootfast-window.mp4

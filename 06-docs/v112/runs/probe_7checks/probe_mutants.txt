@@ -1,0 +1,27 @@
+the final sc-heartwood-b11 (--stage 5): 7/7; wins 224/444, blows in/out 7177/4921, casts 1915, rooted 7035, extra entangle 7035
+
+m1-window-labclock     751000ca1bc820ba  want [1]  fails [1] {1: 528243}  wins 210/444 blows 5912/5806 casts 1882  fights CHANGED  -> OK
+      [1] e.g. tickRootfast ran 1x on a frozen step
+m2-every-other-blow    c07dc7a0991b162a  want [2]  fails [2] {2: 3227}  wins 149/444 blows 6434/4547 casts 1837  fights CHANGED  -> OK
+      [2] e.g. a blow in the window called the root 0x
+m3-pin-before-knock    3fe03ae37a97ce9a  want [3]  fails [3] {3: 6814}  wins 212/444 blows 7113/4823 casts 1885  fights CHANGED  -> OK
+      [3] e.g. pinV [-407.6535009636888,-280.14784062259446], want the knocked [-275.79232980142416, -180.96300539202133]
+m4-weapon-free         d01348fe5e3c5e04  want [4]  fails [4] {4: 462}  wins 92/444 blows 5940/4417 casts 1763  fights CHANGED  -> OK
+      [4] e.g. the root wrote pinFree 0 -> 1
+m5-entangle-2          c36b1d3c0da1fe8d  want [5]  fails [5] {5: 7184}  wins 244/444 blows 7345/4838 casts 1905  fights CHANGED  -> OK
+      [5] e.g. applications on the opponent [["entangle",2,null],["entangle",2,"a"]], want [["entangle",2,null],["entangle",1,"a"]]
+m6-root-hitstop        ec2ba78f8c8668c1  want [6]  fails [6] {6: 59}  wins 224/444 blows 7170/4915 casts 1913  fights CHANGED  -> OK
+      [6] e.g. rootBlow changed m.hitStop: 0.05 -> 0.06
+m7-charge16            d9014a4968fa47a2  want [7]  fails [7] {7: 547027}  wins 206/444 blows 5314/6414 casts 1460  fights CHANGED  -> OK
+      [7] e.g. the row's charge is 16, the stage's 13
+m8-row-no-entangle     2b3d3618c2a58df6  want [5, 7]  fails [5, 7] {5: 6926, 7: 1}  wins 215/444 blows 7068/4790 casts 1875  fights CHANGED  -> OK   | the OLD probe: MISSES IT, 7/7
+      [5] e.g. applications on the opponent [["entangle",2,null]], want [["entangle",2,null],["entangle",1,"a"]]
+      [7] e.g. the row's extraEnt is 0, the stage's 1
+m9-root-stundr         7f1ed6a769546199  want [6]  fails [6] {6: 6921}  wins 237/444 blows 7162/4890 casts 1894  fights CHANGED  -> OK   | the OLD probe: MISSES IT, 7/7
+      [6] e.g. rootBlow changed B.stunDR: 1 -> 0
+m10-ticker-stundr      75d5aae884a53e3a  want [6]  fails [6] {6: 265}  wins 219/444 blows 7059/4864 casts 1896  fights CHANGED  -> OK   | the OLD probe: MISSES IT, 7/7
+      [6] e.g. tickRootfast changed A.stunDR: 0.99375 -> 0
+m11-blade-shipped      cc303b02f2aba1d9  want [7]  fails [7] {7: 1}  wins 283/444 blows 6715/4652 casts 1820  fights CHANGED  -> OK
+      [7] e.g. the blade is 12.65, the stage's 11
+
+EVERY MUTANT FAILS ITS OWN CHECK(S), ONLY THOSE, AND CHANGES FIGHTS

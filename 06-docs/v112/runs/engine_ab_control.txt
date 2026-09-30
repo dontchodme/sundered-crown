@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-tendril-t3.html                36 matches    3.0s
+  sc-heartwood-b11.html             36 matches    2.9s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Heartwood", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 56, "duration": 67.68, "reason": "slain", "hits": {"a": 22, "b": 9}, "crits": {"a": 3, "b": 1}, "clanks": 27}
+            variant {"seed": 1233799701, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 44, "duration": 71.27, "reason": "slain", "hits": {"a": 27, "b": 11}, "crits": {"a": 3, "b": 1}, "clanks": 29}
+          #1
+            control {"seed": 330441002, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 4, "duration": 72.15, "reason": "slain", "hits": {"a": 23, "b": 10}, "crits": {"a": 3, "b": 2}, "clanks": 31}
+            variant {"seed": 330441002, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 90, "duration": 74.29, "reason": "slain", "hits": {"a": 27, "b": 7}, "crits": {"a": 3, "b": 2}, "clanks": 26}
+          #2
+            control {"seed": 4184808219, "a": "Heartwood", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 46, "duration": 61.79, "reason": "slain", "hits": {"a": 23, "b": 11}, "crits": {"a": 2, "b": 1}, "clanks": 26}
+            variant {"seed": 4184808219, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 73, "duration": 76.13, "reason": "slain", "hits": {"a": 25, "b": 9}, "crits": {"a": 5, "b": 0}, "clanks": 34}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 21.6-73.2s
+
+ENGINE A/B FAIL

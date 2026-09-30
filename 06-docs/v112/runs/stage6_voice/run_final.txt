@@ -1,0 +1,115 @@
+
+ROOTFAST -- THE VOICES   game sc-heartwood-b11.html aff84a04b303a402   Tendril's voices from sc-tendril-fx.html eea0cde5536955b3
+  every render: OfflineAudioContext 48 kHz, first event at t = 1.0, through Sfx.buildChain, render.py's xorshift noise;
+  a candidate is rendered from its arm's own text
+  Tendril's root arm on sc-tendril-fx.html: its body equals bindweed_voice_lab.root_body(DEEP, g 0.5179, kc 0.2683, kt 0.3464) line for line (9 lines)
+  runtime Chromium 151.0.7922.34
+  the mirror match: refused: A relic cannot fight itself
+  38 relics; Heartwood blade 11, ult rootfast, rootFor 1 s (the vine's hold at the cap: 1.2 s)
+
+CONTROLS -- v88 published rune-crack 0.608 / 450 ms, BAR 0.364 / 300 ms, hit@11.6 0.443 / 80 ms. They must come back.
+  rune-crack         peak 0.608 at    6 ms   audible   450 ms   loudest 50 ms 0.1356   centroid   3158 Hz   low 0.00
+  BAR                peak 0.364 at    7 ms   audible   300 ms   loudest 50 ms 0.1131   centroid   1685 Hz   low 0.00
+  hit@11.6           peak 0.443 at    7 ms   audible    80 ms   loudest 50 ms 0.1173   centroid    233 Hz   low 0.09
+  hit@11             peak 0.441 at    7 ms   audible    80 ms   loudest 50 ms 0.1158   centroid    235 Hz   low 0.09
+  hit@23!            peak 0.573 at    8 ms   audible   100 ms   loudest 50 ms 0.1372   centroid    338 Hz   low 0.22
+  wall               peak 0.097 at    7 ms   audible    25 ms   loudest 50 ms 0.0112   centroid  12322 Hz   low 0.00
+  death              peak 0.501 at    8 ms   audible   620 ms   loudest 50 ms 0.2657   centroid    111 Hz   low 0.91
+  dry-creak          peak 0.173 at   25 ms   audible   360 ms   loudest 50 ms 0.0367   centroid    592 Hz   low 0.06
+  paradox-pin        peak 0.512 at    7 ms   audible   165 ms   loudest 50 ms 0.1873   centroid    508 Hz   low 0.29
+  tendril-root-here  peak 0.608 at    6 ms   audible   450 ms   loudest 50 ms 0.1356   centroid   3158 Hz   low 0.00
+  reproduction: PASS  all 6 published numbers come back
+  rune-crack today (max |diff| <= 1e-6 vs ult/spellbreaker), 12 relics: lastlight, spellbreaker, ironhail, lightkeeper, farwarden, aureole, censer, oathwound, heartwood, gloamwire, portcullis, bindweed
+  ult/bindweed-root on THIS base vs rune-crack: max |diff| 6.0e-08 -- Tendril root voice is NOT here (it falls through), so the lab makes one
+  the verdant casts with their own voice here: thornwake, vinesower, thornshear, ironwood (+ Tendril's, read from sc-tendril-fx.html);  the greatsword row's: dawnbringer, emberedge, nightfell, axiom
+  the hit @ 11 across 12 draws: loudest 50 ms 0.1141-0.1199, peak 0.403-0.465;  the wall tick: 0.0105-0.0118;  Tendril's root: 0.1035-0.1119 (-0.8 dB re the hit @ 11's quietest -- the level it would land at)
+  the house's dry creak (Canopy's wither): note 534 Hz, falling -861 cents to 420 Hz over its last 100 audible ms (SHIFT -733 c); centroid 592 Hz; ALONE +2.3 dB (Tendril's root: +29.4)
+
+CAST -- 'a green creak, 0.4s'. Level-matched: TOP 0.0827 (the centre of 0.0599-0.1141); green: a note under 420 Hz
+  cand              g calls     top   aud  gone  rate  pulse  note  shift  nfall  alone   cen  cfall  stand   reg
+  1 GROAN      0.2406    28  0.0817   395   400    35   0.57   134   -110   -338    0.9   215   -181   18.9  0.84 (hit@11)
+  2 DEEP       0.2258    14  0.0826   395   400    35   0.61    69   -100   -608    1.0   145   -293   20.5  0.78 (death)
+  3 KNOT       0.2659    14  0.0821   395   400    35   0.72   354   -109     81    1.1   373    -24   18.0  0.73 (dry-creak)
+  4 TIMBER     0.2688    28  0.0820   395   400    35   0.70   354    -80    -94    0.0   373    -28   15.9  0.74 (dry-creak)
+  5 RISING     0.2768    13  0.0821   390   395    33   0.65   356    130    434    0.3   370    271   16.7  0.75 (dry-creak)
+  6 SAP         0.264    13  0.0822   400   405    32   0.67   369    -52     57    0.3   369     14   17.8  0.73 (dry-creak)
+  0 HELD      0.02875   145  0.0827   410   415   240   0.99   380     -1     -0    0.1   377     -1    1.0  0.41 (rune-crack)
+  0 WITHER     0.2637    14  0.0822   395   400    35   0.72   318   -669   -683    1.0   340   -520   18.2  0.77 (paradox-pin)
+  0 DRY             0     0  0.0367   360   365    41   0.70   534   -733   -861    2.3   592   -525    0.0  0.74 (nightfell)
+  0 CRACK           0     0  0.1119   370   375    43   0.49    69  -1600  -3380   29.4  2405  -2974   43.5  0.71 (ironwood)
+  0 RUNECRACK       0     0  0.1356   450   455    12   0.94   380   -378    292    6.3  3158   -271    0.0  1.00 (rune-crack)
+    1 GROAN    the FIRST CUT's green creak, kept as the evidence for the second: a timber (a 130 Hz sine and its 2.76 mode at 0.4) pulsed 30 -> 42 a second, swelling and settling
+    2 DEEP     a 90 Hz sine groan pulsed 30 -> 42 a second, swelling and settling -- the one construction under the first cut's octave that clears every register
+    3 KNOT     a 380 Hz sine pulsed 30 -> 42 a second, swelling and settling
+    4 TIMBER   a timber (a 360 Hz sine and its 2.76 mode at 0.2) pulsed 30 -> 42 a second, swelling and settling
+    5 RISING   a sine climbing a fourth, 300 -> 400 Hz, over the first 0.3 s (the greening runs hilt to tip in 0.3 s) and held, pulsed 28 -> 40 a second, growing then settling
+    6 SAP      a 380 Hz sine, each pulse giving a minor third (a wet give), 32 a second
+    0 HELD     KNOT's sine held by re-striking at its own cycles, no stick-slip -- a control on 'a creak'
+    0 WITHER   KNOT falling 450 -> 250 Hz -- a control on 'green' (it withers)
+    0 DRY      Canopy's wither, the house's dry creak -- a control on 'green'
+    0 CRACK    Tendril's root, a creak INTO a crack -- a control on 'not the root's crack'
+    0 RUNECRACK  the fallback it replaces -- a control
+  RULE  '0.4s': AUDIBLE 330-470 ms and GONE <= 470 ms; 'a creak': over [onset + 10 ms, gone - 10 ms] RATE 17-83 a second and PULSED >= 0.40 (a pulse train at a creak's rate, never a held tone); 'green': its NOTE under the lowest note the house's dry creak reaches (Canopy's wither, its last 100 audible ms) and SHIFT >= -200 cents (it does not wither); a creak and NOT the root's crack: ALONE < 10 dB (the root's crack stands alone). Register against rune-crack, each verdant cast, Tendril's cast, each greatsword cast, the hit @ 11, the death voice, the dry creak, Paradox's pin and Tendril's root each <= 0.80. Level: TOP between 0.5x the hit @ 11's loudest 50 ms on its LOUDEST draw and 1.0x on its QUIETEST (heard like a blow, never over one). Tiebreak: the most distinct register (the highest of those, to 0.05), then the fewest calls, then the order listed.
+    1 GROAN    out: register vs hit@11 0.84 > 0.80
+  0 HELD (a control) comes back wrong, as it must: rate 240 a second, not a creak's 17-83
+  0 WITHER (a control) comes back wrong, as it must: shifts -669 c, not >= -200 (withers)
+  0 DRY (a control) comes back wrong, as it must: note 534 Hz, not under the dry creak's lowest 420 (not green); shifts -733 c, not >= -200 (withers)
+  0 CRACK (a control) comes back wrong, as it must: a crack at 206 ms (stands alone +29.4 dB)
+  0 RUNECRACK (a control) comes back wrong, as it must: rate 12 a second, not a creak's 17-83; shifts -378 c, not >= -200 (withers); register vs rune-crack 1.00 > 0.80
+  PICK  5 RISING  g 0.2768, 13 synth calls; TOP 0.0821 = -2.9 dB re the hit @ 11 (quietest draw), +16.8 dB re the wall
+
+THE rootBlow ROW, applied to the prototype's own source, run beside the original on real fights:
+  148 fights (Heartwood both sides x every foe x seeds [112601, 112602]): 148/148 identical (over, clock, both hp, positions, velocities, pins, entangle, winner, the whole rootTally); every other SFX call identical in order and opts in 148/148; the cast voices on the same steps in 148/148
+  windows {'clock': 557, 'caster': 17, 'foe': 0, 'over': 63, '?': 0}: 637 casts -> 637 cast voices; 2363 blows in a window -> 2318 rooted (1282 new holds, 1036 re-roots) -> 2318 root voices; 45 killing blows in a window -> 0 voices; voices from tickRootfast (the close) 0; root voices outside a window 0; problems 0
+  the blow each root voice lands with (the hit voice on the same step): 14 x244, 16 x240, 13 x227, 15 x223, 17 x153, 11 x94, 20 x89, 22 x77
+  the control (the row plus one sim write, the foe nudged 1e-9 on a root): 11/148 identical -- it fails, as it must
+  the blows the root voices landed with: 2100 plain (0-32, median 16) and 218 crits (0-66) -> the frame checks run at 0, 16, 32, 66!
+
+ROOT -- 'a short creak-and-crack (Tendril's root voice, reused, quieter at 1.0s than at the vine's longer holds)'. Tendril's body verbatim, g 0.5179 scaled down a ladder; gates: loudest draw <= 0.0733 (Tendril's quietest - 3 dB) and <= 0.1141 (the blow's quietest), quietest draw >= 0.0236 (2x the wall). The hold ratio's literal 20 log(1 / 1.2) = -1.6 dB is printed, not taken
+  the blows a root lands with, their own third-octaves: 0.0 159 Hz, 16.0 126 Hz, 32.0 126 Hz, 66.0! 100 Hz
+  cand                g     top   dB/T dB/hit   topW-   topW+   aud   low  crk@ stand  jump sameR sameE  keepR  keepB  mixSt   reg
+  1 G-3dB        0.3666  0.0927   -1.6   -1.8  0.0859  0.0927   370  0.55   206  44.9  44.9  1.00  1.00    8.9   19.0   43.4  0.50 (cast)
+  2 G-5dB        0.2912  0.0810   -2.8   -3.0  0.0752  0.0810   370  0.56   206  45.7  44.8  1.00  1.00    7.9   21.0   44.1  0.48 (cast)
+  3 G-7dB        0.2313  0.0698   -4.1   -4.3  0.0652  0.0698   370  0.58   206  46.4  44.6  0.99  0.99    6.9   22.9   44.0  0.46 (cast)
+  4 G-9dB        0.1838  0.0586   -5.6   -5.8  0.0557  0.0586   370  0.58   206  46.8  44.5  0.99  0.99    5.8   24.9   43.4  0.44 (cast)
+  5 G-11dB        0.146  0.0477   -7.4   -7.6  0.0466  0.0481   380  0.58   206  46.9  44.4  0.99  0.99    4.6   26.9   42.3  0.44 (cast)
+  0 FULL         0.5179  0.1119    0.0   -0.2  0.1035  0.1119   370  0.52   206  43.5  45.1  1.00  1.00   10.3   16.1   42.3  0.54 (cast)
+  0 FAINT       0.03268  0.0118  -19.6  -19.7  0.0116  0.0120   435  0.58   206  47.8  43.7  0.99  0.97    0.6   39.6   31.9  0.42 (cast)
+  0 PARADOX-PIN       0  0.1873    4.5    4.3  0.1802  0.1895   165  0.29     7   0.0  10.1  0.65  0.29   99.0   99.0   99.0  0.69 (cast)
+  0 BACK         0.2912  0.0810   -2.8   -3.0  0.0752  0.0810   290  0.56     6   0.0  44.3  1.00  0.86    6.9   23.7   22.7  0.50 (cast)
+    G-n dB     Tendril's root body, verbatim, its g scaled n dB down (the chain compresses: TOP moves by its own amount, dB/T)
+    0 FULL     Tendril's root at its own gain -- a control on 'quieter'
+    0 FAINT    Tendril's root 24 dB down -- a control on 'heard'
+    0 PARADOX-PIN  the game's other hold voice -- a control on 'reused' (and its frame checks are not run)
+    0 BACK     Tendril's root with the crack first -- a control on 'reused'
+  RULE  'Tendril's root voice, reused': the arm is Tendril's body with only its gain changed (a text check), REG against Tendril's root >= 0.95 draw for draw and ENV-CORR >= 0.95; 'creak-and-crack': the crack STANDS >= 10 dB and JUMPS >= 10 dB at >= 100 ms after the onset, AUDIBLE <= 420 ms; 'quieter at 1.0s': its loudest draw >= 3 dB under Tendril's quietest; never over the blow: its loudest draw <= the hit @ 11's quietest; heard: its quietest draw >= 2x the wall tick's loudest; on the blow's frame (the lightest, the median and the heaviest plain blow a root voice landed with in the wire run, and its heaviest crit; the worst of each): KEEP-ROOT >= 6 dB, KEEP-BLOW >= 6 dB, STAND-MIX >= 10 dB. Register against rune-crack, the hit @ 11, the death voice and the picked cast each <= 0.80. Pick: the LOUDEST that passes (the reused voice changed as little as the rule allows).
+    1 G-3dB      out: loudest draw 0.0927 > 0.0733 (not quieter)
+    2 G-5dB      out: loudest draw 0.0810 > 0.0733 (not quieter)
+    4 G-9dB      out: keeps +5.8 dB over the blow, not >= 6
+    5 G-11dB     out: keeps +4.6 dB over the blow, not >= 6
+  0 FULL (a control) comes back wrong, as it must: loudest draw 0.1119 > 0.0733 (not quieter)
+  0 FAINT (a control) comes back wrong, as it must: quietest draw 0.0116 < 0.0236 (not heard); keeps +0.6 dB over the blow, not >= 6
+  0 PARADOX-PIN (a control) comes back wrong, as it must: REG vs Tendril's root 0.65 < 0.95; ENV-CORR vs Tendril's root 0.29 < 0.95
+  0 BACK (a control) comes back wrong, as it must: ENV-CORR vs Tendril's root 0.86 < 0.95
+  (BACK and PARADOX-PIN also fail the text check; the controls above are held to the SOUND checks, REG and ENV-CORR against Tendril's root, which a transcription could not fake)
+  PICK  3 G-7dB  g 0.2313: TOP 0.0698, -4.1 dB re Tendril's root, -4.3 dB re the hit @ 11, +14.8 dB re the wall; on the blow's frame (the worst of the blows the wire run heard) the root keeps +6.9 dB in its 50 Hz third-octave, the blow +22.9 dB in its own, the crack stands +44.0 dB
+
+THE SFX ROW, applied to Sfx.prototype.play's own source and rendered:
+  the arms vs the picked candidates, max |diff|: cast 6.0e-08, root 6.0e-08, root draw 4.5e-08
+  every other voice through the patched play vs the original (76 voices: the hit at 5 weights x crit, spark x3, wall, death, clank, seal, nova, hex-snap, fork, vine x4, loose x3, aegis, scour x4, seven ult sub-voices, the 37 other casts): worst max |diff| 2e-07 (nova/)
+  ult/heartwood vs rune-crack after the row: max |diff| 0.782 -- no longer the fallback;  ult/heartwood-root vs rune-crack 0.653
+  main-thread cost a call (median of 40, performance.now() at its headless resolution): cast 0.40 ms, root 0.70 ms, hit 0.10 ms
+
+IN A REAL WINDOW -- heartwood v twinshade (side 0), seed 112602, cast at 63.12s, closed by its clock at 76.69s, 13 rooted blows; the fight's own sounds and the score, with and without the new voices
+  the cast over everything else on its frame in its own third-octave (400 Hz): +21.1 dB
+  each root over everything else, its own blow included, in its own third-octave (50 Hz): +12.4 +1.5 +19.9 +11.5 +16.9 +9.8 +1.9 +10.9 +2.7 +2.0 +11.1 -0.1 +15.4 dB (median +10.9, min -0.1)
+
+END TO END -- the two rows applied as text: sc-heartwood-b11.html aff84a04b303a402 -> 6a19b58add3cf38e (+3915 chars), loaded in a fresh browser
+  the new voices through the patched page's own SFX.play vs the lab's candidate text in that page (two noise draws each), max |diff|: cast 0.0e+00, cast 3.0e-08, root 6.0e-08, root 6.0e-08
+  every other voice (76), the patched page vs the original page: worst max |diff| 1.8e-07;  ult/heartwood vs rune-crack on the patched page 0.782
+  74 fights: 74/74 identical to the original page's, every other SFX call identical in 74/74; per fight -- cast voices = casts 74, root voices = rooted blows 74, no voice at a close 74 (of 74); totals {'casts': 313, 'rooted': 1125, 'roots': 628, 'castV': 313, 'rootV': 1125, 'closeV': 0}; the original page played 0 root voices; page errors 0
+
+THE PICKS  cast 5 RISING   root 3 G-7dB (g 0.2313)   close: nothing
+WAVS   C:\dev\sundered-crown\05-reference\v112  (22 files, 4562 KB, raw level)
+
+  NOTHING IS IN THE BUILD. The two rows are the edits; both were applied to the page's own code above, and as text to a copy of the page.

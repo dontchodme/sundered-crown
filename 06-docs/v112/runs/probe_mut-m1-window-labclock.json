@@ -1,0 +1,68 @@
+{
+ "n": {
+  "rowOk": 5,
+  "rowKeysOk": 2,
+  "liveOk": 3311026,
+  "blowOutOk": 5754,
+  "outNoRoot": 5806,
+  "x1": 528243,
+  "castOk": 1882,
+  "castClean": 1882,
+  "chargeOk": 1882,
+  "winOk": 1718734,
+  "tickClean": 109149,
+  "rootClean": 5912,
+  "entRecOk": 5912,
+  "entRecApplied": 5813,
+  "blowInOk": 5870,
+  "rootOk": 5813,
+  "pinOk": 5813,
+  "pinFreeOk": 5813,
+  "entOk": 5813,
+  "heldQuiet": 611920,
+  "heldStill": 613588,
+  "clockClose": 1700,
+  "rerootOk": 2363,
+  "killNoRoot": 99,
+  "deathClose": 33,
+  "shadeRoot": 53,
+  "blowExempt": 94,
+  "longerHold": 41
+ },
+ "bad": {
+  "1": [
+   "tickRootfast ran 1x on a frozen step",
+   "tickRootfast ran 1x on a frozen step",
+   "tickRootfast ran 1x on a frozen step",
+   "tickRootfast ran 1x on a frozen step"
+  ]
+ },
+ "S": {
+  "fights": 444,
+  "wins": 210,
+  "decided": 444,
+  "casts": 1882,
+  "bin": 5912,
+  "bout": 5806,
+  "binOpp": 5859,
+  "winSteps": 1718585,
+  "winFrozen": 258980,
+  "labFrames": 1718734,
+  "labPinned": 719349,
+  "entIn": 17333,
+  "entUlt": 5813,
+  "blows": 5912,
+  "rooted": 5813,
+  "roots": 3450,
+  "ent": 5813,
+  "frames": 1718734
+ },
+ "wantCalls": 960,
+ "u": {
+  "charge": 13,
+  "dur": 8,
+  "rootFor": 1,
+  "extraEnt": 1,
+  "blade": 11
+ }
+}

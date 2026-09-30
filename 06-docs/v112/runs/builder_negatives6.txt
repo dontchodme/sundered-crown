@@ -1,0 +1,52 @@
+tick: nudge the foe                      rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes foe.vx (reading 22: its own grove* fields, the canvas, th
+tick: free the pin                       rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes foe.pin (reading 22: its own grove* fields, the canvas, t
+tick: free the weapon                    rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes foe.pinFree (reading 22: its own grove* fields, the canva
+tick: feed the charge                    rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes f.charge (reading 22: its own grove* fields, the canvas, 
+tick: draw the RNG                       rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' draws the RNG or uses the one ultFx slot
+tick: Math.random                        rc 1  -> REFUSED: REFUSING TO WRITE -- this build adds a Math.random
+tick: take the ultFx slot                rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' draws the RNG or uses the one ultFx slot
+tick: stop the world                     rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes this.hitStop (reading 22: its own grove* fields, the canv
+tick: a status                           rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' calls foe.apply(): not the picture's own, Math, clamp / mix / sh
+tick: hurt                               rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' calls this.hurt(): not the picture's own, Math, clamp / mix / sh
+tick: a beat                             rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' calls this.beat(): not the picture's own, Math, clamp / mix / sh
+tick: a voice                            rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' calls SFX.play(): not the picture's own, Math, clamp / mix / she
+tick: a status by hand                   rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes foe.status.entangle.stacks (reading 22: its own grove* fi
+tick: Object.assign                      rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' uses 'Object'
+tick: write by index                     rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes through an index or a destructuring
+tick: destructure                        rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes through an index or a destructuring
+tick: the shared weapon                  rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes f.w.reach (reading 22: its own grove* fields, the canvas,
+tick: a module table                     rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' reaches a module table: 'CONFIG.physics.ballR'
+tick: the tags' array                    rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' calls this.tags.splice(): not the picture's own, Math, clamp / m
+tick: a bare global                      rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' assigns `hitStop`, which it does not declare (a write outside th
+tick: an alias                           rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes q0.stun (reading 22: its own grove* fields, the canvas, t
+tick: an arrow                           rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' has an arrow: ['[foe].forEach(g2 => g2);']
+tick: call through a bracket             rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' uses ']('
+tick: new                                rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' uses 'new'
+tick: a bare function                    rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' calls hurtFoe(): not the picture's own, Math, clamp / mix / shel
+tick: the root again                     rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' calls this.rootBlow(): not the picture's own, Math, clamp / mix 
+tick: a prefix step                      rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' writes foe.hits (reading 22: its own grove* fields, the canvas, 
+tick: window                             rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' uses 'window'
+tick: eval                               rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' uses 'eval'
+tick: delete                             rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' uses 'delete'
+tick: a call through .call               rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: tickGrove' calls Math.max.call(): not the picture's own, Math, clamp / mix 
+draw: move the ball                      rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: the drawing methods' writes f.x (reading 22: its own grove* fields, the can
+draw: the picture's clock                rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: the drawing methods' writes f.groveFade (reading 22: its own grove* fields,
+draw: the tags                           rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: the drawing methods' writes this.tags.length (reading 22: its own grove* fi
+draw: rebind the canvas                  rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: the drawing methods' reassigns `c`
+draw: a voice                            rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: the drawing methods' calls SFX.play(): not the picture's own, Math, clamp /
+draw: the synth                          rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: the drawing methods' calls this._tone(): not the picture's own, Math, clamp
+draw: a second arrow                     rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: the drawing methods' has an arrow: ['const z1 = () => 0;', 'const leaf = ()
+sfx: write the synth's state             rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'Sfx: Heartwood's cast and root arms, before the shared rune-crack fallback' writes this.on (r
+sfx: the root's voice here               rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'Sfx: Heartwood's cast and root arms, before the shared rune-crack fallback' calls SFX.play():
+fields: a sim field                      rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: fighter fields' writes this.pin (reading 22: its own grove* fields, the can
+fields: Tendril's marker                 rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 insert 'rootfast picture: fighter fields' writes this.twineHeld (reading 22: its own grove* fields, t
+retired: code in a comment row           rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6's retiring row ('rootfast picture: the freeze's root plate retired') adds code:
+life: keep a life entry                  rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6's one-line row ('rootfast picture: the cast record's life') is not that line alone:
+voice: twice                             rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6's one-line row ('rootBlow: the root voice, once per rooted blow, after T.rooted++') is not that line 
+page: the voice before the kill's return rc 1  -> REFUSED: REFUSING TO WRITE -- the root's voice is not in rootBlow, after the killing blow's return, on the line after `T.rooted++;`
+page: the arms after the fallback        rc 1  -> REFUSED: REFUSING TO WRITE -- the shared rune-crack fallback is not kept, once, after Heartwood's arms
+page: SPECS.heartwood taken out          rc 1  -> REFUSED: REFUSING TO WRITE -- stage 6 touched the inlined fx.js copy (no field: reading 20)
+page: a second presentation call         rc 1  -> REFUSED: REFUSING TO WRITE -- 'this.tickGrove(dt);' is not added exactly once
+CONTROL: nothing changed                 rc 0  -> BUILDS, byte-identical to sc-heartwood-b11-fx (ceba5e801f4cf91b)
+
+49 negative copies of the stage-6 table, every one refused for its reason; the unmodified copy builds the stage-6 link

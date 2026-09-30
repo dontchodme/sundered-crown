@@ -82,7 +82,15 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-thornwake-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+02-chain/sc-heartwood-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+                                 HEARTWOOD REDESIGNED (heartwood_build.py, fx_remove.py,
+                                 v112), carried onto sc-thornwake-fxout. Every blow roots
+                                 the foe where it stands, ball and weapon, and entangles.
+                                 Charge 14, blade 11 (51.4%). fx.js stamp ->
+                                 e07b60fee7425662.
+                                 Carry proved against scratch and the tip; probe 10/10;
+                                 shell_identity 200/200.
+02-chain/sc-thornwake-fxout.html the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  THORNWAKE REDESIGNED (thornwake_build.py, fx_remove.py,
                                  v113), carried onto sc-spellbreaker-fxout. Blows leave
                                  brambles: a foe in one is rooted, entangled and bitten.

@@ -1,0 +1,5 @@
+sc-heartwood-voices-on-sc-ironhail-fxout.html: the cast against 101 ult voices (every cast and sub-voice)
+  top: lastlight-cold 0.88, cindercleave-jet 0.86, foregone-reverse 0.81, gravemourn-hand 0.80, ironhail 0.80, vesper-wind 0.80
+sc-heartwood-voices-on-sc-ironhail-fxout.html: the root against 101 ult voices (every cast and sub-voice)
+  top: bindweed-root 0.99, cindercleave 0.83, grudgebearer 0.82, shroudmaul 0.82, twinshade 0.81, ravelbone 0.79
+  over 0.80: cast ['ironhail', 'cindercleave-jet', 'foregone-reverse', 'gravemourn-hand', 'lastlight-cold']  root ['grudgebearer', 'twinshade', 'shroudmaul', 'cindercleave', 'bindweed-root']

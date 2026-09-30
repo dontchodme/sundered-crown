@@ -1,0 +1,7 @@
+#!/bin/bash
+# THE LAB, WITH ITS ROOTS ALSO COUNTED AS TRANSITIONS (rootfast_trans.js: fights identical to rootfast.js),
+# arms B and C at rootFor 1.0: $1 tag, $2 block, $3.. extra --P (charge / dur)
+PY=C:/Users/Ye/AppData/Local/Programs/Python/Python313/python.exe
+export PYTHONIOENCODING=utf-8
+T=$1; B=$2; shift 2
+$PY C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/heartwood/tools/rf_lab.py --game C:/dev/sundered-crown/02-chain/sc-tendril-t3.html --relic heartwood --mech C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/heartwood/tools/rootfast_trans.js --arms B,C --P rootFor=1.0 "$@" --seeds 20 --seed0 $B --foes $(cat C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/heartwood/runs/foes33.txt) --label "lab $T block $B ($*)" --out C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/heartwood/runs/lab_${T}_$B.json > C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/heartwood/runs/lab_${T}_$B.txt 2>&1

@@ -1,0 +1,29 @@
+knock the held ball          +q.vx = 0;                                          rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' writes q.vx (reading 8: the window
+stun it                      +q.stun = Math.max(q.stun, hold);                   rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' stops the world, files a beat, hur
+stop the world               +this.hitStop = Math.max(this.hitStop, 0.06);       rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' stops the world, files a beat, hur
+feed the charge              +f.charge += 1;                                     rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' writes f.charge (reading 8: the wi
+a second status              +q.apply("burn", 1, "a");                           rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' applies ['.apply("burn", 1, "a")',
+hurt it                      +this.hurt(q, 1, f);                                rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' stops the world, files a beat, hur
+free the weapon              +q.pinFree = 1;                                     rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' touches pinFree (the root is Grasp
+write the shared weapon      +f.w.dmg = 13;                                      rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' writes the shared weapon
+draw the RNG                 +const r0 = this.rng();                             rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' draws the RNG or uses the one ultF
+grow the reach               +q.reachMul = 1;                                    rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' writes q.reachMul (reading 8: the 
+file a beat                  +this.beat({ kind: "ult" });                        rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' stops the world, files a beat, hur
+write a status by hand       +q.status.entangle.stacks = 4;                      rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' writes entangle.stacks (reading 8:
+voice it                     +SFX.play("ult", { w: "heartwood-root" });          rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' calls SFX.play(): the added code m
+Math.random                  +const r1 = Math.random();                          rc 1  -> REFUSED: REFUSING TO WRITE -- this build adds a Math.random
+take the ultFx slot          +this.ultFx = null;                                 rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' draws the RNG or uses the one ultF
+delete a status              +delete q.status.hex;                               rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' deletes or writes by index
+hitstun                      +q.takeHitstun(5);                                  rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' calls q.takeHitstun(): the added c
+move the ball                +q.x += 1;                                          rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' writes q.x (reading 8: the window,
+spawn sparks (RNG + objects) +this.spawnSpark(f, q.x, q.y);                      rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' calls this.spawnSpark(): the added
+Object.assign a stun         +Object.assign(q, { stun: 2 });                     rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' uses 'Object': the root is a pin a
+end a split                  +if (q.ultSplit) this.endSplit(q, true);            rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' calls this.endSplit(): the added c
+detonate                     +this.detonate(f, q);                               rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' calls this.detonate(): the added c
+a bare function call         +hurtFoe(q, 1);                                     rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' calls hurtFoe(): the added code ma
+a call through a bracket     +q["takeHitstun"](5);                               rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' uses '](': the root is a pin and a
+new                          +const z0 = new Set();                              rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' uses 'new': the root is a pin and 
+an arrow                     +[q].forEach(g => g);                               rc 1  -> REFUSED: REFUSING TO WRITE -- insert 'tickRootfast keeps the window; rootBlow roots' uses '=>': the root is a pin and a
+CONTROL: nothing added       rc 0  -> BUILDS, byte-identical to sc-heartwood-root (22f403961e5203a6)
+
+26 negative copies, every one refused for its reason; the unmodified copy builds the link

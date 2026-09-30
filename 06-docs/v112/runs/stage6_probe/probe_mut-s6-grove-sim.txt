@@ -1,0 +1,21 @@
+
+ROOTFAST PROBE  mut-s6-grove-sim.html  stage 6  Chromium 151.0.7922.34  444 fights (Heartwood both sides x every foe x 6 seeds)   the row {'charge': 13, 'dur': 8, 'rootFor': 1, 'extraEnt': 1, 'blade': 11}   pinned {'charge': 13, 'dur': 8, 'rootFor': 1.0, 'extraEnt': 1, 'blade': 11.0, 'tip': 'Every blow roots the foe where it stands, ball and weapon, and entangles'}
+  casts/fight 4.25   blows a fight: in windows 16.05 (on the opponent 15.84), outside 10.76   Heartwood win 50.2%
+  per cast: blows rooted 3.69   roots as transitions 2.06   extra entangle 3.69   foe pinned 43.6% of window frames (the lab's read)
+  entangle applied by rooted blows in windows 20730  = 2.97 x blows rooted (the brief's gate: 3 x at stage 3)   killing blows unrooted 154   shade blows rooting Twinshade 93
+  re-roots on a held ball 3078 (under a longer hold 48)   held steps still 721454   held hit loops quiet 719608   FREEZE CENSUS 15.2% of window steps frozen   clock window 960 calls
+  nothing else: 7126 root calls, 107275 ticker calls and 1887 casts snapshotted whole (both fighters, the shades, the match), clean; the opponent's status exactly its applications after 7126 root calls (6972 with an entangle)
+  stage 6 voice: casts voiced 1887  roots voiced 6972  killing blows silent 154  closes silent: clock 1630, death 44   run totals {'heartwood': 1887, 'heartwood-root': 6972}
+  stage 6 picture: tickGrove calls 7131984 (sim clean 7061257, whole-state clean 63803)  roots marked: new holds 3894, re-roots 3030, self-held left alone 48  tags counted 6883 (teaching panels 11)  green in the window 3680771  wither frames 156019  drawn frames 0 (0 with the picture up, 0 in a hit stop)   (drawn subset OFF)
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Heartwood's
+  [2] PASS  every blow in the window roots the opponent once (a shade's too); none outside; a killing blow roots nobody
+  [3] PASS  the pin: max(pin, rootFor), pinMax likewise, pinV = the knocked vector iff no longer hold stands
+  [4] PASS  ball and weapon: pinFree untouched; a held ball neither moves nor lands a blow, its weapon locked
+  [5] PASS  the channel's own, then entangle +extraEnt by side letter on every rooted blow; nothing else
+  [6] PASS  no damage change (every blow rebuilt exactly, in and out); the root and the ticker write nothing else (every field of both fighters, the shades and the match; the opponent's status exactly its applications), no RNG
+  [7] PASS  a cast exactly when the live clock reaches the builder's charge, never with the window open; the row (charge, window, root, entangle, blade) is the stage's
+  [8] PASS  the freeze out: the ult block is the design's keys only; the cast opens the window and resolves nothing (snapshotted whole, no RNG; only the window, the tally, ultsFired and the generic cast's picture)
+  [9] PASS  stage 6 voice: one cast voice a cast, inside fireUlt; one root voice a rooted blow, inside rootBlow, and nothing else there; none on a killing blow; none at a close, by the clock or a death; every Heartwood voice of the run accounted for
+  [10] FAIL  stage 6 picture: tickGrove draws no RNG and writes nothing but its own fields, the held ball's markers and a tag's count; every root on a held ball marked, a self-held ball left alone; the tag prints the count; green exactly while the window stands; no drawn frame throws or writes   6924 FAIL: ['tickGrove changed the sim: 70589834,597.9793112743549,-275.79232980142416,-180.96300539202133,467,0,-1.2438 -> 70589834,597.9793112743549,-275.79232980042417,-180.96300539202133,467,0,-1.2438', 'tickGrove changed the sim: 76061335,613.7162305548964,-309.1821703785227,361.1436121186427,457,0,-0.8316245 -> 76061335,613.7162305548964,-309.1821703775227,361.1436121186427,457,0,-0.8316245', 'tickGrove changed the sim: 55779356,671.1812810966561,-194.18532668916566,642.2960518636283,447,0,-1.323970 -> 55779356,671.1812810966561,-194.18532668816567,642.2960518636283,447,0,-1.323970', 'tickGrove changed the sim: 006859891,375.8640264638097,432.6324250436906,618.7422868206447,405,0,-3.5190634 -> 006859891,375.8640264638097,432.6324250446906,618.7422868206447,405,0,-3.5190634']
+
+  9/10

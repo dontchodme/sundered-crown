@@ -1,0 +1,63 @@
+{
+ "n": {
+  "rowOk": 5,
+  "liveOk": 3108301,
+  "blowOutOk": 4365,
+  "outNoRoot": 4417,
+  "frozenOk": 504341,
+  "castOk": 1763,
+  "chargeOk": 1763,
+  "winOk": 1568814,
+  "tickClean": 99620,
+  "rootClean": 5940,
+  "blowInOk": 5887,
+  "rootOk": 5890,
+  "pinOk": 5890,
+  "x4": 462,
+  "entOk": 5890,
+  "clockClose": 1498,
+  "pinFreeOk": 5428,
+  "rerootOk": 2209,
+  "killNoRoot": 50,
+  "deathClose": 73,
+  "shadeRoot": 57,
+  "blowExempt": 105,
+  "longerHold": 51
+ },
+ "bad": {
+  "4": [
+   "the root wrote pinFree 0 -> 1",
+   "the root wrote pinFree 0 -> 1",
+   "the root wrote pinFree 0 -> 1",
+   "the root wrote pinFree 0 -> 1"
+  ]
+ },
+ "S": {
+  "fights": 444,
+  "wins": 92,
+  "decided": 444,
+  "casts": 1763,
+  "bin": 5940,
+  "bout": 4417,
+  "binOpp": 5883,
+  "winSteps": 1864670,
+  "winFrozen": 296048,
+  "labFrames": 1864862,
+  "labPinned": 778096,
+  "entIn": 17556,
+  "entUlt": 5890,
+  "blows": 5940,
+  "rooted": 5890,
+  "roots": 3681,
+  "ent": 5890,
+  "frames": 1568814
+ },
+ "wantCalls": 960,
+ "u": {
+  "charge": 13,
+  "dur": 8,
+  "rootFor": 1,
+  "extraEnt": 1,
+  "blade": 11
+ }
+}

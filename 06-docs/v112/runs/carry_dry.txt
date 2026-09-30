@@ -1,0 +1,14 @@
+== CARRY, DRY: stages 1, 2, 3, 5 on 02-chain/sc-aureole-fxout.html (da5eafafcfae06c2, 42 relics)
+  note  kind "freeze" on this base: thornwake, heartwood -- its generic tail stays (reading 12)
+  out sc-heartwood-stub.html  4417e27f9b4bae07   (+386 chars, written LF)
+  out sc-heartwood-root.html  65292fac5cb3fdbf   (+3128 chars, written LF)
+  out sc-heartwood-rootfast.html  6c64108e8b0290ef   (+0 chars, written LF)
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; 42 relics in the roster
+  out sc-heartwood-b11.html  1a2743c8b8ebe33e   (-3 chars, written LF)
+== CARRY, DRY: stages 1, 2, 3, 5 on 02-chain/sc-spellbreaker-fxout.html (9243277a756e84b6, 42 relics)
+  note  kind "freeze" on this base: thornwake, heartwood -- its generic tail stays (reading 12)
+  out sc-heartwood-stub.html  b764493711fbc5b9   (+386 chars, written LF)
+  out sc-heartwood-root.html  6da823196556ac31   (+3128 chars, written LF)
+  out sc-heartwood-rootfast.html  32968ccb13e7a734   (+0 chars, written LF)
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; 42 relics in the roster
+  out sc-heartwood-b11.html  f51666c08b8f2d9b   (-3 chars, written LF)

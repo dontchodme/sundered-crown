@@ -1,0 +1,20 @@
+ALONE tendril-root: (29.366805004008285, 206)
+ALONE dry: (2.3241746687483724, 6)
+ALONE hit@11: (18.136981062684445, 7)
+cand              top  aud rate  puls  cen   grn  fall  alone  regs>0.70
+sine180        0.0824  395   35  0.67  215  0.36  -167    1.1  thornwake 0.88 hit@11 0.87 vinesower 0.76
+sine200        0.0824  395   35  0.72  231  0.39  -140    1.1  thornwake 0.86 vinesower 0.82 hit@11 0.78
+sine220        0.0823  395   35  0.74  246  0.42  -127    1.1  thornwake 0.85 vinesower 0.84 paradox-pin 0.73
+sine250        0.0823  395   35  0.73  270  0.46  -100    1.1  thornwake 0.85 paradox-pin 0.80 vinesower 0.78
+sine200r       0.0822  390   33  0.65  269  0.45   307    0.2  thornwake 0.87 vinesower 0.80 paradox-pin 0.76
+timber200m.2   0.0819  395   35  0.71  249  0.42  -134    1.0  thornwake 0.85 vinesower 0.81 hit@11 0.76
+timber180m.25  0.0818  395   35  0.63  239  0.40  -155    1.0  thornwake 0.86 hit@11 0.84 vinesower 0.74
+tri180         0.0816  395   35  0.65  227  0.38  -149    0.0  thornwake 0.88 hit@11 0.86 vinesower 0.76
+tri200         0.0815  395   35  0.71  243  0.41  -126    0.1  thornwake 0.86 vinesower 0.82 hit@11 0.77 paradox-pin 0.70
+sap200         0.0826  400   32  0.65  229  0.39    63    1.7  vinesower 0.84 thornwake 0.83 hit@11 0.74
+sap230         0.0825  400   32  0.69  253  0.43    55    1.5  vinesower 0.83 thornwake 0.82 paradox-pin 0.76
+bp250          0.0807  390   35  0.77  542  0.92   -25    0.0  paradox-pin 0.86 thornwake 0.85 vinesower 0.81
+bp300          0.0813  390   35  0.75  587  0.99   -64    0.0  paradox-pin 0.84 thornwake 0.80 vinesower 0.77 dry 0.72
+sine200d50     0.0827  405   35  0.73  223  0.38  -115    1.2  vinesower 0.84 thornwake 0.82 hit@11 0.76
+sine200fast    0.0827  390   51  0.75  230  0.39    38    0.9  thornwake 0.85 vinesower 0.83 hit@11 0.74
+sine200slow    0.0823  370   23  0.81  241  0.41    24    0.2  thornwake 0.86 vinesower 0.83 hit@11 0.72 paradox-pin 0.72

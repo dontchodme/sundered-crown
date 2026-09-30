@@ -1,0 +1,64 @@
+{
+ "P": {
+  "charge": 15,
+  "dur": 9.42,
+  "blade": 11,
+  "rootFor": 1.0
+ },
+ "arms": {
+  "C": {
+   "census": {
+    "steps": 5697902,
+    "frozen": 765115,
+    "win": 2973937,
+    "winFrozen": 429946
+   },
+   "win": 0.5454545454545454,
+   "n": 660,
+   "casts": 4.263636363636364,
+   "hitsIn": 16.39242424242424,
+   "hitsOut": 10.687878787878788,
+   "stats": {
+    "ent": 3.761904761904762,
+    "f_pinnedPct": 42.276766640798265,
+    "roots": 3.761904761904762
+   },
+   "byFoe": {
+    "dawnbringer": 0.8,
+    "widowmaker": 0.85,
+    "grudgebearer": 0.45,
+    "thornwake": 0.5,
+    "lastlight": 0.45,
+    "slagheart": 0.4,
+    "spellbreaker": 0.3,
+    "ironhail": 0.65,
+    "lightkeeper": 0.9,
+    "farwarden": 0.8,
+    "aureole": 0.65,
+    "censer": 0.35,
+    "emberedge": 0.9,
+    "oathwound": 0.85,
+    "nightfell": 1.0,
+    "axiom": 0.55,
+    "twinshade": 0.55,
+    "redflail": 0.4,
+    "foregone": 0.55,
+    "vinesower": 0.2,
+    "bulwarden": 0.35,
+    "marrowdraw": 0.85,
+    "paradox": 0.35,
+    "thornshear": 0.2,
+    "vesper": 0.45,
+    "shroudmaul": 0.2,
+    "cindercleave": 0.4,
+    "ravelbone": 0.5,
+    "gloamwire": 0.25,
+    "bloodmirror": 0.4,
+    "duskreave": 0.7,
+    "starwarden": 0.8,
+    "gravemourn": 0.45
+   }
+  }
+ },
+ "rows_note": "660 per-fight rows left out of the repo copy; the full json is in the build's scratch (batch/heartwood/runs/)"
+}

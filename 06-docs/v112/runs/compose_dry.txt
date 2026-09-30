@@ -1,0 +1,12 @@
+COMPOSE, DRY (2026-09-30): heartwood_build.py (86e80fd6f5fa6834) stages 1,2,3,5 with the two parallel redesigns' builders
+on the base sc-tendril-t3 (5a6216e3b629fad4), in both orders. Scratch files, not links. Every stage applied, every anchor
+once, every page parsed (each builder's node --check), 38 relics.
+
+thornwake_build.py (6f2fdad5f407b335) stages 1,2,3,5:
+  heartwood then thornwake   -> sc-thornwake-b26.5   f1b03e7049baad65
+  thornwake then heartwood   -> sc-heartwood-b11     7f603d69c0ae7415   (heartwood's note: kind "freeze" on this base: heartwood)
+  sorted lines identical: the two orders hold the same lines; only the order of independent blocks differs
+goreshard_build.py (b6fa8226dc291099) stages 1,2,5:
+  heartwood then goreshard   -> sc-goreshard-b10.25  8da99d113da49abc
+  goreshard then heartwood   -> sc-heartwood-b11     f139ef0c7ca7a76d
+  sorted lines identical

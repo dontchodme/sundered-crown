@@ -1,0 +1,16 @@
+m1-window-labclock       want [1]  751000ca1bc820ba  (+132 chars)
+m2-every-other-blow      want [2]  c07dc7a0991b162a  (+29 chars)
+m3-pin-before-knock      want [3]  3fe03ae37a97ce9a  (+0 chars)
+m4-weapon-free           want [4]  d01348fe5e3c5e04  (+19 chars)
+m5-entangle-2            want [5]  c36b1d3c0da1fe8d  (+4 chars)
+m6-root-hitstop          want [6]  ec2ba78f8c8668c1  (+49 chars)
+m7-charge16              want [7]  d9014a4968fa47a2  (+0 chars)
+m8-row-no-entangle       want [5,7]  2b3d3618c2a58df6  (+0 chars)
+m9-root-stundr           want [6]  7f1ed6a769546199  (+18 chars)
+m10-ticker-stundr        want [6]  75d5aae884a53e3a  (+20 chars)
+m11-blade-shipped        want [7]  cc303b02f2aba1d9  (+3 chars)
+x1-freeze-kept           want [8]  5268ac475158308f  (+37 chars)    the review's: the old freeze kept in the row, the branch falling through to the generic tail
+x2-root-0.8              want [3]  e22421229cb769d7  (-6 chars)     the review's: the root holds 0.8s under a row that says 1.0
+x4-entangle-clock        want [6]  cd9bdaabbb049829  (+52 chars)    the review's: the root's entangle clock set to 9s by hand after the apply
+x5-cast-pins             want [8]  6aa4b025ccfe4a60  (+127 chars)   the review's: the cast also pins the foe 1.3s
+x3-kill-roots            aside [2]  74d230e87828b1ba  (-26 chars)   the review's: a killing blow roots the dead foe (decides no fight: not a control)

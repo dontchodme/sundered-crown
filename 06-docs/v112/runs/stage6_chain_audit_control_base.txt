@@ -1,0 +1,51 @@
+  (20 insert(s) found in heartwood_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-heartwood-b11-fx.html
+tip    sc-tendril-t3.html
+20 inserts read out of heartwood_build.py
+
+  LOST  S1:Rootfast becomes the root on every blow, stubbed; the freeze out of the row relic  1  mid   -  tip  0
+        'tip:"Every blow roots the foe where it stands, ball and weapon, and entangles" },'
+  LOST  S2:the root has a charge: the design's 15 on the game's clock relic  1  mid   -  tip  0
+        'ult:{ name:"Rootfast", charge:13, kind:"rootfast", dur:8,   // v85 stage 2: every blow r'
+  LOST  S2:the fighter carries the root's window relic  1  mid   -  tip  0
+        'this.rootTally = null;'
+  LOST  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  0
+        'f.rootTally = { casts: 0, frames: 0, blows: 0, rooted: 0, roots: 0, ent: 0 };'
+  LOST  S2:the window ticks with the window tickers relic  1  mid   -  tip  0
+        'this.tickRootfast(dt);              // ROOTFAST (v85)'
+  LOST  S2:a blow inside the window roots, on the line after its knock relic  1  mid   -  tip  0
+        'if (self.ultRoot && (self === this.a || self === this.b)) this.rootBlow(self);'
+  LOST  S2:tickRootfast keeps the window; rootBlow roots relic  1  mid   -  tip  0
+        'if (u.extraEnt > 0){ q.apply("entangle", u.extraEnt, f === this.a ? "a" : "b"); T.ent +='
+  LOST  S3:the entangle            relic  1  mid   -  tip  0
+        'extraEnt:1,          // v85: the entangle (stage 3)'
+  LOST  S5:the blade: the measured point nearest 50% both sides (Rick's ruling) relic  1  mid   -  tip  0
+        'blades:[0], reach:116, width:14, artW:40, spin:3.4, mode:"swing", arc:1.5, mass:3.0, dmg'
+  LOST  S6:Sfx: Heartwood's cast and root arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'const u = s / 0.4, f = 300 * Math.pow(4 / 3, Math.min(1, s / 0.3)), a = g * (s < 0.3 ? 0'
+  LOST  S6:rootBlow: the root voice, once per rooted blow, after T.rooted++ relic  1  mid   -  tip  0
+        'SFX.play("ult", { w: "heartwood-root" });'
+  LOST  S6:rootfast picture: fighter fields relic  1  mid   -  tip  0
+        'this.groveMoteAcc = 0;'
+  LOST  S6:rootfast picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickGrove(dt);                 // ROOTFAST'S PICTURE (v85 section 4)"
+  LOST  S6:rootfast picture: tickGrove relic  1  mid   -  tip  0
+        'f.groveMotes.push({ x: B.x + B.ux * x - B.uy * y, y: B.y + B.uy * x + B.ux * y, t: 0, n:'
+  LOST  S6:rootfast picture: the ground call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawGrove(m);'
+  LOST  S6:rootfast picture: the blade's hook in drawWeapon relic  1  mid   -  tip  0
+        'if (f.groveFade > 0 && f.w.shape === "greatsword") this._groveBlade(c, m, f, reach + 6, '
+  LOST  S6:rootfast picture: the drawing methods relic  1  mid   -  tip  0
+        'c.beginPath(); c.moveTo(L * 0.24, -W * 0.012); c.lineTo(Math.min(xB, L * 0.94), -W * 0.0'
+  LOST  S6:rootfast picture: the freeze's root plate retired relic  1  mid   -  tip  0
+        "the quarry at the cast, over the record's 2.2); retired with it (v85,"
+  LOST  S6:rootfast picture: the freeze's cage retired relic  1  mid   -  tip  0
+        'stage 6). The cast is the blade greening hilt to tip (`_groveBlade`). */'
+  LOST  S6:rootfast picture: the cast record's life relic  1  mid   -  tip  0
+        "above is Bramblesnare's alone. The cast's record falls to the map's"
+
+!! 20 INSERT(S) DID NOT SURVIVE THE CHAIN: S1:Rootfast becomes the root on every blow, stubbed; the freeze out of the row, S2:the root has a charge: the design's 15 on the game's clock, S2:the fighter carries the root's window, S2:the cast opens the window and resolves nothing, S2:the window ticks with the window tickers, S2:a blow inside the window roots, on the line after its knock, S2:tickRootfast keeps the window; rootBlow roots, S3:the entangle, S5:the blade: the measured point nearest 50% both sides (Rick's ruling), S6:Sfx: Heartwood's cast and root arms, before the shared rune-crack fallback, S6:rootBlow: the root voice, once per rooted blow, after T.rooted++, S6:rootfast picture: fighter fields, S6:rootfast picture: the presentation call, S6:rootfast picture: tickGrove, S6:rootfast picture: the ground call (world, under both balls), S6:rootfast picture: the blade's hook in drawWeapon, S6:rootfast picture: the drawing methods, S6:rootfast picture: the freeze's root plate retired, S6:rootfast picture: the freeze's cage retired, S6:rootfast picture: the cast record's life
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+rc=1

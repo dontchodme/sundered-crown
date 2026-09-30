@@ -1,0 +1,41 @@
+rows_final.json: 9 rows, 26332 bytes, sha256[:16] of the file 184f5cb47c0bb5e7, round-trips
+[1] 9 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+[3] STAMP 4ce2e98655411557  (base aff84a04b303a402; hw-final.html matches; +16975 chars)
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + heartwood 1,2,3,5 (aff84a04b303a402, = the base): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-tendril-fx.html (eea0cde5536955b3) + heartwood 1,2,3,5 (3c61fccb5366245a): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: True
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on sc-spellbreaker-fxout.html (9243277a756e84b6) + heartwood 1,2,3,5 (f51666c08b8f2d9b): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: True
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on ih-final.html (f03b657a1d99d86c) + heartwood 1,2,3,5 (396f0b095b06deac): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on ci-final.html (94bb7580047f01bc) + heartwood 1,2,3,5 (6b0f6c91917836e7): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on ce-final.html (b3f790861677e2bd) + heartwood 1,2,3,5 (57cbbf7bd369f9e2): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on lk-final.html (728d64f8397290a1) + heartwood 1,2,3,5 (6c8e07c982acb7dc): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on wm-final.html (518477d4537ec077) + heartwood 1,2,3,5 (8c6a7a71d9d093cb): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on ld-final.html (b40d52b7561c45f2) + heartwood 1,2,3,5 (4ee0d8342460001e): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on or-final.html (1bdec440699e6fd7) + heartwood 1,2,3,5 (f7e3ee6a4cce3a75): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on sb-final.html (176458b0df4a79cd) + heartwood 1,2,3,5 (017f9a0f392fb031): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on au-final.html (b8d571f46a2681af) + heartwood 1,2,3,5 (fdc97fdfe6a953b0): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on an-final.html (32d61ac685db232f) + heartwood 1,2,3,5 (5bfc7d5e05dbffb6): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on bw-final.html (ef4bd13fe968d99c) + heartwood 1,2,3,5 (b0430c09d9b2b696): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: True
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[4] on pc-final.html (de1cf49480a06745) + heartwood 1,2,3,5 (061de6b0614929d7): every anchor once, forward == reverse True, parses (+16975 chars, as on the base: True); Tendril's root + guard on it: False
+    with Heartwood's 2 voice rows (rows_final.json): voice-then-picture == picture-then-voice True, parses
+[5] CONTROL (an anchor that occurs many times) refused: rootfast picture: fighter fields: anchor found 340x

@@ -1,0 +1,4 @@
+heartwood on sc-heartwood-rootfast.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · set dmg=10 · d10
+  win 46.9%   side A 45.7%   side B 48.1%   mean 73.8s   timeouts 0
+  by type  greatsword 82%  twinblade 53%  bow 48%  scythe 39%  flail 34%  warhammer 30%
+  worst    vinesower 0%  ironwood 0%  paradox 5%   (740 fights in 66s)

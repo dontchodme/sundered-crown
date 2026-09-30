@@ -1,0 +1,73 @@
+{
+ "n": {
+  "rowOk": 5,
+  "rowKeysOk": 2,
+  "liveOk": 3342186,
+  "blowOutOk": 4787,
+  "outNoRoot": 4838,
+  "frozenOk": 533704,
+  "castOk": 1905,
+  "castClean": 1905,
+  "chargeOk": 1905,
+  "winOk": 1715817,
+  "tickClean": 108953,
+  "rootClean": 7345,
+  "entRecOk": 7345,
+  "entRecApplied": 7184,
+  "blowInOk": 7288,
+  "rootOk": 7184,
+  "pinOk": 7184,
+  "pinFreeOk": 7184,
+  "x5": 7184,
+  "heldQuiet": 740262,
+  "heldStill": 742133,
+  "clockClose": 1653,
+  "rerootOk": 3261,
+  "killNoRoot": 161,
+  "deathClose": 35,
+  "shadeRoot": 79,
+  "blowExempt": 108,
+  "longerHold": 60
+ },
+ "bad": {
+  "5": [
+   "applications on the opponent [[\"entangle\",2,null],[\"entangle\",2,\"a\"]], want [[\"entangle\",2,null],[\"entangle\",1,\"a\"]]",
+   "applications on the opponent [[\"entangle\",2,null],[\"entangle\",2,\"a\"]], want [[\"entangle\",2,null],[\"entangle\",1,\"a\"]]",
+   "applications on the opponent [[\"entangle\",2,null],[\"entangle\",2,\"a\"]], want [[\"entangle\",2,null],[\"entangle\",1,\"a\"]]",
+   "applications on the opponent [[\"entangle\",2,null],[\"entangle\",2,\"a\"]], want [[\"entangle\",2,null],[\"entangle\",1,\"a\"]]"
+  ]
+ },
+ "S": {
+  "fights": 444,
+  "wins": 244,
+  "decided": 444,
+  "casts": 1905,
+  "bin": 7345,
+  "bout": 4838,
+  "binOpp": 7266,
+  "winSteps": 2023473,
+  "winFrozen": 307873,
+  "labFrames": 2023690,
+  "labPinned": 894170,
+  "entIn": 0,
+  "entUlt": 0,
+  "blows": 7345,
+  "rooted": 7184,
+  "roots": 3923,
+  "ent": 7184,
+  "frames": 1715817
+ },
+ "wantCalls": 960,
+ "stage6v": false,
+ "stage6p": false,
+ "drawOn": false,
+ "hwAll": {},
+ "groveCalls": 0,
+ "u": {
+  "charge": 13,
+  "dur": 8,
+  "rootFor": 1,
+  "extraEnt": 1,
+  "blade": 11
+ }
+}

@@ -1,0 +1,19 @@
+dry creak note 534.0362112718876 first/last 690.4833583747535 419.8321744296814
+ALONE tendril-root: (29.366805010568633, 206)
+ALONE dry: (2.324174479446203, 6)
+ALONE hit@11: (18.136981062684445, 7)
+cand              top  aud rate  puls  cen   grn  fall  alone  note n/dry nfall  regs>0.70
+sine280        0.0822  395   35  0.73  294  0.50   -79    1.2   286  0.53    28  paradox-pin 0.84 thornwake 0.83 vinesower 0.77
+sine320        0.0822  395   35  0.72  325  0.55   -56    1.2   320  0.60     8  paradox-pin 0.81 thornwake 0.75 vinesower 0.73
+sine360        0.0822  395   35  0.72  357  0.60   -35    1.2   354  0.66   -94  dry 0.72 paradox-pin 0.72
+sine400        0.0821  395   35  0.72  388  0.66   -17    0.9   408  0.76   -48  dry 0.75
+timber320 .4   0.0819  395   35  0.69  372  0.63   -29    0.2   320  0.60     6  paradox-pin 0.83 thornwake 0.78 dry 0.76 vinesower 0.73
+timber360 .4   0.0819  395   35  0.68  405  0.68    -5    0.8   354  0.66   -94  dry 0.77 paradox-pin 0.75
+timber400 .4   0.0819  395   35  0.69  438  0.74    14    1.6   408  0.76   -48  dry 0.78
+timber360 .2   0.0820  395   35  0.70  373  0.63   -28    0.0   354  0.66   -94  dry 0.74 paradox-pin 0.74
+tri360         0.0813  395   35  0.71  373  0.63   -34    0.1   354  0.66   -94  dry 0.74 paradox-pin 0.73
+sap380         0.0822  400   32  0.67  369  0.62    14    0.3   369  0.69    57  dry 0.73
+sine360r       0.0821  390   33  0.65  370  0.63   271    0.3   356  0.67   434  dry 0.75
+sine380 slow   0.0823  370   23  0.81  375  0.63     5    0.2   389  0.73    -3  dry 0.74
+sine90         0.0826  395   35  0.61  145  0.25  -293    1.0    69  0.13  -608  death 0.78 emberedge 0.76 nightfell 0.76 hit@11 0.75 ironwood 0.73 paradox-pin 0.72 tendril-root 0.71
+timber90 .6    0.0819  395   35  0.67  195  0.33  -209    0.9    69  0.13  -615  paradox-pin 0.83 tendril-root 0.77 nightfell 0.76 emberedge 0.76 ironwood 0.74 thornwake 0.73

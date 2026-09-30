@@ -1,0 +1,71 @@
+{
+ "n": {
+  "rowOk": 4,
+  "x7": 1,
+  "rowKeysOk": 2,
+  "liveOk": 3298536,
+  "blowOutOk": 4733,
+  "outNoRoot": 4790,
+  "frozenOk": 527684,
+  "castOk": 1875,
+  "castClean": 1875,
+  "chargeOk": 1875,
+  "winOk": 1683417,
+  "tickClean": 106890,
+  "rootClean": 7068,
+  "entRecOk": 7068,
+  "blowInOk": 7002,
+  "rootOk": 6926,
+  "pinOk": 6926,
+  "pinFreeOk": 6926,
+  "x5": 6926,
+  "heldQuiet": 716599,
+  "heldStill": 718449,
+  "clockClose": 1633,
+  "rerootOk": 3085,
+  "killNoRoot": 142,
+  "deathClose": 36,
+  "shadeRoot": 84,
+  "blowExempt": 123,
+  "longerHold": 57
+ },
+ "bad": {
+  "5": [
+   "applications on the opponent [[\"entangle\",2,null]], want [[\"entangle\",2,null],[\"entangle\",1,\"a\"]]",
+   "applications on the opponent [[\"entangle\",2,null]], want [[\"entangle\",2,null],[\"entangle\",1,\"a\"]]",
+   "applications on the opponent [[\"entangle\",2,null]], want [[\"entangle\",2,null],[\"entangle\",1,\"a\"]]",
+   "applications on the opponent [[\"entangle\",2,null]], want [[\"entangle\",2,null],[\"entangle\",1,\"a\"]]"
+  ],
+  "7": [
+   "the row's extraEnt is 0, the stage's 1"
+  ]
+ },
+ "S": {
+  "fights": 444,
+  "wins": 215,
+  "decided": 444,
+  "casts": 1875,
+  "bin": 7068,
+  "bout": 4790,
+  "binOpp": 6984,
+  "winSteps": 1985259,
+  "winFrozen": 302048,
+  "labFrames": 1985465,
+  "labPinned": 868031,
+  "entIn": 0,
+  "entUlt": 0,
+  "blows": 7068,
+  "rooted": 6926,
+  "roots": 3841,
+  "ent": 0,
+  "frames": 1683417
+ },
+ "wantCalls": 960,
+ "u": {
+  "charge": 13,
+  "dur": 8,
+  "rootFor": 1,
+  "extraEnt": 0,
+  "blade": 11
+ }
+}

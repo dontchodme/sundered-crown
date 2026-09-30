@@ -1,0 +1,22 @@
+CARRY AND COMPOSE WITH STAGE 6, DRY (cc6d): heartwood_build.py 04e7ce55b18a1102
+
+== CARRY on 02-chain/sc-tendril-fx.html (eea0cde5536955b3, 38 relics): sc-heartwood-stub f927828c5084df6d  sc-heartwood-root 54590f5be7189b66  sc-heartwood-rootfast 3602b2be27592fe0  sc-heartwood-b11 3c61fccb5366245a  sc-heartwood-b11-fx c4aacc10bd6a7c29   (38 relics; root shoots drawn)
+== CARRY on 02-chain/sc-spellbreaker-fxout.html (9243277a756e84b6, 42 relics): sc-heartwood-stub b764493711fbc5b9  sc-heartwood-root 6da823196556ac31  sc-heartwood-rootfast 32968ccb13e7a734  sc-heartwood-b11 f51666c08b8f2d9b  sc-heartwood-b11-fx fc6895cca67c5096   (42 relics; root shoots drawn)
+== CARRY on 02-chain/sc-aureole-fxout.html (da5eafafcfae06c2, 42 relics): sc-heartwood-stub 4417e27f9b4bae07  sc-heartwood-root 65292fac5cb3fdbf  sc-heartwood-rootfast 6c64108e8b0290ef  sc-heartwood-b11 1a2743c8b8ebe33e  sc-heartwood-b11-fx b7071c0aff03fd10   (42 relics; root shoots drawn)
+== CARRY on 02-chain/sc-thornwake-b26.5-fx.html (98bb5948e0bd6ace, 42 relics): sc-heartwood-stub 1253496769f12cb2  sc-heartwood-root 6181ecfa2bc3fb0b  sc-heartwood-rootfast 9dad16d857205337  sc-heartwood-b11 5abbc99ce0067b6a  sc-heartwood-b11-fx 54ad747c117766d2   (42 relics; root shoots drawn)
+== CARRY on 02-chain/sc-thornwake-fxout.html (65464e514ea28b9e, 42 relics): sc-heartwood-stub 6405bf05f200a7ec  sc-heartwood-root ccd68d32232428fd  sc-heartwood-rootfast ede43363f554dd6e  sc-heartwood-b11 5841a505d58390a5  sc-heartwood-b11-fx 5cc323540b8ad132   (42 relics; root shoots drawn)
+
+COMPOSE with thornwake_build.py: !! thornwake_build.py stage 1 on sc-heartwood-b11-fx.html: rc 1
+refusing sc-thornwake-stub.html: 02-chain already has a link of that name
+
+COMPOSE with goreshard_build.py (eddeef420792bf7f) on sc-tendril-t3 (5a6216e3b629fad4):
+  heartwood then goreshard  -> sc-goreshard-b10.25-fx.html  5715d2fb4e96b787   (38 relics)
+  goreshard  then heartwood -> sc-heartwood-b11-fx.html     52234348c6c2335b   (38 relics)
+  sorted lines identical: the two orders hold the same lines
+EARLIER THE SAME DAY (09:5x), before Thornwake was carried onto 02-chain at 10:23 (its builder now refuses its own names
+there, so the compose can no longer be rebuilt in scratch; the carry onto its link above is the real test). Builder
+4896a2dac7af7acb, whose S1-S6 tables are the final builder's byte for byte (the two differ only in comments):
+COMPOSE with thornwake_build.py (83503639e24a4184) on sc-tendril-t3 (5a6216e3b629fad4):
+  heartwood then thornwake  -> sc-thornwake-b26.5-fx.html   e76511d064b6d7b9   (38 relics)
+  thornwake  then heartwood -> sc-heartwood-b11-fx.html     b8163cd393b066b6   (38 relics)
+  sorted lines identical: the two orders hold the same lines

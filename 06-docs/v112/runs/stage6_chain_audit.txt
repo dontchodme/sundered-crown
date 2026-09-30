@@ -1,0 +1,29 @@
+  (20 insert(s) found in heartwood_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-heartwood-b11-fx.html
+tip    sc-heartwood-b11-fx.html
+20 inserts read out of heartwood_build.py
+
+    ok  S1:Rootfast becomes the root on every blow, stubbed; the freeze out of the row relic  1  mid   -  tip  1
+    ok  S2:the root has a charge: the design's 15 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the root's window relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:a blow inside the window roots, on the line after its knock relic  1  mid   -  tip  1
+    ok  S2:tickRootfast keeps the window; rootBlow roots relic  1  mid   -  tip  1
+    ok  S3:the entangle            relic  1  mid   -  tip  1
+    ok  S5:the blade: the measured point nearest 50% both sides (Rick's ruling) relic  1  mid   -  tip  1
+    ok  S6:Sfx: Heartwood's cast and root arms, before the shared rune-crack fallback relic  1  mid   -  tip  1
+    ok  S6:rootBlow: the root voice, once per rooted blow, after T.rooted++ relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: tickGrove relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: the ground call (world, under both balls) relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: the blade's hook in drawWeapon relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: the drawing methods relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: the freeze's root plate retired relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: the freeze's cage retired relic  1  mid   -  tip  1
+    ok  S6:rootfast picture: the cast record's life relic  1  mid   -  tip  1
+
+ALL 20 INSERTS SURVIVE to sc-heartwood-b11-fx.html
+(3 of them are marked by COMMENT text -- the code they add is shorter than the floor: S6:rootfast picture: the freeze's root plate retired, S6:rootfast picture: the freeze's cage retired, S6:rootfast picture: the cast record's life)
+rc=0

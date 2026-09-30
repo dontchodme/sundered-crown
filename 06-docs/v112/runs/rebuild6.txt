@@ -1,0 +1,16 @@
+builder 04e7ce55b18a1102   base sc-tendril-t3 5a6216e3b629fad4
+stage 1  sc-heartwood-stub.html  rc 0  08b489bafa264c3e  IDENTICAL
+stage 2  sc-heartwood-root.html  rc 0  22f403961e5203a6  IDENTICAL
+stage 3  sc-heartwood-rootfast.html  rc 0  cc303b02f2aba1d9  IDENTICAL
+stage 5  sc-heartwood-b11.html  rc 0  aff84a04b303a402  IDENTICAL
+stage 6  sc-heartwood-b11-fx.html  rc 0  ceba5e801f4cf91b  IDENTICAL
+  note  Tendril's root picture is NOT on this source (it lands on sc-tendril-fx): the root's markers are inert here and a held ball draws Paradox's hexagon (reading 18)
+--- stage 6's refusals
+stage 6 on stage 3's link (blade 12.65): rc 1  stage 6 goes on stage 5 (the entangle on, blade 11), once
+stage 6 on its own output: rc 1  'tickGrove' is already in this source -- stage 6 goes on once
+stage 6 on the base: rc 1  stage 6 needs stage 1 under it
+stage 5 on stage 6's link: rc 1  stage 5 goes on stage 3 (the entangle on, blade 12.65), once
+stage 6 over an existing link: rc 1  refusing to overwrite sc-heartwood-b11-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+stage 6 to a name outside sc-heartwood*: rc 1  refusing sc-other-fx.html: this builder's links are sc-heartwood*
+stage 1 on stage 6's link: rc 1  'ultRoot' is already in the base
+no refusal wrote a file

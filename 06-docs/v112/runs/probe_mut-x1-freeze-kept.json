@@ -1,0 +1,68 @@
+{
+ "n": {
+  "rowOk": 5,
+  "x8": 1895,
+  "rowKeysOk": 1,
+  "liveOk": 3331947,
+  "blowOutOk": 4829,
+  "outNoRoot": 4880,
+  "frozenOk": 523614,
+  "castOk": 1894,
+  "chargeOk": 1894,
+  "winOk": 1706603,
+  "tickClean": 108343,
+  "rootClean": 7208,
+  "entRecOk": 7208,
+  "entRecApplied": 7047,
+  "blowInOk": 7144,
+  "rootOk": 7047,
+  "pinOk": 7047,
+  "pinFreeOk": 7047,
+  "entOk": 7047,
+  "heldQuiet": 732769,
+  "heldStill": 734675,
+  "clockClose": 1649,
+  "rerootOk": 3073,
+  "killNoRoot": 161,
+  "deathClose": 36,
+  "shadeRoot": 79,
+  "blowExempt": 115,
+  "longerHold": 53
+ },
+ "bad": {
+  "8": [
+   "the ult block's keys apply,charge,dmg,dur,extraEnt,freeze,kind,name,radius,rootFor,tip, want charge,dur,extraEnt,kind,name,rootFor,tip (the freeze out)",
+   "the cast drew the RNG 102x; changed A.dealt: 43 -> 52",
+   "the cast drew the RNG 102x; changed A.dealt: 75 -> 87",
+   "the cast ultFx {\"w\":\"heartwood\",\"kind\":\"rootfast\",\"hit\":false}"
+  ]
+ },
+ "S": {
+  "fights": 444,
+  "wins": 263,
+  "decided": 444,
+  "casts": 1894,
+  "bin": 7208,
+  "bout": 4880,
+  "binOpp": 7129,
+  "winSteps": 2005148,
+  "winFrozen": 298754,
+  "labFrames": 2005357,
+  "labPinned": 887824,
+  "entIn": 20983,
+  "entUlt": 7047,
+  "blows": 7208,
+  "rooted": 7047,
+  "roots": 3974,
+  "ent": 7047,
+  "frames": 1706603
+ },
+ "wantCalls": 960,
+ "u": {
+  "charge": 13,
+  "dur": 8,
+  "rootFor": 1,
+  "extraEnt": 1,
+  "blade": 11
+ }
+}

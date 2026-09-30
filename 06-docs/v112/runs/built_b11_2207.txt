@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · heartwood (redesign) · 33 foes x 20 seeds = 660 fights an arm · BUILT sc-heartwood-b11 block 2207
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    55.2%   0.00  0.00/27.18 
+      census: frozen 0.1385 of lab steps (791511/5715387), 0.0000 in windows (0/0), 0.1385 outside; lab 16 -> engine 13.78
+  660 fights in 82s   errors: []

@@ -1,0 +1,74 @@
+REBUILD FROM THE BARE BASE WITH THE FINAL BUILDER (4550a53a2b5ac4bf), 2026-09-30 04:29 (the fix round: the call scan made an allowlist)
+
+HEARTWOOD / ROOTFAST (REDESIGN) -- stage 1
+  src sc-tendril-t3.html  5a6216e3b629fad4  (LF text)
+  base  Heartwood's shipped body (verdant greatsword, swing, entangle 2); hurt / apply / resolveHit's count / tickStasis's lock / move's hold and resume; the window tickers stop in a hit stop and run before the hit loops
+  note  kind "freeze" on this base: thornwake, heartwood -- its generic tail stays (reading 12)
+  ok    Rootfast becomes the root on every blow, stubbed; the freeze out of the row
+  ok    ult   ult:{ name:"Rootfast", charge:1e9, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:0, tip:"Every blow root ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-stub.html  08b489bafa264c3e   (+386 chars, written LF)
+
+HEARTWOOD / ROOTFAST (REDESIGN) -- stage 2
+  src sc-heartwood-stub.html  08b489bafa264c3e  (LF text)
+  base  Heartwood's shipped body (verdant greatsword, swing, entangle 2); hurt / apply / resolveHit's count / tickStasis's lock / move's hold and resume; the window tickers stop in a hit stop and run before the hit loops
+  ok    the root has a charge: the design's 15 on the game's clock
+  ok    the fighter carries the root's window
+  ok    the cast opens the window and resolves nothing
+  ok    the window ticks with the window tickers
+  ok    a blow inside the window roots, on the line after its knock
+  ok    tickRootfast keeps the window; rootBlow roots
+  ok    ult   ult:{ name:"Rootfast", charge:13, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:0, tip:"Every blow roots ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-root.html  22f403961e5203a6   (+3128 chars, written LF)
+
+HEARTWOOD / ROOTFAST (REDESIGN) -- stage 3
+  src sc-heartwood-root.html  22f403961e5203a6  (LF text)
+  base  Heartwood's shipped body (verdant greatsword, swing, entangle 2); hurt / apply / resolveHit's count / tickStasis's lock / move's hold and resume; the window tickers stop in a hit stop and run before the hit loops
+  ok    the entangle
+  ok    ult   ult:{ name:"Rootfast", charge:13, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:1, tip:"Every blow roots ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-rootfast.html  cc303b02f2aba1d9   (+0 chars, written LF)
+
+HEARTWOOD / ROOTFAST (REDESIGN) -- stage 5
+  src sc-heartwood-rootfast.html  cc303b02f2aba1d9  (LF text)
+  base  Heartwood's shipped body (verdant greatsword, swing, entangle 2); hurt / apply / resolveHit's count / tickStasis's lock / move's hold and resume; the window tickers stop in a hit stop and run before the hit loops
+  ok    the blade: the measured point nearest 50% both sides (Rick's ruling)
+  ok    ult   ult:{ name:"Rootfast", charge:13, kind:"rootfast", dur:8, rootFor:1.0, extraEnt:1, tip:"Every blow roots ...
+  ok    card  72 chars  'Every blow roots the foe where it stands, ball and weapon, and entangles'
+  ok    one rootfast ultimate, Heartwood's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops, beats or hurts; the added code calls only 4 allowed calls and writes only WRITE_OK; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-heartwood-b11.html  aff84a04b303a402   (-3 chars, written LF)
+
+THE LINKS AGAINST THE REBUILD
+sc-heartwood-stub  link 08b489bafa264c3e  rebuild 08b489bafa264c3e  IDENTICAL
+sc-heartwood-root  link 22f403961e5203a6  rebuild 22f403961e5203a6  IDENTICAL
+sc-heartwood-rootfast  link cc303b02f2aba1d9  rebuild cc303b02f2aba1d9  IDENTICAL
+sc-heartwood-b11  link aff84a04b303a402  rebuild aff84a04b303a402  IDENTICAL
+
+REFUSALS (each must refuse)
+- overwrite a link:
+refusing to overwrite sc-heartwood-b11.html -- a link is written once. Delete it by hand if this is a rebuild.
+- stage 5 on stage 2's link:
+stage 5 goes on stage 3 (the entangle on, blade 12.65), once
+- stage 5 on the final (twice):
+stage 5 goes on stage 3 (the entangle on, blade 12.65), once
+- stage 5 on the base:
+stage 5 needs stage 1 under it
+- stage 1 on the final:
+'ultRoot' is already in the base
+- stage 3 on the base:
+stage 3 needs stage 1 under it
+- a name outside sc-heartwood*:
+refusing sc-other.html: this builder's links are sc-heartwood*
+  refused links written: 0

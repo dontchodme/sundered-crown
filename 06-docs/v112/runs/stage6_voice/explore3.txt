@@ -1,0 +1,19 @@
+dry creak note 534.0362112770019 first/last 690.4833583453178 419.832174446294
+ALONE tendril-root: (29.36680376768642, 206)
+ALONE dry: (2.3241746721936574, 6)
+ALONE hit@11: (18.136981062684445, 7)
+cand              top  aud rate  puls  cen   grn  fall  alone  note n/dry nfall  regs>0.70
+saw100         0.0826  390   35  0.64  418  0.71  -384    0.7    99  0.18    45  emberedge 0.84 paradox-pin 0.83 thornwake 0.79 nightfell 0.79 hit@11 0.77 tendril-root 0.74 dry 0.74
+saw130         0.0824  395   35  0.64  499  0.84  -248    0.4   134  0.25  -333  thornwake 0.85 paradox-pin 0.80 emberedge 0.80 hit@11 0.79 dry 0.77 nightfell 0.76 tendril-root 0.71
+saw160         0.0823  395   35  0.60  575  0.97  -196    0.3   177  0.33    84  thornwake 0.90 dry 0.80 paradox-pin 0.79 hit@11 0.77 vinesower 0.77 emberedge 0.76 nightfell 0.75
+saw200         0.0821  395   35  0.62  670  1.13  -149    0.3   213  0.40   140  thornwake 0.84 dry 0.82 vinesower 0.82 paradox-pin 0.75 emberedge 0.73 nightfell 0.73
+saw130slow     0.0826  370   23  0.82  515  0.87    70    0.5   131  0.25   -35  thornwake 0.86 paradox-pin 0.82 emberedge 0.80 dry 0.78 nightfell 0.78 hit@11 0.77 vinesower 0.71 tendril-root 0.71
+saw130 d20     0.0822  385   35  0.74  486  0.82  -511    0.6   212  0.40   437  thornwake 0.85 paradox-pin 0.82 emberedge 0.80 dry 0.78 nightfell 0.78 hit@11 0.76 tendril-root 0.74 vinesower 0.73
+sq130          0.0826  395   35  0.60  398  0.67  -173    0.9   134  0.25  -337  hit@11 0.87 emberedge 0.80 thornwake 0.79 nightfell 0.75 paradox-pin 0.73
+sq100          0.0826  395   35  0.61  348  0.59  -211    0.8    99  0.18    43  emberedge 0.84 paradox-pin 0.81 nightfell 0.78 hit@11 0.77 death 0.76 tendril-root 0.74 thornwake 0.72 ironwood 0.70
+sawres130 1.2k 0.0823  395   35  0.64  512  0.87  -253    0.6   134  0.25  -333  thornwake 0.85 paradox-pin 0.80 emberedge 0.80 hit@11 0.79 dry 0.77 nightfell 0.76 tendril-root 0.71
+sawres130 600  0.0824  395   35  0.64  502  0.85  -221    0.1   134  0.25  -333  thornwake 0.85 paradox-pin 0.80 emberedge 0.80 hit@11 0.79 dry 0.77 nightfell 0.76 tendril-root 0.71
+saw90          0.0826  395   35  0.61  390  0.66  -331    0.8    99  0.18  -598  emberedge 0.84 paradox-pin 0.83 nightfell 0.80 thornwake 0.79 hit@11 0.77 tendril-root 0.76 dry 0.73 ironwood 0.72
+saw130r        0.0825  390   33  0.63  650  1.10   218    0.8   137  0.26   768  thornwake 0.84 dry 0.83 paradox-pin 0.82 emberedge 0.82 nightfell 0.79 hit@11 0.73 tendril-root 0.71 vinesower 0.70
+resn500 q6     0.0797  390   35  0.63 1709  2.89   -12    0.1  1336  2.50     8  thornshear 0.76 rune-crack 0.74
+resn250 q8     0.0801  390   35  0.68 1060  1.79   -45    0.1   286  0.54   -25  thornwake 0.82 paradox-pin 0.80 dry 0.77 vinesower 0.73

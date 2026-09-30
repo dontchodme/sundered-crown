@@ -1,0 +1,6 @@
+1 GROAN    max 0.89 (redflail-mill); over 0.80: 22 -- redflail-mill 0.89, ironhail 0.89, redflail-break 0.89, foregone-bloom 0.88, gravemourn-fist 0.88
+2 DEEP     max 0.94 (redflail); over 0.80: 13 -- redflail 0.94, redflail-mill 0.92, foregone-bloom 0.86, ravelbone 0.85, shroudmaul 0.85
+3 KNOT     max 0.91 (lastlight-cold); over 0.80: 3 -- lastlight-cold 0.91, cindercleave-jet 0.87, foregone-reverse 0.80, ravelbone-snag 0.79, vesper-pass 0.78
+4 TIMBER   max 0.86 (gravemourn-hand); over 0.80: 8 -- gravemourn-hand 0.86, lastlight-cold 0.86, starwarden 0.83, foregone-reverse 0.83, ironhail 0.82
+5 RISING   max 0.88 (lastlight-cold); over 0.80: 5 -- lastlight-cold 0.88, cindercleave-jet 0.86, foregone-reverse 0.81, gravemourn-hand 0.80, ironhail 0.80
+6 SAP      max 0.90 (lastlight-cold); over 0.80: 3 -- lastlight-cold 0.90, cindercleave-jet 0.86, foregone-reverse 0.80, vesper-pass 0.78, ravelbone-snag 0.78

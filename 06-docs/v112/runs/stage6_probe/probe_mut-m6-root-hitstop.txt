@@ -1,0 +1,17 @@
+
+ROOTFAST PROBE  mut-m6-root-hitstop.html  stage 5  Chromium 151.0.7922.34  444 fights (Heartwood both sides x every foe x 6 seeds)   the row {'charge': 13, 'dur': 8, 'rootFor': 1, 'extraEnt': 1, 'blade': 11}   pinned {'charge': 13, 'dur': 8, 'rootFor': 1.0, 'extraEnt': 1, 'blade': 11.0, 'tip': 'Every blow roots the foe where it stands, ball and weapon, and entangles'}
+  casts/fight 4.31   blows a fight: in windows 16.15 (on the opponent 15.95), outside 11.07   Heartwood win 50.5%
+  per cast: blows rooted 3.67   roots as transitions 2.06   extra entangle 3.67   foe pinned 43.7% of window frames (the lab's read)
+  entangle applied by rooted blows in windows 20905  = 2.97 x blows rooted (the brief's gate: 3 x at stage 3)   killing blows unrooted 143   shade blows rooting Twinshade 88
+  re-roots on a held ball 3087 (under a longer hold 48)   held steps still 730163   held hit loops quiet 728288   FREEZE CENSUS 15.2% of window steps frozen   clock window 960 calls
+  nothing else: 7111 root calls, 108128 ticker calls and 1913 casts snapshotted whole (both fighters, the shades, the match), clean; the opponent's status exactly its applications after 7170 root calls (7027 with an entangle)
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Heartwood's
+  [2] PASS  every blow in the window roots the opponent once (a shade's too); none outside; a killing blow roots nobody
+  [3] PASS  the pin: max(pin, rootFor), pinMax likewise, pinV = the knocked vector iff no longer hold stands
+  [4] PASS  ball and weapon: pinFree untouched; a held ball neither moves nor lands a blow, its weapon locked
+  [5] PASS  the channel's own, then entangle +extraEnt by side letter on every rooted blow; nothing else
+  [6] FAIL  no damage change (every blow rebuilt exactly, in and out); the root and the ticker write nothing else (every field of both fighters, the shades and the match; the opponent's status exactly its applications), no RNG   59 FAIL: ['rootBlow changed m.hitStop: 0.05 -> 0.06', 'rootBlow changed m.hitStop: 0.05 -> 0.06', 'rootBlow changed m.hitStop: 0.05 -> 0.06', 'rootBlow changed m.hitStop: 0.05 -> 0.06']
+  [7] PASS  a cast exactly when the live clock reaches the builder's charge, never with the window open; the row (charge, window, root, entangle, blade) is the stage's
+  [8] PASS  the freeze out: the ult block is the design's keys only; the cast opens the window and resolves nothing (snapshotted whole, no RNG; only the window, the tally, ultsFired and the generic cast's picture)
+
+  7/8

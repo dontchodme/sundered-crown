@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · heartwood (redesign) · 33 foes x 20 seeds = 660 fights an arm · CONTROL ctl-labclock-rootfast block 2207
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/out
+  SHIP    55.6%   0.00  0.00/24.56 
+      census: frozen 0.1384 of lab steps (764650/5525525), 0.0000 in windows (0/0), 0.1384 outside; lab 16 -> engine 13.79
+  660 fights in 88s   errors: []

@@ -1,0 +1,17 @@
+
+ROOTFAST PROBE  mut-x1-freeze-kept.html  stage 5  Chromium 151.0.7922.34  444 fights (Heartwood both sides x every foe x 6 seeds)   the row {'charge': 13, 'dur': 8, 'rootFor': 1, 'extraEnt': 1, 'blade': 11}   pinned {'charge': 13, 'dur': 8, 'rootFor': 1.0, 'extraEnt': 1, 'blade': 11.0, 'tip': 'Every blow roots the foe where it stands, ball and weapon, and entangles'}
+  casts/fight 4.27   blows a fight: in windows 16.23 (on the opponent 16.06), outside 10.99   Heartwood win 59.2%
+  per cast: blows rooted 3.72   roots as transitions 2.10   extra entangle 3.72   foe pinned 44.3% of window frames (the lab's read)
+  entangle applied by rooted blows in windows 20983  = 2.98 x blows rooted (the brief's gate: 3 x at stage 3)   killing blows unrooted 161   shade blows rooting Twinshade 79
+  re-roots on a held ball 3073 (under a longer hold 53)   held steps still 734675   held hit loops quiet 732769   FREEZE CENSUS 14.9% of window steps frozen   clock window 960 calls
+  nothing else: 7208 root calls, 108343 ticker calls and 0 casts snapshotted whole (both fighters, the shades, the match), clean; the entangle record exact on 7208 roots (7047 with the +1 applied)
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Heartwood's
+  [2] PASS  every blow in the window roots the opponent once (a shade's too); none outside; a killing blow roots nobody
+  [3] PASS  the pin: max(pin, rootFor), pinMax likewise, pinV = the knocked vector iff no longer hold stands
+  [4] PASS  ball and weapon: pinFree untouched; a held ball neither moves nor lands a blow, its weapon locked
+  [5] PASS  the channel's own, then entangle +extraEnt by side letter on every rooted blow; nothing else
+  [6] PASS  no damage change (every blow rebuilt exactly, in and out); the root and the ticker write nothing else (every field of both fighters, the shades and the match; the entangle record exactly one apply), no RNG
+  [7] PASS  a cast exactly when the live clock reaches the builder's charge, never with the window open; the row (charge, window, root, entangle, blade) is the stage's
+  [8] FAIL  the freeze out: the ult block is the design's keys only; the cast opens the window and resolves nothing (snapshotted whole, no RNG; only the window, the tally, ultsFired and the generic cast's picture)   1895 FAIL: ["the ult block's keys apply,charge,dmg,dur,extraEnt,freeze,kind,name,radius,rootFor,tip, want charge,dur,extraEnt,kind,name,rootFor,tip (the freeze out)", 'the cast drew the RNG 102x; changed A.dealt: 43 -> 52', 'the cast drew the RNG 102x; changed A.dealt: 75 -> 87', 'the cast ultFx {"w":"heartwood","kind":"rootfast","hit":false}']
+
+  7/8

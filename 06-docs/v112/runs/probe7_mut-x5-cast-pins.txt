@@ -1,0 +1,16 @@
+
+ROOTFAST PROBE  mut-x5-cast-pins.html  stage 5  Chromium 151.0.7922.34  444 fights (Heartwood both sides x every foe x 6 seeds)   the row {'charge': 13, 'dur': 8, 'rootFor': 1, 'extraEnt': 1, 'blade': 11}   pinned {'charge': 13, 'dur': 8, 'rootFor': 1.0, 'extraEnt': 1, 'blade': 11.0}
+  casts/fight 4.36   blows a fight: in windows 16.71 (on the opponent 16.54), outside 11.26   Heartwood win 59.7%
+  per cast: blows rooted 3.74   roots as transitions 1.67   extra entangle 3.74   foe pinned 56.8% of window frames (the lab's read)
+  entangle applied by rooted blows in windows 21602  = 2.98 x blows rooted (the brief's gate: 3 x at stage 3)   killing blows unrooted 169   shade blows rooting Twinshade 74
+  re-roots on a held ball 4008 (under a longer hold 305)   held steps still 759326   held hit loops quiet 757443   FREEZE CENSUS 14.7% of window steps frozen   clock window 960 calls
+  nothing else: 7419 root calls and 111484 ticker calls snapshotted whole (both fighters, the shades, the match), clean
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Heartwood's
+  [2] PASS  every blow in the window roots the opponent once (a shade's too); none outside; a killing blow roots nobody
+  [3] PASS  the pin: max(pin, rootFor), pinMax likewise, pinV = the knocked vector iff no longer hold stands
+  [4] PASS  ball and weapon: pinFree untouched; a held ball neither moves nor lands a blow, its weapon locked
+  [5] PASS  the channel's own, then entangle +extraEnt by side letter on every rooted blow; nothing else
+  [6] PASS  no damage change (every blow rebuilt exactly, in and out); the root and the ticker write nothing else (every field of both fighters, the shades and the match), no RNG
+  [7] PASS  a cast exactly when the live clock reaches the builder's charge, never with the window open; the row (charge, window, root, entangle, blade) is the stage's
+
+  7/7

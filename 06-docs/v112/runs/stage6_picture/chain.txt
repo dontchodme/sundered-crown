@@ -1,0 +1,89 @@
+voice rows: C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\heartwood\stage6-voice\rows_final.json 2
+=== chain_tip_t3.html (491255209477c435)
+(9 insert(s) found in hw_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  hw-final-fx.html
+tip    chain_tip_t3.html
+9 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\heartwood\stage6-picture\hw_table.py
+
+    ok  ROWS:rootfast picture: fighter fields relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the presentation call relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: tickGrove relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the ground call (world, under both balls) relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the blade's hook in drawWeapon relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the drawing methods relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the freeze's root plate retired relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the freeze's cage retired relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the cast record's life relic  1  mid   -  tip  1
+
+ALL 9 INSERTS SURVIVE to chain_tip_t3.html
+(3 of them are marked by COMMENT text -- the code they add is shorter than the floor: ROWS:rootfast picture: the freeze's root plate retired, ROWS:rootfast picture: the freeze's cage retired, ROWS:rootfast picture: the cast record's life)
+exit 0
+=== chain_tip_tendrilfx.html (d3e433044b0c71a8)
+(9 insert(s) found in hw_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  hw-final-fx.html
+tip    chain_tip_tendrilfx.html
+9 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\heartwood\stage6-picture\hw_table.py
+
+    ok  ROWS:rootfast picture: fighter fields relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the presentation call relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: tickGrove relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the ground call (world, under both balls) relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the blade's hook in drawWeapon relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the drawing methods relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the freeze's root plate retired relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the freeze's cage retired relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the cast record's life relic  1  mid   -  tip  1
+
+ALL 9 INSERTS SURVIVE to chain_tip_tendrilfx.html
+(3 of them are marked by COMMENT text -- the code they add is shorter than the floor: ROWS:rootfast picture: the freeze's root plate retired, ROWS:rootfast picture: the freeze's cage retired, ROWS:rootfast picture: the cast record's life)
+exit 0
+=== chain_tip_sbfxout.html (4bd1e529e6bd077c)
+(9 insert(s) found in hw_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  hw-final-fx.html
+tip    chain_tip_sbfxout.html
+9 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\heartwood\stage6-picture\hw_table.py
+
+    ok  ROWS:rootfast picture: fighter fields relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the presentation call relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: tickGrove relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the ground call (world, under both balls) relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the blade's hook in drawWeapon relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the drawing methods relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the freeze's root plate retired relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the freeze's cage retired relic  1  mid   -  tip  1
+    ok  ROWS:rootfast picture: the cast record's life relic  1  mid   -  tip  1
+
+ALL 9 INSERTS SURVIVE to chain_tip_sbfxout.html
+(3 of them are marked by COMMENT text -- the code they add is shorter than the floor: ROWS:rootfast picture: the freeze's root plate retired, ROWS:rootfast picture: the freeze's cage retired, ROWS:rootfast picture: the cast record's life)
+exit 0
+=== CONTROL (must report LOST): sc-heartwood-b11.html (aff84a04b303a402)
+(9 insert(s) found in hw_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  hw-final-fx.html
+tip    sc-heartwood-b11.html
+9 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\heartwood\stage6-picture\hw_table.py
+
+  LOST  ROWS:rootfast picture: fighter fields relic  1  mid   -  tip  0
+        'this.groveMoteAcc = 0;'
+  LOST  ROWS:rootfast picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickGrove(dt);                 // ROOTFAST'S PICTURE (v85 section 4)"
+  LOST  ROWS:rootfast picture: tickGrove relic  1  mid   -  tip  0
+        'f.groveMotes.push({ x: B.x + B.ux * x - B.uy * y, y: B.y + B.uy * x + B.ux * y, t: 0, n:'
+  LOST  ROWS:rootfast picture: the ground call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawGrove(m);'
+  LOST  ROWS:rootfast picture: the blade's hook in drawWeapon relic  1  mid   -  tip  0
+        'if (f.groveFade > 0 && f.w.shape === "greatsword") this._groveBlade(c, m, f, reach + 6, '
+  LOST  ROWS:rootfast picture: the drawing methods relic  1  mid   -  tip  0
+        'c.beginPath(); c.moveTo(L * 0.24, -W * 0.012); c.lineTo(Math.min(xB, L * 0.94), -W * 0.0'
+  LOST  ROWS:rootfast picture: the freeze's root plate retired relic  1  mid   -  tip  0
+        "the quarry at the cast, over the record's 2.2); retired with it (v85,"
+  LOST  ROWS:rootfast picture: the freeze's cage retired relic  1  mid   -  tip  0
+        'stage 6). The cast is the blade greening hilt to tip (`_groveBlade`). */'
+  LOST  ROWS:rootfast picture: the cast record's life relic  1  mid   -  tip  0
+        "above is Bramblesnare's alone. The cast's record falls to the map's"
+
+!! 9 INSERT(S) DID NOT SURVIVE THE CHAIN: ROWS:rootfast picture: fighter fields, ROWS:rootfast picture: the presentation call, ROWS:rootfast picture: tickGrove, ROWS:rootfast picture: the ground call (world, under both balls), ROWS:rootfast picture: the blade's hook in drawWeapon, ROWS:rootfast picture: the drawing methods, ROWS:rootfast picture: the freeze's root plate retired, ROWS:rootfast picture: the freeze's cage retired, ROWS:rootfast picture: the cast record's life
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it � liquid_build's `replace_span` calls are the
+   usual cause � and move the insert outside it.
+exit 1
+CHAIN AUDIT: PASS (3 tips survive, the control fails)

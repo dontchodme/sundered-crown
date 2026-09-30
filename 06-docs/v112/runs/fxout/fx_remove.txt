@@ -1,0 +1,11 @@
+
+FX REMOVE -- heartwood's particle field out of both copies
+  src sc-heartwood-b11-fx.html  5cc323540b8ad132
+  the block, removed whole:
+    |     heartwood: { mode: 'fall', n: 1050, sp: [30, 120], grav: 110, drag: 1.0,
+    |                  life: [0.80, 1.70], heavy: 0.02, size: [0.6, 1.9],
+    |                  spawn: 0.85, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp d08802c3e71e9f2b -> e07b60fee7425662
+  wrote sc-heartwood-fxout.html  d692f6a014bf5a69
+  wrote src/render/fx.js  e07b60fee7425662
+exit 0

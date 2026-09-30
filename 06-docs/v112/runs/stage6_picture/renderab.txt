@@ -1,0 +1,26 @@
+== stamp: sc-heartwood-b11.html vs hw-final-fx.html
+  lightkeeper:grudgebearer 31337: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  dawnbringer:axiom 4101: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  oathwound:emberedge 2207: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  nightfell:spellbreaker 1234: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  bindweed:paradox 2317: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  thornwake:gravemourn 99015: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  ironwood:thornshear 4242: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  vinesower:lastlight 5150: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  paradox:twinshade 90210: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  CONTROL heartwood:spellbreaker 2207: 1/6 pixel-identical  (window up at [False, True, True, True, True, True])
+  CONTROL gravemourn:heartwood 99015: 1/6 pixel-identical  (window up at [False, True, True, True, True, True])
+== tip: hw-on-sc-tendril-fx.html vs hw-tip-fx.html
+  lightkeeper:grudgebearer 31337: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  dawnbringer:axiom 4101: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  oathwound:emberedge 2207: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  nightfell:spellbreaker 1234: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  bindweed:paradox 2317: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  thornwake:gravemourn 99015: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  ironwood:thornshear 4242: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  vinesower:lastlight 5150: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  paradox:twinshade 90210: 6/6 pixel-identical  (window up at [False, False, False, False, False, False])
+  CONTROL heartwood:spellbreaker 2207: 1/6 pixel-identical  (window up at [False, True, True, True, True, True])
+  CONTROL gravemourn:heartwood 99015: 1/6 pixel-identical  (window up at [False, True, True, True, True, True])
+OTHER RELICS: 108/108 pixel-identical; CONTROLS differ
+exit 0

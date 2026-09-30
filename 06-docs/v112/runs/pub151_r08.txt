@@ -1,0 +1,7 @@
+34 relics · Chromium 151.0.7922.34 · heartwood (redesign) · 33 foes x 10 seeds = 330 fights an arm · published rootfast_r08 replayed on 151
+  charge=16.0 dur=8.0 blade=None rootFor=0.8
+
+  arm       win  casts  hits in/out      entf_pinnedPct    roots
+  C       52.7%   3.82 11.65/12.42      2.97    35.28     2.97
+      census: frozen 0.1345 of lab steps (368071/2736997), 0.1483 in windows (167605/1130467), 0.1248 outside; lab 16 -> engine 13.85
+  330 fights in 38s   errors: []

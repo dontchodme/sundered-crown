@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-heartwood-b11.html             36 matches    4.7s
+  mut-s6-grove-sim.html             36 matches    5.5s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 13 differ
+          #0
+            control {"seed": 1233799701, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 44, "duration": 71.27, "reason": "slain", "hits": {"a": 27, "b": 11}, "crits": {"a": 3, "b": 1}, "clanks": 29}
+            variant {"seed": 1233799701, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 197, "duration": 73.86, "reason": "slain", "hits": {"a": 30, "b": 9}, "crits": {"a": 3, "b": 0}, "clanks": 33}
+          #1
+            control {"seed": 330441002, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 90, "duration": 74.29, "reason": "slain", "hits": {"a": 27, "b": 7}, "crits": {"a": 3, "b": 2}, "clanks": 26}
+            variant {"seed": 330441002, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 128, "duration": 79.11, "reason": "slain", "hits": {"a": 30, "b": 8}, "crits": {"a": 1, "b": 1}, "clanks": 31}
+          #2
+            control {"seed": 4184808219, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 73, "duration": 76.13, "reason": "slain", "hits": {"a": 25, "b": 9}, "crits": {"a": 5, "b": 0}, "clanks": 34}
+            variant {"seed": 4184808219, "a": "Heartwood", "b": "Grudgebearer", "winner": "Heartwood", "hp": 174, "duration": 76.16, "reason": "slain", "hits": {"a": 29, "b": 8}, "crits": {"a": 2, "b": 0}, "clanks": 36}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 21.6-78.0s
+
+ENGINE A/B FAIL
