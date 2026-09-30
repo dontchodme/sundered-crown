@@ -1,0 +1,137 @@
+{
+ "link": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/spellbreaker/links/sc-spellbreaker-b7.5.html",
+ "args": {
+  "link": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/spellbreaker/links/sc-spellbreaker-b7.5.html",
+  "tag": "b75",
+  "outdir": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/audio_trace",
+  "a": "spellbreaker",
+  "b": "vesper",
+  "seed": 111075,
+  "at": 77.98,
+  "window": 12.77,
+  "fps": 60,
+  "w": 540,
+  "verdict_hold": 2.4,
+  "seeds": "none,none,1,1"
+ },
+ "init": {
+  "seed": 111075,
+  "t": 77.98333333334146,
+  "kill": null
+ },
+ "frames": 766,
+ "dur": 12.766666666666667,
+ "fight": {
+  "over": null,
+  "t": 90.75,
+  "clanks": 37,
+  "hp": [
+   132,
+   123.4
+  ]
+ },
+ "n_events": 108,
+ "renders": [
+  {
+   "k": 0,
+   "seed": "none",
+   "wav": "b75_r0_none.wav",
+   "wav_sha16": "758376739f046f61",
+   "random_calls": 304896,
+   "float_bufs": [
+    {
+     "sr": 44100,
+     "len": 739412,
+     "ch": [
+      "b78c8b0e74218df5",
+      "b78c8b0e74218df5"
+     ]
+    },
+    {
+     "sr": 48000,
+     "len": 776000,
+     "ch": [
+      "71cd4480833b996a",
+      "71cd4480833b996a"
+     ]
+    }
+   ]
+  },
+  {
+   "k": 1,
+   "seed": "none",
+   "wav": "b75_r1_none.wav",
+   "wav_sha16": "b99d372e3c2b888c",
+   "random_calls": 304896,
+   "float_bufs": [
+    {
+     "sr": 44100,
+     "len": 739412,
+     "ch": [
+      "322e1466cc295f45",
+      "322e1466cc295f45"
+     ]
+    },
+    {
+     "sr": 48000,
+     "len": 776000,
+     "ch": [
+      "63c9d79d20c9e3e8",
+      "63c9d79d20c9e3e8"
+     ]
+    }
+   ]
+  },
+  {
+   "k": 2,
+   "seed": "1",
+   "wav": "b75_r2_1.wav",
+   "wav_sha16": "d7e2be52504eae20",
+   "random_calls": 304896,
+   "float_bufs": [
+    {
+     "sr": 44100,
+     "len": 739412,
+     "ch": [
+      "877556995b0df319",
+      "877556995b0df319"
+     ]
+    },
+    {
+     "sr": 48000,
+     "len": 776000,
+     "ch": [
+      "32d15752cf0b7d70",
+      "32d15752cf0b7d70"
+     ]
+    }
+   ]
+  },
+  {
+   "k": 3,
+   "seed": "1",
+   "wav": "b75_r3_1.wav",
+   "wav_sha16": "3b2beffe30ea51ea",
+   "random_calls": 304896,
+   "float_bufs": [
+    {
+     "sr": 44100,
+     "len": 739412,
+     "ch": [
+      "23c6acad20feaf1a",
+      "23c6acad20feaf1a"
+     ]
+    },
+    {
+     "sr": 48000,
+     "len": 776000,
+     "ch": [
+      "bac6cbf114fd820d",
+      "bac6cbf114fd820d"
+     ]
+    }
+   ]
+  }
+ ],
+ "errors": []
+}

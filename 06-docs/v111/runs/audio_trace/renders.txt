@@ -1,0 +1,34 @@
+b75: 766 frames (12.767 s video), fight {'over': None, 't': 90.75, 'clanks': 37, 'hp': [132, 123.4]}, 140s
+  render 0 seed=none: wav 758376739f046f61  Math.random calls 304896  float32 44100Hz x739412 b78c8b0e74218df5,b78c8b0e74218df5 | 48000Hz x776000 71cd4480833b996a,71cd4480833b996a
+  render 1 seed=none: wav b99d372e3c2b888c  Math.random calls 304896  float32 44100Hz x739412 322e1466cc295f45,322e1466cc295f45 | 48000Hz x776000 63c9d79d20c9e3e8,63c9d79d20c9e3e8
+  render 2 seed=1: wav d7e2be52504eae20  Math.random calls 304896  float32 44100Hz x739412 877556995b0df319,877556995b0df319 | 48000Hz x776000 32d15752cf0b7d70,32d15752cf0b7d70
+  render 3 seed=1: wav 3b2beffe30ea51ea  Math.random calls 304896  float32 44100Hz x739412 23c6acad20feaf1a,23c6acad20feaf1a | 48000Hz x776000 bac6cbf114fd820d,bac6cbf114fd820d
+b75: done in 152s; page errors 0
+fx: 766 frames (12.767 s video), fight {'over': None, 't': 90.75, 'clanks': 37, 'hp': [132, 123.4]}, 146s
+  render 0 seed=none: wav 4ab217631462f1a8  Math.random calls 304896  float32 44100Hz x739412 5cf22a83dc27fac4,5cf22a83dc27fac4 | 48000Hz x776000 b7e00d876b5950c8,b7e00d876b5950c8
+  render 1 seed=none: wav 3bce41c3699058ae  Math.random calls 304896  float32 44100Hz x739412 1ff9a19c92565d18,1ff9a19c92565d18 | 48000Hz x776000 fadb90ea7207db49,fadb90ea7207db49
+  render 2 seed=1: wav ca2fa0b40ffb68d3  Math.random calls 304896  float32 44100Hz x739412 487afa1237935cd1,487afa1237935cd1 | 48000Hz x776000 08166642e674b402,08166642e674b402
+  render 3 seed=1: wav 94550052c9d0ec28  Math.random calls 304896  float32 44100Hz x739412 d2088acf3de0f1f8,d2088acf3de0f1f8 | 48000Hz x776000 090b50d82827def7,090b50d82827def7
+fx: done in 213s; page errors 0
+b75v: 766 frames (12.767 s video), fight {'over': None, 't': 90.75, 'clanks': 37, 'hp': [132, 123.4]}, 142s
+  render 0 seed=1 events=108: wav f007607694fe966d  Math.random calls 304896  float32 44100Hz x739412 c2b1f24666f32245,c2b1f24666f32245 | 48000Hz x776000 68d3b9dc7e01666a,68d3b9dc7e01666a
+  render 1 seed=1_drop-spellbreaker events=107: wav 6a1aab864eb3565f  Math.random calls 304896  float32 44100Hz x739412 e9cdfb6404bc28b6,e9cdfb6404bc28b6 | 48000Hz x776000 5853bb16a6338c2d,5853bb16a6338c2d
+b75v: done in 149s; page errors 0
+fxv: 766 frames (12.767 s video), fight {'over': None, 't': 90.75, 'clanks': 37, 'hp': [132, 123.4]}, 148s
+  render 0 seed=1 events=135: wav fdc48a4f76bbf447  Math.random calls 304896  float32 44100Hz x739412 9a8487fda4b512d3,9a8487fda4b512d3 | 48000Hz x776000 8e223db6a8149550,8e223db6a8149550
+  render 1 seed=1_drop-spellbreaker-stun-spellbreaker-close events=108: wav d857f297cbb01535  Math.random calls 304896  float32 44100Hz x739412 cacf583f24ce3321,cacf583f24ce3321 | 48000Hz x776000 86f1fbff36a3d44c,86f1fbff36a3d44c
+  render 2 seed=1_drop-spellbreaker-spellbreaker-stun-spellbreaker-close events=107: wav a7fc2da5a564bff6  Math.random calls 304896  float32 44100Hz x739412 341f5ed9d7295032,341f5ed9d7295032 | 48000Hz x776000 f8bed177c704523d,f8bed177c704523d
+fxv: done in 167s; page errors 0
+rb75: 766 frames (12.767 s video), fight {'over': None, 't': 90.75, 'clanks': 37, 'hp': [132, 123.4]}, 143s
+  render 0 seed=1 events=108: wav 32e06f8cde3cc551  Math.random calls 304896  float32 44100Hz x739412 75d622a1cabedfe3,75d622a1cabedfe3 | 48000Hz x776000 30a9639c735e62c0,30a9639c735e62c0
+  render 1 seed=1_free-0-249636 events=108: wav 6dc813dcdc73129b  Math.random calls 304896  float32 44100Hz x739412 8b9a703cc22df81c,8b9a703cc22df81c | 48000Hz x776000 372a4c32ebf905b3,372a4c32ebf905b3
+  render 2 seed=1_free-0-249636 events=108: wav 93aa875ccb420efb  Math.random calls 304896  float32 44100Hz x739412 21c052ab1f495b00,21c052ab1f495b00 | 48000Hz x776000 f3841c20ce5726f8,f3841c20ce5726f8
+  render 3 seed=1_free-249636-278436 events=108: wav 2bdc53fa6f9b3676  Math.random calls 304896  float32 44100Hz x739412 03817a913808534d,03817a913808534d | 48000Hz x776000 fb806bca803e8370,fb806bca803e8370
+  render 4 seed=1_free-249636-278436 events=108: wav cbe33f53615c95c4  Math.random calls 304896  float32 44100Hz x739412 f50972c0776adf78,f50972c0776adf78 | 48000Hz x776000 8bfc38015701f039,8bfc38015701f039
+  render 5 seed=1_free-278436-304896 events=108: wav 618f58e8ae9d223a  Math.random calls 304896  float32 44100Hz x739412 098289627f476df4,098289627f476df4 | 48000Hz x776000 1b44c3bacd7b045c,1b44c3bacd7b045c
+  render 6 seed=1_free-278436-304896 events=108: wav 60c462cefb0209bd  Math.random calls 304896  float32 44100Hz x739412 32933dd64a5a41f5,32933dd64a5a41f5 | 48000Hz x776000 5cefb2e96a4d18b4,5cefb2e96a4d18b4
+rb75: done in 167s; page errors 0
+rfx: 766 frames (12.767 s video), fight {'over': None, 't': 90.75, 'clanks': 37, 'hp': [132, 123.4]}, 150s
+  render 0 seed=1 events=135: wav d3476d8bed6ccdf3  Math.random calls 304896  float32 44100Hz x739412 9fda783029ef3be2,9fda783029ef3be2 | 48000Hz x776000 b78fd130680b9196,b78fd130680b9196
+  render 1 seed=none events=135: wav 2cfd3c8a58d11048  Math.random calls 304896  float32 44100Hz x739412 9164185d970d6777,9164185d970d6777 | 48000Hz x776000 0bf2b3202b0f783c,0bf2b3202b0f783c
+rfx: done in 188s; page errors 0

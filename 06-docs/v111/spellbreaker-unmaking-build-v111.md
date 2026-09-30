@@ -1241,3 +1241,21 @@ so the gates after engine_ab were stopped and re-run at 03:05 by `fxout_rest.sh`
 whatevers best for balance" -- every batch blade is settled in one balance pass on the final roster
 (the point nearest 50% both sides), which will choose among 7.5, the 50% crossing 7.7 and the row's
 floor 8.3 as measured there.
+
+## 8. The "-40 dB broadband" clip-audio difference: traced, a render artefact
+
+§5 recorded, untraced, that the fx clip's audio differed from the base clip's by about -40 dB everywhere,
+even before the cast. Traced 2026-09-30 (`runs/audio_trace/findings.md`, `readings.txt`):
+
+- **It is `Math.random`, not the build.** `Sfx._noiseBuffer()` fills the burst voices' noise with it, and
+  `cinema_clip.py`'s `renderAudio` builds a fresh buffer per render. Two renders of ONE link differ the same
+  way (-43.3 / -34.2 dBFS before the cast; the fx-vs-base pair read -43.6 / -36.4).
+- **With `Math.random` pinned**, the stage-5 and stage-6 links render within 1 LSB of each other until 6 ms
+  after the cast.
+- **No shared voice changed:** the `Sfx` diff is three added arms and nothing removed, and the 107 shared
+  events synthesise within 1 LSB. The only differences are the designed stage-6 voices.
+- The stun-tail finding stands (25 of 26 heard). The 5.0 dB "no-voice spread" they were measured against
+  was noise plus AAC scatter; on pinned PCM it is about 0.2 dB, so they stand out further than §5 says.
+
+Pinning the render's noise in `cinema_clip.py` would make clip audio repeatable. It is not applied here:
+the tool is shared, and the change is optional.

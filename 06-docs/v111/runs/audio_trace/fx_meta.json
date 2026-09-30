@@ -1,0 +1,137 @@
+{
+ "link": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/spellbreaker/links/sc-spellbreaker-b7.5-fx.html",
+ "args": {
+  "link": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/spellbreaker/links/sc-spellbreaker-b7.5-fx.html",
+  "tag": "fx",
+  "outdir": "C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/audio_trace",
+  "a": "spellbreaker",
+  "b": "vesper",
+  "seed": 111075,
+  "at": 77.98,
+  "window": 12.77,
+  "fps": 60,
+  "w": 540,
+  "verdict_hold": 2.4,
+  "seeds": "none,none,1,1"
+ },
+ "init": {
+  "seed": 111075,
+  "t": 77.98333333334146,
+  "kill": null
+ },
+ "frames": 766,
+ "dur": 12.766666666666667,
+ "fight": {
+  "over": null,
+  "t": 90.75,
+  "clanks": 37,
+  "hp": [
+   132,
+   123.4
+  ]
+ },
+ "n_events": 135,
+ "renders": [
+  {
+   "k": 0,
+   "seed": "none",
+   "wav": "fx_r0_none.wav",
+   "wav_sha16": "4ab217631462f1a8",
+   "random_calls": 304896,
+   "float_bufs": [
+    {
+     "sr": 44100,
+     "len": 739412,
+     "ch": [
+      "5cf22a83dc27fac4",
+      "5cf22a83dc27fac4"
+     ]
+    },
+    {
+     "sr": 48000,
+     "len": 776000,
+     "ch": [
+      "b7e00d876b5950c8",
+      "b7e00d876b5950c8"
+     ]
+    }
+   ]
+  },
+  {
+   "k": 1,
+   "seed": "none",
+   "wav": "fx_r1_none.wav",
+   "wav_sha16": "3bce41c3699058ae",
+   "random_calls": 304896,
+   "float_bufs": [
+    {
+     "sr": 44100,
+     "len": 739412,
+     "ch": [
+      "1ff9a19c92565d18",
+      "1ff9a19c92565d18"
+     ]
+    },
+    {
+     "sr": 48000,
+     "len": 776000,
+     "ch": [
+      "fadb90ea7207db49",
+      "fadb90ea7207db49"
+     ]
+    }
+   ]
+  },
+  {
+   "k": 2,
+   "seed": "1",
+   "wav": "fx_r2_1.wav",
+   "wav_sha16": "ca2fa0b40ffb68d3",
+   "random_calls": 304896,
+   "float_bufs": [
+    {
+     "sr": 44100,
+     "len": 739412,
+     "ch": [
+      "487afa1237935cd1",
+      "487afa1237935cd1"
+     ]
+    },
+    {
+     "sr": 48000,
+     "len": 776000,
+     "ch": [
+      "08166642e674b402",
+      "08166642e674b402"
+     ]
+    }
+   ]
+  },
+  {
+   "k": 3,
+   "seed": "1",
+   "wav": "fx_r3_1.wav",
+   "wav_sha16": "94550052c9d0ec28",
+   "random_calls": 304896,
+   "float_bufs": [
+    {
+     "sr": 44100,
+     "len": 739412,
+     "ch": [
+      "d2088acf3de0f1f8",
+      "d2088acf3de0f1f8"
+     ]
+    },
+    {
+     "sr": 48000,
+     "len": 776000,
+     "ch": [
+      "090b50d82827def7",
+      "090b50d82827def7"
+     ]
+    }
+   ]
+  }
+ ],
+ "errors": []
+}

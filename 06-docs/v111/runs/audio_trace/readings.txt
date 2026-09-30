@@ -1,0 +1,267 @@
+=== A. PAIRS, whole track (renderAudio's 16-bit PCM unless marked AAC) ===
+integrator's pair (AAC decodes): fx clip vs b7.5 clip  A=clipwork/clip.wav  B=clipwork/base.wav
+  613376 frames x 1 ch at 48000 Hz (12.779 s); len A 613376 B 613376
+  samples that differ: 584294 of 613376 (95.3%); first at 0.2574 s (match 78.241); max |A-B| 0.92789 (-0.7 dBFS)
+  whole track: rms A -20.9 dBFS, rms B -20.9, rms(A-B) -32.6 dBFS = -11.7 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -25.6 dB   (  0.8%)
+      100-300   Hz   -23.5 dB   (  4.8%)
+      300-1000  Hz    -9.8 dB   (  7.1%)
+     1000-3000  Hz    +1.1 dB   ( 44.9%)
+     3000-8000  Hz    +0.8 dB   ( 24.6%)
+     8000-24000 Hz    +2.8 dB   ( 17.8%)
+NULL, Math.random free: b7.5 vs b7.5 (one page, one event list, two renders)  A=b75_r0_none.wav  B=b75_r1_none.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 329917 of 776000 (42.5%); first at 0.2393 s (match 78.223); max |A-B| 0.59399 (-4.5 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -37.7 dBFS = -16.6 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -35.6 dB   (  0.3%)
+      100-300   Hz   -35.3 dB   (  0.9%)
+      300-1000  Hz   -25.3 dB   (  0.6%)
+     1000-3000  Hz    -9.3 dB   (  8.9%)
+     3000-8000  Hz    -0.3 dB   ( 27.4%)
+     8000-24000 Hz    +1.5 dB   ( 61.9%)
+NULL, Math.random free: fx vs fx  A=fx_r0_none.wav  B=fx_r1_none.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 535445 of 776000 (69.0%); first at 0.2393 s (match 78.223); max |A-B| 0.75018 (-2.5 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -35.3 dBFS = -14.2 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -33.8 dB   (  0.2%)
+      100-300   Hz   -29.6 dB   (  2.0%)
+      300-1000  Hz   -19.1 dB   (  1.4%)
+     1000-3000  Hz    -3.2 dB   ( 20.8%)
+     3000-8000  Hz    -0.0 dB   ( 36.0%)
+     8000-24000 Hz    +3.1 dB   ( 39.6%)
+NULL, Math.random pinned: b7.5 vs b7.5  A=b75_r2_1.wav  B=b75_r3_1.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 337 of 776000 (0.0%); first at 0.4078 s (match 78.391); max |A-B| 0.00003 (-90.3 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -123.9 dBFS = -102.8 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz  -120.1 dB   (  0.4%)
+      100-300   Hz  -121.7 dB   (  0.9%)
+      300-1000  Hz  -104.4 dB   (  3.0%)
+     1000-3000  Hz   -95.9 dB   (  8.3%)
+     3000-8000  Hz   -88.1 dB   ( 20.7%)
+     8000-24000 Hz   -85.2 dB   ( 66.6%)
+NULL, Math.random pinned, two page loads: b7.5  A=b75v_r0_1.wav  B=b75_r2_1.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 309 of 776000 (0.0%); first at 0.4442 s (match 78.428); max |A-B| 0.00003 (-90.3 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -124.3 dBFS = -103.2 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz  -120.6 dB   (  0.4%)
+      100-300   Hz  -122.3 dB   (  0.8%)
+      300-1000  Hz  -104.8 dB   (  3.0%)
+     1000-3000  Hz   -96.3 dB   (  8.3%)
+     3000-8000  Hz   -88.5 dB   ( 20.6%)
+     8000-24000 Hz   -85.5 dB   ( 66.8%)
+NULL, Math.random pinned, two page loads: fx  A=fxv_r0_1.wav  B=fx_r2_1.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 317 of 776000 (0.0%); first at 0.4078 s (match 78.391); max |A-B| 0.00003 (-90.3 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -124.2 dBFS = -103.1 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz  -120.6 dB   (  0.4%)
+      100-300   Hz  -122.1 dB   (  0.9%)
+      300-1000  Hz  -104.5 dB   (  3.0%)
+     1000-3000  Hz   -96.4 dB   (  8.4%)
+     3000-8000  Hz   -91.3 dB   ( 20.6%)
+     8000-24000 Hz   -85.2 dB   ( 66.7%)
+BUILD, Math.random free: fx vs b7.5  A=fx_r0_none.wav  B=b75_r0_none.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 560924 of 776000 (72.3%); first at 0.2393 s (match 78.223); max |A-B| 0.99081 (-0.1 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -33.3 dBFS = -12.2 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -27.9 dB   (  0.6%)
+      100-300   Hz   -23.8 dB   (  4.8%)
+      300-1000  Hz    -9.8 dB   (  7.3%)
+     1000-3000  Hz    +1.4 dB   ( 37.1%)
+     3000-8000  Hz    +0.4 dB   ( 24.9%)
+     8000-24000 Hz    +3.1 dB   ( 25.2%)
+BUILD, Math.random pinned: fx vs b7.5  A=fx_r2_1.wav  B=b75_r2_1.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 471635 of 776000 (60.8%); first at 0.4078 s (match 78.391); max |A-B| 0.70959 (-3.0 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -35.2 dBFS = -14.1 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -29.3 dB   (  0.7%)
+      100-300   Hz   -25.1 dB   (  5.5%)
+      300-1000  Hz   -10.3 dB   (  9.9%)
+     1000-3000  Hz    +0.7 dB   ( 55.4%)
+     3000-8000  Hz    -2.0 dB   ( 22.2%)
+     8000-24000 Hz    -6.5 dB   (  6.4%)
+BUILD, pinned, repo 02-chain links: fx vs b7.5  A=rfx_r0_1.wav  B=rb75_r0_1.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 471638 of 776000 (60.8%); first at 0.4078 s (match 78.391); max |A-B| 0.70959 (-3.0 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -35.2 dBFS = -14.1 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -29.3 dB   (  0.7%)
+      100-300   Hz   -25.1 dB   (  5.5%)
+      300-1000  Hz   -10.3 dB   (  9.9%)
+     1000-3000  Hz    +0.7 dB   ( 55.4%)
+     3000-8000  Hz    -2.0 dB   ( 22.2%)
+     8000-24000 Hz    -6.5 dB   (  6.4%)
+SHARED VOICES, pinned: fx synth vs b7.5 synth on the same 107 events (cast, stuns, close left out)  A=fxv_r2_1_drop-spellbreaker-spellbreaker-stun-spellbreaker-close.wav  B=b75v_r1_1_drop-spellbreaker.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 306 of 776000 (0.0%); first at 0.3629 s (match 78.346); max |A-B| 0.00003 (-90.3 dBFS)
+  whole track: rms A -21.2 dBFS, rms B -21.2, rms(A-B) -124.4 dBFS = -103.2 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz  -120.4 dB   (  0.4%)
+      100-300   Hz  -122.5 dB   (  0.8%)
+      300-1000  Hz  -104.5 dB   (  3.0%)
+     1000-3000  Hz   -92.5 dB   (  8.5%)
+     3000-8000  Hz   -87.9 dB   ( 20.5%)
+     8000-24000 Hz   -84.9 dB   ( 66.7%)
+CAST ONLY, pinned: fx synth vs b7.5 synth on the same 108 events (stuns, close left out)  A=fxv_r1_1_drop-spellbreaker-stun-spellbreaker-close.wav  B=b75v_r0_1.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 34477 of 776000 (4.4%); first at 0.5309 s (match 78.514); max |A-B| 0.70959 (-3.0 dBFS)
+  whole track: rms A -21.2 dBFS, rms B -21.1, rms(A-B) -38.5 dBFS = -17.3 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -37.6 dB   (  0.2%)
+      100-300   Hz   -27.5 dB   (  6.8%)
+      300-1000  Hz   -11.5 dB   ( 15.8%)
+     1000-3000  Hz    +1.4 dB   ( 61.2%)
+     3000-8000  Hz    -7.4 dB   (  6.2%)
+     8000-24000 Hz    -7.7 dB   (  9.8%)
+WHICH RANDOM, b7.5 repo link: only the hall's impulse response free (calls 0-249635)  A=rb75_r1_1_free-0-249636.wav  B=rb75_r2_1_free-0-249636.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 311 of 776000 (0.0%); first at 0.4797 s (match 78.463); max |A-B| 0.00003 (-90.3 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -124.3 dBFS = -103.2 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz  -120.3 dB   (  0.4%)
+      100-300   Hz  -122.2 dB   (  0.9%)
+      300-1000  Hz  -104.6 dB   (  3.1%)
+     1000-3000  Hz   -96.2 dB   (  8.5%)
+     3000-8000  Hz   -88.5 dB   ( 20.4%)
+     8000-24000 Hz   -85.5 dB   ( 66.8%)
+WHICH RANDOM: only the synth's noise buffer free (calls 249636-278435)  A=rb75_r3_1_free-249636-278436.wav  B=rb75_r4_1_free-249636-278436.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 303132 of 776000 (39.1%); first at 0.2393 s (match 78.223); max |A-B| 1.77173 (5.0 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -35.5 dBFS = -14.3 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -35.0 dB   (  0.2%)
+      100-300   Hz   -33.1 dB   (  0.9%)
+      300-1000  Hz   -18.5 dB   (  1.7%)
+     1000-3000  Hz    -6.8 dB   (  9.8%)
+     3000-8000  Hz    +1.0 dB   ( 21.9%)
+     8000-24000 Hz    +4.6 dB   ( 65.5%)
+WHICH RANDOM: only the bed's noise buffer free (calls 278436-304895)  A=rb75_r5_1_free-278436-304896.wav  B=rb75_r6_1_free-278436-304896.wav
+  776000 frames x 2 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  samples that differ: 42517 of 776000 (5.5%); first at 0.3500 s (match 78.333); max |A-B| 0.01096 (-39.2 dBFS)
+  whole track: rms A -21.1 dBFS, rms B -21.1, rms(A-B) -64.7 dBFS = -43.6 dB re A
+  band        diff dB re A's own band   (share of the difference's power)
+        0-100   Hz   -40.3 dB   ( 48.9%)
+      100-300   Hz   -45.4 dB   ( 45.4%)
+      300-1000  Hz   -42.4 dB   (  5.6%)
+     1000-3000  Hz   -56.1 dB   (  0.1%)
+     3000-8000  Hz   -66.9 dB   (  0.0%)
+     8000-24000 Hz   -70.7 dB   (  0.0%)
+AAC: the same wav encoded twice  A=b75_r2_1_aac1.wav  B=b75_r2_1_aac2.wav
+  776000 frames x 1 ch at 48000 Hz (16.167 s); len A 776000 B 776000
+  BIT-IDENTICAL over the common length
+
+=== B. OVER TIME, 0.5 s windows ===
+  integrator AAC fx-b7.5                   first differing sample at 0.2574 s video
+  AAC NULL, random free, b7.5              first differing sample at 0.2360 s video
+  PCM NULL, synth noise free               first differing sample at 0.2393 s video
+  PCM BUILD, pinned fx-b7.5                first differing sample at 0.4078 s video
+  PCM CAST ONLY, pinned                    first differing sample at 0.5309 s video
+ video  match  new voice sounding?    integrator AAC fx-b7.5  AAC NULL, random free,  PCM NULL, synth noise   PCM BUILD, pinned fx-b   PCM CAST ONLY, pinned
+  0.00  77.98           -                      -43.6 (-18.0)           -44.0 (-18.7)           -43.5 (-18.2)          -131.1 (-105.9)          -240.0 (-214.8)
+  0.50  78.48           -                      -36.4 (-13.0)           -36.3 (-13.0)           -32.2 ( -9.0)          -125.1 (-101.8)          -125.1 (-101.8)
+  1.00  78.98          yes                     -23.2 ( -3.7)           -31.2 (-12.7)           -29.4 (-11.0)           -23.3 ( -3.9)           -23.5 ( -4.0)
+  1.50  79.48          yes                     -30.8 (-12.3)           -35.3 (-16.8)           -34.4 (-15.9)           -33.1 (-14.7)           -40.1 (-21.6)
+  2.00  79.98          yes                     -34.5 (-12.8)           -41.3 (-19.0)           -40.4 (-18.2)           -36.6 (-14.4)          -124.6 (-102.3)
+  2.50  80.48          yes                     -37.4 (-14.9)           -38.2 (-15.9)           -37.5 (-15.2)           -46.4 (-24.2)          -129.3 (-107.1)
+  3.00  80.98           -                      -34.0 (-11.4)           -34.5 (-11.9)           -33.4 (-10.8)           -72.8 (-50.2)          -124.6 (-101.9)
+  3.50  81.48           -                      -38.2 (-17.8)           -38.8 (-18.6)           -38.1 (-17.9)          -123.3 (-103.1)          -123.3 (-103.1)
+  4.00  81.98          yes                     -35.5 (-16.1)           -40.6 (-21.2)           -39.5 (-20.1)           -36.9 (-17.7)          -122.4 (-103.0)
+  4.50  82.48          yes                     -34.2 (-13.9)           -37.5 (-17.0)           -36.7 (-16.2)           -37.0 (-16.6)          -124.6 (-104.1)
+  5.00  82.98          yes                     -35.3 (-11.0)           -40.4 (-15.7)           -39.5 (-14.9)           -36.7 (-12.4)          -128.1 (-103.5)
+  5.50  83.48          yes                     -31.6 (-10.3)           -33.7 (-12.3)           -32.8 (-11.5)           -36.6 (-15.3)          -123.0 (-101.6)
+  6.00  83.98          yes                     -33.5 (-14.4)           -42.5 (-23.4)           -41.7 (-22.6)           -33.9 (-14.9)          -121.6 (-102.4)
+  6.50  84.48          yes                     -33.1 (-14.9)           -39.6 (-21.2)           -38.8 (-20.5)           -33.6 (-15.3)          -121.8 (-103.5)
+  7.00  84.98          yes                     -33.4 (-12.9)           -37.1 (-16.2)           -36.1 (-15.2)           -36.4 (-15.6)          -125.1 (-104.1)
+  7.50  85.48          yes                     -33.0 ( -9.8)           -39.9 (-16.7)           -39.5 (-16.3)           -33.6 (-10.7)          -134.1 (-110.9)
+  8.00  85.98          yes                     -33.0 ( -8.6)           -42.8 (-17.9)           -41.7 (-16.8)           -33.4 ( -9.0)          -125.7 (-100.7)
+  8.50  86.48          yes                     -31.3 (-11.7)           -34.2 (-14.6)           -30.7 (-11.1)           -35.4 (-15.9)          -122.6 (-103.1)
+  9.00  86.98          yes                     -36.1 (-16.9)           -40.2 (-20.9)           -32.5 (-13.2)           -36.5 (-17.4)          -121.8 (-102.6)
+  9.50  87.48          yes                     -33.6 (-12.6)           -41.2 (-19.7)           -33.3 (-11.8)           -35.4 (-14.2)          -123.7 (-102.3)
+ 10.00  87.98          yes                     -34.4 (-10.5)           -38.1 (-14.2)           -32.4 ( -8.8)           -38.2 (-14.3)          -129.3 (-105.3)
+ 10.50  88.48          yes                     -32.9 ( -8.4)           -40.4 (-15.6)           -32.4 ( -7.6)           -33.8 ( -9.7)          -124.6 (-99.9)
+ 11.00  88.98          yes                     -37.3 (-17.3)           -43.1 (-23.1)           -35.0 (-15.0)           -39.4 (-19.5)          -121.1 (-101.2)
+ 11.50  89.48           -                      -39.2 (-20.9)           -39.0 (-20.8)           -33.4 (-15.2)           -78.7 (-60.5)          -121.6 (-103.4)
+ 12.00  89.98           -                      -35.0 (-14.0)           -35.3 (-14.0)           -31.9 (-10.6)          -126.3 (-105.1)          -126.3 (-105.1)
+each cell: rms(A-B) dBFS (and re rms A)
+
+=== C. clip_audio6.py's CONTROL rows, on each pair ===
+                                    C4 ban 78.1 C4 ban 78.55 C4 ban 89.45  C4 ban 89.9  C4 ban 90.3  sizzle 78.1 sizzle 78.55 sizzle 89.45  sizzle 89.9  sizzle 90.3   max|d| C4 / sizzle
+integrator AAC: fx vs b7.5                 -0.2         +1.6         -0.4         -0.6         +1.2         +5.0         +4.4         +4.0         +4.7         +0.0   1.6 / 5.0
+PCM random free: fx vs b7.5                -0.1         -0.3         +0.1         +0.8         -0.0         -1.7         +0.8         +0.4         -2.7         -0.0   0.8 / 2.7
+PCM random free NULL: b7.5 x2              +0.2         +0.4         -0.1         -0.5         -0.0         +1.2         +0.8         +0.8         +1.2         +0.1   0.5 / 1.2
+PCM random free NULL: fx x2                +0.3         -1.3         +0.2         +1.2         -0.0         -0.3         -0.8         -0.2         -1.4         -0.2   1.3 / 1.4
+PCM pinned: fx vs b7.5                     +0.0         -0.0         +0.0         +0.0         -0.0         +0.0         +0.0         +0.2         -0.0         +0.0   0.0 / 0.2
+PCM pinned NULL: b7.5 x2                   +0.0         -0.0         -0.0         -0.0         -0.0         -0.0         -0.0         -0.0         -0.0         +0.0   0.0 / 0.0
+AAC random free: fx vs b7.5                -0.1         -0.7         +0.1         +0.2         -2.1         -1.7         +3.7         +0.4         -2.4         +0.2   2.1 / 3.7
+AAC random free NULL: b7.5 x2              +0.2         +2.3         -0.2         -0.5         +0.3         +1.3         -2.1         +1.1         +1.0         +0.2   2.3 / 2.1
+AAC pinned: fx vs b7.5                     -0.0         +0.0         -0.0         +0.0         -2.3         +0.0         +0.0         +0.1         -0.0         -0.0   2.3 / 0.1
+AAC pinned NULL: b7.5 x2                   +0.0         -0.0         +0.0         +0.6         +0.7         -0.0         -0.0         +0.6         +0.4         +0.1   0.7 / 0.6
+
+=== D. THE EVENT LISTS AND THE DIRECTOR'S SEND (filmed links) ===
+events fx: 135   b75: 108
+  clank                        fx    6   b75    6
+  hit                          fx   13   b75   13
+  ult:spellbreaker             fx    1   b75    1
+  ult:spellbreaker-close       fx    1   b75    0   <-- differs
+  ult:spellbreaker-stun        fx   26   b75    0   <-- differs
+  wall                         fx   88   b75   88
+only in fx: 27; only in b75: 0
+  only fx   wall   1.3000 (match  79.283)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   1.6000 (match  79.583)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   1.8833 (match  79.867)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   2.3333 (match  80.317)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   4.0500 (match  82.033)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   4.6167 (match  82.600)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   5.2667 (match  83.250)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   5.6333 (match  83.617)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   6.1000 (match  84.083)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   6.3333 (match  84.317)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   6.5667 (match  84.550)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   6.8833 (match  84.867)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   7.2000 (match  85.183)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   7.5167 (match  85.500)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   7.8333 (match  85.817)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   8.0667 (match  86.050)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   8.3000 (match  86.283)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   8.5333 (match  86.517)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   8.7667 (match  86.750)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   9.2500 (match  87.233)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   9.4833 (match  87.467)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   9.7167 (match  87.700)  ult {"w": "spellbreaker-stun"}
+  only fx   wall   9.9500 (match  87.933)  ult {"w": "spellbreaker-stun"}
+  only fx   wall  10.2667 (match  88.250)  ult {"w": "spellbreaker-stun"}
+  only fx   wall  10.5000 (match  88.483)  ult {"w": "spellbreaker-stun"}
+  only fx   wall  10.7333 (match  88.717)  ult {"w": "spellbreaker-stun"}
+  only fx   wall  10.9500 (match  88.933)  ult {"w": "spellbreaker-close"}
+same time and kind, different opts: 0
+first divergence: wall 1.3000 s (match 79.283)
+events before it, identical on both sides: 7
+director curves: IDENTICAL (766 frames); wet max 0, lowpass min 20000, dry min 1, timeScale min 1
+
+--- repo 02-chain links ---
+events rfx: 135   rb75: 108
+  clank                        rfx    6   rb75    6
+  hit                          rfx   13   rb75   13
+  ult:spellbreaker             rfx    1   rb75    1
+  ult:spellbreaker-close       rfx    1   rb75    0   <-- differs
+  ult:spellbreaker-stun        rfx   26   rb75    0   <-- differs
+  wall                         rfx   88   rb75   88
+only in rfx: 27; only in rb75: 0
+  only rfx  wall   1.3000 (match  79.283)  ult {"w": "spellbreaker-stun"}
+  only rfx  wall   1.6000 (match  79.583)  ult {"w": "spellbreaker-stun"}
+  only rfx  wall   1.8833 (match  79.867)  ult {"w": "spellbreaker-stun"}
+  only rfx  wall   2.3333 (match  80.317)  ult {"w": "spellbreaker-stun"}
+
+=== E. WHERE THE PINNED BUILD PAIRS FIRST DIFFER BY MORE THAN THE 1-LSB FLOOR ===
+fx_r2_1.wav vs b75_r2_1.wav: at most 1 LSB apart until 1.1893 s video (match 79.1727); the cast is recorded at wall 1.1833 (match 79.1667)
+rfx_r0_1.wav vs rb75_r0_1.wav: at most 1 LSB apart until 1.1893 s video (match 79.1727); the cast is recorded at wall 1.1833 (match 79.1667)
+fxv_r1_1_drop-spellbreaker-stun-spellbreaker-close.wav vs b75v_r0_1.wav: at most 1 LSB apart until 1.1893 s video (match 79.1727); the cast is recorded at wall 1.1833 (match 79.1667)
+fxv_r2_1_drop-spellbreaker-spellbreaker-stun-spellbreaker-close.wav vs b75v_r1_1_drop-spellbreaker.wav: never more than 1 LSB apart (max 1 LSB)
+b75_r2_1.wav vs b75_r3_1.wav: never more than 1 LSB apart (max 1 LSB)
