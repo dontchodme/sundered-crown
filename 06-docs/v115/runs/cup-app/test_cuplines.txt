@@ -1,0 +1,29 @@
+# node app/test_cuplines.js, Node 24.18.0
+
+decode
+  ok   a cp1252 middle dot (0xB7 alone) reads as a middle dot, not U+FFFD
+  ok   a UTF-8 middle dot (C2 B7) reads as one middle dot, not "Â·"
+  ok   cp1252 0x97 is an em dash, not the C1 control Latin-1 would make it
+  ok   ASCII is ASCII
+split
+  ok   a line cut inside a character comes out whole, and without its CR
+  ok   two lines out of a chunk that ends mid-line
+  ok   nothing more until the newline arrives
+  ok   the unterminated last line is handed back at the end
+  ok   and only once
+parse
+  ok   a fixture line: counter, id, both sides, seed, and the file after " -> "
+  ok   a knockout id with a dash
+  ok   a fixture already filmed
+  ok   the band line, copy intact
+  ok   a fixture done
+  ok   shorts_build's [progress], the same shape createShort sends
+  ok   the closing tally is log, not a fixture
+  ok   shorts_build's stage lines are log (the panel reads them there)
+  ok   a seeds line is log: the brief parses [cup] and [progress] only
+failure
+  ok   a multi-line refusal keeps the line that names the failed check
+  ok   no "!" line: the last line
+  ok   a failed film: cup.py's own line, blank lines ignored
+
+ALL OK

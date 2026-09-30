@@ -106,6 +106,39 @@
       <pre id="shLog" hidden></pre>
     </div>
 
+    <div class="card" id="cupCard">
+      <h2>Crown Cup</h2>
+      <!-- THE TOURNAMENT IS cup.py'S (06-docs/v115/CROWN-CUP-APP-BRIEF-v115.md).
+           These buttons press three of its commands in order -- draw, seed,
+           film -- and show what it prints. The ledger in 07-shorts/cup1/ is
+           the whole state, and it is read back from disk after every run. -->
+      <p class="note" id="cupStatus">reading the ledger…</p>
+      <p class="note" id="cupBuild" hidden></p>
+      <label for="cupSeed">Draw seed <em>any number &mdash; a draw is a commitment</em></label>
+      <div class="seedrow">
+        <input id="cupSeed" type="text" inputmode="numeric" placeholder="any number" disabled>
+        <button id="btnCupDraw" disabled title="the draw, off the build the app shows. Off once a ledger exists: a redraw is terminal-only (--force)">Draw</button>
+      </div>
+      <div class="btns">
+        <button id="btnCupSeeds" disabled title="every fixture's fight by the seed rule: results and standings, about a minute for 65">Seed all</button>
+      </div>
+      <div class="btns">
+        <button class="pri" id="btnCupFilm" disabled title="every fixture in posting order, one folder each. A fixture already filmed is skipped, so after a cancel this carries on">Film all</button>
+        <button id="btnCupCancel" hidden>Cancel</button>
+      </div>
+      <div class="bar" id="cupBarOuter" hidden><i id="cupFillOuter"></i></div>
+      <p class="note" id="cupOuter">&nbsp;</p>
+      <div class="bar" id="cupBarInner" hidden><i id="cupFillInner"></i></div>
+      <p class="note" id="cupInner">&nbsp;</p>
+      <p class="band" id="cupBand" hidden></p>
+      <p class="stub" id="cupWarn" hidden></p>
+      <p class="stub" id="cupFailed" hidden></p>
+      <div class="btns">
+        <button id="btnCupOpen" disabled title="the posting schedule, or the ledger before anything is filmed">Open folder</button>
+      </div>
+      <pre id="cupLog" hidden></pre>
+    </div>
+
     <div class="card">
       <h2>Post chain</h2>
       <p class="note">The WebGL2 compositor, over the finished 2D frame.
@@ -154,5 +187,6 @@
 <script src="../../src/render/post.js"></script>
 <script src="post-dev.js"></script>
 <script src="shell.js"></script>
+<script src="cup.js"></script>
 </body>
 </html>

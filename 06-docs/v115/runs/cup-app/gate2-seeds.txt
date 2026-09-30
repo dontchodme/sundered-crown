@@ -1,0 +1,46 @@
+# DESKTOP-DERRAFT, Python 3.13.15, Playwright 1.62 / Chromium 151.0.7922.34, 2026-09-30 (UTC). Game: 02-chain/sc-tendril-fx.html (sha256 eea0cde55369...), --field 25, draw seed 20261001, --dir ../07-shorts/_cuptest (deleted after).
+# python -u cup.py --dir ../07-shorts/_cuptest seeds --game ../02-chain/sc-tendril-fx.html
+
+  PI           Paradox v Lastlight     seed 917436772   k=0 -> Lastlight by 214hp in 52.5s  (no director cut on the kill)
+  A1         Threshmaw v Bulwarden     seed 231871155   k=0 -> Bulwarden by 7hp in 55.4s  (no director cut on the kill)
+  A2         Bulwarden v Ironhail      seed 1768341414  k=0 -> Ironhail by 190hp in 53.2s  (no director cut on the kill)
+  A3          Ironhail v Threshmaw     seed 2073516005  k=0 -> Ironhail by 201hp in 42.3s
+         group A -> Ironhail (on wins)
+  B1             Axiom v Marrowdraw    seed 1486879884  k=0 -> Axiom by 84hp in 71.5s  (no director cut on the kill)
+  B2        Marrowdraw v Thornwake     seed 1838403417  k=0 -> Thornwake by 69hp in 47.1s  (no director cut on the kill)
+  B3         Thornwake v Axiom         seed 703357555   k=0 -> Thornwake by 36hp in 77.8s  (no director cut on the kill)
+         group B -> Thornwake (on wins)
+  C1         Nightfell v Widowmaker    seed 419939893   k=0 -> Widowmaker by 104hp in 50.3s  (no director cut on the kill)
+  C2        Widowmaker v Censer        seed 1976445022  k=0 -> Widowmaker by 186hp in 59.2s  (no director cut on the kill)
+  C3            Censer v Nightfell     seed 1704543160  k=0 -> Censer by 62hp in 62.1s
+         group C -> Widowmaker (on wins)
+  D1         Goreshard v Spellbreaker  seed 81834874    k=0 -> Goreshard by 28hp in 79.3s
+  D2      Spellbreaker v Gravemourn    seed 504378688   k=0 -> Gravemourn by 97hp in 62.1s  (no director cut on the kill)
+  D3        Gravemourn v Goreshard     seed 1710953066  k=0 -> Gravemourn by 99hp in 57.5s
+         group D -> Gravemourn (on wins)
+  E1       Dawnbringer v Twinshade     seed 158164074   k=0 -> Dawnbringer by 15hp in 71.0s  (no director cut on the kill)
+  E2         Twinshade v Grudgebearer  seed 464581826   k=0 -> Twinshade by 56hp in 69.7s  (no director cut on the kill)
+  E3      Grudgebearer v Dawnbringer   seed 1196742147  k=0 -> Grudgebearer by 166hp in 47.3s
+         group E -> Grudgebearer (on hp)
+  F1         Emberedge v Vinesower     seed 791951469   k=0 -> Vinesower by 60hp in 68.4s  (no director cut on the kill)
+  F2         Vinesower v Foregone      seed 1885472021  k=0 -> Vinesower by 20hp in 66.4s  (no director cut on the kill)
+  F3          Foregone v Emberedge     seed 1828753053  k=0 -> Foregone by 20hp in 55.0s  (no director cut on the kill)
+         group F -> Vinesower (on wins)
+  G1       Lightkeeper v Slagheart     seed 528536383   k=0 -> Slagheart by 158hp in 64.9s  (no director cut on the kill)
+  G2         Slagheart v Aureole       seed 1587466431  k=0 -> Aureole by 67hp in 64.5s  (no director cut on the kill)
+  G3           Aureole v Lightkeeper   seed 1315882169  k=0 -> Lightkeeper by 52hp in 72.6s  (no director cut on the kill)
+         group G -> Slagheart (on hp)
+  H1         Heartwood v Farwarden     seed 1238772664  k=0 -> Farwarden by 11hp in 82.5s
+  H2         Farwarden v Lastlight     seed 1518888159  k=0 -> Farwarden by 46hp in 74.8s  (no director cut on the kill)
+  H3         Lastlight v Heartwood     seed 1606666929  k=0 -> Lastlight by 116hp in 64.5s  (no director cut on the kill)
+         group H -> Farwarden (on wins)
+  QF-1        Ironhail v Thornwake     seed 1267525054  k=0 -> Ironhail by 197hp in 38.6s  (no director cut on the kill)
+  QF-2      Widowmaker v Gravemourn    seed 247065826   k=0 -> Gravemourn by 61hp in 56.8s
+  QF-3    Grudgebearer v Vinesower     seed 174640932   k=0 -> Grudgebearer by 46hp in 46.1s  (no director cut on the kill)
+  QF-4       Slagheart v Farwarden     seed 1897265845  k=0 -> Farwarden by 147hp in 57.3s  (no director cut on the kill)
+  SF-1        Ironhail v Gravemourn    seed 164985915   k=0 -> Gravemourn by 20hp in 46.6s
+  SF-2    Grudgebearer v Farwarden     seed 574580360   k=0 -> Grudgebearer by 167hp in 62.0s  (no director cut on the kill)
+  3P          Ironhail v Farwarden     seed 308143139   k=0 -> Ironhail by 317hp in 35.1s  (no director cut on the kill)
+  F         Gravemourn v Grudgebearer  seed 2125839387  k=0 -> Grudgebearer by 201hp in 53.5s  (no director cut on the kill)
+
+  33 fixtures seeded; 33/33 have results

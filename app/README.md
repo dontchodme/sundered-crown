@@ -97,3 +97,20 @@ than one that says what phase it is waiting on. See `docs/ARCHITECTURE.md`
 
 One place — `GAME` in `main.js`, overridable with `SWB_GAME`. Keep it on the
 build of record so the app cannot drift from what the video pipeline renders.
+
+## The Crown Cup panel
+
+`06-docs/v115/CROWN-CUP-APP-BRIEF-v115.md`, built in
+`06-docs/v115/crown-cup-app-build-v115.md`. The card under Create short drives
+`tools/cup.py` over `07-shorts/cup1/`: **Draw** (only while there is no ledger — a
+redraw is terminal-only), **Seed all**, **Film all** and **Cancel**. The tournament
+is cup.py's; the app hands it `GAME` and shows what it prints. A cup run and a
+single short share one job slot.
+
+`SWB_CUP_DIR` points the panel at another folder inside the repo, for testing on a
+stand-in field without a draw landing in `cup1`. The output reader has its own
+test, and it needs no Electron:
+
+```bash
+node app/test_cuplines.js
+```

@@ -1,0 +1,66 @@
+# python test_cup.py (tools/), DESKTOP-DERRAFT, Python 3.13.15
+
+draw
+  ok   49 relics -> 16 groups of 3
+  ok   and one challenger
+  ok   group ['san_gre', 'ver_war', 'vig_bow'] has 3 schools, 3 types
+  ok   group ['run_war', 'blo_gre', 'san_sta'] has 3 schools, 3 types
+  ok   group ['ver_gre', 'blo_twi', 'umb_scy'] has 3 schools, 3 types
+  ok   group ['ver_sta', 'blo_bow', 'run_gre'] has 3 schools, 3 types
+  ok   group ['run_sta', 'dwa_war', 'umb_gre'] has 3 schools, 3 types
+  ok   group ['blo_sta', 'dwa_bow', 'run_fla'] has 3 schools, 3 types
+  ok   group ['dwa_scy', 'umb_war', 'vig_sta'] has 3 schools, 3 types
+  ok   group ['run_scy', 'dwa_twi', 'vig_fla'] has 3 schools, 3 types
+  ok   group ['san_scy', 'vig_twi', 'dwa_gre'] has 3 schools, 3 types
+  ok   group ['blo_scy', 'run_bow', 'vig_gre'] has 3 schools, 3 types
+  ok   group ['blo_fla', 'vig_scy', 'san_twi'] has 3 schools, 3 types
+  ok   group ['dwa_fla', 'san_war', 'run_twi'] has 3 schools, 3 types
+  ok   group ['ver_fla', 'umb_bow', 'dwa_sta'] has 3 schools, 3 types
+  ok   group ['san_fla', 'ver_bow', 'umb_twi'] has 3 schools, 3 types
+  ok   group ['umb_fla', 'ver_scy', 'blo_war'] has 3 schools, 3 types
+  ok   group ['vig_war', 'san_bow', 'umb_sta'] has 3 schools, 3 types
+  ok   the challenger is legal in group P
+  ok   the same seed gives the same draw
+  ok   a different seed gives a different draw
+  ok   65 fixtures (65)
+  ok   posting order starts PI, A1, A2, A3, B1
+  ok   and ends SF, third place, final
+sides
+  ok   every relic in a group is side 1 once and side 2 once
+standings
+  ok   a group is not decided after one match
+  ok   two wins takes the group on wins
+  ok   the 0-2 relic is last
+  ok   a three-way tie goes to HP remaining (200 > 90 > 40)
+  ok   all on 3 points
+  ok   an HP tie goes to the lower draw number
+play-in
+  ok   P2 cannot be sided before the play-in
+  ok   the challenger is side 1 of the play-in
+  ok   the challenger takes group P's third slot
+  ok   the relic it beat is gone
+knockout
+  ok   R16-1 is the winners of A and B
+  ok   the lower draw number is side 1
+  ok   QF-1 waits on the round of 16
+  ok   the third-place match takes the semi-final losers
+  ok   the final takes the semi-final winners
+band
+  ok   m2 after P2 won m1: 'WIN AND VER_WAR TAKES THE GROUP'
+  ok   m2 after P2 lost m1: 'LOSE AND VER_WAR IS OUT'
+  ok   m3 at 3 v 3: 'WINNER TAKES THE GROUP'
+  ok   main line is the round: 'GROUP A · MATCH 3 OF 3'
+  ok   a dead rubber says so: 'GROUP DECIDED · BLO_GRE IS THROUGH'
+  ok   R16-1 does not name R16-2's winner: 'WINNER INTO THE QUARTER-FINALS'
+  ok   R16-2 names R16-1's winner, already posted: 'WINNER MEETS SAN_GRE'
+rule
+  ok   the rule is deterministic
+  ok   and depends on the sides
+  ok   and on k
+  ok   31-bit seed
+shapes
+  ok   25 relics -> 8 groups, 33 fixtures (33)
+  ok   48 relics -> 16 groups, 64 fixtures (64)
+  ok   13 relics -> 4 groups, 17 fixtures (17)
+
+ALL OK

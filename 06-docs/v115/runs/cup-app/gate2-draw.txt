@@ -1,0 +1,17 @@
+# DESKTOP-DERRAFT, Python 3.13.15, Playwright 1.62 / Chromium 151.0.7922.34, 2026-09-30 (UTC). Game: 02-chain/sc-tendril-fx.html (sha256 eea0cde55369...), --field 25, draw seed 20261001, --dir ../07-shorts/_cuptest (deleted after).
+# python -u cup.py --dir ../07-shorts/_cuptest draw --game ../02-chain/sc-tendril-fx.html --seed 20261001 --field 25
+
+  25 relics - 8 groups of 3 - play-in - 33 fixtures
+  draw seed 20261001 (legal on shuffle 6) - build eea0cde55369 - DESKTOP-DERRAFT / Windows 10 - Chromium 151.0.7922.34
+  A  Threshmaw (bloodsworn flail)  -  Bulwarden (vigil warhammer)  -  Ironhail (dwarven bow)
+  B  Axiom (runic greatsword)  -  Marrowdraw (bloodsworn bow)  -  Thornwake (verdant scythe)
+  C  Nightfell (umbral greatsword)  -  Widowmaker (bloodsworn twinblade)  -  Censer (sanctified warhammer)
+  D  Goreshard (bloodsworn greatsword)  -  Spellbreaker (runic twinblade)  -  Gravemourn (umbral flail)
+  E  Dawnbringer (sanctified greatsword)  -  Twinshade (umbral twinblade)  -  Grudgebearer (dwarven warhammer)
+  F  Emberedge (dwarven greatsword)  -  Vinesower (verdant bow)  -  Foregone (runic scythe)
+  G  Lightkeeper (vigil greatsword)  -  Slagheart (dwarven flail)  -  Aureole (sanctified bow)
+  H  Heartwood (verdant greatsword)  -  Farwarden (vigil bow)  -  Lastlight (sanctified scythe)
+  challenger: Paradox v Lastlight for the last slot in group H
+
+  ledger: ..\07-shorts\_cuptest\ledger.json
+  PUBLISH THE DRAW SEED, THE RULE AND THE BUILD HASH BEFORE `cup.py seeds`.

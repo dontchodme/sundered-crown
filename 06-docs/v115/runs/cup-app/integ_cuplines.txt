@@ -1,0 +1,20 @@
+# node integ_cuplines.js -- real cup.py film --dry-run output through app/cuplines.js, with and without PYTHONIOENCODING (needs the _cuptest ledger; run before it was deleted)
+
+cp1252 pipe: exit 0, 101 lines, 33 fixtures, 33 bands
+  ok   cp1252 pipe: cup.py exited 0
+  ok   cp1252 pipe: 33 fixture events in posting order, PI first, F last
+  ok   cp1252 pipe: every counter i/33 and a file ending .mp4
+  ok   cp1252 pipe: all 24 group bands carry a real middle dot
+  ok   cp1252 pipe: no U+FFFD on any line
+  ok   cp1252 pipe: a dry run prints no "done" lines (it continues before them)
+utf-8 pipe: exit 0, 101 lines, 33 fixtures, 33 bands
+  ok   utf-8 pipe: cup.py exited 0
+  ok   utf-8 pipe: 33 fixture events in posting order, PI first, F last
+  ok   utf-8 pipe: every counter i/33 and a file ending .mp4
+  ok   utf-8 pipe: all 24 group bands carry a real middle dot
+  ok   utf-8 pipe: no U+FFFD on any line
+  ok   utf-8 pipe: a dry run prints no "done" lines (it continues before them)
+  ok   both encodings decode to the same lines
+  ok   control: the cp1252 run really sent 0xB7, and a plain UTF-8 read turns it into U+FFFD
+
+ALL OK

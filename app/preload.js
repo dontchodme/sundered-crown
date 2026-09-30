@@ -20,4 +20,13 @@ contextBridge.exposeInMainWorld('swb', {
   onShortProgress: (fn) => ipcRenderer.on('swb:shortProgress', (_e, d) => fn(d)),
   onShortLog:      (fn) => ipcRenderer.on('swb:shortLog', (_e, d) => fn(d)),
   onShortDone:     (fn) => ipcRenderer.on('swb:shortDone', (_e, d) => fn(d)),
+  /* THE CROWN CUP (06-docs/v115/CROWN-CUP-APP-BRIEF-v115.md). Three named
+   * commands and a cancel -- cupRun takes {cmd: 'draw'|'seeds'|'film'} and
+   * nothing that reaches a shell -- and the same push-only channels. */
+  cupLedger:     () => ipcRenderer.invoke('swb:cupLedger'),
+  cupRun:        (opts) => ipcRenderer.invoke('swb:cupRun', opts),
+  cupCancel:     () => ipcRenderer.invoke('swb:cupCancel'),
+  onCupProgress: (fn) => ipcRenderer.on('swb:cupProgress', (_e, d) => fn(d)),
+  onCupLog:      (fn) => ipcRenderer.on('swb:cupLog', (_e, d) => fn(d)),
+  onCupDone:     (fn) => ipcRenderer.on('swb:cupDone', (_e, d) => fn(d)),
 });

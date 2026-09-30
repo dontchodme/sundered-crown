@@ -334,6 +334,18 @@ function jobSend(win, channel, payload) {
   if (win && !win.isDestroyed()) win.webContents.send(channel, payload);
 }
 
+/* ONE JOB AT A TIME INCLUDES THE SECONDS BEFORE ONE STARTS. createShort
+ * renders a typed announcer line (cinema_vo, several seconds) between its
+ * guard and the spawn that sets JOB, and a guard that reads only JOB lets a
+ * Crown Cup run -- or a second short -- start inside that window. */
+let STARTING = false;
+
+function busyReason() {
+  if (JOB) return JOB.kind === 'cup' ? `the Crown Cup is running (${JOB.cmd})`
+                                     : 'a short is already rendering';
+  return STARTING ? 'a short is starting' : null;
+}
+
 /* ffmpeg is needed to pull frames off the finished file. winget installs it
  * without a shim, so `ffmpeg` is not on PATH until the user adds it -- and a
  * GUI app inherits the PATH it was LAUNCHED with, which may predate that. So:
@@ -378,7 +390,7 @@ function pullFrames(mp4, seconds) {
   }))).then((r) => r.filter(Boolean));
 }
 
-ipcMain.handle('swb:createShort', async (e, opts = {}) => {
+async function createShort(e, opts = {}) {
   if (JOB) return { ok: false, reason: 'a short is already rendering' };
   const win = BrowserWindow.fromWebContents(e.sender);
 
@@ -508,10 +520,17 @@ ipcMain.handle('swb:createShort', async (e, opts = {}) => {
   });
 
   return { ok: true, started: true, out };
+}
+
+ipcMain.handle('swb:createShort', async (e, opts) => {
+  const busy = busyReason();
+  if (busy) return { ok: false, reason: busy };
+  STARTING = true;
+  try { return await createShort(e, opts); } finally { STARTING = false; }
 });
 
 ipcMain.handle('swb:cancelShort', async () => {
-  if (!JOB) return { ok: false, reason: 'nothing rendering' };
+  if (!JOB || JOB.kind === 'cup') return { ok: false, reason: 'no short is rendering' };
   JOB.cancelled = true;
   /* The python parent spawns cinema_clip as a child; killing the parent alone
    * leaves a Playwright Chromium capturing into a directory nobody is watching.
@@ -521,6 +540,189 @@ ipcMain.handle('swb:cancelShort', async () => {
       'taskkill', ['/pid', String(JOB.child.pid), '/T', '/F'], () => {});
   } catch { try { JOB.child.kill(); } catch {} }
   return { ok: true };
+});
+
+/* ---- THE CROWN CUP -------------------------------------------------------
+ *
+ * 06-docs/v115/CROWN-CUP-APP-BRIEF-v115.md. tools/cup.py films the whole
+ * tournament in posting order by spawning the same shorts_build.py that
+ * createShort spawns -- the same arguments plus the stakes band, one folder
+ * per fixture -- and prints shorts_build's own lines through. So this is
+ * createShort's shape again, a job, a stream and a cancel around a different
+ * script, and it SHARES createShort's JOB: a cup run and a single short would
+ * split the machine's capture budget and talk over each other on progress.
+ *
+ * NOTHING ABOUT THE TOURNAMENT IS DECIDED HERE. The draw, the seed rule, the
+ * band copy, the folders and the freeze are cup.py's -- it refuses a build or
+ * a machine that is not the ledger's, so the freeze is held by the tool and
+ * not by anybody's memory -- and this file names three of its commands and
+ * hands it the app's own GAME. --force and --redo are never sent: a redraw is
+ * terminal-only because a draw is a commitment.
+ *
+ * SWB_CUP_DIR points the panel at another folder inside the repo, the way
+ * SWB_GAME points the window at another build. It is how the panel is tested
+ * on a stand-in field without a draw ever landing in 07-shorts/cup1/, where a
+ * ledger IS the tournament. */
+const cupLines = require('./cuplines');
+const CUP_DIR = (() => {
+  try {
+    const d = resolveInsideRepo('/' + (process.env.SWB_CUP_DIR || '07-shorts/cup1'));
+    if (d) return d;
+  } catch {}
+  return path.join(REPO, '07-shorts', 'cup1');
+})();
+const CUP_CMDS = ['draw', 'seeds', 'film'];
+
+function readLedger() {
+  return JSON.parse(fs.readFileSync(path.join(CUP_DIR, 'ledger.json'), 'utf8'));
+}
+
+/* cup.py -> shorts_build -> cinema_clip -> a Playwright Chromium, four deep.
+ * /T takes the tree, as cancelShort's does; the parent alone would leave a
+ * browser capturing into a folder nobody is watching. */
+function killTree(child) {
+  if (process.platform === 'win32') {
+    execFile('taskkill', ['/pid', String(child.pid), '/T', '/F'], () => {});
+  } else {
+    try { child.kill(); } catch {}
+  }
+}
+
+/* A CANCEL MUST NOT LEAVE A FILE THAT cup.py WILL SKIP. cup.py resumes by
+ * skipping every fixture whose mp4 exists, and shorts_build writes the
+ * delivered mp4 IN PLACE during its mix -- so a cancel in a fixture's last
+ * seconds leaves a partial file at the final path, and the next Film all
+ * would pass over it as filmed. The file of the fixture that was in flight is
+ * removed, and only when the ledger holds no clean film of it: cup.py stamps
+ * `filmed` after shorts_build exits 0, never before. */
+function removeUnfilmed(fixture) {
+  if (!fixture) return;
+  let f;
+  try { f = (readLedger().fixtures || []).find((x) => x.id === fixture.id); } catch { return; }
+  if (!f || f.filmed) return;
+  const abs = path.resolve(CUP_DIR, fixture.file);
+  if (!abs.startsWith(CUP_DIR + path.sep) || !abs.endsWith('.mp4')) return;
+  /* The tree is still dying when cup.py's pipe closes, and Windows will not
+   * delete a file an ffmpeg still holds open. */
+  let tries = 0;
+  const rm = () => {
+    try { fs.rmSync(abs, { force: true }); } catch { if (++tries < 20) setTimeout(rm, 250); }
+  };
+  rm();
+}
+
+/* The ledger as it stands on disk, or {none:true}. cup.py writes it through a
+ * temp file and a rename after every fixture, so a read mid-run is whole. */
+ipcMain.handle('swb:cupLedger', async () => {
+  const dir = path.relative(REPO, CUP_DIR).split(path.sep).join('/');
+  const running = JOB && JOB.kind === 'cup' ? JOB.cmd : null;
+  let ledger;
+  try { ledger = readLedger(); } catch (err) {
+    if (err.code === 'ENOENT') return { none: true, dir, running };
+    return { ok: false, dir, running, reason: `${dir}/ledger.json: ${err.message}` };
+  }
+  return { ok: true, dir, running, ledger,
+           schedule: fs.existsSync(path.join(CUP_DIR, 'SCHEDULE.md')) };
+});
+
+ipcMain.handle('swb:cupRun', async (e, opts = {}) => {
+  const busy = busyReason();
+  if (busy) return { ok: false, reason: busy };
+  const cmd = String(opts.cmd || '');
+  if (!CUP_CMDS.includes(cmd)) return { ok: false, reason: `not a cup command: ${cmd}` };
+
+  /* createShort's line: GAME made absolute, because the tools resolve a
+   * relative --game against tools/ and not against the repo. */
+  const gameAbs = path.isAbsolute(GAME) ? GAME : path.join(REPO, GAME);
+  /* `-u` because cup.py's own lines are print()s without a flush, and a pipe
+   * is block-buffered: the log would arrive in 8 KB lumps, a whole Seed all
+   * in one at the end. shorts_build flushes its own. */
+  const args = ['-u', 'cup.py', '--dir', CUP_DIR, cmd, '--game', gameAbs];
+  if (cmd === 'draw') {
+    const seed = String(opts.seed ?? '').trim();
+    if (!/^\d{1,15}$/.test(seed)) return { ok: false, reason: 'the draw seed is a whole number' };
+    args.push('--seed', seed);
+  }
+  /* --only is for the brief's gate 3 (one real `film --only A1`, driven from
+   * here) and for going back to one fixture. No button sends it. */
+  if (opts.only !== undefined && opts.only !== null && opts.only !== '') {
+    const only = String(opts.only);
+    if (cmd === 'draw' || !/^[A-Z0-9]{1,4}(-\d{1,2})?$/.test(only)) {
+      return { ok: false, reason: `not a fixture id: ${only}` };
+    }
+    args.push('--only', only);
+  }
+
+  const win = BrowserWindow.fromWebContents(e.sender);
+  const child = require('node:child_process').spawn(PYTHON, args,
+    { cwd: path.join(REPO, 'tools'), windowsHide: true, env: childEnv() });
+  const job = { kind: 'cup', cmd, child, cancelled: false, over: false, log: [], fixture: null };
+  JOB = job;
+
+  const take = (line, stream) => {
+    if (!line.trim()) return;
+    const p = cupLines.parseLine(line);
+    /* once a second for minutes: progress, never log -- createShort's rule */
+    if (p && p.stage) return jobSend(win, 'swb:cupProgress', p);
+    job.log.push(line);
+    if (job.log.length > 4000) job.log.splice(0, 1000);
+    if (p) {
+      if (p.kind === 'fixture') job.fixture = { id: p.id, file: p.file };
+      else if (p.kind === 'fixtureDone' || p.kind === 'skip') job.fixture = null;
+      jobSend(win, 'swb:cupProgress', p);
+    }
+    jobSend(win, 'swb:cupLog', { line, stream });
+  };
+  const outLines = cupLines.lineSplitter(), errLines = cupLines.lineSplitter();
+  child.stdout.on('data', (d) => { for (const l of outLines.push(d)) take(l, 'out'); });
+  child.stderr.on('data', (d) => { for (const l of errLines.push(d)) take(l, 'err'); });
+  const flush = () => {
+    for (const l of outLines.end()) take(l, 'out');
+    for (const l of errLines.end()) take(l, 'err');
+  };
+  const finish = (payload) => {
+    if (job.over) return;
+    job.over = true;
+    if (JOB === job) JOB = null;
+    jobSend(win, 'swb:cupDone', { cmd, ...payload });
+  };
+
+  child.on('error', (err) => {
+    flush();
+    finish({ ok: false, reason: `could not start ${PYTHON}: ${err.message}` });
+  });
+  child.on('close', (code) => {
+    flush();
+    if (job.cancelled) {
+      if (cmd === 'film') removeUnfilmed(job.fixture);
+      return finish({ ok: false, cancelled: true });
+    }
+    if (code !== 0) {
+      return finish({ ok: false, code,
+                      reason: cupLines.failureText(job.log) || `cup.py exited ${code}` });
+    }
+    finish({ ok: true, last: job.log[job.log.length - 1] || '' });
+  });
+
+  return { ok: true, started: true, cmd };
+});
+
+ipcMain.handle('swb:cupCancel', async () => {
+  if (!JOB || JOB.kind !== 'cup') return { ok: false, reason: 'the cup is not running' };
+  JOB.cancelled = true;
+  killTree(JOB.child);
+  return { ok: true };
+});
+
+/* Closing the window ends a cup run instead of orphaning it. A Film all is
+ * hours of browsers, and with the window gone there is nothing left to watch
+ * them or cancel them; the run carries on from where it stopped when the
+ * button is pressed again. */
+app.on('before-quit', () => {
+  if (JOB && JOB.kind === 'cup' && !JOB.over) {
+    JOB.cancelled = true;
+    killTree(JOB.child);
+  }
 });
 
 /* THE ANNOUNCER. cinema_vo.py already speaks arbitrary text verbatim and

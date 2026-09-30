@@ -1,0 +1,104 @@
+# DESKTOP-DERRAFT, Python 3.13.15, Playwright 1.62 / Chromium 151.0.7922.34, 2026-09-30 (UTC). Game: 02-chain/sc-tendril-fx.html (sha256 eea0cde55369...), --field 25, draw seed 20261001, --dir ../07-shorts/_cuptest (deleted after).
+# python -u cup.py --dir ../07-shorts/_cuptest film --game ../02-chain/sc-tendril-fx.html --dry-run
+
+[cup] 1/33 PI paradox v lastlight seed 917436772 -> 01-play-in\01 - PI - Paradox vs Lastlight\01 - PI - Paradox vs Lastlight.mp4
+[cup] band: PLAY-IN / 25 RELICS. 24 PLACES.
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a paradox --b lastlight --seed 917436772 --no-card --stakes PLAY-IN --stakes-sub "25 RELICS. 24 PLACES." --out "..\07-shorts\_cuptest\01-play-in\01 - PI - Paradox vs Lastlight\01 - PI - Paradox vs Lastlight.mp4"
+[cup] 2/33 A1 redflail v bulwarden seed 231871155 -> 02-groups\A\02 - A1 - Threshmaw vs Bulwarden\02 - A1 - Threshmaw vs Bulwarden.mp4
+[cup] band: GROUP A · MATCH 1 OF 3 / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a redflail --b bulwarden --seed 231871155 --no-card --stakes "GROUP A · MATCH 1 OF 3" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\02-groups\A\02 - A1 - Threshmaw vs Bulwarden\02 - A1 - Threshmaw vs Bulwarden.mp4"
+[cup] 3/33 A2 bulwarden v ironhail seed 1768341414 -> 02-groups\A\03 - A2 - Bulwarden vs Ironhail\03 - A2 - Bulwarden vs Ironhail.mp4
+[cup] band: GROUP A · MATCH 2 OF 3 / WIN AND BULWARDEN TAKES THE GROUP
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a bulwarden --b ironhail --seed 1768341414 --no-card --stakes "GROUP A · MATCH 2 OF 3" --stakes-sub "WIN AND BULWARDEN TAKES THE GROUP" --out "..\07-shorts\_cuptest\02-groups\A\03 - A2 - Bulwarden vs Ironhail\03 - A2 - Bulwarden vs Ironhail.mp4"
+[cup] 4/33 A3 ironhail v redflail seed 2073516005 -> 02-groups\A\04 - A3 - Ironhail vs Threshmaw\04 - A3 - Ironhail vs Threshmaw.mp4
+[cup] band: GROUP A · MATCH 3 OF 3 / WIN OR GO HOME
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a ironhail --b redflail --seed 2073516005 --no-card --stakes "GROUP A · MATCH 3 OF 3" --stakes-sub "WIN OR GO HOME" --out "..\07-shorts\_cuptest\02-groups\A\04 - A3 - Ironhail vs Threshmaw\04 - A3 - Ironhail vs Threshmaw.mp4"
+[cup] 5/33 B1 axiom v marrowdraw seed 1486879884 -> 02-groups\B\05 - B1 - Axiom vs Marrowdraw\05 - B1 - Axiom vs Marrowdraw.mp4
+[cup] band: GROUP B · MATCH 1 OF 3 / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a axiom --b marrowdraw --seed 1486879884 --no-card --stakes "GROUP B · MATCH 1 OF 3" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\02-groups\B\05 - B1 - Axiom vs Marrowdraw\05 - B1 - Axiom vs Marrowdraw.mp4"
+[cup] 6/33 B2 marrowdraw v thornwake seed 1838403417 -> 02-groups\B\06 - B2 - Marrowdraw vs Thornwake\06 - B2 - Marrowdraw vs Thornwake.mp4
+[cup] band: GROUP B · MATCH 2 OF 3 / LOSE AND MARROWDRAW IS OUT
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a marrowdraw --b thornwake --seed 1838403417 --no-card --stakes "GROUP B · MATCH 2 OF 3" --stakes-sub "LOSE AND MARROWDRAW IS OUT" --out "..\07-shorts\_cuptest\02-groups\B\06 - B2 - Marrowdraw vs Thornwake\06 - B2 - Marrowdraw vs Thornwake.mp4"
+[cup] 7/33 B3 thornwake v axiom seed 703357555 -> 02-groups\B\07 - B3 - Thornwake vs Axiom\07 - B3 - Thornwake vs Axiom.mp4
+[cup] band: GROUP B · MATCH 3 OF 3 / WINNER TAKES THE GROUP
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a thornwake --b axiom --seed 703357555 --no-card --stakes "GROUP B · MATCH 3 OF 3" --stakes-sub "WINNER TAKES THE GROUP" --out "..\07-shorts\_cuptest\02-groups\B\07 - B3 - Thornwake vs Axiom\07 - B3 - Thornwake vs Axiom.mp4"
+[cup] 8/33 C1 nightfell v widowmaker seed 419939893 -> 02-groups\C\08 - C1 - Nightfell vs Widowmaker\08 - C1 - Nightfell vs Widowmaker.mp4
+[cup] band: GROUP C · MATCH 1 OF 3 / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a nightfell --b widowmaker --seed 419939893 --no-card --stakes "GROUP C · MATCH 1 OF 3" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\02-groups\C\08 - C1 - Nightfell vs Widowmaker\08 - C1 - Nightfell vs Widowmaker.mp4"
+[cup] 9/33 C2 widowmaker v censer seed 1976445022 -> 02-groups\C\09 - C2 - Widowmaker vs Censer\09 - C2 - Widowmaker vs Censer.mp4
+[cup] band: GROUP C · MATCH 2 OF 3 / WIN AND WIDOWMAKER TAKES THE GROUP
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a widowmaker --b censer --seed 1976445022 --no-card --stakes "GROUP C · MATCH 2 OF 3" --stakes-sub "WIN AND WIDOWMAKER TAKES THE GROUP" --out "..\07-shorts\_cuptest\02-groups\C\09 - C2 - Widowmaker vs Censer\09 - C2 - Widowmaker vs Censer.mp4"
+[cup] 10/33 C3 censer v nightfell seed 1704543160 -> 02-groups\C\10 - C3 - Censer vs Nightfell\10 - C3 - Censer vs Nightfell.mp4
+[cup] band: GROUP C · MATCH 3 OF 3 / GROUP DECIDED · WIDOWMAKER IS THROUGH
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a censer --b nightfell --seed 1704543160 --no-card --stakes "GROUP C · MATCH 3 OF 3" --stakes-sub "GROUP DECIDED · WIDOWMAKER IS THROUGH" --out "..\07-shorts\_cuptest\02-groups\C\10 - C3 - Censer vs Nightfell\10 - C3 - Censer vs Nightfell.mp4"
+[cup] 11/33 D1 oathwound v spellbreaker seed 81834874 -> 02-groups\D\11 - D1 - Goreshard vs Spellbreaker\11 - D1 - Goreshard vs Spellbreaker.mp4
+[cup] band: GROUP D · MATCH 1 OF 3 / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a oathwound --b spellbreaker --seed 81834874 --no-card --stakes "GROUP D · MATCH 1 OF 3" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\02-groups\D\11 - D1 - Goreshard vs Spellbreaker\11 - D1 - Goreshard vs Spellbreaker.mp4"
+[cup] 12/33 D2 spellbreaker v gravemourn seed 504378688 -> 02-groups\D\12 - D2 - Spellbreaker vs Gravemourn\12 - D2 - Spellbreaker vs Gravemourn.mp4
+[cup] band: GROUP D · MATCH 2 OF 3 / LOSE AND SPELLBREAKER IS OUT
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a spellbreaker --b gravemourn --seed 504378688 --no-card --stakes "GROUP D · MATCH 2 OF 3" --stakes-sub "LOSE AND SPELLBREAKER IS OUT" --out "..\07-shorts\_cuptest\02-groups\D\12 - D2 - Spellbreaker vs Gravemourn\12 - D2 - Spellbreaker vs Gravemourn.mp4"
+[cup] 13/33 D3 gravemourn v oathwound seed 1710953066 -> 02-groups\D\13 - D3 - Gravemourn vs Goreshard\13 - D3 - Gravemourn vs Goreshard.mp4
+[cup] band: GROUP D · MATCH 3 OF 3 / WINNER TAKES THE GROUP
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a gravemourn --b oathwound --seed 1710953066 --no-card --stakes "GROUP D · MATCH 3 OF 3" --stakes-sub "WINNER TAKES THE GROUP" --out "..\07-shorts\_cuptest\02-groups\D\13 - D3 - Gravemourn vs Goreshard\13 - D3 - Gravemourn vs Goreshard.mp4"
+[cup] 14/33 E1 dawnbringer v twinshade seed 158164074 -> 02-groups\E\14 - E1 - Dawnbringer vs Twinshade\14 - E1 - Dawnbringer vs Twinshade.mp4
+[cup] band: GROUP E · MATCH 1 OF 3 / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a dawnbringer --b twinshade --seed 158164074 --no-card --stakes "GROUP E · MATCH 1 OF 3" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\02-groups\E\14 - E1 - Dawnbringer vs Twinshade\14 - E1 - Dawnbringer vs Twinshade.mp4"
+[cup] 15/33 E2 twinshade v grudgebearer seed 464581826 -> 02-groups\E\15 - E2 - Twinshade vs Grudgebearer\15 - E2 - Twinshade vs Grudgebearer.mp4
+[cup] band: GROUP E · MATCH 2 OF 3 / LOSE AND TWINSHADE IS OUT
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a twinshade --b grudgebearer --seed 464581826 --no-card --stakes "GROUP E · MATCH 2 OF 3" --stakes-sub "LOSE AND TWINSHADE IS OUT" --out "..\07-shorts\_cuptest\02-groups\E\15 - E2 - Twinshade vs Grudgebearer\15 - E2 - Twinshade vs Grudgebearer.mp4"
+[cup] 16/33 E3 grudgebearer v dawnbringer seed 1196742147 -> 02-groups\E\16 - E3 - Grudgebearer vs Dawnbringer\16 - E3 - Grudgebearer vs Dawnbringer.mp4
+[cup] band: GROUP E · MATCH 3 OF 3 / WIN OR GO HOME
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a grudgebearer --b dawnbringer --seed 1196742147 --no-card --stakes "GROUP E · MATCH 3 OF 3" --stakes-sub "WIN OR GO HOME" --out "..\07-shorts\_cuptest\02-groups\E\16 - E3 - Grudgebearer vs Dawnbringer\16 - E3 - Grudgebearer vs Dawnbringer.mp4"
+[cup] 17/33 F1 emberedge v vinesower seed 791951469 -> 02-groups\F\17 - F1 - Emberedge vs Vinesower\17 - F1 - Emberedge vs Vinesower.mp4
+[cup] band: GROUP F · MATCH 1 OF 3 / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a emberedge --b vinesower --seed 791951469 --no-card --stakes "GROUP F · MATCH 1 OF 3" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\02-groups\F\17 - F1 - Emberedge vs Vinesower\17 - F1 - Emberedge vs Vinesower.mp4"
+[cup] 18/33 F2 vinesower v foregone seed 1885472021 -> 02-groups\F\18 - F2 - Vinesower vs Foregone\18 - F2 - Vinesower vs Foregone.mp4
+[cup] band: GROUP F · MATCH 2 OF 3 / WIN AND VINESOWER TAKES THE GROUP
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a vinesower --b foregone --seed 1885472021 --no-card --stakes "GROUP F · MATCH 2 OF 3" --stakes-sub "WIN AND VINESOWER TAKES THE GROUP" --out "..\07-shorts\_cuptest\02-groups\F\18 - F2 - Vinesower vs Foregone\18 - F2 - Vinesower vs Foregone.mp4"
+[cup] 19/33 F3 foregone v emberedge seed 1828753053 -> 02-groups\F\19 - F3 - Foregone vs Emberedge\19 - F3 - Foregone vs Emberedge.mp4
+[cup] band: GROUP F · MATCH 3 OF 3 / GROUP DECIDED · VINESOWER IS THROUGH
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a foregone --b emberedge --seed 1828753053 --no-card --stakes "GROUP F · MATCH 3 OF 3" --stakes-sub "GROUP DECIDED · VINESOWER IS THROUGH" --out "..\07-shorts\_cuptest\02-groups\F\19 - F3 - Foregone vs Emberedge\19 - F3 - Foregone vs Emberedge.mp4"
+[cup] 20/33 G1 lightkeeper v slagheart seed 528536383 -> 02-groups\G\20 - G1 - Lightkeeper vs Slagheart\20 - G1 - Lightkeeper vs Slagheart.mp4
+[cup] band: GROUP G · MATCH 1 OF 3 / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a lightkeeper --b slagheart --seed 528536383 --no-card --stakes "GROUP G · MATCH 1 OF 3" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\02-groups\G\20 - G1 - Lightkeeper vs Slagheart\20 - G1 - Lightkeeper vs Slagheart.mp4"
+[cup] 21/33 G2 slagheart v aureole seed 1587466431 -> 02-groups\G\21 - G2 - Slagheart vs Aureole\21 - G2 - Slagheart vs Aureole.mp4
+[cup] band: GROUP G · MATCH 2 OF 3 / WIN AND SLAGHEART TAKES THE GROUP
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a slagheart --b aureole --seed 1587466431 --no-card --stakes "GROUP G · MATCH 2 OF 3" --stakes-sub "WIN AND SLAGHEART TAKES THE GROUP" --out "..\07-shorts\_cuptest\02-groups\G\21 - G2 - Slagheart vs Aureole\21 - G2 - Slagheart vs Aureole.mp4"
+[cup] 22/33 G3 aureole v lightkeeper seed 1315882169 -> 02-groups\G\22 - G3 - Aureole vs Lightkeeper\22 - G3 - Aureole vs Lightkeeper.mp4
+[cup] band: GROUP G · MATCH 3 OF 3 / WIN OR GO HOME
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a aureole --b lightkeeper --seed 1315882169 --no-card --stakes "GROUP G · MATCH 3 OF 3" --stakes-sub "WIN OR GO HOME" --out "..\07-shorts\_cuptest\02-groups\G\22 - G3 - Aureole vs Lightkeeper\22 - G3 - Aureole vs Lightkeeper.mp4"
+[cup] 23/33 H1 heartwood v farwarden seed 1238772664 -> 02-groups\H\23 - H1 - Heartwood vs Farwarden\23 - H1 - Heartwood vs Farwarden.mp4
+[cup] band: GROUP H · MATCH 1 OF 3 / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a heartwood --b farwarden --seed 1238772664 --no-card --stakes "GROUP H · MATCH 1 OF 3" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\02-groups\H\23 - H1 - Heartwood vs Farwarden\23 - H1 - Heartwood vs Farwarden.mp4"
+[cup] 24/33 H2 farwarden v lastlight seed 1518888159 -> 02-groups\H\24 - H2 - Farwarden vs Lastlight\24 - H2 - Farwarden vs Lastlight.mp4
+[cup] band: GROUP H · MATCH 2 OF 3 / WIN AND FARWARDEN TAKES THE GROUP
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a farwarden --b lastlight --seed 1518888159 --no-card --stakes "GROUP H · MATCH 2 OF 3" --stakes-sub "WIN AND FARWARDEN TAKES THE GROUP" --out "..\07-shorts\_cuptest\02-groups\H\24 - H2 - Farwarden vs Lastlight\24 - H2 - Farwarden vs Lastlight.mp4"
+[cup] 25/33 H3 lastlight v heartwood seed 1606666929 -> 02-groups\H\25 - H3 - Lastlight vs Heartwood\25 - H3 - Lastlight vs Heartwood.mp4
+[cup] band: GROUP H · MATCH 3 OF 3 / GROUP DECIDED · FARWARDEN IS THROUGH
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a lastlight --b heartwood --seed 1606666929 --no-card --stakes "GROUP H · MATCH 3 OF 3" --stakes-sub "GROUP DECIDED · FARWARDEN IS THROUGH" --out "..\07-shorts\_cuptest\02-groups\H\25 - H3 - Lastlight vs Heartwood\25 - H3 - Lastlight vs Heartwood.mp4"
+[cup] 26/33 QF-1 ironhail v thornwake seed 1267525054 -> 04-quarter-finals\26 - QF-1 - Ironhail vs Thornwake\26 - QF-1 - Ironhail vs Thornwake.mp4
+[cup] band: QUARTER-FINAL 1 / WINNER INTO THE SEMI-FINALS
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a ironhail --b thornwake --seed 1267525054 --no-card --stakes "QUARTER-FINAL 1" --stakes-sub "WINNER INTO THE SEMI-FINALS" --out "..\07-shorts\_cuptest\04-quarter-finals\26 - QF-1 - Ironhail vs Thornwake\26 - QF-1 - Ironhail vs Thornwake.mp4"
+[cup] 27/33 QF-2 widowmaker v gravemourn seed 247065826 -> 04-quarter-finals\27 - QF-2 - Widowmaker vs Gravemourn\27 - QF-2 - Widowmaker vs Gravemourn.mp4
+[cup] band: QUARTER-FINAL 2 / WINNER MEETS IRONHAIL
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a widowmaker --b gravemourn --seed 247065826 --no-card --stakes "QUARTER-FINAL 2" --stakes-sub "WINNER MEETS IRONHAIL" --out "..\07-shorts\_cuptest\04-quarter-finals\27 - QF-2 - Widowmaker vs Gravemourn\27 - QF-2 - Widowmaker vs Gravemourn.mp4"
+[cup] 28/33 QF-3 grudgebearer v vinesower seed 174640932 -> 04-quarter-finals\28 - QF-3 - Grudgebearer vs Vinesower\28 - QF-3 - Grudgebearer vs Vinesower.mp4
+[cup] band: QUARTER-FINAL 3 / WINNER INTO THE SEMI-FINALS
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a grudgebearer --b vinesower --seed 174640932 --no-card --stakes "QUARTER-FINAL 3" --stakes-sub "WINNER INTO THE SEMI-FINALS" --out "..\07-shorts\_cuptest\04-quarter-finals\28 - QF-3 - Grudgebearer vs Vinesower\28 - QF-3 - Grudgebearer vs Vinesower.mp4"
+[cup] 29/33 QF-4 slagheart v farwarden seed 1897265845 -> 04-quarter-finals\29 - QF-4 - Slagheart vs Farwarden\29 - QF-4 - Slagheart vs Farwarden.mp4
+[cup] band: QUARTER-FINAL 4 / WINNER MEETS GRUDGEBEARER
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a slagheart --b farwarden --seed 1897265845 --no-card --stakes "QUARTER-FINAL 4" --stakes-sub "WINNER MEETS GRUDGEBEARER" --out "..\07-shorts\_cuptest\04-quarter-finals\29 - QF-4 - Slagheart vs Farwarden\29 - QF-4 - Slagheart vs Farwarden.mp4"
+[cup] 30/33 SF-1 ironhail v gravemourn seed 164985915 -> 05-semi-finals\30 - SF-1 - Ironhail vs Gravemourn\30 - SF-1 - Ironhail vs Gravemourn.mp4
+[cup] band: SEMI-FINAL 1 / ONE FIGHT FROM THE FINAL
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a ironhail --b gravemourn --seed 164985915 --no-card --stakes "SEMI-FINAL 1" --stakes-sub "ONE FIGHT FROM THE FINAL" --out "..\07-shorts\_cuptest\05-semi-finals\30 - SF-1 - Ironhail vs Gravemourn\30 - SF-1 - Ironhail vs Gravemourn.mp4"
+[cup] 31/33 SF-2 grudgebearer v farwarden seed 574580360 -> 05-semi-finals\31 - SF-2 - Grudgebearer vs Farwarden\31 - SF-2 - Grudgebearer vs Farwarden.mp4
+[cup] band: SEMI-FINAL 2 / WINNER MEETS GRAVEMOURN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a grudgebearer --b farwarden --seed 574580360 --no-card --stakes "SEMI-FINAL 2" --stakes-sub "WINNER MEETS GRAVEMOURN" --out "..\07-shorts\_cuptest\05-semi-finals\31 - SF-2 - Grudgebearer vs Farwarden\31 - SF-2 - Grudgebearer vs Farwarden.mp4"
+[cup] 32/33 3P ironhail v farwarden seed 308143139 -> 06-third-place\32 - 3P - Ironhail vs Farwarden\32 - 3P - Ironhail vs Farwarden.mp4
+[cup] band: THIRD PLACE / THE LAST FIGHT BEFORE THE FINAL
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a ironhail --b farwarden --seed 308143139 --no-card --stakes "THIRD PLACE" --stakes-sub "THE LAST FIGHT BEFORE THE FINAL" --out "..\07-shorts\_cuptest\06-third-place\32 - 3P - Ironhail vs Farwarden\32 - 3P - Ironhail vs Farwarden.mp4"
+[cup] 33/33 F gravemourn v grudgebearer seed 2125839387 -> 07-final\33 - F - Gravemourn vs Grudgebearer\33 - F - Gravemourn vs Grudgebearer.mp4
+[cup] band: THE FINAL / ONLY ONE KEEPS THE CROWN
+       C:\dev\sundered-crown\tools\shorts_build.py --game C:\dev\sundered-crown\02-chain\sc-tendril-fx.html --a gravemourn --b grudgebearer --seed 2125839387 --no-card --stakes "THE FINAL" --stakes-sub "ONLY ONE KEEPS THE CROWN" --out "..\07-shorts\_cuptest\07-final\33 - F - Gravemourn vs Grudgebearer\33 - F - Gravemourn vs Grudgebearer.mp4"
+
+[cup] 0/33 filmed - schedule: ..\07-shorts\_cuptest\SCHEDULE.md
