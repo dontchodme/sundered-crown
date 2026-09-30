@@ -1,0 +1,14 @@
+
+> sundered-crown-app@0.1.0 identity
+> electron . --identity-check
+
+
+196 fights in 24.4s  (8/s)
+Chromium 152.0.7977.54
+
+wrote C:\dev\sundered-crown\out\shell_identity_app.json
+
+Now run:
+  cd tools
+  python3 shell_identity.py
+[22924:0930/155824.545:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:490] GPU state invalid after WaitForGetOffsetInRange.

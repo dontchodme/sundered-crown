@@ -12,7 +12,21 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-nightglass-fx.html   BUILD OF RECORD  <- app/main.js GAME, since
+02-chain/sc-candidate-49.html    BUILD OF RECORD  <- app/main.js GAME, since
+                                 2026-09-30: RICK, "go live". 49 RELICS: the batch line's
+                                 tip sc-balance (all nineteen v68-v86 designs, built and
+                                 balanced, v88-v117) + Rick's Daybreak CIRCLE (yert's
+                                 sunrise_build.py 1, 3, 5) + yert's SEVEN STAVES
+                                 (staff_carry.py), by 06-docs/v117/make_roster.sh. Every
+                                 relic 40.3-63.1% (verify --n 40, 47,040 fights), the batch
+                                 47-52%, the staves 45.5-51.4; 10/13, the reds the clock
+                                 bands and six hard counters Rick took live (v117 §5).
+                                 shell_identity 196/196 on the moved pointer. A new batch
+                                 or staff link reaches the game only by re-running
+                                 make_roster.sh on the new batch tip (circle + staves).
+02-chain/sc-nightglass-fx.html   the BUILD OF RECORD 2026-09-27 to 2026-09-30
+                                 (sc-candidate-49 took it, with this row carried in): THE
+                                 STAFF ROW'S TIP. Was, since
                                  2026-09-27: RICK, OFF THE SEVEN STAFF CLIPS,
                                  "looks good get it in the game". sc-leaf (the
                                  record before it) plus the staff row, and
@@ -82,7 +96,7 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-balance.html         THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+02-chain/sc-balance.html         THE BATCH LINE'S TIP, IN THE GAME (via sc-candidate-49). 42:
                                  THE BALANCE PASS (v117, balance_build.py; Rick: "you pick
                                  the blades. do whatevers best for balance"). Eleven batch
                                  blades moved, nothing else: every batch relic but
@@ -90,8 +104,8 @@ short-form video for TikTok and YouTube Shorts.
                                  roster (this tip + the circle + the staves). engine_ab
                                  2790/2790 on the untouched 31; verify 10/13 (clock bands +
                                  three hard counters that predate it); shell_identity
-                                 200/200. ALL NINETEEN DESIGNS ARE BUILT. GAME waits for
-                                 Rick, and its move must carry the circle and the staves.
+                                 200/200. ALL NINETEEN DESIGNS ARE BUILT. IN THE GAME since
+                                 2026-09-30 through sc-candidate-49 (the circle + staves).
 02-chain/sc-goreshard-fxout.html the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  GORESHARD REDESIGNED (goreshard_build.py, fx_remove.py,
                                  v114), carried onto sc-heartwood-fxout. Its blows hit

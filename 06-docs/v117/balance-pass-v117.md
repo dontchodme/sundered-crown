@@ -180,3 +180,15 @@ Each relic's build doc records the blade its build picked. Those numbers stay as
 decides the blade on the chain is this one. A relic's probe that pins its build's blade
 (several take it from their builder) will read that one check as moved on `sc-balance`, by design. The
 mechanisms are untouched: this link changes eleven numbers and no code.
+
+## 7. LIVE -- 2026-09-30
+
+Rick, having been shown the six hard counters: **"go live"**.
+- `app/main.js` GAME: `02-chain/sc-nightglass-fx.html` -> **`02-chain/sc-candidate-49.html`**.
+- **shell_identity on the moved pointer: 196/196** (`runs/live/game_app_identity.txt`,
+  `runs/live/game_shell_identity.txt`). The app's json is committed with the move, as the staff row's move
+  did.
+- The staff row stays in the game: it is carried in by `make_roster.sh`.
+- **The rule from here:** a new link on the batch line reaches the game only by re-running
+  `make_roster.sh` on the new batch tip (the circle + the staves). A GAME move to a bare batch link would
+  take the staves and the circle out.
