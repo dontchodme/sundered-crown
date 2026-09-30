@@ -1,0 +1,26 @@
+
+SPELLBREAKER / UNMAKING (REDESIGN) -- stage 6
+  src sc-spellbreaker-b7.5.html  da7936dccd8f5f15  (LF text)
+  base  Spellbreaker's shipped body (runic twinblade, hex 1); apply / stacks / STATUS.hex as priced and its proc; resolveHit's onHit loop; the window tickers stop in a hit stop; no code keys on the bolt
+  ok    Sfx: Spellbreaker's cast, stun and close arms, before the shared rune-crack fallback
+  ok    tickStatus: the stun voice, on a hex proc the Unmaking lengthened (hexStunMul > 1)
+  ok    tickUnmake: the close, on a clock close with both alive, before the close line
+  ok    unmaking picture: fighter fields
+  ok    unmaking picture: the presentation call
+  ok    unmaking picture: tickUnmaking
+  ok    unmaking picture: the floor call (world, under both balls)
+  ok    unmaking picture: the drawing methods
+  ok    unmaking picture: the script's runes
+  ok    unmaking picture: the grey (drawWeapon, the whole weapon)
+  ok    unmaking picture: the grey's alpha (drawWeapon)
+  ok    unmaking picture: the script on each blade (drawWeapon)
+  ok    unmaking picture: the bolt's set-piece retired
+  ok    unmaking picture: the banner's seat
+  ok    unmaking picture: the cast record's life
+  ok    ult   ult:{ name:"Unmaking", charge:14, kind:"unmake", dur:8, stunMul:2, hexExtra:1, tip:"Hexes stun the foe's ...
+  ok    card  68 chars  "Hexes stun the foe's weapon twice as long, and every hit hexes twice"
+  ok    stage 6: presentation only (no RNG, no ultFx, no call into the sim, writes its own fields, its motes and the relabel only; the stun and close voices its two lines on the sim path, each where it belongs); the inlined fx.js untouched; the rune-crack fallback kept; the bolt's art gone (its one Math.random with it); every arm, call, pass and method once
+  ok    one Unmaking ultimate, Spellbreaker's; the bolt out; no insert draws the RNG, writes the shared weapon or a module table, hurts, moves, stops, files a beat, stuns, writes a status, a hex clock, a reach, a charge or a burden beyond the design's two lines; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-spellbreaker-b7.5-fx.html  ceeff797e5739e0c   (+18258 chars, written LF)

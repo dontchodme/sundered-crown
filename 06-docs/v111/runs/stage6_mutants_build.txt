@@ -1,0 +1,6 @@
+fx link sc-spellbreaker-b7.5-fx.html ceeff797e5739e0c
+mV1-closedeath   3cf453b0f91652eb  breaks [7]  the close voice on EVERY close of the window, a death's too
+mV2-stunx1       3d7c8a70dbbc7542  breaks [7]  the stun voice on EVERY hex proc, x1 too
+mP1-picwrite     e100235213985f12  breaks [8]  tickUnmaking nudges the foe 1e-9 at a HEX +2 relabel (a sim write)
+mG1-greyx1       00222f5de489f387  breaks [8]  the grey on EVERY hex proc, x1 too (a plain stun greyed)
+mD1-drawwrite    504e0e6086faf7fd  breaks [8]  drawUnmaking nudges side a 1e-9 when it draws (drawn frames only)

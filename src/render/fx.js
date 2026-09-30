@@ -136,9 +136,6 @@
     oathwound: { mode: 'beam', n: 1250, sp: [25, 140], grav: -60, drag: 1.3,
                  life: [0.40, 1.00], heavy: 0.0, size: [0.7, 2.0],
                  spawn: 0.50, up: 0 },
-    spellbreaker: { mode: 'beam', n: 1200, sp: [40, 200], grav: -40,
-                    drag: 1.6, life: [0.25, 0.70], heavy: 0.0,
-                    size: [0.6, 1.8], spawn: 0.35, up: 0 },
     /* COROLLARY'S RUNE MOTES -- ON EACH LANDED ECHO, NOT AT THE CAST (the
        bolt's beam field is out). A small burst at the rune's seat, drawn at
        [u.tx, u.ty] because it is a burst without `atSelf`. Its births are

@@ -1,0 +1,4 @@
+spellbreaker on sc-spellbreaker-stub.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · stub-armA
+  win 23.6%   side A 23.2%   side B 24.1%   mean 76.0s   timeouts 0
+  by type  bow 39%  greatsword 28%  flail 25%  warhammer 23%  scythe 12%  twinblade 11%
+  worst    vinesower 0%  thornshear 0%  lastlight 5%   (740 fights in 55s)

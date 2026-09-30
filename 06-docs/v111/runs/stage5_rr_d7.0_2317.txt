@@ -1,0 +1,4 @@
+spellbreaker on sc-spellbreaker-unmaking.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · set dmg=7.0
+  win 42.0%   side A 41.9%   side B 42.2%   mean 86.3s   timeouts 0
+  by type  greatsword 61%  bow 51%  flail 39%  warhammer 36%  scythe 32%  twinblade 28%
+  worst    bloodmirror 0%  twinshade 5%  paradox 10%   (740 fights in 77s)

@@ -1,0 +1,10 @@
+38 relics · Chromium 151.0.7922.34 · spellbreaker (redesign) · 33 foes x 20 seeds = 660 fights an arm · lx-AD0-2317
+  charge=16.0 dur=8.0 blade=None stunMul=2 hexExtra=0
+
+  arm       win  casts  hits in/outf_foeReach      hex   unmade
+  A       27.6%   0.00  0.00/26.60      0.00     0.00     0.00
+      census: frozen 0.1245 of lab steps (739708/5939962), 0.0000 in windows (0/0), 0.1245 outside; lab 16 -> engine 14.01
+  D       46.1%   4.41 13.90/15.67      1.01     0.00     3.10
+      census: frozen 0.1237 of lab steps (771775/6239055), 0.1329 in windows (350941/2641148), 0.1170 outside; lab 16 -> engine 14.02
+  lifts over A: D +18.5
+  1320 fights in 203s   errors: []

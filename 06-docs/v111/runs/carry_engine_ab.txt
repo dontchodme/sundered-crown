@@ -1,0 +1,11 @@
+=== ENGINE A/B: 33 relics, 6 seeds x 528 pairings ===
+
+  sc-spellbreaker-b7.5-fx.html    3168 matches  242.6s
+  sc-spellbreaker-b7.5-fx.html    3168 matches  307.0s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3168
+  PASS  every match identical field for field  — 3168/3168
+  PASS  the sweep is real  — 33/33 distinct winners, 3168 distinct seeds, 17.1-143.2s
+
+ENGINE A/B PASS — C:\dev\sundered-crown\02-chain\sc-spellbreaker-b7.5-fx.html does not move the 33-relic roster.

@@ -1,0 +1,20 @@
+builder spellbreaker_build.py b590d739283eed26; base sc-tendril-t3 5a6216e3b629fad4
+  sc-spellbreaker-stub  link e1d4849ac78025e5  rebuilt e1d4849ac78025e5  SAME
+  sc-spellbreaker-stun  link 7f798933657feb57  rebuilt 7f798933657feb57  SAME
+  sc-spellbreaker-unmaking  link 29c3ea7b9e3e5f91  rebuilt 29c3ea7b9e3e5f91  SAME
+  sc-spellbreaker-b8.3  link 3d2e1bda149ced38  rebuilt 3d2e1bda149ced38  SAME
+  sc-spellbreaker-b7.7  link c9c172409507e08a  rebuilt c9c172409507e08a  SAME
+  sc-spellbreaker-b7.5  link e3f910d5a6f099cc  rebuilt e3f910d5a6f099cc  SAME
+EVERY LINK REBUILDS BYTE FOR BYTE
+refusals:
+  overwrite: refusing to overwrite sc-spellbreaker-stub.html -- a link is written once. Delete it by hand if this is a rebuild.
+  stage 2 on stage 3: stage 2 goes on stage 1, once
+  stage 1 on stage 1: the kind "unmake" is already in the base
+  stage 3 on the base: stage 3 needs stage 1 under it
+  stage 5 on stage 5: stage 5 goes on stage 3, once
+  stage 5 on stage 2: stage 5 goes on stage 3, once
+  --alt50 on stage 3: --alt50 / --alt-shipped are stage 5's
+  --alt50 with --alt-shipped: one blade a link: --alt50 or --alt-shipped
+  a name outside sc-spellbreaker*: refusing sc-other.html: this builder's links are sc-spellbreaker*
+  a base without Tendril (sc-trunk): wrong base: no `this.tickTendril(dt);` in step() -- the Unmaking's ticker goes after Tendril's (v68), so this is not the Tendril lineage
+  html written by the refusals: 0

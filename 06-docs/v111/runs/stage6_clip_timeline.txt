@@ -1,0 +1,46 @@
+Spellbreaker v vesper, seed 111075, sc-spellbreaker-b7.5-fx.html: every stage-6 event from 77.9 to 90.75 (match time)
+    79.175  CAST (the script writes); BANNER Unmaking; voices: spellbreaker
+    79.300  foe's weapon GREY (stun 0.392); voices: spellbreaker-stun
+    79.592  voices: spellbreaker-stun
+    79.883  voices: spellbreaker-stun
+    80.333  voices: spellbreaker-stun
+    80.725  grey off
+    80.892  TAG WARD 0
+    81.808  second hex x1; TAG HEX +2
+    82.042  foe's weapon GREY (stun 0.392); voices: spellbreaker-stun
+    82.433  grey off
+    82.617  foe's weapon GREY (stun 0.392); voices: spellbreaker-stun
+    82.950  second hex x1; TAG HEX +2
+    83.208  grey off
+    83.267  foe's weapon GREY (stun 0.392); voices: spellbreaker-stun
+    83.517  second hex x1; TAG HEX +2
+    83.633  voices: spellbreaker-stun
+    83.817  second hex x1; TAG HEX +2
+    84.100  voices: spellbreaker-stun
+    84.333  voices: spellbreaker-stun
+    84.567  voices: spellbreaker-stun
+    84.575  second hex x1; TAG HEX +2
+    84.883  voices: spellbreaker-stun
+    85.058  second hex x1; TAG HEX +2
+    85.200  voices: spellbreaker-stun
+    85.375  second hex x1; TAG HEX +2
+    85.517  voices: spellbreaker-stun
+    85.675  second hex x1; TAG HEX +2
+    85.833  voices: spellbreaker-stun
+    86.067  voices: spellbreaker-stun
+    86.300  voices: spellbreaker-stun
+    86.533  voices: spellbreaker-stun
+    86.767  voices: spellbreaker-stun
+    86.775  second hex x1; TAG HEX +2
+    87.242  voices: spellbreaker-stun
+    87.475  voices: spellbreaker-stun
+    87.708  voices: spellbreaker-stun
+    87.942  voices: spellbreaker-stun
+    88.133  second hex x1; TAG HEX +2
+    88.258  voices: spellbreaker-stun
+    88.492  voices: spellbreaker-stun
+    88.725  voices: spellbreaker-stun
+    88.942  CLOSE by the clock; voices: spellbreaker-close
+    89.125  grey off
+    89.900  TAG HEX 0
+end: {'t': 90.75, 'over': False, 'hp': [132, 123.4], 'clanks': 37, 'script': 0, 'motes': 0}

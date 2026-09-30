@@ -1,0 +1,30 @@
+95 frames, 10 fights; missing: aureole 4101a ['over']; morningstar 8888b ['over']; gravemourn 99015b ['grey', 'over']; censer 4101b ['over']
+BLOOM: the picture's share of the chain's arena lift max +0.0000 min -0.0002 (gate +0.02) [worst nightfell 5150a write]; raw luma added max +0.0011 min -0.0004; arena clip with max 0.0186 without 0.0186
+  CONTROL ctrl1 (the grey as LIGHT: a white lighter disc of the foe's reach at 0.35 over a greyed weapon): dLift max +0.0741, > 0.02 on 7/95 (on greyed frames max +0.0741, > 0.02 on 7/23); caster disc pushed past 0.90 on 1/79 window frames; foe disc pushed past 0.90 on 14/23 greyed frames (max caster 0.999, foe 0.996)
+  CONTROL ctrl2 (a white-hot lighter glow on the caster while the script stands): dLift max +0.0137, > 0.02 on 0/95 (on greyed frames max +0.0110, > 0.02 on 0/23); caster disc pushed past 0.90 on 66/79 window frames; foe disc pushed past 0.90 on 0/23 greyed frames (max caster 1.000, foe 0.957)
+  CONTROL ctrl3 (a white lighter disc over the foe's ball while greyed): dLift max +0.0044, > 0.02 on 0/95 (on greyed frames max +0.0044, > 0.02 on 0/23); caster disc pushed past 0.90 on 0/79 window frames; foe disc pushed past 0.90 on 21/23 greyed frames (max caster 0.999, foe 1.000)
+DISC me: max |d| 0.0003 (art only, tags out: +0.0000..+0.0003 [largest nightfell 5150a stop]); disc 0.241..0.999; >0.90 with 3 / without 3 of 95; clip with max 1.000 without 1.000
+DISC foe: max |d| 0.0332 (art only, tags out: -0.0009..+0.0003 [largest aureole 4101a tag]); disc 0.320..0.934; >0.90 with 7 / without 9 of 95; clip with max 0.638 without 0.638
+  foe dwarven   : n 10 art max |d| 0.0000; disc 0.320..0.889, contour 0.196..0.826 (without 0.196..0.826); >0.90 with 0 without 0
+  foe sanctified: n 47 art max |d| 0.0009; disc 0.616..0.934, contour 0.390..0.731 (without 0.390..0.731); >0.90 with 5 without 7
+  foe umbral    : n 28 art max |d| 0.0007; disc 0.335..0.863, contour 0.190..0.788 (without 0.190..0.795); >0.90 with 0 without 0
+  foe verdant   : n 10 art max |d| 0.0003; disc 0.468..0.915, contour 0.291..0.900 (without 0.291..0.898); >0.90 with 2 without 2
+LEGIBILITY (median |dL| of the component's own pixels (min..max) [n frames], |dC| beside; out of a stop  /  in one):
+  script in cast,write                  : 0.148 (0.078..0.193) dC 0.124 [10]  /  0.101 (0.082..0.109) dC 0.123 [10]
+  script in open,grey,tag,stop,greystop : 0.210 (0.073..0.223) dC 0.147 [19]  /  0.207 (0.070..0.231) dC 0.145 [30]
+  script in close,over                  : 0.211 (0.070..0.227) dC 0.146 [10]  /  0.195 (0.181..0.200) dC 0.124 [3]
+  grey   in grey,greystop               : 0.042 (0.022..0.068) dC 0.069 [9]  /  0.042 (0.023..0.064) dC 0.059 [10]
+  motes  in open,grey,greystop,tag,stop : 0.201 (0.043..0.228) dC 0.142 [19]  /  0.209 (0.158..0.244) dC 0.140 [30]
+  tag    in tag                         : -  /  0.254 (0.182..0.343) dC 0.205 [10]
+by state (median |dL| of everything the picture draws, its tags included):
+  rest     nan (nan..nan) n 0 of 10  [pixels moved: med 0.0, max 0]
+  cast     0.101 (0.082..0.109) n 10 of 10  [pixels moved: med 448.5, max 478]
+  write    0.144 (0.049..0.193) n 10 of 10  [pixels moved: med 921.5, max 3991]
+  open     0.212 (0.108..0.224) n 10 of 10  [pixels moved: med 1316.5, max 1439]
+  grey     0.096 (0.036..0.113) n 9 of 9  [pixels moved: med 4570, max 6283]
+  greystop 0.078 (0.044..0.171) n 10 of 10  [pixels moved: med 4431.0, max 6649]
+  tag      0.220 (0.195..0.244) n 10 of 10  [pixels moved: med 1563.5, max 1872]
+  stop     0.213 (0.125..0.229) n 10 of 10  [pixels moved: med 1271.5, max 2067]
+  close    0.185 (0.088..0.216) n 10 of 10  [pixels moved: med 1186.0, max 6449]
+  over     0.191 (0.036..0.258) n 6 of 6  [pixels moved: med 1079.5, max 4409]
+the grey on the foe's weapon: pixels moved med 3250, |dL| med 0.042, |dC| med 0.059 (max 0.098); foe schools dwarven, sanctified, umbral, verdant

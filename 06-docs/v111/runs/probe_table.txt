@@ -1,0 +1,6 @@
+link                       stage          checks  casts  blows in / out   blows a cast  2nd hex a cast  hex a live blow  foe hex/frame  foe stunned in / out   cadence calls  window (match)  frozen  win (444)
+sc-spellbreaker-stun       2              6/6     4.47   16.72 / 14.20    3.74          0.00            1.000            1.92           51.0% / 38.9%          7534846        9.25s           13.9%   50.0%
+sc-spellbreaker-unmaking   3              6/6     4.60   17.36 / 14.82    3.78          3.70            2.000            2.48           60.3% / 42.7%          7708454        9.20s           13.5%   60.6%
+sc-spellbreaker-b7.5       5 (the final)  6/6     4.73   18.85 / 15.64    3.99          3.93            2.000            2.54           61.0% / 44.7%          7941846        9.22s           13.7%   48.2%
+sc-spellbreaker-b8.3       5 --alt-row    6/6     4.68   18.09 / 15.21    3.87          3.80            2.000            2.49           60.2% / 44.2%          7836594        9.22s           13.7%   53.8%
+sc-spellbreaker-b7.7       5 --alt50      6/6     4.77   18.70 / 15.50    3.92          3.86            2.000            2.54           61.1% / 44.8%          7967252        9.21s           13.6%   47.7%

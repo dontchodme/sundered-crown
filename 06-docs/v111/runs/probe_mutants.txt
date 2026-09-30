@@ -1,0 +1,13 @@
+link: 6/6, win 48.2%, 444 fights, failing none
+  m1-frozen         5/6  fails by violation [1] (own [1]), not exercised []  fail counts {'x1': 1115942}   win 34.5%   fights changed 442/444   -> A CONTROL
+  m2-stunlen        5/6  fails by violation [2] (own [2]), not exercised []  fail counts {'x2': 30098}   win 17.3%   fights changed 444/444   -> A CONTROL
+  m3-global         5/6  fails by violation [3] (own [3]), not exercised []  fail counts {'x3': 1919660}   win 47.1%   fights changed 36/444   -> A CONTROL
+  m4-hexout         5/6  fails by violation [4] (own [4]), not exercised []  fail counts {'x4': 7344}   win 52.3%   fights changed 444/444   -> A CONTROL
+  m5-drag           5/6  fails by violation [5] (own [5]), not exercised []  fail counts {'x5': 1992494}   win 46.4%   fights changed 432/444   -> A CONTROL
+  m6-boltkept       5/6  fails by violation [6] (own [6]), not exercised []  fail counts {'x6': 2036}   win 56.1%   fights changed 332/444   -> A CONTROL
+  r1-hexonce        5/6  fails by violation [4] (own [4]), not exercised []  fail counts {'x4': 7697}   win 38.5%   fights changed 444/444   -> A CONTROL
+  r2-hexclock       5/6  fails by violation [5] (own [5]), not exercised []  fail counts {'x5': 4011775}   win 57.0%   fights changed 444/444   -> A CONTROL
+  r3-shrink         5/6  fails by violation [5] (own [5]), not exercised []  fail counts {'x5': 641606}   win 66.9%   fights changed 444/444   -> A CONTROL
+  r4-shrinkhit      5/6  fails by violation [5] (own [5]), not exercised []  fail counts {'x5': 2635}   win 62.2%   fights changed 443/444   -> A CONTROL
+  r5-cadence        5/6  fails by violation [2] (own [2]), not exercised []  fail counts {'x2': 1331798}   win 55.6%   fights changed 444/444   -> A CONTROL
+EVERY m/r MUTANT CHANGES FIGHTS AND FAILS ITS OWN CHECK ALONE

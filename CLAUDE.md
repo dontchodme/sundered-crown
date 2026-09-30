@@ -82,7 +82,15 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-aureole-fxout.html   THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+02-chain/sc-spellbreaker-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+                                 SPELLBREAKER / UNMAKING REDESIGNED (spellbreaker_build.py
+                                 1, 2, 3, 5, 6 and fx_remove.py, v111), carried onto
+                                 sc-aureole-fxout. The bolt is gone: hexes stun the foe's
+                                 weapon twice as long, and every hit hexes twice. Charge
+                                 14, blade 7.5 (49.2%), for the balance pass. fx.js stamp
+                                 -> 7dc0123af735c83e. Carry proved against scratch and
+                                 the tip; probe 8/8; shell_identity 200/200.
+02-chain/sc-aureole-fxout.html   the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  AUREOLE / BENEDICTION REDESIGNED (aureole_build.py 1, 2,
                                  3, 5, 6 and fx_remove.py --keep-comment, v110), carried
                                  onto sc-censer-fxout. The beam is gone: a halo; foes
@@ -90,7 +98,7 @@ short-form video for TikTok and YouTube Shorts.
                                  Charge 14, blade 12.5, the shipped rate (56.1%; 50% is
                                  11.5, Rick's). fx.js stamp -> 487c9de9dff7f374. Carry
                                  proved against scratch and the tip; probe 10/10;
-                                 shell_identity PENDING.
+                                 shell_identity 200/200.
 02-chain/sc-censer-fxout.html    the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  CENSER / CONSECRATION REDESIGNED (censer_build.py 1, 2,
                                  3, 5, 6 and fx_remove.py, v109), carried onto
@@ -98,7 +106,7 @@ short-form video for TikTok and YouTube Shorts.
                                  holy ground; foes on it are smitten, and it heals there.
                                  Charge 14, blade 25.5, the shipped rate (49.6%).
                                  fx.js stamp -> 866f45e37dc54e3f. Carry proved against
-                                 scratch and the tip; probe 11/11; shell_identity PENDING.
+                                 scratch and the tip; probe 11/11; shell_identity 200/200.
 02-chain/sc-lightkeeper-fxout.html the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  LIGHTKEEPER / BULWARK REDESIGNED (lightkeeper_build.py
                                  1, 2, 3, 5, 6 and fx_remove.py, v107), carried onto
@@ -108,7 +116,7 @@ short-form video for TikTok and YouTube Shorts.
                                  10, Rick's). verify 10/13: it wins all 40 against
                                  Marrowdraw (Rick's). fx.js stamp -> 830a7026987903b4.
                                  Carry proved against scratch and the tip; probe 10/10;
-                                 shell_identity PENDING (Rick was on the PC).
+                                 shell_identity 200/200.
 02-chain/sc-angelus-b9-fx.html   the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  ANGELUS / ASCENSION, the sanctified twinblade
                                  (angelus_build.py 1, 2, 3, 5, 6, v104), carried onto

@@ -1,0 +1,4 @@
+spellbreaker on sc-spellbreaker-m1-frozen.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · m1-labclock-b7.5
+  win 41.5%   side A 41.9%   side B 41.1%   mean 84.7s   timeouts 0
+  by type  greatsword 59%  bow 51%  warhammer 38%  flail 37%  scythe 33%  twinblade 26%
+  worst    bloodmirror 0%  vinesower 5%  dawnbringer 10%   (740 fights in 62s)

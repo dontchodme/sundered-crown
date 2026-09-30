@@ -1,0 +1,7 @@
+drawn fights: 18 | thrown: none
+totals: {'draws': 35959, 'picFrames': 31485, 'stopPicFrames': 5513, 'windows': 83, 'procs1': 993, 'procs2': 1356, 'procs2NoStun': 20, 'greyStarts': 1336, 'greyNoStun': 0, 'extra': 315, 'plus2': 314, 'moteBad': 0, 'bannerOnHer': 66, 'bannerOnFoe': 0, 'runsOther': 42}
+grey run lengths (clean, uninterrupted): {1: 1, 5: 1, 47: 195} | stun lengths: {1: 1, 5: 1, 47: 195}
+bad lists: {'tagBad': [("('spellbreaker', 'twinshade', 2207)", [[24.483, 1, []]])]}
+life at cast: [1.5]
+script unwrite after a clock close: n 70 min 0.1917 median 0.1917 max 0.375; after a death close: []
+at the kill [fade, alive, window]: Counter({'[0.958, True, True]': 8, '[0.958, False, True]': 3, '[0.958, False, False]': 2, '[0, False, False]': 2, '[0, True, False]': 1}) -> 0 after [0, 0.1917]

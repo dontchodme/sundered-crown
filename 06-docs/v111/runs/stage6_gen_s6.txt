@@ -1,0 +1,11 @@
+voice rows   rows_final.json 090b35214e0efe05 (lab: 090b35214e0efe05)
+picture rows rows_final.json 6a3c73a527df3e45 (lab: 6a3c73a527df3e45)
+base         sc-spellbreaker-b7.5.html da7936dccd8f5f15 (the final stage-5 link: da7936dccd8f5f15)
+picture rows alone -> 176458b0df4a79cd (the picture lab's stamp: 176458b0df4a79cd)
+voice rows alone   -> 149b777b7f1ccb90 (the voice lab's page: 149b777b7f1ccb90)
+voice then picture -> ceeff797e5739e0c ; picture then voice -> ceeff797e5739e0c
+reversed order     -> ceeff797e5739e0c (the same)
+rows sharing an anchor line: none -- so none is merged
+modes: {'before': 5, 'after': 6, 'replace': 4}
+S6 written into spellbreaker_build.py: 15 edits; builder 005dc3e1d6af74c5 -> eb35a9a8f4d37571
+read back: the S6 table == the rows (label, anchor, new) x 15

@@ -1,0 +1,24 @@
+
+(1) THE NEW PROBE ON THE b7.5 AGAINST THE STAGES 1-5 PROBE'S OWN RUN: probe_b7.5 -> stage6_probe_b7.5
+  the printed lines, the stage-6 lines, the header (its file name) and the score aside: IDENTICAL (23 lines)
+  counters of the first run: 71, all equal in the second: True []
+  counters only in the second (stage 6's): 0
+  T: equal
+  TS: equal
+  digest: equal
+  fights: equal
+  win: equal
+  u: equal
+
+(2) THE NEW PROBE ON THE FX LINK AGAINST THE NEW PROBE ON THE b7.5: stage6_probe_b7.5 -> stage6_probe_fx
+  the printed lines, the stage-6 lines, the header (its file name) and the score aside: IDENTICAL (23 lines)
+  counters of the first run: 71, all equal in the second: True []
+  counters only in the second (stage 6's): 40
+  T: equal
+  TS: equal
+  digest: equal
+  fights: equal
+  win: equal
+  u: equal
+
+PASS

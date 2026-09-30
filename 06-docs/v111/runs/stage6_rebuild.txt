@@ -1,0 +1,24 @@
+builder spellbreaker_build.py 6543119d4a9d0d1c; base sc-tendril-t3 5a6216e3b629fad4
+  sc-spellbreaker-stub  link e1d4849ac78025e5  rebuilt e1d4849ac78025e5  SAME  (CR bytes: 0)
+  sc-spellbreaker-stun  link 1dcdb0876f870b89  rebuilt 1dcdb0876f870b89  SAME  (CR bytes: 0)
+  sc-spellbreaker-unmaking  link 1231102e48184843  rebuilt 1231102e48184843  SAME  (CR bytes: 0)
+  sc-spellbreaker-b7.5  link da7936dccd8f5f15  rebuilt da7936dccd8f5f15  SAME  (CR bytes: 0)
+  sc-spellbreaker-b7.7  link 586b23089cf9674c  rebuilt 586b23089cf9674c  SAME  (CR bytes: 0)
+  sc-spellbreaker-b8.3  link dade2e086be0a8cb  rebuilt dade2e086be0a8cb  SAME  (CR bytes: 0)
+  sc-spellbreaker-b7.5-fx  link ceeff797e5739e0c  rebuilt ceeff797e5739e0c  SAME  (CR bytes: 0)
+EVERY LINK REBUILDS BYTE FOR BYTE (the seven, stage 6's included)
+stage 6's refusals:
+  stage 6 twice (on the fx link): 'tickUnmaking' is already in this source -- stage 6 goes on once
+  stage 6 on Rick's row-floor link (b8.3): stage 6 goes on stage 5 (the second hex on, at the blade BLADE names)
+  stage 6 on Rick's 50% link (b7.7): stage 6 goes on stage 5 (the second hex on, at the blade BLADE names)
+  stage 6 on stage 3: stage 6 goes on stage 5 (the second hex on, at the blade BLADE names)
+  stage 6 on stage 2: stage 6 goes on stage 5 (the second hex on, at the blade BLADE names)
+  stage 6 on stage 1: stage 6 goes on stage 5 (the second hex on, at the blade BLADE names)
+  stage 6 on the bare tip: stage 6 needs stage 1 under it
+  stage 6 over an existing link: refusing to overwrite sc-spellbreaker-b7.5-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+  stage 6 to a name outside sc-spellbreaker*: refusing sc-other-fx.html: this builder's links are sc-spellbreaker*
+  stage 5 on the fx link: stage 5 goes on stage 3, once
+  --alt50 with stage 6: --alt50 / --alt-row are stage 5's
+  --alt-row with stage 6: --alt50 / --alt-row are stage 5's
+  stage 3 on the fx link: stage 3 goes on stage 2, once
+  html written by the refusals: 0; the fx link untouched: ceeff797e5739e0c

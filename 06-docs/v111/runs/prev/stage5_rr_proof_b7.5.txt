@@ -1,0 +1,3 @@
+block 2207: sc-spellbreaker-unmaking --set dmg=7.5: 49.19% (A 53.78 / B 44.59), mean 85.768649s | sc-spellbreaker-b7.5 no --set: 49.19% (A 53.78 / B 44.59), mean 85.768649s | 37 foes, every foe, type, side and the duration IDENTICAL
+block 2317: sc-spellbreaker-unmaking --set dmg=7.5: 49.19% (A 48.11 / B 50.27), mean 85.244216s | sc-spellbreaker-b7.5 no --set: 49.19% (A 48.11 / B 50.27), mean 85.244216s | 37 foes, every foe, type, side and the duration IDENTICAL
+THE LINK IS THE MEASURED RELIC

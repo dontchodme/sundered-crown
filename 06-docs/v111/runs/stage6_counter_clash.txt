@@ -1,0 +1,39 @@
+old probe 26434231bb955cf8: 40 inc sites, 36 names; new probe 05f85277955137f9: 72 sites, 68 names
+  kept   EXPR:head ? "insertOpenEnded" : "insertUnread" old 1  new 1
+  kept   EXPR:open ? "blowInOk" : "blowOutOk" old 1  new 1
+  kept   EXPR:open ? "chanInOk" : "chanOutOk" old 1  new 1
+  kept   EXPR:open ? "insertInOk" : "insertOutOk" old 1  new 1
+  kept   EXPR:want === 1 ? (isMe(f    old 1  new 1
+  kept   blowExempt                   old 2  new 2
+  kept   blowOnShadeIn                old 1  new 1
+  kept   blowsInKill                  old 1  new 1
+  kept   blowsInLive                  old 1  new 1
+  kept   cadenceOk                    old 1  new 1
+  kept   cadenceProc_*                old 1  new 1
+  kept   calls                        old 1  new 1
+  kept   castOk                       old 1  new 1
+  kept   clockCloses                  old 1  new 1
+  kept   deathCloses                  old 1  new 1
+  kept   fieldShadeOk                 old 1  new 1
+  kept   foeStun                      old 2  new 2
+  kept   foeWeap                      old 2  new 2
+  kept   frames                       old 1  new 1
+  kept   freshOk                      old 1  new 1
+  kept   hcContOk                     old 1  new 1
+  kept   hexAppliedInLive             old 1  new 1
+  kept   hexAppliedKill               old 1  new 1
+  kept   procOnStun                   old 1  new 1
+  kept   proc_*                       old 1  new 1
+  kept   runCut                       old 1  new 1
+  kept   runDirty                     old 2  new 2
+  kept   runL_*                       old 1  new 1
+  kept   runN_*                       old 1  new 1
+  kept   sharedOk                     old 1  new 1
+  kept   tickStepOk                   old 1  new 1
+  kept   tickWorldOk                  old 1  new 1
+  kept   winFrozen                    old 1  new 1
+  kept   winLive                      old 1  new 1
+  kept   winMT                        old 1  new 1
+  kept   winMTn                       old 1  new 1
+  added  EXPR:PM.age < 0.6 ? "scriptWriting" : "scriptUpOk" (1), EXPR:k (1), EXPR:open ? "verdictQuietOpen" : "verdictQuiet" (1), EXPR:p ? "greyNoneOnX1" : "greyOffOk" (1), EXPR:this.hitStop > 0 ? "greyOnStop" : "greyOn" (1), EXPR:this.over ? (me.ultUnmake ? "picCloseOverOpen" : "picCloseOver" (1), EXPR:up ? (open ? "endGoneOpen" : "endGoneUp" (1), castVoiceOk (1), drawGrey (1), drawOk (1), drawPic (1), drawPicStop (1), drawVerdict (1), drawnFights (1), greyAtVerdict (1), greyStart (1), greyStartNoStun (1), moteOnBlade (1), motesBorn (1), motesOutlive (1), picCasts (1), picFreshOk (1), procQuietOk_* (1), scriptGoneOk (1), scriptUnwriting (1), secondHexNoTag (1), stunVoiceOk_* (1), tagFirstKept (1), tagOk (1), unmkCalls (1), unmkClean (1), v_ (1)
+PASS: 0 old counters moved, 0 new names inside an old template

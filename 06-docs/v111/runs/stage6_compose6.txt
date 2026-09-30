@@ -1,0 +1,25 @@
+builder spellbreaker_build.py 6543119d4a9d0d1c
+sc-tendril-t3 (5a6216e3b629fad4): stages 1-6 apply and parse; 38 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx ceeff797e5739e0c
+sc-aureole-b12.5-fx (e373cf79dc779466): stages 1-6 apply and parse; 42 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 02279570c7f87dca
+sc-aureole-fxout (da5eafafcfae06c2): stages 1-6 apply and parse; 42 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx e2a4fd8ea4eed06f
+sc-censer-fxout (00a2e2e10448c492): stages 1-6 apply and parse; 42 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx c4a5c73357a64467
+sc-censer-consecration-b25.5-fx (ae411af7b64ba742): stages 1-6 apply and parse; 42 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 627e75968b92478d
+sc-lightkeeper-fxout (088189f3517b6f11): stages 1-6 apply and parse; 42 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 3b4211b36ac04d65
+sc-lightkeeper-bulwark-b9.5-fx (f1dcb017f69db079): stages 1-6 apply and parse; 42 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 4ae596dabefb693c
+sc-angelus-b9-fx (85b8af63055d1108): stages 1-6 apply and parse; 42 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 0f6a5247f7b97a0c
+sc-oracle-fx (15cf62f96f72653a): stages 1-6 apply and parse; 41 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 4159373c59e1a337
+sc-widowmaker-fxout (04fdd2e2daa17c26): stages 1-6 apply and parse; 40 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 756d433ac7c0c435
+sc-lodestone-b205-fx (4568c2995d06f696): stages 1-6 apply and parse; 40 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 018aafdce259fb39
+sc-ironhail-fxout (4b3775e5900172ea): stages 1-6 apply and parse; 39 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 87346934eb189004
+sc-ironhail-sunder-fx (b51c2539999dd272): stages 1-6 apply and parse; 39 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 5194a4be64af34ce
+sc-coldiron-temper-fx (67cc3e6e05d5326e): stages 1-6 apply and parse; 39 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx f576eb51824ec6b6
+sc-aureole-b12.5 (21ea91d0f3c14274): stages 1-6 apply and parse; 38 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 8a59aa3bd12b3daa
+sc-censer-consecration-b25.5 (56c49ad3f0ccb3aa): stages 1-6 apply and parse; 38 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx d8858c7f3bd563a4
+sc-lightkeeper-bulwark-b9.5-fx (e3f16bf01f0e2995): stages 1-6 apply and parse; 38 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 8fcc9fa2a3592ecf
+sc-widowmaker-b1075-fx-specout (3d16bbc543e74c18): stages 1-6 apply and parse; 38 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 0f97e349f2c4c699
+sc-coldiron-temper-fx (3693eda608b26fa8): stages 1-6 apply and parse; 39 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 399fdf006dd4ff05
+sc-angelus-b9-fx (6356f75eb0b328e1): stages 1-6 apply and parse; 39 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx c5a5de28975524f6
+sc-oracle-fx (4e8f47301b97d7d7): stages 1-6 apply and parse; 39 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx b300036d5815d415
+ctl-labclock-rootfast (59b4a74f89928d6d): stages 1-6 apply and parse; 38 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 9047e8e69584bf25
+sc-censer-consecration-b25.5-fx (3d68c7648a9cb3a8): stages 1-6 apply and parse; 38 relics in the roster; stages 1-5 md5 83845082c07f (85 lines); stage 6 alone md5 2e2d2e985dab (409 lines); fx 6c61fa9db6899ca3
+FAIL: 0

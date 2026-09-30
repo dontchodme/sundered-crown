@@ -1,0 +1,48 @@
+LADDER  the Unmaking at 8.30 (sc-spellbreaker-b8.3): pooled 54.3% (55.3% / 53.2%), side A 56.6%, side B 51.9%, mean 83.4s   | the shipped bolt at 8.81: 48.6%
+
+BY TYPE (the relic's rate against each type)        [reference]
+  greatsword    74.3%   [ 64.3%]  +10.0
+  bow           57.9%   [ 57.5%]   +0.4
+  flail         55.4%   [ 42.5%]  +12.9
+  warhammer     52.1%   [ 46.7%]   +5.4
+  twinblade     45.6%   [ 45.0%]   +0.6
+  scythe        36.8%   [ 35.4%]   +1.4
+
+BY FOE (40 fights a foe)        [reference]
+  redflail        95.0%   [ 87.5%]    +7.5
+  lightkeeper     92.5%   [ 77.5%]   +15.0
+  axiom           92.5%   [ 75.0%]   +17.5
+  farwarden       90.0%   [ 77.5%]   +12.5
+  vesper          82.5%   [ 57.5%]   +25.0
+  nightfell       80.0%   [ 50.0%]   +30.0
+  portcullis      80.0%   [ 45.0%]   +35.0
+  marrowdraw      77.5%   [ 77.5%]    -0.0
+  heartwood       75.0%   [ 70.0%]    +5.0
+  emberedge       72.5%   [ 70.0%]    +2.5
+  oathwound       72.5%   [ 62.5%]   +10.0
+  ironhail        67.5%   [ 60.0%]    +7.5
+  starwarden      65.0%   [ 67.5%]    -2.5
+  widowmaker      60.0%   [ 52.5%]    +7.5
+  censer          60.0%   [ 40.0%]   +20.0
+  grudgebearer    57.5%   [ 50.0%]    +7.5
+  ironwood        57.5%   [ 57.5%]    +0.0
+  bindweed        57.5%   [ 17.5%]   +40.0
+  slagheart       55.0%   [ 42.5%]   +12.5
+  aureole         55.0%   [ 70.0%]   -15.0
+  bulwarden       55.0%   [ 47.5%]    +7.5
+  ravelbone       47.5%   [ 42.5%]    +5.0
+  gravemourn      45.0%   [ 35.0%]   +10.0
+  duskreave       45.0%   [ 45.0%]    +0.0
+  thornwake       42.5%   [ 35.0%]    +7.5
+  dawnbringer     35.0%   [ 45.0%]   -10.0
+  vinesower       35.0%   [ 30.0%]    +5.0
+  thornshear      35.0%   [ 32.5%]    +2.5
+  shroudmaul      35.0%   [ 42.5%]    -7.5
+  paradox         32.5%   [ 37.5%]    -5.0
+  cindercleave    32.5%   [ 27.5%]    +5.0
+  foregone        27.5%   [ 32.5%]    -5.0
+  lastlight       22.5%   [ 32.5%]   -10.0
+  twinshade       22.5%   [ 27.5%]    -5.0
+  gloamwire       22.5%   [ 30.0%]    -7.5
+  morningstar     22.5%   [ 32.5%]   -10.0
+  bloodmirror      5.0%   [ 17.5%]   -12.5

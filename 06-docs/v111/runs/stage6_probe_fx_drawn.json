@@ -1,0 +1,688 @@
+{
+ "n": {
+  "freshOk": 148,
+  "picFreshOk": 148,
+  "drawnFights": 74,
+  "cadenceOk": 1345136,
+  "tickWorldOk": 667849,
+  "calls": 667849,
+  "fieldMeOk": 667849,
+  "fieldFoeOutOk": 342528,
+  "unmkCalls": 1467154,
+  "unmkClean": 1467154,
+  "tickStepOk": 667849,
+  "hcContOk": 1344974,
+  "drawOk": 23211,
+  "insertOutOk": 1250,
+  "blowOutOk": 1223,
+  "chanOutOk": 1250,
+  "procQuietOk_out": 4437,
+  "cadenceProc_out": 4437,
+  "proc_out_x1": 4437,
+  "runN_out_x1": 3488,
+  "runL_out_x1": 726.6666666666871,
+  "runMin_out_x1": 0.20833333333333334,
+  "runMax_out_x1": 0.20833333333333334,
+  "runDirty": 503,
+  "procOnStun": 5938,
+  "v_spellbreaker": 359,
+  "castVoiceOk": 359,
+  "castOk": 359,
+  "foeWeapIn": 325461,
+  "foeWeapInA": 161702,
+  "frames": 325321,
+  "fieldFoeInOk": 325321,
+  "greyOffOk": 1963675,
+  "picCasts": 359,
+  "scriptWriting": 25489,
+  "winFrozen": 52979,
+  "winLive": 325283,
+  "drawPic": 17012,
+  "motesBorn": 93722,
+  "moteOnBlade": 93722,
+  "v_spellbreaker-stun": 6230,
+  "stunVoiceOk_in": 6230,
+  "cadenceProc_in": 6231,
+  "proc_in_x2": 6230,
+  "foeStunIn": 206521,
+  "foeStunInA": 104939,
+  "greyStart": 6230,
+  "greyOn": 404296,
+  "greyOnStop": 47789,
+  "drawPicStop": 2684,
+  "drawGrey": 10020,
+  "scriptUpOk": 677988,
+  "runCut": 230,
+  "v_spellbreaker-close": 316,
+  "closeVoiceOk": 316,
+  "clockCloses": 316,
+  "winMT": 2921.216666666706,
+  "winMTn": 316,
+  "picCloseClock": 315,
+  "scriptUnwriting": 16873,
+  "motesOutlive": 44829,
+  "foeWeapOut": 218031,
+  "foeWeapOutA": 107587,
+  "scriptGoneOk": 359,
+  "foeStunOut": 100008,
+  "foeStunOutA": 48324,
+  "greyNoneOnX1": 3910,
+  "runN_in_x2": 589,
+  "runL_in_x2": 235.60000000000227,
+  "runMin_in_x2": 0.4,
+  "runMax_in_x2": 0.4,
+  "insertInOk": 1491,
+  "blowInOk": 1487,
+  "chanInOk": 1491,
+  "hexAppliedInLive": 2924,
+  "blowsInLive": 1462,
+  "tagOk": 1462,
+  "drawVerdict": 528,
+  "verdictQuiet": 36,
+  "endGoneOk": 31,
+  "sharedOk": 74,
+  "hexAppliedKill": 29,
+  "blowsInKill": 29,
+  "picCloseOverOpen": 38,
+  "verdictQuietOpen": 38,
+  "endGoneOpen": 38,
+  "greyAtVerdict": 35,
+  "greyStartNoStun": 48,
+  "picCloseOver": 5,
+  "endGoneUp": 5,
+  "closeDeathQuiet": 5,
+  "deathCloses": 5,
+  "procQuietOk_me": 317,
+  "cadenceProc_me": 317,
+  "proc_me_x1": 317,
+  "runN_me_x1": 219,
+  "runL_me_x1": 45.625000000000085,
+  "runMin_me_x1": 0.20833333333333334,
+  "runMax_me_x1": 0.20833333333333334,
+  "fieldShadeOk": 9438,
+  "blowOnShadeIn": 18,
+  "procQuietOk_shade": 59,
+  "cadenceProc_shade": 59,
+  "proc_shade_x1": 59,
+  "blowExempt": 31,
+  "procQuietOk_in": 1,
+  "proc_in_x1": 1,
+  "foeWeapInB": 163759,
+  "foeStunInB": 101582,
+  "foeWeapOutB": 110444,
+  "foeStunOutB": 51684,
+  "picCloseDeath": 1
+ },
+ "bad": {},
+ "T": {
+  "casts": 359,
+  "frames": 325321,
+  "blows": 1491,
+  "extra": 1462,
+  "foeHex": 870811
+ },
+ "TS": [
+  {
+   "casts": 178,
+   "frames": 161541,
+   "blows": 743,
+   "extra": 731,
+   "foeHex": 447809,
+   "fights": 37,
+   "wins": 20,
+   "decided": 37,
+   "bin": 743
+  },
+  {
+   "casts": 181,
+   "frames": 163780,
+   "blows": 748,
+   "extra": 731,
+   "foeHex": 423002,
+   "fights": 37,
+   "wins": 23,
+   "decided": 37,
+   "bin": 748
+  }
+ ],
+ "digest": [
+  [
+   0,
+   "dawnbringer",
+   111001,
+   1,
+   8986
+  ],
+  [
+   0,
+   "widowmaker",
+   111001,
+   1,
+   10246
+  ],
+  [
+   0,
+   "grudgebearer",
+   111001,
+   1,
+   11705
+  ],
+  [
+   0,
+   "thornwake",
+   111001,
+   0,
+   7721
+  ],
+  [
+   0,
+   "lastlight",
+   111001,
+   0,
+   10593
+  ],
+  [
+   0,
+   "gravemourn",
+   111001,
+   0,
+   9484
+  ],
+  [
+   0,
+   "slagheart",
+   111001,
+   1,
+   10508
+  ],
+  [
+   0,
+   "ironhail",
+   111001,
+   1,
+   10258
+  ],
+  [
+   0,
+   "lightkeeper",
+   111001,
+   1,
+   12923
+  ],
+  [
+   0,
+   "farwarden",
+   111001,
+   1,
+   11839
+  ],
+  [
+   0,
+   "aureole",
+   111001,
+   1,
+   9511
+  ],
+  [
+   0,
+   "censer",
+   111001,
+   0,
+   7070
+  ],
+  [
+   0,
+   "emberedge",
+   111001,
+   0,
+   9845
+  ],
+  [
+   0,
+   "oathwound",
+   111001,
+   1,
+   10613
+  ],
+  [
+   0,
+   "heartwood",
+   111001,
+   1,
+   10935
+  ],
+  [
+   0,
+   "nightfell",
+   111001,
+   1,
+   10678
+  ],
+  [
+   0,
+   "axiom",
+   111001,
+   1,
+   12089
+  ],
+  [
+   0,
+   "twinshade",
+   111001,
+   0,
+   8832
+  ],
+  [
+   0,
+   "redflail",
+   111001,
+   1,
+   9493
+  ],
+  [
+   0,
+   "foregone",
+   111001,
+   0,
+   8802
+  ],
+  [
+   0,
+   "vinesower",
+   111001,
+   0,
+   11535
+  ],
+  [
+   0,
+   "bulwarden",
+   111001,
+   0,
+   11438
+  ],
+  [
+   0,
+   "marrowdraw",
+   111001,
+   1,
+   10918
+  ],
+  [
+   0,
+   "paradox",
+   111001,
+   0,
+   7787
+  ],
+  [
+   0,
+   "thornshear",
+   111001,
+   0,
+   9863
+  ],
+  [
+   0,
+   "vesper",
+   111001,
+   1,
+   10324
+  ],
+  [
+   0,
+   "shroudmaul",
+   111001,
+   0,
+   10709
+  ],
+  [
+   0,
+   "cindercleave",
+   111001,
+   1,
+   9854
+  ],
+  [
+   0,
+   "ravelbone",
+   111001,
+   0,
+   9073
+  ],
+  [
+   0,
+   "gloamwire",
+   111001,
+   1,
+   9010
+  ],
+  [
+   0,
+   "bloodmirror",
+   111001,
+   0,
+   8516
+  ],
+  [
+   0,
+   "duskreave",
+   111001,
+   0,
+   9046
+  ],
+  [
+   0,
+   "starwarden",
+   111001,
+   1,
+   14399
+  ],
+  [
+   0,
+   "morningstar",
+   111001,
+   0,
+   10277
+  ],
+  [
+   0,
+   "ironwood",
+   111001,
+   0,
+   11053
+  ],
+  [
+   0,
+   "portcullis",
+   111001,
+   1,
+   12421
+  ],
+  [
+   0,
+   "bindweed",
+   111001,
+   1,
+   11348
+  ],
+  [
+   1,
+   "dawnbringer",
+   111001,
+   0,
+   9540
+  ],
+  [
+   1,
+   "widowmaker",
+   111001,
+   1,
+   11540
+  ],
+  [
+   1,
+   "grudgebearer",
+   111001,
+   0,
+   6122
+  ],
+  [
+   1,
+   "thornwake",
+   111001,
+   1,
+   11186
+  ],
+  [
+   1,
+   "lastlight",
+   111001,
+   1,
+   11904
+  ],
+  [
+   1,
+   "gravemourn",
+   111001,
+   0,
+   6770
+  ],
+  [
+   1,
+   "slagheart",
+   111001,
+   1,
+   9882
+  ],
+  [
+   1,
+   "ironhail",
+   111001,
+   1,
+   9672
+  ],
+  [
+   1,
+   "lightkeeper",
+   111001,
+   1,
+   11795
+  ],
+  [
+   1,
+   "farwarden",
+   111001,
+   1,
+   12149
+  ],
+  [
+   1,
+   "aureole",
+   111001,
+   1,
+   10277
+  ],
+  [
+   1,
+   "censer",
+   111001,
+   1,
+   11751
+  ],
+  [
+   1,
+   "emberedge",
+   111001,
+   1,
+   10248
+  ],
+  [
+   1,
+   "oathwound",
+   111001,
+   0,
+   9692
+  ],
+  [
+   1,
+   "heartwood",
+   111001,
+   1,
+   12623
+  ],
+  [
+   1,
+   "nightfell",
+   111001,
+   0,
+   9783
+  ],
+  [
+   1,
+   "axiom",
+   111001,
+   1,
+   12683
+  ],
+  [
+   1,
+   "twinshade",
+   111001,
+   0,
+   11892
+  ],
+  [
+   1,
+   "redflail",
+   111001,
+   1,
+   9866
+  ],
+  [
+   1,
+   "foregone",
+   111001,
+   0,
+   7938
+  ],
+  [
+   1,
+   "vinesower",
+   111001,
+   0,
+   11636
+  ],
+  [
+   1,
+   "bulwarden",
+   111001,
+   0,
+   13084
+  ],
+  [
+   1,
+   "marrowdraw",
+   111001,
+   1,
+   10998
+  ],
+  [
+   1,
+   "paradox",
+   111001,
+   0,
+   7759
+  ],
+  [
+   1,
+   "thornshear",
+   111001,
+   0,
+   9952
+  ],
+  [
+   1,
+   "vesper",
+   111001,
+   1,
+   10660
+  ],
+  [
+   1,
+   "shroudmaul",
+   111001,
+   1,
+   10072
+  ],
+  [
+   1,
+   "cindercleave",
+   111001,
+   1,
+   10295
+  ],
+  [
+   1,
+   "ravelbone",
+   111001,
+   1,
+   10587
+  ],
+  [
+   1,
+   "gloamwire",
+   111001,
+   1,
+   10259
+  ],
+  [
+   1,
+   "bloodmirror",
+   111001,
+   0,
+   6927
+  ],
+  [
+   1,
+   "duskreave",
+   111001,
+   0,
+   8961
+  ],
+  [
+   1,
+   "starwarden",
+   111001,
+   1,
+   12766
+  ],
+  [
+   1,
+   "morningstar",
+   111001,
+   0,
+   7560
+  ],
+  [
+   1,
+   "ironwood",
+   111001,
+   1,
+   13122
+  ],
+  [
+   1,
+   "portcullis",
+   111001,
+   1,
+   12270
+  ],
+  [
+   1,
+   "bindweed",
+   111001,
+   1,
+   9862
+  ]
+ ],
+ "fights": 74,
+ "win": 0.581081081081081,
+ "blowsIn": 20.14864864864865,
+ "blowsOut": 16.89189189189189,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "stunMul": 2,
+  "hexExtra": 1,
+  "kind": "unmake",
+  "dmg": null,
+  "apply": null,
+  "blade": 7.5
+ },
+ "secs": 1509.414,
+ "s6v": true,
+ "s6p": true,
+ "stage": "5",
+ "stageHow": "inferred: blade 7.5 is not the shipped 8.81",
+ "wantExtra": 1
+}

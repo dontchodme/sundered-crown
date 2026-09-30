@@ -1,0 +1,46 @@
+  (23 insert(s) found in spellbreaker_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-spellbreaker-b7.5-fx.html
+tip    sc-spellbreaker-b7.5.html
+23 inserts read out of spellbreaker_build.py
+
+    ok  S1:Unmaking becomes the hex window, stubbed relic  1  mid   -  tip  1
+    ok  S2:Unmaking has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the window and its own hex-stun multiplier relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickUnmake keeps the window and recomputes both fighters' hex-stun factor relic  1  mid   -  tip  1
+    ok  S2:a hex stun lasts the fighter's own hexStunMul times as long relic  1  mid   -  tip  1
+    ok  S2:every blow in the window hexes `hexExtra` more relic  1  mid   -  tip  1
+    ok  S3:the second hex          relic  1  mid   -  tip  1
+    ok  S5:the blade: the measured point nearest the shipped rate relic  1  mid   -  tip  1
+  LOST  S6:Sfx: Spellbreaker's cast, stun and close arms, before the shared rune-crack fallback relic  1  mid   -  tip  0
+        'this._tone(t + s, { freq: 261.6256, gain: 0.015504 * Math.pow(10, -30 * Math.max(0, (s -'
+  LOST  S6:tickStatus: the stun voice, on a hex proc the Unmaking lengthened (hexStunMul > 1) relic  1  mid   -  tip  0
+        'if (f.hexStunMul > 1) SFX.play("ult", { w: "spellbreaker-stun" });'
+  LOST  S6:tickUnmake: the close, on a clock close with both alive, before the close line relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur && f.alive && foe.alive) SFX.play("ult", { w: "spellbreaker-close" });'
+  LOST  S6:unmaking picture: fighter fields relic  1  mid   -  tip  0
+        'this.unmkMoteAcc = 0;'
+  LOST  S6:unmaking picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickUnmaking(dt);              // UNMAKING'S PICTURE (v79 section 4)"
+  LOST  S6:unmaking picture: tickUnmaking relic  1  mid   -  tip  0
+        'if (!(f.unmkFade > 0) || f.unmkOut > 0){ f.unmkAge = 0; f.unmkOut = 0; }  // a cast'
+  LOST  S6:unmaking picture: the floor call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawUnmaking(m);'
+  LOST  S6:unmaking picture: the drawing methods relic  1  mid   -  tip  0
+        'if (!(a.unmkMotes && a.unmkMotes.length) && !(b.unmkMotes && b.unmkMotes.length)) return'
+  LOST  S6:unmaking picture: the script's runes relic  1  mid   -  tip  0
+        '[[[0, -0.5], [0, 0.5]], [[0, -0.12], [0.3, -0.42]], [[0, 0.14], [0.3, -0.16]]],'
+  LOST  S6:unmaking picture: the grey (drawWeapon, the whole weapon) relic  1  mid   -  tip  0
+        'finally { this._unmkGreying = false; c0.restore(); }'
+  LOST  S6:unmaking picture: the grey's alpha (drawWeapon) relic  1  mid   -  tip  0
+        'const dim = f.stun > 0 ? (this._unmkGreyed(f) ? this._unmkGreyAlpha(f) : 0.42) : 1;'
+  LOST  S6:unmaking picture: the script on each blade (drawWeapon) relic  1  mid   -  tip  0
+        'if (f.unmkFade > 0) this._unmkScript(c, m, f, reach + 6, off);'
+  LOST  S6:unmaking picture: the bolt's set-piece retired relic  1  mid   -  tip  0
+        "rings that closed on the target and came apart) was the BOLT's picture;"
+
+!! 13 INSERT(S) DID NOT SURVIVE THE CHAIN: S6:Sfx: Spellbreaker's cast, stun and close arms, before the shared rune-crack fallback, S6:tickStatus: the stun voice, on a hex proc the Unmaking lengthened (hexStunMul > 1), S6:tickUnmake: the close, on a clock close with both alive, before the close line, S6:unmaking picture: fighter fields, S6:unmaking picture: the presentation call, S6:unmaking picture: tickUnmaking, S6:unmaking picture: the floor call (world, under both balls), S6:unmaking picture: the drawing methods, S6:unmaking picture: the script's runes, S6:unmaking picture: the grey (drawWeapon, the whole weapon), S6:unmaking picture: the grey's alpha (drawWeapon), S6:unmaking picture: the script on each blade (drawWeapon), S6:unmaking picture: the bolt's set-piece retired
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

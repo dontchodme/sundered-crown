@@ -1,0 +1,9 @@
+blade 8.81 block 2207: pre-review stage-3 link 59.59% mean 81.831378s | fixed link sc-spellbreaker-unmaking 59.59% mean 81.831378s | 740 fights, 37 foes: IDENTICAL
+blade 8.81 block 2317: pre-review stage-3 link 58.65% mean 81.758865s | fixed link sc-spellbreaker-unmaking 58.65% mean 81.758865s | 740 fights, 37 foes: IDENTICAL
+blade  8.3 block 2207: pre-review stage-3 link 55.27% mean 83.639568s | fixed link sc-spellbreaker-b8.3 55.27% mean 83.639568s | 740 fights, 37 foes: IDENTICAL
+blade  8.3 block 2317: pre-review stage-3 link 53.24% mean 83.232135s | fixed link sc-spellbreaker-b8.3 53.24% mean 83.232135s | 740 fights, 37 foes: IDENTICAL
+blade  7.7 block 2207: pre-review stage-3 link 49.19% mean 84.671986s | fixed link sc-spellbreaker-b7.7 49.19% mean 84.671986s | 740 fights, 37 foes: IDENTICAL
+blade  7.7 block 2317: pre-review stage-3 link 50.27% mean 84.988230s | fixed link sc-spellbreaker-b7.7 50.27% mean 84.988230s | 740 fights, 37 foes: IDENTICAL
+blade  7.5 block 2207: pre-review stage-3 link 49.19% mean 85.768649s | fixed link sc-spellbreaker-b7.5 49.19% mean 85.768649s | 740 fights, 37 foes: IDENTICAL
+blade  7.5 block 2317: pre-review stage-3 link 49.19% mean 85.244216s | fixed link sc-spellbreaker-b7.5 49.19% mean 85.244216s | 740 fights, 37 foes: IDENTICAL
+THE FIX MOVES NO FIGHT: the stage-5 grid stands

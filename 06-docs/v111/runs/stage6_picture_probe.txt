@@ -1,0 +1,26 @@
+
+UNMAKING PROBE  sb-final-fx.html  Chromium 151.0.7922.34  444 fights (Spellbreaker both sides x every foe(s) x 6 seeds, seed0 111001 step 13)   ult {'charge': 14, 'dur': 8, 'stunMul': 2, 'hexExtra': 1, 'kind': 'unmake', 'dmg': None, 'apply': None, 'blade': 7.5}
+  STAGE 5 (pinned by --stage): expects hexExtra 1, blade 7.5 / 8.30 / 7.7
+  casts/fight 4.73   blows a fight: in windows 18.85, outside 15.64   Spellbreaker win 48.2%
+  per cast (the lab's columns): unmade (blows in the window) 3.99   hex (the second hex) 3.93   hex applied by her blows in windows on a live body / those blows 2.000 (8246 blows)   killing blows in windows 123 (hex 123)   (80 blows on a shade)
+  the foe on a window frame: hex stacks 2.54   its weapon stunned 61.0% of window frames (outside windows 44.7%)
+  hex procs: on the foe in windows at x2 34875 (16.62 a cast), in windows at x1 13 (the cast's own step, before the recompute), outside 24693; on Spellbreaker 1896 (x2: 0); on shades 356
+  the cadence: 7941846 tickStatus calls rebuilt (c0 + dt x stacks, a proc and 0 at 1.15), 34888 procs on the foe in windows, 24693 outside; hex clock unmoved between tickStatus calls 7940874 times
+  REALISED STUN (window clock): in_x2: 0.4000s mean over 4072 clean runs (0.4000..0.4000)   |   out_x1: 0.2083s mean over 19550 clean runs (0.2083..0.2083)   |   me_x1: 0.2083s mean over 1319 clean runs (0.2083..0.2083)
+    runs cut by another proc 1242, dirtied by another stun 2666, procs onto a running stun 32513
+  the field: foe x2 on 1919847 ticker frames, foe x1 2023975, Spellbreaker x1 3943822, shades x1 54202
+  nothing else: 3943822 tickUnmake calls moved no field beyond the three; the second-hex insert bracketed 8369 times in a window and 6944 outside (open-ended 0, never read 0); 2098 casts moved nothing beyond the prologue and the window
+  the window's clock: tickUnmake asked once on 3943822 unfrozen steps (none on a frozen one), 1919847 open-window frames; clock closes 1891, death closes 42
+  FREEZE CENSUS 13.7% of window steps frozen   a clock window lasts 9.22s of match time (8s on the window clock)
+  SIDE A (222 fights): win 48.6%   casts/fight 4.74   blows in windows a cast 3.95 (a fight 18.72)   second hex a cast 3.89   foe hex on a window frame 2.54   foe's weapon stunned 60.9% of window frames (43.8% outside)
+  SIDE B (222 fights): win 47.7%   casts/fight 4.71   blows in windows a cast 4.03 (a fight 18.98)   second hex a cast 3.97   foe hex on a window frame 2.54   foe's weapon stunned 61.0% of window frames (45.5% outside)
+  THE BRIEF'S STUN GATE (0.40 +- 0.01 inside, 0.20 outside, at least 200 clean runs each): MET
+  [1] PASS  the window: dur 8 on the window clock (tickUnmake once on every unfrozen step, never on a frozen one; dt a call), closes on its clock or either death; only Spellbreaker's
+  [2] PASS  every hex proc: stunFor x the fighter's own hexStunMul, both reads; x2 on the foe in windows, x1 outside; the engine's cadence, rebuilt every call; realised 0.40 / 0.20 +- 0.01 over >= 200 runs each
+  [3] PASS  the field: the OTHER fighter's stunMul (the design's 2) while its window is open, else 1, recomputed on every ticker frame for both (Spellbreaker's own 1: a runic foe's hexes untouched); shades 1; moved nowhere else
+  [4] PASS  every blow: the channel's hex 1, then in the window on a live body hex 1 (stage 5) by side letter on the body struck -- 2 hex a blow, exactly; the killing blow the channel's alone; stacks and clock the engine's; the blade's own damage, in and out
+  [5] PASS  nothing else: every own field of both fighters, every shade and the match unmoved by the ticker but its three, and by the second-hex insert but her tally and the audited hex; the hex clock moves only in tickStatus; no hurt, beat, rng or shot
+  [6] PASS  the bolt is out: a cast spawns no shot, hurts or applies nothing, moves nothing beyond the prologue and opens {t 0, dur}, never on an open window; the block (kind, charge 14, no dmg / apply) and the stage's blade
+
+  6/6   (311s in the page)
+rc=0

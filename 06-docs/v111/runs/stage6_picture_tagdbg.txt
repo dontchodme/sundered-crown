@@ -1,0 +1,1 @@
+{"t": 24.483, "step": 2938, "dx": 1, "cur": [["hit", "spellbreaker", "twinshade(shade)", true, true, null, null], ["tag", "hex", true, 391.61, 446.14, 0], ["after", true]], "stop": 0.0604, "fresh": [["hex", 0, true, 2.4833, 2.5, false]], "shades": 2}

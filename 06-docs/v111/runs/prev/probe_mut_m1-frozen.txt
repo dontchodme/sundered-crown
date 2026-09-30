@@ -1,0 +1,22 @@
+
+UNMAKING PROBE  sc-spellbreaker-m1-frozen.html  Chromium 151.0.7922.34  444 fights (Spellbreaker both sides x every foe(s) x 6 seeds, seed0 111001 step 13)   ult {'charge': 14, 'dur': 8, 'stunMul': 2, 'hexExtra': 1, 'kind': 'unmake', 'dmg': None, 'apply': None, 'blade': 8.3}
+  casts/fight 4.65   blows a fight: in windows 15.54, outside 17.10   Spellbreaker win 48.6%
+  per cast (the lab's columns): unmade (blows in the window) 3.34   hex (the second hex) 3.34   hex applied by her blows in windows / blows 2.000   (65 blows on a shade)
+  the foe on a window frame: hex stacks 2.49   its weapon stunned 59.4% of window frames (outside windows 43.4%)
+  hex procs: on the foe in windows at x2 28647 (13.88 a cast), in windows at x1 23 (the cast's own step, before the recompute), outside 27223; on Spellbreaker 1777 (x2: 0); on shades 336
+  REALISED STUN (window clock): in_x2: 0.4000s mean over 3708 clean runs (0.4000..0.4000)   |   out_x1: 0.2083s mean over 21508 clean runs (0.2083..0.2083)   |   me_x1: 0.2083s mean over 1249 clean runs (0.2083..0.2083)
+    runs cut by another proc 1107, dirtied by another stun 2908, procs onto a running stun 27062
+  the field: foe x2 on 1898706 ticker frames, foe x1 2517952, Spellbreaker x1 4416658, shades x1 87378
+  the window's clock: tickUnmake asked once on 3864423 unfrozen steps (none on a frozen one), 1898706 open-window frames; clock closes 1879, death closes 35
+  FREEZE CENSUS 13.7% of window steps frozen   a clock window lasts 7.99s of match time (8s on the window clock)
+  SIDE A (222 fights): win 49.5%   casts/fight 4.62   blows in windows a cast 3.31 (a fight 15.32)   second hex a cast 3.31   foe hex on a window frame 2.49   foe's weapon stunned 59.3% of window frames (43.3% outside)
+  SIDE B (222 fights): win 47.7%   casts/fight 4.68   blows in windows a cast 3.37 (a fight 15.76)   second hex a cast 3.37   foe hex on a window frame 2.48   foe's weapon stunned 59.5% of window frames (43.6% outside)
+  THE BRIEF'S STUN GATE (0.40 +- 0.01 inside, 0.20 outside): MET
+  [1] FAIL  the window: dur on the window clock (tickUnmake once on every unfrozen step, never on a frozen one; dt a call), closes on its clock or either death; only Spellbreaker's   1104470 FAIL: ['tickUnmake on a frozen step', '1 tickUnmake call(s) on a frozen step', 'tickUnmake on a frozen step', '1 tickUnmake call(s) on a frozen step']
+  [2] PASS  every hex proc: stunFor x the fighter's own hexStunMul, both reads (the weapon's stun, the true stun's length); x2 on the foe in windows, x1 outside; realised 0.40 / 0.20 +- 0.01
+  [3] PASS  the field: the OTHER fighter's stunMul while its window is open, else 1, recomputed on every ticker frame for both (Spellbreaker's own 1: a runic foe's hexes untouched); shades 1; moved nowhere else
+  [4] PASS  every blow: the channel's hex 1, then in the window hex hexExtra by side letter on the body struck; stacks and clock the engine's; the blade's own damage, in and out
+  [5] PASS  nothing else: no hurt, no hp or ward change, no move, no turn, no stun, no pin, no status, no stop, no beat, no rng, no shot
+  [6] PASS  the bolt is out: a cast spawns no shot, hurts or applies nothing, opens {t 0, dur}, never on an open window; the block is the design's
+
+  5/6

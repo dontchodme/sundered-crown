@@ -1,0 +1,6 @@
+38 relics · Chromium 151.0.7922.34 · spellbreaker (redesign) · 33 foes x 20 seeds = 660 fights an arm · lxm-D0-2207
+  charge=16.0 dur=8.0 blade=None stunMul=2 hexExtra=0
+
+  arm       win  casts  hits in/outf_foeReach  f_hexFz f_hexSum f_stunFzf_stunSum     f_wf   f_wfFz      hex   unmade
+  D       46.1%   4.39 13.79/15.53      1.01  1173.89  7583.75   436.91  2163.19  3999.70   533.46     0.00     3.08
+  660 fights in 83s   errors: []

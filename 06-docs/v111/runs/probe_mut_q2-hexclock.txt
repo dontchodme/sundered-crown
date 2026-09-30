@@ -1,0 +1,25 @@
+
+UNMAKING PROBE  sc-spellbreaker-q2-hexclock.html  Chromium 151.0.7922.34  444 fights (Spellbreaker both sides x every foe(s) x 6 seeds, seed0 111001 step 13)   ult {'charge': 14, 'dur': 8, 'stunMul': 2, 'hexExtra': 0, 'kind': 'unmake', 'dmg': None, 'apply': None, 'blade': 8.81}
+  STAGE 2 (pinned by --stage): expects hexExtra 0, blade 8.81
+  casts/fight 4.73   blows a fight: in windows 18.72, outside 15.31   Spellbreaker win 66.9%
+  per cast (the lab's columns): unmade (blows in the window) 3.96   hex (the second hex) 0.00   hex applied by her blows in windows on a live body / those blows 1.000 (8128 blows)   killing blows in windows 183 (hex 183)   (93 blows on a shade)
+  the foe on a window frame: hex stacks 2.01   its weapon stunned 71.4% of window frames (outside windows 42.1%)
+  hex procs: on the foe in windows at x2 428234 (204.12 a cast), in windows at x1 9 (the cast's own step, before the recompute), outside 22781; on Spellbreaker 1501 (x2: 0); on shades 314
+  the cadence: 7912010 tickStatus calls rebuilt (c0 + dt x stacks, a proc and 0 at 1.15), 428243 procs on the foe in windows, 22781 outside; hex clock unmoved between tickStatus calls 6004875 times
+  REALISED STUN (window clock): in_x2: 0.4000s mean over 6 clean runs (0.4000..0.4000)   |   out_x1: 0.2083s mean over 16685 clean runs (0.2083..0.2083)   |   me_x1: 0.2083s mean over 1025 clean runs (0.2083..0.2083)
+    runs cut by another proc 1190, dirtied by another stun 4854, procs onto a running stun 428675
+  the field: foe x2 on 1906363 ticker frames, foe x1 2021123, Spellbreaker x1 3927486, shades x1 57038
+  nothing else: 2021123 tickUnmake calls moved no field beyond the three; the second-hex insert bracketed 8311 times in a window and 6796 outside (open-ended 0, never read 0); 2098 casts moved nothing beyond the prologue and the window
+  the window's clock: tickUnmake asked once on 3927486 unfrozen steps (none on a frozen one), 1906363 open-window frames; clock closes 1871, death closes 23
+  FREEZE CENSUS 13.3% of window steps frozen   a clock window lasts 9.17s of match time (8s on the window clock)
+  SIDE A (222 fights): win 65.3%   casts/fight 4.73   blows in windows a cast 3.91 (a fight 18.48)   second hex a cast 0.00   foe hex on a window frame 1.97   foe's weapon stunned 71.5% of window frames (42.0% outside)
+  SIDE B (222 fights): win 68.5%   casts/fight 4.72   blows in windows a cast 4.02 (a fight 18.95)   second hex a cast 0.00   foe hex on a window frame 2.06   foe's weapon stunned 71.3% of window frames (42.1% outside)
+  THE BRIEF'S STUN GATE (0.40 +- 0.01 inside, 0.20 outside, at least 200 clean runs each): NOT MET
+  [1] PASS  the window: dur 8 on the window clock (tickUnmake once on every unfrozen step, never on a frozen one; dt a call), closes on its clock or either death; only Spellbreaker's
+  [2] FAIL  every hex proc: stunFor x the fighter's own hexStunMul, both reads; x2 on the foe in windows, x1 outside; the engine's cadence, rebuilt every call; realised 0.40 / 0.20 +- 0.01 over >= 200 runs each   NOT EXERCISED -- a check that never ran is not a pass
+  [3] PASS  the field: the OTHER fighter's stunMul (the design's 2) while its window is open, else 1, recomputed on every ticker frame for both (Spellbreaker's own 1: a runic foe's hexes untouched); shades 1; moved nowhere else
+  [4] PASS  every blow: the channel's hex 1, then in the window on a live body hex 0 (stage 2) by side letter on the body struck -- 1 hex a blow, exactly; the killing blow the channel's alone; stacks and clock the engine's; the blade's own damage, in and out
+  [5] FAIL  nothing else: every own field of both fighters, every shade and the match unmoved by the ticker but its three, and by the second-hex insert but her tally and the audited hex; the hex clock moves only in tickStatus; no hurt, beat, rng or shot   3812522 FAIL: ["the Unmaking's tick moved dawnbringer.hexClock", "dawnbringer's hex clock moved between tickStatus calls: 0.6166666666666669 -> 1.116666666666667", "the Unmaking's tick moved dawnbringer.hexClock", "dawnbringer's hex clock moved between tickStatus calls: 1.1333333333333335 -> 1.6333333333333335"]
+  [6] PASS  the bolt is out: a cast spawns no shot, hurts or applies nothing, moves nothing beyond the prologue and opens {t 0, dur}, never on an open window; the block (kind, charge 14, no dmg / apply) and the stage's blade
+
+  4/6   (269s in the page)

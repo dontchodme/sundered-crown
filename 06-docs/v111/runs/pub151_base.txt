@@ -1,0 +1,10 @@
+34 relics · Chromium 151.0.7922.34 · spellbreaker (redesign) · 33 foes x 10 seeds = 330 fights an arm · pub151-base
+  charge=16.0 dur=8.0 blade=None
+
+  arm       win  casts  hits in/outf_foeReach      hex   unmade
+  A       21.8%   0.00  0.00/26.20      0.00     0.00     0.00
+  SHIP    51.5%   0.00  0.00/25.71      0.00     0.00     0.00
+  B       24.2%   4.22 12.16/14.29      0.85     0.00     2.85
+  C       29.1%   4.31 13.06/14.83      0.84     3.00     3.00
+  lifts over A: SHIP +29.7  B +2.4  C +7.3
+  1320 fights in 193s   errors: []

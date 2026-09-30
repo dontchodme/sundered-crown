@@ -1,0 +1,11 @@
+
+SPELLBREAKER / UNMAKING (REDESIGN) -- stage 1
+  src sc-tendril-t3.html  5a6216e3b629fad4  (LF text)
+  base  Spellbreaker's shipped body (runic twinblade, hex 1); apply / stacks / STATUS.hex as priced and its proc; resolveHit's onHit loop; the window tickers stop in a hit stop; no code keys on the bolt
+  ok    Unmaking becomes the hex window, stubbed
+  ok    ult   ult:{ name:"Unmaking", charge:1e9, kind:"unmake", dur:8, stunMul:2, hexExtra:0, tip:"Hexes stun the foe' ...
+  ok    card  68 chars  "Hexes stun the foe's weapon twice as long, and every hit hexes twice"
+  ok    one Unmaking ultimate, Spellbreaker's; the bolt out; no insert draws the RNG, writes the shared weapon, hurts, moves, stops or files a beat; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-spellbreaker-stub.html  e1d4849ac78025e5   (+416 chars, written LF)

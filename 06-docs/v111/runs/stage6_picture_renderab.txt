@@ -1,0 +1,15 @@
+widowmaker:axiom 31337: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, 'axiom:0.35/1.5', 'axiom:1.32/1.5', None, None, None])
+thornshear:paradox 4101: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, None, None, 'paradox:0.33/19', 'paradox:6.93/19', None])
+starwarden:foregone 2207: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, None, 'foregone:0.20/10.8', 'foregone:2.13/10.8', 'foregone:8.49/10.8', None])
+twinshade:axiom 5150: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, 'axiom:1.03/1.5', None, None, 'twinshade:1.44/1.5', None])
+paradox:grudgebearer 7719: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, None, None, 'paradox:1.39/19', 'grudgebearer:3.15/4.4', None])
+thornwake:emberedge 1234: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, None, 'thornwake:0.20/2.4', 'thornwake:2.20/2.4', None, 'thornwake:0.53/2.4'])
+gravemourn:thornwake 90210: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, 'thornwake:1.32/2.4', 'gravemourn:0.35/17.4', 'gravemourn:2.35/17.4', 'gravemourn:9.19/17.4', None])
+ironwood:heartwood 4242: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, 'ironwood:0.96/1.5', None, 'heartwood:1.70/2.2', None, None])
+morningstar:dawnbringer 99001: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, 'dawnbringer:0.81/1.6', None, None, None, None])
+axiom:lastlight 2317: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, 'axiom:0.53/1.5', None, 'lastlight:1.57/5.3', None, None])
+emberedge:foregone 8888: 7/7 pixel-identical  (window open at [False, False, False, False, False, False, False]; ultFx [None, None, None, 'foregone:0.07/10.8', 'foregone:2.03/10.8', 'foregone:8.72/10.8', None])
+CONTROL spellbreaker:grudgebearer 31337: 2/7 pixel-identical  (window open at [False, False, True, True, True, True, True]; ultFx [None, None, 'spellbreaker:0.07/1.5', 'spellbreaker:1.18/1.5', None, 'grudgebearer:1.95/4.4', None])
+CONTROL dawnbringer:spellbreaker 99001: 2/7 pixel-identical  (window open at [False, False, True, True, True, True, True]; ultFx [None, None, 'spellbreaker:0.52/1.5', None, None, None, None])
+OTHER RELICS: 77/77 pixel-identical; CONTROLS differ
+EXIT 0

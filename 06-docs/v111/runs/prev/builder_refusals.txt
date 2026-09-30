@@ -1,0 +1,26 @@
+BUILDER REFUSALS (spellbreaker_build.py 463b49d265b3258c)
+- overwrite a link:
+refusing to overwrite sc-spellbreaker-stub.html -- a link is written once. Delete it by hand if this is a rebuild.
+- stage 2 on stage 3:
+stage 2 goes on stage 1, once
+- stage 1 on stage 1:
+the kind "unmake" is already in the base
+- stage 3 on the base:
+stage 3 needs stage 1 under it
+- stage 3 on stage 3:
+stage 3 goes on stage 2, once
+- a name outside sc-spellbreaker*:
+refusing sc-other.html: this builder's links are sc-spellbreaker*
+- a base without Tendril's ticker (sc-trunk):
+wrong base: no `this.tickTendril(dt);` in step() -- the Unmaking's ticker goes after Tendril's (v68), so this is not the Tendril lineage
+- a builder copy whose tickUnmake adds '     foe.vx *= 0.99;':
+REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- a builder copy whose tickUnmake adds '     const q = this.rng();':
+REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' draws the RNG or uses the one ultFx slot
+- a builder copy whose tickUnmake adds '     f.w.dmg = 9;':
+REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes the shared weapon
+- a builder copy whose tickUnmake adds '     this.hurt(foe, 1, f);':
+REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- a builder copy whose tickUnmake adds '     this.hitStop = Math.max(this.hitStop, 0.01);':
+REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- html files written by the refusals: 0

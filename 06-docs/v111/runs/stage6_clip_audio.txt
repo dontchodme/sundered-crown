@@ -1,0 +1,20 @@
+clip 4a265fe94f2b603e (the fx link) against clip_base 10e5ef74a53ee989 (the b7.5), Spellbreaker v Vesper 111075, the same window
+  the cast's hum (C4, 0.12-0.40 s)         match  79.175  video  1.192    252-272   Hz  with - without   +4.7 dB
+  the cast's crack (the glass at G6, 0-60 ms) match  79.175  video  1.192   1450-1700  Hz  with - without   -2.0 dB
+  the 26 stun voices' tails (2400-2800 Hz, 60-300 ms after each): min +3.9, median +17.6, max +44.5 dB
+  the close (the hum held, 0-0.2 s)        match  88.942  video 10.959    252-272   Hz  with - without  +23.4 dB
+CONTROL -- the same readings at match times with no stage-6 voice sounding (must come back near 0):
+  C4 band, before the cast                 match  78.100  video  0.117    252-272   Hz  with - without   -0.2 dB
+  C4 band, before the cast                 match  78.550  video  0.567    252-272   Hz  with - without   +1.6 dB
+  C4 band, after the close's hum           match  89.450  video 11.467    252-272   Hz  with - without   -0.4 dB
+  C4 band, after the close's hum           match  89.900  video 11.917    252-272   Hz  with - without   -0.6 dB
+  C4 band, after the close's hum           match  90.300  video 12.317    252-272   Hz  with - without   +1.2 dB
+  sizzle band, before the cast             match  78.100  video  0.117   2400-2800  Hz  with - without   +5.0 dB
+  sizzle band, before the cast             match  78.550  video  0.567   2400-2800  Hz  with - without   +4.4 dB
+  sizzle band, after the last stun         match  89.450  video 11.467   2400-2800  Hz  with - without   +4.0 dB
+  sizzle band, after the last stun         match  89.900  video 11.917   2400-2800  Hz  with - without   +4.7 dB
+  sizzle band, after the last stun         match  90.300  video 12.317   2400-2800  Hz  with - without   +0.0 dB
+  no-voice controls: max |d| 5.0 dB (the C4 band 1.6, the sizzle band 5.0)
+  the stun tails over the sizzle band's no-voice spread (5.0 dB): 25 of 26
+  (the two renders differ everywhere at about -40 dB broadband, some 18 dB under the mix, before the cast too -- not traced here; the sizzle band, where the hits' noise lives, carries that spread, and the C4 band does not)
+  (the crack's row compares it to the b7.5's own cast voice, rune-crack, on the same frames -- loud, its centroid 3.2 kHz -- not to silence)

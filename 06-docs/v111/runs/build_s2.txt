@@ -1,0 +1,17 @@
+
+SPELLBREAKER / UNMAKING (REDESIGN) -- stage 2
+  src sc-spellbreaker-stub.html  e1d4849ac78025e5  (LF text)
+  base  Spellbreaker's shipped body (runic twinblade, hex 1); apply / stacks / STATUS.hex as priced and its proc; resolveHit's onHit loop; the window tickers stop in a hit stop; no code keys on the bolt
+  ok    Unmaking has a charge: the lab's 16 on the game's clock
+  ok    the fighter carries the window and its own hex-stun multiplier
+  ok    the cast opens the window and resolves nothing
+  ok    the window ticks with the window tickers
+  ok    tickUnmake keeps the window and recomputes both fighters' hex-stun factor
+  ok    a hex stun lasts the fighter's own hexStunMul times as long
+  ok    every blow in the window hexes `hexExtra` more
+  ok    ult   ult:{ name:"Unmaking", charge:14, kind:"unmake", dur:8, stunMul:2, hexExtra:0, tip:"Hexes stun the foe's ...
+  ok    card  68 chars  "Hexes stun the foe's weapon twice as long, and every hit hexes twice"
+  ok    one Unmaking ultimate, Spellbreaker's; the bolt out; no insert draws the RNG, writes the shared weapon or a module table, hurts, moves, stops, files a beat, stuns, writes a status, a hex clock, a reach, a charge or a burden beyond the design's two lines; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-spellbreaker-stun.html  1dcdb0876f870b89   (+3547 chars, written LF)

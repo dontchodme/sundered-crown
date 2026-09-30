@@ -1,0 +1,11 @@
+=== ENGINE A/B: 37 relics, 6 seeds x 666 pairings ===
+
+  sc-tendril-t3.html              3996 matches  297.7s
+  sc-spellbreaker-b8.3.html       3996 matches  299.2s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 3996
+  PASS  every match identical field for field  — 3996/3996
+  PASS  the sweep is real  — 37/37 distinct winners, 3996 distinct seeds, 21.5-115.1s
+
+ENGINE A/B PASS — <scratch>/links/sc-spellbreaker-b8.3.html does not move the 37-relic roster.

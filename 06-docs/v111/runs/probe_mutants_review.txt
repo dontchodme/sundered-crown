@@ -1,0 +1,10 @@
+THE REVIEW'S OWN CONTROLS
+-- the review's stage-2 controls against the stage-2 link (sc-spellbreaker-stun):
+link: 6/6, win 50.0%, 444 fights, failing none
+  q2-hexclock       4/6  fails by violation [5] (own [5]), not exercised [2]  fail counts {'x5': 3812522}   win 66.9%   fights changed 444/444   -> CAUGHT by its own check (and [2] too)
+  q2-shrink         5/6  fails by violation [5] (own [5]), not exercised []  fail counts {'x5': 637736}   win 69.4%   fights changed 444/444   -> CAUGHT by its own check
+EVERY m/r MUTANT CHANGES FIGHTS AND FAILS ITS OWN CHECK ALONE
+-- the review's +0.5 hex clock on the final (the first r2, sha cee23cf8816da413):
+link: 6/6, win 48.2%, 444 fights, failing none
+  r2-hexclock-0.5   4/6  fails by violation [5] (own [5]), not exercised [2]  fail counts {'x5': 4079033}   win 60.8%   fights changed 444/444   -> CAUGHT by its own check (and [2] too)
+EVERY m/r MUTANT CHANGES FIGHTS AND FAILS ITS OWN CHECK ALONE

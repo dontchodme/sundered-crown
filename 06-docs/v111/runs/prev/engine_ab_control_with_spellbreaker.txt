@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-tendril-t3.html                36 matches    2.5s
+  sc-spellbreaker-b8.3.html         36 matches    3.0s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Spellbreaker", "b": "Axiom", "winner": "Spellbreaker", "hp": 313, "duration": 80.14, "reason": "slain", "hits": {"a": 21, "b": 16}, "crits": {"a": 6, "b": 0}, "clanks": 40}
+            variant {"seed": 1233799701, "a": "Spellbreaker", "b": "Axiom", "winner": "Spellbreaker", "hp": 338, "duration": 84.06, "reason": "slain", "hits": {"a": 36, "b": 13}, "crits": {"a": 4, "b": 1}, "clanks": 44}
+          #1
+            control {"seed": 330441002, "a": "Spellbreaker", "b": "Axiom", "winner": "Spellbreaker", "hp": 200, "duration": 89.5, "reason": "slain", "hits": {"a": 27, "b": 17}, "crits": {"a": 1, "b": 1}, "clanks": 45}
+            variant {"seed": 330441002, "a": "Spellbreaker", "b": "Axiom", "winner": "Spellbreaker", "hp": 253, "duration": 89.43, "reason": "slain", "hits": {"a": 36, "b": 17}, "crits": {"a": 5, "b": 3}, "clanks": 44}
+          #2
+            control {"seed": 4184808219, "a": "Spellbreaker", "b": "Axiom", "winner": "Spellbreaker", "hp": 263, "duration": 81.65, "reason": "slain", "hits": {"a": 27, "b": 16}, "crits": {"a": 3, "b": 0}, "clanks": 43}
+            variant {"seed": 4184808219, "a": "Spellbreaker", "b": "Axiom", "winner": "Spellbreaker", "hp": 279, "duration": 98.29, "reason": "slain", "hits": {"a": 38, "b": 15}, "crits": {"a": 2, "b": 0}, "clanks": 50}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 45.6-89.5s
+
+ENGINE A/B FAIL

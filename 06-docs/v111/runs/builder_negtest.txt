@@ -1,0 +1,58 @@
+BUILDER NEGATIVE TESTS (spellbreaker_build.py 005dc3e1d6af74c5); each copy runs stage 2 on the stage-1 link
+- tick + 'foe.vx *= 0.99;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- tick + 'const q = this.rng();':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' draws the RNG or uses the one ultFx slot
+- tick + 'f.w.dmg = 9;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes the shared weapon
+- tick + 'f.w.spin += 1;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes the shared weapon
+- tick + 'this.hurt(foe, 1, f);':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- tick + 'this.hitStop = Math.max(this.hitStop, 0.01);':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- tick + 'STATUS.hex.stunFor = 0.4;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes (or aliases) a shared module table
+- tick + 'const H = STATUS.hex; H.stunFor = 0.4;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes (or aliases) a shared module table
+- tick + 'CONFIG.chaos.critMul *= 1.1;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes (or aliases) a shared module table
+- tick + 'foe.theta += 0.1;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- tick + 'foe.stun = Math.max(foe.stun, 0.1);':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'foe.status.hex = { stacks: 5, t: 2.6 };':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'foe.status["hex"].t = 9;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'const st = foe.status; st.hex = null;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'delete foe.status.hex;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'foe.hexClock += 0.5;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'foe.reachMul = Math.max(0.4, foe.reachMul - 0.0005);':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'foe.stunDR = 0;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'f.charge += 1;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'foe.burden = 1;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'foe.apply("chill", 1);':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- tick + 'f.stun = Math.max(f.stun, STATUS.hex.stunFor * f.hexStunMul);':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- cast + 'foe.stun = 0.4;':
+    REFUSING TO WRITE -- insert 'the cast opens the window and resolves nothing' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- cast + 'foe.hexClock = 1.1;':
+    REFUSING TO WRITE -- insert 'the cast opens the window and resolves nothing' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- ins + 'foe.reachMul = Math.max(0.4, foe.reachMul - 0.12);':
+    REFUSING TO WRITE -- insert 'every blow in the window hexes `hexExtra` more' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- ins + 'foe.apply("hex", 1, "a");':
+    REFUSING TO WRITE -- insert 'every blow in the window hexes `hexExtra` more' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- ins + 'foe.stun = Math.max(foe.stun, 0.4);':
+    REFUSING TO WRITE -- insert 'every blow in the window hexes `hexExtra` more' stuns, writes a status, moves a weapon's hex clock, reach, charge or burden, or applies a status (v79: a stun length and one hex, nothing else)
+- the clean copy:   out sc-spellbreaker-clean.html  1dcdb0876f870b89   (+3547 chars, written LF)
+  clean copy's stage 2 1dcdb0876f870b89 against the link 1dcdb0876f870b89
+- copies: 27; html files written by the refusals: 0

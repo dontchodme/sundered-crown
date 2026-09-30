@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-spellbreaker-b7.5.html         36 matches    3.3s
+  sc-spellbreaker-mP1-picwrite.html    36 matches    3.1s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Spellbreaker", "b": "Farwarden", "winner": "Spellbreaker", "hp": 82, "duration": 105.72, "reason": "slain", "hits": {"a": 56, "b": 19}, "crits": {"a": 7, "b": 1}, "clanks": 39}
+            variant {"seed": 1233799701, "a": "Spellbreaker", "b": "Farwarden", "winner": "Spellbreaker", "hp": 79, "duration": 104.7, "reason": "slain", "hits": {"a": 52, "b": 20}, "crits": {"a": 7, "b": 1}, "clanks": 42}
+          #1
+            control {"seed": 330441002, "a": "Spellbreaker", "b": "Farwarden", "winner": "Spellbreaker", "hp": 22, "duration": 109.85, "reason": "slain", "hits": {"a": 54, "b": 20}, "crits": {"a": 4, "b": 2}, "clanks": 40}
+            variant {"seed": 330441002, "a": "Spellbreaker", "b": "Farwarden", "winner": "Spellbreaker", "hp": 87, "duration": 108.27, "reason": "slain", "hits": {"a": 52, "b": 17}, "crits": {"a": 9, "b": 3}, "clanks": 40}
+          #2
+            control {"seed": 4184808219, "a": "Spellbreaker", "b": "Farwarden", "winner": "Spellbreaker", "hp": 293, "duration": 98.03, "reason": "slain", "hits": {"a": 54, "b": 11}, "crits": {"a": 2, "b": 0}, "clanks": 35}
+            variant {"seed": 4184808219, "a": "Spellbreaker", "b": "Farwarden", "winner": "Farwarden", "hp": 17, "duration": 105.63, "reason": "slain", "hits": {"a": 54, "b": 19}, "crits": {"a": 0, "b": 2}, "clanks": 37}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 60.2-109.8s
+
+ENGINE A/B FAIL

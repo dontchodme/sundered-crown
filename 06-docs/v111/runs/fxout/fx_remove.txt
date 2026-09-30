@@ -1,0 +1,11 @@
+
+FX REMOVE -- spellbreaker's particle field out of both copies
+  src sc-spellbreaker-b7.5-fx.html  e2a4fd8ea4eed06f
+  the block, removed whole:
+    |     spellbreaker: { mode: 'beam', n: 1200, sp: [40, 200], grav: -40,
+    |                     drag: 1.6, life: [0.25, 0.70], heavy: 0.0,
+    |                     size: [0.6, 1.8], spawn: 0.35, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 487c9de9dff7f374 -> 7dc0123af735c83e
+  wrote sc-spellbreaker-fxout.html  9243277a756e84b6
+  wrote src/render/fx.js  7dc0123af735c83e
+exit 0

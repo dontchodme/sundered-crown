@@ -1,0 +1,138 @@
+
+UNMAKING -- THE VOICES   game sc-spellbreaker-b7.5.html da7936dccd8f5f15
+  every render: OfflineAudioContext 48 kHz, first event at t = 1.0, through Sfx.buildChain, render.py's xorshift noise;
+  a candidate is rendered from its arm's own text
+  runtime Chromium 151.0.7922.34
+
+CONTROLS -- v88 published rune-crack 0.608 / 450 ms, BAR 0.364 / 300 ms, hit@11.6 0.443 / 80 ms. They must come back.
+  rune-crack     peak 0.608 at    6 ms   audible   450 ms   loudest 50 ms 0.1356   centroid   3158 Hz
+  BAR            peak 0.364 at    7 ms   audible   300 ms   loudest 50 ms 0.1131   centroid   1685 Hz
+  hit@11.6       peak 0.443 at    7 ms   audible    80 ms   loudest 50 ms 0.1173   centroid    233 Hz
+  hit@7.5        peak 0.424 at    7 ms   audible    75 ms   loudest 50 ms 0.1072   centroid    249 Hz
+  wall           peak 0.097 at    7 ms   audible    25 ms   loudest 50 ms 0.0112   centroid  12322 Hz
+  death          peak 0.501 at    8 ms   audible   620 ms   loudest 50 ms 0.2657   centroid    111 Hz
+  hex-snap       peak 0.394 at    6 ms   audible    25 ms   loudest 50 ms 0.0392   centroid   3350 Hz
+  reproduction: PASS  all 6 published numbers come back
+  rune-crack today (max |diff| <= 1e-6 vs ult/__fallback__), 12 relics: lastlight, spellbreaker, ironhail, lightkeeper, farwarden, aureole, censer, oathwound, heartwood, gloamwire, portcullis, bindweed
+  the runic casts with their own voice: axiom, foregone, paradox;  the twinblade casts': widowmaker, twinshade, thornshear, starwarden
+  the hit @ 7.5 across 12 draws: loudest 50 ms 0.1060-0.1114, peak 0.387-0.442;  the wall tick: 0.0105-0.0118;  the hex-snap: loudest 50 ms 0.0340-0.0425, peak 0.315-0.399
+  the type's voices on the batch line, from --peer-rows: peer:angelus, peer:angelus-close
+
+CAST -- 'a glass crack into a hum, 0.4s'. The declared crack (three 6 kHz clicks, a glass rod at G6); the hum re-struck every cycle, 30 ms strikes. Level-matched: TOP 0.0768 (the centre of 0.0557-0.1060), the hum held 10 dB under it, AUDIBLE 400 ms
+  cand               g      kh     S1 calls     top  aud gone  rs  pk   crkC  glsT inhC inhD  humT  note held flut  into humdB   hrd  hrdH   reg
+  1 DRONE       0.5194 0.02985  0.415   109  0.0766  400  405   0   6   5253  23.1  145   -6  58.6   262  0.9  0.1  19.7 -10.0  30.2   8.4  0.66 (rune-crack)
+  2 REED        0.5205  0.0136  0.400   130  0.0766  400  405   0   6   5253  23.1  145   -6  60.3   330  0.9  0.0   7.7 -10.0  30.3  13.4  0.76 (rune-crack)
+  3 BUZZ        0.5199 0.04693  0.415    92  0.0766  395  405   0   6   5253  23.1  145   -6  54.9   220  1.1  0.1   8.3 -10.0  30.2   9.1  0.79 (rune-crack)
+  4 SWELL       0.5271 0.02941  0.415   109  0.0766  400  405   0   6   5253  23.1  144   -6  57.9   262  3.6  0.7  19.7 -10.0  30.3   8.0  0.68 (rune-crack)
+  5 GLASS       0.5143 0.02574  0.445   192  0.0766  400  405   0   6   5253  23.1  145   -6  57.0   660  7.2  2.3   8.0 -10.0  30.2   8.1  0.73 (widowmaker)
+  0 CRACK       0.5194 0.02985  0.415     6  0.0760   40   45   0   6   5253  23.1  145   -6  -  -  -  -  -  -  30.2  -  0.81 (rune-crack)
+  0 HUM         0.5194 0.02985  0.415   103  0.0247  425  455  12 170      0-120.0    0  -99  58.3   262  0.2  0.0   0.0  -0.1   6.4   8.7  0.39 (foregone)
+  0 CLICKS      0.5194 0.02985  0.415   106  0.0449  425  430   0   6  16023   5.6  248    4  58.6   262  0.5  0.1  60.0  -5.3  25.7   8.6  0.40 (foregone)
+  0 RUNECRACK        0       0  0.000     0  0.1356  450  455   0   6   6125  24.3   11  -12  24.0   380 22.2  5.9   6.7  -4.6  35.0  27.9  1.00 (rune-crack)
+    1 DRONE      a C4 triangle hum (261.63 Hz) coming in at level 25 ms after the crack
+    2 REED       an E4 square hum (329.63 Hz, hollow, the score's v) coming in at level
+    3 BUZZ       an A3 sawtooth hum (220 Hz, the score's tonic, an electric buzz) coming in at level
+    4 SWELL      DRONE's hum swelling in from 12 dB under over 0.12 s -- the crack's energy passing into it
+    5 GLASS      the glass itself humming: E5 (659.26 Hz) with a partner 4 Hz sharp at 0.3 -- a singing glass
+    0 CRACK      DRONE's crack alone -- a control on 'into a hum'
+    0 HUM        DRONE's hum alone -- a control on 'a glass crack'
+    0 CLICKS     DRONE with the crack's clicks but not its glass -- a control on 'glass'
+    0 RUNECRACK  the fallback it replaces
+  RULE  '0.4s': AUDIBLE 330-470 ms and GONE <= 470 ms; 'a glass crack': struck (RISE <= 3 ms, the peak in the first 10 ms), bright (the first 30 ms's centroid >= 3 kHz) and glass: over 1-21 ms (before the hum) TONAL >= 12 dB over 800-8000 Hz and INHARM -- the strongest peak 1.5x-4x its note >= 60 cents from every whole multiple and within 20 dB of it; 'into a hum': over the hum's held span (100 ms to its release) a note (TONAL >= 15 dB, 60-2000 Hz), low (its FFT peak, 60-1000 Hz, <= 400 Hz), held (HELD <= 3 dB, FLUTTER <= 3 dB at its note), under the crack (INTO >= 4) and heard (HEARD over 100 ms from 120 ms >= +6 dB); the crack heard (HEARD over its first 100 ms >= +6 dB). Level: TOP between 0.5x the blow's loudest 50 ms on its LOUDEST draw and 1.0x on its QUIETEST, on every draw; the hum's held E50 between 16 and 4 dB under TOP. Register against rune-crack, each runic and twinblade cast with a voice of its own, BAR, hex-snap, the blow and the death voice -- and Angelus's cast and close when its rows are given -- each <= 0.80. Tiebreak: the most distinct register (to 0.05), then the fewest synth calls, then the order listed.
+    4 SWELL      out: the hum moves 3.6 dB (not held)
+    5 GLASS      out: the hum's note 660 Hz > 400 (not low); the hum moves 7.2 dB (not held)
+  0 CRACK (a control) comes back wrong, as it must: audible 40 ms, not 330-470; no hum; register vs rune-crack 0.81 > 0.80
+  0 HUM (a control) comes back wrong, as it must: rise 12 ms > 3 (not struck); peaks at 170 ms (not a crack); crack centroid 0 Hz < 3000 (not bright)
+  0 CLICKS (a control) comes back wrong, as it must: the crack's ring 5.6 dB tonal < 12 (clicks, not glass); top 0.0409 < 0.0557
+  0 RUNECRACK (a control) comes back wrong, as it must: the crack's partial at 3.02x is 11 c from a harmonic, -12 dB (not glass); the hum moves 22.2 dB (not held); the hum flutters 5.9 dB
+  PICK  1 DRONE  g 0.5194, kh 0.02985, S1 0.415, 109 synth calls; TOP 0.0766 = -2.8 dB re the hit @ 7.5 (quietest draw); the hum 261.6 Hz at -10.0 dB re TOP
+
+STUN -- 'hex's own snap, lengthened to match (0.4s tail)'. The snap is `this.play("hex-snap")` (STRETCH writes its three lines out). Level-matched: each tail's loudest 50 ms 9 dB under the snap's TOP, AUDIBLE 400 ms
+  the snap's own ping over its band, RMS over each line's length: 0.996 (-0.0 dB) -- SIZZLE's ring is solved to it
+  cand             kt    D/k calls     top audL audH gone  rs  pk snapR snpPk tailR   cont tailDb  hrdT  self   reg
+  1 STRETCH         0  16.78     3  0.1166  395  415  420   7  17  0.99   2.4  0.97  -26.4    5.2  31.9  0.99  0.64 (thornshear)
+  2 RING      0.02292  0.937     4  0.0420  385  430  435   0   7  0.99   0.8  0.28  -29.7   -7.4  20.1  0.91  0.64 (thornshear)
+  3 SIZZLE    0.07249  0.401    30  0.0413  395  425  430   0   7  1.00   0.5  0.68  -30.6   -8.4  18.0  0.95  0.67 (thornshear)
+  4 RATTLE     0.1166  0.399    17  0.0409  400  400  405   0   7  1.00   0.0  0.49  -63.6   -7.5  16.4  0.95  0.74 (thornshear)
+  5 ECHO      0.04098  0.412   126  0.0407  395  415  420   0   7  1.00   0.0  0.96  -31.6   -8.4  19.2  0.99  0.68 (thornshear)
+  0 PLAIN           0      0     3  0.0392   25   30   35   0   7  1.00   0.0  0.38 -161.9  -57.4-180.0  1.00  0.64 (thornshear)
+  0 TAIL      0.02292  0.937     1  0.0197  680  680  685   0   6  0.34  20.6  0.28  -14.7   -7.4  20.2  0.28  0.33 (thornshear)
+    1 STRETCH   the snap itself lengthened: its three lines with every length x k (k solved for 0.4 s)
+    2 RING      the snap, and its ping rung on: a 2500 Hz triangle (where the ping lands) dying over 0.4 s
+    3 SIZZLE    the snap, its band re-struck every ~15 ms and its ping rung on under it (ECHO at a quarter of the calls: round 6), held through the stun and falling 20 dB at its end; the ring over the train as the snap's own ping over its band, in RMS (solved: round 7)
+    4 RATTLE    the snap, and its band re-struck: 2600 Hz pings ~28 ms apart dying over 0.4 s (a jammed catch)
+    5 ECHO      the snap re-struck: its own three lines again every ~10 ms (round 5; 18 ms in rounds 3-4) at its own proportions, held through the stun and falling 20 dB at its end (-20 dB x (s/D)^3: round 4)
+    0 PLAIN     the hex-snap itself -- a control on 'lengthened (0.4s tail)'
+    0 TAIL      RING's tail without the snap -- a control on 'hex's own snap'
+  RULE  'hex's own snap': SNAP -- the first 30 ms's register against the hex-snap's first 30 ms >= 0.90 and its sample peak within 1.5 dB of the hex-snap's on the same draw, struck (RISE <= 3 ms, the peak in the first 10 ms), on every draw; 'lengthened': the tail is the snap's own -- TAIL-REG (60-400 ms against the hex-snap) >= 0.60; '(0.4s tail)' 'to match' the 0.4 s stun: AUDIBLE 330-470 ms, GONE <= 470 ms, and CONT >= -34 dB (no gap before 300 ms); the snap leads: the tail's loudest 50 ms (60 ms on) 15-5 dB under the snap's TOP; heard: HEARD over 100 ms from 100 ms >= +6 dB. Register against the blow, the wall tick, rune-crack, BAR, the picked cast and each runic and twinblade cast with a voice of its own each <= 0.80. Its cost (round 6): <= 40 synth calls a stun -- it fires ~20 times a window. Tiebreak: the highest TAIL-REG (the most the snap's own, to 0.05), then the fewest synth calls, then the order listed.
+    1 STRETCH    out: snap peak 2.4 dB off the hex-snap's; rise 7 ms > 3; peaks at 17 ms; the tail +5.2 dB re the snap, not -15..-5
+    2 RING       out: tail register 0.28 < 0.60 (not the snap's own)
+    4 RATTLE     out: tail register 0.49 < 0.60 (not the snap's own); a gap: -63.6 dB before 300 ms
+    5 ECHO       out: 126 synth calls > 40 (it fires ~20 times a window)
+  0 PLAIN (a control) comes back wrong, as it must: tail register 0.38 < 0.60 (not the snap's own); audible 25-30 ms, not 330-470; a gap: -161.9 dB before 300 ms
+  0 TAIL (a control) comes back wrong, as it must: snap register 0.34 < 0.90 (not the snap); snap peak 20.6 dB off the hex-snap's; tail register 0.28 < 0.60 (not the snap's own)
+  PICK  3 SIZZLE  kt 0.07249, D/k 0.401, 30 synth calls; audible 395-425 ms; the tail -8.4 dB re the snap; loudest 50 ms -8.2 dB re the blow, +10.9 dB re the wall
+
+CLOSE -- 'the hum cutting out', on 1 DRONE's hum (261.6 Hz). Level-matched: its held level (5 ms RMS, 0.03-0.12 s) on the cast's hum's (-32.5 dB)
+  cand               h calls     top  aud gone   note     c  hReg   lvl  onset   cut    pre  heard   reg
+  1 CUT        0.01506    53  0.0241  230  235  261.6     0  0.97  -0.0    0.9    23   -0.1    8.4  0.19 (hit)
+  2 SAG        0.01506    51  0.0241  220  225  261.6     0  0.97  -0.0    0.9    17   -2.1    8.4  0.30 (hit)
+  3 STUTTER    0.01533    46  0.0244  230  235  261.6     0  0.99   0.0    1.0    22  -14.6    7.6  0.20 (hit)
+  4 CLICK      0.01506    54  0.0241  230  235  261.6     0  0.97  -0.0    0.9    22   -0.1    8.4  0.19 (hit)
+  0 FADE       0.01524    79  0.0243  330  335  261.6     0  0.98   0.0    1.0   196   -1.0    8.3  0.18 (hit)
+  0 CAST             0   109  0.0766  400  405  261.6    -0  0.97  -1.8   20.4   102    0.1    7.2  0.66 (rune-crack)
+    1 CUT       the hum held 0.2 s, and its strikes simply stop: it dies with the last one's 30 ms ring
+    2 SAG       the hum sagging a fourth over its last 60 ms before it stops -- the power going
+    3 STUTTER   the hum dropping out for 30 ms and catching once before it stops -- a failing contact
+    4 CLICK     CUT with a relay's click where it stops
+    0 FADE      the hum held 0.1 s and then faded 40 dB over 0.2 s -- a control on 'cutting out'
+    0 CAST      the cast itself -- a control on 'the hum' (it cracks first)
+  RULE  'the hum': over its held span (30-120 ms) its note within 30 cents of the cast's hum's, its register against the cast's hum (its held span) >= 0.90, its level within 3 dB of the cast's hum's, and no crack (ONSET <= +6 dB); 'cutting out': CUT <= 40 ms and PREFADE >= -3 dB (from level, not the end of a fade); the length: AUDIBLE 150-300 ms, GONE <= 300 ms; heard: HEARD over 100 ms from 30 ms >= +6 dB. Register against rune-crack, the blow, the wall tick, the death voice, hex-snap and the picked stun each <= 0.80. Tiebreak (round 3): the most distinct register (to 0.05), then the fewest synth calls, then the order listed.
+    3 STUTTER    out: prefade -14.6 dB (it fades before it stops)
+  0 FADE (a control) comes back wrong, as it must: cut 196 ms > 40 (not cutting out); audible 330 ms, not 150-300; gone at 335 ms > 300
+  0 CAST (a control) comes back wrong, as it must: onset +20.4 dB over held (a crack); cut 102 ms > 40 (not cutting out); audible 400 ms, not 150-300
+  PICK  1 CUT  h 0.01506; cut 23 ms, prefade -0.1 dB; -0.0 dB re the cast's hum
+
+THE SFX ROW (mode `before` the rune-crack fallback), applied to Sfx.prototype.play's own source and rendered:
+  the arms vs the picked candidates, max |diff|: cast 8.9e-08, stun 8.9e-08, close 1.5e-08, cast draw 6.0e-08, stun draw 3.0e-08, close draw 1.5e-08
+  every other voice through the patched play vs the original (138 voices: the hit at 5 weights x crit, the heal chime at n 0-6, spark arm and burn, wall, death, clank x2, seal, nova, hex-snap, fork, vine x4, loose x3, aegis x2, scour x4, 92 ult ids -- every relic's cast, every sub-voice the ult arm names and the bare fallback -- and every kind play() names): worst max |diff| 2e-07 (nova/)
+  ult/spellbreaker vs rune-crack after the row: max |diff| 0.730 -- no longer the fallback;  ult/__fallback__ after the row: 4e-08 -- still rune-crack
+  main-thread cost a call (median of 40, performance.now() at its headless resolution): cast 2.00 ms, stun 1.00 ms, close 0.90 ms, hex-snap 0.10 ms, hit 0.00 ms
+  WITH Angelus's 1 Sfx row(s) (arms angelus, angelus-close, angelus-land, angelus-shaft): both orders render every arm alike (max |diff| 1.3e-07); these arms unchanged by them (6.0e-08); register of the three against its voices at most 0.29 (angelus-shaft/stun) -- printed
+  WITH Aureole's 1 Sfx row(s) (arms aureole, aureole-close, aureole-enter): both orders render every arm alike (max |diff| 6.7e-08); these arms unchanged by them (6.0e-08); register of the three against its voices at most 0.73 (aureole/close) -- printed
+  WITH Censer's 1 Sfx row(s) (arms censer, censer-disc): both orders render every arm alike (max |diff| 8.9e-08); these arms unchanged by them (1.2e-07); register of the three against its voices at most 0.43 (censer/stun) -- printed
+  WITH Lightkeeper's 1 Sfx row(s) (arms lightkeeper, lightkeeper-fold, lightkeeper-gong, lightkeeper-tink): both orders render every arm alike (max |diff| 1.2e-07); these arms unchanged by them (1.2e-07); register of the three against its voices at most 0.43 (lightkeeper-tink/cast) -- printed
+
+THE tickStatus AND tickUnmake ROWS, applied to the prototypes' own sources, run beside the originals on real fights:
+  148 fights (Spellbreaker both sides x every foe x seeds [111601, 111602]): 148/148 identical (over, clock, both fighters' hp, positions, velocities, charges, facing, stun, hex clock, hexStunMul, hex stacks, winner, both unmakeTallies, and a digest of every step); every other SFX call identical in order and opts in 148/148
+  windows {'clock': 639, 'caster': 17, 'foe': 0, 'over': 56, '?': 0}: 712 casts -> 712 cast voices (0 cast on a fight's last step, never ticked); hex procs: 11726 lengthened (x2, all on the foe) -> 11726 stun voices; silent: 7878 x1 procs on the foe, 642 on Spellbreaker, 112 on shades; stun voices a clock window: median 16 (min 0, max 35); 639 closes; problems 0
+  the control (the rows plus one sim write, the stunned fighter nudged 1e-9 on a stun voice): 0/148 identical -- it fails, as it must
+
+IN A REAL WINDOW -- spellbreaker v ironhail (side 1), seed 111601, cast at 30.89s, closed by its clock at 40.20s, 26 stun voices; the fight's own sounds and the score, with and without each new voice. Each event read in the third-octave (200 Hz-12 kHz) where it stands highest over everything else (v107's round 4c; the band after the @). Gates: the crack and the close >= +3 dB, the stun tails' median >= +3 dB; the hum printed. Controls: AFTER (0.8 s after the close, no new voice: must read NOT heard) and LEVEL (each voice 20 dB under: every event heard at >= +3 must read lower)
+  the cast's crack (0-100 ms): +29.5@1600 dB -- heard
+      AFTER: +0.0 -- NOT heard;  BURIED: median +15.2;  LEVEL: follows the voice
+  the cast's hum (120-220 ms): +15.3@252 dB (printed)
+      AFTER: +0.0;  BURIED: median +4.3;  LEVEL: follows the voice
+  each stun's tail (100-300 ms): +11.3@2540 +13.7@2540 +2.4@2540 +27.4@3200 +5.9@2540 +11.7@2540 +39.1@317 +37.8@3200 +6.0@2540 +37.1@3200 +20.7@2540 +28.4@3200 +21.1@2540 +20.4@2540 +6.6@2540 +21.7@2540 +7.5@2540 +51.1@5080 +64.7@3200 +18.7@2540 +5.6@2540 +21.3@2540 +22.9@2016 +4.9@2540 ... (median +20.6) dB -- heard
+      AFTER: +0.0 +0.0 +0.0 +0.0 +0.0 +0.0 +0.0 +0.0 +0.0 +0.0 +0.0 +0.0 (median +0.0) -- NOT heard;  BURIED: median +4.4;  LEVEL: follows the voice
+  the close's held hum: +8.6@252 dB -- heard
+      AFTER: +0.0 -- NOT heard;  BURIED: median +0.4;  LEVEL: follows the voice
+  the AFTER control (no new voice sounding) reads NOT heard for every voice, as it must
+  the LEVEL control: every event heard at >= +3 dB reads lower with its voice 20 dB under, as it must
+
+END TO END -- the three rows applied as text: sc-spellbreaker-b7.5.html da7936dccd8f5f15 -> 149b777b7f1ccb90 (+5685 chars), loaded in a fresh browser
+  the three new voices through the patched page's own SFX.play vs the lab's candidate text in that page, max |diff|: cast 6.0e-08, stun 3.0e-08, close 1.5e-08
+  every other voice (138), the patched page vs the original page: worst max |diff| 1.5e-07;  ult/spellbreaker vs rune-crack on the patched page 0.730
+  74 fights: 74/74 identical to the original page's (a digest of every step included), every other SFX call identical in 74/74; per fight -- cast voices = casts 74, stun voices = lengthened procs 74, closes = clock closes 74, every voice where it belongs 74 (of 74); totals {'casts': 361, 'x2': 5968, 'clock': 319, 'castV': 361, 'stunV': 5968, 'closeV': 319}; the original page played 0 of them; page errors 0
+
+ALSO -- sc-spellbreaker-b7.5.html d8e16ff49c9d63e1: every anchor once, every row applies and keeps it; the original page first (a browser), then the patched one (another, after it closes)
+  angelus on sc-spellbreaker-b7.5.html: ['sanctified', 'twinblade'] -- declared the sanctified twinblade (v104; the batch line)
+  the three new voices through the patched page's own SFX.play vs the lab's candidate text in that page, max |diff|: cast 6.0e-08, stun 3.0e-08, close 1.1e-08
+  every other voice (167), the patched page vs the original page: worst max |diff| 1.8e-07;  ult/spellbreaker vs rune-crack on the patched page 0.730
+  82 fights: 82/82 identical to the original page's (a digest of every step included), every other SFX call identical in 82/82; per fight -- cast voices = casts 82, stun voices = lengthened procs 82, closes = clock closes 82, every voice where it belongs 82 (of 82); totals {'casts': 406, 'x2': 6705, 'clock': 358, 'castV': 406, 'stunV': 6705, 'closeV': 358}; the original page played 0 of them; page errors 0
+
+THE PICKS  cast 1 DRONE   stun 3 SIZZLE   close 1 CUT
+WAVS   C:\dev\sundered-crown\05-reference\v111  (25 files, 4033 KB, raw level)
+
+  NOTHING IS IN THE BUILD. The three rows are the edits; all three were applied to the page's own code above, and as text to a copy of the page.
+rc=0

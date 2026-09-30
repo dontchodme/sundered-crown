@@ -1,0 +1,8 @@
+mutant           sha16             breaks  probe  fails (count)                 fights vs the clean link   win   how
+mV1-closedeath   3cf453b0f91652eb  [7]   7/8    [7] 5x                         identical (74)              58.1  the close voice on EVERY close, a death's too
+mV2-stunx1       3d7c8a70dbbc7542  [7]   7/8    [7] 4814x                      identical (74)              58.1  the stun voice on EVERY hex proc, x1 too
+mP1-picwrite     e100235213985f12  [8]   7/8    [8] 1382x                      72 of 74 differ             43.2  tickUnmaking nudges the foe 1e-9 at a HEX +2 relabel
+mG1-greyx1       00222f5de489f387  [8]   7/8    [8] 206960x                    identical (74)              58.1  the grey on EVERY hex proc (a plain stun greyed)
+mD1-drawwrite    504e0e6086faf7fd  [8]   6/8    [8] 2631x [2]  n.e.            12 of 12 differ             50.0  drawUnmaking nudges side a 1e-9 when it draws (drawn only)
+
+the clean fx link on the same first-seed fights: 8/8, Spellbreaker win 58.1%

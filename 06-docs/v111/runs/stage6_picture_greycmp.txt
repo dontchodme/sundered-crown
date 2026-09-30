@@ -1,0 +1,59 @@
+dawnbringer 99001 a sanctified 4
+lastlight 4242 b sanctified 4
+aureole 4101 a sanctified 4
+morningstar 8888 b sanctified 4
+nightfell 5150 a umbral 4
+twinshade 99008 a umbral 4
+grudgebearer 31337 a dwarven 4
+heartwood 2207 a verdant 4
+censer 4101 b sanctified 4
+paradox 4242 b runic 4
+widowmaker 777 a bloodsworn 4
+starwarden 2317 b vigil 4
+columns of the strip: FREE (unstunned), PLAIN (the base's stun, 0.42 colour), then A, B, C, D, E
+48 greyed frames; PLAIN vs FREE (the base's stop, for scale): |dL| 0.181 |dC| 0.084
+A grayscale @0.6 (the design's words):
+   bloodsworn n  4  vs PLAIN |dL| 0.024 |dC| 0.077 px 4892   vs FREE |dL| 0.110 |dC| 0.110 px 8213
+   dwarven    n  4  vs PLAIN |dL| 0.020 |dC| 0.092 px 6069   vs FREE |dL| 0.121 |dC| 0.103 px 8714
+   runic      n  4  vs PLAIN |dL| 0.053 |dC| 0.077 px 1849   vs FREE |dL| 0.193 |dC| 0.141 px 5628
+   sanctified n 20  vs PLAIN |dL| 0.062 |dC| 0.016 px 3374   vs FREE |dL| 0.170 |dC| 0.064 px 6046
+   umbral     n  8  vs PLAIN |dL| 0.026 |dC| 0.086 px 3953   vs FREE |dL| 0.138 |dC| 0.131 px 7188
+   verdant    n  4  vs PLAIN |dL| 0.054 |dC| 0.087 px 3425   vs FREE |dL| 0.177 |dC| 0.138 px 7270
+   vigil      n  4  vs PLAIN |dL| 0.028 |dC| 0.091 px 3861   vs FREE |dL| 0.094 |dC| 0.145 px 6450
+   ALL        n 48  vs PLAIN |dL| 0.044 |dC| 0.075 px 3623   vs FREE |dL| 0.158 |dC| 0.107 px 7138
+B grayscale contrast .6 @0.6:
+   bloodsworn n  4  vs PLAIN |dL| 0.030 |dC| 0.076 px 4912   vs FREE |dL| 0.112 |dC| 0.111 px 8114
+   dwarven    n  4  vs PLAIN |dL| 0.048 |dC| 0.091 px 6086   vs FREE |dL| 0.131 |dC| 0.103 px 8676
+   runic      n  4  vs PLAIN |dL| 0.043 |dC| 0.073 px 1958   vs FREE |dL| 0.197 |dC| 0.141 px 5626
+   sanctified n 20  vs PLAIN |dL| 0.041 |dC| 0.027 px 1828   vs FREE |dL| 0.184 |dC| 0.062 px 6170
+   umbral     n  8  vs PLAIN |dL| 0.029 |dC| 0.086 px 3966   vs FREE |dL| 0.140 |dC| 0.131 px 7184
+   verdant    n  4  vs PLAIN |dL| 0.030 |dC| 0.088 px 3385   vs FREE |dL| 0.188 |dC| 0.137 px 7394
+   vigil      n  4  vs PLAIN |dL| 0.029 |dC| 0.091 px 3860   vs FREE |dL| 0.098 |dC| 0.146 px 6438
+   ALL        n 48  vs PLAIN |dL| 0.036 |dC| 0.072 px 2994   vs FREE |dL| 0.172 |dC| 0.108 px 7148
+C grayscale brightness .7 @0.6:
+   bloodsworn n  4  vs PLAIN |dL| 0.008 |dC| 0.076 px 4916   vs FREE |dL| 0.129 |dC| 0.110 px 8182
+   dwarven    n  4  vs PLAIN |dL| 0.026 |dC| 0.091 px 6082   vs FREE |dL| 0.137 |dC| 0.103 px 8688
+   runic      n  4  vs PLAIN |dL| 0.036 |dC| 0.074 px 1948   vs FREE |dL| 0.207 |dC| 0.141 px 5628
+   sanctified n 20  vs PLAIN |dL| 0.047 |dC| 0.030 px 1690   vs FREE |dL| 0.187 |dC| 0.061 px 6258
+   umbral     n  8  vs PLAIN |dL| 0.014 |dC| 0.086 px 3963   vs FREE |dL| 0.156 |dC| 0.131 px 7164
+   verdant    n  4  vs PLAIN |dL| 0.021 |dC| 0.088 px 3385   vs FREE |dL| 0.205 |dC| 0.135 px 7521
+   vigil      n  4  vs PLAIN |dL| 0.016 |dC| 0.092 px 3832   vs FREE |dL| 0.117 |dC| 0.146 px 6388
+   ALL        n 48  vs PLAIN |dL| 0.029 |dC| 0.072 px 2782   vs FREE |dL| 0.184 |dC| 0.108 px 7164
+D grayscale contrast .5 brightness .85 @0.6:
+   bloodsworn n  4  vs PLAIN |dL| 0.017 |dC| 0.076 px 4930   vs FREE |dL| 0.120 |dC| 0.111 px 8134
+   dwarven    n  4  vs PLAIN |dL| 0.034 |dC| 0.091 px 6070   vs FREE |dL| 0.131 |dC| 0.103 px 8575
+   runic      n  4  vs PLAIN |dL| 0.035 |dC| 0.073 px 1984   vs FREE |dL| 0.203 |dC| 0.141 px 5628
+   sanctified n 20  vs PLAIN |dL| 0.043 |dC| 0.025 px 1986   vs FREE |dL| 0.189 |dC| 0.060 px 6340
+   umbral     n  8  vs PLAIN |dL| 0.012 |dC| 0.086 px 3972   vs FREE |dL| 0.148 |dC| 0.131 px 7239
+   verdant    n  4  vs PLAIN |dL| 0.016 |dC| 0.088 px 3384   vs FREE |dL| 0.202 |dC| 0.135 px 7528
+   vigil      n  4  vs PLAIN |dL| 0.012 |dC| 0.091 px 3854   vs FREE |dL| 0.107 |dC| 0.146 px 6414
+   ALL        n 48  vs PLAIN |dL| 0.034 |dC| 0.071 px 3250   vs FREE |dL| 0.184 |dC| 0.108 px 7239
+E grayscale @0.42:
+   bloodsworn n  4  vs PLAIN |dL| 0.001 |dC| 0.074 px 4807   vs FREE |dL| 0.124 |dC| 0.108 px 8181
+   dwarven    n  4  vs PLAIN |dL| 0.001 |dC| 0.081 px 6045   vs FREE |dL| 0.132 |dC| 0.102 px 8778
+   runic      n  4  vs PLAIN |dL| 0.003 |dC| 0.099 px 1294   vs FREE |dL| 0.194 |dC| 0.140 px 6086
+   sanctified n 20  vs PLAIN |dL| 0.002 |dC| 0.039 px 902   vs FREE |dL| 0.183 |dC| 0.062 px 6212
+   umbral     n  8  vs PLAIN |dL| 0.001 |dC| 0.080 px 3868   vs FREE |dL| 0.151 |dC| 0.129 px 7153
+   verdant    n  4  vs PLAIN |dL| 0.001 |dC| 0.085 px 3344   vs FREE |dL| 0.199 |dC| 0.134 px 7468
+   vigil      n  4  vs PLAIN |dL| 0.002 |dC| 0.089 px 3746   vs FREE |dL| 0.109 |dC| 0.143 px 6448
+   ALL        n 48  vs PLAIN |dL| 0.001 |dC| 0.077 px 2250   vs FREE |dL| 0.179 |dC| 0.106 px 7140

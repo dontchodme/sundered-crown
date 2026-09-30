@@ -1,0 +1,210 @@
+{
+ "n": {
+  "freshOk": 24,
+  "drawnFights": 12,
+  "cadenceOk": 213014,
+  "tickWorldOk": 101788,
+  "calls": 101788,
+  "fieldMeOk": 101788,
+  "fieldFoeOutOk": 52786,
+  "tickStepOk": 101788,
+  "hcContOk": 212976,
+  "drawOk": 1972,
+  "insertOutOk": 173,
+  "blowOutOk": 173,
+  "chanOutOk": 173,
+  "cadenceProc_out": 582,
+  "proc_out_x1": 582,
+  "runN_out_x1": 445,
+  "runL_out_x1": 92.70833333333297,
+  "runMin_out_x1": 0.20833333333333334,
+  "runMax_out_x1": 0.20833333333333334,
+  "runDirty": 129,
+  "castOk": 54,
+  "foeWeapIn": 49025,
+  "foeWeapInA": 25750,
+  "frames": 49002,
+  "fieldFoeInOk": 49002,
+  "winFrozen": 8784,
+  "winLive": 48996,
+  "insertInOk": 222,
+  "blowInOk": 222,
+  "chanInOk": 222,
+  "hexAppliedInLive": 436,
+  "blowsInLive": 218,
+  "foeStunIn": 27137,
+  "foeStunInA": 15032,
+  "cadenceProc_in": 865,
+  "proc_in_x2": 865,
+  "procOnStun": 798,
+  "runN_in_x2": 84,
+  "runL_in_x2": 33.599999999999945,
+  "runMin_in_x2": 0.4,
+  "runMax_in_x2": 0.4,
+  "clockCloses": 47,
+  "winMT": 437.1833333333387,
+  "winMTn": 47,
+  "foeWeapOut": 32597,
+  "foeWeapOutA": 17411,
+  "foeStunOut": 13303,
+  "foeStunOutA": 7135,
+  "runCut": 27,
+  "hexAppliedKill": 4,
+  "blowsInKill": 4,
+  "sharedOk": 12,
+  "fieldShadeOk": 9438,
+  "blowOnShadeIn": 18,
+  "cadenceProc_shade": 59,
+  "proc_shade_x1": 59,
+  "cadenceProc_me": 145,
+  "proc_me_x1": 145,
+  "runN_me_x1": 106,
+  "runL_me_x1": 22.083333333333318,
+  "runMin_me_x1": 0.20833333333333334,
+  "runMax_me_x1": 0.20833333333333334,
+  "foeWeapInB": 23275,
+  "foeStunInB": 12105,
+  "foeWeapOutB": 15186,
+  "foeStunOutB": 6168,
+  "deathCloses": 1,
+  "drawVerdict": 1
+ },
+ "bad": {},
+ "T": {
+  "casts": 54,
+  "frames": 49002,
+  "blows": 222,
+  "extra": 218,
+  "foeHex": 120746
+ },
+ "TS": [
+  {
+   "casts": 29,
+   "frames": 25725,
+   "blows": 120,
+   "extra": 117,
+   "foeHex": 67831,
+   "fights": 6,
+   "wins": 4,
+   "decided": 6,
+   "bin": 120
+  },
+  {
+   "casts": 25,
+   "frames": 23277,
+   "blows": 102,
+   "extra": 101,
+   "foeHex": 52915,
+   "fights": 6,
+   "wins": 1,
+   "decided": 6,
+   "bin": 102
+  }
+ ],
+ "digest": [
+  [
+   0,
+   "grudgebearer",
+   111001,
+   1,
+   11705
+  ],
+  [
+   0,
+   "twinshade",
+   111001,
+   0,
+   8832
+  ],
+  [
+   0,
+   "axiom",
+   111001,
+   1,
+   12089
+  ],
+  [
+   0,
+   "dawnbringer",
+   111001,
+   1,
+   8986
+  ],
+  [
+   0,
+   "nightfell",
+   111001,
+   1,
+   10678
+  ],
+  [
+   0,
+   "gravemourn",
+   111001,
+   0,
+   9484
+  ],
+  [
+   1,
+   "grudgebearer",
+   111001,
+   0,
+   6122
+  ],
+  [
+   1,
+   "twinshade",
+   111001,
+   0,
+   11892
+  ],
+  [
+   1,
+   "axiom",
+   111001,
+   1,
+   12683
+  ],
+  [
+   1,
+   "dawnbringer",
+   111001,
+   0,
+   9540
+  ],
+  [
+   1,
+   "nightfell",
+   111001,
+   0,
+   9783
+  ],
+  [
+   1,
+   "gravemourn",
+   111001,
+   0,
+   6770
+  ]
+ ],
+ "fights": 12,
+ "win": 0.4166666666666667,
+ "blowsIn": 18.5,
+ "blowsOut": 14.416666666666666,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "stunMul": 2,
+  "hexExtra": 1,
+  "kind": "unmake",
+  "dmg": null,
+  "apply": null,
+  "blade": 7.5
+ },
+ "secs": 128.86,
+ "s6v": false,
+ "s6p": false,
+ "stage": "5",
+ "stageHow": "inferred: blade 7.5 is not the shipped 8.81",
+ "wantExtra": 1
+}

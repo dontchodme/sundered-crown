@@ -1,0 +1,28 @@
+
+UNMAKING PROBE  sc-spellbreaker-b7.5.html  Chromium 151.0.7922.34  12 fights (Spellbreaker both sides x 6 foe(s) x 1 seeds, seed0 111001 step 13)   ult {'charge': 14, 'dur': 8, 'stunMul': 2, 'hexExtra': 1, 'kind': 'unmake', 'dmg': None, 'apply': None, 'blade': 7.5}
+  STAGE 5 (inferred: blade 7.5 is not the shipped 8.81): expects hexExtra 1, blade 7.5 / 8.30 / 7.7
+  casts/fight 4.50   blows a fight: in windows 18.50, outside 14.42   Spellbreaker win 41.7%
+  per cast (the lab's columns): unmade (blows in the window) 4.11   hex (the second hex) 4.04   hex applied by her blows in windows on a live body / those blows 2.000 (218 blows)   killing blows in windows 4 (hex 4)   (18 blows on a shade)
+  the foe on a window frame: hex stacks 2.46   its weapon stunned 55.4% of window frames (outside windows 40.8%)
+  hex procs: on the foe in windows at x2 865 (16.02 a cast), in windows at x1 0 (the cast's own step, before the recompute), outside 582; on Spellbreaker 145 (x2: 0); on shades 59
+  the cadence: 213014 tickStatus calls rebuilt (c0 + dt x stacks, a proc and 0 at 1.15), 865 procs on the foe in windows, 582 outside; hex clock unmoved between tickStatus calls 212976 times
+  REALISED STUN (window clock): in_x2: 0.4000s mean over 84 clean runs (0.4000..0.4000)   |   out_x1: 0.2083s mean over 445 clean runs (0.2083..0.2083)   |   me_x1: 0.2083s mean over 106 clean runs (0.2083..0.2083)
+    runs cut by another proc 27, dirtied by another stun 129, procs onto a running stun 798
+  the field: foe x2 on 49002 ticker frames, foe x1 52786, Spellbreaker x1 101788, shades x1 9438
+  nothing else: 101788 tickUnmake calls moved no field beyond the three; the second-hex insert bracketed 222 times in a window and 173 outside (open-ended 0, never read 0); 54 casts moved nothing beyond the prologue and the window
+  the window's clock: tickUnmake asked once on 101788 unfrozen steps (none on a frozen one), 49002 open-window frames; clock closes 47, death closes 1
+  FREEZE CENSUS 15.2% of window steps frozen   a clock window lasts 9.30s of match time (8s on the window clock)
+  SIDE A (6 fights): win 66.7%   casts/fight 4.83   blows in windows a cast 4.14 (a fight 20.00)   second hex a cast 4.03   foe hex on a window frame 2.64   foe's weapon stunned 58.4% of window frames (41.0% outside)
+  SIDE B (6 fights): win 16.7%   casts/fight 4.17   blows in windows a cast 4.08 (a fight 17.00)   second hex a cast 4.04   foe hex on a window frame 2.27   foe's weapon stunned 52.0% of window frames (40.6% outside)
+  THE BRIEF'S STUN GATE (0.40 +- 0.01 inside, 0.20 outside, at least 200 clean runs each): NOT MET
+  drawn subset: 12 fights drawn every 24th step while the picture shows (every 60th otherwise): 1972 frames clean, 0 with the picture up (0 in a hit stop, 0 with a weapon greyed), 1 in the verdict
+  stage 6: not on this link (no stun arm in the synth, no tickUnmaking) -- [7]-[8] not run
+  [1] PASS  the window: dur 8 on the window clock (tickUnmake once on every unfrozen step, never on a frozen one; dt a call), closes on its clock or either death; only Spellbreaker's
+  [2] FAIL  every hex proc: stunFor x the fighter's own hexStunMul, both reads; x2 on the foe in windows, x1 outside; the engine's cadence, rebuilt every call; realised 0.40 / 0.20 +- 0.01 over >= 200 runs each   NOT EXERCISED -- a check that never ran is not a pass
+  [3] PASS  the field: the OTHER fighter's stunMul (the design's 2) while its window is open, else 1, recomputed on every ticker frame for both (Spellbreaker's own 1: a runic foe's hexes untouched); shades 1; moved nowhere else
+  [4] PASS  every blow: the channel's hex 1, then in the window on a live body hex 1 (stage 5) by side letter on the body struck -- 2 hex a blow, exactly; the killing blow the channel's alone; stacks and clock the engine's; the blade's own damage, in and out
+  [5] PASS  nothing else: every own field of both fighters, every shade and the match unmoved by the ticker but its three, and by the second-hex insert but her tally and the audited hex; the hex clock moves only in tickStatus; no hurt, beat, rng or shot
+  [6] PASS  the bolt is out: a cast spawns no shot, hurts or applies nothing, moves nothing beyond the prologue and opens {t 0, dur}, never on an open window; the block (kind, charge 14, no dmg / apply) and the stage's blade
+  [8] PASS  the drawn subset only (no picture on this link): no drawn frame throws, draws the RNG or changes the simulation
+
+  6/7   (129s in the page)

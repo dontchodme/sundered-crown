@@ -1,0 +1,24 @@
+BUILDER NEGATIVE TESTS (spellbreaker_build.py b590d739283eed26); each copy runs stage 2 on the stage-1 link
+- a copy whose tickUnmake adds 'foe.vx *= 0.99;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- a copy whose tickUnmake adds 'const q = this.rng();':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' draws the RNG or uses the one ultFx slot
+- a copy whose tickUnmake adds 'f.w.dmg = 9;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes the shared weapon
+- a copy whose tickUnmake adds 'f.w.spin += 1;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes the shared weapon
+- a copy whose tickUnmake adds 'this.hurt(foe, 1, f);':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- a copy whose tickUnmake adds 'this.hitStop = Math.max(this.hitStop, 0.01);':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- a copy whose tickUnmake adds 'STATUS.hex.stunFor = 0.4;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes (or aliases) a shared module table
+- a copy whose tickUnmake adds 'const H = STATUS.hex; H.stunFor = 0.4;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes (or aliases) a shared module table
+- a copy whose tickUnmake adds 'CONFIG.chaos.critMul *= 1.1;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' writes (or aliases) a shared module table
+- a copy whose tickUnmake adds 'foe.theta += 0.1;':
+    REFUSING TO WRITE -- insert 'tickUnmake keeps the window and recomputes both fighters' hex-stun factor' hurts, moves, stops or files a beat (v79: a stun length and a hex, nothing else)
+- the clean copy:   out sc-spellbreaker-clean.html  7f798933657feb57   (+3446 chars, written LF)
+  clean copy's stage 2 7f798933657feb57 against the link 7f798933657feb57
+- html files written by the refusals: 0

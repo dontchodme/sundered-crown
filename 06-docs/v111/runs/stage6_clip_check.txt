@@ -1,0 +1,32 @@
+CLIP  07-shorts/v111/unmaking-window.mp4  sha256[:16] 4a265fe94f2b603e  2,654,916 bytes (2.53 MB)
+  python cinema_clip.py --game <scratch>/links/sc-spellbreaker-b7.5-fx.html --a spellbreaker --b vesper
+    --seed 111075 --at 77.98 --window 12.77 --end-at-window --fps 60 --w 540 --out ../07-shorts/v111/unmaking-window.mp4
+  (the pick's own command, runs/stage6_pick.txt; the log runs/stage6_clip_log.txt: 299 s to render at idle priority)
+  h264 540x960 60 fps, 766 frames, 12.77 s; AAC 48 kHz stereo, 12.78 s (ffprobe)
+  the director: the kill is at 93.60 (its T3 cut), outside the clip; the clip plays 1:1 (77.983 -> 90.75 of match time
+  in 12.77 s of video)
+  end state: t 90.75, hp [132, 123.4], 37 clanks (cinema_clip) == headless (runs/stage6_clip_timeline.txt)
+AUDIO (ffmpeg volumedetect / ebur128): mean -20.9 dB, max -0.8 dB; integrated -18.9 LUFS, LRA 1.2 LU, true peak -0.6 dBFS.
+  The same window on the b7.5 (no stage-6 voice; <scratch>/s6/clipwork/clip_base_b7.5.mp4, 10e5ef74a53ee989, 766 frames,
+  runs/stage6_clip_base_log.txt): mean -20.9 dB, max -0.9 dB; -19.0 LUFS, LRA 1.5 LU, true peak -0.9 dBFS. The loudest
+  sample is the fight's own on both (the clip's at 89.561, after the last stage-6 voice has ended; the b7.5's at 82.961):
+  the new voices add 0.1 LU and no peak.
+THE VOICES IN THE MIX (runs/stage6_clip_audio.txt, tools clip_audio6.py): both clips decoded to mono 48 kHz, each
+  stage-6 voice read in its band over its time, with minus without: the cast's hum +4.7 dB (252-272 Hz, 0.12-0.40 s);
+  the close's held hum +23.4 dB (252-272 Hz, 0-0.2 s); the 26 stun voices' tails (2400-2800 Hz, 60-300 ms after each)
+  a median +17.6 dB (+3.9 .. +44.5), 25 of 26 over the band's no-voice spread; the cast's crack -2.0 dB (1450-1700 Hz,
+  0-60 ms: against the b7.5's own cast voice, rune-crack, on the same frames, not against silence).
+  Controls at times with no stage-6 voice: the C4 band within 1.6 dB, the sizzle band within 5.0 dB (the two renders
+  differ everywhere at about -40 dB broadband, before the cast too; not traced here).
+FIVE FRAMES through the pipeline (post chain, director), matched to the fight by the HUD clock (video t = match t - 77.983)
+  -> 05-reference/v111/unmaking-clip-5frames.png (2700x960, b50168ef1774cc15; LOOKED AT, and two zooms):
+  1.39 s (HUD 79.4): the cast (79.175) 0.2 s on: the banner "Unmaking" on HER (the default seat; the bolt seated it
+                     on the quarry), the script writing along both blades, the foe's scythe already GREY (its first
+                     doubled stun, 79.300); the white column of sparks from her toward the foe is the BOLT's beam field,
+                     SPECS.spellbreaker, still in this link's fx.js copy until the carry's fx_remove.py
+  4.17 s (HUD 82.2): a doubled stun (82.042, its sizzle): the foe's weapon grey, the script standing on both blades,
+                     rune motes drifting off them, HEX +2 at the last blow's impact (81.808)
+  5.60 s (HUD 83.6): a blow and its second hex (83.517): HEX +2 at the impact, a crit (29!), the scythe grey (83.267)
+  8.83 s (HUD 86.8): a second hex (86.775): HEX +2 on the foe, the grey held through repeated doubled stuns, motes
+ 11.04 s (HUD 89.0): 0.08 s after the clock close (88.942, the hum cutting out): the script unwriting, the last doubled
+                     stun's grey running out (off at 89.125), a few motes drifting

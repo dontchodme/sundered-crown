@@ -1,0 +1,21 @@
+
+  sc-spellbreaker-b7.5-fx.html  ·  33 foes x 4 seeds (left out: axiom, foregone, paradox, twinshade)  ·  the best window of each fight: 132, of which 17 show everything
+
+  foe              seed  cast at  window clock all  +2 stunV  grey% blows stops other card kill  score
+  vesper         111075    79.18    9.77     1   1  10    26   82.8    10   213     0    0    0  27.80
+  bulwarden      111001    79.96    9.94     1   1   9    34   95.6     9   234     0    0    0  27.70
+  bulwarden      111075    77.94   10.04     1   1   9    30   93.3     9   246     0    0    0  27.70
+  redflail       111075    77.51    9.03     1   1   8    28   84.1     8   125     0    0    0  27.60
+  bulwarden      111038    94.42    9.44     1   1   8    35   98.8     8   174     0    0    0  27.60
+  bulwarden      111112    78.17    9.54     1   1   8    30   88.2     8   186     0    0    0  27.60
+  gravemourn     111075    77.56    9.43     1   1   7    25   73.1     7   173     0    0    0  27.00
+  redflail       111112    77.43    9.26     1   1   7    32   96.6     7   152     0    0    0  27.00
+  grudgebearer   111001    77.11    9.50     1   1   6    24   79.2     6   181     0    0    0  26.40
+  slagheart      111038    47.51    8.86     1   1   6    27   84.4     6   104     0    0    0  26.40
+  redflail       111038    77.69    9.24     1   1   6    17   54.3     6   150     0    0    0  26.40
+  gravemourn     111112    77.09    9.58     1   1   5    30   95.8     5   190     0    0    0  25.80
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game <scratch>/links/sc-spellbreaker-b7.5-fx.html --a spellbreaker --b vesper --seed 111075 \
+      --at 77.98 --window 12.77 --end-at-window --fps 60 --w 540 --out ../07-shorts/v111/unmaking-window.mp4

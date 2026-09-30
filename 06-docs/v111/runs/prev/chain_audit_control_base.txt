@@ -1,0 +1,30 @@
+  (10 insert(s) found in spellbreaker_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-spellbreaker-b8.3.html
+tip    sc-tendril-t3.html
+10 inserts read out of spellbreaker_build.py
+
+  LOST  S1:Unmaking becomes the hex window, stubbed relic  1  mid   -  tip  0
+        'tip:"Hexes stun the foe\'s weapon twice as long, and every hit hexes twice" },'
+  LOST  S2:Unmaking has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  0
+        'ult:{ name:"Unmaking", charge:14, kind:"unmake", dur:8,   // v79 stage 2: the window ope'
+  LOST  S2:the fighter carries the window and its own hex-stun multiplier relic  1  mid   -  tip  0
+        'this.unmakeTally = null;'
+  LOST  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  0
+        'f.unmakeTally = { casts: 0, frames: 0, blows: 0, extra: 0, foeHex: 0 };'
+  LOST  S2:the window ticks with the window tickers relic  1  mid   -  tip  0
+        'this.tickUnmake(dt);                // UNMAKING (v79)'
+  LOST  S2:tickUnmake keeps the window and recomputes both fighters' hex-stun factor relic  1  mid   -  tip  0
+        'if (Z.t >= Z.dur || !f.alive || !foe.alive){ f.ultUnmake = null; continue; }'
+  LOST  S2:a hex stun lasts the fighter's own hexStunMul times as long relic  1  mid   -  tip  0
+        'f.stun = Math.max(f.stun, STATUS.hex.stunFor * f.hexStunMul);'
+  LOST  S2:every blow in the window hexes `hexExtra` more relic  1  mid   -  tip  0
+        'foe.apply("hex", U.hexExtra, self === this.a ? "a" : "b");'
+  LOST  S3:the second hex          relic  1  mid   -  tip  0
+        'hexExtra:1,          // v79: the second hex (stage 3)'
+  LOST  S5:the blade: the row's floor, nearest the shipped rate relic  1  mid   -  tip  0
+        'blades:[0,0.5], reach:62, width:8, artW:30, dmg:8.30,'
+
+!! 10 INSERT(S) DID NOT SURVIVE THE CHAIN: S1:Unmaking becomes the hex window, stubbed, S2:Unmaking has a charge: the lab's 16 on the game's clock, S2:the fighter carries the window and its own hex-stun multiplier, S2:the cast opens the window and resolves nothing, S2:the window ticks with the window tickers, S2:tickUnmake keeps the window and recomputes both fighters' hex-stun factor, S2:a hex stun lasts the fighter's own hexStunMul times as long, S2:every blow in the window hexes `hexExtra` more, S3:the second hex, S5:the blade: the row's floor, nearest the shipped rate
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

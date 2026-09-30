@@ -1,0 +1,4 @@
+spellbreaker on sc-spellbreaker-b7.5.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · link-b7.5
+  win 49.2%   side A 53.8%   side B 44.6%   mean 85.8s   timeouts 0
+  by type  greatsword 70%  bow 59%  flail 46%  warhammer 46%  scythe 34%  twinblade 34%
+  worst    bloodmirror 0%  twinshade 10%  vinesower 10%   (740 fights in 61s)

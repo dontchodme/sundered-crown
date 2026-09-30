@@ -1,0 +1,1 @@
+sc-spellbreaker-m1-frozen.html: no hooks 444 fights, win 34.5%; the probe's digest (probe_mut_m1-frozen.json) 444/444 fights identical -> THE PROBE MOVES NO FIGHT

@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 6 frames  540x960
+  a  sc-spellbreaker-b7.5.html
+  b  sc-spellbreaker-b7.5-fx.html
+  spellbreaker v vesper seed 111075 t= 79.50  DIFFERS   luma 20.554 -> 20.204   lit 60.35% -> 60.10%
+  spellbreaker v vesper seed 111075 t= 81.00  DIFFERS   luma 19.349 -> 19.325   lit 59.49% -> 59.49%
+  spellbreaker v vesper seed 111075 t= 83.00  DIFFERS   luma 20.821 -> 20.904   lit 60.92% -> 60.92%
+  spellbreaker v vesper seed 111075 t= 85.00  DIFFERS   luma 17.775 -> 17.831   lit 59.71% -> 59.71%
+  spellbreaker v vesper seed 111075 t= 87.00  DIFFERS   luma 19.018 -> 19.149   lit 60.24% -> 60.24%
+  spellbreaker v vesper seed 111075 t= 88.50  DIFFERS   luma 17.932 -> 17.997   lit 59.76% -> 59.75%
+
+FAIL  0/6 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.

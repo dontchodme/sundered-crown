@@ -1,0 +1,76 @@
+STAGE 6 BUILDER NEGATIVE TESTS (spellbreaker_build.py 6543119d4a9d0d1c); each copy runs stage 6 on the b7.5 (da7936dccd8f5f15)
+- tick + 'f.vx *= 0.999;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' writes f.vx
+- tick + 'const q = this.rng();':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' draws the RNG or uses the one ultFx slot
+- tick + 'f.stun = Math.max(f.stun, 0.01);':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' hurts, knocks, stops, stuns or writes the window or a status
+- tick + 'f.hexClock = 0;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' hurts, knocks, stops, stuns or writes the window or a status
+- tick + 'this.ultFx = null;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' draws the RNG or uses the one ultFx slot
+- tick + 'f.w.reach += 1;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' writes the shared weapon row
+- tick + 'STATUS.hex.stunFor = 0.4;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' reaches a shared module table other than by the five reads it may make: 'STATUS.hex.stunFor'
+- tick + 'const H = STATUS.hex;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' reaches a shared module table other than by the five reads it may make: 'STATUS.hex'
+- tick + 'this.tags.push({ key: "hex", life: 0.9, max: 0.9 });':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' mutates tags
+- tick + 'this.hitStop = 0.02;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' hurts, knocks, stops, stuns or writes the window or a status
+- tick + 'f.unmakeTally.extra += 1;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' writes unmakeTally.extra
+- tick + 'f.ultUnmake = null;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' hurts, knocks, stops, stuns or writes the window or a status
+- tick + 'this.beat({ kind: "ult" });':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' calls into the simulation
+- tick + 'SFX.play("ult", { w: "spellbreaker-close" });':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' plays a voice outside the stun and the close
+- tick + 'f.apply("hex", 1, "a");':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' calls into the simulation
+- tick + 'delete f.status.hex;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' deletes or redefines a property
+- tick + 'const r0 = Math.random();':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' draws the RNG or uses the one ultFx slot
+- tick + 'this.shots.splice(0, 1);':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' mutates shots
+- tick + 'this.shots[0] = null;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' writes through an index
+- tick + 'f.hexStunMul = 1;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' hurts, knocks, stops, stuns or writes the window or a status
+- tick2 + 'f.status.hex.t = 2.6;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: tickUnmaking' writes hex.t
+- draw + 'm.t += 0.001;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: the drawing methods' writes m.t
+- draw + 'm.a.x += 1e-9;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: the drawing methods' writes a.x
+- draw + 'Object.assign(m.a, { hp: 0 });':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: the drawing methods' deletes or redefines a property
+- draw + 'const c = m.a;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: the drawing methods' binds `c` to 'm.a', not the renderer's context
+- fields + 'this.charge = 0;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: fighter fields' hurts, knocks, stops, stuns or writes the window or a status
+- fields + 'SFX.play("ult", { w: "spellbreaker" });':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: fighter fields' plays a voice outside the stun and the close
+- stunv + 'SFX.play("ult", { w: "spellbreaker-stun" });':
+    REFUSING TO WRITE -- stage 6's line on the sim path ('tickStatus: the stun voice, on a hex proc the Unmaking lengthened (hexStunMul > 1)') is not its voice alone:
+- closev + 'SFX.play("ult", { w: "spellbreaker-close" });':
+    REFUSING TO WRITE -- stage 6's line on the sim path ('tickUnmake: the close, on a clock close with both alive, before the close line') is not its voice alone:
+- sfx + 'CONFIG.audio = null;':
+    REFUSING TO WRITE -- stage 6 insert 'Sfx: Spellbreaker's cast, stun and close arms, before the shared rune-crack fallback' reaches a shared module table other than by the five reads it may make: 'CONFIG.audio'
+- sfx + 'SFX.play("ult", { w: "spellbreaker" });':
+    REFUSING TO WRITE -- stage 6 insert 'Sfx: Spellbreaker's cast, stun and close arms, before the shared rune-crack fallback' plays a voice outside the stun and the close
+- grey + 'this._tone(0, { freq: 440, gain: 0.1, dur: 0.1 });':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: the grey (drawWeapon, the whole weapon)' strikes the synth outside the Sfx arms
+- script + 'f.theta += 0.01;':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: the script on each blade (drawWeapon)' writes f.theta
+- pcall + 'this.tickUnmake(dt);':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: the presentation call' calls into the simulation
+- floor + 'if (__world) this.statusTag(m.a.x, m.a.y, "hex", false, 2);':
+    REFUSING TO WRITE -- stage 6 insert 'unmaking picture: the floor call (world, under both balls)' calls into the simulation
+- a harmless line in drawUnmaking ('const zz = n + 1;'):   out sc-spellbreaker-harmless.html  b1365040184a371d   (+18280 chars, written LF)
+  its page b1365040184a371d (the fx link ceeff797e5739e0c: a different page, written)
+- the clean copy:   out sc-spellbreaker-clean.html  ceeff797e5739e0c   (+18258 chars, written LF)
+  clean copy's stage 6 ceeff797e5739e0c against the fx link ceeff797e5739e0c
+- copies: 35; html files written by the refusals: 0

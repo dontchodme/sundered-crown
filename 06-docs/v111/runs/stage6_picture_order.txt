@@ -1,0 +1,39 @@
+rows_final.json: 12 rows, 21603 bytes, sha256[:16] of the file 6a3c73a527df3e45, round-trips
+[1] 12 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 12 (the bolt's flicker retired)
+    the page after: 'spellbreaker: 1.4' 0x, 'spellbreaker:1,' 0x, 'u.w === "spellbreaker"' 0x, 'spellbreaker(c, t, cf, P)' 1x (the charge rune, kept), 'b.w === "spellbreaker"' 2x (the banner scatter, kept), SPECS.spellbreaker text 1x (the orchestrator's)
+[3] STAMP 176458b0df4a79cd  (base da7936dccd8f5f15; sb-final.html matches; +12573 chars)
+[4] on the base with the 3 voice rows (090b35214e0efe05): voice-then-picture == picture-then-voice True, parses, sha ceeff797e5739e0c
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + spellbreaker stages 1-5 (da7936dccd8f5f15, = the base): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-aureole-fxout.html (da5eafafcfae06c2) + spellbreaker stages 1-5 (d8e16ff49c9d63e1): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-aureole-b12.5-fx.html (e373cf79dc779466) + spellbreaker stages 1-5 (ac29ce1b7d4336c3): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-censer-fxout.html (00a2e2e10448c492) + spellbreaker stages 1-5 (85f3cc0a6699bff7): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-censer-consecration-b25.5-fx.html (ae411af7b64ba742) + spellbreaker stages 1-5 (66768a7012c62a94): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-lightkeeper-fxout.html (088189f3517b6f11) + spellbreaker stages 1-5 (3cd8284e21ca745b): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-angelus-b9-fx.html (85b8af63055d1108) + spellbreaker stages 1-5 (ca8780764e319eb2): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-oracle-fx.html (15cf62f96f72653a) + spellbreaker stages 1-5 (0b94b7308225c292): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-widowmaker-fxout.html (04fdd2e2daa17c26) + spellbreaker stages 1-5 (f416c32eb13b4e1e): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-lodestone-b205-fx.html (4568c2995d06f696) + spellbreaker stages 1-5 (5303b14aa3b890d3): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-ironhail-fxout.html (4b3775e5900172ea) + spellbreaker stages 1-5 (a3902c3319511595): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] on sc-coldiron-temper-fx.html (67cc3e6e05d5326e) + spellbreaker stages 1-5 (ff151a702dfe4ce8): every anchor once, forward == reverse True, parses (+12573 chars, the same as on the base: True); SPECS.spellbreaker text 1x
+    with the voice's 3 rows: voice-then-picture == picture-then-voice True, parses
+[4] 12 of 12 carries clean
+[5] CONTROL (an anchor that occurs many times) refused: unmaking picture: fighter fields: anchor found 340x
+EXIT 0

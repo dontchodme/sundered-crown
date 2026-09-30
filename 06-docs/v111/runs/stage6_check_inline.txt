@@ -1,0 +1,11 @@
+THE RELAYED REPORTS AGAINST THE ROW FILES
+  voice   (rows_final.json 090b35214e0efe05): opening (445 chars) is the file JSON's prefix: True; the middle fragment (144) in it: True; the last characters before the relay's cut (144) in it, after the middle: True (the relay ran 4999 of the file JSON's 8203 characters)
+  picture (rows_final.json 6a3c73a527df3e45): opening (328 chars) is the file JSON's prefix: True; the middle fragment (313) in it: True; the last characters before the relay's cut (123) in it, after the middle: True (the relay ran 7000 of the file JSON's 21321 characters)
+CONTROL: one character changed in each fragment in turn
+  voice fragment 0: the changed copy found: False
+  voice fragment 1: the changed copy found: False
+  voice fragment 2: the changed copy found: False
+  picture fragment 0: the changed copy found: False
+  picture fragment 1: the changed copy found: False
+  picture fragment 2: the changed copy found: False
+PASS

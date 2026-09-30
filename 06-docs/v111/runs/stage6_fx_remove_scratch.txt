@@ -1,0 +1,31 @@
+src/render/fx.js on disk before: 487c9de9dff7f374
+(1) fx.js at the fx link's stamp, extracted from the page: 28fc58641370a1a9 (sha256 of the copy == the stamp)
+
+FX REMOVE -- spellbreaker's particle field out of both copies
+  src sc-spellbreaker-b7.5-fx.html  ceeff797e5739e0c
+  the block, removed whole:
+    |     spellbreaker: { mode: 'beam', n: 1200, sp: [40, 200], grav: -40,
+    |                     drag: 1.6, life: [0.25, 0.70], heavy: 0.0,
+    |                     size: [0.6, 1.8], spawn: 0.35, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 28fc58641370a1a9 -> 6a5b82c9a7612645
+  wrote sc-spellbreaker-b7.5-fx-specout.html  b2ff3a5cd67fd631
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\spellbreaker\s6\fxout\fxjs_at_stamp.js  6a5b82c9a7612645
+    the copy after: 6a5b82c9a7612645
+(2) the carry, dry, on 02-chain/sc-aureole-fxout (da5eafafcfae06c2)
+     out sc-spellbreaker-stub.html  eda1cae1aa1e7307   (+416 chars, written LF)
+     out sc-spellbreaker-stun.html  16794b6daa5ac8ad   (+3547 chars, written LF)
+     out sc-spellbreaker-unmaking.html  dcb811df32e1a5e2   (+0 chars, written LF)
+     out sc-spellbreaker-b7.5.html  d8e16ff49c9d63e1   (-1 chars, written LF)
+     out sc-spellbreaker-b7.5-fx.html  e2a4fd8ea4eed06f   (+18258 chars, written LF)
+
+FX REMOVE -- spellbreaker's particle field out of both copies
+  src sc-spellbreaker-b7.5-fx.html  e2a4fd8ea4eed06f
+  the block, removed whole:
+    |     spellbreaker: { mode: 'beam', n: 1200, sp: [40, 200], grav: -40,
+    |                     drag: 1.6, life: [0.25, 0.70], heavy: 0.0,
+    |                     size: [0.6, 1.8], spawn: 0.35, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 487c9de9dff7f374 -> 7dc0123af735c83e
+  wrote sc-spellbreaker-fxout.html  9243277a756e84b6
+  wrote C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\spellbreaker\s6\fxout\fxjs_today.js  7dc0123af735c83e
+    the copy of today's fx.js after: 7dc0123af735c83e
+src/render/fx.js on disk after: 487c9de9dff7f374 (untouched)

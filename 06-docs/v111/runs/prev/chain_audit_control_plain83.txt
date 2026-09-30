@@ -1,0 +1,17 @@
+  (10 insert(s) found in spellbreaker_build_b83plain.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-spellbreaker-b8.3.html
+tip    sc-spellbreaker-unmaking.html
+10 inserts read out of <scratch>/negtest/spellbreaker_build_b83plain.py
+
+    ok  S1:Unmaking becomes the hex window, stubbed relic  1  mid   -  tip  1
+    ok  S2:Unmaking has a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the window and its own hex-stun multiplier relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:the window ticks with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickUnmake keeps the window and recomputes both fighters' hex-stun factor relic  1  mid   -  tip  1
+    ok  S2:a hex stun lasts the fighter's own hexStunMul times as long relic  1  mid   -  tip  1
+    ok  S2:every blow in the window hexes `hexExtra` more relic  1  mid   -  tip  1
+    ok  S3:the second hex          relic  1  mid   -  tip  1
+    ok  S5:the blade: the row's floor, nearest the shipped rate relic  2  mid   -  tip  2
+
+ALL 10 INSERTS SURVIVE to sc-spellbreaker-unmaking.html

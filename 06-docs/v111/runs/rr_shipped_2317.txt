@@ -1,0 +1,4 @@
+spellbreaker on sc-tendril-t3.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · shipped
+  win 48.8%   side A 51.1%   side B 46.5%   mean 74.5s   timeouts 0
+  by type  greatsword 68%  bow 61%  flail 43%  twinblade 42%  warhammer 39%  scythe 37%
+  worst    bindweed 10%  cindercleave 20%  gloamwire 25%   (740 fights in 72s)

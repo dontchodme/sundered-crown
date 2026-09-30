@@ -1,0 +1,9 @@
+built_stun_2207: pre-review win 50.45%  fixed 50.45%  hits in/out 0.0000/30.2591  casts 0.0000  fields 7: IDENTICAL
+built_stun_2317: pre-review win 51.67%  fixed 51.67%  hits in/out 0.0000/30.5879  casts 0.0000  fields 7: IDENTICAL
+built_unm_2207: pre-review win 60.61%  fixed 60.61%  hits in/out 0.0000/32.2364  casts 0.0000  fields 7: IDENTICAL
+built_unm_2317: pre-review win 60.91%  fixed 60.91%  hits in/out 0.0000/32.2333  casts 0.0000  fields 7: IDENTICAL
+ctl_stun_2207: pre-review win 45.61%  fixed 45.61%  hits in/out 0.0000/29.5894  casts 0.0000  fields 7: IDENTICAL
+ctl_stun_2317: pre-review win 45.30%  fixed 45.30%  hits in/out 0.0000/29.7379  casts 0.0000  fields 7: IDENTICAL
+ctl_unm_2207: pre-review win 55.45%  fixed 55.45%  hits in/out 0.0000/31.0273  casts 0.0000  fields 7: IDENTICAL
+ctl_unm_2317: pre-review win 53.79%  fixed 53.79%  hits in/out 0.0000/31.1333  casts 0.0000  fields 7: IDENTICAL
+THE FIXED LINKS PLAY THE PRE-REVIEW LINKS' FIGHTS
