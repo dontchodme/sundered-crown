@@ -20,6 +20,50 @@ finished more, and does that buy distribution?
 The app passes `--lead 15` to `shorts_build.py` (main.js:440); the seed is the
 live one on screen (shell.js `__lastSeed`).
 
+## The four fights (Cowork's picks — Rick: "you pick them")
+
+Post one a day, in this order. In the app: pick the two fighters, type the seed
+into **Seed**, press **Replay**, check the winner and the rough finish time match
+the line below, then make the short as above. If the winner or time is different,
+the app's browser is playing the seed differently (see the caveat) — use the
+backup seed, or press Fight until a fight ends with the winner nearly dead.
+
+```
+day  fight                     seed   expected finish                   backup seed
+ 1   Vesper vs Culverin        1005   Vesper wins at ~49s on ~1% HP     1039 (Culverin, ~57s, ~3%)
+ 2   Gravemourn vs Censer      1033   Gravemourn wins at ~52s on ~1%    1014 (Gravemourn, ~51s, ~2%)
+ 3   Cindercleave vs Briarwand 1035   Briarwand wins at ~58s on a sliver 1018 (Cindercleave, ~58s, ~1%)
+ 4   Goreshard vs Gloamwire    1044   Gloamwire wins at ~62s on ~1%     1041 (Gloamwire, ~57s, ~1%)
+```
+
+**How they were chosen** (`tools/finish_probe.py`, 15s window):
+- Every one of the 788 pairings never posted, 6 seeds each (4,728 fights): 96% of
+  fights have an ultimate inside the last 15s, and the median winner ends on 20% HP
+  — the endings are good roster-wide, so the pick is for variety and a live finish.
+- Dropped any fighter already posted 3+ times (Dawnbringer, Nightfell, Emberedge,
+  Grudgebearer, Ironhail, Slagheart, Threshmaw, Twinshade, Lastlight); kept only
+  cross-type pairings. The four cover all four weapon forms (spin, swing, chain,
+  ranged), eight different fighters, two of them staves.
+- Ranked on: result still open when the window starts (both sides at 35%+ HP),
+  close finish, and both sides able to win. Then 80 seeds per pairing; seeds kept
+  only if the kill is a slay at 40–75s, the result is open at the window, an ult
+  lands inside it, the winner ends on 15% HP or less, and the window is busier than
+  that pairing's median.
+
+```
+pairing (n=80)             side-A wins     open at window   ult in window   winner HP (median)
+Vesper v Culverin          Vesper 30%      72%              100%            21%
+Gravemourn v Censer        Gravemourn 59%  86%               99%            32%
+Cindercleave v Briarwand   Cindercleave 62% 72%             100%            18%
+Goreshard v Gloamwire      Goreshard 21%   69%              100%            14%
+```
+
+**Caveat, stated because it can bite:** measured on HeadlessChrome 141 in Cowork's
+container, not the repo's pinned runtime. A seed is the same fight only on the same
+engine arithmetic; Replay in the app is the check. Reproduction control: the
+committed `finish_probe.py` re-run on four of the seeds returned the same winners,
+times (±0.2s) and HP as the exploratory run.
+
 ## Posting rules (the account has live duplicate-content strikes)
 
 - **Four posts, one a day.** Never two inside a few hours, never a batch.
