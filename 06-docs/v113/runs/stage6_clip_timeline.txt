@@ -1,0 +1,35 @@
+Thornwake v grudgebearer, seed 113075, sc-thornwake-b26.5-fx.html: every stage-6 event from 29.8 to 41.5 (match time)
+    30.558  TAG ENTANGLE 0
+    31.092  CAST (the blade greens); BANNER Bramblesnare at the caster; voices: thornwake
+    31.483  BRAMBLE planted x1 (1 standing); TAG ENTANGLE 0; voices: thornwake-crackle
+    31.625  SNARE (pin 0.60); BITE x1 (hp 318.0); foe HELD (the shoots); TAG counts ENTANGLE 4; voices: thornwake-snare, thornwake-bite
+    32.125  BITE x1 (hp 316.0); voices: thornwake-bite
+    32.225  hold off
+    32.817  SNARE (pin 0.60); BITE x1 (hp 314.0); foe HELD (the shoots); voices: thornwake-snare, thornwake-bite
+    33.317  BITE x1 (hp 312.0); voices: thornwake-bite
+    33.417  hold off
+    33.592  BRAMBLE planted x1 (2 standing); TAG ENTANGLE 0; voices: thornwake-crackle
+    33.717  SNARE (pin 0.60); foe HELD (the shoots); voices: thornwake-snare
+    33.933  BITE x1 (hp 278.0); TAG counts ENTANGLE 4; voices: thornwake-bite
+    34.317  hold off
+    34.433  BITE x1 (hp 276.0); voices: thornwake-bite
+    34.933  BITE x1 (hp 274.0); voices: thornwake-bite
+    35.967  SNARE (pin 0.60); BITE x1 (hp 272.0); foe HELD (the shoots); voices: thornwake-snare, thornwake-bite
+    36.467  BITE x1 (hp 270.0); voices: thornwake-bite
+    36.567  hold off
+    37.125  BITE x1 (hp 268.0); voices: thornwake-bite
+    37.625  BITE x1 (hp 266.0); voices: thornwake-bite
+    37.692  SNARE (pin 0.60); foe HELD (the shoots); voices: thornwake-snare
+    37.900  a bramble goes (1 standing)
+    38.125  BITE x1 (hp 264.0); voices: thornwake-bite
+    38.292  hold off
+    38.625  BITE x1 (hp 262.0); voices: thornwake-bite
+    38.867  SNARE (pin 0.60); foe HELD (the shoots); voices: thornwake-snare
+    39.125  BITE x1 (hp 260.0); voices: thornwake-bite
+    39.467  hold off
+    39.575  CLOSE by the clock
+    39.625  BITE x1 (hp 258.0); voices: thornwake-bite
+    39.867  the green gone
+    39.875  a bramble goes (0 standing)
+    40.183  TAG SUNDER 0
+end: {'t': 41.5083, 'over': False, 'hp': [241, 258], 'clanks': 12, 'brambles': 0, 'green': 0, 'held': 0}

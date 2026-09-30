@@ -1,0 +1,35 @@
+rows_final.json: 12 rows, 32084 bytes, sha256[:16] of the file f80fbfe244abacde, round-trips; ASCII: True
+[1] 12 anchors, each once in the base; spans disjoint; no code carries an anchor
+[2] forward, reverse and 60 random orders: byte-identical (62 orders)
+    node --check: 1 inline script block(s) parse
+    'rng()' in any row's code (comments stripped): none
+    'spawnFx' in any row's code (comments stripped): none
+    'Math.random' in any row's code (comments stripped): none
+    'ultFx' in any row's code (comments stripped): none
+    Math.random count (comments stripped) base 13 -> final 13
+    the page after: 'thornwake: 2.4' 0x, 'thornwake:1' 0x, 'u.w === "thornwake"' 0x, ULTSIG 'thornwake(c, t, cf, P)' 1x, banner 'b.w === "thornwake"' 1x, SPECS.thornwake block 1x (the orchestrator's)
+[3] STAMP 65a84cedda239548  (base fd5031063ecb6807; tw-final.html matches; +21259 chars)
+[4] Thornwake's voice rows are not on disk yet (thornwake/stage6-voice/rows_final.json)
+[4] on sc-tendril-t3.html (5a6216e3b629fad4) + thornwake stages 1-5 (fd5031063ecb6807, = the base): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] on sc-tendril-fx.html (eea0cde5536955b3) + thornwake stages 1-5 (a4a85200af78b817): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on sc-spellbreaker-fxout.html (9243277a756e84b6) + thornwake stages 1-5 (f7c32e86063abb8d): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on sc-aureole-fxout.html (da5eafafcfae06c2) + thornwake stages 1-5 (96dbbac446bf3bc1): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on sc-ironhail-fxout.html (4b3775e5900172ea) + thornwake stages 1-5 (4e0965c733a1ea3e): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on sc-lightkeeper-fxout.html (088189f3517b6f11) + thornwake stages 1-5 (8eb5e86a42a56eab): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on sc-lodestone-b205-fx.html (4568c2995d06f696) + thornwake stages 1-5 (5ffa51c185b32866): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on sc-widowmaker-fxout.html (04fdd2e2daa17c26) + thornwake stages 1-5 (8fdc6a6215d73500): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on sc-oracle-fx.html (15cf62f96f72653a) + thornwake stages 1-5 (bf4bdcca3151c9ff): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on bw-final.html (ef4bd13fe968d99c) + thornwake stages 1-5 (6981534490568bd4): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard present
+[4] on ce-final-fx.html (9eb071b0e42df058) + thornwake stages 1-5 (5b11cae0bcb3e8d6): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] on sb-final-fx.html (27f6d27e31a936f7) + thornwake stages 1-5 (b9af2aa017e3a017): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] on au-final-fx.html (a213880cc8e38ffe) + thornwake stages 1-5 (a56d17d2ee3560d2): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] on ci-final.html (94bb7580047f01bc) + thornwake stages 1-5 (91e28a73eeae4016): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] on ih-final-fx.html (4463f003dd5230b8) + thornwake stages 1-5 (d4585997eb14faa3): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] on lk-final-fx.html (5acd4d78b30b6914) + thornwake stages 1-5 (21625402c53811e9): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] on wm-final-fx.html (93e8955ef03be732) + thornwake stages 1-5 (64fd38b4451609da): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] on hw-final-fx.html (ad2800f051ab76df) + thornwake stages 1-5 (4481aa013d1a6e21): every anchor once, forward == reverse True, parses (+21259 chars, the same as on the base: True); SPECS.thornwake block 1x; Tendril's guard absent
+[4] 18 carries clean, 0 failed
+[4b] sc-tendril-t3.html + heartwood 1-5 + thornwake 1-5 (f1b03e7049baad65), Heartwood's 9 picture rows (7c4633da9898615f) and these, both orders: every anchor once, both parse; byte-identical False; the same lines (a multiset: the rows sharing an anchor land in the other order) True; 37589 chars added both ways True
+[4b] sc-spellbreaker-fxout.html + heartwood 1-5 + thornwake 1-5 (e96e281a6e3d8ade), Heartwood's 9 picture rows (7c4633da9898615f) and these, both orders: every anchor once, both parse; byte-identical False; the same lines (a multiset: the rows sharing an anchor land in the other order) True; 37589 chars added both ways True
+[5] CONTROL (an anchor that occurs many times) refused: brier picture: fighter fields: anchor found 340x
+EXIT 0

@@ -1,0 +1,11 @@
+
+THORNWAKE / BRAMBLESNARE (REDESIGN) -- stage 5
+  src sc-thornwake-snare.html  800daceb906ef28e  (LF text)
+  base  Thornwake's shipped body (verdant scythe, spin, entangle 2); hurt / apply / resolveHit's count / beat / tickStasis's lock / move's hold and resume; no mirror; the window tickers stop in a hit stop and run after the moves, before the hit loops
+  ok    the blade: the measured point nearest 50% both sides (Rick's ruling)
+  ok    ult   ult:{ name:"Bramblesnare", charge:14, kind:"bramble", dur:8, patchR:80, patchLife:6, tickCd:0.5, tickEnt:1, ti ...
+  ok    card  66 chars  'Blows leave brambles: a foe in one is rooted, entangled and bitten'   rootFor 0.6
+  ok    one bramble ultimate, Thornwake's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops or stuns; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-thornwake-b26.5.html  fd5031063ecb6807   (-1 chars, written LF)

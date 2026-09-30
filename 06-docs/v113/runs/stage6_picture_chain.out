@@ -1,0 +1,106 @@
+=== chain_tip_t3.html
+(10 insert(s) found in tw_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  tw-final-fx.html
+tip    chain_tip_t3.html
+10 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\thornwake\stage6-picture\tw_table.py
+
+    ok  ROWS:brier picture: fighter fields relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the presentation call relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: tickBrier and the canes relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the floor call (world, under both balls) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: over both fighters (world) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the blade greens (drawWeapon) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the hexagon off a snared ball relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the drawing methods relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the freeze's floor roots retired relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the freeze's thorns on the quarry retired relic  1  mid   -  tip  1
+
+ALL 10 INSERTS SURVIVE to chain_tip_t3.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: ROWS:brier picture: the freeze's floor roots retired, ROWS:brier picture: the freeze's thorns on the quarry retired)
+exit 0
+    ok   brier picture: the cast record's life: 'thornwake: 2.4, ' 0x at the tip
+    ok   brier picture: the banner on the caster: 'thornwake:1, ' 0x at the tip
+    SPECS.thornwake block at the tip: 0x (out, as the carry takes it)
+=== chain_tip_tendrilfx.html
+(10 insert(s) found in tw_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  tw-final-fx.html
+tip    chain_tip_tendrilfx.html
+10 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\thornwake\stage6-picture\tw_table.py
+
+    ok  ROWS:brier picture: fighter fields relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the presentation call relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: tickBrier and the canes relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the floor call (world, under both balls) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: over both fighters (world) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the blade greens (drawWeapon) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the hexagon off a snared ball relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the drawing methods relic  1  mid   -  tip  2
+    ok  ROWS:brier picture: the freeze's floor roots retired relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the freeze's thorns on the quarry retired relic  1  mid   -  tip  1
+
+ALL 10 INSERTS SURVIVE to chain_tip_tendrilfx.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: ROWS:brier picture: the freeze's floor roots retired, ROWS:brier picture: the freeze's thorns on the quarry retired)
+exit 0
+    ok   brier picture: the cast record's life: 'thornwake: 2.4, ' 0x at the tip
+    ok   brier picture: the banner on the caster: 'thornwake:1, ' 0x at the tip
+    SPECS.thornwake block at the tip: 0x (out, as the carry takes it)
+=== chain_tip_sbfxout.html
+(10 insert(s) found in tw_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  tw-final-fx.html
+tip    chain_tip_sbfxout.html
+10 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\thornwake\stage6-picture\tw_table.py
+
+    ok  ROWS:brier picture: fighter fields relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the presentation call relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: tickBrier and the canes relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the floor call (world, under both balls) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: over both fighters (world) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the blade greens (drawWeapon) relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the hexagon off a snared ball relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the drawing methods relic  1  mid   -  tip  2
+    ok  ROWS:brier picture: the freeze's floor roots retired relic  1  mid   -  tip  1
+    ok  ROWS:brier picture: the freeze's thorns on the quarry retired relic  1  mid   -  tip  1
+
+ALL 10 INSERTS SURVIVE to chain_tip_sbfxout.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: ROWS:brier picture: the freeze's floor roots retired, ROWS:brier picture: the freeze's thorns on the quarry retired)
+exit 0
+    ok   brier picture: the cast record's life: 'thornwake: 2.4, ' 0x at the tip
+    ok   brier picture: the banner on the caster: 'thornwake:1, ' 0x at the tip
+    SPECS.thornwake block at the tip: 0x (out, as the carry takes it)
+=== CONTROL (must report LOST): sc-thornwake-b26.5.html
+(10 insert(s) found in tw_table.py's insert table(s) -- tuples, not *_NEW constants)
+relic  tw-final-fx.html
+tip    sc-thornwake-b26.5.html
+10 inserts read out of C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\thornwake\stage6-picture\tw_table.py
+
+  LOST  ROWS:brier picture: fighter fields relic  1  mid   -  tip  0
+        'this.brierSeen = [0, 0];'
+  LOST  ROWS:brier picture: the presentation call relic  1  mid   -  tip  0
+        "this.tickBrier(dt);                 // BRAMBLESNARE'S PICTURE (v84 section 4)"
+  LOST  ROWS:brier picture: tickBrier and the canes relic  1  mid   -  tip  0
+        'if (b.side === side && !P.some(p => p.b === b)) P.push({ b, age: 0, g: this._brierCanes('
+  LOST  ROWS:brier picture: the floor call (world, under both balls) relic  1  mid   -  tip  0
+        'if (__world) this.drawBrier(m);'
+  LOST  ROWS:brier picture: over both fighters (world) relic  1  mid   -  tip  0
+        'this.drawBrierTop(m);'
+  LOST  ROWS:brier picture: the blade greens (drawWeapon) relic  1  mid   -  tip  0
+        'if (f.brierGreen > 0 && f.w.shape === "scythe") this._brierBlade(c, f, reach + 6, dim * '
+  LOST  ROWS:brier picture: the hexagon off a snared ball relic  1  mid   -  tip  0
+        'if (f.brierHeld > 0 && f.pin > 0 && !f.pinFree) return;'
+  LOST  ROWS:brier picture: the drawing methods relic  1  mid   -  tip  0
+        'const p = pts[j], q = pts[j + 1], dx = q[0] - p[0], dy = q[1] - p[1], dl = Math.hypot(dx'
+  LOST  ROWS:brier picture: the freeze's floor roots retired relic  1  mid   -  tip  0
+        "the one ultFx slot cannot erase them; the cast's record now carries the"
+  LOST  ROWS:brier picture: the freeze's thorns on the quarry retired relic  1  mid   -  tip  0
+        '`_brierRoot`, the cast is the blade greening (`_brierBlade`). */'
+
+!! 10 INSERT(S) DID NOT SURVIVE THE CHAIN: ROWS:brier picture: fighter fields, ROWS:brier picture: the presentation call, ROWS:brier picture: tickBrier and the canes, ROWS:brier picture: the floor call (world, under both balls), ROWS:brier picture: over both fighters (world), ROWS:brier picture: the blade greens (drawWeapon), ROWS:brier picture: the hexagon off a snared ball, ROWS:brier picture: the drawing methods, ROWS:brier picture: the freeze's floor roots retired, ROWS:brier picture: the freeze's thorns on the quarry retired
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.
+exit 1
+    NOT CUT  brier picture: the cast record's life: 'thornwake: 2.4, ' 1x at the tip
+    NOT CUT  brier picture: the banner on the caster: 'thornwake:1, ' 1x at the tip
+    SPECS.thornwake block at the tip: 1x (the control keeps it)
+CHAIN AUDIT: PASS (3 tips survive, the control fails)
+EXIT 0

@@ -1,0 +1,14 @@
+REBUILD FROM THE BARE BASE with tools/thornwake_build.py 6f2fdad5f407b335
+base ../02-chain/sc-tendril-t3.html 5a6216e3b629fad4
+stage 1  sc-thornwake-stub.html  rebuilt 684e6e75ea68e928  on disk 684e6e75ea68e928  rc 0  -> IDENTICAL
+stage 2  sc-thornwake-bramble.html  rebuilt f49eefcd6f87c226  on disk f49eefcd6f87c226  rc 0  -> IDENTICAL
+stage 3  sc-thornwake-snare.html  rebuilt 800daceb906ef28e  on disk 800daceb906ef28e  rc 0  -> IDENTICAL
+stage 5  sc-thornwake-b26.5.html  rebuilt fd5031063ecb6807  on disk fd5031063ecb6807  rc 0  -> IDENTICAL
+
+REFUSALS (each must refuse):
+  stage 1 on stage 1: 'brambles' is already in the base
+  stage 3 on stage 1: stage 3 goes on stage 2, once
+  stage 5 on stage 2: stage 5 goes on stage 3 (the snare on, blade 31.35), once
+  stage 2 on stage 3: stage 2 goes on stage 1, once
+  overwrite a link: refusing to overwrite sc-thornwake-stub.html -- a link is written once. Delete it by hand if this is a rebuild.
+  a name not sc-thornwake*: refusing sc-other.html: this builder's links are sc-thornwake*

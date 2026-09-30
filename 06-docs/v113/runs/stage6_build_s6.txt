@@ -1,0 +1,27 @@
+
+THORNWAKE / BRAMBLESNARE (REDESIGN) -- stage 6
+  src sc-thornwake-b26.5.html  fd5031063ecb6807  (LF text)
+  base  Thornwake's shipped body (verdant scythe, spin, entangle 2); hurt / apply / resolveHit's count / beat / tickStasis's lock / move's hold and resume; no mirror; the window tickers stop in a hit stop and run after the moves, before the hit loops
+  ok    Sfx: Bramblesnare's cast, crackle, snare and bite arms, replacing the freeze's creak and cinch
+  ok    plantBramble: the crackle, once per bramble planted, after the count
+  ok    tickBramble: the snare's voice (Tendril's root), on the frame the pin is written
+  ok    tickBramble: the bite's soft snap, once per bite, as the thorns' cooldown is re-armed
+  ok    brier picture: fighter fields
+  ok    brier picture: the presentation call
+  ok    brier picture: tickBrier and the canes
+  ok    brier picture: the floor call (world, under both balls)
+  ok    brier picture: over both fighters (world)
+  ok    brier picture: the blade greens (drawWeapon)
+  ok    brier picture: the hexagon off a snared ball
+  ok    brier picture: the drawing methods
+  ok    brier picture: the freeze's floor roots retired
+  ok    brier picture: the freeze's thorns on the quarry retired
+  ok    brier picture: the cast record's life
+  ok    brier picture: the banner on the caster
+  ok    ult   ult:{ name:"Bramblesnare", charge:14, kind:"bramble", dur:8, patchR:80, patchLife:6, tickCd:0.5, tickEnt:1, ti ...
+  ok    card  66 chars  'Blows leave brambles: a foe in one is rooted, entangled and bitten'   rootFor 0.6
+  ok    stage 6: presentation only (no RNG, no ultFx, no call into the sim, writes its own `brier*` fields, the canvas and five bound things in tickBrier only; the crackle, snare and bite voices its three lines on the sim path, each where it belongs); the inlined fx.js untouched; the rune-crack fallback kept; the freeze's voice and art gone; every arm, call, pass and method once
+  ok    one bramble ultimate, Thornwake's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops or stuns; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-thornwake-b26.5-fx.html  d306822d6914c08c   (+28549 chars, written LF)

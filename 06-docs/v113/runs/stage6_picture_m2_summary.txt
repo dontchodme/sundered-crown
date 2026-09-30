@@ -1,0 +1,42 @@
+139 frames, 10 fights; missing: nightfell 5150b ['over']
+BLOOM: the picture's share of the chain's arena lift max +0.0000 min -0.0000 (gate +0.02) [worst gravemourn 99015a off]; raw luma added (chain on) max +0.0030 min -0.0005; arena clip with max 0.0178 without 0.0178
+  THE FLOOR ALONE (drawBrier hidden vs shown): its share of the lift max +0.0000 min -0.0000 [worst gravemourn 99015a in]; the raw luma it adds (chain off) max +0.0033 min -0.0000
+  CONTROL ctrl1 (every bramble as a filled white lighter disc at 0.9, r patchR + R (reach)): dLift max +0.0121, > 0.02 on 0/139, > 0.01 on 1/139; caster disc pushed past 0.90 on 20/104 green frames; foe disc pushed past 0.90 on 27/54 snared frames, 47/134 of all (max caster 1.000, foe 1.000)
+  CONTROL ctrl2 (a white-hot lighter glow on the caster while the blade is green): dLift max +0.0134, > 0.02 on 0/139, > 0.01 on 17/139; caster disc pushed past 0.90 on 92/104 green frames; foe disc pushed past 0.90 on 1/54 snared frames, 2/134 of all (max caster 1.000, foe 0.970)
+  CONTROL ctrl3 (the snare as a filled white lighter disc over the held foe): dLift max +0.0043, > 0.02 on 0/139, > 0.01 on 0/139; caster disc pushed past 0.90 on 0/104 green frames; foe disc pushed past 0.90 on 35/54 snared frames, 35/134 of all (max caster 0.934, foe 1.000)
+DISC me: max |d| 0.0147 (art only, tags out: -0.0002..+0.0014 [largest grudgebearer 31337b stop]); disc 0.193..0.934; >0.90 with 3 / without 3 of 139; clip with max 0.698 without 0.699
+DISC foe: max |d| 0.0289 (art only, tags out: -0.0047..+0.0046 [largest aureole 4101a snare]); disc 0.171..0.970; >0.90 with 4 / without 4 of 139; clip with max 0.905 without 0.905
+  foe dwarven   : n 13 art max |d| 0.0030; disc 0.296..0.970, contour 0.188..0.597 (without 0.188..0.593); >0.90 with 3 without 3
+  foe runic     : n 13 art max |d| 0.0031; disc 0.404..0.879, contour 0.246..0.413 (without 0.246..0.413); >0.90 with 0 without 0
+  foe sanctified: n 68 art max |d| 0.0047; disc 0.428..0.914, contour 0.385..0.758 (without 0.384..0.757); >0.90 with 1 without 1
+  foe umbral    : n 40 art max |d| 0.0036; disc 0.171..0.857, contour 0.191..0.516 (without 0.191..0.503); >0.90 with 0 without 0
+  caster (verdant): n 135 art max |d| 0.0014; disc 0.193..0.919
+LEGIBILITY (median |dL| of the component's own pixels (min..max) [n frames]; out of a stop  /  in one):
+  floor  in plant,off,in,snare,bite,stop,stopoff,after,brown: 0.150 (0.065..0.223) [69]  /  0.134 (0.079..0.188) [11]
+  tangle in plant,off,in,snare,bite,stop,stopoff,after: 0.138 (0.069..0.168) [58]  /  0.112 (0.077..0.150) [11]
+  tangle in plant                                   : 0.092 (0.078..0.112) [9]  /  0.112 (0.112..0.112) [1]
+  tangle in brown                                   : 0.139 (0.085..0.152) [10]  /  -
+  shade  in plant,off,in,snare,bite,stop,stopoff,after,brown: -  /  -
+  motes  in plant,off,in,snare,bite,stop,stopoff,after,brown: 0.158 (0.047..0.234) [56]  /  0.120 (0.058..0.220) [11]
+  root   in snare                                   : 0.198 (0.167..0.231) [10]  /  -
+  root   in bite,in,stop,plant                      : 0.180 (0.056..0.252) [18]  /  0.178 (0.053..0.252) [10]
+  top    in snare,bite,stop,plant                   : 0.235 (0.143..0.376) [29]  /  0.219 (0.088..0.315) [10]
+  bite   in bite                                    : 0.252 (0.152..0.376) [10]  /  -
+  blade  in cast,green,plant,off,in,snare,bite,stop,stopoff: 0.142 (0.050..0.244) [51]  /  0.079 (0.029..0.234) [28]
+  blade  in close                                   : 0.147 (0.058..0.168) [10]  /  -
+  tag    in bite,in,snare,stop,plant                : 0.245 (0.120..0.264) [5]  /  0.249 (0.249..0.249) [1]
+by state (median |dL| of everything the picture draws, its tags included):
+  rest    nan (nan..nan) n 0 of 10  [pixels moved: med 0.0]
+  cast    0.049 (0.029..0.093) n 7 of 10  [pixels moved: med 417.5]
+  green   0.146 (0.070..0.207) n 8 of 10  [pixels moved: med 821.0]
+  plant   0.164 (0.099..0.220) n 10 of 10  [pixels moved: med 1635.0]
+  off     0.157 (0.094..0.187) n 10 of 10  [pixels moved: med 3996.0]
+  in      0.152 (0.121..0.195) n 10 of 10  [pixels moved: med 3719.5]
+  snare   0.159 (0.119..0.185) n 10 of 10  [pixels moved: med 4101.0]
+  bite    0.184 (0.096..0.260) n 10 of 10  [pixels moved: med 1422.5]
+  stop    0.142 (0.091..0.195) n 10 of 10  [pixels moved: med 2860.5]
+  stopoff 0.154 (0.084..0.234) n 10 of 10  [pixels moved: med 881.5]
+  close   0.155 (0.138..0.173) n 10 of 10  [pixels moved: med 5599.0]
+  after   0.163 (0.131..0.175) n 10 of 10  [pixels moved: med 5734.5]
+  brown   0.151 (0.091..0.165) n 10 of 10  [pixels moved: med 5673.0]
+  over    0.099 (0.060..0.116) n 9 of 9  [pixels moved: med 1344]

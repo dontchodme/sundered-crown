@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-tendril-t3.html                36 matches    3.7s
+  sc-thornwake-b26.5.html           36 matches    4.2s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Thornwake", "b": "Grudgebearer", "winner": "Thornwake", "hp": 33, "duration": 54.85, "reason": "slain", "hits": {"a": 10, "b": 5}, "crits": {"a": 1, "b": 2}, "clanks": 10}
+            variant {"seed": 1233799701, "a": "Thornwake", "b": "Grudgebearer", "winner": "Thornwake", "hp": 96, "duration": 57.69, "reason": "slain", "hits": {"a": 12, "b": 7}, "crits": {"a": 1, "b": 1}, "clanks": 15}
+          #1
+            control {"seed": 330441002, "a": "Thornwake", "b": "Grudgebearer", "winner": "Thornwake", "hp": 128, "duration": 58.03, "reason": "slain", "hits": {"a": 12, "b": 10}, "crits": {"a": 1, "b": 0}, "clanks": 20}
+            variant {"seed": 330441002, "a": "Thornwake", "b": "Grudgebearer", "winner": "Thornwake", "hp": 145, "duration": 60.97, "reason": "slain", "hits": {"a": 15, "b": 9}, "crits": {"a": 0, "b": 1}, "clanks": 18}
+          #2
+            control {"seed": 4184808219, "a": "Thornwake", "b": "Grudgebearer", "winner": "Grudgebearer", "hp": 117, "duration": 46.05, "reason": "slain", "hits": {"a": 10, "b": 9}, "crits": {"a": 1, "b": 3}, "clanks": 13}
+            variant {"seed": 4184808219, "a": "Thornwake", "b": "Grudgebearer", "winner": "Thornwake", "hp": 55, "duration": 47.3, "reason": "slain", "hits": {"a": 10, "b": 10}, "crits": {"a": 1, "b": 2}, "clanks": 11}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 21.6-63.9s
+
+ENGINE A/B FAIL

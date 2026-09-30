@@ -1,0 +1,17 @@
+
+THORNWAKE / BRAMBLESNARE (REDESIGN) -- stage 2
+  src sc-thornwake-stub.html  684e6e75ea68e928  (LF text)
+  base  Thornwake's shipped body (verdant scythe, spin, entangle 2); hurt / apply / resolveHit's count / beat / tickStasis's lock / move's hold and resume; no mirror; the window tickers stop in a hit stop and run after the moves, before the hit loops
+  ok    the brambles have a charge: the lab's 16 on the game's clock
+  ok    the fighter carries the window and the thorns
+  ok    the match carries the brambles and their clock
+  ok    the cast opens the window and resolves nothing
+  ok    a blow inside the window plants a bramble where it landed
+  ok    the brambles tick with the window tickers
+  ok    tickBramble ages the brambles, snares on entry and bites inside; plantBramble plants
+  ok    ult   ult:{ name:"Bramblesnare", charge:14, kind:"bramble", dur:8, patchR:80, patchLife:6, tickCd:0.5, tickEnt:1, ti ...
+  ok    card  66 chars  'Blows leave brambles: a foe in one is rooted, entangled and bitten'   rootFor 0
+  ok    one bramble ultimate, Thornwake's; the freeze out of its row; no insert draws the RNG, writes the shared weapon, touches pinFree, stops or stuns; 38 relics in the roster
+  ok    syntax  1 inline script block(s) parse
+
+  out sc-thornwake-bramble.html  f49eefcd6f87c226   (+6643 chars, written LF)

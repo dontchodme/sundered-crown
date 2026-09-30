@@ -1,0 +1,50 @@
+== fx_remove.py --relic thornwake --dry on the BASE link (sc-thornwake-b26.5, no rows), --fxjs = a scratch copy of its inlined module
+
+FX REMOVE -- thornwake's particle field out of both copies
+  src sc-thornwake-b26.5.html  fd5031063ecb6807
+  the block, removed whole:
+    |     /* A FREEZE HOLDS, so its frost settles slowly and lasts -- the same
+    |        reason the art is long: the hold it explains is still in force. */
+    |     thornwake: { mode: 'fall', n: 1100, sp: [30, 120], grav: 110, drag: 1.0,
+    |                  life: [0.80, 1.80], heavy: 0.02, size: [0.6, 1.9],
+    |                  spawn: 0.85, up: 0 },
+REFUSING TO WRITE -- the page moved somewhere other than the block and the stamps
+rc 1
+
+== the same on tw-final.html (the rows applied)
+
+FX REMOVE -- thornwake's particle field out of both copies
+  src tw-final.html  f43871ac81f0c613
+  the block, removed whole:
+    |     /* A FREEZE HOLDS, so its frost settles slowly and lasts -- the same
+    |        reason the art is long: the hold it explains is still in force. */
+    |     thornwake: { mode: 'fall', n: 1100, sp: [30, 120], grav: 110, drag: 1.0,
+    |                  life: [0.80, 1.80], heavy: 0.02, size: [0.6, 1.9],
+    |                  spawn: 0.85, up: 0 },
+REFUSING TO WRITE -- the page moved somewhere other than the block and the stamps
+rc 1
+
+== --keep-comment on the base (dry): the entry's 3 lines only
+
+FX REMOVE -- thornwake's particle field out of both copies
+  src sc-thornwake-b26.5.html  fd5031063ecb6807
+  the block, removed whole:
+    |     thornwake: { mode: 'fall', n: 1100, sp: [30, 120], grav: 110, drag: 1.0,
+    |                  life: [0.80, 1.80], heavy: 0.02, size: [0.6, 1.9],
+    |                  spawn: 0.85, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 28fc58641370a1a9 -> 34a920f4e29e8c21
+  DRY   would write never.html  be29503b68318874 and src/render/fx.js  34a920f4e29e8c21
+rc 0
+
+== fx_remove --dry on sc-spellbreaker-fxout (9243277a756e84b6) + thornwake stages 1-5 (the batch line's newest tip on disk), --fxjs = a scratch copy of its inlined module
+
+FX REMOVE -- thornwake's particle field out of both copies
+  src sc-thornwake-carry-s5.html  f7c32e86063abb8d
+  the block, removed whole:
+    |     /* A FREEZE HOLDS, so its frost settles slowly and lasts -- the same
+    |        reason the art is long: the hold it explains is still in force. */
+    |     thornwake: { mode: 'fall', n: 1100, sp: [30, 120], grav: 110, drag: 1.0,
+    |                  life: [0.80, 1.80], heavy: 0.02, size: [0.6, 1.9],
+    |                  spawn: 0.85, up: 0 },
+REFUSING TO WRITE -- the page moved somewhere other than the block and the stamps
+rc 1

@@ -1,0 +1,59 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 8.0,
+  "blade": null
+ },
+ "arms": {
+  "SHIP": {
+   "census": {
+    "steps": 4518784,
+    "frozen": 506619,
+    "win": 0,
+    "winFrozen": 0
+   },
+   "win": 0.5287878787878788,
+   "n": 660,
+   "casts": 0.0,
+   "hitsIn": 0.0,
+   "hitsOut": 10.41969696969697,
+   "stats": {},
+   "byFoe": {
+    "dawnbringer": 0.6,
+    "widowmaker": 0.45,
+    "grudgebearer": 0.4,
+    "lastlight": 0.35,
+    "slagheart": 0.6,
+    "spellbreaker": 0.55,
+    "ironhail": 0.35,
+    "lightkeeper": 0.9,
+    "farwarden": 0.55,
+    "aureole": 0.35,
+    "censer": 0.6,
+    "emberedge": 0.6,
+    "oathwound": 0.6,
+    "heartwood": 0.65,
+    "nightfell": 0.8,
+    "axiom": 0.8,
+    "twinshade": 0.5,
+    "redflail": 0.5,
+    "foregone": 0.65,
+    "vinesower": 0.25,
+    "bulwarden": 0.5,
+    "marrowdraw": 0.5,
+    "paradox": 0.4,
+    "thornshear": 0.9,
+    "vesper": 0.35,
+    "shroudmaul": 0.25,
+    "cindercleave": 0.4,
+    "ravelbone": 0.6,
+    "gloamwire": 0.4,
+    "bloodmirror": 0.6,
+    "duskreave": 0.5,
+    "starwarden": 0.45,
+    "gravemourn": 0.55
+   }
+  }
+ },
+ "rows_note": "660 per-fight rows left out of the repo copy; the full json is in the build's scratch (batch/thornwake/runs/)"
+}

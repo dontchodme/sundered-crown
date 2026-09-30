@@ -1,0 +1,122 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 9.17,
+  "blade": null,
+  "patchLife": 6.74,
+  "tickCd": 0.56
+ },
+ "arms": {
+  "B": {
+   "census": {
+    "steps": 4452081,
+    "frozen": 487483,
+    "win": 1981200,
+    "winFrozen": 244194
+   },
+   "win": 0.5363636363636364,
+   "n": 660,
+   "casts": 3.0318181818181817,
+   "hitsIn": 4.846969696969697,
+   "hitsOut": 5.654545454545454,
+   "stats": {
+    "dmg": 12.474762618690654,
+    "foeIn": 300.08195902048976,
+    "patches": 1.5027486256871565,
+    "roots": 0.0,
+    "ticks": 6.237381309345327
+   },
+   "byFoe": {
+    "dawnbringer": 0.55,
+    "widowmaker": 0.75,
+    "grudgebearer": 0.55,
+    "lastlight": 0.35,
+    "slagheart": 0.2,
+    "spellbreaker": 0.45,
+    "ironhail": 0.35,
+    "lightkeeper": 0.8,
+    "farwarden": 0.2,
+    "aureole": 0.45,
+    "censer": 0.6,
+    "emberedge": 0.7,
+    "oathwound": 0.55,
+    "heartwood": 0.75,
+    "nightfell": 0.65,
+    "axiom": 0.75,
+    "twinshade": 0.7,
+    "redflail": 0.35,
+    "foregone": 0.65,
+    "vinesower": 0.6,
+    "bulwarden": 0.65,
+    "marrowdraw": 0.25,
+    "paradox": 0.5,
+    "thornshear": 0.5,
+    "vesper": 0.55,
+    "shroudmaul": 0.45,
+    "cindercleave": 0.5,
+    "ravelbone": 0.55,
+    "gloamwire": 0.25,
+    "bloodmirror": 0.55,
+    "duskreave": 0.65,
+    "starwarden": 0.8,
+    "gravemourn": 0.55
+   }
+  },
+  "C": {
+   "census": {
+    "steps": 4516509,
+    "frozen": 479902,
+    "win": 2014413,
+    "winFrozen": 241022
+   },
+   "win": 0.6833333333333333,
+   "n": 660,
+   "casts": 3.096969696969697,
+   "hitsIn": 4.992424242424242,
+   "hitsOut": 5.721212121212122,
+   "stats": {
+    "dmg": 16.46673189823875,
+    "foeIn": 462.25293542074365,
+    "patches": 1.490215264187867,
+    "roots": 3.4021526418786694,
+    "ticks": 8.233365949119374
+   },
+   "byFoe": {
+    "dawnbringer": 0.55,
+    "widowmaker": 0.8,
+    "grudgebearer": 0.65,
+    "lastlight": 0.6,
+    "slagheart": 0.65,
+    "spellbreaker": 0.7,
+    "ironhail": 0.4,
+    "lightkeeper": 0.9,
+    "farwarden": 0.45,
+    "aureole": 0.5,
+    "censer": 0.85,
+    "emberedge": 0.55,
+    "oathwound": 0.8,
+    "heartwood": 0.8,
+    "nightfell": 0.85,
+    "axiom": 0.85,
+    "twinshade": 0.7,
+    "redflail": 0.75,
+    "foregone": 0.9,
+    "vinesower": 0.6,
+    "bulwarden": 0.8,
+    "marrowdraw": 0.6,
+    "paradox": 0.6,
+    "thornshear": 0.65,
+    "vesper": 0.75,
+    "shroudmaul": 0.5,
+    "cindercleave": 0.55,
+    "ravelbone": 0.75,
+    "gloamwire": 0.45,
+    "bloodmirror": 0.6,
+    "duskreave": 0.8,
+    "starwarden": 0.9,
+    "gravemourn": 0.75
+   }
+  }
+ },
+ "rows_note": "1320 per-fight rows left out of the repo copy; the full json is in the build's scratch (batch/thornwake/runs/)"
+}

@@ -1,0 +1,16 @@
+THE CARRY, DRY: stages 1, 2, 3, 5, 6 on later tips (scratch files, not links)
+sc-spellbreaker-fxout.html 9243277a756e84b6 -> s1 c5f2ec768388893d s2 4819b017a36af953 s3 67c375588606d705 s5 f7c32e86063abb8d s6 98bb5948e0bd6ace   (42 relics in the roster)
+      stage 6's change on this tip == its change on the base: YES (15 hunks: 13 byte-identical, 2 the same token out of a shared map line)
+sc-aureole-fxout.html da5eafafcfae06c2 -> s1 d1c59ec11bc1e1a8 s2 325a8df3e54a11b4 s3 c21f17d2eabe343f s5 96dbbac446bf3bc1 s6 d2b249136be53b57   (42 relics in the roster)
+      stage 6's change on this tip == its change on the base: YES (15 hunks: 15 byte-identical, 0 the same token out of a shared map line)
+sc-ironhail-fxout.html 4b3775e5900172ea -> s1 77cd027cbde1b20b s2 ffdf59848bf0a904 s3 fb5c30255dcf783f s5 4e0965c733a1ea3e s6 dd89a73cf462d84b   (39 relics in the roster)
+      stage 6's change on this tip == its change on the base: YES (15 hunks: 15 byte-identical, 0 the same token out of a shared map line)
+sc-coldiron-temper-fx.html 67cc3e6e05d5326e -> s1 8e2d895625b3e735 s2 896a807bb90bbfbe s3 8f9105729309ad26 s5 3761fb969117e180 s6 2f35edfb92c7de1b   (39 relics in the roster)
+      stage 6's change on this tip == its change on the base: YES (15 hunks: 15 byte-identical, 0 the same token out of a shared map line)
+sc-tendril-fx.html eea0cde5536955b3 -> s1 572846debb465e7c s2 28f087ca34169908 s3 3047a585faccc73e s5 a4a85200af78b817 s6 892abd19059ba5a1   (38 relics in the roster)
+      stage 6's change on this tip == its change on the base: YES (15 hunks: 15 byte-identical, 0 the same token out of a shared map line)
+sc-heartwood-b11.html aff84a04b303a402 -> s1 8738fe0cffda2e01 s2 7ab9b3c13b309988 s3 582cba766803453e s5 f1b03e7049baad65 s6 7010e33c827fe652   (38 relics in the roster)
+      stage 6's change on this tip == its change on the base: YES (15 hunks: 15 byte-identical, 0 the same token out of a shared map line)
+
+AND THE OTHER FREEZE REDESIGN ON THIS BUILD'S FX LINK: heartwood_build.py stages 1,2,3,5 on sc-thornwake-b26.5-fx
+sc-thornwake-b26.5-fx -> s1 0d9aca4ec734f806 s2 0dbed1c7a5be628c s3 257278c72109670a s5 2e5eaeb001b06496

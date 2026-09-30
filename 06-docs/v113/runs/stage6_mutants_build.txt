@@ -1,0 +1,7 @@
+mV1-closevoice   5f7ef9c0e558ca77  -if (Z.t >= Z.dur || !f.alive || !foe.alive) f.ultBramble = null;
+                                  +if (Z.t >= Z.dur || !f.alive || !foe.alive){ f.ultBramble = null; SFX.play("ult", { w: "thornwake-crackle" }); }
+mP1-picwrite     5d7136d66644538b  -foe.brierHeld = 1; foe.brierRootFade = 1; foe.brierHeldOut = 0;
+                                  +foe.brierHeld = 1; foe.brierRootFade = 1; foe.brierHeldOut = 0; foe.pin += 0.05;
+mP2-invisible    b635dcf9223e6d19  -if (f.brierTagT > 0) f.brierTagT -= dt;
+                                  +if (f.brierTagT > 0) f.brierTagT -= dt;
+      f.lastBrier = f.brierTagT;

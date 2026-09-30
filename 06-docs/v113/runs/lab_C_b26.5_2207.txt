@@ -1,0 +1,7 @@
+38 relics · Chromium 151.0.7922.34 · thornwake (redesign) · 33 foes x 20 seeds = 660 fights an arm · lab C at blade 26.5, block 2207
+  charge=16.0 dur=8.0 blade=26.5
+
+  arm       win  casts  hits in/out      dmg    foeIn  patches    roots    ticks
+  C       50.3%   3.28  4.98/6.58      16.51   416.67     1.44     3.08     8.25
+      census: frozen 0.1076 of lab steps (512038/4756874), 0.1217 in windows (231542/1902443), 0.0983 outside; lab 16 -> engine 14.28
+  660 fights in 65s   errors: []

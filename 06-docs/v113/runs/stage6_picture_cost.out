@@ -1,0 +1,16 @@
+aureole      ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  windows 4 brambles 5 (max 2 at once) snares 18 bites 41
+    rest   n   90  FRAME off med 60.20 p90 82.20 max 124.5  | rows med 59.40 p90 85.90 max 197.9  || ALONE off 0.00/0.10  rows 0.00/0.10
+    cast   n   51  FRAME off med 167.10 p90 232.20 max 315.2  | rows med 182.50 p90 224.20 max 289.3  || ALONE off 0.00/0.10  rows 0.00/0.10
+    window n  442  FRAME off med 83.60 p90 109.50 max 165.1  | rows med 84.70 p90 116.50 max 161.6  || ALONE off 0.00/0.10  rows 0.90/1.70
+    event  n  975  FRAME off med 87.10 p90 114.40 max 184.9  | rows med 89.40 p90 115.40 max 178.5  || ALONE off 0.00/0.10  rows 1.50/2.60
+    after  n  429  FRAME off med 85.10 p90 109.30 max 148.1  | rows med 86.10 p90 114.40 max 172.9  || ALONE off 0.00/0.10  rows 1.00/1.60
+    close  n   21  FRAME off med 90.50 p90 120.90 max 137.0  | rows med 87.80 p90 119.80 max 132.9  || ALONE off 0.00/0.10  rows 1.60/3.00
+gravemourn   ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  windows 2 brambles 6 (max 3 at once) snares 9 bites 20
+    rest   n   90  FRAME off med 61.40 p90 84.70 max 124.1  | rows med 63.60 p90 85.50 max 341.4  || ALONE off 0.00/0.10  rows 0.00/0.10
+    cast   n   34  FRAME off med 68.30 p90 93.40 max 112.5  | rows med 71.80 p90 92.10 max 116.9  || ALONE off 0.00/0.10  rows 0.00/0.10
+    window n  552  FRAME off med 59.30 p90 74.00 max 117.0  | rows med 60.30 p90 73.70 max 105.7  || ALONE off 0.00/0.10  rows 0.80/1.60
+    event  n  443  FRAME off med 59.50 p90 73.70 max 104.7  | rows med 60.80 p90 75.10 max 103.7  || ALONE off 0.00/0.10  rows 1.50/2.30
+    after  n  188  FRAME off med 57.50 p90 71.40 max 102.5  | rows med 59.00 p90 71.90 max 99.1  || ALONE off 0.00/0.10  rows 1.20/2.00
+    close  n   17  FRAME off med 72.00 p90 85.70 max 86.5  | rows med 78.00 p90 90.30 max 92.8  || ALONE off 0.10/0.10  rows 1.80/2.20
+FAILED  
+EXIT 1

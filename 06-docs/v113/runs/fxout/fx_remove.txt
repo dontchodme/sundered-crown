@@ -1,0 +1,13 @@
+
+FX REMOVE -- thornwake's particle field out of both copies
+  src sc-thornwake-b26.5-fx.html  98bb5948e0bd6ace
+  the block, removed whole:
+    |     /* A FREEZE HOLDS, so its frost settles slowly and lasts -- the same
+    |        reason the art is long: the hold it explains is still in force. */
+    |     thornwake: { mode: 'fall', n: 1100, sp: [30, 120], grav: 110, drag: 1.0,
+    |                  life: [0.80, 1.80], heavy: 0.02, size: [0.6, 1.9],
+    |                  spawn: 0.85, up: 0 },
+  ok    only the block and 1 full + 1 short stamp(s) moved; stamp 7dc0123af735c83e -> d08802c3e71e9f2b
+  wrote sc-thornwake-fxout.html  65464e514ea28b9e
+  wrote src/render/fx.js  d08802c3e71e9f2b
+exit 0

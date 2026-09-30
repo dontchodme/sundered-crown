@@ -1,0 +1,9 @@
+the stage-5 probe on the b26.5  vs  the stage-6 probe on the b26.5:
+  [1]-[8] counters: 34 vs 34 -- ALL EQUAL
+  the tallies S (19 keys): EQUAL;  the row and the clock window: EQUAL
+  stage 6's own counters: 0 vs 0
+the stage-6 probe on the b26.5  vs  the stage-6 probe on the fx link:
+  [1]-[8] counters: 34 vs 34 -- ALL EQUAL
+  the tallies S (19 keys): EQUAL;  the row and the clock window: EQUAL
+  stage 6's own counters: 0 vs 27
+PASS

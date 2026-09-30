@@ -1,0 +1,21 @@
+
+  sc-thornwake-b26.5-fx.html  ·  31 foes x 4 seeds (left out: bindweed, heartwood, ironwood, thornshear, twinshade, vinesower)  ·  the best window of each fight: 124, of which 3 show everything
+
+  foe              seed  cast at  window clock all crk snr bite tail  held% stops other card kill  score
+  grudgebearer   113075    31.09    8.48     1   1   2   6   14    1   42.4    59     0    0    0  25.30
+  slagheart      113001    46.15    8.74     1   1   2   3    9    2   20.6    90     0    0    0  23.31
+  spellbreaker   113038    46.97    9.30     1   1   2   3    9    0   21.1   157     0    0    0  22.36
+  marrowdraw     113001    45.62    9.39     1   0   4   6   15    3   43.5   168     1    0    0  15.90
+  bloodmirror    113001    31.46    9.17     1   0   4   5   12    3   39.2   141     1    0    0  15.90
+  portcullis     113075    14.85    8.81     1   0   4   7   13    3   44.8    98     1    0    0  15.90
+  dawnbringer    113038    45.97    9.87     1   0   5   4   11    3   30.1   226     1    0    0  15.65
+  lightkeeper    113001    31.37    9.72     1   0   4   5   11    3   32.3   207     1    0    0  15.65
+  censer         113112    45.67    9.52     1   0   4   5   11    3   39.9   183     1    0    0  15.65
+  oathwound      113112    47.10    9.13     1   0   4   5   12    2   34.6   137     1    0    0  15.40
+  dawnbringer    113075    30.95    9.09     1   0   3   6   14    3   46.2   132     1    0    0  15.10
+  axiom          113075    31.73    9.11     1   0   3   5   13    3   31.5   134     1    0    0  15.10
+
+  FILM THE WINDOW AND NOT THE FIGHT:
+
+    python cinema_clip.py --game C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/thornwake/links/sc-thornwake-b26.5-fx.html --a thornwake --b grudgebearer --seed 113075 \
+      --at 29.89 --window 11.48 --end-at-window --fps 60 --w 540 --out ../07-shorts/v113/bramblesnare-window.mp4

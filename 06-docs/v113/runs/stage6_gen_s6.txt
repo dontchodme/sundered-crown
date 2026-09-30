@@ -1,0 +1,11 @@
+voice rows   rows_final.json a539532139eb01b7 (lab: a539532139eb01b7)
+picture rows rows_final.json f80fbfe244abacde (lab: f80fbfe244abacde)
+base         sc-thornwake-b26.5.html fd5031063ecb6807 (the final stage-5 link: fd5031063ecb6807)
+picture rows alone -> 65a84cedda239548 (the picture lab's stamp, tw-final.html: 65a84cedda239548)
+voice rows alone   -> 8f8d06e90d66fc3f (the voice lab's end-to-end page: 8f8d06e90d66fc3f)
+voice then picture -> d306822d6914c08c ; picture then voice -> d306822d6914c08c
+reversed order     -> d306822d6914c08c (the same)
+rows sharing an anchor line: none -- so none is merged
+modes: {'before': 4, 'after': 7, 'replace': 5}
+read back: the S6 table == the rows (label, anchor, new) x 16
+S6 written into thornwake_build.py: 16 edits; builder 6f2fdad5f407b335 -> 56a82df7ce311cf0

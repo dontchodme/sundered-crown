@@ -1,0 +1,8 @@
+PAGE sc-thornwake-b26.5.html
+105 Bramblesnare windows on 16 foes x 2 seeds (both sides); ultFx life at the cast: ['1.3', '1.5', '1.6', '2.4']; slot's owner at the cast: ['axiom', 'dawnbringer', 'morningstar', 'oathwound', 'thornwake', 'widowmaker']
+  the slot is Thornwake's for a median 1.06s of window clock (max 1.17; window 8s); lost to: {"opponent's cast": 25, 'expired': 80}
+  a slot-borne field could exist for 11.9% of the window's clock
+  190 brambles planted in these windows (12 windows plant none), planted a median 3.95s into the window (p10 0.77); 22 of 190 planted while the slot was still Thornwake's
+  a bramble is a median 200 units from where the field is drawn (Thornwake at the cast; p10 60, p90 377); more than the bramble's own radius (80) away on 85%
+  35.6% of the brambles' lives (359 of 1010 s) fall after their window has closed
+EXIT 0

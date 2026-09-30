@@ -1,0 +1,20 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-thornwake-b26.5.html           36 matches    3.9s
+  mP1-picwrite.html                 36 matches    4.3s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  FAIL  every match identical field for field  — 18 differ
+          #0
+            control {"seed": 1233799701, "a": "Thornwake", "b": "Paradox", "winner": "Thornwake", "hp": 274, "duration": 49.54, "reason": "slain", "hits": {"a": 13, "b": 5}, "crits": {"a": 2, "b": 0}, "clanks": 9}
+            variant {"seed": 1233799701, "a": "Thornwake", "b": "Paradox", "winner": "Paradox", "hp": 43, "duration": 56.32, "reason": "slain", "hits": {"a": 12, "b": 11}, "crits": {"a": 1, "b": 1}, "clanks": 9}
+          #1
+            control {"seed": 330441002, "a": "Thornwake", "b": "Paradox", "winner": "Thornwake", "hp": 27, "duration": 67.04, "reason": "slain", "hits": {"a": 11, "b": 12}, "crits": {"a": 1, "b": 0}, "clanks": 17}
+            variant {"seed": 330441002, "a": "Thornwake", "b": "Paradox", "winner": "Paradox", "hp": 57, "duration": 59.26, "reason": "slain", "hits": {"a": 8, "b": 13}, "crits": {"a": 3, "b": 0}, "clanks": 10}
+          #2
+            control {"seed": 4184808219, "a": "Thornwake", "b": "Paradox", "winner": "Thornwake", "hp": 126, "duration": 52.25, "reason": "slain", "hits": {"a": 12, "b": 10}, "crits": {"a": 1, "b": 0}, "clanks": 9}
+            variant {"seed": 4184808219, "a": "Thornwake", "b": "Paradox", "winner": "Paradox", "hp": 104, "duration": 57.77, "reason": "slain", "hits": {"a": 10, "b": 11}, "crits": {"a": 0, "b": 2}, "clanks": 6}
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 37.5-70.0s
+
+ENGINE A/B FAIL

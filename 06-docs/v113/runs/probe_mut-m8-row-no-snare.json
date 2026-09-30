@@ -1,0 +1,79 @@
+{
+ "n": {
+  "rowOk": 9,
+  "x8": 1,
+  "survOk": 2748558,
+  "liveOk": 2748558,
+  "blowOutOk": 2613,
+  "outNoPlant": 2638,
+  "frozenOk": 353487,
+  "castOk": 1420,
+  "chargeOk": 1420,
+  "winOk": 1234536,
+  "insideOk": 1567393,
+  "tickClean": 108799,
+  "plantClean": 2246,
+  "blowInOk": 2216,
+  "plantOk": 2246,
+  "insideYes": 362461,
+  "x4": 6629,
+  "tickOk": 8685,
+  "expired": 1691,
+  "lifeMin": 719,
+  "lifeMax": 720,
+  "clockClose": 1148,
+  "afterIn": 111000,
+  "tickAfter": 2542,
+  "deathClose": 71,
+  "fatalTick": 11,
+  "wardBreaks": 131,
+  "shadePlant": 14,
+  "blowExempt": 55,
+  "deadCasterBite": 2
+ },
+ "bad": {
+  "4": [
+   "an entry counted 0 snares",
+   "an entry counted 0 snares",
+   "an entry counted 0 snares",
+   "an entry counted 0 snares"
+  ],
+  "8": [
+   "the row's rootFor is 0, the stage's 0.6"
+  ]
+ },
+ "S": {
+  "fights": 444,
+  "wins": 155,
+  "decided": 444,
+  "casts": 1420,
+  "bin": 2246,
+  "bout": 2638,
+  "winSteps": 1418877,
+  "winFrozen": 184542,
+  "frames": 1234536,
+  "planted": 2246,
+  "tested": 1567393,
+  "after": 332857,
+  "foeIn": 362461,
+  "entries": 6629,
+  "snares": 0,
+  "ticks": 8685,
+  "dealt": 17370,
+  "ent": 8685,
+  "kills": 11
+ },
+ "wantCalls": 960,
+ "u": {
+  "charge": 14,
+  "dur": 8,
+  "patchR": 80,
+  "patchLife": 6,
+  "tickCd": 0.5,
+  "tickEnt": 1,
+  "tickDmg": 2,
+  "rootFor": 0,
+  "kind": "bramble",
+  "blade": 26.5
+ }
+}

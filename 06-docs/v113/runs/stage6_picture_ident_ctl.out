@@ -1,0 +1,19 @@
+[identity] app   Chromium 152.0.7977.54  274 fights
+[identity] build C:\Users\Ye\AppData\Local\Temp\claude\C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output\f43b1615-f237-4ba7-9f4f-144b4ddc956e\scratchpad\batch\thornwake\stage6-picture\tw-control.html
+[identity] headless Chromium 151.0.7922.34
+  [206] thornwake v lastlight seed 596034003  .clanks: app=17 headless=16
+  [213] spellbreaker v thornwake seed 3438889748  .clanks: app=24 headless=23
+  [217] lightkeeper v thornwake seed 3836245232  .clanks: app=37 headless=28
+  [225] emberedge v thornwake seed 335988904  .clanks: app=21 headless=19
+  [234] thornwake v twinshade seed 3377522391  .clanks: app=28 headless=30
+  [240] thornwake v vinesower seed 3973555617  .duration: app=56.84 headless=54.42
+
+FAIL  268/274 identical.
+      The two runtimes are DIFFERENT CHROMIUM BUILDS:
+        app      Chromium 152.0.7977.54
+        headless Chromium 151.0.7922.34
+      Before reading the shell, run:  python math_fingerprint.py
+      It says whether Math itself differs. If it does, this
+      failure is the runtime PAIR, not the shell, and the fix
+      is a pin. See docs/RUNTIME-DRIFT.md.
+shell_identity CONTROL rc 1

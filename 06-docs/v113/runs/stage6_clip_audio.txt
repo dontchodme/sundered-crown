@@ -1,0 +1,22 @@
+clip 9a2b6cbdc6429c6d (the fx link) against clip_base 0d8fc5b6e8a2b09e (the b26.5), the same window; the clip's first frame at match 29.891667, 11.50 s of audio
+the timeline: the cast at 31.092, 2 crackles, 6 snares, 15 bites in the clip
+  the cast's rustle (the needles, 2.4-3.9 kHz) match  31.092  video  1.200   2400-3900  Hz  with - without  +25.2 dB
+  the cast's creak (the 330 Hz timber)         match  31.092  video  1.200    320-340   Hz  with - without   +7.9 dB
+  the 2 crackles (1.2-2.2 kHz, 100-280 ms after, past the blow's body): min +24.6, median +24.7, max +24.8 dB
+  the 6 snares' creak (the 260 Hz timber, 0-190 ms): min +6.7, median +35.8, max +73.8 dB
+  the 6 snares' crack (the highpass over 2.6 kHz, 200-235 ms): min +58.4, median +65.4, max +79.8 dB
+  the 15 bites (the 420-620 Hz sweep, 0-100 ms): min +6.1, median +11.5, max +43.1 dB
+CONTROL -- the same bands at match times with no stage-6 voice sounding (must come back near 0):
+  before the cast, the rustle band             match  29.992  video  0.100   2400-3900  Hz  with - without   +4.3 dB
+  before the cast, the crackle band            match  29.992  video  0.100   1200-2200  Hz  with - without   -6.9 dB
+  before the cast, the timber band             match  29.992  video  0.100    250-270   Hz  with - without   -9.0 dB
+  before the cast, the bite band               match  29.992  video  0.100    400-650   Hz  with - without   -0.8 dB
+  before the cast, the rustle band             match  30.342  video  0.450   2400-3900  Hz  with - without   +3.5 dB
+  before the cast, the crackle band            match  30.342  video  0.450   1200-2200  Hz  with - without   -5.5 dB
+  before the cast, the timber band             match  30.342  video  0.450    250-270   Hz  with - without   +6.1 dB
+  before the cast, the bite band               match  30.342  video  0.450    400-650   Hz  with - without   -0.0 dB
+  no-voice controls: max |d| 9.0 dB
+  the crackles over the no-voice spread (9.0 dB): 2 of 2
+  the snares' creak over the no-voice spread (9.0 dB): 5 of 6
+  the snares' crack over the no-voice spread (9.0 dB): 6 of 6
+  the bites over the no-voice spread (9.0 dB): 10 of 15

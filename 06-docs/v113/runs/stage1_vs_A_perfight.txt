@@ -1,0 +1,2 @@
+stage 1 (sc-thornwake-stub, SHIP) vs lab arm A, block 2207: 660 / 660 fights; wins 246 / 246; blows 6932 / 6932; fights differing in winner, duration (to the step), blows in/out or casts: 0  -> IDENTICAL FIGHT BY FIGHT
+stage 1 (sc-thornwake-stub, SHIP) vs lab arm A, block 2317: 660 / 660 fights; wins 246 / 246; blows 6987 / 6987; fights differing in winner, duration (to the step), blows in/out or casts: 0  -> IDENTICAL FIGHT BY FIGHT

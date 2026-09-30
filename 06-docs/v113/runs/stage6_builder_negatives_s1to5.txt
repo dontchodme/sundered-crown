@@ -1,0 +1,23 @@
+knock the foe                +foe.vx = 0;                                        rc 1  -> REFUSED: writes foe.vx (reading 13: the window, the thorns, the tally, the brambles and their clock, and Grasp's pin only)
+stun it                      +foe.stun = Math.max(foe.stun, 1);                  rc 1  -> REFUSED: stops the world or stuns (reading 13)
+stop the world               +this.hitStop = Math.max(this.hitStop, 0.05);       rc 1  -> REFUSED: stops the world or stuns (reading 13)
+feed the charge              +f.charge += 1;                                     rc 1  -> REFUSED: writes f.charge (reading 13: the window, the thorns, the tally, the brambles and their clock, and Grasp's pin only)
+a second status              +foe.apply("burn", 1, side);                        rc 1  -> REFUSED: applies ['.apply("entangle", u.tickEnt, side)', '.apply("burn", 1, side)']: the only status is the design's entangle, .a
+hurt again                   +this.hurt(foe, 1, f);                              rc 1  -> REFUSED: hurts ['.hurt(foe, u.tickDmg, f)', '.hurt(foe, 1, f)']: the only damage is the design's bite, .hurt(foe, u.tickDmg, f)
+free the weapon              +foe.pinFree = 1;                                   rc 1  -> REFUSED: touches pinFree (the snare is Grasp's write)
+write the shared weapon      +f.w.dmg = 13;                                      rc 1  -> REFUSED: writes the shared weapon
+draw the RNG                 +const r0 = this.rng();                             rc 1  -> REFUSED: draws the RNG or uses the one ultFx slot
+grow the reach               +foe.reachMul = 1;                                  rc 1  -> REFUSED: writes foe.reachMul (reading 13: the window, the thorns, the tally, the brambles and their clock, and Grasp's pin only)
+file a second beat           +this.beat({ kind: "ult" });                        rc 1  -> REFUSED: files a beat that is not a killing tick's (reading 9)
+write a status by hand       +foe.status.entangle.stacks = 4;                    rc 1  -> REFUSED: writes entangle.stacks (reading 13: the window, the thorns, the tally, the brambles and their clock, and Grasp's pin onl
+voice it                     +SFX.play("ult", { w: "thornwake-bite" });          rc 1  -> REFUSED: calls .play(): the brambles plant, snare, entangle and bite, nothing else (reading 13)
+Math.random                  +const r1 = Math.random();                          rc 1  -> REFUSED: REFUSING TO WRITE -- this build adds a Math.random
+take the ultFx slot          +this.ultFx = null;                                 rc 1  -> REFUSED: draws the RNG or uses the one ultFx slot
+delete a status              +delete foe.status.hex;                             rc 1  -> REFUSED: deletes or writes by index
+hitstun                      +foe.takeHitstun(5);                                rc 1  -> REFUSED: calls .takeHitstun(): the brambles plant, snare, entangle and bite, nothing else (reading 13)
+move the ball                +foe.x += 1;                                        rc 1  -> REFUSED: writes foe.x (reading 13: the window, the thorns, the tally, the brambles and their clock, and Grasp's pin only)
+heal the caster              +f.hp += 2;                                         rc 1  -> REFUSED: writes f.hp (reading 13: the window, the thorns, the tally, the brambles and their clock, and Grasp's pin only)
+float a number               +this.float(foe.x, foe.y, "2", "#fff", 20);         rc 1  -> REFUSED: calls .float(): the brambles plant, snare, entangle and bite, nothing else (reading 13)
+CONTROL: nothing added       rc 0  -> BUILDS, byte-identical to sc-thornwake-bramble (f49eefcd6f87c226)
+
+20 negative copies, every one refused for its reason; the unmodified copy builds the link

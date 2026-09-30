@@ -1,0 +1,20 @@
+
+BRAMBLESNARE PROBE  mut-m10-snare-every-frame.html  stage 5  Chromium 151.0.7922.34  444 fights (Thornwake both sides x every foe x 6 seeds)
+  the row {'charge': 14, 'dur': 8, 'patchR': 80, 'patchLife': 6, 'tickCd': 0.5, 'tickEnt': 1, 'tickDmg': 2, 'rootFor': 0.6, 'kind': 'bramble', 'blade': 26.5}
+  pinned  {'charge': 14, 'dur': 8, 'patchR': 80, 'patchLife': 6, 'tickCd': 0.5, 'tickEnt': 1, 'tickDmg': 2, 'rootFor': 0.6, 'blade': 26.5}
+  casts/fight 3.28   blows a fight: in windows 5.86, outside 6.44   Thornwake win 81.5%
+  per cast (the lab's columns): brambles 1.79   bites 11.70   dmg 23.40   snares 685.39   entries 685.39   foe inside 685.4 tested frames (live steps)   entangle 11.70
+  the brambles outlive the window: 250.8 tested frames a cast after the close, 362456 of them with the foe inside; bites after the close 5910 of 17024, snares after 15 of 1188
+  brambles expired 1932, each after 719..720 ticks of the brambles' clock   shade blows planting at the shade 18   re-snares on a held ball 60 (under a longer hold 26)   killing bites 51   bites from a slain caster's brambles (its kill flight) 0   wards broken by a bite 379
+  held steps still 1038064   held hit loops quiet 1037188 (re-snared on the step the old hold ran out, the weapon locked from the next: 34)   FREEZE CENSUS 11.8% of window steps frozen   clock window 960 calls
+  nothing else: 2602 plant calls and 119271 ticker calls snapshotted whole (both fighters, the shades, the match), clean
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Thornwake's
+  [2] PASS  every blow in the window plants one bramble at the struck ball, on the brambles' clock; none outside; none from anything else
+  [3] PASS  the brambles live patchLife on their clock, unmoved, and outlive the window; tested while the window or a bramble lives; inside = the foe's centre within patchR + R
+  [4] FAIL  the snare on entry: max(pin, rootFor), pinMax, pinV iff no longer hold, pinFree untouched; nowhere else; the held ball still and its weapon locked   2973966 FAIL: ['1 entries counted, want 0', '1 snare(s) with no entry', 'the pin moved with no snare (entry false, rootFor 0.6)', '1 entries counted, want 0']
+  [5] PASS  the thorns: the cooldown runs on tested frames; inside and clear -> entangle +tickEnt (side letter), then hurt(foe, tickDmg, Thornwake), the cooldown tickCd; nothing else
+  [6] PASS  the blow is the scythe's own (rebuilt exactly, in and out); the plant and the thorns write nothing else, draw no RNG, move nothing and stop nothing (a ward's own break aside)
+  [7] PASS  a killing bite files one fatal hit beat at the foe; no other frame of the thorns files one
+  [8] PASS  a cast exactly when the live clock reaches the builder's charge, never with a window open; the row (charge, window, radius, life, cadence, entangle, bite, snare, kind, blade) is the stage's
+
+  7/8

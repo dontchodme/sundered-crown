@@ -1,0 +1,20 @@
+
+BRAMBLESNARE PROBE  mut-m3b-radius-plus10.html  stage 5  Chromium 151.0.7922.34  444 fights (Thornwake both sides x every foe x 6 seeds)
+  the row {'charge': 14, 'dur': 8, 'patchR': 80, 'patchLife': 6, 'tickCd': 0.5, 'tickEnt': 1, 'tickDmg': 2, 'rootFor': 0.6, 'kind': 'bramble', 'blade': 26.5}
+  pinned  {'charge': 14, 'dur': 8, 'patchR': 80, 'patchLife': 6, 'tickCd': 0.5, 'tickEnt': 1, 'tickDmg': 2, 'rootFor': 0.6, 'blade': 26.5}
+  casts/fight 3.29   blows a fight: in windows 5.44, outside 5.98   Thornwake win 52.9%
+  per cast (the lab's columns): brambles 1.65   bites 8.48   dmg 16.97   snares 3.42   entries 3.42   foe inside 425.9 tested frames (live steps)   entangle 8.48
+  the brambles outlive the window: 235.1 tested frames a cast after the close, 82370 of them with the foe inside; bites after the close 3736 of 12396, snares after 1417 of 4992
+  brambles expired 1779, each after 719..720 ticks of the brambles' clock   shade blows planting at the shade 16   re-snares on a held ball 58 (under a longer hold 26)   killing bites 20   bites from a slain caster's brambles (its kill flight) 1   wards broken by a bite 186
+  held steps still 353925   held hit loops quiet 349044 (re-snared on the step the old hold ran out, the weapon locked from the next: 33)   FREEZE CENSUS 12.5% of window steps frozen   clock window 960 calls
+  nothing else: 2417 plant calls and 108464 ticker calls snapshotted whole (both fighters, the shades, the match), clean
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Thornwake's
+  [2] PASS  every blow in the window plants one bramble at the struck ball, on the brambles' clock; none outside; none from anything else
+  [3] FAIL  the brambles live patchLife on their clock, unmoved, and outlive the window; tested while the window or a bramble lives; inside = the foe's centre within patchR + R   245503 FAIL: ['inside true, the geometry says false', 'inside true, the geometry says false', 'inside true, the geometry says false', 'inside true, the geometry says false']
+  [4] PASS  the snare on entry: max(pin, rootFor), pinMax, pinV iff no longer hold, pinFree untouched; nowhere else; the held ball still and its weapon locked
+  [5] PASS  the thorns: the cooldown runs on tested frames; inside and clear -> entangle +tickEnt (side letter), then hurt(foe, tickDmg, Thornwake), the cooldown tickCd; nothing else
+  [6] PASS  the blow is the scythe's own (rebuilt exactly, in and out); the plant and the thorns write nothing else, draw no RNG, move nothing and stop nothing (a ward's own break aside)
+  [7] PASS  a killing bite files one fatal hit beat at the foe; no other frame of the thorns files one
+  [8] PASS  a cast exactly when the live clock reaches the builder's charge, never with a window open; the row (charge, window, radius, life, cadence, entangle, bite, snare, kind, blade) is the stage's
+
+  7/8

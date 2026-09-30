@@ -1,0 +1,7 @@
+lastlight    ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00  windows 3 brambles 8 (max 4 at once) snares 19 bites 45
+    rest   n   90  FRAME off med 30.00 p90 41.60 max 49.6  | rows med 30.20 p90 39.30 max 60.2  || ALONE off 0.00/0.10  rows 0.00/0.10
+    cast   n   56  FRAME off med 45.10 p90 69.90 max 93.5  | rows med 45.90 p90 81.30 max 88.5  || ALONE off 0.00/0.10  rows 0.00/0.10
+    window n  386  FRAME off med 50.90 p90 87.10 max 152.6  | rows med 53.50 p90 88.60 max 144.5  || ALONE off 0.00/0.10  rows 1.10/2.00
+    event  n 1108  FRAME off med 53.40 p90 88.50 max 163.0  | rows med 55.70 p90 92.80 max 175.7  || ALONE off 0.00/0.10  rows 1.50/2.40
+    after  n  335  FRAME off med 65.40 p90 82.40 max 123.0  | rows med 66.60 p90 87.40 max 126.1  || ALONE off 0.00/0.10  rows 1.10/1.70
+EXIT 0

@@ -183,11 +183,6 @@
     vinesower: { mode: 'fall', n: 1000, sp: [60, 220], grav: 260, drag: 0.9,
                  life: [0.60, 1.50], heavy: 0.05, size: [0.7, 2.1],
                  spawn: 0.85, up: 0 },
-    /* A FREEZE HOLDS, so its frost settles slowly and lasts -- the same
-       reason the art is long: the hold it explains is still in force. */
-    thornwake: { mode: 'fall', n: 1100, sp: [30, 120], grav: 110, drag: 1.0,
-                 life: [0.80, 1.80], heavy: 0.02, size: [0.6, 1.9],
-                 spawn: 0.85, up: 0 },
     heartwood: { mode: 'fall', n: 1050, sp: [30, 120], grav: 110, drag: 1.0,
                  life: [0.80, 1.70], heavy: 0.02, size: [0.6, 1.9],
                  spawn: 0.85, up: 0 },

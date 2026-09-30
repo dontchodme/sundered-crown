@@ -1,0 +1,34 @@
+THE CLIP: 07-shorts/v113/bramblesnare-window.mp4 9a2b6cbdc6429c6d 2142085 bytes
+stream|codec_name=h264|codec_type=video|width=540|height=960|r_frame_rate=60/1|duration=11.483333|nb_frames=689|
+stream|codec_name=aac|codec_type=audio|sample_rate=48000|channels=2|r_frame_rate=0/0|duration=11.498667|nb_frames=539
+-- volumedetect
+[Parsed_volumedetect_0 @ 0000027f9ea90640] mean_volume: -22.1 dB
+[Parsed_volumedetect_0 @ 0000027f9ea90640] max_volume: -1.7 dB
+-- ebur128
+    I:         -19.8 LUFS
+    LRA:         2.1 LU
+    Peak:       -1.5 dBFS
+
+THE SAME WINDOW ON THE b26.5 (no stage-6 voice): s6/clipwork/clip_base_b26.5.mp4 0d8fc5b6e8a2b09e
+stream|codec_type=video|duration=11.483333|nb_frames=689|
+stream|codec_type=audio|duration=11.498667|nb_frames=539
+-- volumedetect
+[Parsed_volumedetect_0 @ 0000021027a7ef00] mean_volume: -22.6 dB
+[Parsed_volumedetect_0 @ 0000021027a7ef00] max_volume: -0.9 dB
+-- ebur128
+    I:         -20.3 LUFS
+    LRA:         1.8 LU
+    Peak:       -0.6 dBFS
+
+FIVE FRAMES through the pipeline (the post chain and the director), video time -> match time (the HUD's clock; the clip's
+first frame is match 29.8917), tiled hstack -> 05-reference/v113/bramblesnare-clip-5frames.png (2700x960):
+  1.40 s (31.3)  0.2 s after the cast (31.092): the banner "Bramblesnare" on THORNWAKE, the scythe's blade green (the
+                 crescent and its thorns); the white motes falling round the hall are the freeze's SPECS.thornwake field,
+                 still inline on this link until the carry's fx_remove (5b)
+  1.81 s (31.7)  the first bramble (31.483) growing under the foe, which it snared at 31.625: thorn strokes and the
+                 shoots round its lower rim, ENTANGLE 4 (the first bite's count, on the blow's own tag); a crop at 1.95 s
+                 (31.84) shows the clench closed round the rim
+  3.91 s (33.8)  two brambles standing (the second 33.592), the tangles on the floor, the foe snared again (33.717), ENTANGLE
+  7.71 s (37.6)  the blade still green, the first bramble in its last second (goes at 37.900), the second standing
+  9.81 s (39.7)  0.125 s after the clock close (39.575): the green fading off the blade, the second bramble browned in its
+                 last second (goes at 39.875), and a bite at 39.625 -- after the close -- flashing its thorns on the foe's rim

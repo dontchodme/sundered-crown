@@ -1,0 +1,24 @@
+
+BRAMBLESNARE PROBE  mV1-closevoice.html  stage 6  Chromium 151.0.7922.34  74 fights (Thornwake both sides x every foe x 1 seeds)
+  the row {'charge': 14, 'dur': 8, 'patchR': 80, 'patchLife': 6, 'tickCd': 0.5, 'tickEnt': 1, 'tickDmg': 2, 'rootFor': 0.6, 'kind': 'bramble', 'blade': 26.5}
+  pinned  {'charge': 14, 'dur': 8, 'patchR': 80, 'patchLife': 6, 'tickCd': 0.5, 'tickEnt': 1, 'tickDmg': 2, 'rootFor': 0.6, 'blade': 26.5}
+  casts/fight 3.26   blows a fight: in windows 5.03, outside 6.24   Thornwake win 45.9%
+  per cast (the lab's columns): brambles 1.54   bites 7.92   dmg 15.84   snares 3.35   entries 3.35   foe inside 395.7 tested frames (live steps)   entangle 7.92
+  the brambles outlive the window: 221.2 tested frames a cast after the close, 30137 of them with the foe inside; bites after the close 590 of 1909, snares after 238 of 808
+  brambles expired 278, each after 719..720 ticks of the brambles' clock   shade blows planting at the shade 1   re-snares on a held ball 11 (under a longer hold 5)   killing bites 5   bites from a slain caster's brambles (its kill flight) 0   wards broken by a bite 21
+  held steps still 57400   held hit loops quiet 56608 (re-snared on the step the old hold ran out, the weapon locked from the next: 6)   FREEZE CENSUS 12.2% of window steps frozen   clock window 960 calls
+  nothing else: 372 plant calls and 18538 ticker calls snapshotted whole (both fighters, the shades, the match), clean
+  [1] PASS  the window: dur on the window clock (one tick an unfrozen step, none frozen), closes on either death; only Thornwake's
+  [2] PASS  every blow in the window plants one bramble at the struck ball, on the brambles' clock; none outside; none from anything else
+  [3] PASS  the brambles live patchLife on their clock, unmoved, and outlive the window; tested while the window or a bramble lives; inside = the foe's centre within patchR + R
+  [4] PASS  the snare on entry: max(pin, rootFor), pinMax, pinV iff no longer hold, pinFree untouched; nowhere else; the held ball still and its weapon locked
+  [5] PASS  the thorns: the cooldown runs on tested frames; inside and clear -> entangle +tickEnt (side letter), then hurt(foe, tickDmg, Thornwake), the cooldown tickCd; nothing else
+  [6] PASS  the blow is the scythe's own (rebuilt exactly, in and out); the plant and the thorns write nothing else, draw no RNG, move nothing and stop nothing (a ward's own break aside)
+  [7] PASS  a killing bite files one fatal hit beat at the foe; no other frame of the thorns files one
+  [8] PASS  a cast exactly when the live clock reaches the builder's charge, never with a window open; the row (charge, window, radius, life, cadence, entangle, bite, snare, kind, blade) is the stage's
+  stage 6 voices: 241 casts each one cast voice (of 241); 372 plants each one crackle (of 372); 465314 ticker calls voiced exactly their snares and bites -- 808 snare voices for 808 snares, 1909 bite voices for 1909 bites (5 killing), a snare then its bite on 626 calls; closes silent: 0 by the clock, 0 by a death; 74 verdicts quiet
+  stage 6 picture: tickBrier 1023225 calls, 1023225 writing nothing of the simulation's (97286 whole-state, 80921 in a hit stop, 35668 in the verdict); tags pushed 105, counts updated 312, taught 0; green on 448525, fading 17111, off 557589; brambles mirrored 358670; held on at the snare 803 (held calls 123623); gone after the verdict 148; fresh 148
+  [9] FAIL  stage 6 voices: one cast voice a cast (in fireUlt), one crackle a bramble (in plantBramble), the snares' and the bites' voices exactly as tickBramble wrote them, in order; no close voice (clock or death); none in the picture, a drawn frame, the verdict or anywhere else; every one accounted for   410 FAIL: ['the thornwake-crackle voice played in tickBramble', 'tickBramble played ["thornwake-crackle"], its snares and bites want []', 'the thornwake-crackle voice played in tickBramble', 'tickBramble played ["thornwake-crackle"], its snares and bites want []']
+  [10] PASS  stage 6 picture: tickBrier writes nothing of the simulation's, draws no RNG, plays nothing, keeps the tags' rule; the green, the brambles and the held ball as declared; gone after the verdict
+
+  9/10

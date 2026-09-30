@@ -1,0 +1,15 @@
+=== ENGINE A/B: 6 relics, 6 seeds x 15 pairings ===
+
+  sc-thornwake-b26.5.html           90 matches    5.1s
+  tw-control.html                   90 matches    5.3s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 90
+  FAIL  every match identical field for field  — 1 differ
+          #25
+            control {"seed": 179829042, "a": "Thornwake", "b": "Paradox", "winner": "Paradox", "hp": 229, "duration": 48.54, "reason": "slain", "hits": {"a": 6, "b": 11}, "crits": {"a": 1, "b": 2}, "clanks": 17}
+            variant {"seed": 179829042, "a": "Thornwake", "b": "Paradox", "winner": "Paradox", "hp": 229, "duration": 48.53, "reason": "slain", "hits": {"a": 6, "b": 11}, "crits": {"a": 1, "b": 2}, "clanks": 17}
+  PASS  the sweep is real  — 6/6 distinct winners, 90 distinct seeds, 22.1-69.0s
+
+ENGINE A/B FAIL
+exit 1

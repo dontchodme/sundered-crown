@@ -1,0 +1,8 @@
+mutant           sha16             probe  fails (count)                tallies vs clean     win  how
+clean fx link    d306822d6914c08c  10/10  -                            -                   45.9
+mV1-closevoice   5f7ef9c0e558ca77  9/10   [9] 410x                     EQUAL               45.9  a crackle at EVERY window close, a death's too
+                 [9] e.g. the thornwake-crackle voice played in tickBramble
+mP1-picwrite     5d7136d66644538b  9/10   [10] 782x                    DIFFER              45.9  the snare's picture lengthens the pin 0.05 s
+                 [10] e.g. the picture wrote the simulation: pin 0.6 -> 0.65
+mP2-invisible    b635dcf9223e6d19  9/10   [10] 22859x                  EQUAL               45.9  tickBrier stamps `lastBrier` on the fighter
+                 [10] e.g. the picture wrote the simulation: the shape 702 -> 704 fields

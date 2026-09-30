@@ -1,0 +1,9 @@
+thornwake    verdant    scythe n 8  SCYTHE |dL| med 0.164 (min 0.123 max 0.177)  luma 0.275  area 8081 u2
+lastlight    sanctified scythe n 8  SCYTHE |dL| med 0.231 (min 0.173 max 0.249)  luma 0.368  area 8490 u2
+foregone     runic      scythe n 8  SCYTHE |dL| med 0.216 (min 0.201 max 0.246)  luma 0.335  area 7317 u2
+vesper       vigil      scythe n 8  SCYTHE |dL| med 0.185 (min 0.145 max 0.193)  luma 0.282  area 7747 u2
+cindercleave dwarven    scythe n 8  SCYTHE |dL| med 0.113 (min 0.084 max 0.124)  luma 0.199  area 6431 u2
+bloodmirror  bloodsworn scythe n 8  SCYTHE |dL| med 0.114 (min 0.081 max 0.127)  luma 0.200  area 5255 u2
+duskreave    umbral     scythe n 8  SCYTHE |dL| med 0.162 (min 0.127 max 0.171)  luma 0.258  area 7412 u2
+rank by |dL|: lastlight 0.231 > foregone 0.216 > vesper 0.185 > thornwake 0.164 > duskreave 0.162 > bloodmirror 0.114 > cindercleave 0.113
+EXIT 0

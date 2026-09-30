@@ -1,0 +1,31 @@
+the final (--stage 5): 8/8; wins 213/444, blows in/out 2360/2732, casts 1468, brambles 2360, bites 11992, snares 5077
+
+m1-window-labclock       ede9e3a831b0aefc  want [1]  fails [1] {1: 350692}  wins 207/444 blows 2102/2979 casts 1458 brambles 2102 bites 11472 snares 4219  fights CHANGED  -> OK
+      [1] e.g. tickBramble ran 1x on a frozen step
+m2-every-other-blow      73f8035e4cd29ad7  want [2]  fails [2] {2: 1133}  wins 160/444 blows 2288/2687 casts 1454 brambles 1155 bites 7536 snares 3311  fights CHANGED  -> OK
+      [2] e.g. a blow in the window planted 0x (0 -> 0)
+m3-cleared-at-close      3cf01018a9262c54  want [3]  fails [3] {3: 1785}  wins 182/444 blows 2468/2619 casts 1452 brambles 2468 bites 8423 snares 3643  fights CHANGED  -> OK
+      [3] e.g. the brambles after the tick: 0, want 3 survivors of 3
+m3b-radius-plus10        c52caefcf8d7c7e1  want [3]  fails [3] {3: 245503}  wins 235/444 blows 2417/2655 casts 1461 brambles 2417 bites 12396 snares 4992  fights CHANGED  -> OK
+      [3] e.g. inside true, the geometry says false
+m4-weapon-free           ca3731586a583544  want [4]  fails [4] {4: 435}  wins 178/444 blows 2304/2622 casts 1428 brambles 2304 bites 11652 snares 4942  fights CHANGED  -> OK
+      [4] e.g. the snare wrote pinFree 0 -> 1
+m5-entangle-2            c4d0650f7b1b5b8c  want [5]  fails [5] {5: 11889}  wins 217/444 blows 2392/2688 casts 1473 brambles 2392 bites 11889 snares 5023  fights CHANGED  -> OK
+      [5] e.g. applications [["entangle",2]], want [["entangle", 1]]
+m6-bite-hitstop          d0230d2a74cc60de  want [6]  fails [6] {6: 23602}  wins 216/444 blows 2433/2735 casts 1443 brambles 2433 bites 12146 snares 5092  fights CHANGED  -> OK
+      [6] e.g. the hit stop -0.008333333333333309 -> 0.05 with no ward broken
+m6b-bite-knock           465173536a599d4c  want [6]  fails [6] {6: 24209}  wins 223/444 blows 2447/2749 casts 1481 brambles 2447 bites 12209 snares 5157  fights CHANGED  -> OK
+      [6] e.g. the thorns moved the foe
+m7-charge16              d1b82ff00102b710  want [8]  fails [8] {8: 304199}  wins 202/444 blows 1985/3055 casts 1238 brambles 1985 bites 9820 snares 4136  fights CHANGED  -> OK
+      [8] e.g. the row's charge is 16, the stage's 14
+m8-row-no-snare          6f5b535be7a81858  want [4, 8]  fails [4, 8] {4: 6629, 8: 1}  wins 155/444 blows 2246/2638 casts 1420 brambles 2246 bites 8685 snares 0  fights CHANGED  -> OK
+      [4] e.g. an entry counted 0 snares
+      [8] e.g. the row's rootFor is 0, the stage's 0.6
+m9-blade-shipped         800daceb906ef28e  want [8]  fails [8] {8: 1}  wins 280/444 blows 2190/2612 casts 1365 brambles 2190 bites 10519 snares 4482  fights CHANGED  -> OK
+      [8] e.g. the blade is 31.35, the stage's 26.5
+m10-snare-every-frame    b0023fcc6755d68f  want [4]  fails [4] {4: 2973966}  wins 362/444 blows 2602/2858 casts 1455 brambles 2602 bites 17024 snares 997238  fights CHANGED  -> OK
+      [4] e.g. 1 entries counted, want 0
+m11-kill-no-beat         c66ca48a65db4867  want [7]  fails [7] {7: 24}  wins 213/444 blows 2360/2732 casts 1468 brambles 2360 bites 11992 snares 5077  fights UNCHANGED (a beat cannot change a fight)  -> OK
+      [7] e.g. a killing bite filed 0 beat(s), 0 fatal
+
+EVERY MUTANT FAILS ITS OWN CHECK(S), ONLY THOSE, AND CHANGES FIGHTS (m11 aside, a beat)

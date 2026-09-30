@@ -1,0 +1,23 @@
+REBUILD FROM THE BARE BASE with tools/thornwake_build.py 83503639e24a4184
+base ../02-chain/sc-tendril-t3.html 5a6216e3b629fad4
+stage 1  sc-thornwake-stub.html  rebuilt 684e6e75ea68e928  on disk 684e6e75ea68e928  rc 0  -> IDENTICAL
+stage 2  sc-thornwake-bramble.html  rebuilt f49eefcd6f87c226  on disk f49eefcd6f87c226  rc 0  -> IDENTICAL
+stage 3  sc-thornwake-snare.html  rebuilt 800daceb906ef28e  on disk 800daceb906ef28e  rc 0  -> IDENTICAL
+stage 5  sc-thornwake-b26.5.html  rebuilt fd5031063ecb6807  on disk fd5031063ecb6807  rc 0  -> IDENTICAL
+stage 6  sc-thornwake-b26.5-fx.html  rebuilt d306822d6914c08c  on disk d306822d6914c08c  rc 0  -> IDENTICAL
+
+REFUSALS (each must refuse, and write nothing):
+  stage 6 on stage 6 (twice): rc 1, wrote nothing -- 'tickBrier' is already in this source -- stage 6 goes on once
+  stage 6 on stage 3 (the shipped blade): rc 1, wrote nothing -- stage 6 goes on stage 5 (the snare on, at the blade BLADE names)
+  stage 6 on stage 2: rc 1, wrote nothing -- stage 6 goes on stage 5 (the snare on, at the blade BLADE names)
+  stage 6 on the bare base: rc 1, wrote nothing -- stage 6 needs stage 1 under it
+  stage 5 on stage 6: rc 1, wrote nothing -- stage 5 goes on stage 3 (the snare on, blade 31.35), once
+  stage 3 on stage 6: rc 1, wrote nothing -- stage 3 goes on stage 2, once
+  stage 1 on stage 6: rc 1, wrote nothing -- 'ultBramble' is already in the base
+  overwrite the fx link: rc 1, the link d306822d6914c08c -> d306822d6914c08c -- refusing to overwrite sc-thornwake-b26.5-fx.html -- a link is written once. Delete it by hand if this is a rebuild.
+  a name not sc-thornwake*: rc 1, wrote nothing -- refusing sc-other-fx.html: this builder's links are sc-thornwake*
+  a CRLF source: rc 1, wrote nothing -- the source is not LF text
+  a base with tickBrier already in it: rc 1, wrote nothing -- 'tickBrier' is already in this source -- stage 6 goes on once
+  a base without the freeze's voice: rc 1, wrote nothing -- the freeze's voice (creak and cinch) is not in this source once -- stage 6 goes on stage 5, once
+
+links written by the refusals: 0

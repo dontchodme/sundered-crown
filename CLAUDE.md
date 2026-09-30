@@ -82,7 +82,15 @@ short-form video for TikTok and YouTube Shorts.
                                  while it was built; the builder re-applies all
                                  three stages onto sc-zenith-fx and onto
                                  sc-tendril-t3 cleanly (tested, scratch).
-02-chain/sc-spellbreaker-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+02-chain/sc-thornwake-fxout.html THE BATCH LINE'S TIP, AWAITING RICK'S EYE. 42 RELICS:
+                                 THORNWAKE REDESIGNED (thornwake_build.py, fx_remove.py,
+                                 v113), carried onto sc-spellbreaker-fxout. Blows leave
+                                 brambles: a foe in one is rooted, entangled and bitten.
+                                 Charge 14, blade 26.5 (50.9%). fx.js stamp ->
+                                 d08802c3e71e9f2b.
+                                 Carry proved against scratch and the tip; probe 10/10;
+                                 shell_identity 200/200.
+02-chain/sc-spellbreaker-fxout.html the link under it, AWAITING RICK'S EYE. 42 RELICS:
                                  SPELLBREAKER / UNMAKING REDESIGNED (spellbreaker_build.py
                                  1, 2, 3, 5, 6 and fx_remove.py, v111), carried onto
                                  sc-aureole-fxout. The bolt is gone: hexes stun the foe's

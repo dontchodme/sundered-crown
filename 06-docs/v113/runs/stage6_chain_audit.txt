@@ -1,0 +1,32 @@
+  (24 insert(s) found in thornwake_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-thornwake-b26.5-fx.html
+tip    sc-thornwake-b26.5-fx.html
+24 inserts read out of thornwake_build.py
+
+    ok  S1:Bramblesnare becomes the brambles, stubbed; the freeze out of the row relic  1  mid   -  tip  1
+    ok  S2:the brambles have a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the window and the thorns relic  1  mid   -  tip  1
+    ok  S2:the match carries the brambles and their clock relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:a blow inside the window plants a bramble where it landed relic  1  mid   -  tip  1
+    ok  S2:the brambles tick with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickBramble ages the brambles, snares on entry and bites inside; plantBramble plants relic  1  mid   -  tip  1
+    ok  S3:the snare on entry      relic  1  mid   -  tip  1
+    ok  S5:the blade: the measured point nearest 50% both sides (Rick's ruling) relic  1  mid   -  tip  1
+    ok  S6:Sfx: Bramblesnare's cast, crackle, snare and bite arms, replacing the freeze's creak and cinch relic  1  mid   -  tip  1
+    ok  S6:plantBramble: the crackle, once per bramble planted, after the count relic  1  mid   -  tip  1
+    ok  S6:tickBramble: the snare's voice (Tendril's root), on the frame the pin is written relic  1  mid   -  tip  1
+    ok  S6:tickBramble: the bite's soft snap, once per bite, as the thorns' cooldown is re-armed relic  1  mid   -  tip  1
+    ok  S6:brier picture: fighter fields relic  1  mid   -  tip  1
+    ok  S6:brier picture: the presentation call relic  1  mid   -  tip  1
+    ok  S6:brier picture: tickBrier and the canes relic  1  mid   -  tip  1
+    ok  S6:brier picture: the floor call (world, under both balls) relic  1  mid   -  tip  1
+    ok  S6:brier picture: over both fighters (world) relic  1  mid   -  tip  1
+    ok  S6:brier picture: the blade greens (drawWeapon) relic  1  mid   -  tip  1
+    ok  S6:brier picture: the hexagon off a snared ball relic  1  mid   -  tip  1
+    ok  S6:brier picture: the drawing methods relic  1  mid   -  tip  1
+    ok  S6:brier picture: the freeze's floor roots retired relic  1  mid   -  tip  1
+    ok  S6:brier picture: the freeze's thorns on the quarry retired relic  1  mid   -  tip  1
+
+ALL 24 INSERTS SURVIVE to sc-thornwake-b26.5-fx.html
+(2 of them are marked by COMMENT text -- the code they add is shorter than the floor: S6:brier picture: the freeze's floor roots retired, S6:brier picture: the freeze's thorns on the quarry retired)

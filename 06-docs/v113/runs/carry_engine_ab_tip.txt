@@ -1,0 +1,11 @@
+=== ENGINE A/B: 41 relics, 6 seeds x 820 pairings ===
+
+  sc-spellbreaker-fxout.html      4920 matches  566.5s
+  sc-thornwake-b26.5-fx.html      4920 matches  576.2s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 4920
+  PASS  every match identical field for field  — 4920/4920
+  PASS  the sweep is real  — 41/41 distinct winners, 4920 distinct seeds, 20.6-134.4s
+
+ENGINE A/B PASS — C:\dev\sundered-crown\02-chain\sc-thornwake-b26.5-fx.html does not move the 41-relic roster.

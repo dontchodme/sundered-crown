@@ -1,0 +1,38 @@
+point                                          block 2207  block 2317   pooled    wins/fights   side A   side B   mean dur   (link)
+SHIPPED Bramblesnare (the 1.6s root), 31.35, ch 15   46.9       48.8       47.8      708/1480      48.9     46.8     57.7s   sc-tendril-t3 (the base)
+24     (charge 14)                               42.0       42.3       42.2      624/1480      43.0     41.4     61.9s   stage 3 --set dmg=24
+24.5   (charge 14)                               44.9       43.0       43.9      650/1480      45.4     42.4     61.6s   stage 3 --set dmg=24.5
+25     (charge 14)                               45.3       45.7       45.5      673/1480      44.9     46.1     61.3s   stage 3 --set dmg=25
+25.5   (charge 14)                               50.1       44.9       47.5      703/1480      47.6     47.4     61.0s   stage 3 --set dmg=25.5
+26     (charge 14)                               50.9       46.4       48.6      720/1480      47.6     49.7     60.7s   stage 3 --set dmg=26
+26.5   (charge 14)                               51.8       50.0       50.9      753/1480      52.4     49.3     60.5s   stage 3 --set dmg=26.5
+27     (charge 14)                               53.0       51.6       52.3      774/1480      52.3     52.3     59.7s   stage 3 --set dmg=27
+27.5   (charge 14)                               53.6       52.2       52.9      783/1480      52.8     53.0     59.4s   stage 3 --set dmg=27.5
+28     (charge 14)                               55.7       55.0       55.3      819/1480      56.1     54.6     59.3s   stage 3 --set dmg=28
+29     (charge 14)                               58.5       57.3       57.9      857/1480      59.2     56.6     58.7s   stage 3 --set dmg=29
+30     (charge 14)                               61.2       60.4       60.8      900/1480      63.6     58.0     58.0s   stage 3 --set dmg=30
+31.35  (charge 14) the shipped blade             64.5       62.3       63.4      938/1480      63.8     63.0     57.3s   sc-thornwake-snare (stage 3)
+26.5   (charge 14) = THE FINAL                   51.8       50.0       50.9      753/1480      52.4     49.3     60.5s   sc-thornwake-b26.5 (stage 5)
+
+THE 50% CROSSING (Rick's ruling, charge 14): the measured point nearest 50.00% is blade 26.5: 753 of 1480 = 50.88% (one SE 1.30 points); in wins from the target: 24 -116, 24.5 -90, 25 -67, 25.5 -37, 26 -20, 26.5 +13, 27 +34, 27.5 +43, 28 +79, 29 +117, 30 +160, 31.35 +198
+  linear between the bracketing points 26 (48.6) and 26.5 (50.9): 26.30
+THE SHIPPED REFERENCE: Thornwake as shipped on the base (the freeze), 708 of 1480 = 47.84% both sides
+THE DESIGN'S OWN TARGET (the shipped rate on 151): the measured point nearest 47.84% is blade 25.5: 703 of 1480 = 47.50% (one SE 1.30 points); in wins from the target: 24 -84, 24.5 -58, 25 -35, 25.5 -5, 26 +12, 26.5 +45, 27 +66, 27.5 +75, 28 +111, 29 +149, 30 +192, 31.35 +230
+  linear between the bracketing points 25.5 (47.5) and 26 (48.6): 25.65
+PROOF block 2207: sc-thornwake-b26.5 (no --set) 51.76% mean 60.9455s  vs  stage 3 --set dmg=26.5 51.76% mean 60.9455s; foes identical 37/37; rate/sides/dur/timeouts identical 6/6 -> EXACTLY THE SAME
+PROOF block 2317: sc-thornwake-b26.5 (no --set) 50.00% mean 60.1244s  vs  stage 3 --set dmg=26.5 50.00% mean 60.1244s; foes identical 37/37; rate/sides/dur/timeouts identical 6/6 -> EXACTLY THE SAME
+
+LADDER -- Thornwake / Bramblesnare REDESIGNED, THE FINAL (sc-thornwake-b26.5: charge 14, blade 26.5 -- Rick's ruling, nearest 50%), both sides
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks, relic_rate seed0 2207 + 2317). Pooled: 50.9%
+by type  greatsword 62%  twinblade 61%  flail 50%  warhammer 50%  scythe 44%  bow 38%
+by foe   gloamwire 20.0  bloodmirror 32.5  ironhail 35.0  aureole 37.5  cindercleave 37.5  bindweed 40.0  farwarden 40.0  ironwood 40.0  shroudmaul 40.0  duskreave 42.5  paradox 42.5  censer 45.0  dawnbringer 45.0  oathwound 45.0  slagheart 45.0  vinesower 45.0  widowmaker 47.5  foregone 50.0  lastlight 50.0  marrowdraw 50.0  redflail 50.0  vesper 50.0  bulwarden 52.5  gravemourn 57.5  portcullis 57.5  ravelbone 57.5  emberedge 60.0  morningstar 60.0  twinshade 60.0  spellbreaker 60.0  grudgebearer 62.5  heartwood 62.5  thornshear 62.5  axiom 70.0  nightfell 72.5  starwarden 75.0  lightkeeper 82.5
+
+LADDER -- the redesign at the shipped blade 31.35 (sc-thornwake-snare, stage 3: charge 14), both sides
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks, relic_rate seed0 2207 + 2317). Pooled: 63.4%
+by type  greatsword 76%  twinblade 74%  flail 65%  scythe 65%  warhammer 55%  bow 46%
+by foe   ironhail 35.0  marrowdraw 40.0  gloamwire 42.5  aureole 47.5  shroudmaul 47.5  grudgebearer 50.0  ironwood 50.0  farwarden 55.0  paradox 55.0  vinesower 55.0  bulwarden 57.5  censer 57.5  cindercleave 57.5  bloodmirror 62.5  morningstar 62.5  redflail 62.5  spellbreaker 62.5  widowmaker 62.5  emberedge 65.0  lastlight 65.0  vesper 65.0  axiom 67.5  duskreave 67.5  gravemourn 67.5  portcullis 67.5  ravelbone 67.5  bindweed 70.0  foregone 70.0  slagheart 70.0  dawnbringer 72.5  twinshade 72.5  nightfell 77.5  oathwound 80.0  heartwood 82.5  thornshear 82.5  lightkeeper 85.0  starwarden 87.5
+
+LADDER -- Thornwake as SHIPPED (sc-tendril-t3: the freeze, charge 15, blade 31.35), both sides
+(40 fights a foe: 10 seeds x 2 sides x 2 blocks, relic_rate seed0 2207 + 2317). Pooled: 47.8%
+by type  greatsword 65%  warhammer 50%  twinblade 50%  flail 48%  scythe 45%  bow 28%
+by foe   gloamwire 17.5  ironhail 17.5  farwarden 25.0  twinshade 25.0  aureole 27.5  cindercleave 35.0  marrowdraw 35.0  paradox 37.5  bulwarden 40.0  gravemourn 40.0  bloodmirror 42.5  vesper 42.5  duskreave 42.5  redflail 42.5  vinesower 42.5  shroudmaul 45.0  dawnbringer 47.5  slagheart 47.5  thornshear 47.5  ironwood 47.5  lastlight 50.0  morningstar 50.0  censer 52.5  emberedge 52.5  grudgebearer 52.5  bindweed 55.0  foregone 55.0  widowmaker 55.0  oathwound 60.0  portcullis 60.0  starwarden 60.0  nightfell 62.5  spellbreaker 62.5  ravelbone 65.0  axiom 72.5  lightkeeper 75.0  heartwood 82.5

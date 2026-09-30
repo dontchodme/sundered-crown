@@ -1,0 +1,5 @@
+thornwake on sc-thornwake-snare.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2317 · set dmg=25.5 · d25.5
+  win 44.9%   side A 43.8%   side B 45.9%   mean 60.8s   timeouts 0
+  by type  greatsword 62%  twinblade 56%  warhammer 43%  flail 39%  scythe 37%  bow 32%
+  worst    bindweed 10%  aureole 15%  gloamwire 15%   (740 fights in 63s)
+rc=0

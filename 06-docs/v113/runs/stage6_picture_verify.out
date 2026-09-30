@@ -1,0 +1,77 @@
+  [final-fx drawn] thornwake v aureole 4101: draws 2076 thrown None windows 4 brambles 6 (max 2 at once) pic!=sim 0 | snares 19 held frames 1466 held!=model 0 | hexagon: 19 snares checked, drawn on a held ball 0, control drew it 19 | bites 43 tags 1 bad [] | picture frames 1984 (stop 313) close->0 [0.35, 0.375, 0.2917] death->0 [] | at kill [[0.9722222222222222, 1, False, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] gravemourn v thornwake 99015: draws 1183 thrown None windows 2 brambles 2 (max 1 at once) pic!=sim 0 | snares 6 held frames 531 held!=model 0 | hexagon: 6 snares checked, drawn on a held ball 0, control drew it 6 | bites 15 tags 1 bad [] | picture frames 1029 (stop 98) close->0 [0.325, 0.2917] death->0 [] | at kill [[0, 0, False, False]] -> gone after 0 s | w written False
+  [final-fx drawn] thornwake v grudgebearer 31337: draws 1535 thrown None windows 4 brambles 3 (max 2 at once) pic!=sim 0 | snares 10 held frames 863 held!=model 0 | hexagon: 10 snares checked, drawn on a held ball 0, control drew it 10 | bites 26 tags 1 bad [] | picture frames 1333 (stop 154) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, 0, False, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] dawnbringer v thornwake 99001: draws 1639 thrown None windows 3 brambles 5 (max 3 at once) pic!=sim 0 | snares 9 held frames 704 held!=model 0 | hexagon: 9 snares checked, drawn on a held ball 0, control drew it 9 | bites 18 tags 1 bad [] | picture frames 1516 (stop 269) close->0 [0.2917, 0.375, 0.2917] death->0 [] | at kill [[0, 2, True, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] thornwake v nightfell 5150: draws 1689 thrown None windows 3 brambles 6 (max 2 at once) pic!=sim 0 | snares 15 held frames 1236 held!=model 0 | hexagon: 15 snares checked, drawn on a held ball 0, control drew it 15 | bites 32 tags 1 bad [] | picture frames 1519 (stop 185) close->0 [0.2917, 0.375, 0.35] death->0 [] | at kill [[0, 0, True, False]] -> gone after 0 s | w written False
+  [final-fx drawn] lastlight v thornwake 4242: draws 1816 thrown None windows 3 brambles 8 (max 4 at once) pic!=sim 0 | snares 19 held frames 1589 held!=model 0 | hexagon: 19 snares checked, drawn on a held ball 0, control drew it 19 | bites 45 tags 1 bad [] | picture frames 1719 (stop 203) close->0 [0.2917, 0.2917, 0.375] death->0 [] | at kill [[0, 1, True, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] thornwake v morningstar 8888: draws 1709 thrown None windows 4 brambles 6 (max 2 at once) pic!=sim 0 | snares 18 held frames 1406 held!=model 0 | hexagon: 18 snares checked, drawn on a held ball 0, control drew it 18 | bites 41 tags 1 bad [] | picture frames 1570 (stop 275) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0.9722222222222222, 1, True, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] shroudmaul v thornwake 1234: draws 1890 thrown None windows 4 brambles 7 (max 3 at once) pic!=sim 0 | snares 11 held frames 947 held!=model 0 | hexagon: 11 snares checked, drawn on a held ball 0, control drew it 11 | bites 33 tags 1 bad [] | picture frames 1775 (stop 323) close->0 [0.2917, 0.2917, 0.3583] death->0 [] | at kill [[0.9722222222222222, 1, True, True]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] thornwake v paradox 2317: draws 1957 thrown None windows 4 brambles 5 (max 2 at once) pic!=sim 0 | snares 12 held frames 944 held!=model 0 | hexagon: 4 snares checked, drawn on a held ball 0, control drew it 4 | bites 29 tags 1 bad [] | picture frames 1740 (stop 135) close->0 [0.2917, 0.2917, 0.325, 0.45] death->0 [] | at kill [[0, 0, False, False]] -> gone after 0 s | w written False
+  [final-fx drawn] censer v thornwake 2207: draws 1114 thrown None windows 2 brambles 3 (max 3 at once) pic!=sim 0 | snares 6 held frames 502 held!=model 0 | hexagon: 6 snares checked, drawn on a held ball 0, control drew it 6 | bites 13 tags 1 bad [] | picture frames 1008 (stop 124) close->0 [0.2917, 0.2917] death->0 [] | at kill [[0, 2, False, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] thornwake v twinshade 99008: draws 1772 thrown None windows 3 brambles 8 (max 3 at once) pic!=sim 0 | snares 14 held frames 1268 held!=model 0 | hexagon: 14 snares checked, drawn on a held ball 0, control drew it 14 | bites 38 tags 3 bad [] | picture frames 1643 (stop 404) close->0 [0.3917, 0.575, 0.2917] death->0 [] | at kill [[0, 2, True, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] bindweed v thornwake 2317: draws 1459 thrown None windows 3 brambles 3 (max 1 at once) pic!=sim 0 | snares 10 held frames 739 held!=model 0 | hexagon: 10 snares checked, drawn on a held ball 0, control drew it 10 | bites 19 tags 4 bad [] | picture frames 1328 (stop 282) close->0 [0.2917, 0.2917, 0.2917] death->0 [] | at kill [[0, 1, False, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] thornwake v heartwood 2207: draws 1885 thrown None windows 4 brambles 2 (max 2 at once) pic!=sim 0 | snares 6 held frames 531 held!=model 0 | hexagon: 6 snares checked, drawn on a held ball 0, control drew it 6 | bites 15 tags 1 bad [] | picture frames 1713 (stop 308) close->0 [0.2917, 0.375, 0.3333, 0.2917] death->0 [] | at kill [[0, 1, False, False]] -> gone after 0.2917 s | w written False
+  [final-fx drawn] axiom v grudgebearer 31337: draws 461 thrown None windows 0 brambles 0 (max 0 at once) pic!=sim 0 | snares 0 held frames 0 held!=model 0 | hexagon: 0 snares checked, drawn on a held ball 0, control drew it 0 | bites 0 tags 0 bad [] | picture frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> gone after None s | w written False
+  [final-fx drawn] morningstar v lastlight 4242: draws 325 thrown None windows 0 brambles 0 (max 0 at once) pic!=sim 0 | snares 0 held frames 0 held!=model 0 | hexagon: 0 snares checked, drawn on a held ball 0, control drew it 0 | bites 0 tags 0 bad [] | picture frames 0 (stop 0) close->0 [] death->0 [] | at kill None -> gone after None s | w written False
+('thornwake', 'aureole', 4101): final          IDENTICAL  steps@kill 7820 hash@kill [2838040345, 510182959] winner Aureole t 65.1666666666646 windows 4
+('thornwake', 'aureole', 4101): final-fx       IDENTICAL  steps@kill 7820 hash@kill [2838040345, 510182959] winner Aureole t 65.1666666666646 windows 4
+('thornwake', 'aureole', 4101): final-fx drawn IDENTICAL  steps@kill 7820 hash@kill [2838040345, 510182959] winner Aureole t 65.1666666666646 windows 4
+('thornwake', 'aureole', 4101): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('gravemourn', 'thornwake', 99015): final          IDENTICAL  steps@kill 5351 hash@kill [2721731359, 2069343645] winner Gravemourn t 44.59166666666478 windows 2
+('gravemourn', 'thornwake', 99015): final-fx       IDENTICAL  steps@kill 5351 hash@kill [2721731359, 2069343645] winner Gravemourn t 44.59166666666478 windows 2
+('gravemourn', 'thornwake', 99015): final-fx drawn IDENTICAL  steps@kill 5351 hash@kill [2721731359, 2069343645] winner Gravemourn t 44.59166666666478 windows 2
+('gravemourn', 'thornwake', 99015): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('thornwake', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 7551 hash@kill [1722711983, 2711708057] winner Grudgebearer t 62.92499999999707 windows 4
+('thornwake', 'grudgebearer', 31337): final-fx       IDENTICAL  steps@kill 7551 hash@kill [1722711983, 2711708057] winner Grudgebearer t 62.92499999999707 windows 4
+('thornwake', 'grudgebearer', 31337): final-fx drawn IDENTICAL  steps@kill 7551 hash@kill [1722711983, 2711708057] winner Grudgebearer t 62.92499999999707 windows 4
+('thornwake', 'grudgebearer', 31337): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('dawnbringer', 'thornwake', 99001): final          IDENTICAL  steps@kill 7149 hash@kill [1509856600, 3155257172] winner Thornwake t 59.57499999999726 windows 3
+('dawnbringer', 'thornwake', 99001): final-fx       IDENTICAL  steps@kill 7149 hash@kill [1509856600, 3155257172] winner Thornwake t 59.57499999999726 windows 3
+('dawnbringer', 'thornwake', 99001): final-fx drawn IDENTICAL  steps@kill 7149 hash@kill [1509856600, 3155257172] winner Thornwake t 59.57499999999726 windows 3
+('dawnbringer', 'thornwake', 99001): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('thornwake', 'nightfell', 5150): final          IDENTICAL  steps@kill 7220 hash@kill [769847318, 1726296068] winner Thornwake t 60.16666666666389 windows 3
+('thornwake', 'nightfell', 5150): final-fx       IDENTICAL  steps@kill 7220 hash@kill [769847318, 1726296068] winner Thornwake t 60.16666666666389 windows 3
+('thornwake', 'nightfell', 5150): final-fx drawn IDENTICAL  steps@kill 7220 hash@kill [769847318, 1726296068] winner Thornwake t 60.16666666666389 windows 3
+('thornwake', 'nightfell', 5150): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('lastlight', 'thornwake', 4242): final          IDENTICAL  steps@kill 7121 hash@kill [1057850613, 393407997] winner Thornwake t 59.34166666666394 windows 3
+('lastlight', 'thornwake', 4242): final-fx       IDENTICAL  steps@kill 7121 hash@kill [1057850613, 393407997] winner Thornwake t 59.34166666666394 windows 3
+('lastlight', 'thornwake', 4242): final-fx drawn IDENTICAL  steps@kill 7121 hash@kill [1057850613, 393407997] winner Thornwake t 59.34166666666394 windows 3
+('lastlight', 'thornwake', 4242): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('thornwake', 'morningstar', 8888): final          IDENTICAL  steps@kill 7709 hash@kill [2112012377, 2522334233] winner Thornwake t 64.24166666666386 windows 4
+('thornwake', 'morningstar', 8888): final-fx       IDENTICAL  steps@kill 7709 hash@kill [2112012377, 2522334233] winner Thornwake t 64.24166666666386 windows 4
+('thornwake', 'morningstar', 8888): final-fx drawn IDENTICAL  steps@kill 7709 hash@kill [2112012377, 2522334233] winner Thornwake t 64.24166666666386 windows 4
+('thornwake', 'morningstar', 8888): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('shroudmaul', 'thornwake', 1234): final          IDENTICAL  steps@kill 7740 hash@kill [4253515434, 717968566] winner Thornwake t 64.4999999999974 windows 4
+('shroudmaul', 'thornwake', 1234): final-fx       IDENTICAL  steps@kill 7740 hash@kill [4253515434, 717968566] winner Thornwake t 64.4999999999974 windows 4
+('shroudmaul', 'thornwake', 1234): final-fx drawn IDENTICAL  steps@kill 7740 hash@kill [4253515434, 717968566] winner Thornwake t 64.4999999999974 windows 4
+('shroudmaul', 'thornwake', 1234): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('thornwake', 'paradox', 2317): final          IDENTICAL  steps@kill 8963 hash@kill [3083964428, 3272628228] winner Paradox t 74.69166666667218 windows 4
+('thornwake', 'paradox', 2317): final-fx       IDENTICAL  steps@kill 8963 hash@kill [3083964428, 3272628228] winner Paradox t 74.69166666667218 windows 4
+('thornwake', 'paradox', 2317): final-fx drawn IDENTICAL  steps@kill 8963 hash@kill [3083964428, 3272628228] winner Paradox t 74.69166666667218 windows 4
+('thornwake', 'paradox', 2317): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('censer', 'thornwake', 2207): final          IDENTICAL  steps@kill 5226 hash@kill [2602864399, 3458883305] winner Censer t 43.54999999999817 windows 2
+('censer', 'thornwake', 2207): final-fx       IDENTICAL  steps@kill 5226 hash@kill [2602864399, 3458883305] winner Censer t 43.54999999999817 windows 2
+('censer', 'thornwake', 2207): final-fx drawn IDENTICAL  steps@kill 5226 hash@kill [2602864399, 3458883305] winner Censer t 43.54999999999817 windows 2
+('censer', 'thornwake', 2207): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('thornwake', 'twinshade', 99008): final          IDENTICAL  steps@kill 7693 hash@kill [3204034494, 2497415508] winner Thornwake t 64.10833333333042 windows 3
+('thornwake', 'twinshade', 99008): final-fx       IDENTICAL  steps@kill 7693 hash@kill [3204034494, 2497415508] winner Thornwake t 64.10833333333042 windows 3
+('thornwake', 'twinshade', 99008): final-fx drawn IDENTICAL  steps@kill 7693 hash@kill [3204034494, 2497415508] winner Thornwake t 64.10833333333042 windows 3
+('thornwake', 'twinshade', 99008): CONTROL (must differ)  DIFFERS  tags 3 (control bit)
+('bindweed', 'thornwake', 2317): final          IDENTICAL  steps@kill 6760 hash@kill [55977001, 2966403425] winner Bindweed t 56.33333333333078 windows 3
+('bindweed', 'thornwake', 2317): final-fx       IDENTICAL  steps@kill 6760 hash@kill [55977001, 2966403425] winner Bindweed t 56.33333333333078 windows 3
+('bindweed', 'thornwake', 2317): final-fx drawn IDENTICAL  steps@kill 6760 hash@kill [55977001, 2966403425] winner Bindweed t 56.33333333333078 windows 3
+('bindweed', 'thornwake', 2317): CONTROL (must differ)  DIFFERS  tags 4 (control bit)
+('thornwake', 'heartwood', 2207): final          IDENTICAL  steps@kill 8887 hash@kill [238789303, 1940593987] winner Heartwood t 74.05833333333834 windows 4
+('thornwake', 'heartwood', 2207): final-fx       IDENTICAL  steps@kill 8887 hash@kill [238789303, 1940593987] winner Heartwood t 74.05833333333834 windows 4
+('thornwake', 'heartwood', 2207): final-fx drawn IDENTICAL  steps@kill 8887 hash@kill [238789303, 1940593987] winner Heartwood t 74.05833333333834 windows 4
+('thornwake', 'heartwood', 2207): CONTROL (must differ)  DIFFERS  tags 1 (control bit)
+('axiom', 'grudgebearer', 31337): final          IDENTICAL  steps@kill 9611 hash@kill [2666038331, 2028274283] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): final-fx       IDENTICAL  steps@kill 9611 hash@kill [2666038331, 2028274283] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): final-fx drawn IDENTICAL  steps@kill 9611 hash@kill [2666038331, 2028274283] winner Axiom t 80.09166666667647 windows 0
+('axiom', 'grudgebearer', 31337): CONTROL (must differ)  IDENTICAL  tags 0 (control bit)
+('morningstar', 'lastlight', 4242): final          IDENTICAL  steps@kill 6348 hash@kill [3812779870, 645061240] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): final-fx       IDENTICAL  steps@kill 6348 hash@kill [3812779870, 645061240] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): final-fx drawn IDENTICAL  steps@kill 6348 hash@kill [3812779870, 645061240] winner Lastlight t 52.89999999999764 windows 0
+('morningstar', 'lastlight', 4242): CONTROL (must differ)  IDENTICAL  tags 0 (control bit)
+SIM IDENTITY: PASS | DRAWN: PASS (nothing thrown, pic == sim, held == model, hexagon off / control on, tag invariants, row unwritten) | CONTROL: BIT ON EVERY THORNWAKE FIGHT WITH A TAG
+EXIT 0

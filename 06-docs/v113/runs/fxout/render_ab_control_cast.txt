@@ -1,0 +1,15 @@
+
+RENDER A/B  1 pairings x 5 frames  540x960
+  a  sc-thornwake-b26.5-fx.html
+  b  sc-thornwake-fxout.html
+  thornwake v grudgebearer seed 113075 t= 31.12  DIFFERS   luma 24.730 -> 24.635   lit 88.41% -> 88.41%
+  thornwake v grudgebearer seed 113075 t= 31.22  DIFFERS   luma 27.095 -> 26.649   lit 88.40% -> 88.40%
+  thornwake v grudgebearer seed 113075 t= 31.32  DIFFERS   luma 27.591 -> 26.773   lit 88.37% -> 88.37%
+  thornwake v grudgebearer seed 113075 t= 31.42  DIFFERS   luma 27.486 -> 26.490   lit 88.34% -> 88.34%
+  thornwake v grudgebearer seed 113075 t= 31.52  DIFFERS   luma 29.264 -> 28.015   lit 88.39% -> 88.39%
+
+FAIL  0/5 frames identical.
+      The picture moved. If that was intended, this is the
+      receipt for HOW MUCH; if it was not, the change is not
+      the no-op it was described as.
+exit 1

@@ -1,0 +1,5 @@
+thornwake on sc-tendril-t3.html · Chromium 151.0.7922.34 · 37 foes x 10 seeds x sides AB = 740 fights · seed0 2207 · shipped
+  win 46.9%   side A 48.4%   side B 45.4%   mean 57.7s   timeouts 0
+  by type  greatsword 66%  warhammer 51%  twinblade 49%  flail 46%  scythe 38%  bow 28%
+  worst    ironhail 15%  gloamwire 15%  twinshade 20%   (740 fights in 66s)
+rc=0

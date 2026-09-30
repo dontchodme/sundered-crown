@@ -1,0 +1,21 @@
+  (10 insert(s) found in thornwake_build.py's insert table(s) -- tuples, not *_NEW constants)
+relic  sc-thornwake-b26.5.html
+tip    sc-thornwake-snare.html
+10 inserts read out of thornwake_build.py
+
+    ok  S1:Bramblesnare becomes the brambles, stubbed; the freeze out of the row relic  1  mid   -  tip  1
+    ok  S2:the brambles have a charge: the lab's 16 on the game's clock relic  1  mid   -  tip  1
+    ok  S2:the fighter carries the window and the thorns relic  1  mid   -  tip  1
+    ok  S2:the match carries the brambles and their clock relic  1  mid   -  tip  1
+    ok  S2:the cast opens the window and resolves nothing relic  1  mid   -  tip  1
+    ok  S2:a blow inside the window plants a bramble where it landed relic  1  mid   -  tip  1
+    ok  S2:the brambles tick with the window tickers relic  1  mid   -  tip  1
+    ok  S2:tickBramble ages the brambles, snares on entry and bites inside; plantBramble plants relic  1  mid   -  tip  1
+    ok  S3:the snare on entry      relic  1  mid   -  tip  1
+  LOST  S5:the blade: the measured point nearest 50% both sides (Rick's ruling) relic  1  mid   -  tip  0
+        'blades:[0], reach:104, width:11, artW:46, dmg:26.5,'
+
+!! 1 INSERT(S) DID NOT SURVIVE THE CHAIN: S5:the blade: the measured point nearest 50% both sides (Rick's ruling)
+   The relic build is correct and the build of record is not. Find the
+   span that swallowed it — liquid_build's `replace_span` calls are the
+   usual cause — and move the insert outside it.

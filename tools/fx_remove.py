@@ -110,7 +110,9 @@ def main():
             continue
         (gone if op[0] == "-" else came).append(op[1:])
     stamp_old = [ln for ln in gone if old_sha[:16] in ln]
-    if ([ln for ln in gone if old_sha[:16] not in ln] != blk.rstrip("\n").split("\n")
+    # compared as MULTISETS: a diff may pair a removed line with an identical neighbour's (v113: Vinesower's
+    # last line is Thornwake's last line), which moves where it says the block went, not what went
+    if (sorted(ln for ln in gone if old_sha[:16] not in ln) != sorted(blk.rstrip("\n").split("\n"))
             or [ln.replace(old_sha, new_sha).replace(old_sha[:16], new_sha[:16])
                 for ln in stamp_old] != came):
         raise SystemExit("REFUSING TO WRITE -- the page moved somewhere other than the block and "

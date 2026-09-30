@@ -1,0 +1,11 @@
+=== ENGINE A/B: 4 relics, 6 seeds x 6 pairings ===
+
+  sc-thornwake-b26.5.html           36 matches    3.6s
+  mP2-invisible.html                36 matches    4.1s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 36
+  PASS  every match identical field for field  — 36/36
+  PASS  the sweep is real  — 4/4 distinct winners, 36 distinct seeds, 37.5-70.0s
+
+ENGINE A/B PASS — C:/Users/Ye/AppData/Local/Temp/claude/C--Users-Ye-Desktop-mtg-cmdr-deck-generator-claude-code-output/f43b1615-f237-4ba7-9f4f-144b4ddc956e/scratchpad/batch/thornwake/mut6/mP2-invisible.html does not move the 4-relic roster.

@@ -1,0 +1,65 @@
+{
+ "P": {
+  "charge": 16.0,
+  "dur": 8.0,
+  "blade": 26.5
+ },
+ "arms": {
+  "C": {
+   "census": {
+    "steps": 4756874,
+    "frozen": 512038,
+    "win": 1902443,
+    "winFrozen": 231542
+   },
+   "win": 0.503030303030303,
+   "n": 660,
+   "casts": 3.275757575757576,
+   "hitsIn": 4.9787878787878785,
+   "hitsOut": 6.581818181818182,
+   "stats": {
+    "dmg": 16.50971322849214,
+    "foeIn": 416.6688251618871,
+    "patches": 1.4435707678075855,
+    "roots": 3.084643848288622,
+    "ticks": 8.25485661424607
+   },
+   "byFoe": {
+    "dawnbringer": 0.4,
+    "widowmaker": 0.75,
+    "grudgebearer": 0.45,
+    "lastlight": 0.3,
+    "slagheart": 0.55,
+    "spellbreaker": 0.65,
+    "ironhail": 0.35,
+    "lightkeeper": 0.85,
+    "farwarden": 0.3,
+    "aureole": 0.45,
+    "censer": 0.5,
+    "emberedge": 0.65,
+    "oathwound": 0.4,
+    "heartwood": 0.85,
+    "nightfell": 0.7,
+    "axiom": 0.7,
+    "twinshade": 0.55,
+    "redflail": 0.4,
+    "foregone": 0.55,
+    "vinesower": 0.45,
+    "bulwarden": 0.5,
+    "marrowdraw": 0.4,
+    "paradox": 0.5,
+    "thornshear": 0.4,
+    "vesper": 0.45,
+    "shroudmaul": 0.35,
+    "cindercleave": 0.3,
+    "ravelbone": 0.45,
+    "gloamwire": 0.2,
+    "bloodmirror": 0.3,
+    "duskreave": 0.6,
+    "starwarden": 0.7,
+    "gravemourn": 0.65
+   }
+  }
+ },
+ "rows_note": "660 per-fight rows left out of the repo copy; the full json is in the build's scratch (batch/thornwake/runs/)"
+}
