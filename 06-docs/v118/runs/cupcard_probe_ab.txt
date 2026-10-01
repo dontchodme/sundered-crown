@@ -1,0 +1,16 @@
+Chromium 151.0.7922.34   fight angelus v lodestone seed 20260930
+  fight ends at 61s, angelus wins; panel {'x': 24, 'y': 1335.230769230769, 'w': 1032, 'h': 476.76923076923094}
+
+  after kill    mode   A=B   A=A2   B=Bcard
+        0.3s    tape   yes    yes      same
+        0.9s    tape   yes    yes      same
+       1.15s  result   yes    yes   differs
+        1.3s  result   yes    yes   differs
+        1.6s  result   yes    yes   differs
+        2.4s  result   yes    yes   differs
+        3.4s  result   yes    yes   differs
+
+  card set, _panelCup calls: 0 across 4 simulate() fights, 1 in one draw of the verdict (the card never runs in the sim; the counter counts)
+  the same 4 fights, card set vs the source build: identical
+
+PASS  card off: 7/7 verdict-beat frames identical to the source build; noise floor A=A2 7/7; card on differs on 5/5 armed frames

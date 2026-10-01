@@ -6,6 +6,7 @@
     python cup.py status
     python cup.py film     --game ../02-chain/<frozen tip>.html [--only A1] [--dry-run]
     python cup.py schedule
+    python cup.py cupjson  A3                     # the verdict card's CONFIG.cup blob (v118)
 
 One ledger, `07-shorts/cup1/ledger.json`, is the whole tournament: the draw,
 every fixture, its seed and `k`, its result, its file. Every command reads it
@@ -59,6 +60,7 @@ wins, then on draw number. The ledger says which rule decided every group.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import datetime as dt
 import hashlib
 import json
@@ -399,7 +401,7 @@ def cmd_seeds(A):
                 if f["order"] >= start and f.get("result"):
                     if f.get("file"):
                         stale.append(f["file"])
-                    for key in ("result", "side1", "side2", "seed", "k", "file", "band",
+                    for key in ("result", "side1", "side2", "seed", "k", "file", "band", "card",
                                 "delivery", "filmed", "decides_group", "film_error"):
                         f.pop(key, None)
             if stale:
@@ -522,6 +524,134 @@ def next_fixture(L, f):
     return None
 
 
+# --- the verdict card (v118, Claude Code; plan §5.3 and §6's `cupjson`). The CONFIG.cup blob
+# for one fixture, built from the ledger AS THE VIEWER OF THAT FIXTURE HAS SEEN IT: every result
+# posted after it is hidden first, so a card never counts a match that has not gone up -- the
+# band's no-spoiler rule, applied to the result side. Every string on the card is made here;
+# the renderer (cupcard_build.py's _panelCup) draws the blob and decides nothing.
+
+CARD_VERSION = 1
+
+
+@contextlib.contextmanager
+def posted_through(L, f):
+    """The ledger with every result that posts AFTER f hidden, for the length of a with."""
+    hidden = [(g, g["result"]) for g in L["fixtures"]
+              if g["order"] > f["order"] and g.get("result") is not None]
+    for g, _ in hidden:
+        g["result"] = None
+    try:
+        yield
+    finally:
+        for g, r in hidden:
+            g["result"] = r
+
+
+def post_day(L, f):
+    """The posting day of a fixture -- write_schedule's own arithmetic."""
+    return (f["order"] - 1) // L.get("per_day", 2) + 1
+
+
+def fixture_short(fid):
+    """How the card names a fixture: F3 and QF 2, as the sketch does; the final by its name."""
+    return "THE FINAL" if fid == "F" else fid.replace("-", " ")
+
+
+def card_next(L, f):
+    """'next: v VESPER · QF 2' -- the opponent named only when it is already known to the
+    viewer: drawn into that slot, or the winner of a fixture that posted before this one."""
+    n = L["roster"]
+    nxt = next_fixture(L, f)
+    if not nxt:
+        return ""
+    where = fixture_short(nxt["id"])
+    for s in (nxt["a"], nxt["b"]):
+        if not isinstance(s, dict):
+            return f"next: v {n[s]['name'].upper()} · {where}"
+        if s["from"] == f["id"]:
+            continue
+        src = fixture_by_id(L, s["from"])
+        if src and src["order"] < f["order"] and src.get("result"):
+            return f"next: v {n[src['result'][s['take']]]['name'].upper()} · {where}"
+    return f"next: {where}"
+
+
+def relics_left(L, f):
+    """Relics still in it for the crown once f has posted."""
+    if f["round"] == "play-in":
+        return len(L["roster"]) - 1
+    out = sum(1 for g in L["fixtures"] if g["round"] in ("r16", "qf", "sf", "final")
+              and g["order"] <= f["order"] and g.get("result"))
+    return len(L["groups"]) - out
+
+
+def card_blob(L, f):
+    r = f.get("result")
+    if not r:
+        sys.exit(f"! {f['id']} has no result -- `cup.py seeds` first; the card shows the result")
+    n = L["roster"]
+    blob = dict(v=CARD_VERSION, fixture=f["id"], winner=r["winner"], hp=r["hp"])
+    with posted_through(L, f):
+        if f["round"] == "group":
+            g = f["group"]
+            rows, decided = standings(L, g)
+            left = sorted((x for x in L["fixtures"] if x.get("group") == g
+                           and x["order"] > f["order"]), key=lambda x: x["order"])
+            top = n[rows[0]["id"]]["name"].upper()
+            if decided == "hp":
+                footer = f"{top} IS THROUGH ON HP REMAINING"
+            elif decided == "draw number":
+                footer = f"{top} IS THROUGH ON DRAW NUMBER"
+            elif decided or rows[0]["w"] == 2:
+                # two wins is six points, and nobody else in a group of three can reach six
+                footer = f"GROUP DECIDED · {top} IS THROUGH"
+            else:
+                gap = post_day(L, left[0]) - post_day(L, f)
+                when = {0: "LATER TODAY", 1: "TOMORROW"}.get(gap, f"ON DAY {post_day(L, left[0])}")
+                k = len(left)
+                footer = f"{k} MATCH{'' if k == 1 else 'ES'} LEFT · {left[0]['id']} {when}"
+            blob.update(kind="group", title=f"GROUP {g}", cols=["W", "L", "HP"], footer=footer,
+                        rows=[dict(id=x["id"], name=n[x["id"]]["name"], w=str(x["w"]),
+                                   l=str(x["l"]), hp=str(x["hp"]) if x["hp"] else "—",
+                                   mark=x["id"] == r["winner"]) for x in rows])
+            return blob
+        if not L.get("name"):
+            sys.exit("! the ledger has no tournament name, and a knockout card prints it -- "
+                     "`cup.py schedule --name \"...\"` first")
+        left = relics_left(L, f)
+        if f["round"] == "final":
+            verdict, nxt = "keeps the crown", f"over {n[r['loser']]['name'].upper()}"
+        elif f["round"] == "third":
+            verdict, nxt = "third place", f"over {n[r['loser']]['name'].upper()}"
+        else:
+            verdict, nxt = "through", card_next(L, f)
+        blob.update(kind="knockout", title=ROUND_LABEL[f["round"]],
+                    name=n[r["winner"]]["name"].upper(), verdict=verdict, next=nxt,
+                    footer=f"{L['name'].lower()} · {left} relic{'' if left == 1 else 's'} left")
+    return blob
+
+
+def card_line(blob):
+    """The card in one log line. cp1252-safe: the app reads cup.py through a cp1252 pipe."""
+    if blob["kind"] == "group":
+        rows = " / ".join(f"{x['name']} {x['w']}-{x['l']} {x['hp']}{' *' if x['mark'] else ''}"
+                          for x in blob["rows"])
+        return f"{blob['title']}: {rows} · {blob['footer']}"
+    return (f"{blob['title']}: {blob['name']} {blob['verdict']}"
+            + (f" · {blob['next']}" if blob["next"] else "") + f" · {blob['footer']}")
+
+
+def cmd_cupjson(A):
+    L = load(pathlib.Path(A.dir))
+    f = fixture_by_id(L, A.fixture)
+    if not f:
+        sys.exit(f"! no fixture {A.fixture!r}")
+    # ASCII on purpose: on Windows a console or a pipe encodes stdout as cp1252, so a blob
+    # redirected to a file would not be UTF-8. Escaped, it reads the same everywhere.
+    print(json.dumps(card_blob(L, f), indent=1))
+    return 0
+
+
 def file_for(L, f, d: pathlib.Path):
     n = L["roster"]
     a, b = f.get("side1"), f.get("side2")
@@ -550,6 +680,11 @@ def cmd_film(A):
         save(d, L)
     todo = [f for f in L["fixtures"] if f.get("result") and (not A.only or f["id"] == A.only)]
     total = len(todo)
+    # THE CARD PRINTS THE NAME (v118), so a run without one would bake "no name" into every
+    # knockout short -- refused here, before the first capture, not at the round of 16
+    if todo and not L.get("name"):
+        sys.exit("! the ledger has no tournament name, and the verdict card prints it -- "
+                 "`cup.py schedule --name \"...\"` first")
     for i, f in enumerate(todo, 1):
         out = file_for(L, f, d)
         rel = out.relative_to(d)
@@ -558,16 +693,22 @@ def cmd_film(A):
             print(f"[cup] {i}/{total} {f['id']} already filmed: {rel}")
             continue
         main, sub = band_lines(L, f)
+        # v118: the verdict card's blob, beside the mp4 it is filmed into
+        card = card_blob(L, f)
+        card_path = out.parent / f"{out.stem}-cup.json"
         args = [sys.executable, str(HERE / "shorts_build.py"), "--game", str(gpath),
                 "--a", f["side1"], "--b", f["side2"], "--seed", str(f["seed"]),
-                "--no-card", "--stakes", main, "--stakes-sub", sub, "--out", str(out)]
+                "--no-card", "--stakes", main, "--stakes-sub", sub,
+                "--cup-json", str(card_path), "--out", str(out)]
         print(f"[cup] {i}/{total} {f['id']} {f['side1']} v {f['side2']} seed {f['seed']} "
               f"-> {rel}")
         print(f"[cup] band: {main} / {sub}")
+        print(f"[cup] card: {card_line(card)}")
         if A.dry_run:
             print("       " + " ".join(f'"{x}"' if " " in x else x for x in args[1:]))
             continue
         out.parent.mkdir(parents=True, exist_ok=True)
+        card_path.write_text(json.dumps(card, indent=1, ensure_ascii=False), encoding="utf-8")
         # THE SAME PROCESS THE APP SPAWNS, ONE FOLDER TO ITSELF (app/main.js on
         # `_clip_frames`). Output streams through so the app sees shorts_build's
         # own [progress] lines exactly as it does for a single short.
@@ -587,6 +728,7 @@ def cmd_film(A):
                      "-- everything filmed so far is kept")
         f["file"] = str(rel)
         f["band"] = [main, sub]
+        f["card"] = card
         f["delivery"] = measured
         f.pop("film_error", None)
         f["filmed"] = dt.datetime.now().isoformat(timespec="seconds")
@@ -691,11 +833,12 @@ def main():
     p.add_argument("--only"); p.add_argument("--redo", action="store_true")
     p.add_argument("--dry-run", action="store_true"); p.add_argument("--force", action="store_true")
     sp.add_parser("status")
+    p = sp.add_parser("cupjson"); p.add_argument("fixture", help="e.g. A3, QF-2 -- the card's blob")
     p = sp.add_parser("schedule"); p.add_argument("--start", help="YYYY-MM-DD of post 1")
     p.add_argument("--per-day", type=int); p.add_argument("--name")
     A = ap.parse_args()
     return {"draw": cmd_draw, "seeds": cmd_seeds, "film": cmd_film,
-            "status": cmd_status, "schedule": cmd_schedule}[A.cmd](A)
+            "status": cmd_status, "schedule": cmd_schedule, "cupjson": cmd_cupjson}[A.cmd](A)
 
 
 if __name__ == "__main__":

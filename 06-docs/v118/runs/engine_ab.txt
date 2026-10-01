@@ -1,0 +1,13 @@
+=== ENGINE A/B: 49 relics, 6 seeds x 1176 pairings ===
+
+  sc-candidate-49.html            7056 matches  749.9s
+  sc-cupcard.html                 7056 matches  744.8s
+
+  PASS  no page errors on either build
+  PASS  same number of matches  — 7056
+  PASS  every match identical field for field  — 7056/7056
+  PASS  the sweep is real  — 49/49 distinct winners, 7056 distinct seeds, 21.3-156.0s
+
+ENGINE A/B PASS — ../02-chain/sc-cupcard.html does not move the 49-relic roster.
+
+[exited with code 0]

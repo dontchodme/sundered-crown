@@ -185,6 +185,114 @@ check(s0 != cup.fight_seed("crown-cup-1", "A1", "y", "x", 0), "and depends on th
 check(s0 != cup.fight_seed("crown-cup-1", "A1", "x", "y", 1), "and on k")
 check(0 <= s0 < 2 ** 31, "31-bit seed")
 
+# --- the verdict card (v118) ---------------------------------------------------------
+# Posting order with the play-in: PI 1, A1 2, A2 3, A3 4, B1 5, B2 6, B3 7 ... and two a day,
+# so A1 is day 1, A2 and A3 day 2, B1 and B2 day 3, B3 day 4.
+print("card")
+import json
+NAME = "Weapon Ball World Cup"
+
+
+def card(L, fid):
+    return cup.card_blob(L, cup.fixture_by_id(L, fid))
+
+
+def rows(c):
+    return [(r["id"], r["w"], r["l"], r["hp"], r["mark"]) for r in c["rows"]]
+
+
+L = ledger(); L["name"] = NAME
+play(L, "PI", "a", 30)
+p1, p2 = play(L, "A1", "a", 120)        # P1 beats P2, 120 left
+_, p3 = play(L, "A2", "b", 80)          # P2 v P3: P3 wins on 80 -> P2 is 0-2
+play(L, "A3", "a", 45)                  # P3 v P1: P3 wins on 45 -> P3 2-0 on 125
+before = json.dumps(L, sort_keys=True)
+c1 = card(L, "A1")
+check(json.dumps(L, sort_keys=True) == before, "building a card leaves the ledger as it was")
+r1 = rows(c1)
+check(c1["kind"] == "group" and c1["title"] == "GROUP A", f"A1 is a group card: {c1['title']!r}")
+check(r1[0] == (p1, "1", "0", "120", True), f"after A1 the winner tops on 1-0, 120, marked: {r1[0]}")
+check(dict((x[0], x) for x in r1)[p3][1:3] == ("0", "0"),
+      "after A1, P3 has played nothing -- A2 and A3 are in the ledger but not posted yet")
+check(all(x[3] == "—" for x in r1[1:]), "no wins, no HP: a dash")
+check(c1["footer"] == "2 MATCHES LEFT · A2 TOMORROW", f"A1 footer: {c1['footer']!r}")
+c2 = card(L, "A2")
+check(rows(c2) == [(p1, "1", "0", "120", False), (p3, "1", "0", "80", True), (p2, "0", "2", "—", False)],
+      f"after A2: P1 on 120 over P3 on 80, P2 0-2, the marker on A2's winner: {rows(c2)}")
+check(c2["footer"] == "1 MATCH LEFT · A3 LATER TODAY", f"A2 and A3 post the same day: {c2['footer']!r}")
+c3 = card(L, "A3")
+check(rows(c3)[0] == (p3, "2", "0", "125", True), f"after A3: P3 2-0 on 125, marked: {rows(c3)[0]}")
+check(c3["footer"] == f"GROUP DECIDED · {p3.upper()} IS THROUGH", f"A3 footer: {c3['footer']!r}")
+check(c3["winner"] == p3 and c3["hp"] == 45, "the blob carries the match's own result for the film to check")
+L["per_day"] = 1
+check(card(L, "A2")["footer"] == "1 MATCH LEFT · A3 TOMORROW", "one a day: the next match is always tomorrow")
+del L["per_day"]
+
+play(L, "B1", "a", 200)                 # P1 beats P2, 200
+play(L, "B2", "a", 40)                  # P2 beats P3, 40
+q3, q1 = play(L, "B3", "a", 90)         # P3 beats P1, 90 -> three-way tie, HP 200 / 90 / 40
+cb = card(L, "B3")
+check([x[3] for x in rows(cb)] == ["200", "90", "40"] and rows(cb)[1][4] and rows(cb)[1][0] == q3,
+      f"a three-way tie lists on HP, the marker on B3's winner in second: {rows(cb)}")
+check(cb["footer"] == f"{q1.upper()} IS THROUGH ON HP REMAINING", f"HP tiebreak footer: {cb['footer']!r}")
+check(card(L, "B2")["footer"] == "1 MATCH LEFT · B3 TOMORROW", "B2 (day 3) -> B3 (day 4)")
+
+d1, d2 = play(L, "C1", "b", 100)        # P2 beats P1
+play(L, "C2", "a", 100)                 # P2 beats P3 -> P2 6 points with a match to play
+cc = card(L, "C2")
+check(cc["footer"] == f"GROUP DECIDED · {d2.upper()} IS THROUGH",
+      f"two wins decides the group a match early: {cc['footer']!r}")
+play(L, "C3", "a", 15)                  # the dead rubber: P3 beats P1
+cd = card(L, "C3")
+check(rows(cd)[0][:3] == (d2, "2", "0") and not rows(cd)[0][4] and any(x[4] for x in rows(cd)[1:]),
+      f"the dead rubber: P2 still tops, the marker is on C3's winner: {rows(cd)}")
+check(cd["footer"] == f"GROUP DECIDED · {d2.upper()} IS THROUGH", f"dead rubber footer: {cd['footer']!r}")
+
+play(L, "D1", "a", 77); play(L, "D2", "a", 77); play(L, "D3", "a", 77)
+cdn = card(L, "D3")
+check(cdn["footer"].endswith("IS THROUGH ON DRAW NUMBER"), f"an HP tie: {cdn['footer']!r}")
+
+# the play-in and the knockout
+L = ledger(); L["name"] = NAME
+play(L, "PI", "b", 30)
+for g in "ABCDEFGHIJKLMNOP":
+    play(L, f"{g}1", "a", 100); play(L, f"{g}2", "b", 100); play(L, f"{g}3", "b", 100)
+for rid in [f"R16-{i}" for i in range(1, 9)] + [f"QF-{i}" for i in range(1, 5)]:
+    play(L, rid, "a", 60)
+play(L, "SF-1", "a", 60); play(L, "SF-2", "b", 60); play(L, "3P", "a", 20); play(L, "F", "b", 5)
+W = lambda fid: cup.fixture_by_id(L, fid)["result"]["winner"].upper()
+cp = card(L, "PI")
+check((cp["kind"], cp["title"], cp["verdict"]) == ("knockout", "PLAY-IN", "through"), f"PI card: {cp['title']!r}")
+check(cp["next"] == f"next: v {L['groups']['P'][1].upper()} · P2",
+      f"the play-in winner meets P's second relic in P2: {cp['next']!r}")
+check(cp["footer"] == "weapon ball world cup · 48 relics left", f"PI footer: {cp['footer']!r}")
+k1, k2, k4 = card(L, "R16-1"), card(L, "R16-2"), card(L, "R16-4")
+check(k1["title"] == "ROUND OF 16" and k1["name"] == W("R16-1"), f"R16-1: {k1['title']!r} {k1['name']!r}")
+check(k1["next"] == "next: QF 1", f"R16-1 does not name R16-2's winner, which posts later: {k1['next']!r}")
+check(k2["next"] == f"next: v {W('R16-1')} · QF 1", f"R16-2 names R16-1's, already posted: {k2['next']!r}")
+check((k1["footer"], k4["footer"]) == ("weapon ball world cup · 15 relics left",
+                                       "weapon ball world cup · 12 relics left"),
+      f"relics left count only what has posted: {k1['footer']!r} / {k4['footer']!r}")
+check(card(L, "QF-2")["next"] == f"next: v {W('QF-1')} · SF 1", "QF-2 -> SF 1 against QF-1's winner")
+s1, s2 = card(L, "SF-1"), card(L, "SF-2")
+check((s1["next"], s2["next"]) == ("next: THE FINAL", f"next: v {W('SF-1')} · THE FINAL"),
+      f"the semis point at the final: {s1['next']!r} / {s2['next']!r}")
+check(s2["footer"].endswith("· 2 relics left"), f"two left after the second semi: {s2['footer']!r}")
+c3p, cf = card(L, "3P"), card(L, "F")
+check((c3p["verdict"], c3p["footer"][-13:]) == ("third place", "2 relics left"),
+      f"third place: {c3p['verdict']!r}, {c3p['footer']!r}")
+check((cf["title"], cf["verdict"], cf["footer"]) == ("THE FINAL", "keeps the crown",
+                                                      "weapon ball world cup · 1 relic left"),
+      f"the final: {cf['verdict']!r}, {cf['footer']!r}")
+check(cf["next"] == f"over {cup.fixture_by_id(L, 'F')['result']['loser'].upper()}", f"final: {cf['next']!r}")
+del L["name"]
+try:
+    card(L, "R16-1"); refused = False
+except SystemExit:
+    refused = True
+check(refused, "a knockout card without the tournament's name is refused, not printed blank")
+check(card(L, "A1")["kind"] == "group", "a group card does not need the name")
+
 # --- shapes ----------------------------------------------------------------------
 print("shapes")
 for n, G, fx in ((25, 8, 1 + 24 + 4 + 2 + 1 + 1), (48, 16, 48 + 8 + 4 + 2 + 1 + 1), (13, 4, 1 + 12 + 2 + 1 + 1)):

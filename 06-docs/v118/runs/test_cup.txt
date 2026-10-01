@@ -1,0 +1,99 @@
+draw
+  ok   49 relics -> 16 groups of 3
+  ok   and one challenger
+  ok   group ['san_gre', 'ver_war', 'vig_bow'] has 3 schools, 3 types
+  ok   group ['run_war', 'blo_gre', 'san_sta'] has 3 schools, 3 types
+  ok   group ['ver_gre', 'blo_twi', 'umb_scy'] has 3 schools, 3 types
+  ok   group ['ver_sta', 'blo_bow', 'run_gre'] has 3 schools, 3 types
+  ok   group ['run_sta', 'dwa_war', 'umb_gre'] has 3 schools, 3 types
+  ok   group ['blo_sta', 'dwa_bow', 'run_fla'] has 3 schools, 3 types
+  ok   group ['dwa_scy', 'umb_war', 'vig_sta'] has 3 schools, 3 types
+  ok   group ['run_scy', 'dwa_twi', 'vig_fla'] has 3 schools, 3 types
+  ok   group ['san_scy', 'vig_twi', 'dwa_gre'] has 3 schools, 3 types
+  ok   group ['blo_scy', 'run_bow', 'vig_gre'] has 3 schools, 3 types
+  ok   group ['blo_fla', 'vig_scy', 'san_twi'] has 3 schools, 3 types
+  ok   group ['dwa_fla', 'san_war', 'run_twi'] has 3 schools, 3 types
+  ok   group ['ver_fla', 'umb_bow', 'dwa_sta'] has 3 schools, 3 types
+  ok   group ['san_fla', 'ver_bow', 'umb_twi'] has 3 schools, 3 types
+  ok   group ['umb_fla', 'ver_scy', 'blo_war'] has 3 schools, 3 types
+  ok   group ['vig_war', 'san_bow', 'umb_sta'] has 3 schools, 3 types
+  ok   the challenger is legal in group P
+  ok   the same seed gives the same draw
+  ok   a different seed gives a different draw
+  ok   65 fixtures (65)
+  ok   posting order starts PI, A1, A2, A3, B1
+  ok   and ends SF, third place, final
+sides
+  ok   every relic in a group is side 1 once and side 2 once
+standings
+  ok   a group is not decided after one match
+  ok   two wins takes the group on wins
+  ok   the 0-2 relic is last
+  ok   a three-way tie goes to HP remaining (200 > 90 > 40)
+  ok   all on 3 points
+  ok   an HP tie goes to the lower draw number
+play-in
+  ok   P2 cannot be sided before the play-in
+  ok   the challenger is side 1 of the play-in
+  ok   the challenger takes group P's third slot
+  ok   the relic it beat is gone
+knockout
+  ok   R16-1 is the winners of A and B
+  ok   the lower draw number is side 1
+  ok   QF-1 waits on the round of 16
+  ok   the third-place match takes the semi-final losers
+  ok   the final takes the semi-final winners
+band
+  ok   m2 after P2 won m1: 'WIN AND VER_WAR TAKES THE GROUP'
+  ok   m2 after P2 lost m1: 'LOSE AND VER_WAR IS OUT'
+  ok   m3 at 3 v 3: 'WINNER TAKES THE GROUP'
+  ok   main line is the round: 'GROUP A · MATCH 3 OF 3'
+  ok   a dead rubber says so: 'GROUP DECIDED · BLO_GRE IS THROUGH'
+  ok   R16-1 does not name R16-2's winner: 'WINNER INTO THE QUARTER-FINALS'
+  ok   R16-2 names R16-1's winner, already posted: 'WINNER MEETS SAN_GRE'
+rule
+  ok   the rule is deterministic
+  ok   and depends on the sides
+  ok   and on k
+  ok   31-bit seed
+card
+  ok   building a card leaves the ledger as it was
+  ok   A1 is a group card: 'GROUP A'
+  ok   after A1 the winner tops on 1-0, 120, marked: ('san_gre', '1', '0', '120', True)
+  ok   after A1, P3 has played nothing -- A2 and A3 are in the ledger but not posted yet
+  ok   no wins, no HP: a dash
+  ok   A1 footer: '2 MATCHES LEFT · A2 TOMORROW'
+  ok   after A2: P1 on 120 over P3 on 80, P2 0-2, the marker on A2's winner: [('san_gre', '1', '0', '120', False), ('vig_bow', '1', '0', '80', True), ('ver_war', '0', '2', '—', False)]
+  ok   A2 and A3 post the same day: '1 MATCH LEFT · A3 LATER TODAY'
+  ok   after A3: P3 2-0 on 125, marked: ('vig_bow', '2', '0', '125', True)
+  ok   A3 footer: 'GROUP DECIDED · VIG_BOW IS THROUGH'
+  ok   the blob carries the match's own result for the film to check
+  ok   one a day: the next match is always tomorrow
+  ok   a three-way tie lists on HP, the marker on B3's winner in second: [('run_war', '1', '1', '200', False), ('san_sta', '1', '1', '90', True), ('blo_gre', '1', '1', '40', False)]
+  ok   HP tiebreak footer: 'RUN_WAR IS THROUGH ON HP REMAINING'
+  ok   B2 (day 3) -> B3 (day 4)
+  ok   two wins decides the group a match early: 'GROUP DECIDED · BLO_TWI IS THROUGH'
+  ok   the dead rubber: P2 still tops, the marker is on C3's winner: [('blo_twi', '2', '0', '200', False), ('umb_scy', '1', '1', '15', True), ('ver_gre', '0', '2', '—', False)]
+  ok   dead rubber footer: 'GROUP DECIDED · BLO_TWI IS THROUGH'
+  ok   an HP tie: 'VER_STA IS THROUGH ON DRAW NUMBER'
+  ok   PI card: 'PLAY-IN'
+  ok   the play-in winner meets P's second relic in P2: 'next: v SAN_BOW · P2'
+  ok   PI footer: 'weapon ball world cup · 48 relics left'
+  ok   R16-1: 'ROUND OF 16' 'SAN_GRE'
+  ok   R16-1 does not name R16-2's winner, which posts later: 'next: QF 1'
+  ok   R16-2 names R16-1's, already posted: 'next: v SAN_GRE · QF 1'
+  ok   relics left count only what has posted: 'weapon ball world cup · 15 relics left' / 'weapon ball world cup · 12 relics left'
+  ok   QF-2 -> SF 1 against QF-1's winner
+  ok   the semis point at the final: 'next: THE FINAL' / 'next: v SAN_GRE · THE FINAL'
+  ok   two left after the second semi: 'weapon ball world cup · 2 relics left'
+  ok   third place: 'third place', 'weapon ball world cup · 2 relics left'
+  ok   the final: 'keeps the crown', 'weapon ball world cup · 1 relic left'
+  ok   final: 'over SAN_GRE'
+  ok   a knockout card without the tournament's name is refused, not printed blank
+  ok   a group card does not need the name
+shapes
+  ok   25 relics -> 8 groups, 33 fixtures (33)
+  ok   48 relics -> 16 groups, 64 fixtures (64)
+  ok   13 relics -> 4 groups, 17 fixtures (17)
+
+ALL OK

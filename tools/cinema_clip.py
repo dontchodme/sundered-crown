@@ -184,6 +184,39 @@ STAKES_JS = r"""([text, sub, inDur, outDur, y0f]) => {
   return "ok";
 }"""
 
+# THE WORLD CUP'S VERDICT CARD (v118, cupcard_build.py). `--cup-json` sets the blob
+# `cup.py cupjson` wrote onto CONFIG before the fight, the same way --no-card and --stakes
+# reach the page: a page.evaluate after the harness, nothing in the sim. A build without the
+# card would take the field and draw the recap anyway, so a film that asked for a card and
+# would not get one is refused instead.
+CUP_JS = r"""(blob) => {
+  if (!('cup' in AC.CONFIG))
+    return "this build has no World Cup verdict card (no CONFIG.cup) -- film the "
+         + "sc-cupcard link (cupcard_build.py), not the build it was made from";
+  if (!blob || (blob.kind !== 'group' && blob.kind !== 'knockout'))
+    return "not a card blob (kind " + (blob && blob.kind) + ")";
+  AC.CONFIG.cup = blob;
+  return "ok";
+}"""
+
+# WHO WON, read the two ways the card can be checked against: the headless sim before the
+# capture (cheap, and a disagreement costs nothing yet) and the filmed match after it (the
+# frames themselves). The card's result came from cup.py's `seeds`; a film whose fight
+# disagrees with it is a different runtime, and the card would print somebody else's win.
+SIM_WINNER_JS = r"""([a, b, s]) => { const r = AC.simulate(a, b, s);
+  const w = AC.WEAPONS.find(x => x.name === r.winner);
+  return { id: w ? w.id : null, hp: r.hp }; }"""
+FILM_WINNER_JS = r"""() => { const m = window.__clip.m;
+  return m && m.winner ? { id: m.winner.w.id, hp: Math.ceil(m.winner.hp) } : null; }"""
+
+
+def check_card(blob, got, when):
+    if got is None or got.get("id") != blob.get("winner") or got.get("hp") != blob.get("hp"):
+        sys.exit(f"! --cup-json: the card says {blob.get('winner')} won on {blob.get('hp')} hp, "
+                 f"the {when} says {got} -- the ledger and this runtime disagree "
+                 "(docs/RUNTIME-DRIFT.md); the card would print somebody else's result")
+
+
 HARNESS = r"""
 window.__clip = {
   m: null, events: [], curve: [], wall: 0, acc: 0, on: true,
@@ -702,6 +735,10 @@ def main() -> int:
                          "sits under the HUD and clears the fighter name in "
                          "BOTH opening shots; a low band crowds the name in "
                          "the shot on relic B.")
+    ap.add_argument("--cup-json", default=None, metavar="PATH",
+                    help="the World Cup verdict card's blob (cup.py cupjson), set on "
+                         "CONFIG.cup before the fight; the verdict beat draws it in place "
+                         "of the recap. Needs a cupcard_build.py link. v118")
     ap.add_argument("--vo", default=None,
                     help="wav to mix over the start (made by cinema_vo.py)")
     ap.add_argument("--vo-at", default="0.0",
@@ -802,6 +839,16 @@ def main() -> int:
                   + (f' / "{a.stakes_sub}"' if a.stakes_sub else "")
                   + f"  in {a.stakes_in}s, out {a.stakes_out}s on the clank")
 
+        cup_blob = None
+        if a.cup_json:
+            cup_blob = json.loads(pathlib.Path(a.cup_json).read_text(encoding="utf-8"))
+            r = page.evaluate(CUP_JS, cup_blob)
+            if r != "ok":
+                sys.exit(f"! --cup-json: {r}")
+            check_card(cup_blob, page.evaluate(SIM_WINNER_JS, [a.a, a.b, seed]), "headless sim")
+            print(f"    verdict card: {cup_blob['kind']} {cup_blob.get('title', '')!r}, "
+                  f"winner {cup_blob['winner']} on {cup_blob['hp']} hp (sim agrees)")
+
         # Where is the killing blow? Ask the prescan, then back up `lead`.
         plan = page.evaluate("([a,b,s]) => window.cinePlan(a,b,s)",
                              [a.a, a.b, seed])
@@ -891,6 +938,9 @@ def main() -> int:
                                                if a.end_at_window and a.at is not None
                                                else None),
                                        )
+        if cup_blob is not None:
+            check_card(cup_blob, page.evaluate(FILM_WINNER_JS), "filmed match")
+            print("    verdict card: the filmed match agrees with the card")
         if errors:
             print("  page errors:", errors[:4])
     if a.capture_only:

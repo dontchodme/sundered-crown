@@ -1,0 +1,10 @@
+relic  sc-cupcard.html
+tip    sc-cupcard.html
+3 inserts read out of cupcard_build.py
+
+    ok  CONFIG_NEW                 relic  1  mid   -  tip  1
+    ok  HOOK_NEW                   relic  1  mid   -  tip  1
+    ok  PANEL_NEW                  relic  1  mid   -  tip  1
+
+ALL 3 INSERTS SURVIVE to sc-cupcard.html
+(1 of them are marked by COMMENT text -- the code they add is shorter than the floor: CONFIG_NEW)

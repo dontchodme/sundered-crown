@@ -164,7 +164,7 @@ def has_scrunch(game):
 
 
 def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True,
-            verdict_hold=None, lead=None, stakes=None, stakes_sub=None):
+            verdict_hold=None, lead=None, stakes=None, stakes_sub=None, cup_json=None):
     """THE CARD AND THE SCRUNCH ARE NOT ADDITIVE -- THEY STACK, AND STACKING IS
     THE WORST OF THE THREE OPTIONS.
 
@@ -223,6 +223,9 @@ def capture(game, a, b, seed, out, fps, w, q, cold_open=None, card=True,
                *(["--stakes"] if stakes == "" else
                  (["--stakes", stakes] if stakes else [])),
                *(["--stakes-sub", stakes_sub] if stakes_sub else []),
+               # THE WORLD CUP'S VERDICT CARD (v118): cinema_clip sets the blob on
+               # CONFIG.cup and checks its result against the fight it films
+               *(["--cup-json", cup_json] if cup_json else []),
                "--fps", fps, "--w", w, "--q", q, "--out", out],
               cwd=HERE, stream_err=True).strip())
 
@@ -363,6 +366,10 @@ def main() -> int:
                     help="the gold sub-line under it")
     ap.add_argument("--no-stakes", dest="stakes", action="store_const",
                     const=None, help="no stakes band at all")
+    ap.add_argument("--cup-json", default=None, metavar="PATH",
+                    help="a World Cup fixture's verdict card (cup.py cupjson), drawn in "
+                         "place of the recap. cup.py film passes it; needs the sc-cupcard "
+                         "link. v118")
     ap.add_argument("--vo-vol", type=float, default=2.0)
     ap.add_argument("--lead", type=float, default=None,
                     help="seconds of fight to film before the finish; the "
@@ -412,12 +419,21 @@ def main() -> int:
 
     out = pathlib.Path(a.out).resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
+    # read before minutes of capture, not after: a missing or broken blob fails here
+    if a.cup_json:
+        a.cup_json = str(pathlib.Path(a.cup_json).resolve())
+        try:
+            k = json.loads(pathlib.Path(a.cup_json).read_text(encoding="utf-8")).get("kind")
+        except (OSError, ValueError) as e:
+            raise SystemExit(f"! --cup-json {a.cup_json}: {e}")
+        if k not in ("group", "knockout"):
+            raise SystemExit(f"! --cup-json {a.cup_json}: not a card blob (kind {k!r})")
 
     if not a.encode_only:
         capture(a.game, a.a, a.b, a.seed, out, a.fps, a.w, a.q,
                 cold_open=a.cold_open, card=a.card,
                 verdict_hold=a.verdict_hold, lead=a.lead,
-                stakes=a.stakes, stakes_sub=a.stakes_sub)
+                stakes=a.stakes, stakes_sub=a.stakes_sub, cup_json=a.cup_json)
     if a.capture_only:
         print("captured; finish with --encode-only")
         return 0
