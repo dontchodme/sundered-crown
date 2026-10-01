@@ -65,3 +65,12 @@ failed fixture's mp4 aside (`*.FAILED.mp4`) so a resume films it again instead o
    **-15.3 LUFS, -0.7 dBTP, every mark passes.** A1 had already started on the old code; A2 onward have the rung.
    PI's ledger entry (file, band, card, announce, delivery) is filled in when the run is idle -- the driver's
    `cup.py film` holds the ledger in memory while a fixture films.
+2. **C1 missed both ways at once, which the first fix did not cover.** C1 (Bloodwick v Gloamwire, seed 1671739477,
+   two clanks, a very spiky fight) measured -16.3 LUFS AND +0.1 dBTP at the first rung, then -17.0 / -2.3 and
+   -17.6 / -4.2 down the ceilings. The louder rung needed peak to spare, so it never ran. The ladder is now
+   two-dimensional (`LOUDER = (-13, -12, -11)`): at each ceiling I=-14 first -- exactly the old rung -- and while the
+   mix is too quiet with its peak in the band, the same ceiling again louder; a peak over the band moves to the next
+   ceiling, as before. A clip that passed on the old ladder passes on the same rung (a lower ceiling never made a
+   quiet mix louder), which a simulated walk confirms for the five shapes: passes first rung (1 try, unchanged),
+   peaky only (0.63, unchanged), PI's shape, C1's shape, and a hopeless one (fails as before). C1 re-mixed from its
+   retained capture: 0.63 / I=-12, **-15.8 LUFS, -1.9 dBTP, every mark passes.** Films started after 22:33 use it.

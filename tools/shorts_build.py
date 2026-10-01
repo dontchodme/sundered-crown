@@ -103,7 +103,18 @@ CEILINGS = [(0.79, -2.0), (0.63, -3.0), (0.50, -4.0)]
 # down the ladder, and failed. So when the first rung lands BELOW the band with
 # true peak to spare, the mix is rebuilt from the same on.wav at a higher
 # loudnorm target, same ceiling, same TP: the louder rungs.
-QUIET_RUNGS = [(0.79, -2.0, -13), (0.79, -2.0, -12)]
+#
+# AND A MIX CAN MISS BOTH WAYS AT ONCE. C1 of the same Cup (bloodwick v
+# gloamwire, seed 1671739477: two clanks, a very spiky fight) measured -16.3
+# LUFS AND +0.1 dBTP at the first rung -- too quiet and too peaky together --
+# then -17.0 / -2.3 and -17.6 / -4.2: each lower ceiling fixed the peak and lost
+# more loudness. So the ladder is two-dimensional: at each ceiling, I=-14 first
+# (exactly the old rung), and while the mix is too quiet with the peak inside
+# the band, the same ceiling again at a louder target. A peak over the band
+# moves to the next ceiling, as it always did. A clip that passed on the old
+# ladder passes on the same rung here -- a lower ceiling never made a quiet mix
+# louder, so the louder targets only run where the old ladder was bound to fail.
+LOUDER = (-13, -12, -11)
 
 # The pass marks a rung of the ladder can move. Everything else in measure()
 # is a property of the capture or the encode, and a rung re-mixing to chase
@@ -256,7 +267,7 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
          "-shortest", raw])
 
     m = None
-    rungs = [(limit, tp, -14) for limit, tp in CEILINGS]
+    rungs = [(limit, tp, target) for limit, tp in CEILINGS for target in (-14,) + LOUDER]
     i = -1
     while i + 1 < len(rungs):
         i += 1
@@ -298,18 +309,21 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
                 f"{list(m['pass'])}")
         if all(ok for k, ok in m["pass"].items() if k in LADDER_MARKS):
             if target != -14:
-                print(f"         too quiet at I=-14; I={target} lands it at {m['lufs']} LUFS.")
-            elif i:
+                print(f"         too quiet at I=-14; at the {limit} ceiling I={target} "
+                      f"lands it at {m['lufs']} LUFS / {m['dbtp']} dBTP.")
+            elif limit != CEILINGS[0][0]:
                 print(f"         §8's 0.79 measured {m['dbtp']} dBTP on this "
                       f"content; {limit} holds it.")
             break
         print(f"         {m['lufs']} LUFS / {m['dbtp']} dBTP — "
               f"{[k for k, ok in m['pass'].items() if not ok]}")
-        # TOO QUIET, WITH PEAK TO SPARE: the next ceiling rung would only be
-        # quieter, so the louder rungs go next instead (QUIET_RUNGS, once).
-        if (i == 0 and m["lufs"] is not None and m["lufs"] < -16.0
-                and m["dbtp"] is not None and m["dbtp"] <= -1.0):
-            rungs = rungs[:1] + QUIET_RUNGS + rungs[1:]
+        # LOUDER AT THIS CEILING ONLY WHILE IT IS TOO QUIET AND THE PEAK IS IN
+        # THE BAND: a louder target cannot fix a peak, and a mix that is not too
+        # quiet has nothing to gain. Otherwise on to the next ceiling at I=-14.
+        quiet = m["lufs"] is not None and m["lufs"] < -16.0
+        if not (quiet and m["pass"][LADDER_MARKS[1]]):
+            while i + 1 < len(rungs) and rungs[i + 1][0] == limit:
+                i += 1
 
     # The capture is kept until the delivery MEASURES clean. Deleting it on the
     # first attempt is what turns a 20-second re-mix into a 4-minute re-capture,
