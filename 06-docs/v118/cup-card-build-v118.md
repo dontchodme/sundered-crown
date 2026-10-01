@@ -148,11 +148,9 @@ and day words, no spoken stakes); Rick's answers above replaced all three of tho
 
 ## Open decisions (Rick's)
 
-1. **The band's "WINNER MEETS <NAME>".** On a knockout match whose opponent-to-be has already posted, the stakes band
-   (`band_lines`, Cowork's draft, ruled "as written") names that next opponent — and the announcer now reads the
-   band aloud ("Quarter-final two. Winner meets Emberedge."). Rick's "lets not talk about upcoming matches" was said
-   of the card; if it covers the band and the voice too, it is one line in `band_lines`: always
-   `WINNER INTO THE SEMI-FINALS` (etc.). Not changed without his word.
+1. ~~**The band's "WINNER MEETS <NAME>".**~~ **Settled, 2026-09-30: kept.** Rick: *"leave the names in for the
+   announcer stakes."* The band and the announcer both say "Winner meets Emberedge" where it applies; "no upcoming
+   matches" is the card's rule, not the band's.
 2. **The announcer's placement**, after "Who wins?" — Code's pick on the reasoning above; the sample short is
    Rick's to overrule.
 
@@ -193,7 +191,7 @@ and day words, no spoken stakes); Rick's answers above replaced all three of tho
 3. **Rick's draw seed**, then `cup.py draw --game ../02-chain/sc-cupcard.html --seed <his> --cup weapon-ball-world-cup`
    (from the terminal — found item 2) and `cup.py schedule --name "Weapon Ball World Cup"`. Publish the empty
    bracket (plan §7 step 5).
-4. **Settle open decision 1 above** (the band's WINNER MEETS), then `cup.py seeds`, then `cup.py film` (or the panel's
+4. `cup.py seeds`, then `cup.py film` (or the panel's
    Seed all / Film all): 65 shorts, about 3-4 hours of machine time, resumable. Mind v115's "found" item 1: resume
    can pass over a failed short.
 5. **Spot-check** the play-in, one group's three, and a semi (plan §7 step 7). Then Rick queues the posts.
