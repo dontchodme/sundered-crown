@@ -67,6 +67,7 @@ import json
 import pathlib
 import platform
 import random
+import re
 import subprocess
 import sys
 
@@ -402,7 +403,7 @@ def cmd_seeds(A):
                     if f.get("file"):
                         stale.append(f["file"])
                     for key in ("result", "side1", "side2", "seed", "k", "file", "band", "card",
-                                "delivery", "filmed", "decides_group", "film_error"):
+                                "announce", "delivery", "filmed", "decides_group", "film_error"):
                         f.pop(key, None)
             if stale:
                 print(f"  !! {len(stale)} filmed files are now STALE and should be deleted "
@@ -529,8 +530,18 @@ def next_fixture(L, f):
 # posted after it is hidden first, so a card never counts a match that has not gone up -- the
 # band's no-spoiler rule, applied to the result side. Every string on the card is made here;
 # the renderer (cupcard_build.py's _panelCup) draws the blob and decides nothing.
+#
+# THE CARD SAYS WHAT HAPPENED, NEVER WHAT IS NEXT. Rick, 2026-09-30, on the first cut (which had
+# "next: v VESPER · QF 2" and "1 MATCH LEFT · A3 TOMORROW"): "lets not talk about upcoming
+# matches and promise upload times". So no next opponent, no next fixture, no day word -- and
+# nothing on the card depends on the posting schedule, so changing it later costs no re-film.
 
-CARD_VERSION = 1
+CARD_VERSION = 2
+
+# Seconds the verdict beat holds once the card arms (cinema_clip --verdict-hold; the audio tail
+# follows it). Every short before the Cup held 2.4 -- about 2 s with the card fully up. Rick,
+# 2026-09-30: "hold it a little longer".
+CARD_HOLD = 3.5
 
 
 @contextlib.contextmanager
@@ -545,35 +556,6 @@ def posted_through(L, f):
     finally:
         for g, r in hidden:
             g["result"] = r
-
-
-def post_day(L, f):
-    """The posting day of a fixture -- write_schedule's own arithmetic."""
-    return (f["order"] - 1) // L.get("per_day", 2) + 1
-
-
-def fixture_short(fid):
-    """How the card names a fixture: F3 and QF 2, as the sketch does; the final by its name."""
-    return "THE FINAL" if fid == "F" else fid.replace("-", " ")
-
-
-def card_next(L, f):
-    """'next: v VESPER · QF 2' -- the opponent named only when it is already known to the
-    viewer: drawn into that slot, or the winner of a fixture that posted before this one."""
-    n = L["roster"]
-    nxt = next_fixture(L, f)
-    if not nxt:
-        return ""
-    where = fixture_short(nxt["id"])
-    for s in (nxt["a"], nxt["b"]):
-        if not isinstance(s, dict):
-            return f"next: v {n[s]['name'].upper()} · {where}"
-        if s["from"] == f["id"]:
-            continue
-        src = fixture_by_id(L, s["from"])
-        if src and src["order"] < f["order"] and src.get("result"):
-            return f"next: v {n[src['result'][s['take']]]['name'].upper()} · {where}"
-    return f"next: {where}"
 
 
 def relics_left(L, f):
@@ -595,8 +577,6 @@ def card_blob(L, f):
         if f["round"] == "group":
             g = f["group"]
             rows, decided = standings(L, g)
-            left = sorted((x for x in L["fixtures"] if x.get("group") == g
-                           and x["order"] > f["order"]), key=lambda x: x["order"])
             top = n[rows[0]["id"]]["name"].upper()
             if decided == "hp":
                 footer = f"{top} IS THROUGH ON HP REMAINING"
@@ -606,10 +586,7 @@ def card_blob(L, f):
                 # two wins is six points, and nobody else in a group of three can reach six
                 footer = f"GROUP DECIDED · {top} IS THROUGH"
             else:
-                gap = post_day(L, left[0]) - post_day(L, f)
-                when = {0: "LATER TODAY", 1: "TOMORROW"}.get(gap, f"ON DAY {post_day(L, left[0])}")
-                k = len(left)
-                footer = f"{k} MATCH{'' if k == 1 else 'ES'} LEFT · {left[0]['id']} {when}"
+                footer = ""          # an open group: the table says it all
             blob.update(kind="group", title=f"GROUP {g}", cols=["W", "L", "HP"], footer=footer,
                         rows=[dict(id=x["id"], name=n[x["id"]]["name"], w=str(x["w"]),
                                    l=str(x["l"]), hp=str(x["hp"]) if x["hp"] else "—",
@@ -620,15 +597,53 @@ def card_blob(L, f):
                      "`cup.py schedule --name \"...\"` first")
         left = relics_left(L, f)
         if f["round"] == "final":
-            verdict, nxt = "keeps the crown", f"over {n[r['loser']]['name'].upper()}"
+            verdict, under = "keeps the crown", f"over {n[r['loser']]['name'].upper()}"
         elif f["round"] == "third":
-            verdict, nxt = "third place", f"over {n[r['loser']]['name'].upper()}"
+            verdict, under = "third place", f"over {n[r['loser']]['name'].upper()}"
         else:
-            verdict, nxt = "through", card_next(L, f)
+            verdict, under = "through", f"{left} relic{'' if left == 1 else 's'} left"
         blob.update(kind="knockout", title=ROUND_LABEL[f["round"]],
-                    name=n[r["winner"]]["name"].upper(), verdict=verdict, next=nxt,
-                    footer=f"{L['name'].lower()} · {left} relic{'' if left == 1 else 's'} left")
+                    name=n[r["winner"]]["name"].upper(), verdict=verdict, next=under,
+                    footer=L["name"].lower())
     return blob
+
+
+# --- the announcer says the stakes (v118). Rick, 2026-09-30: "i would like the announcer to say
+# the stakes of each match out loud". The words are the stakes band's own -- band_lines, the one
+# source -- read as sentences: the round from the fixture, the band's sub-line in sentence case
+# with every relic by its display name (an upper-case name is the one thing that could be
+# spelled out, and the compound names need cinema_vo's SPOKEN splitting, which is keyed on
+# them). Spoken after the hook, so the names still land on their own ignitions.
+
+NUMBER_WORD = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight"}
+ANNOUNCE_GAP = 0.3       # the beat between the round and the stakes
+
+
+def spoken_round(f):
+    r = f["round"]
+    if r == "group":
+        return f"Group {f['group']}, match {NUMBER_WORD[f['match']]} of three."
+    if r in ("play-in", "third", "final"):
+        return {"play-in": "The play-in.", "third": "Third place.", "final": "The final."}[r]
+    k = NUMBER_WORD[int(f["id"].rsplit("-", 1)[1])]
+    return {"r16": f"Round of sixteen, match {k}.", "qf": f"Quarter-final {k}.",
+            "sf": f"Semi-final {k}."}[r]
+
+
+def spoken_line(L, text):
+    """A band line as a sentence: 'LOSE AND VESPER IS OUT' -> 'Lose and Vesper is out.'"""
+    t = text.replace(" · ", ". ").lower().strip()
+    for rid in sorted(L["roster"], key=lambda i: -len(L["roster"][i]["name"])):
+        nm = L["roster"][rid]["name"]
+        t = re.sub(rf"\b{re.escape(nm.lower())}\b", nm, t)
+    t = re.sub(r"(^|[.!?] )([a-z])", lambda m: m.group(1) + m.group(2).upper(), t)
+    return t if t.endswith((".", "!", "?")) else t + "."
+
+
+def announce_script(L, f):
+    """The stakes as cinema_vo script: '<round> |0.3 <stakes>'."""
+    _, sub = band_lines(L, f)
+    return f"{spoken_round(f)} |{ANNOUNCE_GAP} {spoken_line(L, sub)}"
 
 
 def card_line(blob):
@@ -696,14 +711,18 @@ def cmd_film(A):
         # v118: the verdict card's blob, beside the mp4 it is filmed into
         card = card_blob(L, f)
         card_path = out.parent / f"{out.stem}-cup.json"
+        # ... and the announcer says the band's stakes after the hook; the card holds longer
+        announce = announce_script(L, f)
         args = [sys.executable, str(HERE / "shorts_build.py"), "--game", str(gpath),
                 "--a", f["side1"], "--b", f["side2"], "--seed", str(f["seed"]),
                 "--no-card", "--stakes", main, "--stakes-sub", sub,
-                "--cup-json", str(card_path), "--out", str(out)]
+                "--cup-json", str(card_path), "--verdict-hold", str(CARD_HOLD),
+                "--announce", announce, "--out", str(out)]
         print(f"[cup] {i}/{total} {f['id']} {f['side1']} v {f['side2']} seed {f['seed']} "
               f"-> {rel}")
         print(f"[cup] band: {main} / {sub}")
         print(f"[cup] card: {card_line(card)}")
+        print(f"[cup] announce: {announce}")
         if A.dry_run:
             print("       " + " ".join(f'"{x}"' if " " in x else x for x in args[1:]))
             continue
@@ -729,6 +748,7 @@ def cmd_film(A):
         f["file"] = str(rel)
         f["band"] = [main, sub]
         f["card"] = card
+        f["announce"] = announce
         f["delivery"] = measured
         f.pop("film_error", None)
         f["filmed"] = dt.datetime.now().isoformat(timespec="seconds")

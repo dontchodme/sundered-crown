@@ -370,6 +370,10 @@ def main() -> int:
                     help="a World Cup fixture's verdict card (cup.py cupjson), drawn in "
                          "place of the recap. cup.py film passes it; needs the sc-cupcard "
                          "link. v118")
+    ap.add_argument("--announce", default=None, metavar="SCRIPT",
+                    help="more for the announcer to say after the generated hook "
+                         "(cinema_vo --then; `|0.3` is a pause). cup.py film puts "
+                         "each match's stakes here. v118")
     ap.add_argument("--vo-vol", type=float, default=2.0)
     ap.add_argument("--lead", type=float, default=None,
                     help="seconds of fight to film before the finish; the "
@@ -419,6 +423,9 @@ def main() -> int:
 
     out = pathlib.Path(a.out).resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
+    if a.announce and a.vo:
+        raise SystemExit("! --announce is spoken after the GENERATED hook; with --vo, "
+                         "put it in your own line")
     # read before minutes of capture, not after: a missing or broken blob fails here
     if a.cup_json:
         a.cup_json = str(pathlib.Path(a.cup_json).resolve())
@@ -451,9 +458,12 @@ def main() -> int:
         # in this file and the app's preview needed the same line; one of the
         # two would have drifted, and the failure mode is a preview that sounds
         # like something the short does not contain.
-        print(f"[vo]  {a.voice}  \"{' '.join(cinema_vo.hook_parts(na, nb))}\"")
+        print(f"[vo]  {a.voice}  \"{' '.join(cinema_vo.hook_parts(na, nb))}\""
+              + (f"  then \"{a.announce}\"" if a.announce else ""))
         print(run([sys.executable, HERE / 'cinema_vo.py', '--a', na, '--b', nb,
                    '--voice', a.voice, '--hook',
+                   # v118: the World Cup's stakes, spoken after the hook
+                   *(['--then', a.announce] if a.announce else []),
                    '--gaps', f'{a.gap},{a.name_gap}', '--out', vo],
                   cwd=HERE).strip())
     m = encode(out, a.fps, a.crf, pathlib.Path(vo).resolve(), keep=a.keep,

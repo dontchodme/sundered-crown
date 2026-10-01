@@ -10,6 +10,38 @@ orchestrator's, needs Electron and so waits until Rick is off the PC).
 
 ![the card's variants, from a scratch 25-relic draw](../../05-reference/v118/cupcard-variants-v118.jpg)
 
+## Rick's answers on the first cut (2026-09-30, evening) — applied
+
+| asked | Rick | done |
+|---|---|---|
+| the hold (2.4 s after the card arms) | "hold it a little longer" | **3.5 s** (`cup.py` `CARD_HOLD`, passed as `--verdict-hold`; the audio tail follows it) — about 3 s with the card fully up instead of 2 |
+| "LATER TODAY" for a same-day match | "lets not talk about upcoming matches and promise upload times" | **the card says what happened, never what is next**: no `next: v X · QF 2`, no `2 MATCHES LEFT · A2 TOMORROW`. An open group's card is the table alone; a knockout card's line under the winner is `N relics left` (the sketch's footer number, moved up), the footer the tournament's name. Nothing on the card depends on the posting schedule any more |
+| (same answer) | "but i would like the announcer to say the stakes of each match out loud" | **built**: after "Who wins?" the announcer says the round and the band's stakes — *"Group A, match two of three. Lose and Censer is out."* (below) |
+| plan §9.7 must be settled before filming | "dont understand this question" | **moot now**: it only mattered because the card printed a day word |
+
+The card's link did not change: `_panelCup` already skips an empty line, so the new wording is all cup.py's.
+
+### The announcer says the stakes
+
+`cup.py film` passes `--announce "<round> |0.3 <stakes>"` to shorts_build, which hands it to `cinema_vo --hook --then`.
+The words are the stakes band's own (`band_lines`, the one source), read as sentences: the round from the fixture
+(*"Group A, match two of three."*, *"Round of sixteen, match three."*, *"Quarter-final two."*, *"The final."*), then the
+band's sub-line in sentence case with every relic by its display name — an upper-case name could be spelled out
+letter by letter, and the compound names need cinema_vo's `SPOKEN` splitting, which is keyed on them. Kokoro was
+checked on every shape of line: "Group A" is the letter, numbers are words.
+
+**Placement: after the hook** (`THEN_GAP` 0.45 s after "Who wins?"). Spoken first, the stakes would push both names off
+their own ignitions, which is the timing Rick chose (arm C, 2026-08-29). Measured on A2 (Censer v Twinshade):
+
+```
+0.10 s  "Censer, or"   1.43 s  "Twinshade."   2.43 s  "Who wins?"
+3.68 s  "Group A, match two of three."        5.72 s  "Lose and Censer is out."      ends 7.53 s
+```
+
+**Filmed through `cup.py film --only A2`** on the scratch draw (second cut: all of the above): 86.2 s, 1080x1920
+h264+aac, -15.7 LUFS, -0.7 dBTP, every mark passes; the card agreed with the sim and the filmed match; the card is
+up for the last ~3.5 s with the open group's table alone. **Nobody has listened to it by ear yet** — it went to Rick.
+
 ## What was built
 
 | file | what |
@@ -17,8 +49,9 @@ orchestrator's, needs Electron and so waits until Rick is off the PC).
 | `tools/cupcard_build.py` (new) | the builder. Three inserts: `cup: null` in CONFIG; drawScrunchPanel's verdict branch draws `_panelCup` when `CONFIG.cup` is set; `Renderer._panelCup`. Refuses: an anchor not exactly once, a source with CR bytes or that already has the card, any line moved besides the one verdict-branch line, an added line that draws the rng / adds a Math.random / **writes a field of the match, a fighter or AC** (a chain of fields, so `m.a.hp = 1` is caught), a page that does not parse, an existing link. |
 | `02-chain/sc-cupcard.html` (new) | the link: +6,663 chars on `sc-candidate-49` (1 line replaced, 127 added). |
 | `tools/cup.py` | the feed: `cupjson <fixture>` and `film` passing `--cup-json`. Listed for Cowork below. |
-| `tools/test_cup.py` | 34 new checks (`card`), 88/88 with the old 54. |
-| `tools/shorts_build.py` | `--cup-json PATH`, passed through to cinema_clip; the file is read and checked before the capture starts. |
+| `tools/test_cup.py` | 40 new checks (`card`, `announce`), 94/94 with the old 54. |
+| `tools/shorts_build.py` | `--cup-json PATH`, passed through to cinema_clip; the file is read and checked before the capture starts. `--announce SCRIPT`, spoken after the generated hook (refused with `--vo`). |
+| `tools/cinema_vo.py` | `--then SCRIPT` with `--hook`: more of the line, `THEN_GAP` after "Who wins?". |
 | `tools/cinema_clip.py` | `--cup-json PATH`: sets the blob on `AC.CONFIG.cup` after the harness, the way `--no-card` and `--stakes` reach the page. Refuses a build without `CONFIG.cup`. **Checks the card's result against the fight twice**: the headless sim before the capture, the filmed match after it (winner id and `ceil(hp)`); a disagreement exits non-zero, because the card would print somebody else's win. |
 | `tools/cupcard_probe.py` (new) | `--ab`: the verdict-beat identity gate and its controls. `--sheet`: the held verdict frame with each blob, for reading. |
 | `05-reference/v118/cupcard-variants-v118.jpg` | the contact sheet above. |
@@ -48,48 +81,46 @@ copy reuses the sketch's or the band's words. **Each is one line in `cup.py` (`c
    on a relic that is not top of the table (C3 in the sheet).
 2. **HP** is the plan's tiebreak number, HP remaining summed over the relic's wins; **`—`** for a relic with none.
 3. **The group footer**, by state after the fixture:
-   - group open: `2 MATCHES LEFT · A2 TOMORROW` / `1 MATCH LEFT · A3 LATER TODAY`. The day word is the schedule's
-     own arithmetic (`per_day`, default 2, as `write_schedule` computes days). At two a day a group's next match is
-     the next post, so it is TOMORROW or LATER TODAY; "LATER TODAY" is the one word not in the sketch.
+   - group open: **none** (Rick: no upcoming matches, no upload times — the first cut's
+     `2 MATCHES LEFT · A2 TOMORROW` is gone).
    - won on wins (incl. after match 2, when two wins already decide it): `GROUP DECIDED · EMBEREDGE IS THROUGH`
    - three-way tie: `IRONHAIL IS THROUGH ON HP REMAINING` (plan §8's "through on HP remaining"), or
      `... IS THROUGH ON DRAW NUMBER`.
 4. **The knockout card**: the round as cup.py names it (`ROUND OF 16`, `QUARTER-FINAL`, `SEMI-FINAL` — no match
-   number in the title); `<NAME> ✓ through`; `next: v <FOE> · QF 2` when the foe is already known to the viewer
-   (drawn there, or the winner of a fixture that posted earlier — the band's rule), else `next: QF 2`; the final is
-   `next: v <FOE> · THE FINAL`. Footer `weapon ball world cup · 12 relics left`, lower case as the sketch writes it;
-   "relics left" counts the relics still in it for the crown once this fixture has posted.
-5. **The play-in** uses the knockout card: `PLAY-IN`, `<NAME> ✓ through`, `next: v <P2's relic> · P2` (group P's
-   second match is the winner's first), `· 48 relics left`.
+   number in the title); `<NAME> ✓ through`; under it `12 relics left` — the relics still in it for the crown once
+   this fixture has posted (the sketch's footer number, moved up into the line the first cut's `next:` held); the
+   footer is the tournament's name, lower case as the sketch writes it.
+5. **The play-in** uses the knockout card: `PLAY-IN`, `<NAME> ✓ through`, `48 relics left`.
 6. **"Or the final's result"**: the final is `<NAME> ✓ keeps the crown` (the band's ONLY ONE KEEPS THE CROWN) and
    `over <LOSER>` (the recap's own word); the third-place match is `<NAME> ✓ third place`, `over <LOSER>`.
 7. **Layout**: the group card left-aligned as the sketch is; the knockout card centred, as the recap it replaces is.
    The winning name in its school colour (the recap's convention), the knockout name with the recap's glow. The
    marker and the tick are drawn paths — U+25B6 has an emoji presentation, and a fallback font could put a blue
    button in the table. Every line shrinks to fit its column, never grows.
-8. **The hold** is unchanged: cup.py does not pass `--verdict-hold`, so the card holds cinema_clip's 2.4 s after it
-   arms (≈2 s fully in). The plan says "long enough to read three rows". See open decision 1.
+8. **The hold** is 3.5 s after the card arms (Rick: "a little longer" than every short's 2.4 s).
 
 ## cup.py's changes, for Cowork
 
 Everything existing behaves as before (the old 54 checks pass unchanged). Added or changed:
 
-- `import contextlib`; a new block before `file_for`: `CARD_VERSION`, `posted_through(L, f)` (a context that
-  hides every result posted after `f` and puts them back), `post_day`, `fixture_short`, `card_next`,
-  `relics_left`, `card_blob(L, f)`, `card_line(blob)` (cp1252-safe log line), `cmd_cupjson`.
+- `import contextlib`, `import re`; a new block before `file_for`: `CARD_VERSION` (2), `CARD_HOLD` (3.5),
+  `posted_through(L, f)` (a context that hides every result posted after `f` and puts them back), `relics_left`,
+  `card_blob(L, f)`; then the announcer's: `NUMBER_WORD`, `ANNOUNCE_GAP`, `spoken_round(f)`, `spoken_line(L, text)`,
+  `announce_script(L, f)`; then `card_line(blob)` (cp1252-safe log line) and `cmd_cupjson`.
 - `cupjson <fixture>` subcommand; prints the blob as ASCII-escaped JSON (a Windows pipe is cp1252).
 - `film`: refuses up front when the ledger has no `name` (the knockout card prints it — better at the start than at
-  the round of 16); per fixture writes `<stem>-cup.json` beside the mp4, passes `--cup-json`, prints
-  `[cup] card: …` (the app's `cuplines.parseLine` returns null for it, so it goes to the log), and keeps the blob
-  in the ledger as `f["card"]`.
-- `seeds --redo` clears `card` with the other per-fixture keys.
+  the round of 16); per fixture writes `<stem>-cup.json` beside the mp4 and passes `--cup-json`,
+  `--verdict-hold 3.5` and `--announce "<round> |0.3 <stakes>"`; prints `[cup] card: …` and `[cup] announce: …`
+  (the app's `cuplines.parseLine` returns null for both, so they go to the log); keeps `f["card"]` and
+  `f["announce"]` in the ledger.
+- `seeds --redo` clears `card` and `announce` with the other per-fixture keys.
 
 ## Gates
 
 | gate | result | control (must come back wrong) |
 |---|---|---|
 | builder refusals (mutant inserts) | refused all seven: `m.a.hp = 1`, `m.winner = m.loser`, `m.resultT += 1`, `m.fx[0].x = 0`, `AC.CONFIG.combat.baseHP = 1` (writes a sim field), `this.m.rng()`, `Math.random()` | a read-only `m.a.hp === 1` is written (the guard reads writes, not names). **The first version of the guard missed `m.a.hp = 1`** (one dot only); this control found it and it was fixed before anything was committed — the link's bytes are the same either way (`3863ef311c02a1f8` rebuilt) |
-| `test_cup.py` | **88/88 OK** (54 old + 34 card) | `posted_through` made a no-op (the card sees later results): **8 FAIL** |
+| `test_cup.py` | **94/94 OK** (54 old + 40 card and announce; first cut 88/88) | `posted_through` made a no-op (the card sees later results): **6 FAIL**; the first cut's `next: QF 1` put back on knockout cards: **4 FAIL** |
 | `chain_audit.py --relic sc-cupcard --tip sc-cupcard --builder cupcard_build.py` | **3/3 inserts survive** | `--tip sc-candidate-49`: **3 LOST** |
 | `cupcard_probe.py --ab` (verdict beat, angelus v lodestone 20260930, 1080x1920, 7 frames 0.3-3.4 s after the kill) | **7/7 identical** card off vs the source | noise floor A vs A **7/7**; card set: same before it arms (2/2), **differs 5/5** after |
 | card code in the sim | `_panelCup` called **0** times across 4 `simulate()` fights with the card set; the 4 fights identical to the source build's | the same counter: **1** call in one draw of the verdict |
@@ -101,7 +132,8 @@ Everything existing behaves as before (the old 54 checks pass unchanged). Added 
 
 ![the last frame of A1, A3 and QF-1, filmed](../../05-reference/v118/cupcard-films-v118.jpg)
 
-A1's card is the no-spoiler rule working in a real film: the ledger already held A2's and A3's results when A1 was filmed, and the card counts A1 alone (Twinshade 0-0). The card is fully up for about the last 2 s of each short (open decision 1).
+A1's card is the no-spoiler rule working in a real film: the ledger already held A2's and A3's results when A1 was filmed, and the card counts A1 alone (Twinshade 0-0). These three are the FIRST cut (2.4 s hold, the `next:` lines
+and day words, no spoken stakes); Rick's answers above replaced all three of those.
 
 ## Found along the way
 
@@ -116,11 +148,13 @@ A1's card is the no-spoiler rule working in a real film: the ledger already held
 
 ## Open decisions (Rick's)
 
-1. **The hold.** 2.4 s after the card arms, as every short has had. Long enough to read a three-row table? The
-   scratch films below are at 2.4 s; `cup.py film` can pass a longer `--verdict-hold` if not.
-2. **"LATER TODAY"** for a group's next match posted the same day — the sketch only shows TOMORROW.
-3. The day word is baked in at film time from `per_day` and the posting order, so **plan §9.7 (skip dead rubbers)
-   has to be settled before the 65 are filmed** — skipping shifts every later group's days by one post.
+1. **The band's "WINNER MEETS <NAME>".** On a knockout match whose opponent-to-be has already posted, the stakes band
+   (`band_lines`, Cowork's draft, ruled "as written") names that next opponent — and the announcer now reads the
+   band aloud ("Quarter-final two. Winner meets Emberedge."). Rick's "lets not talk about upcoming matches" was said
+   of the card; if it covers the band and the voice too, it is one line in `band_lines`: always
+   `WINNER INTO THE SEMI-FINALS` (etc.). Not changed without his word.
+2. **The announcer's placement**, after "Who wins?" — Code's pick on the reasoning above; the sample short is
+   Rick's to overrule.
 
 ---
 
@@ -159,7 +193,7 @@ A1's card is the no-spoiler rule working in a real film: the ledger already held
 3. **Rick's draw seed**, then `cup.py draw --game ../02-chain/sc-cupcard.html --seed <his> --cup weapon-ball-world-cup`
    (from the terminal — found item 2) and `cup.py schedule --name "Weapon Ball World Cup"`. Publish the empty
    bracket (plan §7 step 5).
-4. **Settle open decisions 1 and 3 above** (the hold; §9.7), then `cup.py seeds`, then `cup.py film` (or the panel's
+4. **Settle open decision 1 above** (the band's WINNER MEETS), then `cup.py seeds`, then `cup.py film` (or the panel's
    Seed all / Film all): 65 shorts, about 3-4 hours of machine time, resumable. Mind v115's "found" item 1: resume
    can pass over a failed short.
 5. **Spot-check** the play-in, one group's three, and a semi (plan §7 step 7). Then Rick queues the posts.

@@ -115,6 +115,13 @@ OPEN_JS = HERE.parent / "src" / "render" / "open.js"
 # rather than absolute so it follows the shot if the shot ever moves.
 Q_AFTER_PULL = 0.40
 
+# THE WORLD CUP'S STAKES, SPOKEN (v118). Rick, 2026-09-30: "i would like the
+# announcer to say the stakes of each match out loud". They go AFTER the hook
+# (`--then`), so the names still start on their own ignitions -- spoken first,
+# they would push both names off their flares, which is the timing Rick picked.
+# The beat between "Who wins?" and the stakes:
+THEN_GAP = 0.45
+
 
 def ignition_beats(path: pathlib.Path = OPEN_JS) -> tuple[float, float, float]:
     """(flareA, flareB, question) in seconds, read from src/render/open.js.
@@ -276,6 +283,10 @@ def main() -> int:
                          "the ignition open's own flares. This is what a short "
                          "gets when no --vo is supplied, and the app's preview "
                          "calls it so the two cannot diverge.")
+    ap.add_argument("--then", default=None, metavar="SCRIPT",
+                    help="with --hook: more of the line, spoken THEN_GAP after "
+                         "'Who wins?' -- a script, so `|0.3` pauses work. The "
+                         "World Cup's stakes ride here (cup.py film, v118)")
     ap.add_argument("--gaps", default="",
                     help="comma-separated seconds between parts (len(parts)-1)")
     ap.add_argument("--at", default="",
@@ -303,6 +314,13 @@ def main() -> int:
                              "--text or --parts")
         parts = hook_parts(args.a, args.b)
         place = [("at", t) for t in hook_onsets()]
+        if args.then:
+            tparts, tplace = parse_script(args.then)
+            if tplace[0][0] == "gap":
+                tplace[0] = ("gap", THEN_GAP)
+            parts, place = parts + tparts, place + tplace
+    elif args.then:
+        raise SystemExit("! --then continues the hook; pass --hook with it")
     if parts is None and args.parts:
         parts = [p for p in args.parts.split("|") if p.strip()]
         if args.at and args.gaps:

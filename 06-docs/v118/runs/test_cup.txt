@@ -62,35 +62,42 @@ card
   ok   after A1 the winner tops on 1-0, 120, marked: ('san_gre', '1', '0', '120', True)
   ok   after A1, P3 has played nothing -- A2 and A3 are in the ledger but not posted yet
   ok   no wins, no HP: a dash
-  ok   A1 footer: '2 MATCHES LEFT · A2 TOMORROW'
+  ok   an open group has no footer -- nothing about the matches to come: ''
   ok   after A2: P1 on 120 over P3 on 80, P2 0-2, the marker on A2's winner: [('san_gre', '1', '0', '120', False), ('vig_bow', '1', '0', '80', True), ('ver_war', '0', '2', '—', False)]
-  ok   A2 and A3 post the same day: '1 MATCH LEFT · A3 LATER TODAY'
+  ok   still open after A2: ''
   ok   after A3: P3 2-0 on 125, marked: ('vig_bow', '2', '0', '125', True)
   ok   A3 footer: 'GROUP DECIDED · VIG_BOW IS THROUGH'
   ok   the blob carries the match's own result for the film to check
-  ok   one a day: the next match is always tomorrow
   ok   a three-way tie lists on HP, the marker on B3's winner in second: [('run_war', '1', '1', '200', False), ('san_sta', '1', '1', '90', True), ('blo_gre', '1', '1', '40', False)]
   ok   HP tiebreak footer: 'RUN_WAR IS THROUGH ON HP REMAINING'
-  ok   B2 (day 3) -> B3 (day 4)
   ok   two wins decides the group a match early: 'GROUP DECIDED · BLO_TWI IS THROUGH'
   ok   the dead rubber: P2 still tops, the marker is on C3's winner: [('blo_twi', '2', '0', '200', False), ('umb_scy', '1', '1', '15', True), ('ver_gre', '0', '2', '—', False)]
   ok   dead rubber footer: 'GROUP DECIDED · BLO_TWI IS THROUGH'
   ok   an HP tie: 'VER_STA IS THROUGH ON DRAW NUMBER'
+  ok   no group card says anything about a match to come or a day
   ok   PI card: 'PLAY-IN'
-  ok   the play-in winner meets P's second relic in P2: 'next: v SAN_BOW · P2'
-  ok   PI footer: 'weapon ball world cup · 48 relics left'
+  ok   PI: '48 relics left' / 'weapon ball world cup'
   ok   R16-1: 'ROUND OF 16' 'SAN_GRE'
-  ok   R16-1 does not name R16-2's winner, which posts later: 'next: QF 1'
-  ok   R16-2 names R16-1's, already posted: 'next: v SAN_GRE · QF 1'
-  ok   relics left count only what has posted: 'weapon ball world cup · 15 relics left' / 'weapon ball world cup · 12 relics left'
-  ok   QF-2 -> SF 1 against QF-1's winner
-  ok   the semis point at the final: 'next: THE FINAL' / 'next: v SAN_GRE · THE FINAL'
-  ok   two left after the second semi: 'weapon ball world cup · 2 relics left'
-  ok   third place: 'third place', 'weapon ball world cup · 2 relics left'
-  ok   the final: 'keeps the crown', 'weapon ball world cup · 1 relic left'
+  ok   relics left count only what has posted: '15 relics left' / '14 relics left' / '12 relics left'
+  ok   two left after the second semi: '2 relics left'
+  ok   third place: 'third place', 'over SAN_SCY'
+  ok   the final: 'keeps the crown', 'weapon ball world cup'
   ok   final: 'over SAN_GRE'
+  ok   no knockout card names the next opponent or the next fixture
   ok   a knockout card without the tournament's name is refused, not printed blank
   ok   a group card does not need the name
+announce
+  ok   A1: 'Group A, match one of three. |0.3 Only one keeps the crown.'
+  ok   A2 after P2 lost A1, by display name and in sentence case: 'Group A, match two of three. |0.3 Lose and Verwar is out.'
+  ok   no relic name in capitals -- Kokoro could spell it out letter by letter
+  ok   a dead rubber says so, two sentences: 'Group B, match three of three. |0.3 Group decided. Blogre is through.'
+  ok   the play-in
+  ok   R16-3 is spoken 'Round of sixteen, match three.'
+  ok   QF-2 is spoken 'Quarter-final two.'
+  ok   SF-1 is spoken 'Semi-final one.'
+  ok   3P is spoken 'Third place.'
+  ok   F is spoken 'The final.'
+  ok   a plain band line gets its full stop
 shapes
   ok   25 relics -> 8 groups, 33 fixtures (33)
   ok   48 relics -> 16 groups, 64 fixtures (64)

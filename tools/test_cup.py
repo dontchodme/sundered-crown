@@ -186,8 +186,9 @@ check(s0 != cup.fight_seed("crown-cup-1", "A1", "x", "y", 1), "and on k")
 check(0 <= s0 < 2 ** 31, "31-bit seed")
 
 # --- the verdict card (v118) ---------------------------------------------------------
-# Posting order with the play-in: PI 1, A1 2, A2 3, A3 4, B1 5, B2 6, B3 7 ... and two a day,
-# so A1 is day 1, A2 and A3 day 2, B1 and B2 day 3, B3 day 4.
+# Rick, 2026-09-30: the card says what happened, never what is next -- no next opponent, no
+# next fixture, no day. Each case below would fail if the card read results that had not
+# posted yet, or if it said anything about a match still to come.
 print("card")
 import json
 NAME = "Weapon Ball World Cup"
@@ -199,6 +200,13 @@ def card(L, fid):
 
 def rows(c):
     return [(r["id"], r["w"], r["l"], r["hp"], r["mark"]) for r in c["rows"]]
+
+
+def says_next(c):
+    """Anything on the card about a match still to come, or a day."""
+    text = " ".join(str(v) for k, v in c.items() if isinstance(v, str)).upper()
+    return any(w in text for w in ("NEXT", "TOMORROW", "TODAY", "LEFT ·", "MATCHES LEFT",
+                                   "MATCH LEFT", " MEETS", " DAY "))
 
 
 L = ledger(); L["name"] = NAME
@@ -215,18 +223,15 @@ check(r1[0] == (p1, "1", "0", "120", True), f"after A1 the winner tops on 1-0, 1
 check(dict((x[0], x) for x in r1)[p3][1:3] == ("0", "0"),
       "after A1, P3 has played nothing -- A2 and A3 are in the ledger but not posted yet")
 check(all(x[3] == "—" for x in r1[1:]), "no wins, no HP: a dash")
-check(c1["footer"] == "2 MATCHES LEFT · A2 TOMORROW", f"A1 footer: {c1['footer']!r}")
+check(c1["footer"] == "", f"an open group has no footer -- nothing about the matches to come: {c1['footer']!r}")
 c2 = card(L, "A2")
 check(rows(c2) == [(p1, "1", "0", "120", False), (p3, "1", "0", "80", True), (p2, "0", "2", "—", False)],
       f"after A2: P1 on 120 over P3 on 80, P2 0-2, the marker on A2's winner: {rows(c2)}")
-check(c2["footer"] == "1 MATCH LEFT · A3 LATER TODAY", f"A2 and A3 post the same day: {c2['footer']!r}")
+check(c2["footer"] == "", f"still open after A2: {c2['footer']!r}")
 c3 = card(L, "A3")
 check(rows(c3)[0] == (p3, "2", "0", "125", True), f"after A3: P3 2-0 on 125, marked: {rows(c3)[0]}")
 check(c3["footer"] == f"GROUP DECIDED · {p3.upper()} IS THROUGH", f"A3 footer: {c3['footer']!r}")
 check(c3["winner"] == p3 and c3["hp"] == 45, "the blob carries the match's own result for the film to check")
-L["per_day"] = 1
-check(card(L, "A2")["footer"] == "1 MATCH LEFT · A3 TOMORROW", "one a day: the next match is always tomorrow")
-del L["per_day"]
 
 play(L, "B1", "a", 200)                 # P1 beats P2, 200
 play(L, "B2", "a", 40)                  # P2 beats P3, 40
@@ -235,7 +240,6 @@ cb = card(L, "B3")
 check([x[3] for x in rows(cb)] == ["200", "90", "40"] and rows(cb)[1][4] and rows(cb)[1][0] == q3,
       f"a three-way tie lists on HP, the marker on B3's winner in second: {rows(cb)}")
 check(cb["footer"] == f"{q1.upper()} IS THROUGH ON HP REMAINING", f"HP tiebreak footer: {cb['footer']!r}")
-check(card(L, "B2")["footer"] == "1 MATCH LEFT · B3 TOMORROW", "B2 (day 3) -> B3 (day 4)")
 
 d1, d2 = play(L, "C1", "b", 100)        # P2 beats P1
 play(L, "C2", "a", 100)                 # P2 beats P3 -> P2 6 points with a match to play
@@ -251,6 +255,8 @@ check(cd["footer"] == f"GROUP DECIDED · {d2.upper()} IS THROUGH", f"dead rubber
 play(L, "D1", "a", 77); play(L, "D2", "a", 77); play(L, "D3", "a", 77)
 cdn = card(L, "D3")
 check(cdn["footer"].endswith("IS THROUGH ON DRAW NUMBER"), f"an HP tie: {cdn['footer']!r}")
+check(not any(says_next(card(L, x)) for x in ("A1", "A2", "A3", "B2", "B3", "C2", "C3", "D3")),
+      "no group card says anything about a match to come or a day")
 
 # the play-in and the knockout
 L = ledger(); L["name"] = NAME
@@ -263,28 +269,23 @@ play(L, "SF-1", "a", 60); play(L, "SF-2", "b", 60); play(L, "3P", "a", 20); play
 W = lambda fid: cup.fixture_by_id(L, fid)["result"]["winner"].upper()
 cp = card(L, "PI")
 check((cp["kind"], cp["title"], cp["verdict"]) == ("knockout", "PLAY-IN", "through"), f"PI card: {cp['title']!r}")
-check(cp["next"] == f"next: v {L['groups']['P'][1].upper()} · P2",
-      f"the play-in winner meets P's second relic in P2: {cp['next']!r}")
-check(cp["footer"] == "weapon ball world cup · 48 relics left", f"PI footer: {cp['footer']!r}")
+check(cp["next"] == "48 relics left" and cp["footer"] == "weapon ball world cup",
+      f"PI: {cp['next']!r} / {cp['footer']!r}")
 k1, k2, k4 = card(L, "R16-1"), card(L, "R16-2"), card(L, "R16-4")
 check(k1["title"] == "ROUND OF 16" and k1["name"] == W("R16-1"), f"R16-1: {k1['title']!r} {k1['name']!r}")
-check(k1["next"] == "next: QF 1", f"R16-1 does not name R16-2's winner, which posts later: {k1['next']!r}")
-check(k2["next"] == f"next: v {W('R16-1')} · QF 1", f"R16-2 names R16-1's, already posted: {k2['next']!r}")
-check((k1["footer"], k4["footer"]) == ("weapon ball world cup · 15 relics left",
-                                       "weapon ball world cup · 12 relics left"),
-      f"relics left count only what has posted: {k1['footer']!r} / {k4['footer']!r}")
-check(card(L, "QF-2")["next"] == f"next: v {W('QF-1')} · SF 1", "QF-2 -> SF 1 against QF-1's winner")
-s1, s2 = card(L, "SF-1"), card(L, "SF-2")
-check((s1["next"], s2["next"]) == ("next: THE FINAL", f"next: v {W('SF-1')} · THE FINAL"),
-      f"the semis point at the final: {s1['next']!r} / {s2['next']!r}")
-check(s2["footer"].endswith("· 2 relics left"), f"two left after the second semi: {s2['footer']!r}")
+check((k1["next"], k2["next"], k4["next"]) == ("15 relics left", "14 relics left", "12 relics left"),
+      f"relics left count only what has posted: {k1['next']!r} / {k2['next']!r} / {k4['next']!r}")
+s2 = card(L, "SF-2")
+check(s2["next"] == "2 relics left", f"two left after the second semi: {s2['next']!r}")
 c3p, cf = card(L, "3P"), card(L, "F")
-check((c3p["verdict"], c3p["footer"][-13:]) == ("third place", "2 relics left"),
-      f"third place: {c3p['verdict']!r}, {c3p['footer']!r}")
-check((cf["title"], cf["verdict"], cf["footer"]) == ("THE FINAL", "keeps the crown",
-                                                      "weapon ball world cup · 1 relic left"),
+check((c3p["verdict"], c3p["next"]) == ("third place", f"over {cup.fixture_by_id(L, '3P')['result']['loser'].upper()}"),
+      f"third place: {c3p['verdict']!r}, {c3p['next']!r}")
+check((cf["title"], cf["verdict"], cf["footer"]) == ("THE FINAL", "keeps the crown", "weapon ball world cup"),
       f"the final: {cf['verdict']!r}, {cf['footer']!r}")
 check(cf["next"] == f"over {cup.fixture_by_id(L, 'F')['result']['loser'].upper()}", f"final: {cf['next']!r}")
+check(not any(says_next(card(L, x)) for x in ["PI", "3P", "F"] + [f"R16-{i}" for i in range(1, 9)]
+              + [f"QF-{i}" for i in range(1, 5)] + ["SF-1", "SF-2"]),
+      "no knockout card names the next opponent or the next fixture")
 del L["name"]
 try:
     card(L, "R16-1"); refused = False
@@ -292,6 +293,39 @@ except SystemExit:
     refused = True
 check(refused, "a knockout card without the tournament's name is refused, not printed blank")
 check(card(L, "A1")["kind"] == "group", "a group card does not need the name")
+
+# --- the announcer says the stakes (v118) -------------------------------------------
+# The band's own words, read as sentences, with every relic by its display name.
+print("announce")
+L = ledger(); L["name"] = NAME
+for r in L["roster"].values():
+    r["name"] = r["name"].replace("_", "").title()          # display names, as a build has them
+play(L, "PI", "a", 1)
+p1, p2 = play(L, "A1", "a", 100)                 # P1 beat P2
+nm = lambda rid: L["roster"][rid]["name"]
+f = cup.fixture_by_id(L, "A2"); f["side1"], f["side2"] = cup.sides(L, f)
+s = cup.announce_script(L, cup.fixture_by_id(L, "A1"))
+check(s == "Group A, match one of three. |0.3 Only one keeps the crown.", f"A1: {s!r}")
+s = cup.announce_script(L, f)
+check(s == f"Group A, match two of three. |0.3 Lose and {nm(p2)} is out.",
+      f"A2 after P2 lost A1, by display name and in sentence case: {s!r}")
+check(nm(p2).upper() not in s, "no relic name in capitals -- Kokoro could spell it out letter by letter")
+L2 = ledger(); L2["name"] = NAME
+for r in L2["roster"].values():
+    r["name"] = r["name"].replace("_", "").title()
+play(L2, "PI", "a", 1); play(L2, "B1", "b", 100); play(L2, "B2", "a", 100)
+f = cup.fixture_by_id(L2, "B3"); f["side1"], f["side2"] = cup.sides(L2, f)
+s = cup.announce_script(L2, f)
+top = L2["roster"][cup.fixture_by_id(L2, "B1")["result"]["winner"]]["name"]
+check(s == f"Group B, match three of three. |0.3 Group decided. {top} is through.",
+      f"a dead rubber says so, two sentences: {s!r}")
+check(cup.announce_script(L2, cup.fixture_by_id(L2, "PI")) == "The play-in. |0.3 49 relics. 48 places.",
+      "the play-in")
+for fid, want in (("R16-3", "Round of sixteen, match three."), ("QF-2", "Quarter-final two."),
+                  ("SF-1", "Semi-final one."), ("3P", "Third place."), ("F", "The final.")):
+    got = cup.spoken_round(cup.fixture_by_id(L2, fid))
+    check(got == want, f"{fid} is spoken {got!r}")
+check(cup.spoken_line(L2, "WIN OR GO HOME") == "Win or go home.", "a plain band line gets its full stop")
 
 # --- shapes ----------------------------------------------------------------------
 print("shapes")
