@@ -1,4 +1,4 @@
-# v118 — THE WEAPON BALL WORLD CUP'S VERDICT CARD (plan v115 §5.3): BUILT, GATED — THE TEST FILMS ARE NEXT
+# v118 — THE WEAPON BALL WORLD CUP'S VERDICT CARD (plan v115 §5.3): BUILT, GATED, FILMED — GAME NOT MOVED
 
 Claude Code on DESKTOP-DERRAFT, 2026-09-30, from the handoff the previous session left in this file (its brief is
 `BUILD-BRIEF-v118.md`, its rulings and next steps are kept below). Built on Rick's "build it from the sketch".
@@ -97,7 +97,11 @@ Everything existing behaves as before (the old 54 checks pass unchanged). Added 
 | `render_ab.py`, card unset (4 pairs x 0.5/6/12/22/31/40 s, 540x960) | **24/24 pixel-identical** | the card set is the probe's control above; no fight in these four is over by 40 s, which is why the verdict beat has its own probe |
 | `tip_audit.py --game sc-cupcard` | **exit 0**, its report identical to the source build's | |
 | `node --check` | the builder's `syntax_check`: 1 inline script block parses | |
-| real shorts with the card | PENDING | |
+| real shorts with the card, through `cup.py film` (scratch 25-relic draw on sc-cupcard, seed 20260930, `--cup weapon-ball-world-cup-test`, named) | **3/3 filmed, every delivery mark passes**: A1 70.7 s -15.2 LUFS -1.6 dBTP; A3 76.3 s -15.1 / -0.6; QF-1 52.4 s -15.8 / -0.8. The card's result agreed with the headless sim AND the filmed match on all three. Frames: the card inside the panel, legible at 1080x1920, the marker on the fixture's winner, the footers right (sheet below; `runs/films.txt`) | refused **before a frame was captured**: a blob naming the wrong winner ("the card says twinshade won on 71 hp, the headless sim says emberedge"), the card on `sc-candidate-49` ("this build has no World Cup verdict card"), a file that is not a card |
+
+![the last frame of A1, A3 and QF-1, filmed](../../05-reference/v118/cupcard-films-v118.jpg)
+
+A1's card is the no-spoiler rule working in a real film: the ledger already held A2's and A3's results when A1 was filmed, and the card counts A1 alone (Twinshade 0-0). The card is fully up for about the last 2 s of each short (open decision 1).
 
 ## Found along the way
 
