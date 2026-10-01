@@ -1,6 +1,6 @@
-# v118 — THE WEAPON BALL WORLD CUP: THE DRAW AND THE 65 FILMS — DRAWN; SEEDING AND FILMING
+# v118 — THE WEAPON BALL WORLD CUP: THE DRAW AND THE 65 FILMS — ALL 65 FILMED
 
-Claude Code on DESKTOP-DERRAFT, 2026-09-30. **IN PROGRESS — do not draw, seed or film the Cup in parallel.**
+Claude Code on DESKTOP-DERRAFT, 2026-09-30 to 10-01. **DONE: 65/65 filmed, 2026-10-01 04:52.**
 Rick: "you pick the draw seed. have at it". The card it films with is `cup-card-build-v118.md`.
 
 ## The draw — the commitment, made before any fight was computed
@@ -87,3 +87,20 @@ failed fixture's mp4 aside (`*.FAILED.mp4`) so a resume films it again instead o
    with the collided capture; the old loop died during K2 and nothing else was double-filmed (K1 had finished at
    02:16:35, before any lane started). K2 is re-filmed alone after the lanes. **Lesson: stop a bash loop by its
    whole tree, or let it finish -- never kill the parent alone.**
+
+## Done: 65/65, 2026-10-01 04:52
+
+- **65 mp4s** in `07-shorts/cup1/` (local), no `*.FAILED.mp4`, no empty file. Fixtures 1-31 one at a time
+  (19:52-02:11), K1 02:16, 32 in four lanes (02:17-04:40), K2 alone (04:41-04:52).
+- **Every one checked from its own file** (`shorts_build.measure`): 1080x1920, h264+aac, under 180 s, -16..-13 LUFS,
+  TP <= -0.3 -- 65/65. Every card's result agreed with the headless sim before the capture AND the filmed match after
+  it -- 65/65 (film.log / the lane logs). Lengths 43-101 s.
+- **Every card looked at** (the last frame of each): the 16 knockout cards count the relics down 15 to 2, third place
+  and the final read "third place" / "keeps the crown" over the loser; the 49 group cards' tiebreaks and dead rubbers
+  read as the ledger says.
+- **The ledger is whole**: 65/65 with file, band, card, announce and delivery (`fill_ledger.py` filled the 35 the lanes
+  and the two hand re-mixes left; delivery measured from each file). SCHEDULE.md and results.json rewritten. Local only.
+- Fixtures 1-10 were copied for Rick to `Desktop/Weapon Ball World Cup - shorts 01-10/` with UPLOAD.txt (2026-09-30).
+  The uploads are Cowork's (`06-docs/v119/WC-UPLOAD-PLAN-v119.md`).
+- **Not done here: watching by eye.** Plan §7 step 7's spot-check (the play-in, one group's three, a semi) is a
+  person's. Nobody has watched the 65 end to end.
