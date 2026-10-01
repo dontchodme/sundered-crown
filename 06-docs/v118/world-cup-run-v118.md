@@ -74,3 +74,16 @@ failed fixture's mp4 aside (`*.FAILED.mp4`) so a resume films it again instead o
    quiet mix louder), which a simulated walk confirms for the five shapes: passes first rung (1 try, unchanged),
    peaky only (0.63, unchanged), PI's shape, C1's shape, and a hopeless one (fails as before). C1 re-mixed from its
    retained capture: 0.63 / I=-12, **-15.8 LUFS, -1.9 dBTP, every mark passes.** Films started after 22:33 use it.
+3. **Full power, 2026-10-01 ~02:15** (Rick: "Go full balls"). 31 films were done one at a time (19:52-02:11, 10-45 min
+   each at idle priority). The governor was stopped, and the last 33 (K2 to the final) went to **four parallel
+   lanes** (scratch `film_lanes.py`): each lane runs exactly the shorts_build command `cup.py film` builds, in
+   posting order, one fixture folder each, and does NOT write the ledger -- `cup.py film` loads the whole ledger and
+   saves it back, so parallel ones would overwrite each other; the ledger is filled once at the end (`fill_ledger.py`,
+   delivery measured from each file). film.log keeps the `=== FILM` / `=== DONE` blocks the upload checks read.
+4. **K2 was filmed twice at once and both failed.** Killing the one-at-a-time driver's bash did not stop its loop (a
+   child bash carried it), so it started K2 at 02:16:35 while a lane started K2 at 02:17:42, in the same folder: the
+   intermediate's AAC was corrupted, both encodes failed, and two 0-byte files were left (`K2.mp4` and
+   `K2.FAILED.mp4`). An empty `.mp4` reads as "filmed" to `cup.py` and to the upload checks, so both were deleted
+   with the collided capture; the old loop died during K2 and nothing else was double-filmed (K1 had finished at
+   02:16:35, before any lane started). K2 is re-filmed alone after the lanes. **Lesson: stop a bash loop by its
+   whole tree, or let it finish -- never kill the parent alone.**
