@@ -1,0 +1,6 @@
+[identity] app   Chromium 152.0.7977.54  196 fights
+[identity] build 02-chain/sc-cupcard.html
+[identity] headless Chromium 151.0.7922.34
+
+PASS  196/196 identical.
+exit 0

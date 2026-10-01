@@ -1,12 +1,12 @@
-# v118 — THE WEAPON BALL WORLD CUP'S VERDICT CARD (plan v115 §5.3): BUILT, GATED, FILMED — GAME NOT MOVED
+# v118 — THE WEAPON BALL WORLD CUP'S VERDICT CARD (plan v115 §5.3): BUILT, GATED, FILMED — LIVE (GAME, 2026-10-01)
 
 Claude Code on DESKTOP-DERRAFT, 2026-09-30, from the handoff the previous session left in this file (its brief is
 `BUILD-BRIEF-v118.md`, its rulings and next steps are kept below). Built on Rick's "build it from the sketch".
 
 **The link is `02-chain/sc-cupcard.html`** (sha256 `3863ef311c02a1f8…`), made by `tools/cupcard_build.py` from the
 live `sc-candidate-49.html`. With no card set it is the live game, frame for frame. With a fixture's card set, the
-verdict beat draws the plan's §5.3 card in place of the HP recap. **GAME has not moved** (step 2 below, the
-orchestrator's, needs Electron and so waits until Rick is off the PC).
+verdict beat draws the plan's §5.3 card in place of the HP recap. **GAME moved to it on 2026-10-01** (Rick: "Go
+full balls"): `npm run identity` + `shell_identity.py` **196/196 identical** (`runs/live/`).
 
 ![the card's variants, from a scratch 25-relic draw](../../05-reference/v118/cupcard-variants-v118.jpg)
 
@@ -185,7 +185,7 @@ and day words, no spoken stakes); Rick's answers above replaced all three of tho
 ## What is left, and whose
 
 1. ~~Build the card~~ — this doc.
-2. **Move GAME to `sc-cupcard.html`** (the orchestrator's): presentation-only, so the fights are identical. Then
+2. ~~**Move GAME to `sc-cupcard.html`**~~ **DONE 2026-10-01, 196/196.** (the orchestrator's): presentation-only, so the fights are identical. Then
    `cd app && npm run identity` + `cd tools && python shell_identity.py`, and commit the json as the go-live commit
    did. **Only when Rick is not using the PC**: it launches Electron (memory: build-load-limit).
 3. **Rick's draw seed**, then `cup.py draw --game ../02-chain/sc-cupcard.html --seed <his> --cup weapon-ball-world-cup`

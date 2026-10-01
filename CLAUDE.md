@@ -12,7 +12,19 @@ short-form video for TikTok and YouTube Shorts.
 ## 0. STATE OF THE PROJECT
 
 ```
-02-chain/sc-candidate-49.html    BUILD OF RECORD  <- app/main.js GAME, since
+02-chain/sc-cupcard.html         BUILD OF RECORD  <- app/main.js GAME, since
+                                 2026-10-01 (Rick: "Go full balls"). sc-candidate-49 + THE
+                                 WORLD CUP'S VERDICT CARD (cupcard_build.py, v118): CONFIG.cup,
+                                 null everywhere but a Cup film. Presentation only: engine_ab
+                                 7056/7056 over all 49, render_ab 24/24, the verdict beat 7/7
+                                 with the card off; shell_identity 196/196 on the moved
+                                 pointer. THE TOURNAMENT'S FROZEN BUILD (sha 3863ef31...): the
+                                 Weapon Ball World Cup is drawn, seeded and filmed on it
+                                 (06-docs/v118/world-cup-run-v118.md). NO RELIC CHANGES UNTIL
+                                 THE FINAL HAS POSTED (plan v115 §7 step 2) -- a new link after
+                                 that re-runs make_roster.sh AND cupcard_build.py on top.
+02-chain/sc-candidate-49.html    the BUILD OF RECORD 2026-09-30 to 2026-10-01 (sc-cupcard
+                                 took it, the card on top). Was, since
                                  2026-09-30: RICK, "go live". 49 RELICS: the batch line's
                                  tip sc-balance (all nineteen v68-v86 designs, built and
                                  balanced, v88-v117) + Rick's Daybreak CIRCLE (yert's
