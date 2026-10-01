@@ -45,4 +45,13 @@ session. This file is the handoff: the state, Rick's rulings, and the next steps
 
 ## Smoke test
 
-(appended below when it finished)
+**PASSED, 2026-09-30 18:06: this PC films a full short with the voice-over.**
+
+```
+python shorts_build.py --game ../02-chain/sc-candidate-49.html --a angelus --b lodestone --seed 20260930 --no-card --stakes "SMOKE TEST" --stakes-sub "NOT A CUP MATCH" --out <scratch>/smoke.mp4
+```
+
+- **Capture:** 3951 frames (65.8s), in 539s. Angelus wins on 520 hp; 24 clanks.
+- **Voice-over:** Kokoro's bm_lewis spoke "Angelus, or Lodestone. Who wins?"
+- **Delivery:** 1080x1920 h264+aac, 65.9s, 32.2 MB, -15.3 LUFS, -0.8 dBTP. Every delivery mark passes.
+- The file lives in Claude Code's scratch. It is not a Cup match and is not kept in the repo.
