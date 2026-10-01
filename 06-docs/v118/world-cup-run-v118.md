@@ -43,4 +43,13 @@ it is not, until the final has posted (or Rick says otherwise).
 
 ## Seeds and films
 
-(in progress)
+**Seeded 2026-09-30 ~19:55, after the draw was pushed (a6a7364):** `cup.py seeds --game ../02-chain/sc-cupcard.html`,
+22 s, 65/65 results, no runtime override. `k` = 0 on all 65 (no timeouts). 8 groups decided on wins, **8 on the HP
+tiebreak** (twice the plan's quarter). The director filed a fatal cut on 10 of 65 kills; the rest end at plain speed.
+Fights 35.2-96.4 s of match time. (No result is written here — see "What is committed".)
+
+**Filming** from ~19:57: every fixture in posting order through `cup.py film --only <id>` (the card, the 3.5 s hold
+and the spoken stakes all come from `film`), one at a time at idle priority (Rick on the PC: build-load-limit), about
+10 min a short, so ~10-11 h. The driver runs one fixture per call so a failure does not stop the night, and moves a
+failed fixture's mp4 aside (`*.FAILED.mp4`) so a resume films it again instead of skipping it as already filmed
+(v115 found item 1). Log: `07-shorts/cup1/film.log` (local).
