@@ -1,4 +1,6 @@
-# v118 — THE WEAPON BALL WORLD CUP'S VERDICT CARD (plan v115 §5.3): HANDED OFF, NOT STARTED
+# v118 — THE WEAPON BALL WORLD CUP'S VERDICT CARD (plan v115 §5.3): BUILDING
+
+**2026-09-30 18:16: a new Claude Code session on DESKTOP-DERRAFT has taken the handoff below and is building the card. Do not build it in parallel.** The build record replaces this file when the card is done.
 
 Claude Code on DESKTOP-DERRAFT, 2026-09-30. **Nothing of the card is built yet.** A build agent was started and
 stopped within minutes, before it changed any file. Rick is near his weekly limit and is handing the rest to a new
