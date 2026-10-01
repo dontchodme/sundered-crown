@@ -57,3 +57,10 @@ desktop.ini
 scratch/
 tmp/
 *.tmp
+
+# --- THE WORLD CUP'S LEDGER, ONCE SEEDED, IS EVERY RESULT. This repo is public, and the plan's rule is
+# that the only spoiler is Rick (CROWN-CUP-PLAN-v115 §4). So the live tournament folder -- the ledger,
+# results.json, SCHEDULE.md (its bands name winners), each fixture's card blob and film -- stays on the
+# filming machine. What IS committed is the draw as drawn, before a fight was computed:
+# 07-shorts/cup1-draw/ (06-docs/v118/world-cup-run-v118.md).
+07-shorts/cup1/

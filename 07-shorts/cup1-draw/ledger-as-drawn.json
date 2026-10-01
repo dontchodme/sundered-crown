@@ -1,0 +1,1116 @@
+{
+ "cup": "weapon-ball-world-cup",
+ "created": "2026-09-30T19:50:40",
+ "draw_seed": 20260930,
+ "draw_attempts": 6,
+ "build": {
+  "path": "02-chain\\sc-cupcard.html",
+  "sha256": "3863ef311c02a1f8e2ac6852549cbb316ef7817ac64c82fbf671085f41e1b75a"
+ },
+ "machine": "DESKTOP-DERRAFT / Windows 10",
+ "chromium": "151.0.7922.34",
+ "roster": {
+  "dawnbringer": {
+   "name": "Dawnbringer",
+   "school": "sanctified",
+   "type": "greatsword"
+  },
+  "widowmaker": {
+   "name": "Widowmaker",
+   "school": "bloodsworn",
+   "type": "twinblade"
+  },
+  "grudgebearer": {
+   "name": "Grudgebearer",
+   "school": "dwarven",
+   "type": "warhammer"
+  },
+  "thornwake": {
+   "name": "Thornwake",
+   "school": "verdant",
+   "type": "scythe"
+  },
+  "lastlight": {
+   "name": "Lastlight",
+   "school": "sanctified",
+   "type": "scythe"
+  },
+  "gravemourn": {
+   "name": "Gravemourn",
+   "school": "umbral",
+   "type": "flail"
+  },
+  "slagheart": {
+   "name": "Slagheart",
+   "school": "dwarven",
+   "type": "flail"
+  },
+  "spellbreaker": {
+   "name": "Spellbreaker",
+   "school": "runic",
+   "type": "twinblade"
+  },
+  "ironhail": {
+   "name": "Ironhail",
+   "school": "dwarven",
+   "type": "bow"
+  },
+  "lightkeeper": {
+   "name": "Lightkeeper",
+   "school": "vigil",
+   "type": "greatsword"
+  },
+  "farwarden": {
+   "name": "Farwarden",
+   "school": "vigil",
+   "type": "bow"
+  },
+  "aureole": {
+   "name": "Aureole",
+   "school": "sanctified",
+   "type": "bow"
+  },
+  "censer": {
+   "name": "Censer",
+   "school": "sanctified",
+   "type": "warhammer"
+  },
+  "emberedge": {
+   "name": "Emberedge",
+   "school": "dwarven",
+   "type": "greatsword"
+  },
+  "oathwound": {
+   "name": "Goreshard",
+   "school": "bloodsworn",
+   "type": "greatsword"
+  },
+  "heartwood": {
+   "name": "Heartwood",
+   "school": "verdant",
+   "type": "greatsword"
+  },
+  "nightfell": {
+   "name": "Nightfell",
+   "school": "umbral",
+   "type": "greatsword"
+  },
+  "axiom": {
+   "name": "Axiom",
+   "school": "runic",
+   "type": "greatsword"
+  },
+  "twinshade": {
+   "name": "Twinshade",
+   "school": "umbral",
+   "type": "twinblade"
+  },
+  "redflail": {
+   "name": "Threshmaw",
+   "school": "bloodsworn",
+   "type": "flail"
+  },
+  "foregone": {
+   "name": "Foregone",
+   "school": "runic",
+   "type": "scythe"
+  },
+  "vinesower": {
+   "name": "Vinesower",
+   "school": "verdant",
+   "type": "bow"
+  },
+  "bulwarden": {
+   "name": "Bulwarden",
+   "school": "vigil",
+   "type": "warhammer"
+  },
+  "marrowdraw": {
+   "name": "Marrowdraw",
+   "school": "bloodsworn",
+   "type": "bow"
+  },
+  "paradox": {
+   "name": "Paradox",
+   "school": "runic",
+   "type": "flail"
+  },
+  "thornshear": {
+   "name": "Thornshear",
+   "school": "verdant",
+   "type": "twinblade"
+  },
+  "vesper": {
+   "name": "Vesper",
+   "school": "vigil",
+   "type": "scythe"
+  },
+  "shroudmaul": {
+   "name": "Shroudmaul",
+   "school": "umbral",
+   "type": "warhammer"
+  },
+  "cindercleave": {
+   "name": "Cindercleave",
+   "school": "dwarven",
+   "type": "scythe"
+  },
+  "ravelbone": {
+   "name": "Ravelbone",
+   "school": "bloodsworn",
+   "type": "warhammer"
+  },
+  "gloamwire": {
+   "name": "Gloamwire",
+   "school": "umbral",
+   "type": "bow"
+  },
+  "bloodmirror": {
+   "name": "Bloodmirror",
+   "school": "bloodsworn",
+   "type": "scythe"
+  },
+  "duskreave": {
+   "name": "Duskreave",
+   "school": "umbral",
+   "type": "scythe"
+  },
+  "starwarden": {
+   "name": "Starwarden",
+   "school": "vigil",
+   "type": "twinblade"
+  },
+  "morningstar": {
+   "name": "Morningstar",
+   "school": "sanctified",
+   "type": "flail"
+  },
+  "ironwood": {
+   "name": "Ironwood",
+   "school": "verdant",
+   "type": "warhammer"
+  },
+  "portcullis": {
+   "name": "Portcullis",
+   "school": "vigil",
+   "type": "flail"
+  },
+  "bindweed": {
+   "name": "Bindweed",
+   "school": "verdant",
+   "type": "flail"
+  },
+  "coldiron": {
+   "name": "Coldiron",
+   "school": "dwarven",
+   "type": "twinblade"
+  },
+  "lodestone": {
+   "name": "Lodestone",
+   "school": "runic",
+   "type": "warhammer"
+  },
+  "oracle": {
+   "name": "Oracle",
+   "school": "runic",
+   "type": "bow"
+  },
+  "angelus": {
+   "name": "Angelus",
+   "school": "sanctified",
+   "type": "twinblade"
+  },
+  "culverin": {
+   "name": "Culverin",
+   "school": "dwarven",
+   "type": "staff"
+  },
+  "briarwand": {
+   "name": "Briarwand",
+   "school": "verdant",
+   "type": "staff"
+  },
+  "cipher": {
+   "name": "Cipher",
+   "school": "runic",
+   "type": "staff"
+  },
+  "watchlight": {
+   "name": "Watchlight",
+   "school": "vigil",
+   "type": "staff"
+  },
+  "crozier": {
+   "name": "Crozier",
+   "school": "sanctified",
+   "type": "staff"
+  },
+  "bloodwick": {
+   "name": "Bloodwick",
+   "school": "bloodsworn",
+   "type": "staff"
+  },
+  "nightglass": {
+   "name": "Nightglass",
+   "school": "umbral",
+   "type": "staff"
+  }
+ },
+ "draw_no": {
+  "twinshade": 1,
+  "oracle": 2,
+  "bindweed": 3,
+  "spellbreaker": 4,
+  "cindercleave": 5,
+  "heartwood": 6,
+  "bloodwick": 7,
+  "nightglass": 8,
+  "gloamwire": 9,
+  "cipher": 10,
+  "farwarden": 11,
+  "slagheart": 12,
+  "vesper": 13,
+  "gravemourn": 14,
+  "bulwarden": 15,
+  "ironhail": 16,
+  "foregone": 17,
+  "ravelbone": 18,
+  "angelus": 19,
+  "morningstar": 20,
+  "thornwake": 21,
+  "grudgebearer": 22,
+  "aureole": 23,
+  "vinesower": 24,
+  "lightkeeper": 25,
+  "paradox": 26,
+  "widowmaker": 27,
+  "emberedge": 28,
+  "culverin": 29,
+  "lastlight": 30,
+  "watchlight": 31,
+  "crozier": 32,
+  "bloodmirror": 33,
+  "nightfell": 34,
+  "axiom": 35,
+  "oathwound": 36,
+  "coldiron": 37,
+  "duskreave": 38,
+  "shroudmaul": 39,
+  "lodestone": 40,
+  "starwarden": 41,
+  "briarwand": 42,
+  "ironwood": 43,
+  "dawnbringer": 44,
+  "censer": 45,
+  "redflail": 46,
+  "thornshear": 47,
+  "portcullis": 48,
+  "marrowdraw": 49
+ },
+ "groups": {
+  "A": [
+   "twinshade",
+   "oracle",
+   "bindweed"
+  ],
+  "B": [
+   "spellbreaker",
+   "cindercleave",
+   "heartwood"
+  ],
+  "C": [
+   "bloodwick",
+   "gloamwire",
+   "slagheart"
+  ],
+  "D": [
+   "nightglass",
+   "farwarden",
+   "foregone"
+  ],
+  "E": [
+   "cipher",
+   "vesper",
+   "gravemourn"
+  ],
+  "F": [
+   "bulwarden",
+   "ironhail",
+   "angelus"
+  ],
+  "G": [
+   "ravelbone",
+   "morningstar",
+   "thornwake"
+  ],
+  "H": [
+   "grudgebearer",
+   "aureole",
+   "lightkeeper"
+  ],
+  "I": [
+   "vinesower",
+   "paradox",
+   "widowmaker"
+  ],
+  "J": [
+   "emberedge",
+   "lastlight",
+   "watchlight"
+  ],
+  "K": [
+   "culverin",
+   "bloodmirror",
+   "nightfell"
+  ],
+  "L": [
+   "crozier",
+   "axiom",
+   "coldiron"
+  ],
+  "M": [
+   "oathwound",
+   "duskreave",
+   "lodestone"
+  ],
+  "N": [
+   "shroudmaul",
+   "starwarden",
+   "briarwand"
+  ],
+  "O": [
+   "ironwood",
+   "dawnbringer",
+   "redflail"
+  ],
+  "P": [
+   "censer",
+   "thornshear",
+   "portcullis"
+  ]
+ },
+ "challenger": "marrowdraw",
+ "fixtures": [
+  {
+   "id": "PI",
+   "round": "play-in",
+   "a": "marrowdraw",
+   "b": "portcullis",
+   "label": "PLAY-IN",
+   "sub": "49 RELICS. 48 PLACES.",
+   "order": 1
+  },
+  {
+   "id": "A1",
+   "round": "group",
+   "group": "A",
+   "match": 1,
+   "a": "twinshade",
+   "b": "oracle",
+   "label": "GROUP A · MATCH 1 OF 3",
+   "order": 2
+  },
+  {
+   "id": "A2",
+   "round": "group",
+   "group": "A",
+   "match": 2,
+   "a": "oracle",
+   "b": "bindweed",
+   "label": "GROUP A · MATCH 2 OF 3",
+   "order": 3
+  },
+  {
+   "id": "A3",
+   "round": "group",
+   "group": "A",
+   "match": 3,
+   "a": "bindweed",
+   "b": "twinshade",
+   "label": "GROUP A · MATCH 3 OF 3",
+   "order": 4
+  },
+  {
+   "id": "B1",
+   "round": "group",
+   "group": "B",
+   "match": 1,
+   "a": "spellbreaker",
+   "b": "cindercleave",
+   "label": "GROUP B · MATCH 1 OF 3",
+   "order": 5
+  },
+  {
+   "id": "B2",
+   "round": "group",
+   "group": "B",
+   "match": 2,
+   "a": "cindercleave",
+   "b": "heartwood",
+   "label": "GROUP B · MATCH 2 OF 3",
+   "order": 6
+  },
+  {
+   "id": "B3",
+   "round": "group",
+   "group": "B",
+   "match": 3,
+   "a": "heartwood",
+   "b": "spellbreaker",
+   "label": "GROUP B · MATCH 3 OF 3",
+   "order": 7
+  },
+  {
+   "id": "C1",
+   "round": "group",
+   "group": "C",
+   "match": 1,
+   "a": "bloodwick",
+   "b": "gloamwire",
+   "label": "GROUP C · MATCH 1 OF 3",
+   "order": 8
+  },
+  {
+   "id": "C2",
+   "round": "group",
+   "group": "C",
+   "match": 2,
+   "a": "gloamwire",
+   "b": "slagheart",
+   "label": "GROUP C · MATCH 2 OF 3",
+   "order": 9
+  },
+  {
+   "id": "C3",
+   "round": "group",
+   "group": "C",
+   "match": 3,
+   "a": "slagheart",
+   "b": "bloodwick",
+   "label": "GROUP C · MATCH 3 OF 3",
+   "order": 10
+  },
+  {
+   "id": "D1",
+   "round": "group",
+   "group": "D",
+   "match": 1,
+   "a": "nightglass",
+   "b": "farwarden",
+   "label": "GROUP D · MATCH 1 OF 3",
+   "order": 11
+  },
+  {
+   "id": "D2",
+   "round": "group",
+   "group": "D",
+   "match": 2,
+   "a": "farwarden",
+   "b": "foregone",
+   "label": "GROUP D · MATCH 2 OF 3",
+   "order": 12
+  },
+  {
+   "id": "D3",
+   "round": "group",
+   "group": "D",
+   "match": 3,
+   "a": "foregone",
+   "b": "nightglass",
+   "label": "GROUP D · MATCH 3 OF 3",
+   "order": 13
+  },
+  {
+   "id": "E1",
+   "round": "group",
+   "group": "E",
+   "match": 1,
+   "a": "cipher",
+   "b": "vesper",
+   "label": "GROUP E · MATCH 1 OF 3",
+   "order": 14
+  },
+  {
+   "id": "E2",
+   "round": "group",
+   "group": "E",
+   "match": 2,
+   "a": "vesper",
+   "b": "gravemourn",
+   "label": "GROUP E · MATCH 2 OF 3",
+   "order": 15
+  },
+  {
+   "id": "E3",
+   "round": "group",
+   "group": "E",
+   "match": 3,
+   "a": "gravemourn",
+   "b": "cipher",
+   "label": "GROUP E · MATCH 3 OF 3",
+   "order": 16
+  },
+  {
+   "id": "F1",
+   "round": "group",
+   "group": "F",
+   "match": 1,
+   "a": "bulwarden",
+   "b": "ironhail",
+   "label": "GROUP F · MATCH 1 OF 3",
+   "order": 17
+  },
+  {
+   "id": "F2",
+   "round": "group",
+   "group": "F",
+   "match": 2,
+   "a": "ironhail",
+   "b": "angelus",
+   "label": "GROUP F · MATCH 2 OF 3",
+   "order": 18
+  },
+  {
+   "id": "F3",
+   "round": "group",
+   "group": "F",
+   "match": 3,
+   "a": "angelus",
+   "b": "bulwarden",
+   "label": "GROUP F · MATCH 3 OF 3",
+   "order": 19
+  },
+  {
+   "id": "G1",
+   "round": "group",
+   "group": "G",
+   "match": 1,
+   "a": "ravelbone",
+   "b": "morningstar",
+   "label": "GROUP G · MATCH 1 OF 3",
+   "order": 20
+  },
+  {
+   "id": "G2",
+   "round": "group",
+   "group": "G",
+   "match": 2,
+   "a": "morningstar",
+   "b": "thornwake",
+   "label": "GROUP G · MATCH 2 OF 3",
+   "order": 21
+  },
+  {
+   "id": "G3",
+   "round": "group",
+   "group": "G",
+   "match": 3,
+   "a": "thornwake",
+   "b": "ravelbone",
+   "label": "GROUP G · MATCH 3 OF 3",
+   "order": 22
+  },
+  {
+   "id": "H1",
+   "round": "group",
+   "group": "H",
+   "match": 1,
+   "a": "grudgebearer",
+   "b": "aureole",
+   "label": "GROUP H · MATCH 1 OF 3",
+   "order": 23
+  },
+  {
+   "id": "H2",
+   "round": "group",
+   "group": "H",
+   "match": 2,
+   "a": "aureole",
+   "b": "lightkeeper",
+   "label": "GROUP H · MATCH 2 OF 3",
+   "order": 24
+  },
+  {
+   "id": "H3",
+   "round": "group",
+   "group": "H",
+   "match": 3,
+   "a": "lightkeeper",
+   "b": "grudgebearer",
+   "label": "GROUP H · MATCH 3 OF 3",
+   "order": 25
+  },
+  {
+   "id": "I1",
+   "round": "group",
+   "group": "I",
+   "match": 1,
+   "a": "vinesower",
+   "b": "paradox",
+   "label": "GROUP I · MATCH 1 OF 3",
+   "order": 26
+  },
+  {
+   "id": "I2",
+   "round": "group",
+   "group": "I",
+   "match": 2,
+   "a": "paradox",
+   "b": "widowmaker",
+   "label": "GROUP I · MATCH 2 OF 3",
+   "order": 27
+  },
+  {
+   "id": "I3",
+   "round": "group",
+   "group": "I",
+   "match": 3,
+   "a": "widowmaker",
+   "b": "vinesower",
+   "label": "GROUP I · MATCH 3 OF 3",
+   "order": 28
+  },
+  {
+   "id": "J1",
+   "round": "group",
+   "group": "J",
+   "match": 1,
+   "a": "emberedge",
+   "b": "lastlight",
+   "label": "GROUP J · MATCH 1 OF 3",
+   "order": 29
+  },
+  {
+   "id": "J2",
+   "round": "group",
+   "group": "J",
+   "match": 2,
+   "a": "lastlight",
+   "b": "watchlight",
+   "label": "GROUP J · MATCH 2 OF 3",
+   "order": 30
+  },
+  {
+   "id": "J3",
+   "round": "group",
+   "group": "J",
+   "match": 3,
+   "a": "watchlight",
+   "b": "emberedge",
+   "label": "GROUP J · MATCH 3 OF 3",
+   "order": 31
+  },
+  {
+   "id": "K1",
+   "round": "group",
+   "group": "K",
+   "match": 1,
+   "a": "culverin",
+   "b": "bloodmirror",
+   "label": "GROUP K · MATCH 1 OF 3",
+   "order": 32
+  },
+  {
+   "id": "K2",
+   "round": "group",
+   "group": "K",
+   "match": 2,
+   "a": "bloodmirror",
+   "b": "nightfell",
+   "label": "GROUP K · MATCH 2 OF 3",
+   "order": 33
+  },
+  {
+   "id": "K3",
+   "round": "group",
+   "group": "K",
+   "match": 3,
+   "a": "nightfell",
+   "b": "culverin",
+   "label": "GROUP K · MATCH 3 OF 3",
+   "order": 34
+  },
+  {
+   "id": "L1",
+   "round": "group",
+   "group": "L",
+   "match": 1,
+   "a": "crozier",
+   "b": "axiom",
+   "label": "GROUP L · MATCH 1 OF 3",
+   "order": 35
+  },
+  {
+   "id": "L2",
+   "round": "group",
+   "group": "L",
+   "match": 2,
+   "a": "axiom",
+   "b": "coldiron",
+   "label": "GROUP L · MATCH 2 OF 3",
+   "order": 36
+  },
+  {
+   "id": "L3",
+   "round": "group",
+   "group": "L",
+   "match": 3,
+   "a": "coldiron",
+   "b": "crozier",
+   "label": "GROUP L · MATCH 3 OF 3",
+   "order": 37
+  },
+  {
+   "id": "M1",
+   "round": "group",
+   "group": "M",
+   "match": 1,
+   "a": "oathwound",
+   "b": "duskreave",
+   "label": "GROUP M · MATCH 1 OF 3",
+   "order": 38
+  },
+  {
+   "id": "M2",
+   "round": "group",
+   "group": "M",
+   "match": 2,
+   "a": "duskreave",
+   "b": "lodestone",
+   "label": "GROUP M · MATCH 2 OF 3",
+   "order": 39
+  },
+  {
+   "id": "M3",
+   "round": "group",
+   "group": "M",
+   "match": 3,
+   "a": "lodestone",
+   "b": "oathwound",
+   "label": "GROUP M · MATCH 3 OF 3",
+   "order": 40
+  },
+  {
+   "id": "N1",
+   "round": "group",
+   "group": "N",
+   "match": 1,
+   "a": "shroudmaul",
+   "b": "starwarden",
+   "label": "GROUP N · MATCH 1 OF 3",
+   "order": 41
+  },
+  {
+   "id": "N2",
+   "round": "group",
+   "group": "N",
+   "match": 2,
+   "a": "starwarden",
+   "b": "briarwand",
+   "label": "GROUP N · MATCH 2 OF 3",
+   "order": 42
+  },
+  {
+   "id": "N3",
+   "round": "group",
+   "group": "N",
+   "match": 3,
+   "a": "briarwand",
+   "b": "shroudmaul",
+   "label": "GROUP N · MATCH 3 OF 3",
+   "order": 43
+  },
+  {
+   "id": "O1",
+   "round": "group",
+   "group": "O",
+   "match": 1,
+   "a": "ironwood",
+   "b": "dawnbringer",
+   "label": "GROUP O · MATCH 1 OF 3",
+   "order": 44
+  },
+  {
+   "id": "O2",
+   "round": "group",
+   "group": "O",
+   "match": 2,
+   "a": "dawnbringer",
+   "b": "redflail",
+   "label": "GROUP O · MATCH 2 OF 3",
+   "order": 45
+  },
+  {
+   "id": "O3",
+   "round": "group",
+   "group": "O",
+   "match": 3,
+   "a": "redflail",
+   "b": "ironwood",
+   "label": "GROUP O · MATCH 3 OF 3",
+   "order": 46
+  },
+  {
+   "id": "P1",
+   "round": "group",
+   "group": "P",
+   "match": 1,
+   "a": "censer",
+   "b": "thornshear",
+   "label": "GROUP P · MATCH 1 OF 3",
+   "order": 47
+  },
+  {
+   "id": "P2",
+   "round": "group",
+   "group": "P",
+   "match": 2,
+   "a": "thornshear",
+   "b": {
+    "from": "PI",
+    "take": "winner"
+   },
+   "label": "GROUP P · MATCH 2 OF 3",
+   "order": 48
+  },
+  {
+   "id": "P3",
+   "round": "group",
+   "group": "P",
+   "match": 3,
+   "a": {
+    "from": "PI",
+    "take": "winner"
+   },
+   "b": "censer",
+   "label": "GROUP P · MATCH 3 OF 3",
+   "order": 49
+  },
+  {
+   "id": "R16-1",
+   "round": "r16",
+   "a": {
+    "from": "group:A",
+    "take": "winner"
+   },
+   "b": {
+    "from": "group:B",
+    "take": "winner"
+   },
+   "label": "ROUND OF 16 1",
+   "order": 50
+  },
+  {
+   "id": "R16-2",
+   "round": "r16",
+   "a": {
+    "from": "group:C",
+    "take": "winner"
+   },
+   "b": {
+    "from": "group:D",
+    "take": "winner"
+   },
+   "label": "ROUND OF 16 2",
+   "order": 51
+  },
+  {
+   "id": "R16-3",
+   "round": "r16",
+   "a": {
+    "from": "group:E",
+    "take": "winner"
+   },
+   "b": {
+    "from": "group:F",
+    "take": "winner"
+   },
+   "label": "ROUND OF 16 3",
+   "order": 52
+  },
+  {
+   "id": "R16-4",
+   "round": "r16",
+   "a": {
+    "from": "group:G",
+    "take": "winner"
+   },
+   "b": {
+    "from": "group:H",
+    "take": "winner"
+   },
+   "label": "ROUND OF 16 4",
+   "order": 53
+  },
+  {
+   "id": "R16-5",
+   "round": "r16",
+   "a": {
+    "from": "group:I",
+    "take": "winner"
+   },
+   "b": {
+    "from": "group:J",
+    "take": "winner"
+   },
+   "label": "ROUND OF 16 5",
+   "order": 54
+  },
+  {
+   "id": "R16-6",
+   "round": "r16",
+   "a": {
+    "from": "group:K",
+    "take": "winner"
+   },
+   "b": {
+    "from": "group:L",
+    "take": "winner"
+   },
+   "label": "ROUND OF 16 6",
+   "order": 55
+  },
+  {
+   "id": "R16-7",
+   "round": "r16",
+   "a": {
+    "from": "group:M",
+    "take": "winner"
+   },
+   "b": {
+    "from": "group:N",
+    "take": "winner"
+   },
+   "label": "ROUND OF 16 7",
+   "order": 56
+  },
+  {
+   "id": "R16-8",
+   "round": "r16",
+   "a": {
+    "from": "group:O",
+    "take": "winner"
+   },
+   "b": {
+    "from": "group:P",
+    "take": "winner"
+   },
+   "label": "ROUND OF 16 8",
+   "order": 57
+  },
+  {
+   "id": "QF-1",
+   "round": "qf",
+   "a": {
+    "from": "R16-1",
+    "take": "winner"
+   },
+   "b": {
+    "from": "R16-2",
+    "take": "winner"
+   },
+   "label": "QUARTER-FINAL 1",
+   "order": 58
+  },
+  {
+   "id": "QF-2",
+   "round": "qf",
+   "a": {
+    "from": "R16-3",
+    "take": "winner"
+   },
+   "b": {
+    "from": "R16-4",
+    "take": "winner"
+   },
+   "label": "QUARTER-FINAL 2",
+   "order": 59
+  },
+  {
+   "id": "QF-3",
+   "round": "qf",
+   "a": {
+    "from": "R16-5",
+    "take": "winner"
+   },
+   "b": {
+    "from": "R16-6",
+    "take": "winner"
+   },
+   "label": "QUARTER-FINAL 3",
+   "order": 60
+  },
+  {
+   "id": "QF-4",
+   "round": "qf",
+   "a": {
+    "from": "R16-7",
+    "take": "winner"
+   },
+   "b": {
+    "from": "R16-8",
+    "take": "winner"
+   },
+   "label": "QUARTER-FINAL 4",
+   "order": 61
+  },
+  {
+   "id": "SF-1",
+   "round": "sf",
+   "a": {
+    "from": "QF-1",
+    "take": "winner"
+   },
+   "b": {
+    "from": "QF-2",
+    "take": "winner"
+   },
+   "label": "SEMI-FINAL 1",
+   "order": 62
+  },
+  {
+   "id": "SF-2",
+   "round": "sf",
+   "a": {
+    "from": "QF-3",
+    "take": "winner"
+   },
+   "b": {
+    "from": "QF-4",
+    "take": "winner"
+   },
+   "label": "SEMI-FINAL 2",
+   "order": 63
+  },
+  {
+   "id": "3P",
+   "round": "third",
+   "a": {
+    "from": "SF-1",
+    "take": "loser"
+   },
+   "b": {
+    "from": "SF-2",
+    "take": "loser"
+   },
+   "label": "THIRD PLACE",
+   "order": 64
+  },
+  {
+   "id": "F",
+   "round": "final",
+   "a": {
+    "from": "SF-1",
+    "take": "winner"
+   },
+   "b": {
+    "from": "SF-2",
+    "take": "winner"
+   },
+   "label": "THE FINAL",
+   "order": 65
+  }
+ ],
+ "cursor": 0,
+ "name": "Weapon Ball World Cup"
+}
