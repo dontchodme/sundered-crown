@@ -65,7 +65,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 #   alimiter        catches what single-pass loudnorm cannot hold
 #   level=false     MANDATORY. alimiter's default re-levels to full scale and
 #                   made true peak WORSE (+0.6 dBTP measured on short-4).
-def mix_graph(limit, tp, vo_vol=2.0, vo_at=0.0):
+def mix_graph(limit, tp, vo_vol=2.0, vo_at=0.0, target=-14):
     # `adelay` IS THE PLACEMENT, and it was a constant describing a dead card.
     # 300ms was chosen so the line started after the 4.0s intro card was up.
     # The card does not ship (rule 1), so that 300ms now waits for nothing and
@@ -74,7 +74,7 @@ def mix_graph(limit, tp, vo_vol=2.0, vo_at=0.0):
     ms = max(0, int(round(vo_at * 1000)))
     return (f"[1:a]aresample=48000,adelay={ms}|{ms},volume={vo_vol:.3f},apad[v1];"
             "[0:a][v1]amix=inputs=2:duration=first:normalize=0[m];"
-            f"[m]loudnorm=I=-14:TP={tp}:LRA=11,aresample=48000,"
+            f"[m]loudnorm=I={target:g}:TP={tp}:LRA=11,aresample=48000,"
             f"alimiter=attack=5:release=60:limit={limit}:level=false[a]")
 
 
@@ -94,6 +94,16 @@ def mix_graph(limit, tp, vo_vol=2.0, vo_at=0.0):
 # is that a mix patched onto finished video cannot be distinguished, later, from
 # one that was right the first time.
 CEILINGS = [(0.79, -2.0), (0.63, -3.0), (0.50, -4.0)]
+
+# AND A MIX CAN MISS THE OTHER WAY, WHICH THE CEILING LADDER CANNOT FIX. Every
+# rung above LOWERS the ceiling, so a mix that came out too QUIET only gets
+# quieter as it climbs. The World Cup's play-in (marrowdraw v portcullis, seed
+# 90360136, 2026-09-30) measured -16.1 LUFS / -1.3 dBTP at the first rung --
+# a quiet, one-sided fight under single-pass loudnorm -- then -16.4 and -16.8
+# down the ladder, and failed. So when the first rung lands BELOW the band with
+# true peak to spare, the mix is rebuilt from the same on.wav at a higher
+# loudnorm target, same ceiling, same TP: the louder rungs.
+QUIET_RUNGS = [(0.79, -2.0, -13), (0.79, -2.0, -12)]
 
 # The pass marks a rung of the ladder can move. Everything else in measure()
 # is a property of the capture or the encode, and a rung re-mixing to chase
@@ -246,19 +256,24 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
          "-shortest", raw])
 
     m = None
-    for i, (limit, tp) in enumerate(CEILINGS):
+    rungs = [(limit, tp, -14) for limit, tp in CEILINGS]
+    i = -1
+    while i + 1 < len(rungs):
+        i += 1
+        limit, tp, target = rungs[i]
         print(f"[3/3] mix      {pathlib.Path(vo).name} -> {pathlib.Path(out).name}"
-              f"   (limit={limit} TP={tp})")
+              f"   (limit={limit} TP={tp}" + (f" I={target}" if target != -14 else "") + ")")
         # Video is COPIED, never re-encoded: the picture in the delivered file is
         # bit-identical to the one measured at the encode stage, and identical
         # across every rung of the ceiling ladder.
         run([resolve_ffmpeg(), "-y", "-hide_banner", "-loglevel", "error",
-             "-i", raw, "-i", vo, "-filter_complex", mix_graph(limit, tp, vo_vol, vo_at),
+             "-i", raw, "-i", vo, "-filter_complex",
+             mix_graph(limit, tp, vo_vol, vo_at, target),
              "-map", "0:v", "-map", "[a]", "-c:v", "copy",
              "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
              "-movflags", "+faststart", out])
         m = measure(out)
-        m["limit"], m["tp_target"] = limit, tp
+        m["limit"], m["tp_target"], m["target"] = limit, tp, target
         # ONLY THE LOUDNESS MARKS CLIMB THE LADDER. A rung exists to bring the
         # true peak inside the band; it can do nothing about the picture size,
         # the codec or the length. Before 2026-09-03 the test here was
@@ -282,12 +297,19 @@ def encode(out, fps, crf, vo, keep=False, vo_vol=2.0, vo_at=0.0):
                 f"mix would 'pass' at the first rung.\n  measure() marks: "
                 f"{list(m['pass'])}")
         if all(ok for k, ok in m["pass"].items() if k in LADDER_MARKS):
-            if i:
+            if target != -14:
+                print(f"         too quiet at I=-14; I={target} lands it at {m['lufs']} LUFS.")
+            elif i:
                 print(f"         §8's 0.79 measured {m['dbtp']} dBTP on this "
                       f"content; {limit} holds it.")
             break
         print(f"         {m['lufs']} LUFS / {m['dbtp']} dBTP — "
               f"{[k for k, ok in m['pass'].items() if not ok]}")
+        # TOO QUIET, WITH PEAK TO SPARE: the next ceiling rung would only be
+        # quieter, so the louder rungs go next instead (QUIET_RUNGS, once).
+        if (i == 0 and m["lufs"] is not None and m["lufs"] < -16.0
+                and m["dbtp"] is not None and m["dbtp"] <= -1.0):
+            rungs = rungs[:1] + QUIET_RUNGS + rungs[1:]
 
     # The capture is kept until the delivery MEASURES clean. Deleting it on the
     # first attempt is what turns a 20-second re-mix into a 4-minute re-capture,

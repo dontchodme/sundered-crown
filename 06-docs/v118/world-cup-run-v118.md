@@ -53,3 +53,15 @@ and the spoken stakes all come from `film`), one at a time at idle priority (Ric
 10 min a short, so ~10-11 h. The driver runs one fixture per call so a failure does not stop the night, and moves a
 failed fixture's mp4 aside (`*.FAILED.mp4`) so a resume films it again instead of skipping it as already filmed
 (v115 found item 1). Log: `07-shorts/cup1/film.log` (local).
+
+### Found while filming
+
+1. **The play-in came out too quiet, and the mix's ladder could only make it quieter.** PI (Marrowdraw v Portcullis,
+   seed 90360136; a quiet, one-sided fight) measured -16.1 LUFS / -1.3 dBTP at the first rung against the -16..-13
+   band; every later rung lowers the ceiling, so it went -16.4, -16.8 and failed. `shorts_build.py` now has
+   `QUIET_RUNGS`: when the first rung lands below the band with true peak to spare (<= -1.0 dBTP), the mix is
+   rebuilt from the same `on.wav` at loudnorm I=-13, then -12, same ceiling and TP. A short that passes its first
+   rung is mixed exactly as before. PI was re-mixed from its retained capture (`--encode-only`, no re-capture):
+   **-15.3 LUFS, -0.7 dBTP, every mark passes.** A1 had already started on the old code; A2 onward have the rung.
+   PI's ledger entry (file, band, card, announce, delivery) is filled in when the run is idle -- the driver's
+   `cup.py film` holds the ledger in memory while a fixture films.
